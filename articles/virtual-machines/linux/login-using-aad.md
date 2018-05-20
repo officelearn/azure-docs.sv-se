@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en virtuell Linux-dator i Azure med Azure Active Directory-autentisering (förhandsgranskning)
 
@@ -34,6 +34,7 @@ Det finns många fördelar med att använda Azure AD authentication för att log
   - Genom att minska din beroendet av andra lokala administratörskonton, behöver du inte bekymra dig om förlust/stöld av autentiseringsuppgifter, användare konfigurera svaga referenser osv.
   - Att säkra virtuella Linux-datorer samt lösenordens komplexitet och lösenordsprinciper livslängd som konfigurerats för Azure AD-katalogen.
   - Du kan konfigurera multifaktorautentisering för ytterligare säker inloggning till Azure virtuella datorer.
+  - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar även för kunder som använder [federationstjänster](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Sömlös samarbete:** With Role-Based åtkomstkontroll (RBAC), kan du ange vem som kan logga in på en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluta till eller lämnar din grupp, kan du uppdatera RBAC-principen för den virtuella datorn att bevilja åtkomst efter behov. Det här upplevelsen är mycket enklare än att Skrubba virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När medarbetare lämnar organisationen och deras användarkonto inaktiveras eller tas bort från Azure AD kan har de inte längre åtkomst till resurser.
 

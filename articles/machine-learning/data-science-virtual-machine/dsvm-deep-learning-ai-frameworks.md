@@ -1,7 +1,7 @@
 ---
 title: Djupgående inlärning och AI ramverk - Azure | Microsoft Docs
 description: Ramverk för djupinlärning och AI
-keywords: datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux
+keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [datavetenskap virtuella](http://aka.ms/dsvm) (DSVM) och [djup Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal djup learning ramverk för att bygga program styrs av datorn (AI) med förutsägelseanalyser och kognitiva funktioner som bilden och förstå språk. 
@@ -80,6 +80,7 @@ Här följer information på alla djup learning ramverk som är tillgängliga p�
 | Vad är det?   | Djupgående learning framework      |
 | Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Caffe installeras i `/opt/caffe`.    |
+| Växla till Python 2.7 | Kör `source activate root` |
 | Länkar till exempel      | Exempel som ingår i `/opt/caffe/examples`.      |
 | Relaterade verktyg på DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Hur du använder / kör den?  
@@ -88,12 +89,15 @@ Använd X2Go för att logga in på den virtuella datorn och sedan starta en ny t
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Ett nytt webbläsarfönster öppnas med exempel bärbara datorer.
 
-Binärfiler installeras i /opt/caffe/build/install/bin. 
+Binärfiler installeras i /opt/caffe/build/install/bin.
+
+Installerade versionen av Caffe kräver Python 2.7 och fungerar inte med Python 3.5 aktiverat som standard. Kör `source activate root` växla Anaconda miljö. 
 
 ## <a name="caffe2"></a>Caffe2
 

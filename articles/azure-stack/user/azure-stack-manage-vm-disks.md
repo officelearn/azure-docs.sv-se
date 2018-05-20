@@ -1,69 +1,86 @@
 ---
 title: Hantera Virtuella diskar i Azure-stacken | Microsoft Docs
-description: "Etablera diskar för virtuella datorer för Azure-stacken."
+description: Etablera diskar för virtuella datorer i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Den virtuella datorns disk lagringsutrymme för Azure-Stack
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Etablera virtuella disklagring i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure-stacken stöder användning av [ohanterad diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) i en virtuell dator som både en operativsystemdisk (OS) och en datadisk. Om du vill använda ohanterade diskar som du skapar en [lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) och lagra diskar som sidblobbar i behållare i lagringskontot. Dessa diskar kallas sedan Virtuella diskar.
+Den här artikeln beskriver hur du etablerar lagring för virtuella diskar med hjälp av Azure Stack-portalen eller med hjälp av PowerShell.
 
-För att förbättra prestandan och minska hanteringkostnaden för av Azure Stack-system, rekommenderar vi att du placerar varje virtuell disk i en separat behållare. En behållare får innehålla antingen en OS-disk eller en datadisk, men inte båda samtidigt. Det finns dock ingen begränsning som förhindrar att båda i samma behållare.
+## <a name="overview"></a>Översikt
 
-Om du lägger till en eller flera datadiskar till en virtuell dator kan du tänker använda ytterligare behållare som en plats för att lagra dessa diskar. OS-disken för ytterligare virtuella datorer bör också vara i sina egna separata behållare som datadiskar.
+Azure-stacken stöder användning av [ohanterad diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) på virtuella datorer som både ett operativsystem (OS) och en datadisk.
 
-När du skapar flera virtuella datorer kan återanvända du samma lagringskonto för varje ny virtuell dator. De behållare som du skapar måste vara unika.  
+Om du vill använda ohanterade diskar som du skapar en [lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att lagra diskar. Diskarna som du skapar kallas för Virtuella diskar och lagras i behållare i lagringskontot.
 
-Om du vill lägga till diskar till en virtuell dator Använd användarportalen eller PowerShell.
+### <a name="best-practice-guidelines"></a>Riktlinjer för bästa praxis
+
+För att förbättra prestandan och minska övergripande kostnader, rekommenderar vi att du placerar varje virtuell disk i en separat behållare. En behållare får innehålla antingen en OS-disk eller en datadisk, men inte båda samtidigt. (Men det finns inget att förhindra att båda typerna av disk i samma behållare.)
+
+Om du lägger till en eller flera datadiskar till en virtuell dator kan du använda ytterligare behållare som en plats för att lagra dessa diskar. OS-disken för ytterligare virtuella datorer bör också vara i sin egen behållare.
+
+När du skapar flera virtuella datorer kan återanvända du samma lagringskonto för varje ny virtuell dator. De behållare som du skapar måste vara unika.
+
+### <a name="adding-new-disks"></a>Lägga till nya diskar
+
+I följande tabell visas hur du lägger till diskar med hjälp av portalen och med hjälp av PowerShell.
 
 | Metod | Alternativ
 |-|-|
-|[Användarportalen](#use-the-portal-to-add-additional-disks-to-a-vm)|-Lägg till nya datadiskar till en virtuell dator som tidigare har etablerats. Nya diskar skapas av Azure-stacken. </br> </br>-Lägg till en befintlig VHD-fil som en disk på en virtuell dator som etablerades tidigare. Om du vill göra detta måste först förbereda och överföra VHD-filen till Azure-stacken. |
+|[Användarportalen](#use-the-portal-to-add-additional-disks-to-a-vm)|-Lägg till nya datadiskar till en befintlig virtuell dator. Nya diskar skapas av Azure-stacken. </br> </br>-Lägg till en befintlig (VHD)-diskfil till en tidigare etablerade VM. Om du vill göra detta måste du förbereda .vhd och överföra filen till Azure-stacken. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | – Skapa en ny virtuell dator med en OS-disk och lägga till en eller flera datadiskar till den virtuella datorn på samma gång. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Använda portalen för att lägga till diskar till en virtuell dator
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Använda portalen för att lägga till fler diskar till en virtuell dator
-Som standard när du använder portalen för att skapa en virtuell dator för de flesta marketplace-objekt skapas bara en OS-disk. Diskar som skapats av Azure kallas hanterade diskar.
+Som standard när du använder portalen för att skapa en virtuell dator för de flesta marketplace-objekt skapas endast OS-disken.
 
-Du kan använda portalen för att lägga till en ny data disken eller en befintlig data till den virtuella datorn när du etablera en virtuell dator. Varje ytterligare disk ska placeras i en separat behållare. Diskar som du lägger till en virtuell dator kallas ohanterad diskar.
+När du har skapat en virtuell dator kan du använda portalen för att:
+* Skapa en ny datadisk och koppla den till den virtuella datorn.
+* Överför en befintlig datadisk och koppla den till den virtuella datorn.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Använda portalen för att koppla en ny datadisk till en virtuell dator
+Varje ohanterade disk som du lägger till ska placeras i en separat behållare.
 
-1.  I portalen klickar du på **virtuella datorer**.    
+>[!NOTE]
+>Diskar skapas och hanteras av Azure kallas [hanterade diskar](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Använda portalen för att skapa och koppla en ny datadisk
+
+1.  I portalen väljer **virtuella datorer**.    
     ![Exempel: VM instrumentpanelen](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Välj en virtuell dator som tidigare har etablerats.   
     ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Den virtuella datorn, klickar du på **diskar** > **bifoga nya**.       
+3.  Den virtuella datorn, Välj **diskar** > **bifoga nya**.       
     ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  I den **bifoga den nya disken** rutan klickar du på **plats**. Platsen är som standard samma behållare som innehåller OS-disk.      
+4.  I den **bifoga den nya disken** väljer **plats**. Platsen är som standard samma behållare som innehåller OS-disk.      
     ![Exempel: Set diskplatsen](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Välj den **lagringskonto** ska användas. Välj sedan den **behållare** där du vill placera datadisken. Från den **behållare** kan du skapa en ny behållare om du vill. Du kan sedan ändra platsen för den nya disken till sin egen behållare. När du använder en separat behållare för varje disk kan distribuera du placeringen av datadisk som kan förbättra prestanda. Klicka på **Välj** att spara markeringen.     
+5.  Välj den **lagringskonto** ska användas. Välj sedan den **behållare** där du vill placera datadisken. Från den **behållare** kan du skapa en ny behållare om du vill. Du kan sedan ändra platsen för den nya disken till sin egen behållare. När du använder en separat behållare för varje disk kan distribuera du placeringen av datadisk som kan förbättra prestanda. Välj **Välj** att spara markeringen.     
     ![Exempel: Välj en behållare](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  I den **bifoga den nya disken** och uppdatera den **namn**, **typen**, **storlek**, och **Värdcachelagring** inställningar på disken. Klicka på **OK** att spara den nya diskkonfigurationen för den virtuella datorn.  
+6.  I den **bifoga den nya disken** och uppdatera den **namn**, **typen**, **storlek**, och **Värdcachelagring** inställningar på disken. Välj sedan **OK** att spara den nya diskkonfigurationen för den virtuella datorn.  
     ![Exempel: Fullständig disk bifogad fil](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  När Azure Stack skapar disken och kopplar den till den virtuella datorn, den nya disken visas i inställningarna för den virtuella disken under **DATADISKAR**.   
@@ -71,27 +88,28 @@ Du kan använda portalen för att lägga till en ny data disken eller en befintl
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Bifoga en befintlig datadisk till en virtuell dator
+
 1.  [Förbereda en VHD-fil](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) för användning som datadisk för en virtuell dator. Överför den VHD-filen till ett lagringskonto som du använder med den virtuella datorn som du vill koppla till VHD-filen.
 
   Planera att använda en annan behållare för VHD-filen än den behållare som innehåller OS-disk.   
   ![Exempel: Ladda upp en VHD-fil](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Du är redo att koppla den virtuella Hårddisken till en virtuell dator när VHD-filen har överförts. Klicka på menyn till vänster **virtuella datorer**.  
+2.  Du är redo att koppla den virtuella Hårddisken till en virtuell dator när VHD-filen har överförts. Välj på menyn till vänster **virtuella datorer**.  
  ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Välj den virtuella datorn i listan.    
+3.  Välj den virtuella datorn från listan.    
   ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  På sidan för den virtuella datorn **diskar** > **bifoga befintliga**.   
+4.  På sidan för den virtuella datorn, väljer **diskar** > **bifoga befintliga**.   
   ![Exempel: Bifoga en befintlig disk](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  I den **bifoga den befintliga disken** klickar du på **VHD-filen**. Den **lagringskonton** öppnas.    
+5.  I den **bifoga den befintliga disken** väljer **VHD-filen**. Den **lagringskonton** öppnas.    
   ![Exempel: Välj en VHD-fil](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Under **lagringskonton**, Välj kontot som ska användas och väljer sedan en behållare som innehåller VHD-filen som du överfört tidigare. Markera VHD-filen och klicka sedan på **Välj** att spara markeringen.    
+6.  Under **lagringskonton**, Välj kontot som ska användas och välj sedan en behållare som innehåller VHD-filen som du överfört tidigare. Markera VHD-filen och välj sedan **Välj** att spara markeringen.    
   ![Exempel: Välj en behållare](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Under **bifoga den befintliga disken**, den markerade filen finns under **VHD-filen**. Uppdatering av **Värdcachelagring** för disken och klicka sedan på **OK** att spara den nya diskkonfigurationen för den virtuella datorn.    
+7.  Under **bifoga den befintliga disken**, den markerade filen finns under **VHD-filen**. Uppdatering av **Värdcachelagring** för disken och välj sedan **OK** att spara den nya diskkonfigurationen för den virtuella datorn.    
   ![Exempel: Koppla VHD-filen](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  När Azure Stack skapar disken och kopplar den till den virtuella datorn, den nya disken visas i inställningarna för den virtuella disken under **Datadiskar**.   

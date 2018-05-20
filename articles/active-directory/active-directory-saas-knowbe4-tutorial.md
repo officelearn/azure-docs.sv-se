@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med KnowBe4 medvetenhet säkerhetsutbildning | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och utbildning för KnowBe4 säkerhet."
+title: 'Självstudier: Azure Active Directory-integrering med KnowBe4 medvetenhet säkerhetsutbildning | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och utbildning för KnowBe4 säkerhet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 8153c0824de2cda61fecf1da822c1ffa70d8f0d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfbcd48b1cb49f2e042ab0d4afa71d1d20226a46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Självstudier: Azure Active Directory-integrering med KnowBe4 säkerhetsutbildning medvetenhet
 
@@ -30,9 +30,9 @@ Integrera KnowBe4 medvetenhet säkerhetsutbildning med Azure AD ger dig följand
 - Du kan aktivera användarna att automatiskt hämta loggat in på KnowBe4 medvetenhet säkerhetsutbildning (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med KnowBe4 säkerhetsutbildning medvetenhet, behöver du följande:
 
@@ -108,12 +108,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Enkel inloggning information KnowBe4 säkerhetsdomän medvetenhet utbildning och URL: er](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE] 
     > Inloggning URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [KnowBe4 Säkerhetsklient medvetenhet utbildning supportteamet](mailto:support@KnowBe4.com) att hämta det här värdet. 
 
-    b. I den **identifierare** textruta skriver strängvärdet:`KnowBe4`
+    b. I den **identifierare** textruta skriver strängvärdet: `KnowBe4`
 
     > [!NOTE]
     >Detta är skiftlägeskänsligt
@@ -216,7 +216,7 @@ När du klickar på panelen KnowBe4 medvetenhet säkerhetsutbildning på åtkoms
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

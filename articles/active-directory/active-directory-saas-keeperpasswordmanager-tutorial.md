@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med sköter Lösenordshanteraren & digitala valvet | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och sköter Lösenordshanteraren & digitala valvet."
+title: 'Självstudier: Azure Active Directory-integrering med sköter Lösenordshanteraren & digitala valvet | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och sköter Lösenordshanteraren & digitala valvet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 79ef85e14f36153c086d9e9ae889fa9a51d065db
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c76edea4498e32363a3a4952056e69c012bd468
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Självstudier: Azure Active Directory-integrering med sköter Lösenordshanteraren & digitala valvet
 
@@ -29,9 +29,9 @@ Integrera sköter Lösenordshanteraren & digitala valvet med Azure AD ger dig f�
 - Du kan aktivera användarna att automatiskt hämta loggat in på sköter Lösenordshanteraren & digitala valvet (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med sköter Lösenordshanteraren & digitala valv behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
 
-    c. I den **identifierare** textruta Skriv en URL med följande mönster:`https://{SSO CONNECT SERVER}/sso-connect`
+    c. I den **identifierare** textruta Skriv en URL med följande mönster: `https://{SSO CONNECT SERVER}/sso-connect`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [sköter Lösenordshanteraren & digitala valvet klienten supportteam](https://keepersecurity.com/contact.html) att hämta dessa värden. 
@@ -211,7 +211,7 @@ Du bör få inloggningssidan för sköter Lösenordshanteraren & digitala valvet
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

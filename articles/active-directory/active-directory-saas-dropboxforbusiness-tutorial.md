@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Dropbox för företag | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dropbox för företag."
+title: 'Självstudier: Azure Active Directory-integrering med Dropbox för företag | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dropbox för företag.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 255cfcb777f88fd6c6ac62b3e7c216360ea11e54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa00a88f8325345b1b45d7d0971a03590bce1029
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Självstudier: Azure Active Directory-integrering med Dropbox för företag
 
@@ -30,9 +30,9 @@ Integrera Dropbox för företag med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Dropbox för företag (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Dropbox för företag, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Dropbox för Business domän och URL: er enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://www.dropbox.com/sso/<id>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://www.dropbox.com/sso/<id>`
 
-    b. I den **identifierare** textruta, ange ett värde:`Dropbox`
+    b. I den **identifierare** textruta, ange ett värde: `Dropbox`
 
     > [!NOTE] 
     > Föregående inloggnings-URL-värdet är inte verkliga värde. Du uppdaterar värdet med det faktiska inloggnings-URL, som beskrivs senare i självstudierna. Kontakta [Dropbox för Business Client supportteamet](https://www.dropbox.com/business/contact) värdet hämtas. 
@@ -247,7 +247,7 @@ När du klickar på Dropbox för företag-panelen på åtkomstpanelen bör du h�
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

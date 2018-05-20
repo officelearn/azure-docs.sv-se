@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som har åtkomst till resurser
 
@@ -83,7 +83,7 @@ För att kontrollera din Prenumerationsbehörigheter:
 
    ![lägg till app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifika](../active-directory/active-directory-application-proxy-native-client.md); därför att typen inte fungerar för ett automatiserat program. När du har angett värden, Välj **skapa**.
+1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifika](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); därför att typen inte fungerar för ett automatiserat program. När du har angett värden, Välj **skapa**.
 
    ![namnprogram](./media/resource-group-create-service-principal-portal/create-app.png)
 

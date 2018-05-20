@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT-hubb migrera till diagnostikinställningar | Microsoft Docs"
-description: "Så här uppdaterar Azure IoT-hubb för att använda inställningar för Azure-diagnostik i stället för åtgärder som övervakning för att övervaka status för åtgärder för din IoT-hubb i realtid."
+title: Azure IoT-hubb migrera till diagnostikinställningar | Microsoft Docs
+description: Så här uppdaterar Azure IoT-hubb för att använda inställningar för Azure-diagnostik i stället för åtgärder som övervakning för att övervaka status för åtgärder för din IoT-hubb i realtid.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: kgremban
-ms.openlocfilehash: 2716f397ad0e7abfdcd397340da8fa8116a172db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a46f6798a71c93ed769ae68877e72801d45b74a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrera din IoT-hubb från operations övervakning i diagnostikinställningar
 
@@ -61,5 +61,5 @@ Specifika schema-konstruktioner finns [förstå schemat för diagnostikinställn
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md

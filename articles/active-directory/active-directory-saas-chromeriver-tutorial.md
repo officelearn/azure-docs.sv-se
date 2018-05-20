@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Chromeriver | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Chromeriver."
+title: 'Självstudier: Azure Active Directory-integrering med Chromeriver | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Chromeriver.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b0cfcf4b132fdb83800a057ef19306571b6096d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fcbbbe96c68c8f1701d7dd592614a530a8083ef9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Självstudier: Azure Active Directory-integrering med Chromeriver
 
@@ -29,9 +29,9 @@ Integrera Chromeriver med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Chromeriver (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Chromeriver, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-chromeriver-tutorial/tutorial_chromeriver_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.chromeriver.com`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.chromeriver.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.chromeriver.com/login/sso/saml/consume?customerId=<uniqueid>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.chromeriver.com/login/sso/saml/consume?customerId=<uniqueid>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Chromeriver supportteamet](https://www.chromeriver.com/services/support) att hämta dessa värden.
@@ -212,7 +212,7 @@ När du klickar på panelen Chromeriver på åtkomstpanelen du bör få automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

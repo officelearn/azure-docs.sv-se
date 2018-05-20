@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med PerformanceCentre | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PerformanceCentre."
+title: 'Självstudier: Azure Active Directory-integrering med PerformanceCentre | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PerformanceCentre.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: eea4393b7f051b2cbd3366d504ccd7cb75ee80a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: afee73a18502c48a6ff933f269f2572333d14196
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudier: Azure Active Directory-integrering med PerformanceCentre
 
@@ -29,9 +29,9 @@ Integrera PerformanceCentre med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på PerformanceCentre (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med PerformanceCentre, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`http://companyname.performancecentre.com/saml/SSO`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `http://companyname.performancecentre.com/saml/SSO`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`http://companyname.performancecentre.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `http://companyname.performancecentre.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [PerformanceCentre klienten supportteamet](https://www.performancecentre.com/contact-us/) att hämta dessa värden. 
@@ -250,7 +250,7 @@ När du klickar på panelen PerformanceCentre på åtkomstpanelen du bör få au
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,13 +1,13 @@
 ---
-title: "Mobile Apps bindningar för Azure Functions"
-description: "Förstå hur du använder Azure Mobile Apps bindningar i Azure Functions."
+title: Mobile Apps bindningar för Azure Functions
+description: Förstå hur du använder Azure Mobile Apps bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1129bd36b1f1f413e5fd40da16a48f5aff1078bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
@@ -34,6 +34,8 @@ Mobile Apps-bindningar kan du läsa och uppdatera datatabeller i mobila appar.
 Bindningar för Mobile Apps finns i den [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="input"></a>Indata
 
@@ -144,11 +146,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **Typ**|| Måste anges till ”mobileTable”|
-| **Riktning**||Måste anges till ”i”|
+| **typ**|| Måste anges till ”mobileTable”|
+| **riktning**||Måste anges till ”i”|
 | **Namn**|| Namnet på Indataparametern i funktionssignaturen.|
 |**tableName** |**tableName**|Namnet på den mobila appen datatabell|
-| **id**| **Id** | Identifierare för att hämta posten. Kan vara statiska eller baserat på utlösaren som anropar funktionen. Om du sedan använda en kö utlösare för din funktion, till exempel `"id": "{queueTrigger}"` använder strängvärdet för kön meddelandet som post-ID för att hämta.|
+| **ID**| **Id** | Identifierare för att hämta posten. Kan vara statiska eller baserat på utlösaren som anropar funktionen. Om du sedan använda en kö utlösare för din funktion, till exempel `"id": "{queueTrigger}"` använder strängvärdet för kön meddelandet som post-ID för att hämta.|
 |**Anslutning**|**Anslutning**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.
 |**apiKey**|**apiKey**|Namnet på en appinställning med din mobila app API-nyckel. Ange API nyckel om du [implementera en API-nyckel i din mobila app Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i din mobila app .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en appinställning i funktionen appen som innehåller API-nyckeln för att ge nyckeln, och lägger till den `apiKey` egenskap i den inkommande bindningen med namnet för appinställningen. |
 
@@ -303,8 +305,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **Typ**|| Måste anges till ”mobileTable”|
-| **Riktning**||Måste anges till ”out”|
+| **typ**|| Måste anges till ”mobileTable”|
+| **riktning**||Måste anges till ”out”|
 | **Namn**|| Namn på Utdataparametern i funktionssignatur.|
 |**tableName** |**tableName**|Namnet på den mobila appen datatabell|
 |**Anslutning**|**MobileAppUriSetting**|Namnet på en app som har mobila app-URL. URL: en använder funktionen för att skapa nödvändiga REST-åtgärder mot din mobila app. Skapa en appinställning i funktionen appen som innehåller URL för den mobila appen och sedan ange namnet på appinställningen i den `connection` egenskap i den inkommande bindningen. URL-Adressen ser ut som `http://<appname>.azurewebsites.net`.

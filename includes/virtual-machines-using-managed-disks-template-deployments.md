@@ -216,4 +216,4 @@ Om du vill hitta fullständig information om REST API-specifikationerna, granska
 * Besök den [hanterade diskar översikt över Azure](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentet för mer information om hanterade diskar.
 * Granska referensdokumentationen mall för virtuella datorresurser genom att besöka den [Microsoft.Compute/virtualMachines mallreferensen](/azure/templates/microsoft.compute/virtualmachines) dokumentet.
 * Granska referensdokumentationen mall för diskresurser genom att besöka den [Microsoft.Compute/disks mallreferensen](/azure/templates/microsoft.compute/disks) dokumentet.
- 
+* Finns information om hur du använder hanterade diskar i Azure VM Scale anger den [datadiskar med skaluppsättningar](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) dokumentet.

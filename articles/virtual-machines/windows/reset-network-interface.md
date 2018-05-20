@@ -1,24 +1,24 @@
 ---
-title: "Hur du återställer nätverksgränssnittet för virtuell Azure Windows-dator | Microsoft Docs"
-description: "Visar hur du återställer nätverksgränssnitt för Virtuella för Windows Azure"
+title: Hur du återställer nätverksgränssnittet för virtuell Azure Windows-dator | Microsoft Docs
+description: Visar hur du återställer nätverksgränssnitt för Virtuella för Windows Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6bf5c991e8a96cfdcbad971e0f2ea2dfd01f2893
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7c78c80e5eaceb210a50549e2885e56c0d9ec7f1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverksgränssnitt för Virtuella för Windows Azure 
 
@@ -63,7 +63,7 @@ När du kan fjärrskrivbord till datorn måste du ta bort de gamla nätverkskort
 2.  Välj **visa** > **Visa dolda enheter**.
 3.  Välj **nätverkskort**. 
 4.  Kontrollera de nätverkskort som heter som ”Microsoft Hyper-V-nätverkskort”.
-5.  Du kan se ett tillgängligt nätverkskort som är nedtonad. Högerklicka på kortet och välj sedan avinstallera.
+5.  Du kan se ett otillgängligt nätverkskort som är nedtonat. Högerklicka på kortet och välj sedan avinstallera.
 
     ![Bild av nätverkskortet](media/reset-network-interface/nicpage.png)
 

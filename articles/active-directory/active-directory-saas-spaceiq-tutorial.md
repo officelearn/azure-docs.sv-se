@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SpaceIQ | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SpaceIQ."
+title: 'Självstudier: Azure Active Directory-integrering med SpaceIQ | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SpaceIQ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e61cff696388d181f989478ea0d0defcc323f192
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f76be8db123558d87dfa5c1756f5928aed97d63f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Självstudier: Azure Active Directory-integrering med SpaceIQ
 
@@ -30,9 +30,9 @@ Integrera SpaceIQ med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på SpaceIQ (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med SpaceIQ, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och SpaceIQ domän med enkel inloggning information](./media/active-directory-saas-spaceiq-tutorial/tutorial_spaceiq_url.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://api.spaceiq.com`
+    a. I den **identifierare** textruta anger du URL: `https://api.spaceiq.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://api.spaceiq.com/saml/<instanceid>/callback`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://api.spaceiq.com/saml/<instanceid>/callback`
 
     > [!NOTE] 
     > Uppdatera dessa värden med faktiska Reply URL och identifierare som beskrivs senare i självstudierna.
@@ -230,7 +230,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

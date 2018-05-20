@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Händelseschema rutnätet prenumeration
 
@@ -32,21 +32,21 @@ Den här artikeln innehåller egenskaperna och schemat för brödtexten i begär
  
 ## <a name="event-subscription-properties"></a>Händelseegenskaper för prenumeration
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Mål | objekt | Det objekt som definierar slutpunkten. |
 | filter | objekt | Ett valfritt fält för att filtrera vilka typer av händelser. |
 
 ### <a name="destination-object"></a>Målobjekt
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | endpointType | sträng | Typ av slutpunkt för prenumerationen (webhook/HTTP, Event Hub eller kön). | 
 | endpointUrl | sträng | Mål-URL för händelser i den här händelseprenumerationen. | 
 
 ### <a name="filter-object"></a>filtreringsobjekt
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | includedEventTypes | matris | Matcha när händelsetypen i händelsemeddelandet är exakt matchar ett av dessa namn för typen av händelse. Genererar ett fel när händelsenamn inte matchar typnamnen registrerade händelser för händelsekällan. Standard matchar alla händelsetyper. |
 | subjectBeginsWith | sträng | En prefixmatchning filtrera ämnesfältet i meddelandet. Matchar alla standard eller tom sträng. | 

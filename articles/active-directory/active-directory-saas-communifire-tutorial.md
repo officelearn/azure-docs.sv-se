@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Communifire | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Communifire."
+title: 'Självstudier: Azure Active Directory-integrering med Communifire | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Communifire.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 9c661089f26bc4b608e50508e600908bd237032b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 36bfc92c4b2ffc8c7f316aebc9b27c8ab17aaacd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Självstudier: Azure Active Directory-integrering med Communifire
 
@@ -30,9 +30,9 @@ Integrera Communifire med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Communifire (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Communifire, behöver du följande:
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Communifire domän med enkel inloggning information](./media/active-directory-saas-communifire-tutorial/tutorial_communifire_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.communifire.com`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.communifire.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.communifire.com/SAML/AssertionConsumerService.aspx`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.communifire.com/SAML/AssertionConsumerService.aspx`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Communifire domän med enkel inloggning information](./media/active-directory-saas-communifire-tutorial/tutorial_communifire_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.communifire.com/login`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.communifire.com/login`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Communifire klienten supportteamet](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome) att hämta dessa värden. 
@@ -217,7 +217,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

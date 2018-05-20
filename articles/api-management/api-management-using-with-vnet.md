@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 20c5635c0ce00c9fccfec84c477d60c77c55e2fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
@@ -116,7 +116,7 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 | * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resurshälsa |Externa och interna |
 | * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-Relay för att skicka e-post |Externa och interna |
 | * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis-cacheinstanser mellan RoleInstances |Externa och interna |
-| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |Externa och interna |
+| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure-infrastrukturen belastningsutjämnare |Externa och interna |
 
 >[!IMPORTANT]
 > Portar som de *syfte* är **fetstil** krävs för API Management-tjänsten distribueras. De andra portarna blockeras kommer men försämras i möjligheten att använda och övervaka tjänsten körs.
@@ -168,13 +168,14 @@ Beräkningen ovanför den minsta storleken till undernätet där API-hantering k
 * Undernätet och API Management-tjänsten måste vara i samma prenumeration.
 * Ett undernät som innehåller API Management-instanser kan inte flyttas mellan prenumerationer.
 * För flera regioner API Management-distributioner konfigurerad i internt virtuellt nätverk läge, ansvarar användare för att hantera belastningsbalansering över flera regioner som de äger routning.
+* Anslutningen från en resurs i ett globalt peered VNET i en annan region till API Management-tjänsten intern läge fungerar inte på grund av plattform begränsning. Mer information finns i [resurser i ett virtuellt nätverk inte kan kommunicera med Azure interna belastningsutjämnare i peerkoppla virtuellt nätverk](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>Relaterat innehåll
 * [Ansluta ett virtuellt nätverk till backend med hjälp av Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Hur du använder API-Inspector för att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
-* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
+* [Vanliga frågor om virtuellt nätverk](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

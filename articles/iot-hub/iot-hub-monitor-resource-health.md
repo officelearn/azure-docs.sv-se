@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: ed0bde0945a36c4fa194059f3b17557d566047a2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -34,7 +34,7 @@ Förutom att integrera med de här båda tjänsterna tillhandahåller IoT-hubb o
 
 Azure-Monitor innehåller resursnivå diagnostikinformation, vilket innebär att du kan övervaka åtgärder som äger rum i din IoT-hubb. 
 
-Övervaka Azure diagnostics inställningar ersätter åtgärderna IoT-hubb övervaka. Om du för närvarande användaren operations övervakning, bör du migrera dina arbetsflöden. Mer information finns i [migrera från operations övervakningsinställningarna Diagnostics][lnk-migrate].
+Övervaka Azure diagnostics inställningar ersätter åtgärderna IoT-hubb övervaka. Om du använder operations övervakning, bör du migrera dina arbetsflöden. Mer information finns i [migrera från operations övervakningsinställningarna Diagnostics][lnk-migrate].
 
 Mer information om specifika mått och händelser som Azure-Monitor söker finns [stöds mått med Azure-Monitor] [ lnk-AM-metrics] och [tjänster, scheman och kategorier som stöds för Azure Diagnostikloggar][lnk-AM-schemas].
 

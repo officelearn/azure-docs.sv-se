@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 523508bc2caeb4315caa6597662174aa0fdeb47b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med program komma igång
 ## <a name="overview"></a>Översikt
@@ -64,7 +64,7 @@ Kanske du har inte svaren på alla frågor direkt, men det är OK.  Den här gui
 Som nämnts ovan är kan det finnas program som inte har hanterats av din organisation fram till nu.  Som en del av processen inventory går det att hitta ej sanktionerade molnappar. Se [hitta ej sanktionerade molnappar med Cloud App Discovery](cloud-app-discovery.md).
 
 ### <a name="authentication-types"></a>Typer av autentisering
-Var och en av dina program kan ha olika krav. Med Azure AD, kan signera certifikat användas med program som använder SAML 2.0, WS-Federation, eller OpenID Connect protokoll samt lösenordet enkel inloggning. Mer information om programmet autentiseringstyper för användning med Azure AD finns [hantera certifikat för federerad enkel inloggning i Azure Active Directory](../active-directory-sso-certs.md) och [lösenord utifrån för enkel inloggning](../active-directory-appssoaccess-whatis.md).
+Var och en av dina program kan ha olika krav. Med Azure AD, kan signera certifikat användas med program som använder SAML 2.0, WS-Federation, eller OpenID Connect protokoll samt lösenordet enkel inloggning. Mer information om programmet autentiseringstyper för användning med Azure AD finns [hantera certifikat för federerad enkel inloggning i Azure Active Directory](../active-directory-sso-certs.md) och [lösenord utifrån för enkel inloggning](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Aktivera enkel inloggning med Azure AD App-Proxy
 Du kan ge åtkomst till program som finns i ditt privata nätverk på ett säkert sätt, från var som helst och på alla enheter med Microsoft Azure AD Application Proxy. När du har installerat en application proxy connector i din miljö, kan den enkelt konfigureras med Azure AD.
@@ -73,7 +73,7 @@ Du kan ge åtkomst till program som finns i ditt privata nätverk på ett säker
 I följande artiklar beskrivs olika sätt program integrera med Azure AD och innehåller vägledning.
 
 * [När du fastställer vilka Active Directory för att använda](../active-directory-administer.md)
-* [Med hjälp av program i Azure-programgalleriet](../active-directory-appssoaccess-whatis.md)
+* [Med hjälp av program i Azure-programgalleriet](what-is-single-sign-on.md)
 * [Integrera SaaS-program självstudier lista](../active-directory-saas-tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Hantera åtkomst till program

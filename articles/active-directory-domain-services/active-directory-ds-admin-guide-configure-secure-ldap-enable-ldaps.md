@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera säker LDAP (LDAPS) i Azure AD Domain Services | Microsoft Docs"
-description: "Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän"
+title: Konfigurera säker LDAP (LDAPS) i Azure AD Domain Services | Microsoft Docs
+description: Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -41,7 +41,7 @@ Utför följande konfigurationssteg för att aktivera säker LDAP:
 
 3. Klicka på **säker LDAP** i navigeringsfönstret.
 
-    ![Domain Services - Secure LDAP page](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![DS - säker LDAP-sida](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. Säker LDAP-åtkomst till din hanterade domän är inaktiverat som standard. Växla **säkert LDAP** till **aktivera**.
 
@@ -105,7 +105,7 @@ I följande tabell visas ett exempel på en NSG som du kan konfigurera för att 
 
 ![Exempel NSG till säker LDAPS åtkomst via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Mer information** - [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+**Mer information** - [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
 <br>
 
@@ -128,5 +128,5 @@ Om du fortfarande har problem att ansluta till den hanterade domänen med säker
 * [Azure AD Domain Services - komma igång-guide](active-directory-ds-getting-started.md)
 * [Administrera en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 * [Administrera Grupprincip i en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md)
+* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 * [Skapa en säkerhetsgrupp för nätverk](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

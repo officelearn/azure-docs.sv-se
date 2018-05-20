@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: 8732d1b87acaa6673ae92b3302fb257dcb134217
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Använda program i Azure Blockchain arbetsstationen
 
@@ -52,14 +52,7 @@ Om du vill skapa ett nytt kontrakt, du måste vara medlem i den **AllowedInstanc
 ## <a name="take-action-on-contract"></a>Utför en åtgärd i kontrakt
 
 1. Välj panelen program som innehåller kontraktet att vidta åtgärder under Blockchain arbetsstationen program.
-
-    ![Programlista](media/blockchain-workbench-use/apps-list.png)
-
-2. Välj kontraktet i listan.
-
-    ![Listan](media/blockchain-workbench-use/select-contract.png)
-
-    I olika avsnitt visas information om kontraktet. 
+2. Välj kontraktet i listan. I olika avsnitt visas information om kontraktet. 
 
     ![Kontraktsinformation](media/blockchain-workbench-use/contract-details.png)
 
@@ -74,9 +67,14 @@ Om du vill skapa ett nytt kontrakt, du måste vara medlem i den **AllowedInstanc
 
 4. Information om det aktuella tillståndet för kontraktet visas i rutan. Välj den åtgärd som du vill ta i listrutan. 
 
+    ![Välj åtgärd](media/blockchain-workbench-use/choose-action.png)
+
+5. Välj **åtgärda** att starta åtgärden.
+6. Parametrar som krävs för åtgärden, ange värdena för åtgärden.
+
     ![Vidta åtgärd](media/blockchain-workbench-use/take-action.png)
 
-5. Välj **Execute** att vidta åtgärder.
+7. Välj **åtgärda** att utföra åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 

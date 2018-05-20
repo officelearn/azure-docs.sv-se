@@ -1,12 +1,12 @@
 ---
-title: "Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs"
-description: "En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur."
-services: 
+title: Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs
+description: En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för fjärrövervakning
 
@@ -35,7 +35,17 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
-![Logisk arkitektur](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Mikrotjänster och Docker-behållare
+Fjärrövervakning är den första av våra förkonfigurerade lösningar som utnyttjar en arkitektur för mikrotjänster. Lösningen finns tillgänglig i både [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) och [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Mikrotjänster har vuxit fram som ett vanligt förekommande mönster för att uppnå skalbarhet och flexibilitet (genom att tillåta att behållare skalas individuellt), utan att utvecklingshastigheten påverkas.
+Mikrotjänsterna bäddar in koden och anger väldefinierade gränssnitt som gör lösningen enklare att förstå och mindre monolitisk. Den ger också fler alternativ för partners som vill utöka nuvarande lösningsacceleratorer och skapa färdiga lösningar som kan generera intäkter.
+
+**Mer information om Docker-behållare**
+* [Installera Docker](https://docs.docker.com/engine/installation/)
+* [Vanliga Docker-kommandon för fjärrövervakning](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Komma igång med Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Simulerade enheter
 
@@ -226,11 +236,11 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 ASA-jobben för **enhetsinformation** och **regler** skickar sina data till Event Hubs för bearbetning i **händelseprocessorn** som körs i webbjobbet.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Azure-lagring
 
 Lösningen använder Azure-blobblagring för att bevara alla rådata och sammanfattade telemetridata från enheterna i lösningen. Portalen läser av telemetridata från Blob Storage och fyller i diagrammen. När aviseringar ska visas läser lösningsportalen av data från Blob Storage som registreras när telemetrivärden överskrider de konfigurerade tröskelvärdena. I lösningen används också Blob Storage till att registrera de tröskelvärden du anger i lösningsportalen.
 

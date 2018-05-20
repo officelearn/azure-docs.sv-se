@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure-Stack från administrationsportalen
 Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure-stacken kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopieringar för att återställa din miljö med hjälp av recovery för molnet i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet återställning är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer återställts inklusive rollbaserade behörigheter och roller, ursprungliga planer, erbjudanden och tidigare definierad beräkning, lagring och nätverkskvoter.
@@ -45,7 +45,7 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
 3. Ange sökvägen till den **säkerhetskopiera lagringsplats**. Använd en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs som finns på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Du kan använda en IP-adress för tjänsten. Enheten måste vara i en annan plats för att säkerställa tillgängligheten för säkerhetskopierade data efter en katastrof.
     > [!Note]  
     > Om miljön har stöd för namnmatchning från nätverkets infrastruktur Azure Stack till din företagsmiljö kan använda du ett fullständigt domännamn i stället för IP-Adressen.
-4. Typ av **användarnamn** med domänen och användarnamnet. Till exempel `Contoso\administrator`.
+4. Typ av **användarnamn** med domänen och användarnamnet har behörighet att läsa och skriva filer. Till exempel `Contoso\backupshareuser`.
 5. Typ av **lösenord** för användaren.
 5. Skriv in lösenordet igen till **Bekräfta lösenord**.
 6. Tillhandahålla en i förväg delad nyckel i den **krypteringsnyckeln** rutan. Säkerhetskopiorna krypteras med den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. Mer information att generera en i förväg delad nyckel, följ skript på [Aktivera säkerhetskopiering för Azure-stacken med PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med OnTrack | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OnTrack."
+title: 'Självstudier: Azure Active Directory-integrering med OnTrack | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OnTrack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 9df3932fe7e68fff422dc4eca370ac1354fb2db0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76a7bd34c3fddc70e025af52235be619f04fa0d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Självstudier: Azure Active Directory-integrering med OnTrack
 
@@ -30,9 +30,9 @@ Integrera OnTrack med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på OnTrack (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med OnTrack behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textruta
     
-    Ange Webbadressen för testmiljön:`https://staging.insigniagroup.com/sso`
+    Ange Webbadressen för testmiljön: `https://staging.insigniagroup.com/sso`
 
-    Ange Webbadressen för produktionsmiljön:`https://oeaccessories.com/sso`
+    Ange Webbadressen för produktionsmiljön: `https://oeaccessories.com/sso`
 
     b. I den **Reply URL** textruta
     
-    Ange Webbadressen för testmiljön:`https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    Ange Webbadressen för testmiljön: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    Ange Webbadressen för produktionsmiljön:`https://igaccessories.com/sso/autonation.aspx`
+    Ange Webbadressen för produktionsmiljön: `https://igaccessories.com/sso/autonation.aspx`
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -236,7 +236,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

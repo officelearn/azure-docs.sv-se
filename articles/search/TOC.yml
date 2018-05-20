@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: Självstudier
   items:
-    - name: Index med kognitiv sökning
+    - name: Utveckling av kognitiv sökning
       href: cognitive-search-tutorial-blob.md
     - name: Indexera Azure SQL Database
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: Planera och designa
       items:
-        - name: Välj en SKU
+        - name: Välj en nivå
           href: search-sku-tier.md
         - name: Tjänstbegränsningar
           href: search-limits-quotas-capacity.md
-        - name: Tjänstskalbarhet
+        - name: Allokera partitioner och repliker
           href: search-capacity-planning.md
         - name: Utveckla mönster för flera innehavare
           href: search-modeling-multitenant-saas-applications.md

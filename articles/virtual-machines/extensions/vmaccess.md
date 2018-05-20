@@ -15,26 +15,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: danis
-ms.openlocfilehash: b90b7948d10ff91f3c63b772bc302b1def416f2b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
-
 ## <a name="overview"></a>Översikt
-
 Disken på Linux-VM visas fel. Du på något sätt återställa rotlösenordet för Linux-VM eller tagits bort av misstag din privata SSH-nyckel. Om detta har inträffat i dagar för datacenter, behöver du köra det och öppna sedan KVM få vid servern. Se Azure VMAccess-tillägget som den KVM-växel som gör att du kan använda konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
 
 Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, återställa användaråtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som virtuella datorer i Azure Resource Manager. Om du behöver hantera klassiska virtuella datorer – du kan följa anvisningarna i den [klassiska Virtuella dokumentationen](../linux/classic/reset-access-classic.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar
-
 ### <a name="operating-system"></a>Operativsystem
 
 Tillägget för virtuell dator åtkomst kan köras mot dessa Linux-distributioner:
-
 
 | Distribution | Version |
 |---|---|
@@ -58,7 +54,7 @@ I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. 
 ## <a name="update-ssh-key"></a>Uppdatera SSH-nyckel
 I följande exempel uppdateras SSH-nyckeln för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -71,7 +67,7 @@ az vm user update \
 ## <a name="reset-password"></a>Återställa lösenord
 I följande exempel återställer lösenordet för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -82,7 +78,7 @@ az vm user update \
 ## <a name="restart-ssh"></a>Starta om SSH
 I följande exempel startar om SSH-daemon och återställer SSH-konfigurationen till standardvärdena på en virtuell dator med namnet `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user reset-ssh \
   --resource-group myResourceGroup \
   --name myVM
@@ -91,7 +87,7 @@ az vm user reset-ssh \
 ## <a name="create-an-administrativesudo-user"></a>Skapa en administrativ/sudo-användare
 I följande exempel skapas en användare med namnet `myNewUser` med **sudo** behörigheter. Kontot använder en SSH-nyckel för autentisering på den virtuella datorn med namnet `myVM`. Den här metoden är utformad för att hjälpa dig att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter tappas bort eller glömmer bort. Som bästa praxis, konton med **sudo** behörigheter ska vara begränsad.
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -99,18 +95,15 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-
-
 ## <a name="delete-a-user"></a>Ta bort en användare
 I följande exempel tar bort en användare med namnet `myNewUser` på den virtuella datorn med namnet `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user delete \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser
 ```
-
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Använd JSON-filer och VMAccess-tillägget
 I följande exempel används raw JSON-filer. Använd [az vm-tillägget set](/cli/azure/vm/extension#az_vm_extension_set) att anropa JSON-filer. Filerna JSON kallas även från Azure-mallar. 
@@ -129,7 +122,7 @@ Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar en fil
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -150,7 +143,7 @@ Om du vill återställa en användarlösenord, skapar du en fil med namnet `rese
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -171,7 +164,7 @@ Om du vill starta om SSH-daemon och återställa SSH-konfigurationen till standa
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -195,7 +188,7 @@ Så här skapar du en användare med **sudo** behörigheter som använder en SSH
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -215,7 +208,7 @@ Ta bort en användare genom att skapa en fil med namnet `delete_user.json` och L
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -239,7 +232,7 @@ Om du vill kontrollera och reparera disken, skapa en fil med namnet `disk_check_
 
 Kör skriptet VMAccess med:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -248,13 +241,16 @@ az vm extension set \
   --version 1.4 \
   --protected-settings disk_check_repair.json
 ```
+## <a name="troubleshoot-and-support"></a>Felsöka och stöd
 
-## <a name="next-steps"></a>Nästa steg
-Uppdatera Linux med hjälp av Azure VMAccess-tillägget är en metod för att göra ändringar på en Linux-VM som körs. Du kan också använda verktyg som molntjänster init och Azure Resource Manager-mallar för att ändra din Linux VM på Start.
+### <a name="troubleshoot"></a>Felsöka
 
-[Tillägg för virtuell dator och funktioner för Linux](features-linux.md)
+Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och genom att använda Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
 
-[Skapa Azure Resource Manager-mallar med Linux VM-tillägg](../windows/template-description.md)
+```azurecli
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
+```
 
-[Med hjälp av molnet init för att anpassa en Linux VM under skapandet](../linux/using-cloud-init.md)
+### <a name="support"></a>Support
 
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du lagra en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välja Get support. Information om hur du använder Azure stöder finns i [vanliga frågor om Microsoft Azure-supporten](https://azure.microsoft.com/support/faq/).

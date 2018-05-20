@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med RightAnswers | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RightAnswers."
+title: 'Självstudier: Azure Active Directory-integrering med RightAnswers | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RightAnswers.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f919ad45905c28788bd058a25d614c3d5d48b20c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d4407fd64cafcaead3708670b02735a0d57440a7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Självstudier: Azure Active Directory-integrering med RightAnswers
 
@@ -29,9 +29,9 @@ Integrera RightAnswers med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på RightAnswers (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med RightAnswers, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-rightanswers-tutorial/tutorial_rightanswers_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.rightanswers.com/portal/ss/`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.rightanswers.com/portal/ss/`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.rightanswers.com:<identifier>/portal`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [RightAnswers klienten supportteamet](https://www.rightanswers.com/contact-us/) att hämta dessa värden. 
@@ -210,7 +210,7 @@ Om du vill testa inställningarna för enkel inloggning, öppna åtkomstpanelen.
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,56 +1,58 @@
 ---
-title: "Förstå DNS i Azure-stacken | Microsoft Docs"
-description: "Förstå DNS-funktioner och funktioner i Azure-stacken"
+title: 'Förstå IDN: er i Azure-stacken | Microsoft Docs'
+description: Förstå IDN-funktioner och möjligheter i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 86ed2805e93bd147841e22a773b52d1451f8c353
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduktion till IDN: er för Azure-Stack
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-IDN: er är en funktion i Azure-stacken som hjälper dig att lösa externa DNS-namn (till exempel http://www.bing.com).
-Du kan också registrera interna virtuella nätverksnamn. På så sätt, kan du åtgärda virtuella datorer på samma virtuella nätverk namn i stället för IP-adress, utan att ange anpassade poster i DNS-server.
-
-Det är något som har alltid varit det i Azure, men den är tillgänglig i Windows Server 2016 och Azure-stacken för.
+IDN: er är en Azure-stacken nätverk funktion som gör det möjligt för dig att lösa externa DNS-namn (till exempel http://www.bing.com.) det ger dig möjlighet att registrera internt virtuellt nätverksnamn. På så sätt, kan du åtgärda virtuella datorer på samma virtuella nätverk namn i stället för IP-adress. Den här metoden tar bort behovet av att tillhandahålla anpassade poster i DNS-server. Mer information om DNS finns i [översikt över Azure DNS](https://docs.microsoft.com/en-us/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Vad är IDN: er?
+
 Med IDN: er i Azure-stacken får du följande funktioner utan att ange anpassade poster i DNS-server:
 
 * Delade tjänster för DNS-namnmatchning för klienternas arbetsbelastningar.
 * Auktoritära DNS-tjänsten för namnmatchning och DNS-registrering i innehavarens virtuella nätverk.
-* Recursive DNS-tjänsten för matchning av Internet namn från innehavaren virtuella datorer. Klienterna behöver inte längre ange anpassade DNS-poster för att lösa Internet-namn (till exempel www.bing.com).
+* Recursive DNS-tjänsten för matchning av Internet namn från innehavaren virtuella datorer. Klienter som inte längre behöver ange anpassade DNS-poster för att lösa Internet-namn (till exempel www.bing.com.)
 
-Du kan fortfarande sätta egna DNS och använda anpassade DNS-servrar om du vill. Men nu om du bara vill kunna matcha Internet-DNS-namn och kunna ansluta till andra virtuella datorer i samma virtuella nätverk, behöver du inte ange något och den fungerar bara.
+Du kan fortfarande sätta egna DNS och använda anpassade DNS-servrar. Emellertid med IDN: er kan du matcha Internet-DNS-namn och ansluta till andra virtuella datorer i samma virtuella nätverk, behöver du inte skapar anpassade DNS-poster.
 
-## <a name="what-does-idns-not-do"></a>Vad är IDN inte?
-Vilka IDN tillåter inte att göra är att skapa en DNS-post för ett namn som kan lösas från utanför det virtuella nätverket.
+## <a name="what-doesnt-idns-do"></a>Vad inte IDN: er?
 
-I Azure har möjlighet att ange ett DNS-namnetikett som kan associeras med en offentlig IP-adress. Du kan välja etiketten (prefix), men Azure väljer suffix som baseras på den region där du skapar den offentliga IP-adressen.
+Vilka IDN tillåter inte att göra, är att skapa en DNS-post för ett namn som kan lösas från utanför det virtuella nätverket.
 
-![Skärmbild av DNS-namnetikett](media/azure-stack-understanding-dns-in-tp2/image3.png)
+I Azure har möjlighet att ange ett DNS-namnetikett som är associerad med en offentlig IP-adress. Du kan välja etiketten (prefix), men Azure väljer suffix som baseras på den region där du skapar den offentliga IP-adressen.
 
-I bilden ovan Azure skapar en A-post i DNS för DNS-namnetikett som anges under zonen **westus.cloudapp.azure.com**. Prefixet och suffixet tillsammans utgöra ett fullständigt kvalificerat domännamn (FQDN) som kan matchas från var som helst på Internet.
+![Exempel på en DNS-namnetikett](media/azure-stack-understanding-dns-in-tp2/image3.png)
+
+Eftersom föregående bild visas Azure skapar en A-post i DNS för DNS-namnetikett som anges under zonen **westus.cloudapp.azure.com**. Prefixet och suffixet kombineras för att skapa en [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) som kan matchas från var som helst på Internet.
 
 Azure-stacken stöder bara IDn för interna namnregistrering, så det går inte att göra följande:
 
-* Skapa en DNS-post i en befintlig värdbaserade DNS-zon (till exempel local.azurestack.external).
+* Skapa en DNS-post i en befintlig värdbaserade DNS-zon (till exempel local.azurestack.external.)
 * Skapa en DNS-zon (t.ex Contoso.com).
 * Skapa en post under dina egna anpassade DNS-zon.
 * Stöd för köp av domännamn.
 
+## <a name="next-steps"></a>Nästa steg
+
+[Med hjälp av DNS i Azure-stacken](azure-stack-dns.md)

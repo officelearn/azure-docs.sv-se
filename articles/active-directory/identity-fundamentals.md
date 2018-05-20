@@ -1,29 +1,29 @@
-﻿---
+---
 title: Grunderna i Azure Identitetshantering
-description: "Molnbaserade identiteter är numera det bästa sättet att behålla kontrollen över och få insyn i hur och när användare får åtkomst till företagets program och data."
-keywords: 
+description: Molnbaserade identiteter är numera det bästa sättet att behålla kontrollen över och få insyn i hur och när användare får åtkomst till företagets program och data.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azure Identitetshantering
 
-Eftersom fler och fler digitala företagsresurser lever utanför företagsnätverket, i molnet och på enheter, blir nödvändigt med en bra molnbaserade identitets- och lösning. Molnbaserad identiteter är nu det bästa sättet att behålla kontrollen över och insyn i hur och när användare åtkomst till företagets program och data.
+Eftersom fler och fler digitala företagsresurser ligger utanför företagsnätverket i molnet och på enheter, ökar behovet av en bra molnbaserad lösning för hantering av identiteter och åtkomst. Molnbaserade identiteter är numera det bästa sättet att behålla kontrollen över och få insyn i hur och när användare får åtkomst till företagets program och data.
 
-Microsoft har skydda molnbaserade identiteter för över tio år och nu med [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), skydd datorerna är tillgängliga för dig. Med Azure AD Kontrollera Företagsadministratörer enkelt användar- och accountability med bättre säkerhet och styrning än någonsin tidigare.
+Microsoft har skydda molnbaserade identiteter för över tio år och nu med [Azure Active Directory (AD)](active-directory-whatis.md), skydd datorerna är tillgängliga för dig. Med Azure AD Kontrollera Företagsadministratörer enkelt användar- och accountability med bättre säkerhet och styrning än någonsin tidigare.
 
 Azure AD Premium är en molnbaserad identitets- och lösning med avancerade funktionerna som gör att en säker identitet för alla appar, identitetsskydd (förbättrad av den [Microsoft intelligence säkerhet graph](https://www.microsoft.com/en-us/security/intelligence)), och Privileged Identity Management. Inte en övervakning eller reporting verktyget Azure AD Premium kan skydda användaridentiteter i realtid och du kan skapa risk-baserade, anpassningsbar åtkomstprinciper för att skydda din organisations data.
 

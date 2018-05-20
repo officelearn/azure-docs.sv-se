@@ -10,6 +10,7 @@
 ## Gör så här för att
 ### [Konfiguration för hög tillgänglighet med STONITH](ha-setup-with-stonith.md)
 ### [Säkerhetskopiering av operativsystem för Type II-SKU:er](os-backup-type-ii-skus.md)
+### [Uppgradering av operativsystem för HANA på stora instanser](os-upgrade-hana-large-instance.md)
 # SAP HANA på Azure Virtual Machines
 ## [Enkel instans av SAP HANA-installation](hana-get-started.md)
 ## [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)

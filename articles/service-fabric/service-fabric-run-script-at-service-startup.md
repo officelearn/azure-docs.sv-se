@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
 Innan en körbara Service Fabric-tjänsten startar kan det vara nödvändigt att köra vissa konfiguration eller installationen arbete.  Till exempel konfigurera miljövariabler. Du kan ange ett skript köras innan tjänstens körbara fil som startas i service manifest för tjänsten. Konfigurera en RunAs-princip för den installationsprogrammet startpunkten som du kan ändra vilket konto körs installationsprogrammets under.  En startpunkt för separata inställningar kan du köra hög privilged konfigurationen för en kort tidsperiod så tjänstvärden körbara inte behöver köra med högre behörighet under längre tid.
 
 Startpunkten för installationsprogrammet (**SetupEntryPoint** i den [tjänstmanifestet](service-fabric-application-and-service-manifests.md)) är en privilegierade startpunkt som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis den  *NetworkService* konto) innan andra startpunkt. Den körbara filen som anges av **EntryPoint** är vanligtvis tjänstvärden tidskrävande. Den **EntryPoint** körbar fil körs efter den **SetupEntryPoint** körbar fil har avslutas. Resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den aldrig avslutar eller kraschar. 
 
-## <a name="configure-the-service-setup-entry-point"></a>Konfigurera registreringspunkten för service-inställningar
+## <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
 Följande är en enkel service manifest exempel för en tillståndslös tjänst som anger ett installationsskript *MySetup.bat* i tjänsten **SetupEntryPoint**.  **Argument** används för att ange argument för skriptet när den körs.
 
 ```xml

@@ -1,24 +1,24 @@
 ---
 title: Uppgradering av Service Fabric-appen med PowerShell | Microsoft Docs
-description: "Den här artikeln beskriver hur upplevelse av att distribuera ett Service Fabric-program, ändra koden och lansera uppgradering med hjälp av PowerShell."
+description: Den här artikeln beskriver hur upplevelse av att distribuera ett Service Fabric-program, ändra koden och lansera uppgradering med hjälp av PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uppgradering av Service Fabric-programmet med PowerShell
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Skapa och publicera programmet genom att högerklicka på projektet för konsolp
 
 När du har skapat projektet i Visual Studio kan du använda PowerShell-kommandot [kopiera ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) att kopiera programpaketet till ImageStore. Om du vill verifiera app-paketet lokalt använder den [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. Nästa steg är att registrera programmet till Service Fabric runtime med den [registrera ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. Följande steg är att starta en instans av programmet med hjälp av den [ny ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  De här tre stegen är analoga med hjälp av den **distribuera** menyalternativet i Visual Studio.  När etableringen har slutförts ska du rensa kopierade programpaketet från avbildningsarkivet för att minska de resurser som används.  Om en typ av program inte längre behövs, bör det att avregistrera av samma skäl. Se [distribuera och ta bort program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) för mer information.
 
-Nu kan du använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet har en webbtjänst som kan öppnas efter att i Internet Explorer genom att skriva [http://localhost: 8081/visualobjects](http://localhost:8081/visualobjects) i adressfältet.  Du bör se vissa flytande visuella objekt flytta runt på skärmen.  Du kan dessutom använda [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) att kontrollera statusen för programmet.
+Nu kan du använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet har en webbtjänst som kan öppnas efter att i Internet Explorer genom att skriva [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) i adressfältet.  Du bör se vissa flytande visuella objekt flytta runt på skärmen.  Du kan dessutom använda [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) att kontrollera statusen för programmet.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: Uppdatera visuella objekt-exempel
 Du kan se att med den version som har distribuerats i steg 1 visuella objekt inte rotera. Vi uppgradera det här programmet till en där visual objekt också rotera.

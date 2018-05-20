@@ -1,9 +1,9 @@
 ---
-title: "Logga in som inträffar med Azure AD Identity Protection | Microsoft Docs"
-description: "En översikt över användarens upplevelse när identitetsskydd har minskas eller åtgärdad en användare eller när multifaktorautentisering krävs av en princip."
+title: Logga in som inträffar med Azure AD Identity Protection | Microsoft Docs
+description: En översikt över användarens upplevelse när identitetsskydd har minskas eller åtgärdad en användare eller när multifaktorautentisering krävs av en princip.
 services: active-directory
-keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Logga in som inträffar med Azure AD Identity Protection
 Med Azure Active Directory identitetsskydd kan du:
@@ -49,10 +49,7 @@ Det här avsnittet ger en översikt över en användares inloggning i samtliga f
 ## <a name="multi-factor-authentication-registration"></a>Registreringen för multifaktorautentisering
 Den bästa användarupplevelsen för både komprometterat konto recovery trafikflöde och riskfyllda inloggning-flödet är när användaren själv kan återställa. Om användarna har registrerats för multifaktorautentisering, har de redan ett telefonnummer som är associerad med ett konto som kan användas för att överföra säkerhetsutmaningar. Ingen hjälp supportavdelningen eller administratören inblandning behövs för att återställa från kontot har komprometterats. Det har alltså bör få dina användare som har registrerats för multifaktorautentisering. 
 
-Administratörer kan:
-
-* Ange en princip som kräver att användare skapar sina konton för ytterligare säkerhetsverifiering. 
-* Tillåt hoppa över multifaktorautentisering registrering för upp till 30 dagar, om de vill ge användarna en respitperiod innan du registrerar.
+Administratörer kan ange en princip som kräver att användare skapar sina konton för ytterligare säkerhetsverifiering. Den här principen kan du hoppa över multifaktorautentisering registrering i upp till 14 dagar. Respittiden 14 dagar kan inte konfigureras.
 
 **Multifaktorautentisering registreringen har tre steg:**
 

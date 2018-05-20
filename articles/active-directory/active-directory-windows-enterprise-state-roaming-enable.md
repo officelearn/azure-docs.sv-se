@@ -1,9 +1,9 @@
 ---
-title: "Aktivera Företagsroaming i Azure Active Directory | Microsoft Docs"
-description: "Vanliga frågor om Enterprise tillstånd centrala inställningar i Windows-enheter. Enterprise tillstånd centrala ger användarna en enhetlig miljö på sina Windows-enheter och minskar den tid som krävs för att konfigurera en ny enhet."
+title: Aktivera Företagsroaming i Azure Active Directory | Microsoft Docs
+description: Vanliga frågor om Enterprise tillstånd centrala inställningar i Windows-enheter. Enterprise tillstånd centrala ger användarna en enhetlig miljö på sina Windows-enheter och minskar den tid som krävs för att konfigurera en ny enhet.
 services: active-directory
-keywords: "företagsroaming, windows molnet, hur du aktiverar enterprise tillstånd nätverksväxling"
-documentationcenter: 
+keywords: företagsroaming, windows molnet, hur du aktiverar enterprise tillstånd nätverksväxling
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise tillstånd växling är tillgängliga för en organisation med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du skaffa en Azure AD-prenumeration finns i [produktsida för Azure AD](https://azure.microsoft.com/services/active-directory).
 
-När du aktiverar Enterprise tillstånd centrala beviljas automatiskt en licens för kostnadsfria, begränsad användning för Azure Rights Management i din organisation. Den här kostnadsfria prenumerationen är begränsad till kryptera och dekryptera Företagsinställningar och programdata synkroniseras med Enterprise tillstånd nätverksväxling. Du måste ha [en betald prenumeration](https://azure.microsoft.com/pricing/details/active-directory/) att använda alla funktioner i Azure Rights Management.
+När du aktiverar Enterprise tillstånd centrala beviljas automatiskt en gratis, begränsad användning licens för Azure Rights Management-skydd från Azure Information Protection i din organisation. Den här kostnadsfria prenumerationen är begränsad till kryptera och dekryptera Företagsinställningar och programdata synkroniseras med Enterprise tillstånd nätverksväxling. Du måste ha [en betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) att använda alla funktioner i Azure Rights Management-tjänsten.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Aktivera centrala Enterprise-tillstånd
 
@@ -39,7 +39,7 @@ När du aktiverar Enterprise tillstånd centrala beviljas automatiskt en licens 
 Enheten måste autentiseras med hjälp av en Azure AD-identitet för för en Windows 10-enhet Enterprise tillstånd Roaming-tjänsten. För enheter som är anslutna till Azure AD är användarens primära inloggning identitet sin Azure AD-identitet så krävs ingen ytterligare konfiguration. För enheter som använder lokala Active Directory-IT-administratören måste [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="data-storage"></a>Datalagring
-Enterprise tillstånd centrala data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instans. Enterprise tillstånd centrala data är partitionerad baserat på tre huvudsakliga geografiska områden: Nordamerika, EMEA och APAC. Enterprise tillstånd centrala data för klienten finns lokalt med den geografiska regionen och replikeras inte över regioner.  Till exempel::
+Enterprise tillstånd centrala data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instans. Enterprise tillstånd centrala data är partitionerad baserat på tre huvudsakliga geografiska områden: Nordamerika, EMEA och APAC. Enterprise tillstånd centrala data för klienten finns lokalt med den geografiska regionen och replikeras inte över regioner.  Exempel:
 Värdet för land/region | sina data har finns i
 ---------------------|-------------------------
 EMEA-land, till exempel ”Frankrike” eller ”Zambia” | en eller i Azure-regioner inom Europa 

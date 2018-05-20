@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
 
@@ -23,6 +23,25 @@ Azure Blockchain arbetsstationen distribueras med hjälp av en lösningsmall i A
 Läs mer om komponenterna Blockchain arbetsstationen, [Azure Blockchain arbetsstationen arkitektur](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
+
+Blockchain arbetsstationen kan du distribuera en blockchain redovisning tillsammans med en uppsättning relevanta Azure-tjänster som oftast används för att skapa ett blockchain-baserade program. Distribution av Blockchain Workbench resulterar i följande Azure-tjänster tillhandahålls inom en resursgrupp i Azure-prenumeration.
+
+* 1 händelse rutnätet avsnittet
+* 1 Service Bus Namespace
+* 1 application Insights
+* 1 SQL-databas (Standard S0)
+* 2 Apptjänster (Standard)
+* 2 azure Nyckelvalv
+* 2 azure Storage-konton (Standard-LRS)
+* 2 Virtual machine-skalningsuppsättningar (för verifieraren- och arbetsroller noder)
+* 2 virtuella nätverk (inklusive belastningsutjämnare, nätverkssäkerhetsgrupp och den offentliga IP-adressen för varje virtuellt nätverk)
+* Valfritt: Azure-Monitor
+
+Följande är ett exempel på distribution skapats i **myblockchain** resursgruppen.
+
+![Exempel på distribution](media/blockchain-workbench-deploy/example-deployment.png)
+
+Kostnaden för Blockchain arbetsstationen är en mängd av kostnaden för underliggande Azure-tjänster. Information om priser för Azure-tjänster kan beräknas med hjälp av den [prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/).
 
 Azure Blockchain arbetsstationen kräver flera förutsättningar före distributionen. Kraven inkluderar Azure AD-konfigurationen och tillämpningen registreringar.
 
@@ -170,7 +189,7 @@ När de nödvändiga steg har utförts, är du redo att distribuera Blockchain a
     | Lösenord | Lösenordet som används för att ansluta till virtuella datorer. |
     | SSH | Använd en offentlig RSA-nyckel i den format för en rad som början med **ssh-rsa** eller använda PEM-format med flera rader. Du kan skapa SSH-nycklar med hjälp av `ssh-keygen` på Linux och OS X eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns [hur du använder SSH-nycklar med Windows på Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Lösenord för databas / Bekräfta lösenord | Ange lösenordet som ska användas för åtkomst till databasen som skapats som en del av distributionen. |
-    | Region för distribution | Ange var du vill distribuera Blockchain arbetsstationen resurser. För bästa initieras ska matcha den **plats** inställningen. |
+    | Region för distribution | Ange var du vill distribuera Blockchain arbetsstationen resurser. För bästa tillgänglighet ska matcha den **plats** inställningen. |
     | Prenumeration | Ange Azure-prenumeration som du vill använda för din distribution. |
     | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange en unik resursgruppens namn. |
     | Plats | Ange den region som du vill distribuera ramen. |
@@ -237,6 +256,8 @@ När distributionen av Blockchain arbetsstationen är klar innehåller en ny res
 
     ![App service essentials](media/blockchain-workbench-deploy/app-service.png)
 
+Om du vill associera ett anpassat domännamn med Blockchain arbetsstationen finns [konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+
 ## <a name="configuring-the-reply-url"></a>Konfigurera Reply-URL
 
 När Azure Blockchain arbetsstationen har distribuerats, nästa steg är att kontrollera att klientprogrammet Azure Active Directory (AD Azure) har registrerats på rätt **Reply URL** i distribuerade Blockchain arbetsstationen Webb-URL.
@@ -246,11 +267,20 @@ När Azure Blockchain arbetsstationen har distribuerats, nästa steg är att kon
 3. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **Appregistreringar**.
 4. Välj Azure AD-client-program som du har registrerat i avsnittet förutsättningar.
 5. Välj **Inställningar > svara URL: er**.
-6. Ange huvudsakliga Webbadressen för Azure Blockchain arbetsstationen distributionen som du hämtade i den **hämta Webbadress för Azure Blockchain arbetsstationen** avsnitt. Svars-URL med prefixet `https://`.  Till exempel, `https://myblockchain2-7v75.azurewebsites.net`
+6. Ange huvudsakliga Webbadressen för Azure Blockchain arbetsstationen distributionen som du hämtade i den **hämta Webbadress för Azure Blockchain arbetsstationen** avsnitt. Svars-URL med prefixet `https://`. Till exempel, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Svars-URL:er](media/blockchain-workbench-deploy/configure-reply-url.png)
 
 7. Välj **spara** att uppdatera klientregistrering.
+
+## <a name="remove-a-deployment"></a>Ta bort en distribution
+
+När en distribution inte längre behövs, kan du ta bort en distribution genom att ta bort resursgruppen Blockchain arbetsstationen.
+
+1. I Azure-portalen går du till **resursgruppen** i det vänstra navigeringsfönstret och välj den resursgrupp som du vill ta bort. 
+2. Välj **Ta bort resursgrupp**. Bekräfta borttagningen genom att ange resursgruppens namn och välj **ta bort**.
+
+    ![Ta bort resursgrupp](media/blockchain-workbench-deploy/delete-resource-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

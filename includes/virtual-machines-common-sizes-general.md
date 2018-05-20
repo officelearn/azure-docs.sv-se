@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -29,7 +29,7 @@ Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minn
 
 ## <a name="b-series"></a>B-serien
 
-B-serien burstable VMs lämpar sig för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och test miljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med ett pris samvetsfrihet baslinje-prestanda som tillåter VM-instans att bygga upp krediter när den virtuella datorn mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, kan den virtuella datorn burst ovanför baslinjen för den virtuella datorn med upp till 100% CPU när programmet kräver högre CPU-prestanda.
+B-serien burstable VMs lämpar sig för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och test miljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med pris medvetna baslinje-prestanda, som tillåter VM-instans att bygga upp krediter när den virtuella datorn mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, kan den virtuella datorn burst ovanför baslinjen för den virtuella datorn med upp till 100% CPU när programmet kräver högre CPU-prestanda.
 
 
 | Storlek             | Virtuell processor  | Minne: GiB | Lokal SSD: GiB | Grundläggande Perf av en kärna | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max lokal disk perf: IOPS / Mbit/s | Max ej cachelagrade disk perf: IOPS / Mbit/s | Maximalt antal nätverkskort |          

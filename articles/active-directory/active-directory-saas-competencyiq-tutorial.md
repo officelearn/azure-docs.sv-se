@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med CompetencyIQ | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CompetencyIQ."
+title: 'Självstudier: Azure Active Directory-integrering med CompetencyIQ | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CompetencyIQ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: dde08788744aa13e1f43974431393993ca1bc52a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a02241908eefe6a5f0dc5e686daf0f273142cc8d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Självstudier: Azure Active Directory-integrering med CompetencyIQ
 
@@ -29,9 +29,9 @@ Integrera CompetencyIQ med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på CompetencyIQ (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med CompetencyIQ, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_url1.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<customer>.competencyiq.com/`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<customer>.competencyiq.com/`
     
-    b. I den **identifierare** textruta anger du URL:`https://www.competencyiq.com/`
+    b. I den **identifierare** textruta anger du URL: `https://www.competencyiq.com/`
 
     > [!NOTE] 
     > Inloggnings-URL-värdet är inte riktigt så att uppdatera det med faktiska inloggnings-URL. Kontakta [CompetencyIQ klienten supportteamet](https://www.competencyiq.com/) du behöver. 
@@ -210,7 +210,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

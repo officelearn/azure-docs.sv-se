@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ån | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ån."
+title: 'Självstudier: Azure Active Directory-integrering med ån | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ån.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 34ac0f6f98ba84584d468b5f199d8d6a713ede8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2710c7fa0d035cee8a16d10edf3d603443ad520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Självstudier: Azure Active Directory-integrering med ån
 
@@ -30,9 +30,9 @@ Integrera ån med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på ån (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ån behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och versal domän med enkel inloggning information](./media/active-directory-saas-versal-tutorial/tutorial_versal_url.png)
 
-    a. I den **identifierare** textruta Skriv värdet:`VERSAL`
+    a. I den **identifierare** textruta Skriv värdet: `VERSAL`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://versal.com/sso/saml/orgs/<organization_id>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://versal.com/sso/saml/orgs/<organization_id>`
 
     > [!NOTE] 
     > Svars-URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska Reply-URL. Kontakta [ån supportteamet](https://support.versal.com/hc/) att hämta det här värdet.
@@ -209,7 +209,7 @@ Du behöver skapa en kurs, dela den med din organisation och publicera för att 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

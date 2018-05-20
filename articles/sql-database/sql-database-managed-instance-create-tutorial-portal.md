@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Skapa en hanterad Azure SQL Database-instans i Azure-portalen
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 > [!IMPORTANT]
 > En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
  
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
@@ -107,7 +107,7 @@ Följande steg visar hur du skapar en väg för nästa hopp till Internet 0.0.0.
    |**Prenumeration**|Din prenumeration|Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions).|
    |**Resursgrupp**|Välj den resursgrupp som du skapade i de tidigare stegen|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Plats**|Välj den resursgrupp som du angav i de tidigare stegen| För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
-   |**Inaktivera BCP-vägspridning**|Disabled||
+   |**Inaktivera BCP-vägspridning**|Enabled||
    ||||
 
    ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -216,7 +216,7 @@ Följande steg visar hur du skapar ett andra undernät i det virtuella nätverke
    |**Namn**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adressintervall (CIDR-block)**|Giltiga adressintervall inom det virtuella nätverket (använd standardvärdet)||
    |**Nätverkssäkerhetsgrupp**|Ingen||
-   |**Routningstabell**|Inget||
+   |**Routningstabell**|Ingen||
    |**Tjänstens slutpunkter**|Ingen||
 
    ![vm subnet details](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)

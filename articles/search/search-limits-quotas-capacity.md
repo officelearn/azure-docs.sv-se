@@ -9,11 +9,11 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **lediga**, **grundläggande**, eller **Standard** prisnivåer.
@@ -44,10 +44,13 @@ Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och a
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |
 | Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximal bedömningsprofil profiler per index |100 |100 |100 |100 |100 |100 |
+| Maximal [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximal [bedömningen profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
 | Maximal funktioner per profil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> grundläggande tjänster som skapas efter sen 2017 har ökat högst 15 index, datakällor och indexerare. Tjänster som skapats tidigare ha 5. Grundnivån är endast SKU: N med en nedre gräns på 100 fält per index.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Dokumentet gränser 
 
@@ -93,7 +96,7 @@ Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, d
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
-| Maximal kunskaper |3 |5 eller 15 |50 |200 |200 |Gäller inte |
+| Maximal kunskaper <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |
 | Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Gäller inte |
 | Maximal körtid | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
 | BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |Gäller inte  |
@@ -104,6 +107,8 @@ Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, d
 <sup>2</sup> grundläggande tjänster som skapas efter sen 2017 har ökat högst 15 index, datakällor och indexerare. Tjänster som skapats tidigare ha 5.
 
 <sup>3</sup> S3 HD-tjänster inte har stöd för indexering.
+
+<sup>4</sup> maximalt 30 kunskaper per kunskaper.
 
 ## <a name="queries-per-second-qps"></a>Frågor per sekund (QPS)
 

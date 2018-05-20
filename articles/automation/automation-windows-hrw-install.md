@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/25/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e63e4afb5c60f193d46e30ab884d72912a6a5054
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30eda7683a1e8c27eb117b92744bf90eae3fd5d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Så här distribuerar du en Windows-Hybrid Runbook Worker
 
@@ -130,6 +130,24 @@ Använd den **-Verbose** växel med **Add-HybridRunbookWorker** få detaljerad i
 Runbooks kan använda någon av de aktiviteter och cmdlets som definierats i moduler som installerats i din Azure Automation-miljö. Dessa moduler distribueras automatiskt inte till lokala datorer, så du måste installera dem manuellt. Undantaget är Azure-modulen som installeras som standard ger tillgång till cmdlets för alla Azure-tjänster och aktiviteter för Azure Automation.
 
 Eftersom Huvudsyftet med Hybrid Runbook Worker-funktionen är att hantera lokala resurser, behöver du troligen installera moduler som stöder dessa resurser. Du kan referera till [installerar moduler](http://msdn.microsoft.com/library/dd878350.aspx) information om hur du installerar Windows PowerShell-moduler. Moduler som är installerade måste vara på en plats som refereras av PSModulePath miljövariabeln så att de importeras automatiskt av worker-hybriden. Mer information finns i [ändra installationssökvägen PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+
+## <a name="troubleshooting"></a>Felsökning
+
+Hybrid Runbook Worker är beroende av Microsoft Monitoring Agent kan kommunicera med ditt Automation-konto för att registrera worker, ta emot runbook-jobb och rapportera status. Om registreringen av worker misslyckas, är här några möjliga orsaker till felet:
+
+### <a name="the-microsoft-monitoring-agent-is-not-running"></a>Microsoft Monitoring Agent körs inte
+
+Om Microsoft Monitoring Agent Windows-tjänsten inte körs, förhindrar detta Hybrid Runbook Worker från att kommunicera med Azure Automation. Kontrollera att agenten körs genom att ange följande kommando i PowerShell: `Get-Service healthservice`. Om tjänsten stoppas kan du ange följande kommando i PowerShell för att starta tjänsten: `Start-Service healthservice`.
+
+### <a name="event-4502-in-operations-manager-log"></a>Händelsen 4502 i loggen för Operations Manager
+
+I den **program och tjänster för Logs\Operations** händelseloggen händelse 4502 och EventMessage som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**med följande beskrivning: *certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com har inte utfärdats av en certifikatutfärdare som används för Microsoft-tjänster. Kontakta nätverksadministratören för att se om de kör en proxy som hindrar TLS/SSL-kommunikation. Artikeln KB3126513 innehåller ytterligare felsökningsinformation för problem med nätverksanslutningen.*
+
+Detta kan bero på att din proxy- eller brandvägg som blockerar kommunikation till Microsoft Azure. Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
+
+Loggfilerna lagras lokalt på varje worker-hybrid på C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Du kan kontrollera om det finns några varning eller felhändelser som sparas i den **program och tjänster Logs\Microsoft-SMA\Operations** och **program och tjänster för Logs\Operations** händelseloggen som visar att det finns en anslutning eller andra problem som påverkar onboarding av rollen för Azure Automation eller problem under normal drift.
+
+Ytterligare anvisningar om hur du felsöker problem med hantering av uppdateringar finns [uppdateringshantering - felsökning](automation-update-management.md#troubleshooting)
 
 ## <a name="next-steps"></a>Nästa steg
 

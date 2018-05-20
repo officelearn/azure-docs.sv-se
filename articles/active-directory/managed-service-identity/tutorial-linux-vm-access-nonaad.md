@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: bdd57e33e53bd8b3d83f8279bed5413ccd556549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Använd en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Självstudier: Använda en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric image store anslutningssträngen | Microsoft Docs"
-description: "Förstå image store-anslutningssträng"
+title: Azure Service Fabric image store anslutningssträngen | Microsoft Docs
+description: Förstå image store-anslutningssträng
 services: service-fabric
 documentationcenter: .net
 author: alexwun
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7d164fea62afac83c4fe2216c56a9980d9279f3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Förstå inställningen ImageStoreConnectionString
 
@@ -34,11 +34,11 @@ Det finns tre möjliga typer av Image Store-providers och deras motsvarande ansl
 
 2. Filsystem: ”file:[file systemsökvägen]”
 
-3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...]"
+3. Azure Storage ”: xstore:DefaultEndpointsProtocol = https; AccountName = [...]; AccountKey = [...]; Behållaren = [...] ”
 
 Providertyp som används i produktionen är Image Store-tjänsten, som är en tillståndskänslig beständiga systemtjänst som du ser i Service Fabric Explorer. 
 
-![Image Store Service][img_is]
+![Image Store-tjänsten][img_is]
 
 Värd för Image Store i en systemtjänst i själva klustret eliminerar externa beroenden för paketdatabasen och ger oss mer kontroll över ort lagringsutrymme. Framtida förbättringar runt Image Store är sannolikt att rikta Image Store-providern först, om inte exklusivt. Anslutningssträngen för Image Store Service-providern har inte någon unik information eftersom klienten är redan ansluten till målklustret. Klienten behöver bara känna protokoll som systemtjänsten som mål som ska användas.
 

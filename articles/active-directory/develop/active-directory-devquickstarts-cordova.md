@@ -1,25 +1,26 @@
 ---
-title: "Azure AD Cordova komma igång | Microsoft Docs"
-description: "Hur du skapar en Cordova-App som kan integreras med Azure AD för inloggning och anropar Azure AD-skyddade API: er med hjälp av OAuth."
+title: Azure AD Cordova komma igång | Microsoft Docs
+description: 'Hur du skapar en Cordova-App som kan integreras med Azure AD för inloggning och anropar Azure AD-skyddade API: er med hjälp av OAuth.'
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +34,7 @@ Ett plugin-programmet Cordova radbryts Azure AD plattformsspecifika SDK: er på 
 I den här självstudiekursen kommer använder vi i Apache Cordova plugin-programmet för Active Directory Authentication Library (ADAL) för att förbättra en enkel app genom att lägga till följande funktioner:
 
 * Autentisera en användare och få en token med bara några få rader med kod.
-* Använd den token för att anropa Graph API för att fråga katalogen och visa resultatet.  
+* Använd den token för att anropa Graph API för att fråga katalogen och visa resultatet. 
 * Använd ADAL token-cache för att minimera autentisering varje gång användaren.
 
 Om du vill göra dessa förbättringar, måste du:
@@ -47,7 +48,7 @@ Om du vill göra dessa förbättringar, måste du:
 För att slutföra den här kursen behöver du:
 
 * En Azure AD-klient där du har ett konto med app development rättigheter.
-* En utvecklingsmiljö som är konfigurerad för att använda Apache Cordova.  
+* En utvecklingsmiljö som är konfigurerad för att använda Apache Cordova. 
 
 Om du redan har gjort både ställa in, fortsätta direkt till steg 1.
 
@@ -98,8 +99,8 @@ När du har slutfört registreringen tilldelar ett unikt ID i Azure AD till din 
 
 Att köra `DirSearchClient Sample`, tilldela behörigheten nyligen skapade appen till frågor till Azure AD Graph-API:
 
-1. Från den **inställningar** väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**.  
-2. Azure Active Directory-program, Välj **Microsoft Graph** som API och Lägg till den **åtkomst till katalogen som den inloggade användaren** behörighet under **delegerade behörigheter**.  Detta gör att programmet kan fråga Graph API för användare.
+1. Från den **inställningar** väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**. 
+2. Azure Active Directory-program, Välj **Microsoft Graph** som API och Lägg till den **åtkomst till katalogen som den inloggade användaren** behörighet under **delegerade behörigheter**. Detta gör att programmet kan fråga Graph API för användare.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Steg 2: Klona lagringsplatsen exempel app
 Skriv följande kommando från din gränssnitt eller en kommandorad:

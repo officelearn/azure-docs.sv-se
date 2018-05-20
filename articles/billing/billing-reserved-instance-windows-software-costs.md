@@ -1,6 +1,6 @@
 ---
-title: Azure reservera VM-instanser Windows programvarukostnader | Microsoft Docs
-description: Lär dig vilka Windows programvara mätare ingår inte i den reserverade virtuella datorinstans kostnader.
+title: Azure reservera instanser Windows programvarukostnader - Azure Billing | Microsoft Docs
+description: Lär dig vilka mätare för Windows-program inte ingår i Azure reserverade VM-instans kostnader.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Windows programvarukostnader ingår inte i reserverade instanser
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Windows programvarukostnader ingår inte i Azure reserverade instanser
 
 Om du inte har en Azure Hybrid Använd fördel på reserverade virtuella datorer, så debiteras du för Windows software mätare som listas i följande avsnitt.
 
@@ -52,11 +52,18 @@ Om du inte har en Azure Hybrid Använd fördel på reserverade virtuella datorer
 Du kan hämta kostnaden för var och en av dessa mätare via Azure RateCard API. Mer information om hur du hämtar priser för azure-mätare finns [Hämta pris- och metadata för resurser som används i en Azure-prenumeration](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+Mer information om Azure reserverade instanser finns i följande artiklar:
 
-- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera reserverade virtuella Datorinstanser](billing-manage-reserved-vm-instance.md)
-- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
-- [Förstå hur reserverade virtuella datorinstans rabatt används](billing-understand-vm-reservation-charges.md)
+- [Spara pengar på virtuella datorer med Azure reserverade instanser](billing-save-compute-costs-reservations.md)
+- [Förskottsbetala virtuella datorer med reserverade instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera reserverade instanser](billing-manage-reserved-vm-instance.md)
+- [Förstå hur de reserverade rabatterna används](billing-understand-vm-reservation-charges.md)
 - [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+
+Om du fortfarande har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+
+
+

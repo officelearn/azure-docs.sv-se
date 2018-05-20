@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ClearCompany | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ClearCompany."
+title: 'Självstudier: Azure Active Directory-integrering med ClearCompany | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ClearCompany.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: f17256f4302a9fd94e3f4497ed27d5e4929fc276
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab2628c1caa0350e95e3c11461c3d1bad0659470
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Självstudier: Azure Active Directory-integrering med ClearCompany
 
@@ -30,9 +30,9 @@ Integrera ClearCompany med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på ClearCompany (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med ClearCompany, behöver du följande:
 
@@ -108,13 +108,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och ClearCompany domän med enkel inloggning information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url1.png)
 
-    I den **identifierare** textruta anger du URL:`https://api.clearcompany.com`
+    I den **identifierare** textruta anger du URL: `https://api.clearcompany.com`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och ClearCompany domän med enkel inloggning information](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.clearcompany.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
     > Inloggning URL-värdet är inte en verkliga värde. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [ClearCompany klienten supportteamet](http://www.clearcompany.com/support) att hämta det här värdet. 
@@ -212,7 +212,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

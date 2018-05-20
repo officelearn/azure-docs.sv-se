@@ -1,20 +1,20 @@
 ---
 title: Automatisk uppdatering av Mobilitetstjänsten i Azure till Azure-katastrofåterställning | Microsoft Docs
-description: En översikt över automatisk uppdatering av Mobilitetstjänsten som används för replikering av virtuella Azure-datorer med hjälp av Azure Site Recovery.
+description: En översikt över automatisk uppdatering av Mobilitetstjänsten, vid replikering av virtuella Azure-datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten tillägg i Azure till Azure-replikering
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten i Azure till Azure-replikering
 
 Azure Site Recovery har en månatlig versionen takt där förbättringar av befintliga funktioner eller nya läggs och kända problem som eventuellt åtgärdas. Det betyder att för att fortsätta vara aktuella med tjänsten, måste du planera för distribution av dessa korrigeringar, varje månad. Användare kan i stället välja att tillåta Site Recovery för att hantera uppdateringar av komponenter för att undvika över huvud som är associerade med uppgraderingen. Detaljerad i den [arkitektur referens](azure-to-azure-architecture.md) för katastrofåterställning i Azure till Azure, Mobilitetstjänsten installeras på alla virtuella Azure-datorer för vilka replikering har aktiverats vid replikering av virtuella datorer från en Azure till en annan region. När du aktiverar automatisk uppdatering kan uppdateras webbtjänsttillägget Mobility med varje ny utgåva. Det här dokumentet beskriver följande:
 

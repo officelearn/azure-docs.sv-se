@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med IBM Kenexa undersökning Enterprise | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IBM Kenexa undersökning Enterprise."
+title: 'Självstudier: Azure Active Directory-integrering med IBM Kenexa undersökning Enterprise | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IBM Kenexa undersökning Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Självstudier: Azure Active Directory-integrering med IBM Kenexa undersökning Enterprise
 
@@ -29,9 +29,9 @@ Integrera IBM Kenexa undersökning Enterprise med Azure AD ger dig följande fö
 - Du kan aktivera användarna att logga in automatiskt till IBM Kenexa undersökning företaget med hjälp av enkel inloggning (SSO) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats: Azure-portalen.
 
-Om du vill veta mer om programvara som en tjänst (SaaS) appintegrering med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer om programvara som en tjänst (SaaS) appintegrering med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med IBM Kenexa undersökning Enterprise, behöver du följande:
 
@@ -102,9 +102,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![IBM Kenexa undersökning företagsdomänen och URL: er med enkel inloggning information](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. I den **identifierare** textruta typ en URL med följande mönster:`https://surveys.kenexa.com/<companycode>`
+    a. I den **identifierare** textruta typ en URL med följande mönster: `https://surveys.kenexa.com/<companycode>`
 
-    b. I den **Reply URL** textruta typ en URL med följande mönster:`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. I den **Reply URL** textruta typ en URL med följande mönster: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > Föregående värden är inte verkliga. Uppdatera dem med den faktiska identifieraren och reply URL. För att få de faktiska värdena kan kontakta den [IBM Kenexa undersökning Enterprise supportteamet](https://www.ibm.com/support/home/?lnk=fcw).
@@ -211,7 +211,7 @@ När du klickar på den **IBM Kenexa undersökning Enterprise** panelen i panele
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

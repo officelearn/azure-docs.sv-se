@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera Google Apps för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till Google Apps."
+title: 'Självstudier: Konfigurera Google Apps för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till Google Apps.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5c68e709b72e4032eca76dd35103df50030ccca
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Google Apps för automatisk användaretablering
 
@@ -164,7 +164,7 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användare konto-etablering för företag-appar](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](active-directory-saas-google-apps-tutorial.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med molntjänster Qumu | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qumu moln."
+title: 'Självstudier: Azure Active Directory-integrering med molntjänster Qumu | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qumu moln.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: fc4529d88d393ff18ef36415b09c0e21c97cdcf8
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1778917a383aef2fc0f791cda3235cff74b77f18
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Självstudier: Azure Active Directory-integrering med Qumu moln
 
@@ -30,7 +30,7 @@ Integrera Qumu moln med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på molnet Qumu (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -127,10 +127,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
-    | urn:oid:2.5.4.42 | user.givenname |
-    | urn:oid:2.5.4.4 | User.surname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | User.Mail |
-    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn: oid:2.5.4.42 | User.givenName |
+    | urn: oid:2.5.4.4 | User.surname |
+    | urn: oid:0.9.2342.19200300.100.1.3 | User.Mail |
+    | urn: oid:0.9.2342.19200300.100.1.1 | User.userPrincipalName |
 
     a. Klicka på ett attribut för att öppna den **Redigera attribut** fönster.
 
@@ -237,7 +237,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 43a3427b05b8e4f1fbaf0f8f5e6b60da9e837a46
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 0af8806cdc55b89a9ab87a8059808e4fcc9a1730
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med Hybrid Runbook Worker
 
@@ -143,28 +143,19 @@ Förutom standard adresser och portar som kräver Hybrid Runbook Worker, krävs 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Hybrid Runbook Worker är beroende av Microsoft Monitoring Agent kan kommunicera med ditt Automation-konto för att registrera worker, ta emot runbook-jobb och rapportera status. Om registreringen av worker misslyckas, är här några möjliga orsaker till felet:
+Hybrid Runbook Worker är beroende av en agent för att kommunicera med ditt Automation-konto för att registrera worker, ta emot runbook-jobb och rapportera status. För Windows är den här agenten Microsoft Monitoring Agent. Linux är OMS-Agent för Linux. Om registreringen av worker misslyckas, är här några möjliga orsaker till felet:
 
-1. Worker-hybriden finns bakom en proxyserver eller brandvägg.
+### <a name="the-hybrid-worker-is-behind-a-proxy-or-firewall"></a>Worker-hybriden finns bakom en proxyserver eller brandvägg
 
-   Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
+Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
 
-2. Worker-hybriden körs på datorn har mindre än minimikraven för maskinvara.
+### <a name="the-computer-the-hybrid-worker-is-running-on-has-less-than-the-minimum-hardware-requirements"></a>Worker-hybriden körs på datorn har mindre än minimikraven för maskinvara
 
-   Datorer som kör Runbook Worker-hybriden ska uppfylla minimikraven för maskinvara innan du utser den som värd för den här funktionen. Annars blir överbelastad datorn beroende på resursutnyttjande andra bakgrundsprocesser och konkurrens på grund av runbooks under körning och orsaka fördröjningar för runbook-jobb eller timeout.
+Datorer som kör Runbook Worker-hybriden ska uppfylla minimikraven för maskinvara innan du utser den som värd för den här funktionen. Annars blir överbelastad datorn beroende på resursutnyttjande andra bakgrundsprocesser och konkurrens på grund av runbooks under körning och orsaka fördröjningar för runbook-jobb eller timeout.
 
-   Bekräfta att den dator som är tilldelad att köra funktionen Hybrid Runbook Worker uppfyller minimikraven på maskinvara. Om den finns, kan du övervaka användningen av CPU och minne för att fastställa alla korrelation mellan prestanda för Hybrid Runbook Worker-processer och Windows. Om det finns minne eller CPU-belastning, kan detta tyda på att behöva uppgradera eller lägga till fler processorer eller öka minne för att adressera resurs flaskhalsar och åtgärda felet. Du kan också markera en annan beräkningsresurser som stöder de minimikrav och skala när arbetsbelastning indikera att öka krävs.
+Bekräfta att den dator som är tilldelad att köra funktionen Hybrid Runbook Worker uppfyller minimikraven på maskinvara. Om den finns, kan du övervaka användningen av CPU och minne för att fastställa alla korrelation mellan prestanda för Hybrid Runbook Worker-processer och Windows. Om det finns minne eller CPU-belastning, kan detta tyda på att behöva uppgradera eller lägga till fler processorer eller öka minne för att adressera resurs flaskhalsar och åtgärda felet. Du kan också markera en annan beräkningsresurser som stöder de minimikrav och skala när arbetsbelastning indikera att öka krävs.
 
-3. Tjänsten Microsoft Monitoring Agent körs inte.
-
-   Om Microsoft Monitoring Agent Windows-tjänsten inte körs, förhindrar detta Hybrid Runbook Worker från att kommunicera med Azure Automation. Kontrollera att agenten körs genom att ange följande kommando i PowerShell: `get-service healthservice`. Om tjänsten stoppas kan du ange följande kommando i PowerShell för att starta tjänsten: `start-service healthservice`.
-
-4. I den **program och tjänster för Logs\Operations** händelseloggen händelse 4502 och EventMessage som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**med följande beskrivning: *certifikatet som presenterades av tjänsten \<wsid\>. oms.opinsights.azure.com har inte utfärdats av en certifikatutfärdare som används för Microsoft-tjänster. Kontakta nätverksadministratören för att se om de kör en proxy som hindrar TLS/SSL-kommunikation. Artikeln KB3126513 innehåller ytterligare felsökningsinformation för problem med nätverksanslutningen.*
-    Detta kan bero på att din proxy- eller brandvägg som blockerar kommunikation till Microsoft Azure. Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
-
-Loggfilerna lagras lokalt på varje worker-hybrid på C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Du kan kontrollera om det finns några varning eller felhändelser som sparas i den **program och tjänster Logs\Microsoft-SMA\Operations** och **program och tjänster för Logs\Operations** händelseloggen som visar att det finns en anslutning eller andra problem som påverkar onboarding av rollen för Azure Automation eller problem under normal drift.
-
-Ytterligare anvisningar om hur du felsöker problem med hantering av uppdateringar finns [uppdateringshantering - felsökning](automation-update-management.md#troubleshooting)
+Mer information om felsökning av för ett specifikt operativsystem finns [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) eller [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting)
 
 ## <a name="next-steps"></a>Nästa steg
 

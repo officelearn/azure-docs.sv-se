@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -194,21 +194,6 @@ Det här problemet är specifikt för hanterade virtuella datorer där användar
 
 #### <a name="solution"></a>Lösning
 
-Utför följande steg för att ta bort samlingen återställning plats för att lösa problemet: <br>
- 
-1. Ta bort låset i resursgruppen där den virtuella datorn finns. 
-2. Installera ARMClient med Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Logga in på ARMClient: <br>
-    `.\armclient.exe login`
-4. Hämta samlingen återställning punkt som motsvarar den virtuella datorn: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Exempel: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Ta bort samlingen återställning punkt: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. Under nästa schemalagda säkerhetskopiering skapar automatiskt en återställning punkt samling och nya återställningspunkter.
-
- 
-Problemet kan återkomma om du låser resursgruppen igen. 
+Ta bort låset från resursgruppen och låta tjänsten Azure Backup Rensa punkt återställningssamling och de underliggande ögonblicksbilderna i under nästa säkerhetskopiering för att lösa problemet.
+När du har gjort, kan du igen lägga tillbaka låset på VM-resursgrupp. 
 

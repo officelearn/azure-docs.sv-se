@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 09d17f9f70ef352fe8d44a16c0f78323153a8a1a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c090a3fc36c300a108f10f02d0b663dc1e29f986
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Hur du konfigurerar enkel inloggning till ett program med Application Proxy
 
@@ -37,7 +37,7 @@ Konfigurera den speciella typ av enkel inloggning. Metoderna inloggning klassifi
 
 -   **Integrerad Windows-autentisering**: för program som använder integrerad autentisering IWA (Windows), enkel inloggning är aktiverat via Kerberos-begränsad delegering (KCD). Den här metoden ger Application Proxy kopplingar behörigheter i Active Directory för att personifiera användare, och för att skicka och ta emot token åt. Information om hur du konfigurerar KCD finns i den [enkel inloggning med KCD dokumentation](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Rubrik-baserade inloggning**: huvud-baserade inloggning aktiveras via ett partnerskap och kräver ytterligare konfiguration. Mer information om partnerskap och stegvisa instruktioner för hur du konfigurerar enkel inloggning till ett program som använder huvuden för autentisering finns i [PingAccess för Azure AD-dokumentationen](application-proxy-ping-access.md).
+-   **Rubrik-baserade inloggning**: huvud-baserade inloggning aktiveras via ett partnerskap och kräver ytterligare konfiguration. Mer information om partnerskap och stegvisa instruktioner för hur du konfigurerar enkel inloggning till ett program som använder huvuden för autentisering finns i [PingAccess för Azure AD-dokumentationen](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Dessa alternativ kan hittas genom att gå till ditt program i ”företagsprogram” och öppna den **enkel inloggning** sida på den vänstra menyn. Observera att om programmet har skapats i den gamla portalen kan du inte kanske ser alla dessa alternativ.
 

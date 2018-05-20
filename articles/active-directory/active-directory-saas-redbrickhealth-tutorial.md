@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med RedBrick Health | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RedBrick hälsa."
+title: 'Självstudier: Azure Active Directory-integrering med RedBrick Health | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RedBrick hälsa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 598592d87cf6471a431dab89d19c5e8beb48e661
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8d51d516d8716c0ac07bc851210733d352c47b6a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Självstudier: Azure Active Directory-integrering med RedBrick hälsa
 
@@ -30,7 +30,7 @@ Integrera RedBrick hälsa med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på RedBrick hälsa (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -108,17 +108,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och redBrick hälsa domän med enkel inloggning information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. I den **identifierare** textruta, ange ett URL-Adressen:`http://www.redbrickhealth.com`
+    a. I den **identifierare** textruta, ange ett URL-Adressen: `http://www.redbrickhealth.com`
     
-    b. I den **Reply URL** textruta, ange ett URL-Adressen:`https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+    b. I den **Reply URL** textruta, ange ett URL-Adressen: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
-    För produktionsmiljö:`https://sso.redbrickhealth.com/sp/ACS.saml2`
+    För produktionsmiljö: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
     c. Klicka på **visa avancerade inställningar för URL: en**.
     
     ![URL: er och redBrick hälsa domän med enkel inloggning information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-    d. I den **Relay tillstånd** textruta Skriv en URL med följande mönster:`https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    d. I den **Relay tillstånd** textruta Skriv en URL med följande mönster: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
     
     > [!NOTE] 
     > Relay tillstånd värdet är inte verkliga. Uppdatera det här värdet med det aktuella Relay-läget. Kontakta [RedBrick hälsa supportteamet](https://home.redbrickhealth.com/contact/) att hämta det här värdet.
@@ -245,7 +245,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

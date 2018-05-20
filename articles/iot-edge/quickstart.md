@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modul från Azure portal till en windowsenhet - förhandsgranskning
 
@@ -29,7 +29,7 @@ Den här kursen förutsätter att du använder en dator eller virtuell dator som
    * Windows 10 
    * Windows Server
 2. Installera [Docker för Windows] [ lnk-docker] och se till att den körs.
-3. Installera [Python 2.7 på Windows] [ lnk-python] och kontrollera att du kan använda kommandot pip.
+3. Installera [Python på Windows] [ lnk-python] och kontrollera att du kan använda kommandot pip. Denna Snabbstart har testats med Python versioner > = 2.7.9 och > = 3.5.4.  
 4. Kör följande kommando för att hämta skriptet IoT kant kontroll.
 
    ```cmd

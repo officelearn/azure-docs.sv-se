@@ -1,25 +1,27 @@
 ---
-title: "Aktivera enkel inloggning mellan appar på Android använder ADAL | Microsoft Docs"
-description: "Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program. "
+title: Aktivera enkel inloggning mellan appar på Android använder ADAL | Microsoft Docs
+description: 'Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program. '
 services: active-directory
-documentationcenter: 
-author: danieldobalian
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee27b1d4dcc091ef570e2b0aef32273af986d3f9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Aktivera enkel inloggning mellan appar på Android använder ADAL
 Tillhandahåller enkel inloggning (SSO) så att användarna behöver bara ange sina autentiseringsuppgifter en gång och dessa autentiseringsuppgifter automatiskt fungerar över förväntade program nu av kunder. Svårt att ange sina användarnamn och lösenord på en liten skärm, ofta gånger kombineras med ytterligare en faktor (2FA) som ett telefonsamtal eller en textläge kod leder till att snabbt klagomål om en användare har att göra det mer än en gång till produkten.
@@ -86,7 +88,7 @@ Här är en representation av hur Microsoft Identity SDK fungerar med delad lagr
 Service Broker-stödd inloggningar är inloggning upplevelser som inträffar i Service broker-programmet och använder lagring och säkerhet för Service broker för att dela autentiseringsuppgifter för alla program på enheten som gäller Microsoft Identity-plattformen. Detta innebär att dina program som förlitar sig på Service broker för inloggning av användare. På iOS och Android sker dessa mäklare via nedladdningsbara program att kunder installeras fristående eller pushas till enheten av ett företag som hanterar enheten för sina användare. Ett exempel på den här typen av program är Microsoft Authenticator-appen på iOS. Den här funktionen tillhandahålls av en inbyggd i operativsystemet, kända tekniskt Webbautentiseringskoordinatorn väljare av användarkonto i Windows.
 Upplevelsen varierar efter plattform och ibland kan vara störande för användarna om de inte hanteras på rätt sätt. Du är mest förmodligen är bekant med det här mönstret om du har installerat Facebook-program och använder Facebook ansluta från ett annat program. Microsoft Identity-plattformen använder samma mönster.
 
-För iOS som leder till att en ”övergång” kommer animering där programmet skickas till bakgrunden medan Microsoft Authenticator-program i förgrunden för användaren att välja vilket konto som de vill logga in med.  
+För iOS som leder till att en ”övergång” kommer animering där programmet skickas till bakgrunden medan Microsoft Authenticator-program i förgrunden för användaren att välja vilket konto som de vill logga in med. 
 
 För Android och Windows visas väljare av användarkonto ovanpå ditt program som är mindre störande för användaren.
 
@@ -160,11 +162,11 @@ För Microsoft Identity-plattformen vet att den har tillåtelse för att dela to
 
 Du kanske undrar hur du identifierar olika appar till tjänsten Microsoft Identity om den använder den samma program-ID. Svaret är med i **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din suite har en annan omdirigerings-URI. Ett exempel på hur detta ser ut understiger:
 
-App1 omdirigerings-URI:`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+App1 omdirigerings-URI: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-App2 omdirigerings-URI:`msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+App2 omdirigerings-URI: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-App3 omdirigerings-URI:`msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+App3 omdirigerings-URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 

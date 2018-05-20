@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Giraph på Windows-baserade HDInsight-kluster
 
@@ -51,7 +51,7 @@ Du kan installera Giraph på någon typ av kluster (Hadoop, Storm, HBase, Spark)
     ![Använd skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Använd skriptåtgärder att anpassa ett kluster")
 
     <table border='1'>
-        <tr><th>Egenskap</th><th>Värde</th></tr>
+        <tr><th>Egenskap </th><th>Värde</th></tr>
         <tr><td>Namn</td>
             <td>Ange ett namn för skriptåtgärden. Till exempel <b>installera Giraph</b>.</td></tr>
         <tr><td>Skript-URI</td>
@@ -169,7 +169,6 @@ Se [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-c
 * [Anpassa HDInsight-kluster med skriptåtgärder][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärder.
 * [Utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions.md).
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärder exempel om hur du installerar Spark.
-* [Installera R på HDInsight-kluster][hdinsight-install-r]: skriptåtgärder exempel om hur du installerar R.
 * [Installera Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): skriptåtgärder exempel om hur du installerar Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -177,6 +176,5 @@ Se [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-c
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

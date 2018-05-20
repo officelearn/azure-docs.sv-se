@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med OneTrust sekretess hanteringsprogramvara | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och programvaran för hantering av OneTrust sekretess."
+title: 'Självstudier: Azure Active Directory-integrering med OneTrust sekretess hanteringsprogramvara | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och programvaran för hantering av OneTrust sekretess.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 38125877a5ab17a81d6fe108e0e8c462ecd5d953
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Självstudier: Azure Active Directory-integrering med OneTrust hanteringsprogramvara för sekretess
 
@@ -30,9 +30,9 @@ Integrera OneTrust sekretess hanteringsprogramvara med Azure AD ger dig följand
 - Du kan aktivera användarna att automatiskt hämta loggat in på OneTrust sekretess hanteringsprogramvara (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med OneTrust sekretess hanteringsprogramvara behöver du följande:
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och OneTrust sekretess Hanteringsdomän programvara med enkel inloggning information](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
 
-    a. I den **identifierare** textruta, ange ett URL-Adressen:`https://www.onetrust.com/saml2`
+    a. I den **identifierare** textruta, ange ett URL-Adressen: `https://www.onetrust.com/saml2`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och OneTrust sekretess Hanteringsdomän programvara med enkel inloggning information](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.onetrust.com/auth/login`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.onetrust.com/auth/login`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och URL: en inloggning. Kontakta [OneTrust sekretess programvara Hanteringsklient supportteamet](mailto:support@onetrust.com) att hämta dessa värden. 
@@ -213,7 +213,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

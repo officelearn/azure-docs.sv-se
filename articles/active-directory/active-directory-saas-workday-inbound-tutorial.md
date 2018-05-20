@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -99,14 +99,14 @@ En allokering kontakt med en enda källsystemet API-gränssnitt och hjälper eta
 
 Det finns en 1: 1-relation mellan etablering koppling instanser och app-instanser i Azure AD:
 
-| Källsystemet | Målsystem |
+| Källsystem | Målsystem |
 | ---------- | ---------- | 
 | Azure AD-klient | SaaS-program |
 
 
 När du arbetar med Workday och Active Directory, finns det dock flera käll- och system för att ses som:
 
-| Källsystemet | Målsystem | Anteckningar |
+| Källsystem | Målsystem | Anteckningar |
 | ---------- | ---------- | ---------- |
 | Arbetsdagar | Active Directory-skog | Varje skog behandlas som ett distinkta målsystem |
 | Arbetsdagar | Azure AD-klient | Som krävs för endast molnbaserad användare |
@@ -371,7 +371,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **PreferredNameData**  |  Visningsnamn |     |   Skapa och uppdatera |
 | **Företag**         | Företag   |     |  Skapa och uppdatera |
-| **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
+| **SupervisoryOrganization**  | avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | Manager  |     |  Skapa och uppdatera |
 | **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
 | **AddressLineData**    |  StreetAddress  |     |   Skapa och uppdatera |
@@ -804,20 +804,13 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 * En tidigare med visas inte i Azure AD-klienter finns i Europeiska unionen-granskningsloggarna är löst. Dock krävs ytterligare konfigurationen för Azure AD-klienter i EU. Mer information finns i [del 3: konfigurera lokal synkronisering agent](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>BNPR kompatibilitet
+## <a name="gdpr-information"></a>BNPR information
 
 [Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR inför regler på företag, myndigheter, icke-vinst och andra organisationer som erbjuder varor och tjänster till personer i EU eller samla in och analysera data som är knutna till Europa boende. 
 
-Azure AD-etablering tjänsten är BNPR kompatibla tillsammans med resten av Microsofts tjänster och funktioner. Mer information om Microsofts BNPR artikeln finns det [användarvillkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Mer information om Microsofts BNPR artikeln finns det [användarvillkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Eftersom Workday etablering lösning för Active Directory kräver en synkronisering agent installeras på en domänansluten server, finns det dock vissa händelser som du behöver övervaka för att hålla också BNPR som är kompatibla.
- 
-Agenten skapar loggar i den **Windows-händelseloggen**, som kan innehålla personligt identifierbar information.
-
-Det finns två sätt att hålla BNPR kompatibla:
-
-1. Hämta data för en person på begäran och ta bort data från den personen från Windows-händelseloggar. 
-2. Behåll kvarhållning av Windows-händelseloggar kommer från processen AADSyncAgent under 48 timmar
+Observera att arbetsdagen etablering lösning för Active Directory kräver en synkronisering agenten installeras på en domänansluten server, och den här agenten skapar loggar i den **Windows-händelseloggen** som kan innehålla personligt identifierbar information.
 
 Information om hur du konfigurerar datalagring för Windows-händelseloggar finns i [inställningar för händelseloggar](https://technet.microsoft.com/library/cc952132.aspx). Allmän information om Windows-händelseloggen finns [i den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -827,4 +820,3 @@ Information om hur du konfigurerar datalagring för Windows-händelseloggar finn
 * [Lär dig hur du granska loggarna och få rapporter om etablering aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Lär dig hur du konfigurerar enkel inloggning mellan Workday och Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](active-directory-saas-tutorial-list.md)
-

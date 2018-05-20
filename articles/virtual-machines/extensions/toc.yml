@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: Instruktionsguider
   items:
-    - name: Anpassat skripttillägg
+    - name: Anpassat skript
       items:
         - name: Linux – version 2
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: OMS-tillägg
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: Diagnostics-tillägg
+    - name: Diagnostik
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: PowerShell DSC-tillägg
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC och Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: IaaS-program mot skadlig kod för Windows
       href: iaas-antimalware-windows.md
-    - name: Key Vault-tillägg
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: Ögonblicksbild av VM-tillägg
+    - name: VM-ögonblicksbild
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: Inaktuella tillägg
       items:
-        - name: Tillägg för logginsamlare
+        - name: Logginsamlare
           href: log-collector.md
         - name: Trend Micro Deep Security
           href: trend.md

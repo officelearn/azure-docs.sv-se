@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Bonusly | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bonusly."
+title: 'Självstudier: Azure Active Directory-integrering med Bonusly | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8133ec95bf0cbf6a9ce4ca1ad224d03ac593c940
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
@@ -30,9 +30,9 @@ Integrera Bonusly med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Bonusly (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Bonusly, behöver du följande:
 
@@ -107,7 +107,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och bonusly domän med enkel inloggning information](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_url.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://Bonus.ly/saml/<tenant-name>`
+    I den **Reply URL** textruta Skriv en URL med följande mönster: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
     > Värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Bonusly supportteamet](https://Bonusly/contact) värdet hämtas.
@@ -216,7 +216,7 @@ För att aktivera Azure AD-användare kan logga in på Bonusly etableras de i Bo
 
     b. I den **efternamn** textruta Ange efternamn för användaren som **Simon**.
  
-    c. I den **e-post** textruta ange e-postadress för användaren som  **brittasimon@contoso.com** .
+    c. I den **e-post** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
 
     d. Klicka på **Spara**.
    
@@ -263,7 +263,7 @@ När du klickar på panelen Bonusly på panelen åtkomst du ska hämta automatis
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

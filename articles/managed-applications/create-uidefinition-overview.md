@@ -1,6 +1,6 @@
 ---
-title: "Förstå hur du skapar UI definition för Azure hanterade program | Microsoft Docs"
-description: "Beskriver hur du skapar UI definitioner för hanterade program i Azure"
+title: Förstå hur du skapar UI definition för Azure hanterade program | Microsoft Docs
+description: Beskriver hur du skapar UI definitioner för hanterade program i Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portal användargränssnittet för det hanterade programmet
 Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa en hanterad App.
@@ -70,7 +70,7 @@ Om du vill ange resursnamnet hanterade program, måste du inkludera ett värde m
 }
 ```
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata, samt funktioner, till exempel villkorlig sats.
 
 ## <a name="next-steps"></a>Nästa steg

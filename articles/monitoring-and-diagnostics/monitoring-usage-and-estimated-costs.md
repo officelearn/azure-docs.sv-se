@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervakning av användning och de uppskattade kostnaderna
 
@@ -92,7 +92,7 @@ Ny prissättningsmodell förenklar logganalys och Application Insights priser al
 Uppskattningen se effekten av ändringarna.
 
 > [!WARNING]
-> Här viktigt om du använder Azure Resource Manager eller PowerShell för att distribuera [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) eller [Programinsikter](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) för en prenumeration som du har flyttat till den nya prismodell. Om du anger en nivå/prisavtal än ”pergb2018” för Log Analytics eller ”Basic” för Application Insights i stället misslyckas distributionen på grund av att ange ett ogiltigt priser nivå/planen om det lyckas **men använder den enda giltiga priser för nivån /-planen**. 
+> Här viktigt om du använder Azure Resource Manager eller PowerShell för att distribuera [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) eller [Programinsikter](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) för en prenumeration som du har flyttat till den nya prismodell. Om du anger en nivå/prisavtal än ”pergb2018” för Log Analytics eller ”Basic” för Application Insights i stället misslyckas distributionen på grund av att ange ett ogiltigt priser nivå/planen om det lyckas **men använder den enda giltiga priser för nivån /-planen** (Detta gäller inte till Log Analytics kostnadsfria nivån var ett ogiltigt meddelande för prisnivå nivån skapas).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Flytta till ny prissättningsmodell

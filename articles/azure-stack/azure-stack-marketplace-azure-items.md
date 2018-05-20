@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: be8c997df5893782c469eefe4e3c79ab698f4c78
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -40,8 +40,8 @@ När det finns uppdateringar för virtuell dator (VM)-tillägg som du använder,
 | ![VM-åtkomst för Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ VM-åtkomst för Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Hämta uppdateringen till den i box-versionen av VMAccess för Linux-tillägg. Denna uppdatering är viktigt om du planerar att använda Debian virtuella Linux-datorer.</b> | Microsoft | Linux |
 | ![Acronis säkerhetskopiering tillägget för Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis säkerhetskopiering tillägget för Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Linux |
 | ![Acronis säkerhetskopiering tillägget för Windows](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis säkerhetskopiering tillägget för Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Windows |
-| ![CloudLink SecureVM tillägg för Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM tillägg för Linux ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. | Dell EMC | Linux |
-| ![CloudLink SecureVM tillägget för Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM tillägget för Windows ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. | Dell EMC | Windows |
+| ![CloudLink SecureVM tillägg för Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM tillägg för Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. | Dell EMC | Linux |
+| ![CloudLink SecureVM tillägget för Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM tillägget för Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine-bilder och Lösningsmallar
 
@@ -214,7 +214,8 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![Barracuda Web Application Firewall (Brandvägg)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (Brandvägg)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Säkerhet och DDoS-skydd mot automatiserade & riktade attacker. | Barracuda Networks, Inc. |
 | ![Check Point vSEC säkerhetshantering](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC ger avancerade, flera lager hot förebyggande för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. <b>Ladda ned båda Check Point vSEC marketplace-objekt.</b> | Check Point |
 | ![Automatisera chef](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatisera chef](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Skapa, distribuera och hantera med Chef automatisera kontinuerlig Automation-plattformen. <b>Ladda ned båda Chef marketplace-objekt</b> | Chef programvara, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. <b>Hämta alla CloudLink SecureVM-objekt.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkel och förtroende. <b>Hämta alla CloudLink SecureVM-objekt.<b> | Dell EMC |
+| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [ F5 Big-IP virtuella Edition ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Avancerade belastningsutjämning, GSLB, Brandvägg för nätverk, DNS, Brandvägg och åtkomst till appen. | F5-nätverk |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Drivs av HDP 2,5 100% öppen källkod plattform för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Nivå 4 – 7 programmet leverans domänkontrollant (ADC) belastningsutjämnare, innehåll växeln och Traffic Manager. | KEMP Technologies, Inc. |
 | ![NooBaa Hybrid AWS S3 kompatibel - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibel storage-tjänst som omfattar offentliga och lokala resurser med kapacitet. | NooBaa |

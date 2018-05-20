@@ -1,24 +1,24 @@
 ---
-title: "Skillnader mellan molntjänster och Service Fabric | Microsoft Docs"
-description: "En översikt för att migrera program från molntjänster till Service Fabric."
+title: Skillnader mellan molntjänster och Service Fabric | Microsoft Docs
+description: En översikt för att migrera program från molntjänster till Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4bb5d92cd46533b46b388d178990f230424b09dc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan molntjänster och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations molnet programmet plattform för mycket skalbar, tillförlitlig hög distribuerade program. Det har många nya funktioner för paketering, distribution, uppgradera och hantera distribuerade molnprogram. 

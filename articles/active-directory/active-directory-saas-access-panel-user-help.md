@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Felsökning av problem med hjälp av portalen Mina appar och åtkomst till
 
@@ -57,10 +57,11 @@ Kontrollera att du uppfyller följande webbläsarkrav:
 - **Firefox 26.0 eller senare**: Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
 - **Internet Explorer 11**: i Windows 7 eller senare (begränsat stöd).
 
-Du kan också hämta tillägget för Chrome och kanten direkt från följande platser:
+Du kan också hämta tillägget direkt från följande platser:
 
-- [Chrome-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge-tillägg](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Kant](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Om du har installerat tillägg och fortfarande har problem kan du testa följande:
 
@@ -77,7 +78,7 @@ Om du har installerat tillägg och fortfarande har problem kan du testa följand
    4. Välj ikonen tillägg.
    5. Om du vill logga in på tillägget, Välj **logga in att komma igång**.
 
-* Logga in direkt till en app från webbläsaren genom att göra följande:
+* Logga in direkt i en app från webbläsaren genom att göra följande:
    1. När du installerar tillägget för inloggning till den genom att välja **logga in att komma igång**.
    2. Logga in i appen med URL för inloggning.  
        URL för inloggning är vanligtvis Webbadressen till den app som visar inloggning formuläret.

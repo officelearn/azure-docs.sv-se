@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med MobileIron | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MobileIron."
+title: 'Självstudier: Azure Active Directory-integrering med MobileIron | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MobileIron.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 214cc59b0a0d1cb55758e11f7fa87c8457531113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5d98e57a2af71345b404f02b81762d5e0bc0961b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudier: Azure Active Directory-integrering med MobileIron
 
@@ -30,9 +30,9 @@ Integrera MobileIron med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på MobileIron (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med MobileIron, behöver du följande:
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och MobileIron domän med enkel inloggning information](./media/active-directory-saas-mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.mobileiron.com/<key>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.mobileiron.com/<key>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och MobileIron domän enkel inloggning](./media/active-directory-saas-mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<host>.mobileiron.com/user/login.html`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<host>.mobileiron.com/user/login.html`
     
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Du får värdena för nyckeln och värden från den administrativa MobileIron som beskrivs senare i självstudierna-portalen.
@@ -245,7 +245,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

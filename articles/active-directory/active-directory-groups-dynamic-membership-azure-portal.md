@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
@@ -84,7 +84,7 @@ I följande tabell visas alla operatorer för stöds uttryck-regeln och deras sy
 | Contains |-innehåller |
 | Matchar inte |-notMatch |
 | Matcha |-matchar |
-| i | -i |
+| I | -i |
 | Inte i | -notIn |
 
 ## <a name="operator-precedence"></a>Operatorer
@@ -157,7 +157,7 @@ Tillåtna operatörer
 | city |Någon strängvärde eller *null* |(user.city - eq ”värde”) |
 | Land |Någon strängvärde eller *null* |(User.Country. - eq ”värde”) |
 | Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”värde”) |
-| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”värde”) |
+| avdelning |Någon strängvärde eller *null* |(user.department - eq ”värde”) |
 | Visningsnamn |Ett värde |(user.displayName - eq ”värde”) |
 | employeeId |Ett värde |(user.employeeId - eq ”värde”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”värde”) |
@@ -278,7 +278,7 @@ Du kan också skapa en regel som väljer enhetsobjekten för medlemskap i en gru
  DeviceModel | Ett värde | (device.deviceModel - eq ”iPad luften”)
  deviceOwnership | Privat, företag, okänt | (device.deviceOwnership - eq ”företagets”)
  Domännamn | Ett värde | (device.domainName - eq ”contoso.com”)
- enrollmentProfileName | Profilnamn för Apple enheten registreringen | (device.enrollmentProfileName - eq ”DEP iPhone”)
+ enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot profilnamn | (device.enrollmentProfileName - eq ”DEP iPhone”)
  isRooted | SANT FALSKT | (device.isRooted - eq SANT)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agent) | (device.managementType - eq ”MDM”)
  OrganizationalUnit | valfritt strängvärde som matchar namnet på den organisationsenhet som angetts av en lokal Active Directory | (device.organizationalUnit - eq ”USA datorer”)

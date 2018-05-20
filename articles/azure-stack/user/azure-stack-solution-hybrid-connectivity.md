@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Självstudier: Konfigurera molnet för hybridanslutning med Azure och Azure-stacken
 
@@ -93,7 +93,7 @@ Specifikationer för anslutningen:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Skapa ett virtuellt nätverk i globala Azure och Azure-stacken
 
-> [!note]  
+> [!Note]  
 > Du måste se till att det finns ingen överlappning av IP-adresser i Azure eller Azure-stacken vNet-adressutrymmen. 
 
 Skapa ett vNet i Resource Manager-distributionsmodellen med hjälp av Azure portal. Använd [exempelvärden](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) om du använder de här stegen som en vägledning. Om du inte genomför de här stegen som en vägledning, bör du ersätter värdena med dina egna. 
@@ -129,7 +129,7 @@ I [portalen](http://portal.azure.com/) går du till det virtuella Resource Manag
         - Klicka på **+ Skapa nytt** att öppna den **skapa offentlig IP-adress** sidan.
         - Ange en **namn** för din offentliga IP-adress. Lämna SKU som **grundläggande**och välj **OK** längst ned på den här sidan om du vill spara ändringarna.
 
-    > [!note]  
+    > [!Note]  
     > VPN-Gateway stöder för närvarande endast dynamiska offentliga IP-adressallokering. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
 4. Verifiera inställningarna. 

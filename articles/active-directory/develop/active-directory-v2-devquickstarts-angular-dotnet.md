@@ -1,25 +1,27 @@
 ---
-title: "Azure AD v2.0 .NET AngularJS sida-app komma igång | Microsoft Docs"
-description: "Hur du skapar en vinkel JS sida-app som loggar in användare med både personliga Microsoft-konton och arbets-eller skolkonton."
+title: Azure AD v2.0 .NET AngularJS sida-app komma igång | Microsoft Docs
+description: Hur du skapar en vinkel JS sida-app som loggar in användare med både personliga Microsoft-konton och arbets-eller skolkonton.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Lägga till inloggning till en AngularJS sida app - .NET
 I den här artikeln ska vi lägga till logga in med Microsoft påslagen konton för en AngularJS-app med Azure Active Directory v2.0-slutpunkten.  V2.0-slutpunkten kan du utföra en enkel integrering i din app och autentiserar användare med både personliga och arbete/skola konton.

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med molntjänster Lifesize | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Lifesize moln."
+title: 'Självstudier: Azure Active Directory-integrering med molntjänster Lifesize | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Lifesize moln.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae2c59d672c00b466d13aad1d304f4669a38c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 84af3a9b726d990e585e2b12b1c0a6f4609fcb7e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Självstudier: Azure Active Directory-integrering med Lifesize moln
 
@@ -29,9 +29,9 @@ Integrera Lifesize moln med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på molnet Lifesize (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Lifesize molnet, behöver du följande:
 
@@ -110,16 +110,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://login.lifesizecloud.com/ls/?acs`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://login.lifesizecloud.com/ls/?acs`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://login.lifesizecloud.com/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://login.lifesizecloud.com/<companyname>`
 
      
 4. Kontrollera **visa avancerade inställningar för URL: en**, utföra följande steg:    
    
     ![Konfigurera enkel inloggning](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
 
-    I den **Relay tillstånd** textruta Skriv en URL med följande mönster:`https://webapp.lifesizecloud.com/?ent=<identifier>`
+    I den **Relay tillstånd** textruta Skriv en URL med följande mönster: `https://webapp.lifesizecloud.com/?ent=<identifier>`
    
    > [!NOTE] 
    >Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med den faktiska inloggnings-URL, Relay tillstånd och identifierare. Kontakta [Lifesize Cloud klienten supportteamet](https://www.lifesize.com/support) få inloggnings-URL, och identifierar-värden och du kan hämta Relay tillstånd värde från SSO-konfigurationen som beskrivs senare under kursen.
@@ -156,7 +156,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Öppna din Base64-kodade certifikatet i anteckningar som hämtas från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** textruta.
   
-    d. Mappningar för textrutan förnamn ange värdet som i SAML-attributet **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    d. Ange värdet som i SAML attributmappning för textrutan förnamn **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
     
     e. I mappningen för SAML-attributet för den **efternamn** textrutan anger du värdet som **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
     
@@ -251,7 +251,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

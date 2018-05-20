@@ -1,24 +1,24 @@
 ---
 title: Ange miljövariabler i Azure Container instanser
-description: Lär dig hur du anger miljövariabler i Azure Container instanser
+description: Lär dig hur du kan ange miljövariabler i behållare som körs i Azure Container instanser
 services: container-instances
-author: david-stanford
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/13/2018
-ms.author: dastanfo
-ms.openlocfilehash: 37fde41b6dc2ea0a4d3b4b38a0e3df81a297c125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/16/2018
+ms.author: marsma
+ms.openlocfilehash: 1a025ce647cb3c071a6549a433e6505b85409fdc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-environment-variables"></a>Ange miljövariabler
 
-Ange miljövariabler i behållarinstanser kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren.
+Ange miljövariabler i behållarinstanser kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren. Miljövariabler i en behållare, ange dem när du skapar en instans i behållaren. Du kan ange miljövariabler när du startar en behållare med den [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), och [Azure-portalen](#azure-portal-example).
 
-Du är för närvarande kan ange miljövariabler från CLI och PowerShell. I båda fallen använder du flaggan kommandon för att ställa in miljövariabler. Ange miljövariabler i ACI liknar den `--env` kommandoradsargument till `docker run`. Om du använder microsoft/aci-wordcount behållare bild ändra du beteendet genom att ange följande miljövariabler:
+Om du kör till exempel den [aci/microsoft-wordcount] [ aci-wordcount] behållare bilden, du kan ändra sitt beteende genom att ange följande miljövariabler:
 
 *NumWords*: antalet ord som skickas till STDOUT.
 
@@ -26,7 +26,7 @@ Du är för närvarande kan ange miljövariabler från CLI och PowerShell. I bå
 
 ## <a name="azure-cli-example"></a>Azure CLI-exempel
 
-Om du vill se standard utdata från behållaren för att köra följande kommando:
+Se standardutdata från den [aci/microsoft-wordcount] [ aci-wordcount] behållare, kör först med den här [az behållaren skapa] [ az-container-create] kommando (Nej miljövariablerna anges):
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +36,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Genom att ange `NumWords=5` och `MinLength=8` för behållarens miljövariabler loggar för behållaren ska visa resultatet.
+Om du vill ändra utdata, starta en andra behållare med den `--environment-variables` argumentet som har lagts till, värden anges för den *NumWords* och *MinLength* variabler:
 
 ```azurecli-interactive
 az container create \
@@ -47,47 +47,17 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-När behållaren status visas som *Uppsagd* (använda [az behållaren visa] [ az-container-show] att kontrollera dess status), visa loggar för att se utdata.  För att visa resultatet av behållare med ingen miljö variabler har angetts--namnet ska vara mycontainer1 i stället för mycontainer2.
+När båda behållare status visas som *Uppsagd* (använda [az behållaren visa] [ az-container-show] att kontrollera tillstånd), visar sina loggar med [az behållaren loggar] [ az-container-logs] att se utdata.
 
 ```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-## <a name="azure-powershell-example"></a>Azure PowerShell-exempel
+Utdata från behållarna som visar hur du har ändrat behållaren andra skript beteende genom att ange miljövariabler.
 
-Om du vill se standard utdata från behållaren för att köra följande kommando:
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
-    --restart-policy OnFailure
-```
-
-Genom att ange `NumWords=5` och `MinLength=8` för behållarens miljövariabler loggar för behållaren ska visa resultatet.
-
-```azurepowershell-interactive
-$envVars = @{NumWord=5;MinLength=8}
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -EnvironmentVariable $envVars
-```
-
-När behållaren status är *Uppsagd* (använda [Get-AzureRmContainerInstanceLog] [ azure-instance-log] att kontrollera dess status), visa loggar för att se utdata. Om du vill visa behållaren ange loggar med ingen miljövariabler ContainerGroupName ska mycontainer1 i stället för mycontainer2.
-
-```azurepowershell-interactive
-Get-AzureRmContainerInstanceLog `
-    -ResourceGroupName myResourceGroup `
-    -ContainerGroupName mycontainer2
-```
-
-## <a name="example-output-without-environment-variables"></a>Exempel på utdata utan miljövariabler
-
-```bash
+```console
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -98,11 +68,8 @@ Get-AzureRmContainerInstanceLog `
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
-```
 
-## <a name="example-output-with-environment-variables"></a>Exempel på utdata med miljövariabler
-
-```bash
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -110,15 +77,98 @@ Get-AzureRmContainerInstanceLog `
  ('GUILDENSTERN', 54)]
 ```
 
+## <a name="azure-powershell-example"></a>Azure PowerShell-exempel
+
+Ange miljövariabler i PowerShell liknar CLI men använder den `-EnvironmentVariable` kommandoradsargument.
+
+Starta först, den [aci/microsoft-wordcount] [ aci-wordcount] behållare i standardkonfigurationen med den här [ny AzureRmContainerGroup] [ new-azurermcontainergroup]kommando:
+
+```azurepowershell-interactive
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer1 `
+    -Image microsoft/aci-wordcount:latest
+```
+
+Kör nu följande [ny AzureRmContainerGroup] [ new-azurermcontainergroup] kommando. Den här anger den *NumWords* och *MinLength* miljövariabler efter fylla en matrisvariabel `envVars`:
+
+```azurepowershell-interactive
+$envVars = @{NumWords=5;MinLength=8}
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer2 `
+    -Image microsoft/aci-wordcount:latest `
+    -RestartPolicy OnFailure `
+    -EnvironmentVariable $envVars
+```
+
+När båda behållare tillstånd är *Uppsagd* (använda [Get-AzureRmContainerInstanceLog] [ azure-instance-log] att kontrollera tillstånd), hämtar sina loggar med den [ Get-AzureRmContainerInstanceLog] [ azure-instance-log] kommando.
+
+```azurepowershell-interactive
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+```
+
+Utdata för varje behållare visar hur du har ändrat skriptet körs från behållaren genom att ange miljövariabler.
+
+```console
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+
+Azure:\
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+[('CLAUDIUS', 120),
+ ('POLONIUS', 113),
+ ('GERTRUDE', 82),
+ ('ROSENCRANTZ', 69),
+ ('GUILDENSTERN', 54)]
+
+Azure:\
+```
+
+## <a name="azure-portal-example"></a>Azure portal exempel
+
+Om du vill ange miljövariabler när du startar en behållare i Azure-portalen, kan du ange dem i den **Configuration** när du skapar behållaren.
+
+När du distribuerar med portalen kan du är för tillfället begränsad till tre variabler och du måste ange dem i det här formatet: `"variableName":"value"`
+
+Om du vill se ett exempel kan du starta den [aci/microsoft-wordcount] [ aci-wordcount] behållare med den *NumWords* och *MinLength* variabler.
+
+1. I **Configuration**, ange den **starta om principen** till *vid fel*
+2. Ange `"NumWords":"5"` för den första variabeln, väljer **Ja** under **lägga till ytterligare miljövariabler**, och ange `"MinLength":"8"` för den andra variabeln. Välj **OK** att kontrollera och sedan distribuera behållaren.
+
+![Portalsida visar miljö variabeln aktivera knappen och textrutor][portal-env-vars-01]
+
+Visa behållarens loggar under **inställningar** Välj **behållare**, sedan **loggar**. Liknar utdata som visas i föregående CLI och PowerShell avsnitt ser du hur den skriptfunktion har ändrats av miljövariablerna. Endast fem orden visas med en minsta längd på åtta tecken.
+
+![Portalen visar behållaren loggutdata][portal-env-vars-02]
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet hur du anpassar indata till din behållaren lär du dig hur du bevara utdata från behållare som att slutföras.
-> [!div class="nextstepaction"]
-> [Montera en filresurs som Azure med Azure Container instanser](container-instances-mounting-azure-files-volume.md)
+Uppgiftsbaserade scenarier, till exempel en stor datamängd med flera behållare för batchbearbetning kan dra nytta av anpassade miljövariabler vid körning. Mer information om hur du kör uppgiftsbaserade behållare finns [köra av uppgifter i Azure Behållarinstanser](container-instances-restart-policy.md).
+
+<!-- IMAGES -->
+[portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
+[portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
+
+<!-- LINKS - External -->
+[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS Internal -->
-[azure-cloud-shell]: ../cloud-shell/overview.md
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[portal]: https://portal.azure.com

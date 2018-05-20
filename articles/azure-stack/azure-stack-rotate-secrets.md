@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure-stacken
 
@@ -49,6 +48,24 @@ Infrastruktur tjänstcertifikat för externa tjänster som tillhandahålls av Az
 
 Operatorer måste kunna regelbundet rotera sin infrastruktur hemligheter i frekvenser som är konsekventa med organisationens säkerhetskrav för att upprätthålla integriteten hos Azure Stack-infrastruktur.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotera hemligheter med externa certifikat från en ny certifikatutfärdare
+
+Azure-stacken stöder hemliga rotation med externa certifikat från en ny certifikat (CA) i följande kontexter:
+
+|Installerade certifikat Certifikatutfärdare|Certifikatutfärdaren för att rotera till|Stöds|Azure Stack-versioner som stöds|
+|-----|-----|-----|-----|-----|
+|Från självsignerade|För företag|Stöds inte||
+|Från självsignerade|Att självsignerat|Stöds inte||
+|Från självsignerade|Allmänheten<sup>*</sup>|Stöds|1803 & senare|
+|Från Enterprise|För företag|Så länge som kunder använder samma företagets Certifikatutfärdare som används vid distribution som stöds|1803 & senare|
+|Från Enterprise|Att självsignerat|Stöds inte||
+|Från Enterprise|Allmänheten<sup>*</sup>|Stöds|1803 & senare|
+|Från allmänheten<sup>*</sup>|För företag|Stöds inte|1803 & senare|
+|Från allmänheten<sup>*</sup>|Att självsignerat|Stöds inte||
+|Från allmänheten<sup>*</sup>|Allmänheten<sup>*</sup>|Stöds|1803 & senare|
+
+<sup>*</sup> Här är offentlig certifikatutfärdare som är en del av Windows Trusted Root Program. Du hittar en fullständig lista [Microsoft Trusted Root Certificate Program: deltagare (från och med 27 juni 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Aviseringen reparation
 
 När hemligheter är inom 30 dagar upphör att gälla, skapas följande aviseringar i Administratörsportalen: 
@@ -74,7 +91,7 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotera externa och interna hemligheter
 
-Rotera ett internt hemligheter för både externt:
+Rotera både externa ett internt hemlighet:
 
 1. I den nyligen skapade **certifikat** katalog som skapades i steg inför placera den nya uppsättningen ersättning externa certifikat i katalogstrukturen enligt det format som beskrivs i avsnittet obligatoriska certifikat i den [Azure Stack PKI-certifikatkrav](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Skapa en PowerShell-Session med den [Privilegierade Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) med hjälp av den **CloudAdmin** konto och lagra sessionerna som en variabel. Du använder den här variabeln som parameter i nästa steg.

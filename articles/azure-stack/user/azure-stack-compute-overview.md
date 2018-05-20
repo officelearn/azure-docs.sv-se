@@ -1,6 +1,6 @@
 ---
 title: Introduktion till Azure-stacken virtuella datorer
-description: "Lär dig mer om Azure-stacken virtuella datorer"
+description: Lär dig mer om Azure-stacken virtuella datorer
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,41 +8,41 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till Azure-stacken virtuella datorer
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 ## <a name="overview"></a>Översikt
-Azure Stack virtuell dator (VM) är en typ av på begäran, skalbara datorresurs som erbjuder Azure stacken. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
+Azure Stack virtuell dator (VM) är en typ av en på begäran, skalbara datorresurs som erbjuder Azure stacken. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
-En Azure-stacken VM ger dig virtualiseringsflexibilitet utan att behöva hantera enskilda kluster eller datorer. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter, som att konfigurera, korrigera och underhålla programvaran som körs på den virtuella datorn.
+En Azure-stacken VM ger dig virtualiseringsflexibilitet utan att behöva hantera kluster eller enskilda datorer. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter som att konfigurera, korrigera och installera programvaran som körs på den.
 
-Azure Stack virtuella datorer kan användas på olika sätt. Exempel:
+Du kan använda Azure Stack virtuella datorer på olika sätt. Exempel:
 
 * **Utveckling och testning** – Stack virtuella datorer i Azure ger en snabb och enkelt sätt att skapa en dator med en viss konfiguration krävs för att koda och testa ett program.
 
 * **Program i molnet** – eftersom begäran för ditt program kan variera, kan det göra ekonomiskt meningsfullt att köra på en virtuell dator i Azure-stacken. Du betalar extra för virtuella datorer när du behöver dem och stänger av dem när du inte behöver dem.
 
-* **Utökad datacenter** – virtuella datorer i ett virtuellt nätverk i Azure-stacken enkelt kan vara ansluten till din organisations nätverk eller Azure.
+* **Utökad datacenter** – virtuella datorer i ett virtuellt nätverk i Azure-stacken enkelt kan vara ansluten till nätverket eller till Azure.
 
-Antalet virtuella datorer som programmet använder kan skalas upp och ned beroende på vilka behov du har.
+De virtuella datorer som programmet använder kan skala upp eller ut till vad som krävs för att uppfylla dina behov.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
 
-Det finns alltid en mängd olika designöverväganden när du skapar ett program i infrastrukturen i Azure-stacken. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
+Det finns alltid ett stort antal designöverväganden när du skapar ett program i infrastrukturen i Azure-stacken. Dessa aspekter av en virtuell dator är viktigt att tänka på innan du börjar skapa infrastrukturen:
 
-- Programresursernas namn
-- Den virtuella datorns storlek
-- Det högsta antalet virtuella datorer som kan skapas
-- Operativsystemet som körs på den virtuella datorn
-- Konfigurationen av den virtuella datorn när den startats 
-- Relaterade resurser som krävs för den virtuella datorn
+* Namnen på dina resurser.
+* Storleken på den virtuella datorn.
+* Maximalt antal virtuella datorer som kan skapas.
+* Det operativsystem som den virtuella datorn körs.
+* Konfiguration av den virtuella datorn när den har startat.
+* Relaterade resurser som krävs för den virtuella datorn.
 
 ### <a name="naming"></a>Namngivning
 
@@ -61,10 +61,9 @@ Din prenumeration har standard kvotgränser som kan påverka distributionen av m
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
 
 Virtuella datorer använder virtuella hårddiskar (VHD:ar) för att lagra sitt operativsystem (OS) och sin data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem.
-Azure-stacken ger en marknadsplats ska användas med olika versioner och typer av operativsystem. Marketplace-avbildningar identifieras av avbildningens utgivare, erbjudande, sku och version (vanligtvis anges versionen som den senaste).
+Azure-stacken ger en marknadsplats ska användas med olika versioner och typer av operativsystem. Marketplace-bilder identifieras av avbildningens utgivare, erbjudande, sku och version (vanligtvis version har angetts som senaste.)
 
 Följande tabell visar några olika sätt att du kan hitta information för en bild:
-
 
 |Metod|Beskrivning|
 |---------|---------|
@@ -112,7 +111,12 @@ Följande tabell innehåller information för att komma igång med att skapa den
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hur hanterar jag den virtuella datorn som jag skapat?
 
-Virtuella datorer kan hanteras från en webbläsarbaserad portal, kommandoradsverktyg med skriptstöd eller direkt från API:erna. Några vanliga hanteringsuppgifter som du kan utföra är att få information om en virtuell dator, logga in på en virtuell dator, hantera tillgänglighet och göra säkerhetskopior.
+Du kan hantera virtuella datorer med hjälp av en webbläsarbaserad portal, kommandoradsverktyg med skriptstöd, eller direkt via API: er. Det finns vissa vanliga hanteringsuppgifter som du kan utföra:
+
+* Hämta information om en virtuell dator
+* Ansluter till en virtuell dator
+* Hantera tillgänglighet
+* Säkerhetskopieringar
 
 ### <a name="get-information-about-a-vm"></a>Hämta information om en virtuell dator
 
@@ -130,5 +134,5 @@ Följande tabell visar några exempel på hur du kan få information om en virtu
 Du kan använda den **Anslut** knappen i Azure Stack-portalen för att ansluta till den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md)
 
+* [Överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md)

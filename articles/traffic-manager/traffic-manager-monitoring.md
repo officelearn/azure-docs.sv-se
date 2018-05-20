@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning av Traffic Manager
 
@@ -30,7 +30,7 @@ För att konfigurera endpoint övervakning, måste du ange följande inställnin
 
 * **Protokollet**. Välj HTTP, HTTPS eller TCP som protokoll att Traffic Manager använder när avsökning av slutpunkten för att kontrollera dess tillstånd. Övervakning av HTTPS kontrollerar inte om SSL-certifikatet är giltigt--den endast kontrollerar att certifikatet är installerat.
 * **Port**. Välj den port som används för begäran.
-* **Sökvägen**. Den här inställningen gäller bara för HTTP och HTTPS-protokoll, för vilka att ange sökvägen inställningen är obligatorisk. Att erbjuda den här inställningen för TCP övervakning protokollet resulterar i ett fel. Ge den relativa sökvägen och namnet på webbsidan eller filen som ansluter till övervakning för TCP-protokoll. Ett snedstreck (/) är ett giltigt för den relativa sökvägen. Det här värdet innebär att filen är i rotkatalogen (standard).
+* **Sökvägen**. Den här inställningen gäller bara för HTTP och HTTPS-protokoll, för vilka att ange sökvägen inställningen är obligatorisk. Att erbjuda den här inställningen för TCP övervakning protokollet resulterar i ett fel. Ge den relativa sökvägen och namnet på webbsidan eller filen som ansluter till övervakning för HTTP och HTTPS-protokollet. Ett snedstreck (/) är ett giltigt för den relativa sökvägen. Det här värdet innebär att filen är i rotkatalogen (standard).
 * **Avsökning av intervall**. Det här värdet anger hur ofta en slutpunkt är markerat för dess hälsa från en avsöknings Traffic Manager-agent. Du kan ange två värden här: 30 sekunder (vanlig sökning) och 10 sekunder (snabb avsökning). Om inga värden har angetts, anger profilen till standardvärdet 30 sekunder. Besök den [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager) sidan om du vill veta mer om snabb avsöknings priser.
 * **Antalet fel tolereras**. Det här värdet anger hur många fel som en avsöknings Traffic Manager-agenten kan tolerera innan du markerar den slutpunkten som ohälsosamt. Värdet kan variera mellan 0 och 9. Värdet 0 innebär ett enstaka övervakning fel kan orsaka att slutpunkten markeras som ohälsosam. Om inget värde anges används standardvärdet 3.
 * **Övervaka Timeout**. Den här egenskapen anger hur lång tid avsöknings Traffic Manager-agenten ska vänta innan som kontrollerar ett fel när en avsökning för kontroll av hälsotillstånd skickas till slutpunkten. Om sökning-intervallet är 30 sekunder, kan du ange Timeout-värde mellan 5 och 10 sekunder. Om inget värde anges används standardvärdet 10 sekunder. Om sökning-intervallet är 10 sekunder kan du ange Timeout-värde mellan 5 och 9 sekunder. Om inget Timeout-värde har angetts används standardvärdet 9 sekunder.

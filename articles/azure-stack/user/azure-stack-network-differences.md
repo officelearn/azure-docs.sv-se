@@ -1,43 +1,41 @@
 ---
-title: "Azure Stack nätverk: Skillnader och överväganden"
-description: "Läs mer om skillnader och överväganden när du arbetar med nätverk i Azure-stacken."
+title: 'Azure Stack nätverk: Skillnader och överväganden'
+description: Läs mer om skillnader och överväganden när du arbetar med nätverk i Azure-stacken.
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Överväganden för Azure-stacken nätverk
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Nätverk i Azure-stacken innehåller många av de funktioner som du hittar i Azure, med vissa skillnader bör du känna till innan du börjar distribuera.
+Azure Stack nätverk innehåller många av funktionerna som tillhandahålls av Azure-nätverk. Det finns dock några huvudsakliga skillnader som du bör känna till innan du distribuerar ett Azure Stack-nätverk.
 
-
-Den här artikeln innehåller en översikt över unika överväganden för nätverk och dess funktioner i Azure-stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
-
+Den här artikeln innehåller en översikt över unika överväganden för Azure-stacken nätverks- och dess funktioner. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
 
 ## <a name="cheat-sheet-networking-differences"></a>Cheat blad: nätverk skillnader
 
 |Tjänst | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- | --- |
 | DNS | Flera innehavare DNS | Stöds| Stöds inte än|
-| |DNS AAAA records|Stöds|Stöds inte|
+| |DNS AAAA-poster|Stöds|Stöds inte|
 | |DNS-zoner per prenumeration|100 (standard)<br>Kan ökas på begäran.|100|
 | |DNS-post anger per zon|5000 (standard)<br>Kan ökas på begäran.|5000|
-||Name servers for zone delegation|Azure ange fyra namnservrar för varje användare (klient)-zon som har skapats.|Azure-stacken innehåller två namnservrar för varje användare (klient)-zon som har skapats.|
+||Namnservrar för zondelegering|Azure tillhandahåller fyra namnservrar för varje zon som användaren (klient) som har skapats.|Azure-stacken innehåller två namnservrar för varje användare (klient)-zon som har skapats.|
 | Virtuellt nätverk|Virtuell nätverkspeering|Ansluta två virtuella nätverk i samma region via Azure stamnät nätverket.|Stöds inte än|
 | |IPv6-adresser|Du kan tilldela en IPv6-adress som en del av den [konfiguration nätverksgränssnitt](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Endast IPv4 stöds.|
 |VPN-gateways|Punkt-till-plats VPN-Gateway|Stöds|Stöds inte än|
-| |Vnet-to-Vnet Gateway|Stöds|Stöds inte än|
+| |Vnet-till-Vnet-Gateway|Stöds|Stöds inte än|
 | |VPN Gateway-SKU: er|Stöd för Basic, GW1, GW2, GW3, Standard hög prestanda, mycket hög prestanda. |Stöd för Basic, Standard och högpresterande SKU: er.|
 |Belastningsutjämnare|IPv6-offentliga IP-adresser|Stöd för att tilldela en offentlig IP-adress för IPv6 till en belastningsutjämnare.|Endast IPv4 stöds.|
 |Network Watcher|Nätverk Watcher klientnätverket övervakningsfunktionerna|Stöds|Stöds inte än|

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Wingspan eTMF | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wingspan eTMF."
+title: 'Självstudier: Azure Active Directory-integrering med Wingspan eTMF | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wingspan eTMF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 83ec7a6fda5bfb14fefa0932135592a9e1a640a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f597a6cbad27da2f9e06273a10034ea77a37caf1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integrering med Wingspan eTMF
 
@@ -29,9 +29,9 @@ Integrera Wingspan eTMF med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Wingspan eTMF (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Wingspan eTMF, behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`http://saml.<instance name>.wingspan.com/shibboleth`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<customer name>.<instance name>.mywingspan.com/`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
      
     > [!NOTE] 
     > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply URL inklusive faktiska kund- och instansnamn. Kontakta [Wingspan eTMF klienten supportteamet](http://www.wingspan.com/contact-us/) att hämta dessa värden. 
@@ -207,7 +207,7 @@ Klicka på panelen Wingspan eTMF på åtkomstpanelen, du omdirigeras till organi
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

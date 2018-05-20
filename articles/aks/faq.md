@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure-Kubernetes (AKS)
 
@@ -60,7 +60,7 @@ Nej, RBAC stöds inte för närvarande i AKS men blir snart tillgänglig.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS i Mina befintliga virtuella nätverk?
 
-Nej, detta är inte tillgänglig ännu men blir snart tillgänglig.
+Ja, det stöds via den [funktionen för avancerade](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault är integrerad med AKS?
 
@@ -68,7 +68,7 @@ Nej, det är inte men den här integreringen planeras. Under tiden kan prova att
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan jag köra Windows Server-behållare på AKS?
 
-Nej, AKS inte för närvarande tillhandahåller Windows Server-baserad agent noder, så att du kan köra Windows Server-behållare. Om du behöver köra Windows Server-behållare på Kubernetes i Azure finns i [dokumentationen för acs-motorn](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Om du vill köra Windows Server-behållare som du behöver köra Windows Server-baserade noder. Windows Server-baserade noder är för närvarande i [privat förhandsversion](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Om du behöver köra Windows Server-behållare på Kubernetes i Azure utanför förhandsgranskningen Läs den [dokumentationen för acs-motorn](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS?
 

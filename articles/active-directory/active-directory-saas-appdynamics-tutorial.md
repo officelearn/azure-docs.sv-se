@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med AppDynamics | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AppDynamics."
+title: 'Självstudier: Azure Active Directory-integrering med AppDynamics | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AppDynamics.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b818f5d24873007aff5a8713a11d368cbe799ee6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6978db61b193fad070bf937decf208906b13b82
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Självstudier: Azure Active Directory-integrering med AppDynamics
 
@@ -29,9 +29,9 @@ Integrera AppDynamics med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på AppDynamics (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med AppDynamics, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.saas.appdynamics.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.saas.appdynamics.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.saas.appdynamics.com/controller`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [AppDynamics klienten supportteamet](https://www.appdynamics.com/support/) att hämta dessa värden. 
@@ -197,7 +197,7 @@ Om du vill aktivera Azure AD-användare kan logga in på AppDynamics etableras d
 
 1. Logga in på webbplatsen AppDynamics företag som administratör.
 
-2. Gå till **användare**, och klicka sedan på  **+**  att öppna den **skapa användare** dialogrutan.
+2. Gå till **användare**, och klicka sedan på **+** att öppna den **skapa användare** dialogrutan.
    
     ![Användare](./media/active-directory-saas-appdynamics-tutorial/ic790229.png "användare")
 
@@ -251,7 +251,7 @@ När du klickar på panelen AppDynamics på åtkomstpanelen du bör få automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

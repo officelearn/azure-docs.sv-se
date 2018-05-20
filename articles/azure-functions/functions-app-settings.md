@@ -1,12 +1,12 @@
 ---
-title: "Referens för inställningar för Azure Functions"
-description: "I referensdokumentationen för Azure Functions app-inställningar eller miljövariabler."
+title: Referens för inställningar för Azure Functions
+description: I referensdokumentationen för Azure Functions app-inställningar eller miljövariabler.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för inställningar för Azure Functions
 
@@ -44,11 +44,11 @@ Valfri konto anslutningssträngen för lagring av loggar och visa dem i den **ö
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`innebär att inaktivera standard landningssida som visas för rot-URL för en funktionsapp. Standardvärdet är `false`.
+`true` innebär att inaktivera standard landningssida som visas för rot-URL för en funktionsapp. Standardvärdet är `false`.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDisableHomepage|SANT|
+|AzureWebJobsDisableHomepage|true|
 
 När den här appinställningen utelämnas eller värdet `false`, en sida som liknar följande exempel visas som svar på URL: en `<functionappname>.azurewebsites.net`.
 
@@ -56,11 +56,11 @@ När den här appinställningen utelämnas eller värdet `false`, en sida som li
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`sätt använder versionsläge vid kompilering av .NET-kod. `false` sätt använder felsökningsläge. Standardvärdet är `true`.
+`true` sätt använder versionsläge vid kompilering av .NET-kod. `false` sätt använder felsökningsläge. Standardvärdet är `true`.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|SANT|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -84,7 +84,7 @@ Anger den databas eller en provider som ska användas för lagring av nycklar. D
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsSecretStorageType|Inaktiverad|
+|AzureWebJobsSecretStorageType|inaktiverad|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -155,8 +155,8 @@ Standardvärdet är ”6.5.0”.
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Lär dig hur du uppdatera app-inställningar](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Lär dig hur du uppdatera app-inställningar](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [Globala inställningar i filen host.json](functions-host-json.md)
+[Globala inställningar i filen host.json](functions-host-json.md)
+
+[Finns andra appinställningar för Apptjänst-appar](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

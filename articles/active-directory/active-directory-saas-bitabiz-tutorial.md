@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med BitaBIZ | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BitaBIZ."
+title: 'Självstudier: Azure Active Directory-integrering med BitaBIZ | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BitaBIZ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6265f11216aaa75a2dd0dbbf572ecbd913135458
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 031d7b11aea57b8bdd8b17e474db0c81b1bdbe76
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Självstudier: Azure Active Directory-integrering med BitaBIZ
 
@@ -30,9 +30,9 @@ Integrera BitaBIZ med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på BitaBIZ (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med BitaBIZ, behöver du följande:
 
@@ -108,7 +108,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och BitaBIZ domän med enkel inloggning information](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_url.png)
 
-    I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.bitabiz.com/<instanceId>`
+    I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.bitabiz.com/<instanceId>`
 
     > [!NOTE] 
     > Värdet i URL: en ovan är bara exempel. Uppdatera värdet med det faktiska ID, som beskrivs senare i självstudierna.
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och BitaBIZ domän med enkel inloggning information](./media/active-directory-saas-bitabiz-tutorial/tutorial_bitabiz_url1.png)
 
-    I den **inloggnings-URL** textruta anger du URL:`https://www.bitabiz.com/dashboard`
+    I den **inloggnings-URL** textruta anger du URL: `https://www.bitabiz.com/dashboard`
 
 5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -274,7 +274,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

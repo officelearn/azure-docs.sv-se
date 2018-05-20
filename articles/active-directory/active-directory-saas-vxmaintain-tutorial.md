@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med vxMaintain | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vxMaintain."
+title: 'Självstudier: Azure Active Directory-integrering med vxMaintain | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c30d59a2bd903a5578caf376957a22bb270455f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integrering med vxMaintain
 
@@ -29,7 +29,7 @@ Den här integreringen ger flera viktiga fördelar. Du kan:
 - Ge användarna logga in automatiskt vxMaintain med enkel inloggning (SSO) med hjälp av sina Azure AD-konton.
 - Hantera dina konton i en central plats: Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -104,9 +104,9 @@ I det här avsnittet kan du både aktivera Azure AD enkel inloggning i Azure-por
 
     ![VxMaintain domän och URL: er](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. I den **identifierare** skriver en URL som har följande syntax:`https://<company name>.verisae.com`
+    a. I den **identifierare** skriver en URL som har följande syntax: `https://<company name>.verisae.com`
 
-    b. I den **Reply URL** skriver en URL som har följande syntax:`https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. I den **Reply URL** skriver en URL som har följande syntax: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
     > Föregående värden är inte verkliga. Uppdatera dem med den faktiska identifieraren och reply URL. För att få värdena kan kontakta den [vxMaintain supportteamet](http://www.verisae.com/contact-us).
@@ -198,7 +198,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lista över självstudier om att integrera SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

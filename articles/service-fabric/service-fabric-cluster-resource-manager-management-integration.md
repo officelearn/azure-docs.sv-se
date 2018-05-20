@@ -1,24 +1,24 @@
 ---
 title: Service Fabric klustret Resource Manager - integrering | Microsoft Docs
-description: "En översikt över integreringspunkter mellan kluster Resource Manager och Service Fabric."
+description: En översikt över integreringspunkter mellan kluster Resource Manager och Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Klustret resource manager-integrering med hantering av Service Fabric-kluster
 Resurshanteraren för Service Fabric klustret enheten inte uppgraderingar i Service Fabric, men den är inblandad. Det första sättet som klustret Resource Manager hjälper med management är genom att spåra tillståndet som klustret och tjänster i den. Klustret Resource Manager skickar ut hälsorapporter när den inte kan lägga till klustret i önskad konfiguration. Till exempel om det inte finns tillräcklig kapacitet skickar klustret Resource Manager ut hälsa varningar och fel som tyder på problem. En annan typ av integrering har att göra med så här fungerar uppgraderingar. Klustret Resource Manager ändrar sitt beteende något under uppgraderingar.  

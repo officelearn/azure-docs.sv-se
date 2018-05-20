@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Oneteam | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Oneteam."
+title: 'Självstudier: Azure Active Directory-integrering med Oneteam | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Oneteam.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ce8840723808ea7e2410cebf08735fc9e2c085a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6622eb5a8d9577627e59af128f987c5ca1981149
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Självstudier: Azure Active Directory-integrering med Oneteam
 
@@ -29,9 +29,9 @@ Integrera Oneteam med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Oneteam (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Oneteam, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://api.one-team.io/teams/<team name>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://api.one-team.io/teams/<team name>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://api.one-team.io/teams/<team name>/auth/saml/callback`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<team name>.one-team.io/`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<team name>.one-team.io/`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Oneteam klienten supportteamet](https://support.one-team.com/hc/requests/new) att hämta dessa värden. 
@@ -219,7 +219,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -95,6 +95,7 @@ Om din organisation planerar att använda sömlös SSO, följande webbadresser m
 
 - Dessutom följande inställning måste vara aktiverat i användarens intranät: ”Tillåt uppdateringar av statusfältet via skript”.
 
+Om din organisation använder hanterade (ofedererad) installation med lokala AD och inte använder AD FS för att federera med Azure AD, och sedan ansluta till Azure AD-hybridlösning i Windows 10 som förlitar sig på datorobjekt i AD ska sync'ed till Azure AD. Kontrollera att alla organisationens enheter (OU) som innehåller de datorobjekt som måste vara en hybrid anslutna Azure AD har aktiverats för synkronisering i Azure AD Connect sync-konfiguration.
 
 Om din organisation kräver åtkomst till Internet via en utgående proxy, måste du implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera på Azure AD.
 
@@ -186,6 +187,14 @@ Du bör använda följande skript för att skapa tjänstanslutningspunkten i var
 
     $deSCP.CommitChanges()
 
+I skriptet ovan
+
+- `$verifiedDomain = "contoso.com"` är en platshållare som du behöver ersätta med en av dina verifierat domännamn i Azure AD. Behöver du äger domänen innan du kan använda den.
+
+Mer information om verifierat domännamn finns [lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+Om du vill hämta en lista över företagets verifierade domäner som du kan använda den [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Steg 2: Konfigurera utfärdande av anspråk
 
@@ -329,6 +338,7 @@ I anspråket ovan
 
 
 Mer information om verifierat domännamn finns [lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+
 Om du vill hämta en lista över företagets verifierade domäner som du kan använda den [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
@@ -561,8 +571,6 @@ När du har slutfört nödvändiga steg är domänanslutna enheter redo att auto
 ### <a name="remarks"></a>Kommentarer
 
 - Du kan använda ett grupprincipobjekt för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer. **Om du inte vill att enheterna registreras automatiskt med Azure AD eller om du vill styra registreringen**, och du måste distribuera en grupprincip som inaktiverar automatisk registrering till dessa enheter först innan du börjar med konfigurationen steg. När du är klar konfigurerar, och när du är redo att testa, du måste distribuera grupprinciper för att aktivera automatisk registrering till testenheter och sedan till alla andra enheter som du väljer.
-
-- Windows 10 November 2015 Update kopplas automatiskt med Azure AD **endast** om grupprincipobjektet för distribution har angetts.
 
 - Distribution av äldre Windows-datorer, du kan distribuera en [Windows Installer-paketet](#windows-installer-packages-for-non-windows-10-computers) till datorer som du väljer.
 

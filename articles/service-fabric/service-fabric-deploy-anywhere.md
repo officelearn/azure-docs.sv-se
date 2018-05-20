@@ -1,24 +1,24 @@
 ---
-title: "Skapa Azure Service Fabric-kluster på Windows Server- och Linux | Microsoft Docs"
-description: "Service Fabric-kluster som körs på Windows Server- och Linux-, vilket betyder att du ska kunna distribuera- och värd för Service Fabric-program var som helst som du kan köra Windows Server- eller Linux."
+title: Skapa Azure Service Fabric-kluster på Windows Server- och Linux | Microsoft Docs
+description: Service Fabric-kluster som körs på Windows Server- och Linux-, vilket betyder att du ska kunna distribuera- och värd för Service Fabric-program var som helst som du kan köra Windows Server- eller Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3d427d99f6919991c29fc5947ebe0082670a1cc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Skapa Service Fabric-kluster på Windows Server- eller Linux
 Ett Azure Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partition repliker och instanser för det ökade antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrens om åtkomst till minnet. Om noderna i klustret inte används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partition repliker och instanser för det minska antalet noder för att bättre utnyttja maskinvara på varje nod.

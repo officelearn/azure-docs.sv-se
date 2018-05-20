@@ -3,23 +3,25 @@ title: Azure AD-Node.js-webbapp komma igång | Microsoft Docs
 description: Lär dig hur du skapar en Node.js Express MVC-webbapp som kan integreras med Azure AD för inloggning.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
 Här kan vi använda Passport:
@@ -37,7 +39,7 @@ Om du vill göra det, gör du följande:
 3. Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD.
 4. Skriva ut data om användaren.
 
-Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Om du vill följa med kan du [ladda ned appens stomme som en .zip-fil](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) eller klona stommen:
+Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Om du vill följa med kan du [ladda ned appens stomme som en .zip-fil](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) eller klona stommen:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ Det färdiga programmet har angetts i slutet av den här kursen samt.
 5. Följ anvisningarna för att skapa en **webbprogram** och/eller **WebAPI**.
   * Den **namn** beskriver ditt program till användare av programmet.
 
-  * Den **inloggnings-URL** är den grundläggande Webbadressen för din app.  Den stommen standardvärdet är `http://localhost:3000/auth/openid/return`.
+  * Den **inloggnings-URL** är den grundläggande Webbadressen för din app. Den stommen standardvärdet är `http://localhost:3000/auth/openid/return`.
 
 6. När du registrerar tilldelar Azure AD appen ett unikt-ID. Du behöver det här värdet i de följande avsnitten så kopiera den från appen på sidan.
 7. Från den **inställningar** -> **egenskaper** för programmet, uppdatera App-ID-URI. Den **App-ID URI** är en unik identifierare för programmet. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -78,7 +80,7 @@ Det färdiga programmet har angetts i slutet av den här kursen samt.
 Detta installerar biblioteken som `passport-azure-ad` beror på.
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Steg 3: Konfigurera din app att använda passport-nod-js-strategi
-Här kan konfigurera vi Express för att använda autentiseringsprotokollet OpenID Connect.  Passport används för att göra olika saker, bland annat problemet inloggning och utloggning förfrågningar, hantera användarens session och få information om användaren.
+Här kan konfigurera vi Express för att använda autentiseringsprotokollet OpenID Connect. Passport används för att göra olika saker, bland annat problemet inloggning och utloggning förfrågningar, hantera användarens session och få information om användaren.
 
 1. Öppna först den `config.js` filen i roten av projektet och sedan ange din Apps konfigurationsvärden i den `exports.creds` avsnitt.
 
@@ -181,7 +183,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
             };
     ```
 
-5.  Nu ska vi lägga till kod för att läsa in Express-motorn. Vi använder här standard /views /routes mönster som Express tillhandahåller.
+5. Nu ska vi lägga till kod för att läsa in Express-motorn. Vi använder här standard /views /routes mönster som Express tillhandahåller.
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Steg 4: Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD
-Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect.  `passport-azure-ad` har tagit hand om alla detaljer om utforma autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Allt som återstår är ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
+Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect. `passport-azure-ad` har tagit hand om alla detaljer om utforma autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Allt som återstår är ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
 
 1. Först ska vi lägga till den standard, logga in, konto och utloggningsmetoderna i vår `app.js` fil:
 
@@ -282,7 +284,7 @@ Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjä
 
     ```
 
-2.  Nu ska vi se dessa i detalj:
+2. Nu ska vi se dessa i detalj:
 
   * Den `/`kommandot omdirigerar till vyn index.ejs skicka användaren i begäran (om den finns).
   * Den `/account` vidarebefordra först *garanterar vi autentiseras* (vi implementera som i följande exempel), och därefter skickas användaren i begäran så att vi kan få ytterligare information om användaren.

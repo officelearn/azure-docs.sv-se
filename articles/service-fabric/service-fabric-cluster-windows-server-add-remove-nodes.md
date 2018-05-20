@@ -1,24 +1,24 @@
 ---
-title: "Lägg till eller ta bort noder i ett fristående Service Fabric-kluster | Microsoft Docs"
-description: "Lär dig mer om att lägga till eller ta bort noder till ett Azure Service Fabric-kluster på en fysisk eller virtuell dator som kör Windows Server, som kan vara lokalt eller i något moln."
+title: Lägg till eller ta bort noder i ett fristående Service Fabric-kluster | Microsoft Docs
+description: Lär dig mer om att lägga till eller ta bort noder till ett Azure Service Fabric-kluster på en fysisk eller virtuell dator som kör Windows Server, som kan vara lokalt eller i något moln.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägg till eller ta bort noder i ett fristående Service Fabric-kluster som körs på Windows Server
 När du har [skapa fristående Service Fabric-klustret på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), () affärsbehoven ändras och du behöver lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att åstadkomma detta. Observera att lägga till/ta bort noden funktionen inte stöds i kluster för lokal utveckling.
@@ -57,7 +57,7 @@ När du har [skapa fristående Service Fabric-klustret på Windows Server-datore
     Du kan övervaka förloppet för uppgraderingen på Service Fabric Explorer. Du kan också köra [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Lägg till noder i kluster som har konfigurerats med Windows-säkerhet som använder gMSA
-För kluster som har konfigurerats med gruppen hanteras Service Account(gMSA) (https://technet.microsoft.com/library/hh831782.aspx), kan en ny nod läggas till med hjälp av en uppgradering av konfiguration:
+För kluster som har konfigurerats med gruppen hanteras Service Account(gMSA) (https://technet.microsoft.com/library/hh831782.aspx), en ny nod kan läggas till med hjälp av en uppgradering för konfiguration:
 1. Kör [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) på någon av de befintliga noderna få den senaste konfigurationsfilen och lägga till information om den nya noden som du vill lägga till i avsnittet ”noder”. Kontrollera att den nya noden är en del av samma hanteras gruppkontot. Det här kontot måste vara administratör på alla datorer.
 
     ```

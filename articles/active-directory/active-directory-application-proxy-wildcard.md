@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokertecken program i Azure Active Directory application proxy 
 
@@ -112,7 +112,7 @@ Om du använder det här alternativet måste du också en annan CNAME-post för 
 
 Jokertecken programmet representeras med bara en panel i den [MyApps panelen](https://myapps.microsoft.com). Den här panelen är dold som standard. Visa panelen och låta användare mark på en viss sida:
 
-1. Följ riktlinjerna för [inställningen en webbsida i URL: en](application-proxy-office365-app-launcher.md).
+1. Följ riktlinjerna för [inställningen en webbsida i URL: en](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Ange **Visa program** till **SANT** på egenskapssidan för programmet.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-begränsad delegering

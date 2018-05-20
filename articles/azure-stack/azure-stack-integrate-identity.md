@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integration av Azure Stack datacenter - identitet
 Du kan distribuera Azure-stacken använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantörer. Innan du distribuerar Azure stacken måste du göra valet. Distribution med AD FS är kallas även distribuera Azure-stacken i frånkopplat läge.
@@ -289,6 +289,9 @@ Det finns många scenarier som kräver användning av en tjänstens huvudnamn (S
 - Resursproviders i Azure-stacken när de distribueras med AD FS
 - Olika program
 - Du behöver en icke-interaktiv inloggning
+
+> [!Important]  
+> AD FS stöder bara sessioner för interaktiv inloggning. Om du behöver en icke-interaktiv inloggning för en automatiserad scenario måste du använda ett SPN.
 
 Mer information om hur du skapar ett Tjänsthuvudnamn finns [skapa tjänstens huvudnamn för AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 

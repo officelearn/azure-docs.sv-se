@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera Network Security Group flöda loggar med Azure CLI
 
@@ -51,7 +51,7 @@ Kommandot för att aktivera flödet loggarna visas i följande exempel:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Storage-konto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar åtkomst till nätverket till endast Microsoft-tjänster eller specifika virtuella nätverk.
+Storage-konto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar åtkomst till nätverket till endast Microsoft-tjänster eller specifika virtuella nätverk. Storage-konto kan vara i samma eller en annan Azure-prenumeration än NSG: N som du aktiverar flödet loggen för. Om du använder olika prenumerationer, måste de båda vara kopplade till samma Azure Active Directory-klienten. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgruppen flöde loggar
 

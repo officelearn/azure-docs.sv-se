@@ -1,24 +1,24 @@
 ---
-title: "Hur du använder PerfInsights i Microsoft Azure | Microsoft Docs"
-description: "Veta hur du använder PerfInsights för att felsöka Windows VM prestandaproblem."
+title: Hur du använder PerfInsights i Microsoft Azure | Microsoft Docs
+description: Veta hur du använder PerfInsights för att felsöka Windows VM prestandaproblem.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights 
 
@@ -55,7 +55,7 @@ Detta är en passiv insamling av information som inte bör påverka systemet.
 >[!Note]
 >Det här scenariot ingår automatiskt i var och en av följande scenarier:
 
-### <a name="benchmarking"></a>Benchmarking
+### <a name="benchmarking"></a>Prestandamätningar
 
 Det här scenariot körs den [Diskspd](https://github.com/Microsoft/diskspd) benchmark-test (IOPS och Mbit/s) för alla enheter som är kopplade till den virtuella datorn. 
 
@@ -79,15 +79,15 @@ Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans 
 | Svarstid      | Medel s/begäran         |
 |              | Medel s/diskläsning                 |
 |              | Medel s/diskskrivning                |
-| I/o-storlek      | Avg. Begäran om byte-Data       |
-|              | Avg. Bytes/Read               |
-|              | Avg. Byte/skrivning              |
+| I/o-storlek      | Genomsn. Begäran om byte-Data       |
+|              | Genomsn. Lästa byte /               |
+|              | Genomsn. Byte/skrivning              |
 | Dataflöde   | Byte/sek                |
 |              | Lästa byte/sek                |
 |              | Skrivna byte/s               |
-| Queue Length | Avg. Läs Kölängd        |
-|              | Avg. Skriva Kölängd       |
-|              | Avg. Kölängd för data        |
+| Kölängd | Genomsn. Läs Kölängd        |
+|              | Genomsn. Skriva Kölängd       |
+|              | Genomsn. Kölängd för data        |
 
 ### <a name="custom-slow-vm-analysis"></a>Anpassade långsam VM-analys 
 
@@ -103,7 +103,7 @@ Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandar
 
 |Data som samlas in                              |  |  | Scenarier för prestanda |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Samla in grundläggande konfiguration | Benchmarking | Långsam VM analys | Azure filer analys | Anpassade långsam VM-analys |
+|                               | Samla in grundläggande konfiguration | Prestandamätningar | Långsam VM analys | Azure filer analys | Anpassade långsam VM-analys |
 | Information från händelseloggar       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Systeminformation                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volymen karta                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -149,8 +149,8 @@ Samlar in följande prestandaräknare:
 
 #### <a name="for-sql-server-instances"></a>För SQL Server-instanser
 - \SQL server: bufferthanteraren \SQLServer:Resource Pool statistik och \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, Statistics
-- \SQLServer:Access Methods
+- \SQLServer:locks \SQLServer:General statistik
+- \SQLServer:Access metoder
 
 #### <a name="for-azure-files"></a>För Azure-filer
 \SMB Klientresurser
@@ -293,7 +293,7 @@ Den **diagnostiska** fliken innehåller information om högsta CPU, disk och min
 
 Diskspd är ett lagring belastningen generator och prestanda test från Microsoft. Mer information finns i [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>Xperf
+### <a name="xperf"></a>XPerf
 
 XPerf är ett kommandoradsverktyg för att fånga in spårningar från Windows Performance Toolkit. Mer information finns i [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -80,7 +80,7 @@ En typisk HDInsight-kluster använder flera tjänster och program med öppen kä
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
 
-Apache Ambari förenklar hanteringen, konfiguration och övervakning av ett HDInsight-kluster genom att tillhandahålla en webbplats användargränssnitt och en REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** rutan på Azure HDInsight portalsidan att öppna den**' Klusterinstrumentpaneler** länk sidan.  Välj sedan den **instrumentpanelen för HDInsight-klustret** fönstret för att öppna Ambari UI.  Du ombeds ange dina inloggningsuppgifter för klustret.
+Apache Ambari förenklar hanteringen, konfiguration och övervakning av ett HDInsight-kluster genom att tillhandahålla en webbplats användargränssnitt och en REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** rutan på Azure HDInsight portalsidan att öppna den **' Klusterinstrumentpaneler** länk sidan.  Välj sedan den **instrumentpanelen för HDInsight-klustret** fönstret för att öppna Ambari UI.  Du ombeds ange dina inloggningsuppgifter för klustret.
 
 Om du vill öppna en lista över servicevyer, Välj den **Ambari Views** rutan på sidan för Azure portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se YARN Queue Manager, Hive och Tez.  Välj alla service-länk för att visa konfigurations- och tjänstinformation.  Ambari UI **stacken och Version** sidan innehåller information om kluster-tjänsternas konfiguration och versionshistorik för tjänsten. Om du vill navigera till den här delen av Ambari UI, Välj den **Admin** menyn och sedan **stackar och versioner**.  Välj den **versioner** fliken för att se versionsinformation för tjänsten.
 
@@ -105,17 +105,6 @@ Nästa steg är Granska loggfilerna jobbet körningen för olika tjänster.  Tj�
 HDInsight lagrar loggfilerna både i filsystemet för klustret och i Azure-lagring. Du kan undersöka loggfiler i klustret genom att öppna en SSH-anslutning till klustret och surfning filsystemet eller med hjälp av Hadoop YARN Status portal på fjärranslutna huvudnod-servern. Du kan undersöka loggfiler i Azure storage med hjälp av någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är AZCopy, CloudXplorer och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK, för att komma åt data i Azure blob storage.
 
 Hadoop kör jobb som arbete *uppgift försök* på olika noder i klustret. HDInsight kan initiera spekulativ uppgiften försök avsluta andra uppgiften försök som inte utför du först. Detta genererar betydande aktivitet som loggas av domänkontrollant, stderr och syslog log-filer på direkt. Dessutom kan flera försök att aktiviteten körs samtidigt, men en loggfil kan bara visa resultat linjärt.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>HDInsight-loggar som skrivs till Azure-tabeller
-
-Loggarna skrivs till Azure-tabeller ger inblick i vad som händer med ett HDInsight-kluster. När du skapar ett Linux-baserade HDInsight-kluster skapas automatiskt sex tabeller i standard Table storage:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>HDInsight-loggar som skrivs till Azure Blob storage
 

@@ -3,22 +3,24 @@ title: Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD
 description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2.0.'
 services: active-directory
 documentationcenter: .net
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d2a160d75f89768a3884beff9ea10cbc168d3dda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0 kod bevilja flöde
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
@@ -49,19 +51,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-ID som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory** i sidopanelen tjänster klickar du på **App registreringar**, och välj programmet. |
-| response_type |Krävs |Måste innehålla `code` för auktoriseringskodflödet. |
-| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade.  Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Det kan vara `query` eller `form_post`. `query` innehåller koden som en frågesträngsparameter på omdirigerings-URI, medan `form_post` kör en POST som innehåller koden med omdirigerings-URI. |
-| state |Rekommenderas |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| resurs | Rekommenderas |App-ID URI för mål-webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`.  Detta är nödvändigt i ett tillstånd eller token-förfrågningar.  För att säkerställa färre autentisering placeras prompter auktoriseringsbegäran att kontrollera medgivande tas emot från användaren. |
+| klient |obligatorisk |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| client_id |obligatorisk |Program-ID som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory** i sidopanelen tjänster klickar du på **App registreringar**, och välj programmet. |
+| response_type |obligatorisk |Måste innehålla `code` för auktoriseringskodflödet. |
+| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app. Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade. Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Det kan vara `query` eller `form_post`. `query` innehåller koden som en frågesträngsparameter på omdirigerings-URI, medan `form_post` kör en POST som innehåller koden med omdirigerings-URI. |
+| state |Rekommenderas |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
+| resurs | Rekommenderas |App-ID URI för mål-webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i ett tillstånd eller token-förfrågningar. För att säkerställa färre autentisering placeras prompter auktoriseringsbegäran att kontrollera medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För Azure AD-appar v1 scope måste konfigureras statiskt i Azure Portal under program **inställningar**, **nödvändiga behörigheter**. |
 | kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
-| login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg. Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
 | domain_hint |valfri |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
-| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`.  Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår.  Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | valfri    | Används för att säkra auktorisering kod ger via bevis nyckel för koden Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`. Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | valfri    | Används för att säkra auktorisering kod ger via bevis nyckel för koden Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Om användaren är en del av en organisation, kan en administratör i organisationen medgivande eller neka för användarens räkning eller Tillåt användaren att godkänna. Användaren har möjlighet att godkänna endast när administratören tillåter det.
@@ -134,14 +136,14 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för appregistrering.  |
-| grant_type |Krävs |Måste vara `authorization_code` för auktoriseringskodflödet. |
-| Koden |Krävs |Den `authorization_code` som du har införskaffade i föregående avsnitt |
-| redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
-| client_secret |krävs för webbprogram som inte är tillåtet för offentliga klienter |Den hemlighet som programmet som du skapade i Azure Portal för din app under **nycklar**.  Den kan inte användas i en intern app (offentliga klient), eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er (alla konfidentiell klienter) som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
-| resurs | Rekommenderas |App-ID URI för mål-webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`.  Detta är nödvändigt i ett tillstånd eller token-förfrågningar.  För att säkerställa färre autentisering placeras prompter auktoriseringsbegäran att kontrollera medgivande tas emot från användaren.  Om både auktoriseringsbegäran och tokenbegäran resursen ' parametrar måste matcha. | 
-| code_verifier | valfri | Samma code_verifier som användes för att hämta authorization_code.  Krävs om PKCE användes i tillståndet kod bevilja begäran.  Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| klient |obligatorisk |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| client_id |obligatorisk |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för appregistrering. |
+| grant_type |obligatorisk |Måste vara `authorization_code` för auktoriseringskodflödet. |
+| Koden |obligatorisk |Den `authorization_code` som du har införskaffade i föregående avsnitt |
+| redirect_uri |obligatorisk |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
+| client_secret |krävs för webbprogram som inte är tillåtet för offentliga klienter |Den hemlighet som programmet som du skapade i Azure Portal för din app under **nycklar**. Den kan inte användas i en intern app (offentliga klient), eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiell klienter) som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
+| resurs | Rekommenderas |App-ID URI för mål-webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i ett tillstånd eller token-förfrågningar. För att säkerställa färre autentisering placeras prompter auktoriseringsbegäran att kontrollera medgivande tas emot från användaren. Om både auktoriseringsbegäran och tokenbegäran resursen ' parametrar måste matcha. | 
+| code_verifier | valfri | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i tillståndet kod bevilja begäran. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**.
 
@@ -174,7 +176,7 @@ Ett lyckat svar kan se ut så här:
 | expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |
 | resurs |App-ID URI för webb-API (skyddad resurs). |
 | omfång |Personifiering behörigheterna för klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
-| refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token för att få ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla.  Uppdatera token är långlivade och kan användas för att få åtkomst till resurser för längre tid. |
+| refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token för att få ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Uppdatera token är långlivade och kan användas för att få åtkomst till resurser för längre tid. |
 | id_token |En osignerad JSON-Webbtoken (JWT). Appen kan base64Url avkoda segmenten i den här variabeln för att begäraninformation om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
 
 ### <a name="jwt-token-claims"></a>JWT-Token anspråk
@@ -256,7 +258,7 @@ I följande tabell visas HTTP-statuskoder som returnerar utfärdande-slutpunkten
 | --- | --- |
 | 400 |Standard-http-kod. Används i de flesta fall och beror ofta på en felaktig begäran. Åtgärda och skicka begäran igen. |
 | 401 |Autentiseringen misslyckades. Till exempel saknar begäran parametern client_secret. |
-| 403 |Det gick inte att auktorisera. Till exempel saknar användaren behörighet att komma åt resursen. |
+| 403 |Auktoriseringen misslyckades. Till exempel saknar användaren behörighet att komma åt resursen. |
 | 500 |Ett internt fel har uppstått i tjänsten. Gör om begäran. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för token för slutpunkt-fel
@@ -361,7 +363,7 @@ Ett felsvar som exempel kan se ut så här:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],

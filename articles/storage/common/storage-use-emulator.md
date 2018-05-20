@@ -2,23 +2,17 @@
 title: Använd Azure storage-emulatorn för utveckling och testning | Microsoft Docs
 description: Azure storage-emulatorn är en kostnadsfri lokal utvecklingsmiljö för att utveckla och testa dina Azure Storage-program. Lär dig hur begäranden autentiseras, hur du ansluter till emulatorn från ditt program och hur du använder kommandoradsverktyget.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -44,17 +38,10 @@ Det finns vissa skillnader i funktionalitet mellan storage-emulatorn och Azure s
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Starta och initiera storage-emulatorn
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Kör Azure storage-emulatorn i Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>Med hjälp av SDK
-
 Så här startar Azure storage-emulatorn:
 1. Välj den **starta** knappen eller tryck på den **Windows** nyckel.
-1. Börja skriva `Azure Storage Emulator`.
-1. Välj emulatorn från listan med visade program.
+2. Börja skriva `Azure Storage Emulator`.
+3. Välj emulatorn från listan med visade program.
 
 När storage-emulatorn startar visas Kommandotolkens fönster. Du kan använda det här konsolfönstret för att starta och stoppa storage-emulatorn, ta bort data, hämta status och initiera emulatorn. Mer information finns i [referens för Storage-emulatorn kommandoradsverktyget](#storage-emulator-command-line-tool-reference) senare i den här artikeln.
 
@@ -71,6 +58,7 @@ Storage-emulatorn installeras som standard till `C:\Program Files (x86)\Microsof
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initiera lagringsemulatorn för att använda en annan SQL-databas
+
 Du kan använda kommandoradsverktyget storage-emulatorn för att initiera storage-emulatorn att peka till en SQL-databasinstans än standard LocalDB-instans:
 
 1. Öppna konsolfönstret Storage-emulatorn som beskrivs i den [Start- och initiera storage-emulatorn](#start-and-initialize-the-storage-emulator) avsnitt.

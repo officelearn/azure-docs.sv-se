@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Hantera och konfigurera dina enheter
 
@@ -24,7 +24,7 @@ Den här kursen visar enheten funktioner för hantering av fjärråtkomst överv
 
 Contoso har beslutat nya maskiner att expandera en av sina resurser för att öka utdata. Medan du väntar nya maskiner som ska levereras som du vill köra en simulering om du vill kontrollera hur din lösning. Som en operator som du vill hantera och konfigurera enheterna i den fjärranslutna övervakningslösning.
 
-För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter remote övervakningslösning använder IoT-hubb funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-customize.md).
+För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter remote övervakningslösning använder IoT-hubb funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa fjärråtkomst övervakning solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
 
 I den här guiden får du lära dig att:
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="add-a-simulated-device"></a>Lägg till en simulerad enhet
 

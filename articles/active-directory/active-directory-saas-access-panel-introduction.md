@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/18
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 442bfa7081865b2549c07a9436296ba2385a0b66
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -60,7 +60,7 @@ Om du vill nå åtkomstpanelen, måste du autentiseras via ett arbets- eller sko
 
 Om du har en prenumeration på Azure eller Office 365 och du har använt Azure-portalen eller ett Office 365-program, kan du visa listan med program utan att logga in igen. Om du inte har autentiserats, uppmanas du att logga in med användarnamnet och lösenordet för ditt konto i Azure AD. Om din organisation har konfigurerat federation, räcker att ange användarnamnet.
 
-Du kan interagera med de program som administratören har integrerat med katalogen när du är autentiserad. Information om hur du integrerar program med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Du kan interagera med de program som administratören har integrerat med katalogen när du är autentiserad. Information om hur du integrerar program med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="web-browser-requirements"></a>Webbläsarkrav
 
@@ -86,6 +86,10 @@ Om du vill logga in på lösenordsbaserade enkel inloggning, måste du använda 
 > [!NOTE]
 > Ytterligare funktioner är endast tillgängligt för gräns, Chrome och Firefox.
 >
+Du kan hämta tillägget direkt från följande platser:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Kant](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Om du använder en URL för Mina appar än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:
 1. När du är *inte* inloggad-tillägget, högerklicka på ikonen för tillägget.
@@ -93,6 +97,12 @@ Om du använder en URL för Mina appar än `https://myapps.microsoft.com`, konfi
 3. Välj standard-URL.
 4. Välj ikonen tillägg.
 5. Välj **logga in att komma igång**.
+
+För att använda intern företagets URL: er när fjärråtkomst med hjälp av tillägget måste du göra följande:
+1. [Konfigurera Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) på din klient.
+2. [Publicera programmet](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via Application Proxy.
+3. Installera tillägget och logga in på den genom att välja logga in och komma igång.
+4. Du kan nu bläddra till URL som internt företag även remote.
 
 ## <a name="mobile-app-support"></a>Stöd för mobila appar
 
@@ -205,7 +215,7 @@ Om ett program har konfigurerats för att autentisera användare med hjälp av A
  
 - Information om hur du integrerar en SaaS-app med Azure AD finns i [lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md).
  
-- Mer information om hur du hanterar appar med Azure AD finns i [introduktion till enkel inloggning och hantera appåtkomst med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Mer information om hur du hanterar appar med Azure AD finns i [introduktion till enkel inloggning och hantera appåtkomst med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
 - Läs mer om användaretablering i [automatisera användaretablering och avetablering för SaaS-program](active-directory-saas-app-provisioning.md).
 

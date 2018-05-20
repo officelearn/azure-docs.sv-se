@@ -1,7 +1,7 @@
 ---
-title: "Integrera Data Lake Store med andra Azure-tjänster | Microsoft Docs"
-description: "Förstå hur Data Lake Store integreras med andra Azure-tjänster"
-documentationcenter: 
+title: Integrera Data Lake Store med andra Azure-tjänster | Microsoft Docs
+description: Förstå hur Data Lake Store integreras med andra Azure-tjänster
+documentationcenter: ''
 services: data-lake-store
 author: nitinme
 manager: jhubbard
@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d43459b900232612d83506438e6a70daa893eb80
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e11100118f599b4fee6362625aff05c50bb07c87
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrera Data Lake Store med andra Azure-tjänster
 Azure Data Lake Store kan användas tillsammans med andra Azure-tjänster för att aktivera ett bredare spektrum av scenarier. I följande artikel Listar de tjänster som Data Lake Store kan integreras med.
@@ -66,7 +64,7 @@ Du kan använda PolyBase för att läsa in data från Azure Data Lake Store till
 ## <a name="use-data-lake-store-with-azure-event-hubs"></a>Använd Data Lake Store med Azure Event Hubs
 Du kan använda Azure Data Lake Store att arkivera och avbilda data som tagits emot av Händelsehubbar i Azure. Mer information finns i [Använd Data Lake Store med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Kom igång med Data Lake Store med hjälp av portalen](data-lake-store-get-started-portal.md)
 * [Kom igång med Data Lake Store med hjälp av PowerShell](data-lake-store-get-started-powershell.md)  

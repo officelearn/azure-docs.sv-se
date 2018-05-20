@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med MCM | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MCM."
+title: 'Självstudier: Azure Active Directory-integrering med MCM | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 1296ceec4a52e7a5f98fe1d2bd7f519952e47d56
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7fe57d6dd57eeac202c763702a6ab88591d4aae9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudier: Azure Active Directory-integrering med MCM
 
@@ -29,9 +29,9 @@ Integrera MCM med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på MCM (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med MCM behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://myaba.co.uk/client-access/<companyname>/saml.php`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://myaba.co.uk/client-access/<companyname>/saml.php`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://myaba.co.uk/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [MCM klienten supportteamet](http://mcmtechnology.com/support/) att hämta dessa värden. 
@@ -209,7 +209,7 @@ När du klickar på panelen MCM på åtkomstpanelen du bör få automatiskt logg
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0-slutpunkten begränsningar och restriktioner 
 description: En lista över begränsningar och restriktioner för Azure AD v2.0-slutpunkten.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Bör jag använda v2.0-slutpunkten?
 När du skapar program som integreras med Azure Active Directory, måste du bestämma om v2.0-slutpunkten och verifieringsprotokollen uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande helt och på vissa sätt, är fler funktioner än version 2.0. Dock v2.0-slutpunkten [introducerar betydande fördelar](active-directory-v2-compare.md) för utvecklare.
@@ -47,7 +49,7 @@ För närvarande för varje app som du vill integrera med v2.0-slutpunkten måst
 Dessutom app registreringar som du skapar i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) har följande varningar:
 
 * Bara två apphemligheter tillåts per program-ID.
-* En appregistrering som registreras av en användare med ett personligt microsoftkonto kan visas och endast hanteras av en enda utvecklarkonto. Den kan inte delas mellan flera utvecklare.  Om du vill dela appen registreringen bland flera utvecklare kan du skapa programmet loggar in på portalen för registrering med Azure AD-kontot.
+* En appregistrering som registreras av en användare med ett personligt microsoftkonto kan visas och endast hanteras av en enda utvecklarkonto. Den kan inte delas mellan flera utvecklare. Om du vill dela appen registreringen bland flera utvecklare kan du skapa programmet loggar in på portalen för registrering med Azure AD-kontot.
 * Det finns flera begränsningar på formatet för omdirigerings-URI som är tillåtet. Mer information om omdirigerings-URI: er finns i nästa avsnitt.
 
 ## <a name="restrictions-on-redirect-uris"></a>Begränsningar för omdirigerings-URI: er
@@ -89,12 +91,12 @@ Information om hur du registrerar en app i portalen för registrering av program
 Stöd för v2.0-slutpunkten är för närvarande begränsad. Om du vill använda v2.0-slutpunkten i ett produktionsprogram finns följande alternativ:
 
 * Du kan på ett säkert sätt använda Microsoft allmänt tillgänglig serversidan mellanprogram för inloggning och token verifieringen om du skapar ett webbprogram. Dessa inkluderar OWIN öppna ID Connect mellanprogram för ASP.NET och Node.js Passport plugin-programmet. Kodexempel som använder Microsoft mellanprogram finns i vår [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnitt.
-* Om du skapar en desktop eller mobile-programmet, kan du använda en av vår förhandsgranskning bibliotek för Microsoft-autentisering (MSAL).  Dessa bibliotek finns i en förhandsgranskning för stöd för produktion, så det är säkert att använda dem i program i produktion. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i vår [autentisering bibliotek referens](active-directory-v2-libraries.md).
+* Om du skapar en desktop eller mobile-programmet, kan du använda en av vår förhandsgranskning bibliotek för Microsoft-autentisering (MSAL). Dessa bibliotek finns i en förhandsgranskning för stöd för produktion, så det är säkert att använda dem i program i produktion. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i vår [autentisering bibliotek referens](active-directory-v2-libraries.md).
 * För plattformar som inte omfattas av Microsoft bibliotek kan du integrera med v2.0-slutpunkten genom att skicka och ta emot protokollmeddelanden i din programkod direkt. Protokollen v2.0 OpenID Connect och OAuth [dokumenteras explicit](active-directory-v2-protocols.md) som hjälper dig att utföra denna integration.
 * Slutligen kan du använda bibliotek med öppen källkod öppna ID Connect och OAuth för att integrera med v2.0-slutpunkten. V2.0-protokollet måste vara kompatibel med många öppen källkod protokollet bibliotek utan större ändringar. Dessa typer av bibliotek varierar efter språk och plattformar. Den [öppna ID Connect](http://openid.net/connect/) och [OAuth 2.0](http://oauth.net/2/) webbplatser underhålla en lista över populära implementeringar. Mer information finns i [Azure Active Directory v2.0 och autentisering bibliotek](active-directory-v2-libraries.md), och en lista med öppen källkod klientbibliotek och exempel som har testats med v2.0-slutpunkten.
 
 ## <a name="restrictions-on-protocols"></a>Begränsningar för protokoll
-V2.0-slutpunkten har inte stöd för SAML eller WS-Federation; den stöder endast öppna ID Connect och OAuth 2.0.  Inte alla funktioner och möjligheter för OAuth-protokoll har införts i v2.0-slutpunkten. Dessa protokollfunktioner som finns för närvarande *inte tillgänglig* i v2.0-slutpunkten:
+V2.0-slutpunkten har inte stöd för SAML eller WS-Federation; den stöder endast öppna ID Connect och OAuth 2.0. Inte alla funktioner och möjligheter för OAuth-protokoll har införts i v2.0-slutpunkten. Dessa protokollfunktioner som finns för närvarande *inte tillgänglig* i v2.0-slutpunkten:
 
 * ID-token som utfärdas av v2.0-slutpunkten saknar ett `email` anspråk för användaren, även om du skaffar behörigheten för användaren att visa sin e-post.
 * OpenID Connect användarinformationen slutpunkten har inte implementerats på v2.0-slutpunkten. Men alla data för användarprofiler som potentiellt skulle visas i den här slutpunkten är tillgängliga från Microsoft Graph `/me` slutpunkt.

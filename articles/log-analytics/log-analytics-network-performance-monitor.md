@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -74,7 +74,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 Network Performance Monitor använder syntetiska transaktioner för att övervaka nätverksprestanda mellan käll- och agenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i Prestandaövervakaren och tjänsten Endpoint övervakning funktioner. TCP används för ExpressRoute-övervakaren. Kontrollera att brandväggen tillåter kommunikation mellan Operations Management Suite-agenter som används för att övervaka på det protokoll som du väljer. 
 
-* **TCP-protokollet**: Om du väljer TCP som protokoll för övervakning, öppna brandväggsport för agenterna som används för Prestandaövervakaren för nätverket och ExpressRoute övervakning för att kontrollera att agenterna kan ansluta till varandra. Om du vill öppna porten, kör du skriptet EnableRules.ps1 PowerShell utan några parametrar i ett PowerShell-fönster med administratörsbehörighet.
+* **TCP-protokollet**: Om du väljer TCP som protokoll för övervakning, öppna brandväggsport för agenterna som används för Prestandaövervakaren för nätverket och ExpressRoute övervakning för att kontrollera att agenterna kan ansluta till varandra. Öppna porten genom att köra den [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-skript utan några parametrar i ett PowerShell-fönster med administratörsbehörighet.
 
     Skriptet skapar registernycklar som krävs av lösningen. Det skapar också Windows-brandväggsreglerna för att tillåta agenter för att skapa TCP-anslutningar med varandra. Registernycklar som skapats av skriptet ange om du vill logga debug-loggar och sökvägen för filen loggar. Skriptet definierar också agent TCP-port som används för kommunikation. Skriptet anges automatiskt värden för nycklarna. Manuellt ändras inte de här nycklarna. Porten öppnas som standard är 8084. Du kan använda en anpassad port genom att ange parametern-portnummer i skriptet. Använd samma port på alla datorer där skriptet körs. 
 
@@ -82,7 +82,7 @@ Network Performance Monitor använder syntetiska transaktioner för att övervak
     > Skriptet konfigurerar bara Windows-brandväggen lokalt. Om du har en brandvägg för nätverk, kontrollerar du att den tillåter trafik för TCP-porten som används av Network Performance Monitor.
 
     >[!NOTE]
-    > Du behöver inte köra EnableRules.ps1 PowerShell-skript för tjänsten Endpoint för övervakning.
+    > Du behöver inte köra den [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell-skript för slutpunkt-tjänsten för övervakning.
 
     
 

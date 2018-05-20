@@ -4,8 +4,8 @@ description: Beskriver hur du kan ställa in aviseringar på fakturan Azure så 
 keywords: avisering för kredit, fakturering avisering
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Ställ in fakturerings- eller varningar för Microsoft Azure-prenumerationer
 Om du är kontoadministratören för en Azure-prenumeration kan du använda fakturering aviseringstjänsten Azure för att skapa anpassade fakturaaviseringar som hjälper dig övervaka och hantera fakturerings-aktivitet för Azure-konton.
@@ -49,7 +49,7 @@ Azure stöder en e-postadress men Kontrollera inte att e-postadressen fungerar, 
 När du har skapat aviseringar Account Center visas dem och hur många fler kan du ställa in. För varje avisering måste se du datum och tid som det har skickats, oavsett om det är en avisering om Billing Total eller kredit och den gräns som du konfigurerar. Formatet för datum och tid är 24-timmarsformat universaltid samordna (UTC) och datum är åååå-mm-dd-formatet. Klicka på plustecknet för en avisering i listan om du vill redigera den eller klicka på Papperskorgen för att ta bort den.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Fakturering aviseringar för kunder med Enterprise-avtal (EA)
-EA kunder kan få aviseringar för varje avdelning under en registrering med inställningen utgifter kvoter. Se [avdelning utgifter kvoter](https://ea.azure.com/helpdocs/departmentSpendingQuotas) i EA-portalen för att komma igång.
+EA prenumerationer stöds inte av den här tjänsten, EA kunder kan i stället få aviseringar för varje avdelning under en registrering genom att ange utgifter kvoter. Se [avdelning utgifter kvoter](https://ea.azure.com/helpdocs/departmentSpendingQuotas) i EA-portalen för att komma igång.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Lär dig mer om hantering av Azure kostnad
 - Beräkna kostnader med hjälp av den [prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/), [totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator), och när du lägger till en tjänst.

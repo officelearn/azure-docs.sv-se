@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera Azure AD enkel inloggning för program | Microsoft Docs"
-description: "Lär dig hur självbetjäning ansluta appar till Azure Active Directory med SAML och lösenordsbaserad enkel inloggning"
+title: Konfigurera Azure AD enkel inloggning för program | Microsoft Docs
+description: Lär dig hur självbetjäning ansluta appar till Azure Active Directory med SAML och lösenordsbaserad enkel inloggning
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,23 +15,23 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 5316cca9d3c944735355d7912a0f1e044c585001
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
-Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-editions.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
+Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-whatis.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
 
-Azure Active Directory-programgalleriet innehåller en lista över program som stöder en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](active-directory-appssoaccess-whatis.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
+Azure Active Directory-programgalleriet innehåller en lista över program som stöder en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](manage-apps/what-is-single-sign-on.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
 
-Kunder med [Azure Active Directory Premium](active-directory-editions.md) licens också få dessa ytterligare funktioner:
+Kunder med [Azure Active Directory Premium](active-directory-whatis.md) licens också få dessa ytterligare funktioner:
 
 * Självbetjäning integrering av alla program som stöder SAML 2.0 identitetsleverantörer (SP-initierad eller IdP-initierad)
-* Självbetjäning integrering av alla webbprogram som har en HTML-baserad inloggningssidan med [lösenordsbaserade SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Självbetjäning integrering av alla webbprogram som har en HTML-baserad inloggningssidan med [lösenordsbaserade SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([beskrivs här](active-directory-scim-provisioning.md))
-* Möjligheten att lägga till länkar till alla program i den [Office 365 app programstart](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Möjligheten att lägga till länkar till alla program i den [Office 365 app programstart](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Detta kan inkludera inte bara SaaS-program som du använder men har inte ännu har publicerat i Azure AD application Gallery utan från tredje part webbprogram som din organisation har distribuerats till servrar som du kontroll över, antingen i molnet eller lokalt.
 
@@ -110,23 +110,23 @@ Mer information om hur du lägger till och redigera anspråk för dessa scenarie
 ### <a name="testing-the-saml-application"></a>Testa SAML-program
 När SAML URL: er och certifikat har konfigurerats i Azure AD och programmet, användare eller grupper har tilldelats till programmet i Azure, och anspråk har granskat och redigera vid behov och sedan användaren är redo att logga in på programmet. 
 
-Testa bara logga in på Azure AD-åtkomstpanelen på https://myapps.microsoft.com med ett användarkonto som du har tilldelat till programmet, och klicka sedan på ikonen för programmet att startar processen för enkel inloggning. Alternativt kan bläddra du direkt till Sign-On-URL för programmet och logga in därifrån. 
+Att testa bara logga in på Azure AD-åtkomstpanelen på https://myapps.microsoft.com med ett användarkonto som du har tilldelat till programmet och klicka på ikonen för programmet att startar processen för enkel inloggning. Alternativt kan bläddra du direkt till Sign-On-URL för programmet och logga in därifrån. 
 
 Felsöka tips finns i följande [artikel om hur du felsöker SAML-baserade enkel inloggning till program](active-directory-saml-debugging.md) 
 
 ## <a name="password-single-sign-on"></a>Lösenord för enkel inloggning
-Välj det här alternativet för att konfigurera [lösenordsbaserade enkel inloggning](active-directory-appssoaccess-whatis.md) för ett webbprogram som har en HTML-inloggningssida. Lösenordsbaserade SSO, även kallat lösenord vaulting, kan du hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbara för situationer där flera användare behöva dela ett enda konto som din organisation sociala medier app konton. 
+Välj det här alternativet för att konfigurera [lösenordsbaserade enkel inloggning](manage-apps/what-is-single-sign-on.md) för ett webbprogram som har en HTML-inloggningssida. Lösenordsbaserade SSO, även kallat lösenord vaulting, kan du hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbara för situationer där flera användare behöva dela ett enda konto som din organisation sociala medier app konton. 
 
 När du har valt **nästa**, du uppmanas att ange Webbadressen till programmets webbaserade inloggningssidan. Observera att detta måste vara den sida som innehåller indatafält användarnamn och lösenord. När du angett, startar Azure AD en process för att analysera inloggningssidan för att ange användarnamn och ett lösenord som indata. Om processen inte lyckas, sedan hjälper den dig att ett alternativ att installera ett webbläsartillägg (kräver Internet Explorer, Chrome eller Firefox) som gör att du kan avbilda fälten manuellt.
 
-När inloggningssidan avbildas, användare och grupper kan tilldelas och autentiseringsuppgifter policys kan ställas in som vanlig [lösenord SSO appar](active-directory-appssoaccess-whatis.md).
+När inloggningssidan avbildas, användare och grupper kan tilldelas och autentiseringsuppgifter policys kan ställas in som vanlig [lösenord SSO appar](manage-apps/what-is-single-sign-on.md).
 
 Obs: Du kan ladda upp en ikonlogotyp för program med den **överföra logotypen** knappen på den **konfigurera** för programmet. 
 
 ## <a name="existing-single-sign-on"></a>Befintliga enkel inloggning
 Välj det här alternativet om du vill lägga till en länk till ett program till din organisations Azure AD-åtkomstpanelen eller Office 365-portalen. Du kan använda detta att lägga till länkar till anpassade webbprogram som använder Azure Active Directory Federation Services (eller andra federationstjänsten) i stället för Azure AD för autentisering. Eller, du kan lägga till djuplänkar till specifika SharePoint-sidor eller andra webbsidor som bara ska visas på användarnas åtkomst paneler. 
 
-När du har valt **nästa**, uppmanas du att ange URL för det program du länkar till. När slutfört, användare och grupper kan tilldelas till programmet, vilket gör att programmet ska visas i den [Office 365 app programstart](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) för dessa användare.
+När du har valt **nästa**, uppmanas du att ange URL för det program du länkar till. När slutfört, användare och grupper kan tilldelas till programmet, vilket gör att programmet ska visas i den [Office 365 app programstart](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) för dessa användare.
 
 Obs: Du kan ladda upp en ikonlogotyp för program med den **överföra logotypen** knappen på den **konfigurera** för programmet.
 

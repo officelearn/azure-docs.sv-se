@@ -138,6 +138,8 @@
         - name: Använd Zeppelin
           href: ../hdinsight-apache-spark-zeppelin-notebook.md
           maintainContext: true
+        - name: Använda Grafana
+          href: ./hdinsight-grafana.md
         - name: Skapa HDInsight-program
           items:
             - name: Installera anpassade appar

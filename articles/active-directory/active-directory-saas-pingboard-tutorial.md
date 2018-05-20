@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Pingboard | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Pingboard."
+title: 'Självstudier: Azure Active Directory-integrering med Pingboard | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudier: Azure Active Directory-integrering med Pingboard
 
@@ -30,9 +30,9 @@ Integrera Pingboard med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Pingboard (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Pingboard, behöver du följande:
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Enkel inloggning information IDP Pingboard domän och URL: er](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. I den **identifierare** textruta Skriv värdet som:`http://app.pingboard.com/sp`
+    a. I den **identifierare** textruta Skriv värdet som: `http://app.pingboard.com/sp`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Pingboard domän med enkel inloggning information SP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-     I den **inloggnings-URL** textruta Skriv URL-Adressen med följande mönster:`https://<sub-domain>.pingboard.com/sign_in`
+     I den **inloggnings-URL** textruta Skriv URL-Adressen med följande mönster: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE] 
     > Observera att dessa värden inte är verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Pingboard klienten supportteamet](https://support.pingboard.com/) att hämta dessa värden.
@@ -199,7 +199,7 @@ För att aktivera Azure AD-användare att logga in på Pingboard etableras de i 
 
     a. I den **fullständiga namn** textruta ange det fullständiga namnet för användare som **Britta Simon**.
 
-    b. I den **e-post** textruta typen e-postadressen för användaren som  **brittasimon@contoso.com** .
+    b. I den **e-post** textruta typen e-postadressen för användaren som **brittasimon@contoso.com**.
 
     c. I den **befattning** textruta skriver Britta Simon befattningen.
 
@@ -254,7 +254,7 @@ När du klickar på panelen Pingboard på åtkomstpanelen du bör få automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

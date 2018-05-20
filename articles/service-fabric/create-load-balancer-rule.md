@@ -1,24 +1,24 @@
 ---
-title: "Skapa en regel för ett kluster för Azure belastningsutjämnare"
-description: "Konfigurera en Azure belastningsutjämnare för att öppna portar för Azure Service Fabric-klustret."
+title: Skapa en regel för ett kluster för Azure belastningsutjämnare
+description: Konfigurera en Azure belastningsutjämnare för att öppna portar för Azure Service Fabric-klustret.
 services: service-fabric
 documentationcenter: na
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 71dbc2b5f6c3c37e432f5318169a088c5607f083
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 53dcd6c0705faa94e83d6e44f813fa9c575843e8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Öppna portar för ett Service Fabric-kluster
 
@@ -30,7 +30,7 @@ När du har distribuerat Service Fabric-kluster till Azure skapades automatiskt 
 
 Service Fabric-programmet **ServiceManifest.xml** config-fil som definierar de slutpunkter som ditt program förväntar sig att använda. När konfigurationsfilen har uppdaterats för att definiera en slutpunkt, belastningsutjämnaren måste uppdateras för att exponera som (eller en annan) port. Mer information om hur du skapar service fabric-slutpunkt finns [konfigurera en slutpunkt](service-fabric-service-manifest-resources.md).
 
-## <a name="create-a-load-balancer-rule"></a>Skapa en regel för belastningsutjämnare
+## <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
 
 En regel för belastningsutjämnare öppnar en port mot internet och vidarebefordrar trafik till noden Intern port som används av ditt program. Om du inte har en belastningsutjämnare, se [konfigurera en Internetriktade belastningsutjämnare](..\load-balancer\load-balancer-get-started-internet-portal.md).
 

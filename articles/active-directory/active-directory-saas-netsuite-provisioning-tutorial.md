@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera Netsuite för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite."
+title: 'Självstudier: Konfigurera Netsuite för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6ffec33ba922fc59fa68f2c39a1d5b587e816d0b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 18c6c632131a7e83d4cf1587282192345d8c72f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Netsuite för automatisk användaretablering
 
@@ -93,5 +93,5 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användare konto-etablering för företag-appar](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](active-directory-saas-netsuite-tutorial.md)

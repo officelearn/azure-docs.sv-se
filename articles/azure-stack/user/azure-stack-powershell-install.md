@@ -14,24 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86eae6813d6181b1c42e8316d159c8bbe523330b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken  
+# <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken
 
-Azure Stack kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure-stacken. I den här guiden vägleder vi dig igenom de steg som krävs för att installera PowerShell för Azure-stacken. Du kan använda stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN.
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Den här artikeln har detaljerade anvisningar för att installera PowerShell för Azure-stacken. Om du vill installera och konfigurera PowerShell snabbt, kan du använda det skript som finns i artikeln ”komma igång med PowerShell”. 
+Azure Stack kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure-stacken. Den här artikeln hjälper dig igenom de steg som krävs för att installera PowerShell för Azure-stacken. Du kan använda stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN.
+
+Den här artikeln ger detaljerade anvisningar för att installera PowerShell. Om du vill installera och konfigurera PowerShell snabbt, kan du använda det skript som finns i artikeln ”komma igång med PowerShell”.
 
 > [!NOTE]
 > Följande steg kräver PowerShell 5.0. Kontrollera din version genom att köra $PSVersionTable.PSVersion och jämföra ”” huvudversionen.
 
 PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Om du vill registrera PSGallery databasen, öppna en upphöjd PowerShell-session från development kit eller från en extern klient för Windows-baserade om du är ansluten via VPN-anslutning och kör följande kommando:
 
-```powershell
+```PowerShell  
 Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
@@ -41,24 +43,22 @@ Set-PSRepository `
 
 Kontrollera att avinstallera några befintliga Azure PowerShell-moduler innan du installerar versionen som krävs. Du kan avinstallera dem med hjälp av något av följande två metoder:
 
-* Om du vill avinstallera de befintliga PowerShell-modulerna inloggningen i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Stäng alla aktiva sessioner i PowerShell och kör följande kommando: 
+* Om du vill avinstallera de befintliga PowerShell-modulerna inloggningen i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Stäng alla aktiva sessioner i PowerShell och kör följande kommando:
 
-   ```powershell
+   ```PowerShell  
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Logga in i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Ta bort alla mappar som börjar med ”Azure” från den `C:\Program Files (x86)\WindowsPowerShell\Modules` och `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappar. Tar bort dessa mappar tar bort några befintliga PowerShell-moduler från ”AzureStackAdmin” och ”global” användare scope. 
+* Logga in i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Ta bort alla mappar som börjar med ”Azure” från den `C:\Program Files (x86)\WindowsPowerShell\Modules` och `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappar. Tar bort dessa mappar tar bort några befintliga PowerShell-moduler från ”AzureStackAdmin” och ”global” användare scope.
 
-I följande avsnitt beskrivs de steg som krävs för att installera PowerShell för Azure-stacken. PowerShell kan installeras på Azure-stacken som körs i ansluten, delvis ansluten eller i ett scenario med frånkopplade. 
+I följande avsnitt beskrivs de steg som krävs för att installera PowerShell för Azure-stacken. PowerShell kan installeras på Azure-stacken som körs i ansluten, delvis ansluten eller i ett scenario med frånkopplade.
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installera PowerShell i ett scenario med anslutna (med Internetanslutning)
 
 Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azure-stacken kräver den **2017-03-09-profil** API-version profil som är tillgänglig genom att installera modulen AzureRM.Bootstrapper. Mer information om API-version profiler och de cmdlets som tillhandahålls av dem, referera till den [hantera profiler för API-version](azure-stack-version-profiles-powershell.md). Förutom AzureRM-moduler, bör du också installera Azure Stack-specifika PowerShell-moduler. Kör följande PowerShell-skript för att installera dessa moduler på utvecklingsdatorn:
 
-
-
-  ```powershell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  ```PowerShell  
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -73,63 +73,64 @@ Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azu
 
 Om du vill bekräfta installationen genom att köra följande kommando:
 
-  ```powershell
+  ```PowerShell  
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
+
   Om installationen lyckas visas AzureRM och Azure Stack-moduler i utdata.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installera PowerShell i ett frånkopplat eller delvis scenariot (med begränsad Internetanslutning)
 
 I ett scenario med frånkopplade eller anslutna delvis måste du först hämta PowerShell-moduler för en dator som är ansluten till internet och överför dem till Azure-stacken Development Kit för installation.
 
-1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:
+1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:  
 
-   ```powershell
-   $Path = "<Path that is used to save the packages>"
+    ```PowerShell  
+    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+    Save-Package `
+      -ProviderName NuGet `
+      -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureRM `
+      -Path $Path `
+      -Force `
+      -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11 
-   ```
+    Save-Package `
+      -ProviderName NuGet `
+      -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureStack `
+      -Path $Path `
+      -Force `
+      -RequiredVersion 1.2.11
+    ```
 
 2. Kopiera de hämta paketen över till en USB-enhet.
 
-3. Logga in i development Kit och kopiera paket från USB-enheten till en plats på development kit. 
+3. Logga in i development Kit och kopiera paket från USB-enheten till en plats på development kit.
 
 4. Nu måste du registrera den här platsen som standard lagringsplatsen och installera modulerna AzureRM och AzureStack från den här lagringsplatsen:
 
-   ```powershell
-   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-   $RepoName = "MyNuGetSource"
+    ```PowerShell  
+    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+    Register-PSRepository `
+      -Name $RepoName `
+      -SourceLocation $SourceLocation `
+      -InstallationPolicy Trusted
 
-   ```powershell
-   Install-Module AzureRM `
-     -Repository $RepoName
+    ```PowerShell  
+    Install-Module AzureRM `
+      -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
-   ```
+    Install-Module AzureStack `
+      -Repository $RepoName
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta Azure Stack-verktyg från GitHub](azure-stack-powershell-download.md)  
-* [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md)  
-* [Hantera profiler för API-version i Azure-stacken](azure-stack-version-profiles-powershell.md)  
+* [Hämta Azure Stack-verktyg från GitHub](azure-stack-powershell-download.md)
+* [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md)
+* [Hantera profiler för API-version i Azure-stacken](azure-stack-version-profiles-powershell.md)

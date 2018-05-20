@@ -9,11 +9,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: billmath
-ms.openlocfilehash: d21f124858a7f98227eb301a97b9837e3adbba68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4e6cf3bb4a691380a5fe22f5afdf749b40f15ef3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="synchronizing-guest-user-accounts-that-use-email-for-sign-in-preview"></a>Synkronisera gäst-användarkonton med e-post för inloggningen (förhandsgranskning)
 
@@ -180,6 +180,6 @@ För att verifiera att detta ska fungera korrekt måste du logga in på en slutp
 ![Lyckades](media/active-directory-aadconnect-guest-sync/guest12.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Egenskaper för en användare för Azure Active Directory B2B-samarbete](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
+- [Egenskaper för en användare för Azure Active Directory B2B-samarbete](../../active-directory/b2b/user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
 - [Konfigurera alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Versionshistorik för Azure AD Connect](active-directory-aadconnect-version-history.md)

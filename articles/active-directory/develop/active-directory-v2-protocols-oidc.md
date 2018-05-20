@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 och OpenID Connect-protokollet | Microsoft Do
 description: Skapa webbprogram med hjälp av Azure AD v2.0-implementeringen av autentiseringsprotokollet OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du kan använda för inloggning på ett säkert sätt en användare till ett webbprogram. När du använder v2.0-slutpunkten implementering av OpenID Connect kan du lägga till inloggnings- och API-åtkomst till webbaserade appar. I den här artikeln hur vi du gör detta oberoende av språk. Vi beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek för Microsoft öppen källkod.
@@ -43,7 +45,7 @@ OpenID Connect beskriver ett metadata-dokument som innehåller de flesta av info
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP] 
-> Testa! Klicka på [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) att se den `common` konfiguration för klienter. 
+> Testa det! Klicka på [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) att se den `common` konfiguration för klienter. 
 >
 
 Den `{tenant}` kan göra något av fyra värden:
@@ -82,7 +84,7 @@ När ditt webbprogram måste autentisera användaren, den kan dirigera användar
 * Begäran måste innehålla den `nonce` parameter.
 
 > [!IMPORTANT]
-> Har för att begära en ID-token, appregistrering i den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **[Implicit bevilja](active-directory-v2-protocols-implicit.md)** aktiverad för den webbklienten.  Om den inte är aktiverad ett `unsupported_response` felmeddelande: ”det angivna värdet för Indataparametern 'response_type' tillåts inte för den här klienten. Förväntat värde är 'code' ”
+> Har för att begära en ID-token, appregistrering i den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **[Implicit bevilja](active-directory-v2-protocols-implicit.md)** aktiverad för den webbklienten. Om den inte är aktiverad ett `unsupported_response` felmeddelande: ”det angivna värdet för Indataparametern 'response_type' tillåts inte för den här klienten. Förväntat värde är 'code' ”
 
 Exempel:
 
@@ -196,10 +198,10 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter | Villkor | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Rekommenderas | Den URL som användaren omdirigeras till efter att logga ut. Om parametern inte är inkluderad visas användaren ett allmänt meddelande som genereras av v2.0-slutpunkten. URL: en måste matcha en omdirigerings-URI: er som registrerats för ditt program i portalen för registrering av app.  |
+| post_logout_redirect_uri | Rekommenderas | Den URL som användaren omdirigeras till efter att logga ut. Om parametern inte är inkluderad visas användaren ett allmänt meddelande som genereras av v2.0-slutpunkten. URL: en måste matcha en omdirigerings-URI: er som registrerats för ditt program i portalen för registrering av app. |
 
 ## <a name="single-sign-out"></a>Enkel utloggning
-När du dirigerar användaren till den `end_session_endpoint`, v2.0-slutpunkten rensar användarens session från webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Microsoft-konton för autentisering. Aktivera programmen att logga ut samtidigt, v2.0 användaren endpoint skickar en HTTP GET-begäran till det registrerade `LogoutUrl` för alla program som användaren är inloggad på. Program måste svara på begäran genom att avmarkera alla sessioner som identifierar användaren och returnera ett `200` svar.  Om du vill stödja enkel inloggning ut i ditt program måste du implementera exempelvis en `LogoutUrl` i din programkod.  Du kan ange den `LogoutUrl` från portalen för registrering av app.
+När du dirigerar användaren till den `end_session_endpoint`, v2.0-slutpunkten rensar användarens session från webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Microsoft-konton för autentisering. Aktivera programmen att logga ut samtidigt, v2.0 användaren endpoint skickar en HTTP GET-begäran till det registrerade `LogoutUrl` för alla program som användaren är inloggad på. Program måste svara på begäran genom att avmarkera alla sessioner som identifierar användaren och returnera ett `200` svar. Om du vill stödja enkel inloggning ut i ditt program måste du implementera exempelvis en `LogoutUrl` i din programkod. Du kan ange den `LogoutUrl` från portalen för registrering av app.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Protokollet diagram: komma åt token förvärv
 Många webbprogram måste inte bara logga användaren i, men också att få åtkomst till en webbtjänst för användarens räkning genom att använda OAuth. Det här scenariot kombinerar OpenID Connect för autentisering av användare vid hämtning av en auktoriseringskod som du kan använda för att få åtkomst-token om du använder OAuth-auktoriseringskodflödet samtidigt.

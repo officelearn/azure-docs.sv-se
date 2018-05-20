@@ -1,23 +1,21 @@
 ---
-title: "Prestandajustering riktlinjer för att använda Powershell med Data Lake Store | Microsoft Docs"
-description: "Tips om hur du förbättrar prestanda när du använder Azure PowerShell med Data Lake Store"
+title: Prestandajustering riktlinjer för att använda Powershell med Data Lake Store | Microsoft Docs
+description: Tips om hur du förbättrar prestanda när du använder Azure PowerShell med Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Prestandajustering riktlinjer för att använda PowerShell med Azure Data Lake Store
 
@@ -25,7 +23,7 @@ Den här artikeln innehåller de egenskaper som kan anpassas för att få en bä
 
 ## <a name="performance-related-properties"></a>Prestanda-relaterade egenskaper
 
-| Egenskap            | Standard | Beskrivning |
+| Egenskap             | Standard | Beskrivning |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Det här numret representerar de högsta antal trådar som kan tilldelas per fil, men du får färre trådar beroende på scenario (till exempel, om du överför en 1-KB-fil får du en tråd även om du fråga efter 20 trådar).  |
 | ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Det här numret representerar maximala antalet samtidiga filer som kan överföras eller hämtas åt gången, men du får mindre samtidighet beroende på scenario (till exempel, om du överför två filer, får du två samtidiga filer överföringar även om du be för 15). |

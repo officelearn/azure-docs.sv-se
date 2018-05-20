@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 026ff0394e988081bdc581bf001417b13e44427b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens - IoT-hubb kvoter och begränsning
 
@@ -39,7 +39,7 @@ I följande tabell visas de tvingande begränsas. Värden finns i en enskild hub
 | Begränsning | Kostnadsfri B1 och S1 | B2 och S2 | B3 och S3 | 
 | -------- | ------- | ------- | ------- |
 | Identitet registret åtgärder (skapa, hämta, visa, uppdatera, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
-| Enhetsanslutningar | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
+| Nya enhetsanslutningar (den här begränsningen gäller för Felfrekvens _nya anslutningar_ upprättas, inte antalet anslutningar) | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24 nya anslutningar per sekund, men du har minst 100 nya anslutningar per sekund på dina enheter. Med nio S1 enheter, har du 108 nya anslutningar per sekund (9\*12) över dina enheter. | 120 nya anslutningar/sek/enhet | 6000 nya anslutningar/sek/enhet |
 | Sändningar enhet-till-moln | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
 | Moln till enhet skickar<sup>1</sup> | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
 | Moln till enhet tar emot<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16.67/sec/Unit (1000/min/unit) | 16.67/sec/Unit (1000/min/unit) | 833.33/sec/Unit (unit-50000/min) |

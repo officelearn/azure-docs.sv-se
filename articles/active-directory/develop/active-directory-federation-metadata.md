@@ -1,25 +1,27 @@
 ---
 title: Azure AD-Federationsmetadata | Microsoft Docs
-description: "Den här artikeln beskriver federation Metadatadokumentet som Azure Active Directory publicerar för tjänster som accepterar token för Azure Active Directory."
+description: Den här artikeln beskriver federation Metadatadokumentet som Azure Active Directory publicerar för tjänster som accepterar token för Azure Active Directory.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 58e5f62009e4e8b688108c6098ea8eabe8020e51
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="federation-metadata"></a>Federationsmetadata
 Azure Active Directory (AD Azure) publicerar en federation metadata dokument för tjänster som är konfigurerad för att acceptera de säkerhetstoken som Azure AD utfärdar. Federation metadata dokumentets format är beskrivs i den [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), som utökar [Metadata för OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -41,12 +43,12 @@ För **klient-specifika slutpunkter**, `TenantDomainName` kan vara något av fö
 
 För **klient oberoende slutpunkter**, `TenantDomainName` är `common`. Det här dokumentet innehåller endast Federationsmetadata element som är gemensamma för alla Azure AD-klienter som finns på login.microsoftonline.com.
 
-En klient-specifika slutpunkt kan till exempel vara `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Oberoende av klient-slutpunkten är [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Du kan visa dokumentet federation metadata genom att ange den här URL i en webbläsare.
+En klient-specifika slutpunkt kan till exempel vara `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Oberoende av klient-slutpunkten är [ https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Du kan visa dokumentet federation metadata genom att ange den här URL i en webbläsare.
 
 ## <a name="contents-of-federation-metadata"></a>Innehållet i federation Metadata
 Följande avsnitt innehåller information som krävs av tjänster som använder de token som utfärdats av Azure AD.
 
-### <a name="entity-id"></a>Enhets-ID
+### <a name="entity-id"></a>Enhets-id
 Den `EntityDescriptor` elementet innehåller ett `EntityID` attribut. Värdet för den `EntityID` attributet representerar utfärdaren, det vill säga säkerhetstokentjänsten (STS) som utfärdade token. Det är viktigt att verifiera utfärdaren när du får en token.
 
 Följande metadata visas ett exempel på klient-specifika `EntityDescriptor` element med ett `EntityID` element.

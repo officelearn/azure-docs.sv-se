@@ -1,24 +1,24 @@
 ---
 title: 'Uppgradering av programmet: Uppgraderingsparametrar | Microsoft Docs'
-description: "Beskriver parametrar som uppgraderar ett Service Fabric-program, inklusive hälsokontroller att utföra och principer för att automatiskt återställa uppgraderingen."
+description: Beskriver parametrar som uppgraderar ett Service Fabric-program, inklusive hälsokontroller att utföra och principer för att automatiskt återställa uppgraderingen.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eb319b0f4e910163572ee62d8bdee735f27be592
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
 Den här artikeln beskriver de olika parametrar som gäller under uppgraderingen av ett program i Azure Service Fabric. Parametrarna inkluderar namnet och versionen av programmet. De är rattar som styr timeout och hälsokontroller som tillämpas under uppgraderingen och de anger de principer som måste tillämpas när uppgraderingen misslyckas.

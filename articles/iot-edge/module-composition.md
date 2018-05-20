@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
 
@@ -168,7 +168,7 @@ Distributionsmanifestet kan ange egenskaper för modulen dubbla för varje modul
 
 Om du inte anger en modul dubbla önskade egenskaper i distributionsmanifestet IoT-hubb kan inte ändra modulen dubbla på något sätt och du kommer att kunna ange de önskade egenskaperna programmässigt.
 
-Av samma metoder som gör det möjligt att ändra enheten twins används för att ändra modulen twins. Referera till den [enheten dubbla Utvecklarhandbok](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) för ytterligare information.   
+Av samma metoder som gör det möjligt att ändra enheten twins används för att ändra modulen twins. Referera till den [enheten dubbla Utvecklarhandbok](../iot-hub/iot-hub-devguide-device-twins.md) för ytterligare information.   
 
 ## <a name="deployment-manifest-example"></a>Exempel på distribution manifest
 

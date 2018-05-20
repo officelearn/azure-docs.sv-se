@@ -10,6 +10,7 @@
 ## [Installera Azure AD Connect Health-agenten](active-directory-aadconnect-health-agent-install.md)
 ## [Azure AD Connect Health-åtgärder](active-directory-aadconnect-health-operations.md)
 ## [Fel under synkronisering](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Diagnostisera fel med duplicerad attributsynkronisering](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Felsöka
 ## [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)

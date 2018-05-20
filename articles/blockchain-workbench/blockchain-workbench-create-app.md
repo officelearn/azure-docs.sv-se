@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Skapa en blockchain program i Azure Blockchain arbetsstationen
 
@@ -33,6 +33,8 @@ Lär dig att:
 * En Blockchain arbetsstationen-distribution. Mer information finns i [Azure Blockchain arbetsstationen distribution](blockchain-workbench-deploy.md) mer information om distribution.
 * Azure Active Directory-användare i innehavaren som associeras med Blockchain arbetsstationen. Mer information finns i [lägger du till Azure AD-användare i Azure Blockchain arbetsstationen](blockchain-workbench-manage-users.md#add-azure-ad-users).
 * Ett administratörskonto Blockchain arbetsstationen. Mer information finns i lägga till [Blockchain arbetsstationen administratörer i Azure Blockchain arbetsstationen](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
+
+## <a name="hello-blockchain"></a>Hej Blockchain
 
 Vi ska skapa ett grundläggande program där en begärande skickar en begäran och skicka ett svar på begäran för en Övervakare. En begäran kan till exempel vara, ”Hello, hur är du”?, och svaret kan vara, ”jag är bra”!. Både begäran och svar registreras på den underliggande blockchain. 
 

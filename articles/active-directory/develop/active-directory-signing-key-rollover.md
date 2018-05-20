@@ -1,24 +1,26 @@
 ---
-title: "Signering nyckelförnyelse i Azure AD"
-description: "Den här artikeln beskrivs signering nyckelförnyelse bästa praxis för Azure Active Directory"
+title: Signering nyckelförnyelse i Azure AD
+description: Den här artikeln beskrivs signering nyckelförnyelse bästa praxis för Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signering nyckelförnyelse i Azure Active Directory
 Den här artikeln beskrivs vad du behöver känna till om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att Observera att dessa nycklar förnyelse regelbundet och, i nödfall, kan återställas omedelbart. Alla program som använder Azure AD ska kunna hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse programmässigt. Fortsätt läsa för att förstå hur nycklarna fungerar, hur du utvärdera effekten av förnyelsen ditt program och att uppdatera ditt program eller upprätta en periodiska manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
@@ -274,7 +276,7 @@ När du har följt de här stegen kan uppdateras programmets Web.config med den 
 
 Följ stegen nedan för att kontrollera att nyckelförnyelse logiken fungerar.
 
-1. När du har kontrollerat att programmet använder koden ovan, öppna den **Web.config** fil och navigera till den  **<issuerNameRegistry>**  block, särskilt söker efter följande några rader:
+1. När du har kontrollerat att programmet använder koden ovan, öppna den **Web.config** fil och navigera till den **<issuerNameRegistry>** block, särskilt söker efter följande några rader:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -282,7 +284,7 @@ Följ stegen nedan för att kontrollera att nyckelförnyelse logiken fungerar.
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. I den  **<add thumbprint=””>**  inställningen genom att ändra värdet tumavtryck genom att ersätta ett tecken med ett annat namn. Spara den **Web.config** fil.
+2. I den **<add thumbprint=””>** inställningen genom att ändra värdet tumavtryck genom att ersätta ett tecken med ett annat namn. Spara den **Web.config** fil.
 3. Skapa programmet och sedan köra den. Om du kan slutföra processen inloggning, uppdateras har nyckeln genom att hämta nödvändig information från din katalog federation metadata dokument i ditt program. Om du har problem att logga in, kontrollera ändringarna i ditt program är korrekta genom att läsa den [att lägga till inloggning till din webbserver program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikel, eller hämta och kontrollera följande kodexempel: [ Flera innehavare molnet program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webbprogram skydda resurser och skapas med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) version 1.0 för .NET 3.5

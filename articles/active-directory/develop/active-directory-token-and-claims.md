@@ -2,41 +2,43 @@
 title: Lär dig mer om olika token och anspråkstyper som stöds av Azure AD | Microsoft Docs
 description: En guide för att förstå och utvärdera anspråk i SAML 2.0 och token JWT (JSON Web) token som utfärdas av Azure Active Directory (AAD)
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 82069b31ee51e0dd60691edca490b1a60384288a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
 Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token. 
 
 ## <a name="types-of-tokens"></a>Typer av token
-Azure AD stöder den [OAuth 2.0-protokollet för auktorisering](active-directory-protocols-oauth-code.md), som utnyttjar både access_tokens och refresh_tokens.  Det stöder också autentisering och logga in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), som innehåller en tredje typ av id_token-token.  Var och en av dessa token representeras som ett ”ägartoken”.
+Azure AD stöder den [OAuth 2.0-protokollet för auktorisering](active-directory-protocols-oauth-code.md), som utnyttjar både access_tokens och refresh_tokens. Det stöder också autentisering och logga in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), som innehåller en tredje typ av id_token-token. Var och en av dessa token representeras som ett ”ägartoken”.
 
 Ett ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs. På detta sätt är ”innehavaren” någon part som kan ge token. Även om autentisering med Azure AD krävs för att få ett ägartoken, vidtas åtgärder för att skydda token för att förhindra avlyssning av en oavsiktlig part. Eftersom ägar-token inte har en inbyggd metod för att förhindra att obehöriga personer använder dem, transporteras de i en säker kanal, till exempel transport layer security (HTTPS). Om ett ägartoken skickas i klartext, kan en man-i mitten-attack användas för att hämta token och få obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper tillämpas när lagring eller cachelagring ägar-token för senare användning. Se alltid till att appen skickar och lagrar ägar-token på ett säkert sätt. Flera säkerheten på ägar-token finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
 
-Många av de token som utfärdas av Azure AD implementeras som JSON Web token eller JWTs.  En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter.  Informationen i JWTs kallas ”anspråk” eller intyg för information om ägar- och ämnet för token.  Anspråk i JWTs är JSON-objekt kodade och serialiseras för överföring.  Eftersom JWTs som utfärdats av Azure AD är signerat, men inte är krypterade, kan du enkelt kontrollerar du innehållet i en JWT för felsökning.  Det finns flera verktyg för att göra det, t.ex [jwt.ms](https://jwt.ms/). Mer information om JWTs som du kan referera till den [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Många av de token som utfärdas av Azure AD implementeras som JSON Web token eller JWTs. En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter. Informationen i JWTs kallas ”anspråk” eller intyg för information om ägar- och ämnet för token. Anspråk i JWTs är JSON-objekt kodade och serialiseras för överföring. Eftersom JWTs som utfärdats av Azure AD är signerat, men inte är krypterade, kan du enkelt kontrollerar du innehållet i en JWT för felsökning. Det finns flera verktyg för att göra det, t.ex [jwt.ms](https://jwt.ms/). Mer information om JWTs som du kan referera till den [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Id_tokens
-Id_tokens är en form av inloggning säkerhetstoken som appen tar emot när du utför autentisering med [OpenID Connect](active-directory-protocols-openid-connect-code.md).  De visas i form av [JWTs](#types-of-tokens), och innehåller anspråk som du kan använda för att signera användaren i din app.  Du kan använda anspråken i en id_token enligt önskemål – de används ofta för att visa kontoinformation eller gör besluten om åtkomstkontroll i en app.
+Id_tokens är en form av inloggning säkerhetstoken som appen tar emot när du utför autentisering med [OpenID Connect](active-directory-protocols-openid-connect-code.md). De visas i form av [JWTs](#types-of-tokens), och innehåller anspråk som du kan använda för att signera användaren i din app. Du kan använda anspråken i en id_token enligt önskemål – de används ofta för att visa kontoinformation eller gör besluten om åtkomstkontroll i en app.
 
-Id_tokens är signerat, men inte krypterade just nu.  När appen tar emot en id_token, måste [verifiera signaturen](#validating-tokens) till token för autentisering och validera några anspråk i token för att bevisa sin giltighetsperiod.  De anspråk som verifieras av en app varierar beroende på krav för scenarier, men det finns några [vanliga anspråk verifieringar](#validating-tokens) som din app måste utföra i varje scenario.
+Id_tokens är signerat, men inte krypterade just nu. När appen tar emot en id_token, måste [verifiera signaturen](#validating-tokens) till token för autentisering och validera några anspråk i token för att bevisa sin giltighetsperiod. De anspråk som verifieras av en app varierar beroende på krav för scenarier, men det finns några [vanliga anspråk verifieringar](#validating-tokens) som din app måste utföra i varje scenario.
 
-Se avsnittet följande information på id_tokens anspråk, samt en exempel-id_token.  Observera att anspråk i id_tokens inte returneras i någon särskild ordning.  Dessutom nya anspråk som kan vara introduceras i id_tokens när som helst i tid - appen bryta inte som introduceras nya anspråk.  Följande lista innehåller krav som din app på ett tillförlitligt sätt kan tolka när detta skrivs.  Om nödvändigt, även mer information finns i den [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).
+Se avsnittet följande information på id_tokens anspråk, samt en exempel-id_token. Observera att anspråk i id_tokens inte returneras i någon särskild ordning. Dessutom nya anspråk som kan vara introduceras i id_tokens när som helst i tid - appen bryta inte som introduceras nya anspråk. Följande lista innehåller krav som din app på ett tillförlitligt sätt kan tolka när detta skrivs. Om nödvändigt, även mer information finns i den [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-idtoken"></a>Exempel id_token
 ```
@@ -58,12 +60,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | Autentisering snabbmeddelanden |Registrerar datum och tid då autentisering inträffade. <br><br> **Exempel SAML värdet**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Autentiseringsmetod |Anger hur ämnet för token autentiserades. <br><br> **Exempel SAML värdet**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **JWT exempelvärde**: `“amr”: ["pwd"]` |
 | `given_name` |Förnamn |Innehåller först eller ”” namnet på användaren som angetts i Azure AD-användarobjektet. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"given_name": "Frank"` |
-| `groups` |Grupper |Innehåller objekt-ID som representerar användarens gruppmedlemskap. Dessa värden är unik (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst till exempel framtvinga tillstånd att komma åt en resurs. Grupper som ingår i grupper anspråket konfigureras på en applikationsspecifik basis via egenskapen ”groupMembershipClaims” i programmanifestet. En null-värde kan du inte alla grupper, värdet ”säkerhetsgruppen” kommer Ta endast med Active Directory-säkerhetsgrupp medlemskap och ett värde av ”alla” kommer inkluderar både säkerhetsgrupper och distributionslistor för Office 365. <br><br> **Anteckningar**: <br> Finns det `hasgroups` anspråk nedan för mer information om hur du använder den `groups` anspråk med implicit bevilja.  <br> För andra flöden om antalet grupper som användaren är i går över gränsen (150 för SAML 200 för JWT) och sedan en överförbrukning anspråk läggs anspråk källorna pekar på slutpunkten diagrammet som innehåller listan över grupper för användaren. (i. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **JWT exempelvärde**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-|`hasgroups` | JWT implicita flödet grupper överförbrukning indikator| Om den finns alltid `true`, som anger användaren är i minst en grupp.  Används i stället för den `groups` anspråk för JWTs i implicit grant-flöden om fullständig grupper anspråk skulle utöka URI-fragment överskrider gränserna för URL-längd (för närvarande 6 eller flera grupper).  Anger att klienten ska använda i diagrammet för att avgöra användarens grupper (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Grupper överförbrukning indikator | För token-förfrågningar som inte är begränsad längd (se `hasgroups` ovan) men fortfarande är för stor för token för en länk till fullständigt grupper för användaren ska inkluderas.  För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för den `groups` anspråk. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups` |Grupper |Innehåller objekt-ID som representerar användarens gruppmedlemskap. Dessa värden är unik (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst till exempel framtvinga tillstånd att komma åt en resurs. Grupper som ingår i grupper anspråket konfigureras på en applikationsspecifik basis via egenskapen ”groupMembershipClaims” i programmanifestet. En null-värde kan du inte alla grupper, värdet ”säkerhetsgruppen” kommer Ta endast med Active Directory-säkerhetsgrupp medlemskap och ett värde av ”alla” kommer inkluderar både säkerhetsgrupper och distributionslistor för Office 365. <br><br> **Anteckningar**: <br> Finns det `hasgroups` anspråk nedan för mer information om hur du använder den `groups` anspråk med implicit bevilja. <br> För andra flöden om antalet grupper som användaren är i går över gränsen (150 för SAML 200 för JWT) och sedan en överförbrukning anspråk läggs anspråk källorna pekar på slutpunkten diagrammet som innehåller listan över grupper för användaren. (i. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **JWT exempelvärde**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | JWT implicita flödet grupper överförbrukning indikator| Om den finns alltid `true`, som anger användaren är i minst en grupp. Används i stället för den `groups` anspråk för JWTs i implicit grant-flöden om fullständig grupper anspråk skulle utöka URI-fragment överskrider gränserna för URL-längd (för närvarande 6 eller flera grupper). Anger att klienten ska använda i diagrammet för att avgöra användarens grupper (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Grupper överförbrukning indikator | För token-förfrågningar som inte är begränsad längd (se `hasgroups` ovan) men fortfarande är för stor för token för en länk till fullständigt grupper för användaren ska inkluderas. För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för den `groups` anspråk. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |Identitetsprovider |Registrerar den identitetsleverantör som autentiserats föremål för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot finns i en annan klient än utfärdaren. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Lagrar den tid då token har utfärdats. Den används ofta för att mäta token dokumentens. <br><br> **Exempel SAML värdet**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **JWT exempelvärde**: <br> `"iat": 1390234181` |
-| `iss` |Utgivare |Identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. I de token som Azure AD returnerar är utfärdaren sts.windows.net. GUID i anspråksvärdet utfärdare är klient-ID i Azure AD-katalogen. Klient-ID är oföränderlig och tillförlitlig identifierare för katalogen. <br><br> **Exempel SAML värdet**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **JWT exempelvärde**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
+| `iss` |Utfärdare |Identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. I de token som Azure AD returnerar är utfärdaren sts.windows.net. GUID i anspråksvärdet utfärdare är klient-ID i Azure AD-katalogen. Klient-ID är oföränderlig och tillförlitlig identifierare för katalogen. <br><br> **Exempel SAML värdet**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **JWT exempelvärde**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |Efternamn |Innehåller sista namn, efternamn eller efternamn för användaren som har definierats i Azure AD-användarobjektet. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"family_name": "Miller"` |
 | `unique_name` |Namn |Ger en mänsklig läsbar värde som identifierar föremål för token. Det här värdet är inte säkert att vara unika inom en klient och är avsedd att användas endast för visning. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |Objekt-ID |Innehåller en unik identifierare för ett objekt i Azure AD. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Använd objekt-ID för att identifiera ett objekt i frågor till Azure AD. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
@@ -75,35 +77,34 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `upn` |Användarens huvudnamn |Lagrar namnet på användarens huvudnamn.<br><br> **JWT exempelvärde**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Version |Lagrar versionsnumret för token. <br><br> **JWT exempelvärde**: <br> `"ver": "1.0"` |
 
-## <a name="access-tokens"></a>Åtkomst-token
+## <a name="access-tokens"></a>Åtkomsttoken
 När autentiseringen lyckas returnerar Azure AD åtkomst-token som kan användas för att komma åt skyddade resurser. Åtkomsttoken är en base 64-kodat JSON-Webbtoken (JWT) och dess innehåll kan kontrolleras genom att köra det via en avkodare.
 
 Om din app bara *använder* åtkomsttoken att få åtkomst till API: er, du kan (och bör) ska behandlas åtkomsttoken som helt ogenomskinlig – de är bara strängar som din app kan skicka till resurser i HTTP-begäranden.
 
-När du begär en åtkomst-token returnerar Azure AD även vissa metadata om åtkomsttoken för förbrukning av din app.  Informationen omfattar förfallotiden för åtkomst-token och scope som är giltig.  På så sätt kan din app att utföra intelligent cachelagring av åtkomsttoken utan att behöva öppna att parsa den åtkomst-token.
+När du begär en åtkomst-token returnerar Azure AD även vissa metadata om åtkomsttoken för förbrukning av din app. Informationen omfattar förfallotiden för åtkomst-token och scope som är giltig. På så sätt kan din app att utföra intelligent cachelagring av åtkomsttoken utan att behöva öppna att parsa den åtkomst-token.
 
-Om din app är en API som skyddas med Azure AD som förväntar sig åtkomst-token i HTTP-begäranden, bör sedan du utföra verifiering och kontroll av token som du får. Din app ska utföra verifieringen av den åtkomst-token innan du använder den för att komma åt resurser. Mer information om verifiering finns [verifierar token](#validating-tokens).  
-Mer information om hur du gör detta med .NET finns [skydda ett webb-API med hjälp av ägar-token från Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Om din app är en API som skyddas med Azure AD som förväntar sig åtkomst-token i HTTP-begäranden, bör sedan du utföra verifiering och kontroll av token som du får. Din app ska utföra verifieringen av den åtkomst-token innan du använder den för att komma åt resurser. Mer information om verifiering finns [verifierar token](#validating-tokens). Mer information om hur du gör detta med .NET finns [skydda ett webb-API med hjälp av ägar-token från Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## <a name="refresh-tokens"></a>Uppdatera token
 
-Uppdatera token är säkerhetstokens som din app använder för att hämta nya åtkomsttoken i en OAuth 2.0-flödet.  Den kan din app att uppnå långsiktiga åtkomst till resurser för en användares räkning utan interaktion med användaren.
+Uppdatera token är säkerhetstokens som din app använder för att hämta nya åtkomsttoken i en OAuth 2.0-flödet. Den kan din app att uppnå långsiktiga åtkomst till resurser för en användares räkning utan interaktion med användaren.
 
-Uppdaterings-tokens är flera resurs.  Det vill säga lösas att en uppdateringstoken som togs emot under en Tokenbegäran för en resurs kan för åtkomst-token till en helt annan resurs. Det gör du genom att ange den `resource` parameter i begäran till den aktuella resursen.
+Uppdaterings-tokens är flera resurs. Det vill säga lösas att en uppdateringstoken som togs emot under en Tokenbegäran för en resurs kan för åtkomst-token till en helt annan resurs. Det gör du genom att ange den `resource` parameter i begäran till den aktuella resursen.
 
-Uppdateringstoken är helt ogenomskinlig till din app. De är långlivade, men din app inte att skriva kan förvänta sig att en uppdateringstoken ska gälla för en viss tidsperiod.  Uppdaterings-tokens kan vara inaktuella när som helst för en mängd olika skäl - finns [Token återkallade](#token-revocation) därmed.  Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa genom att göra en tokenbegäran till Azure AD-token för slutpunkt.
+Uppdateringstoken är helt ogenomskinlig till din app. De är långlivade, men din app inte att skriva kan förvänta sig att en uppdateringstoken ska gälla för en viss tidsperiod. Uppdaterings-tokens kan vara inaktuella när som helst för en mängd olika skäl - finns [Token återkallade](#token-revocation) därmed. Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa genom att göra en tokenbegäran till Azure AD-token för slutpunkt.
 
-När du lösa in en uppdateringstoken för en ny åtkomsttoken får du en ny uppdateringstoken i token svaret.  Du bör spara den nyligen utfärdade uppdateringstoken ersätter den du används i begäran.  Detta garanterar att uppdaterings-tokens vara giltigt så länge som möjligt.
+När du lösa in en uppdateringstoken för en ny åtkomsttoken får du en ny uppdateringstoken i token svaret. Du bör spara den nyligen utfärdade uppdateringstoken ersätter den du används i begäran. Detta garanterar att uppdaterings-tokens vara giltigt så länge som möjligt.
 
 ## <a name="validating-tokens"></a>Verifiera token
 
-För att kunna verifiera ett id_token eller en access_token, bör du verifiera både signatur token och anspråk din app. För att kunna verifiera åtkomsttoken bör din app också verifiera utfärdaren, målgruppen och signera token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel klient oberoende versionen av dokumentet finns på [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD-mellanprogram har inbyggda funktioner för att validera åtkomst-token och du kan bläddra igenom våra [exempel](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) i önskat språk. Mer information om hur du uttryckligen validerar en JWT-token, finns det [manuell JWT validering exempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+För att kunna verifiera ett id_token eller en access_token, bör du verifiera både signatur token och anspråk din app. För att kunna verifiera åtkomsttoken bör din app också verifiera utfärdaren, målgruppen och signera token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel klient oberoende versionen av dokumentet finns på [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD-mellanprogram har inbyggda funktioner för att validera åtkomst-token och du kan bläddra igenom våra [exempel](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) i önskat språk. Mer information om hur du uttryckligen validerar en JWT-token, finns det [manuell JWT validering exempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
-Vi tillhandahåller bibliotek och kodexempel som visar hur du kan hantera token validering - den informationen nedan finns bara för användare som vill förstå underliggande processen.  Det finns också flera bibliotek med öppen källkod från tredje part för JWT-verifiering: det finns minst ett alternativ för nästan alla plattform och det språket. Mer information om Azure AD-autentiseringsbibliotek och kodexempel finns [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md).
+Vi tillhandahåller bibliotek och kodexempel som visar hur du kan hantera token validering - den informationen nedan finns bara för användare som vill förstå underliggande processen. Det finns också flera bibliotek med öppen källkod från tredje part för JWT-verifiering: det finns minst ett alternativ för nästan alla plattform och det språket. Mer information om Azure AD-autentiseringsbibliotek och kodexempel finns [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Verifiera signaturen
 
-En JWT innehåller tre segment som avgränsas med den `.` tecken.  Det första segmentet kallas den **huvud**, andra som den **brödtext**, och tredje som den **signatur**.  Signaturen segment kan användas för att kontrollera äkthet token så att den kan vara betrott av din app.
+En JWT innehåller tre segment som avgränsas med den `.` tecken. Det första segmentet kallas den **huvud**, andra som den **brödtext**, och tredje som den **signatur**. Signaturen segment kan användas för att kontrollera äkthet token så att den kan vara betrott av din app.
 
 Token som utfärdats av Azure AD är signerade med industry standard asymmetriska krypteringsalgoritmer, till exempel RSA-256. Rubriken för JWT innehåller information om metoden nyckel och kryptering används för att signera token:
 
@@ -117,7 +118,7 @@ Token som utfärdats av Azure AD är signerade med industry standard asymmetrisk
 
 Den `alg` anspråk anger algoritmen som används för att signera token, medan den `x5t` anspråk anger särskild offentlig nyckel som användes för att signera token.
 
-Vid en viss tidpunkt, kan Azure AD logga en id_token med någon av en viss uppsättning privat-offentligt nyckelpar. Azure AD roterar möjliga uppsättning nycklar regelbundet, så att din app ska skrivas till att hantera dessa viktiga ändringar automatiskt.  En rimlig frekvens för att söka efter uppdateringar för offentliga nycklar som används av Azure AD är 24 timmar.
+Vid en viss tidpunkt, kan Azure AD logga en id_token med någon av en viss uppsättning privat-offentligt nyckelpar. Azure AD roterar möjliga uppsättning nycklar regelbundet, så att din app ska skrivas till att hantera dessa viktiga ändringar automatiskt. En rimlig frekvens för att söka efter uppdateringar för offentliga nycklar som används av Azure AD är 24 timmar.
 
 Du kan skaffa signering viktiga data som krävs för att verifiera signaturen med OpenID Connect Metadatadokumentet finns på:
 
@@ -130,15 +131,15 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > 
 > 
 
-Metadatadokumentet är en JSON-objekt som innehåller flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för att utföra autentisering med OpenID Connect.  
+Metadatadokumentet är en JSON-objekt som innehåller flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för att utföra autentisering med OpenID Connect. 
 
-Den innehåller också en `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token.  JSON-dokumentet finns på den `jwks_uri` innehåller all informationen om offentliga nycklar används av den viss tidpunkten.  Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en viss token.  Den kan utföra signaturverifiering med rätt offentlig nyckel och den angivna algoritmen.
+Den innehåller också en `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokumentet finns på den `jwks_uri` innehåller all informationen om offentliga nycklar används av den viss tidpunkten. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en viss token. Den kan utföra signaturverifiering med rätt offentlig nyckel och den angivna algoritmen.
 
 Utför signaturverifiering ligger utanför omfånget för det här dokumentet - det finns många bibliotek med öppen källkod för att hjälpa dig att göra det om det behövs.
 
 #### <a name="validating-the-claims"></a>Verifiera anspråk
 
-När appen tar emot en token (en id_token när användaren loggar in, eller en åtkomst-token som en ägartoken i HTTP-begäran) bör det också utföra några kontroller mot anspråk i token.  Dessa inkludera, men är inte begränsade till:
+När appen tar emot en token (en id_token när användaren loggar in, eller en åtkomst-token som en ägartoken i HTTP-begäran) bör det också utföra några kontroller mot anspråk i token. Dessa inkludera, men är inte begränsade till:
 
 * Den **målgruppen** anspråk - att verifiera att token är avsedd för att tilldelas till din app.
 * Den **inte före** och **förfallotid** anspråk - att verifiera att token inte har gått ut.
@@ -150,22 +151,22 @@ En fullständig lista över anspråk verifieringar din app ska utföra för ID-t
 
 ## <a name="token-revocation"></a>Token återkallade certifikat
 
-Uppdatera token kan ogiltiga eller återkallas när som helst för en mängd olika skäl.  Dessa är indelade i två huvudkategorier: timeout och återkallelse. 
+Uppdatera token kan ogiltiga eller återkallas när som helst för en mängd olika skäl. Dessa är indelade i två huvudkategorier: timeout och återkallelse. 
 * Tidsgränser för token
   * MaxInactiveTime: Om uppdateringstoken som inte har använts under den tiden enligt MaxInactiveTime uppdatera Token kommer inte längre giltig. 
-  * MaxSessionAge: Om MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor har angetts till något annat än standard (förrän har återkallats), sedan återautentiseringen måste utföras efter den tid som anges i MaxAgeSession *.  
+  * MaxSessionAge: Om MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor har angetts till något annat än standard (förrän har återkallats), sedan återautentiseringen måste utföras efter den tid som anges i MaxAgeSession *. 
   * Exempel:
-    * Klienten har en MaxInactiveTime på fem dagar och användaren gick på semester för en vecka så AAD har inte visas en ny token begäran från användaren i 7 dagar.  Nästa gång användaren begär en ny token hittar de sina uppdatera Token har återkallats och de måste ange sina autentiseringsuppgifter igen. 
-    * En känslig applikation har en MaxAgeSessionSingleFactor på 1 dag.  Om en användare loggar in på måndag och tisdagen (efter 25 timmar har förflutit) uppmanas de att autentisera igen.  
+    * Klienten har en MaxInactiveTime på fem dagar och användaren gick på semester för en vecka så AAD har inte visas en ny token begäran från användaren i 7 dagar. Nästa gång användaren begär en ny token hittar de sina uppdatera Token har återkallats och de måste ange sina autentiseringsuppgifter igen. 
+    * En känslig applikation har en MaxAgeSessionSingleFactor på 1 dag. Om en användare loggar in på måndag och tisdagen (efter 25 timmar har förflutit) uppmanas de att autentisera igen. 
 * Återkallade certifikat
-  * Frivillig lösenordsändring: Om en användare ändrar sina lösenord, de kanske återautentisera över några av sina program, beroende på hur token har uppnåtts.  Se informationen nedan för undantag. 
-  * Ofrivilliga lösenordsändring: Om en administratör tvingar en användare att ändra sina lösenord eller återställer den, sedan användarens token blir ogiltiga om de har uppnås med hjälp av sina lösenord.  Se informationen nedan för undantag. 
-  * Säkerhetsintrång: Vid ett intrång (t.ex. det lokala arkivet för lösenord komprometteras) administratören kan återkalla alla uppdaterings-tokens som utfärdats för närvarande.  Detta kräver att alla användare att autentisera igen. 
+  * Frivillig lösenordsändring: Om en användare ändrar sina lösenord, de kanske återautentisera över några av sina program, beroende på hur token har uppnåtts. Se informationen nedan för undantag. 
+  * Ofrivilliga lösenordsändring: Om en administratör tvingar en användare att ändra sina lösenord eller återställer den, sedan användarens token blir ogiltiga om de har uppnås med hjälp av sina lösenord. Se informationen nedan för undantag. 
+  * Säkerhetsintrång: Vid ett intrång (t.ex. det lokala arkivet för lösenord komprometteras) administratören kan återkalla alla uppdaterings-tokens som utfärdats för närvarande. Detta kräver att alla användare att autentisera igen. 
 
 > [!NOTE]
->Om en icke-password-metod för autentisering för (Windows Hello, autentiseringsapp, biometrik som en yta eller fingeravtryck) att uppnå token, ändra användarens lösenord kommer inte att tvinga användaren att autentisera igen (men det tvingar sina autentiseringsapp återautentisera).  Detta beror på att ange sina valda autentisering (en min, t.ex.) inte har ändrats och därför kan användas igen återautentisera.
+>Om en icke-password-metod för autentisering för (Windows Hello, autentiseringsapp, biometrik som en yta eller fingeravtryck) att uppnå token, ändra användarens lösenord kommer inte att tvinga användaren att autentisera igen (men det tvingar sina autentiseringsapp återautentisera). Detta beror på att ange sina valda autentisering (en min, t.ex.) inte har ändrats och därför kan användas igen återautentisera.
 >
-> Konfidentiell klienter påverkas inte av återkallelse för ändring av lösenord.  En konfidentiell klient med en uppdateringstoken som utfärdats innan en lösenordsändring fortsätter att vara abl att använda den uppdateringstoken för att få fler token. 
+> Konfidentiell klienter påverkas inte av återkallelse för ändring av lösenord. En konfidentiell klient med en uppdateringstoken som utfärdats innan en lösenordsändring fortsätter att vara abl att använda den uppdateringstoken för att få fler token. 
 
 ## <a name="sample-tokens"></a>Exempel-token
 

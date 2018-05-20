@@ -11,6 +11,7 @@
 ## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
 
 # Begrepp
+## [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md)
 ## [Datakällor som stöds](analysis-services-datasource.md)
 ## [Ansluta till lokala datakällor](analysis-services-gateway.md)
 ## [Ansluta till servrar](analysis-services-connect.md)

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med InTime | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och InTime."
+title: 'Självstudier: Azure Active Directory-integrering med InTime | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och InTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a260338354799e7076f7475a98aa648bf73a45a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e762c0c0e2ed6e8f4a22da047aec7059b9147193
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Självstudier: Azure Active Directory-integrering med InTime
 
@@ -30,9 +30,9 @@ Integrera InTime med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på InTime (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med InTime, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och inTime domän med enkel inloggning information](./media/active-directory-saas-intime-tutorial/tutorial_intime_url.png)
 
-    a. I den **inloggnings-URL** textruta anger du URL:`https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. I den **inloggnings-URL** textruta anger du URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. I den **identifierare** textruta anger du URL:`https://auth.intimesoft.com/auth/realms/master`
+    b. I den **identifierare** textruta anger du URL: `https://auth.intimesoft.com/auth/realms/master`
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -209,7 +209,7 @@ När du klickar på panelen InTime på panelen åtkomst du bör få inloggningss
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

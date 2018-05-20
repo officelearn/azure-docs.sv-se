@@ -1,24 +1,24 @@
 ---
-title: "Felsöka med systemet hälsorapporter | Microsoft Docs"
-description: "Beskriver hälsorapporter som skickas av Azure Service Fabric-komponenter och deras användning för felsökning kluster eller programproblem"
+title: Felsöka med systemet hälsorapporter | Microsoft Docs
+description: Beskriver hälsorapporter som skickas av Azure Service Fabric-komponenter och deras användning för felsökning kluster eller programproblem
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: def4f1cdcd173e26964f9be11266d0e1a20fcafa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8304790b5eba4679b0633641c82d57316e7f8ec4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter ger systemhälsa rapporter om alla entiteter i klustret direkt ur lådan. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -407,7 +407,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus ReplicaCloseStatus, ReplicaChangeRoleStatus
 Den här egenskapen används för att ange varningar eller fel vid försök att öppna en replik, stänga en replik eller överföra en replik från en roll till en annan. Mer information finns i [replik livscykel](service-fabric-concepts-replica-lifecycle.md). Felen kan vara undantag från API-anrop eller kraschar för tjänstprocessen värden under denna tid. För fel som beror på API-anrop från C#-kod, Service Fabric lägger till undantag och stackspårning hälsorapporten.
 
 Dessa hälsovarningar aktiveras efter att ha försökt åtgärden lokalt vissa antalet gånger (beroende på principen). Service Fabric görs ett nytt försök upp till ett högsta tröskelvärde. När det högsta tröskelvärdet har uppnåtts kan den försöker du vidta åtgärder för att rätta till situationen. Det här försöket kan orsaka dessa varningar tas bort när den ger på åtgärden på den här noden. Om en replik misslyckas öppna på en nod, genererar Service Fabric en varning om hälsa. Om repliken fortfarande inte går att öppna, fungerar Service Fabric om du vill reparera själv. Den här åtgärden kan handla om försök samma åtgärd på en annan nod. Det här försöket gör varningen aktiveras för denna replik rensas. 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Utforska funktionerna i fjärråtkomst övervakning solution accelerator
 
@@ -41,7 +41,7 @@ Följande videoklipp visar en genomgång av den fjärranslutna övervakningslös
 
 Den här kursen behöver en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso IoT exempeldistribution
 
@@ -55,7 +55,7 @@ Contoso-exempel etablerar en uppsättning simulerade enheter och regler för att
 Contoso är ett företag som hanterar en mängd olika tillgångar i olika miljöer. Contoso planerar att använda molnbaserade IoT-program att övervaka och hantera flera resurser från en centraliserad program. Följande avsnitt innehåller en sammanfattning av den första konfigurationen av Contoso-exempel:
 
 > [!NOTE]
-> Contoso-demonstrationen är bara ett sätt att etablera simulerade enheter och skapa regler. Andra alternativ för etablering omfattar att skapa egna anpassade enheter. Mer information om hur du skapar dina egna enheter och regler finns [hantera och konfigurera dina enheter](iot-suite-remote-monitoring-manage.md) och [identifiera problem med tröskelvärdesbaserad regler](iot-suite-remote-monitoring-automate.md).
+> Contoso-demonstrationen är bara ett sätt att etablera simulerade enheter och skapa regler. Andra alternativ för etablering omfattar att skapa egna anpassade enheter. Mer information om hur du skapar dina egna enheter och regler finns [hantera och konfigurera dina enheter](iot-suite-remote-monitoring-manage.md) och [identifiera problem med tröskelvärdesbaserad regler](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### <a name="contoso-devices"></a>Contoso-enheter
 
@@ -257,5 +257,5 @@ Nu när du har gjort den fjärranslutna övervakningslösning är föreslagna n�
 
 * [Övervaka enheterna](./iot-suite-remote-monitoring-monitor.md).
 * [Hantera dina enheter](./iot-suite-remote-monitoring-manage.md).
-* [Automatisera din lösning med regler](./iot-suite-remote-monitoring-automate.md).
+* [Automatisera din lösning med regler](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Underhålla din lösning](./iot-suite-remote-monitoring-maintain.md).

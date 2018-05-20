@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ed03194ca095d539d10081578fa71c748ba1d23
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Klassen Azure Service Fabric Stateful Reliable Services StatefulServiceBase avger [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser som kan användas vid felsökning av tjänsten, som ger insikter om hur körningsmiljön drift och underlätta felsökningen.
@@ -29,7 +29,7 @@ EventSource namnet för klassen Stateful Reliable Services StatefulServiceBase �
 Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [förhandsgranskning](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), och [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Händelser
-| händelsenamnet | Händelse-ID | Nivå | Händelsebeskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Händelsebeskrivning |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Information |Orsakat när aktiviteten RunAsync tjänst har startats |
 | StatefulRunAsyncCancellation |2 |Information |Orsakat när tjänsten RunAsync uppgiften har avbrutits |

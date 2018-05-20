@@ -1,45 +1,54 @@
 ---
-title: "Använd Azure Notification Hubs för att skicka de senaste nyheterna (Universal Windows Platform)"
-description: "Använd Azure Notification Hubs med taggar i registreringen för att skicka de senaste nyheterna till en Uwp-app."
+title: Skicka meddelanden till specifika enheter (Universal Windows Platform) | Microsoft Docs
+description: Använd Azure Notification Hubs med taggar i registreringen om du vill skicka de senaste nyheterna till en Universal Windows Platform-app.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: d510e7e665adec9607aeee80802c466b363d5d5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 9b9e3b910162653c14c398e2c3392709abcd5fd8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Använda Notification Hubs för att skicka de senaste nyheterna
+# <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Självstudier: Skicka meddelanden till specifika Windows-enheter som kör Universal Windows Platform-program
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Översikt
-Det här avsnittet visar hur du använder Azure Notification Hubs för att sända senaste nyheterna meddelanden till en Windows Store eller en app för Windows Phone 8.1 (utan Silverlight). Om du utvecklar för Windows Phone 8.1 Silverlight, referera till den [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) version. 
+I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka senaste nytt-meddelanden till en Windows Store- eller Windows Phone 8.1-app (utan Silverlight). Om du vill skicka meddelanden till Windows Phone 8.1 Silverlight, så använd [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)-versionen. 
 
-När du har slutfört den här processen, du kan registrera för de senaste nyhetskategorier som du är intresserad av och får du push-meddelanden för endast dessa kategorier. Det här scenariot är gemensamt för många appar (till exempel RSS-läsare eller appar för musik fläktar) där meddelanden skickas till grupper av användare som har deklarerats intresse för dem. 
+I de här självstudierna kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika Windows-enheter som kör Universal Windows Platform-program (UWP). När du har slutfört den här självstudiekursen kan du registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier. 
 
-Du kan aktivera broadcast scenarier genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg för alla enheter som har registrerats för taggen ta emot meddelandet. Eftersom taggar är bara strängar, behöver de inte ställas in i förväg. Mer information om taggar finns [Meddelandehubbar Routning och tagg uttryck](notification-hubs-tags-segment-push-message.md).
+Sändningsscenarier aktiveras genom att du inkluderar en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Mer information om taggar finns i [Taggar i registreringar](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
-> Windows Store och Windows Phone-projektet version 8.1 och tidigare stöds inte i Visual Studio-2017. Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet). 
+> Windows Store och Windows Phone-projektversion 8.1 och tidigare stöds inte i Visual Studio 2017. Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet). 
 
-## <a name="prerequisites"></a>Krav
-Det här avsnittet bygger på den app som du skapade i [Kom igång med Notification Hubs][get-started]. Innan du börjar den här självstudiekursen, måste du slutföra [Kom igång med Notification Hubs][get-started].
+I den här självstudien gör du följande:
 
-## <a name="add-category-selection-to-the-app"></a>Lägg till kategori markeringen i appen
-Det första steget är att lägga till UI-element i din befintliga huvudsidan så att användarna kan välja kategorier för att registrera. De valda kategorierna som lagras på enheten. När appen startar, skapas en enhetsregistrering i din meddelandehubb med de valda kategorierna som taggar.
+> [!div class="checklist"]
+> * Lägga till kategorival i mobilappen
+> * Registrera sig för meddelanden
+> * Skicka taggade meddelanden
+> * Kör appen och generera meddelanden
 
-1. Öppna projektfilen MainPage.xaml och kopiera följande kod i den **rutnätet** element:
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Slutför [Självstudier: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs][get-started] innan du startar den här självstudiekursen.  
+
+## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
+Det första steget är att lägga till UI-element till din befintliga huvudsida så att användarna kan välja kategorier att registrera. De valda kategorierna lagras på enheten. När appen startar skapas en enhetsregistrering i din meddelandehubb med de valda kategorierna som taggar.
+
+1. Öppna projektfilen MainPage.xaml och kopiera följande kod i **Rutnät**-elementet:
    
         <Grid>
             <Grid.RowDefinitions>
@@ -63,166 +72,178 @@ Det första steget är att lägga till UI-element i din befintliga huvudsidan s�
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click"/>
         </Grid>
 
-2. Högerklicka på den **delade** projektet, Lägg till en ny klass med namnet **meddelanden**, lägga till den **offentliga** modifierare till klassdefinitionen, och Lägg sedan till följande **med** instruktioner till den nya kodfilen:
-   
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.Messaging;
-        using Windows.Storage;
-        using System.Threading.Tasks;
+2. Högerklicka på projektet i **Solution Explorer** och lägg till en ny klass: **Meddelanden**. Lägg till den **offentliga** modifieraren till klassdefinitionen och lägg sedan till följande **using** instruktioner till den nya kodfilen:
 
-3. Kopiera följande kod till den nya **meddelanden** klass:
+    ```csharp   
+    using Windows.Networking.PushNotifications;
+    using Microsoft.WindowsAzure.Messaging;
+    using Windows.Storage;
+    using System.Threading.Tasks;
+    ```
+
+3. Kopiera följande kod till den nya klassen **Meddelanden**:
    
-        private NotificationHub hub;
-   
-        public Notifications(string hubName, string listenConnectionString)
+    ```csharp
+    private NotificationHub hub;
+
+    public Notifications(string hubName, string listenConnectionString)
+    {
+        hub = new NotificationHub(hubName, listenConnectionString);
+    }
+
+    public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+    {
+        ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
+        return await SubscribeToCategories(categories);
+    }
+
+    public IEnumerable<string> RetrieveCategories()
+    {
+        var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
+        return categories != null ? categories.Split(','): new string[0];
+    }
+
+    public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
+    {
+        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+        if (categories == null)
         {
-            hub = new NotificationHub(hubName, listenConnectionString);
+            categories = RetrieveCategories();
         }
+
+        // Using a template registration to support notifications across platforms.
+        // Any template notifications that contain messageParam and a corresponding tag expression
+        // will be delivered for this registration.
+
+        const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+
+        return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+                categories);
+    }
+    ```
    
-        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
-        {
-            ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            return await SubscribeToCategories(categories);
-        }
+    Den här klassen använder lokal lagring för att lagra de nyhetskategorier som den här enheten ska ta emot. I stället för att anropa metoden *RegisterNativeAsync* så anropa *RegisterTemplateAsync* om du vill registrera för kategorierna med hjälp av en mallregistrering. 
    
-        public IEnumerable<string> RetrieveCategories()
-        {
-            var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
-            return categories != null ? categories.Split(','): new string[0];
-        }
-   
-        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
-        {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-   
-            if (categories == null)
-            {
-                categories = RetrieveCategories();
-            }
-   
-            // Using a template registration to support notifications across platforms.
-            // Any template notifications that contain messageParam and a corresponding tag expression
-            // will be delivered for this registration.
-   
-            const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
-   
-            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
-                    categories);
-        }
-   
-    Den här klassen använder lokal lagring för att lagra kategorier av nyheter som den här enheten måste ta emot. I stället för att anropa den *RegisterNativeAsync* metod, anropet *RegisterTemplateAsync* att registrera i kategorier med hjälp av en mall för registrering. 
-   
-    Eftersom du kanske vill registrera mer än en mall (t.ex, en för popup-meddelanden) och en för paneler, också ange ett mallnamn (till exempel ”simpleWNSTemplateExample”). Du namnger mallarna så att du kan uppdatera eller ta bort dem.
+    Om du vill registrera mer än en mall (t.ex. en för popup-meddelanden och en för paneler), så ange ett mallnamn (t.ex. "simpleWNSTemplateExample"). Du namnger mallarna så att du kan uppdatera eller ta bort dem.
    
     >[!NOTE]
-    >Om en enhet registrerar flera mallar med samma tagg, gör ett inkommande meddelande som riktar sig till taggen flera meddelanden som ska levereras till enheten (en för varje mall). Detta är användbart när samma logiska meddelande måste resultera i flera visuella meddelanden (till exempel visar både en Aktivitetsikon och ett popup-meddelande i en Windows Store-programmet).
+    >Om en enhet registrerar flera mallar med samma tagg, så gör ett inkommande meddelande som är inriktat på taggen att flera meddelanden levereras till enheten (ett för varje mall). Detta är användbart när samma logiska meddelande måste resultera i flera visuella meddelanden (t.ex. att visa både en aktivitetsikon och ett popup-meddelande i ett Windows Store-program).
    
-    Mer information finns i [mallar](notification-hubs-templates-cross-platform-push-messages.md).
+    Mer information finns i [Mallar](notification-hubs-templates-cross-platform-push-messages.md).
 
-4. Lägg till följande egenskapen i projektfilen App.xaml.cs den **App** klass:
+4. Lägg till följande egenskap till **App**-klassen i projektfilen App.xaml.cs:
+
+    ```csharp   
+    public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    ```
    
-        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    Den här egenskapen används för att skapa och få åtkomst till en **Meddelanden**-instans.
    
-    Den här egenskapen används för att skapa och komma åt en **meddelanden** instans.
-   
-    I koden, ersätter den `<hub name>` och `<connection string with listen access>` platshållarna med namnet på din meddelandehubb och anslutningssträngen för *DefaultListenSharedAccessSignature*, som du fick tidigare.
+    Ersätt platshållarna `<hub name>` och `<connection string with listen access>` i koden med namnet på din meddelandehubb och anslutningssträngen för *DefaultListenSharedAccessSignature* som du fick tidigare.
    
    > [!NOTE]
-   > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram inte är vanligtvis säkra distribuera nyckeln för *lyssna* åtkomst med klientappen. Med lyssna-åtkomst kan du registrera din app för meddelanden, men går inte att ändra befintliga registreringar och går inte att skicka meddelanden. Fullständig åtkomst-nyckeln används i en skyddad backend-tjänst för att skicka meddelanden och ändra befintliga registreringar.
+   > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra så distribuera bara nyckeln för *lyssnings*åtkomst med din klientapp. Med lyssna-åtkomst kan du registrera din app för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckelln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
    > 
    > 
-5. Lägg till följande rad i filen MainPage.xaml.cs projektet:
+5. Lägg till följande rad i MainPage.xaml.cs:
    
-        using Windows.UI.Popups;
+    ```csharp
+    using Windows.UI.Popups;
+    ```
 
-6. Lägg till följande metod i projektfilen MainPage.xaml.cs:
+6. Lägg till följande metod i MainPage.xaml.cs:
    
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var categories = new HashSet<string>();
-            if (WorldToggle.IsOn) categories.Add("World");
-            if (PoliticsToggle.IsOn) categories.Add("Politics");
-            if (BusinessToggle.IsOn) categories.Add("Business");
-            if (TechnologyToggle.IsOn) categories.Add("Technology");
-            if (ScienceToggle.IsOn) categories.Add("Science");
-            if (SportsToggle.IsOn) categories.Add("Sports");
-   
-            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-   
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-   
-    Den här metoden skapar en lista över kategorier och använder den **meddelanden** klass som lagrar listan i den lokala lagringen. Det garanterar även motsvarande taggar med meddelandehubben. När kategorierna ändras, skapas registreringen på nytt med nya kategorier.
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var categories = new HashSet<string>();
+        if (WorldToggle.IsOn) categories.Add("World");
+        if (PoliticsToggle.IsOn) categories.Add("Politics");
+        if (BusinessToggle.IsOn) categories.Add("Business");
+        if (TechnologyToggle.IsOn) categories.Add("Technology");
+        if (ScienceToggle.IsOn) categories.Add("Science");
+        if (SportsToggle.IsOn) categories.Add("Sports");
 
-Din app kan nu användas för att lagra en uppsättning kategorier i lokal lagring på enheten. Appen registreras i meddelandehubben när användare ändra valet av kategori.
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-## <a name="register-for-notifications"></a>Registrera dig för meddelanden
-I det här avsnittet kan registrera du med notification hub vid start med hjälp av de kategorier som du har lagrat i lokal lagring.
+        var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    ```
+
+    Den här metoden skapar en lista över kategorier och använder klassen **Meddelanden** för att lagra listan lokalt. Det garanterar även motsvarande taggar med meddelandehubben. När kategorierna ändras skapas registreringen på nytt med nya kategorier.
+
+Din app kan nu användas för att lagra en uppsättning kategorier i lokal lagring på enheten. Appen registreras i meddelandehubben närhelst användare ändrar kategoriurvalet.
+
+## <a name="register-for-notifications"></a>Registrera sig för meddelanden
+I det här avsnittet registrerar du med meddelandehubben vid start med hjälp av de kategorier som du har lagrat lokalt.
 
 > [!NOTE]
-> Eftersom URI som är tilldelad av Windows Notification Service (WNS)-kanalen kan ändras när som helst, bör du registrera dig för meddelanden ofta att undvika fel i meddelande. Det här exemplet registrerar för meddelande varje gång appen startar. Du kan förmodligen hoppa över registrering för att bevara bandbredd om mindre än en dag har gått sedan den tidigare registreringen för appar som du kör ofta (mer än en gång om dagen).
+> Eftersom den kanal-URI som tilldelats av Windows Notification Service (WNS) kan ändras när som helst bör du ofta registrera dig för meddelanden för att undvika meddelandefel. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som du kör ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
 > 
 > 
 
-1. Att använda den `notifications` klassen prenumerera utifrån kategorier, öppna filen App.xaml.cs och sedan uppdatera den **InitNotificationsAsync** metod.
+1. Att använda klassen `notifications` för att prenumerera utifrån kategorier. Öppna filen App.xaml.cs och uppdatera sedan metoden **InitNotificationsAsync**.
    
-        // *** Remove or comment out these lines *** 
-        //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        //var hub = new NotificationHub("your hub name", "your listen connection string");
-        //var result = await hub.RegisterNativeAsync(channel.Uri);
-   
-        var result = await notifications.SubscribeToCategories();
-   
-    Den här processen säkerställer att när appen startar hämtas kategorier från lokal lagring och begär registrering av dessa kategorier. Du har skapat den **InitNotificationsAsync** metod som en del av den [Kom igång med Notification Hubs] [ get-started] kursen.
+    ```csharp
+    // *** Remove or comment out these lines *** 
+    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    //var hub = new NotificationHub("your hub name", "your listen connection string");
+    //var result = await hub.RegisterNativeAsync(channel.Uri);
 
-2. Lägg till följande kod i filen MainPage.xaml.cs projekt i *OnNavigatedTo* metod:
+    var result = await notifications.SubscribeToCategories();
+   ```
+    Den här processen säkerställer att när appen startas så hämtas kategorier från lokal lagring och begär registrering av dessa kategorier. Du har skapat metoden **InitNotificationsAsync** som en del av självstudiekursen [Kom igång med Notification Hubs][get-started].
+2. Lägg till följande kod till metoden *OnNavigatedTo* i MainPage.xaml.cs:
    
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var categories = ((App)Application.Current).notifications.RetrieveCategories();
-   
-            if (categories.Contains("World")) WorldToggle.IsOn = true;
-            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
-        }
-   
-    Den här koden uppdaterar huvudsidan, baserat på status för tidigare sparad kategorier.
+    ```csharp
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-Appen är nu klar. Det kan lagra en uppsättning kategorier i enhetens lokala lagring som används för att registrera med notification hub när användaren ändrar urvalet kategori. I nästa avsnitt definierar du en serverdel som kategori meddelanden kan skickas till den här appen.
+        if (categories.Contains("World")) WorldToggle.IsOn = true;
+        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+    }
+    ```
+
+    Den här koden uppdaterar huvudsidan baserat på tidigare sparade kategoriers status.
+
+Appen är nu klar. Den kan lagra en uppsättning kategorier i enhetens lokala lagring som används för att registrera med meddelandehubben när användaren ändrar kategoriurvalet. I nästa avsnitt definierar du en serverdel som kan skicka kategorimeddelanden till den här appen.
 
 ## <a name="send-tagged-notifications"></a>Skicka taggade meddelanden
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="run-the-app-and-generate-notifications"></a>Kör appen och generera meddelanden
-1. I Visual Studio väljer **F5** att kompilera och starta appen.  
-    Appen Användargränssnittet innehåller en uppsättning växlar där du kan välja kategorier för att prenumerera på. 
+1. Kompilera och starta appen genom att trycka på **F5** i Visual Studio. Appens användargränssnitt innehåller en uppsättning växlar med vilka du kan välja vilka kategorier du vill prenumerera på. 
    
-    ![Bryta nyheter app][1]
+    ![Senaste nytt-app][1]
 
-2. Aktivera en eller flera växlar för kategori och klicka sedan på **prenumerera**.
+2. Aktivera en eller flera kategoriväxlar och klicka sedan på **Prenumerera**.
    
-    Appen konverterar valda kategorier till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben. Registrerade kategorier returneras och visas i en dialogruta.
+    Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben. De registrerade kategorierna returneras och visas i en dialogruta.
    
-    ![Knapparna för kategori och prenumerera knapp][19]
+    ![Kategoriväxlingsknapparna och prenumerationsknappen][19]
 
 3. Skicka ett nytt meddelande från serverdelen på något av följande sätt:
 
-   * **Konsolapp**: starta konsolen appen.
-   * **Java/PHP**: kör din app eller skript.
+   * **Konsolapp**: starta konsolappen.
+   * **Java/PHP**: kör din app eller ditt skript.
      
-     Meddelanden i valda kategorier visas som popup-meddelanden.
+     Meddelanden för de valda kategorierna visas som popup-meddelanden.
      
      ![Popup-meddelanden][14]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du broadcast senaste nyheterna efter kategori. Tänk igenom följande kursen, vilket tyder på ett annat avancerade Meddelandehubbar scenario:
+I den här artikeln beskrivs hur du skickar senaste nytt efter kategori. Serverdelsprogrammet skickar taggade meddelanden till enheter som har registrerats för att ta emot meddelanden för den taggen. Information om hur du skickar meddelanden till specifika användare, oavsett vilken enhet de använder, finns i följande självstudie:
 
-* [Använda Notification Hubs för att sända lokaliserade senaste nyheterna] den här självstudiekursen beskrivs hur du expandera senaste nyheterna appen om du vill aktivera lokaliserade meddelanden.
+> [!div class="nextstepaction"]
+> [Skicka lokaliserade meddelanden](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -241,7 +262,7 @@ I den här artikeln beskrivs hur du broadcast senaste nyheterna efter kategori. 
 
 <!-- URLs.-->
 [get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
-[Använda Notification Hubs för att sända lokaliserade senaste nyheterna]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

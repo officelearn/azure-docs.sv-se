@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sakernas Internet security från grunden
 
@@ -44,7 +44,7 @@ Microsofts system ger kontinuerlig intrångsidentifiering och förebygga, servic
 
 Solution Accelerator dra nytta av säkerhet och sekretess som är inbyggda i Azure-plattformen tillsammans med SDL och OSA processer för säker utveckling och drift av alla Microsoft-programvara. De här procedurerna tillhandahålla infrastrukturen skydd, nätverksskydd och identitets- och funktioner som är grundläggande för att säkerheten för en lösning.
 
-Den [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) inom den [IoT solution Accelerator](../articles/iot-suite/iot-suite-what-is-azure-iot.md) ger en fullständigt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser per enhet och åtkomstkontroll.
+Den [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) inom den [IoT solution Accelerator](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) ger en fullständigt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser per enhet och åtkomstkontroll.
 
 Om du vill kommunicera bäst säkerhet och sekretess som finns inbyggda i Azure IoT solution Accelerator, uppdelad i den här artikeln suite till tre primära säkerhetsområden.
 

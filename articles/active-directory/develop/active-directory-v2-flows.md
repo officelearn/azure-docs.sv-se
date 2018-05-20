@@ -3,23 +3,25 @@ title: Apptyper för Azure Active Directory v2.0-slutpunkten | Microsoft Docs
 description: Typer av appar och scenarier som stöds av Azure Active Directory v2.0-slutpunkten.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: hpsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Apptyper för Azure Active Directory v2.0-slutpunkten
 Azure Active Directory (AD Azure) v2.0-slutpunkten stöder autentisering för en rad olika moderna apparkitekturer alla baserat på branschstandardprotokollen [OAuth 2.0- eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskriver typerna av appar som du kan skapa med hjälp av Azure AD v2.0, oavsett din önskat språk eller en plattform. Informationen i den här artikeln är utformat för att hjälpa dig att förstå övergripande scenarierna innan du [börjar arbeta med kod](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +97,7 @@ En webb-API kan få åtkomst-token från alla typer av appar, inklusive server w
 
 Om du vill veta hur du skyddar ett webb-API med hjälp av OAuth2 åtkomsttoken kolla Web API-kodexempel i vår [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnitt.
 
-I många fall web API: er måste också gör utgående förfrågningar till andra underordnade webb-API: er som skyddas av Azure Active Directory.  Om du vill göra det, web API: er kan dra nytta av Azure AD **på uppdrag av** flöde, där webb-API att utbyta ett inkommande åtkomst-token för en annan åtkomsttoken som ska användas i utgående förfrågningar.  V2.0 slutpunktens uppdrag flödet beskrivs i [detaljerat här](active-directory-v2-protocols-oauth-on-behalf-of.md).
+I många fall web API: er måste också gör utgående förfrågningar till andra underordnade webb-API: er som skyddas av Azure Active Directory. Om du vill göra det, web API: er kan dra nytta av Azure AD **på uppdrag av** flöde, där webb-API att utbyta ett inkommande åtkomst-token för en annan åtkomsttoken som ska användas i utgående förfrågningar. V2.0 slutpunktens uppdrag flödet beskrivs i [detaljerat här](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobila och interna appar
 Enheten installerade appar, till exempel appar och program behöver ofta åtkomst till backend-tjänster eller webb-API: er som lagrar data och utföra funktioner för en användares räkning. De här apparna kan lägga till inloggning och auktorisering backend-tjänster med hjälp av den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols-oauth-code.md).

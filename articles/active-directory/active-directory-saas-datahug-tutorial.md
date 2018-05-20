@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Datahug | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Datahug."
+title: 'Självstudier: Azure Active Directory-integrering med Datahug | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Datahug.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e032aee88a430fe8ac5fa37229f1eee6fc04f710
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 929b63ea3d78aafe6b96af40b9dce4decbd295b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Självstudier: Azure Active Directory-integrering med Datahug
 
@@ -29,9 +29,9 @@ Integrera Datahug med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Datahug (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Datahug, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://apps.datahug.com/identity/<uniqueID>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL som:`https://apps.datahug.com/`
+    I den **inloggnings-URL** textruta Skriv en URL som: `https://apps.datahug.com/`
      
     > [!NOTE] 
     > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Här rekommenderar vi att du om du vill använda det unika värdet på strängen i identifierare och Reply-URL. Kontakta [Datahug klienten supportteamet](http://datahug.com/about/contact-us/) att hämta dessa värden. 
@@ -243,7 +243,7 @@ När du klickar på panelen Datahug på åtkomstpanelen du bör få automatiskt 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

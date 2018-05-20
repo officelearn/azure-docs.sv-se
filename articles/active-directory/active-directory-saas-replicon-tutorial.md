@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Replicon | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Replicon."
+title: 'Självstudier: Azure Active Directory-integrering med Replicon | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Replicon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 130e13b0bb801c498f6de6e4bfd61bd3d2c3bf00
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 4afe9bb36080027ba1873dc6fd3938972044a5d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Självstudier: Azure Active Directory-integrering med Replicon
 
@@ -30,9 +30,9 @@ Integrera Replicon med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Replicon (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Replicon, behöver du följande:
 
@@ -108,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och replicon domän med enkel inloggning information](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://global.replicon.com/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://global.replicon.com/<companyname>`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://global.replicon.com/!/saml2/<companyname>/sso/post`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Replicon klienten supportteamet](https://www.replicon.com/customerzone/contact-support) att hämta dessa värden. 
@@ -131,14 +131,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![Aktivera SAML-autentisering](./media/active-directory-saas-replicon-tutorial/ic777805.png "aktivera SAML-autentisering")
     
-    a. Visa den **EnableSAML Authentication2** dialogrutan Lägg till följande i din URL efter din nyckel för företag:`/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    a. Visa den **EnableSAML Authentication2** dialogrutan Lägg till följande i din URL efter din nyckel för företag: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
     
     * Nedan visas schemat för fullständig URL:  
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
    
-   b. Klicka på den  **+**  att expandera den **v20Configuration** avsnitt.
+   b. Klicka på den **+** att expandera den **v20Configuration** avsnitt.
 
-   c. Klicka på den  **+**  att expandera den **metaDataConfiguration** avsnitt.
+   c. Klicka på den **+** att expandera den **metaDataConfiguration** avsnitt.
 
    d. Klicka på **Välj fil**, för att välja identitet providern metadata XML-filen och klicka på **skicka**.
 
@@ -198,7 +198,7 @@ För att aktivera Azure AD-användare att logga in på Replicon etableras de i R
    
     ![Användarprofil](./media/active-directory-saas-replicon-tutorial/ic777808.png "användarprofil")
     
-    a. I den **inloggningsnamnet** textruta typen Azure AD e-postadress för Azure AD-användare som du vill etablera som  **BrittaSimon@contoso.com** .
+    a. I den **inloggningsnamnet** textruta typen Azure AD e-postadress för Azure AD-användare som du vill etablera som **BrittaSimon@contoso.com**.
     
     b. Som **autentiseringstyp**väljer **SSO**.
     
@@ -251,7 +251,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,5 +1,5 @@
 ---
-title: Välj en SKU eller prisnivån för Azure Search | Microsoft Docs
+title: Välj en prisnivå nivå eller SKU för Azure Search-tjänst | Microsoft Docs
 description: 'Azure Search kan etableras på dessa SKU: er: ledigt, Basic eller Standard, där Standard finns i olika resurskonfigurationer och kapacitet för nivåerna.'
 services: search
 author: HeidiSteen
@@ -7,102 +7,145 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/24/2016
+ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 5454e659d488c84de32a15de65226bc3e1b07dfe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Välj en SKU eller prisnivå för Azure Search
-I Azure Search en [service etableras](search-create-service-portal.md) på en specifik prisnivån eller SKU: N. Alternativen är **lediga**, **grundläggande**, eller **Standard**, där **Standard** är tillgänglig i flera konfigurationer och kapacitet.
+# <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-Syftet med den här artikeln är att hjälpa dig att välja en nivå. Om en nivåkapaciteten visar sig vara för lågt, behöver du etablera en ny tjänst på högre nivå och sedan återaktivera ditt index. Det finns ingen uppgradering på plats av samma tjänst från en-SKU till en annan.
+I Azure Search en [service etableras](search-create-service-portal.md) på en specifik prisnivån eller SKU: N. Alternativen är **lediga**, **grundläggande**, eller **Standard**, där **Standard** är tillgänglig i flera konfigurationer och kapacitet. 
 
-> [!NOTE]
-> När du har valt en nivå och [etablera en söktjänst](search-create-service-portal.md), kan du öka replik och partitionen räknar inom tjänsten. Anvisningar finns [skala resursen nivåer för fråga och indexering arbetsbelastningar](search-capacity-planning.md).
->
->
+Syftet med den här artikeln är att hjälpa dig att välja en nivå. Det förbättrar den [sida med priser](https://azure.microsoft.com/pricing/details/search/) och [Tjänstbegränsningarna](search-limits-quotas-capacity.md) sida med en sammanfattning av fakturering begrepp och användningsmönster som är associerade med olika nivåer. Det rekommenderas också en iterativ metod för att förstå vilken nivå som bäst uppfyller dina behov. 
 
-## <a name="how-to-approach-a-pricing-tier-decision"></a>Hur du hanterar prisnivå nivå beslut
-I Azure Search anger nivån kapacitet, inte funktionstillgänglighet. I allmänhet är funktioner tillgängliga på varje nivå, inklusive funktioner för förhandsgranskning. Det enda undantaget är inget stöd för indexerare i S3 HD.
+Nivåer avgöra kapaciteten, inte funktioner. Om en nivåkapaciteten visar sig vara för lågt, behöver du etablera en ny tjänst på högre nivå och sedan [Läs in ditt index](search-howto-reindex.md). Det finns ingen uppgradering på plats av samma tjänst från en-SKU till en annan.
+
+Tillgängliga funktioner är inte en primär nivå faktor. Alla nivåer, inklusive den **lediga** tjänstnivån, erbjuda funktionsparitet med undantag för indexeraren stöd för S3HD. Dock kan begränsningar för indexering och resurs effektivt begränsa omfattningen av användning av funktioner. Till exempel [kognitiva Sök](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden för en kostnadsfri tjänst om datauppsättningen råkar vara mycket liten.
 
 > [!TIP]
-> Vi rekommenderar att du alltid etablera en **lediga** service (en per prenumeration utan slutdatum) så att dess är tillgängligt för inaktiverad projekt. Använd den **lediga** för testning och utvärdering; skapa en andra fakturerbar tjänst på den **grundläggande** eller **Standard** nivå för produktion eller större arbetsbelastningar för testning.
+> De flesta kunder börjar med den **lediga** datornivån för utvärdering och sedan reglera till **Standard** för utveckling. När du har valt en nivå och [etablera en söktjänst](search-create-service-portal.md), kan du [öka replik och partitionen antal](search-capacity-planning.md) för prestandajustering. Mer information om när och varför du vill justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
 >
->
 
-Gå hand i hand kapacitet och kostnader för att köra tjänsten. Informationen i den här artikeln hjälper dig att bestämma vilka SKU ger rätt balans, men för någon av den ska vara användbar, behöver du minst grov uppskattning på följande:
+## <a name="billing-concepts"></a>Fakturerings-begrepp
 
-* Antalet och storleken på index som du planerar att skapa
-* Antalet och storleken på dokument för att ladda upp
-* Vissa uppfattning om frågan volym, vad gäller frågor Per andra (QPS). Anvisningar finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
+Begrepp som du behöver för att förstå för val av inkluderar kapacitet definitioner, tjänstbegränsningarna och tjänsteenheter. 
 
-Antal och storlek är viktiga eftersom den maximala gränsen nås via en hård gräns på antalet index per tjänst eller på resurser (lagring eller repliker) som används av tjänsten. Den faktiska gränsen för tjänsten är beroende på vilket som hämtar används först: resurser eller objekt.
+### <a name="capacity"></a>Kapacitet
 
-Följande steg ska förenkla processen för beräkningar i manuellt:
-
-* **Steg 1** granska SKU beskrivningarna nedan om du vill veta mer om tillgängliga alternativ.
-* **Steg 2** svara på frågorna nedan för att få fram en preliminär beslut.
-* **Steg 3** fattar ditt beslut genom att granska hårda gränser för lagring och priser.
-
-## <a name="sku-descriptions"></a>Beskrivningar av SKU
-Följande tabell innehåller beskrivningar av varje nivå.
-
-| Nivå | Primära scenarier |
-| --- | --- |
-| **Ledigt** |En delad tjänst utan kostnad, används för utvärdering, undersökningen eller små arbetsbelastningar. Frågan genomflöde och indexering varierar beroende på vem mer använder tjänsten eftersom den delas med andra prenumeranter. Kapacitet är liten (50 MB eller 3 index med upp 10 000 dokument varje). |
-| **Basic** |Liten produktionsarbetsbelastningar på dedikerad maskinvara. Hög tillgänglighet. Kapaciteten är upp till 3 repliker och 1 partition (2 GB). |
-| **S1** |Standard 1 stöder flexibel kombinationer av partitioner (12) och repliker (12) som används för medelstora produktionsarbetsbelastningar på dedikerad maskinvara. Du kan allokera partitioner och repliker i kombinationer som stöds av ett maximalt antal 36 fakturerbar search-enheter. Partitioner är 25 GB på den här nivån. |
-| **S2** |Standard 2 kör större produktionsarbetsbelastningar som använder samma 36 search-enheter som S1 men med större storlek partitioner och repliker. Partitioner är 100 GB vardera på den här nivån. |
-| **S3** |Standard 3 körs proportionellt större produktionsarbetsbelastningar på högre kompletta system i konfigurationer av upp till 12 partitioner eller 12 repliker under 36 search-enheter. Partitioner är 200 GB på den här nivån. |
-| **S3 HD** |Standard 3 hög densitet är avsedd för ett stort antal mindre index. Du kan ha upp till 3 partitioner på 200 GB.|
+Kapacitet är strukturerad som *repliker* och *partitioner*. Repliker är instanser av tjänsten search där varje replik är värd för en belastningsutjämnad kopia av ett index. En tjänst med 6 repliker har till exempel 6 kopior av varje index som lästs in i tjänsten. Partitioner lagra index och delas automatiskt upp sökbara data: två partitioner dela ditt index i halva, tre partitioner i tre delar och så vidare. Vad gäller kapacitet, *partitions storlek* är den primära olika funktionen mellan nivåerna.
 
 > [!NOTE]
-> Replik och partitionen maxkapacitet debiteras ut som search-enheter (36 unit maximala per tjänst), vilket medför en effektiv nedre gräns än maximalt innebär på framsidan värde. Om du vill använda maximalt 12 repliker, kan du till exempel ha högst 3 partitioner (12 * 3 = 36 enheter). På samma sätt för att använda maximalt partitioner, minska repliker till 3. Se [skala resursen nivåer för fråga och indexering arbetsbelastningar i Azure Search](search-capacity-planning.md) för diagram på tillåtna kombinationer.
->
->
+> Alla **Standard** nivåer stöd [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra saldot. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast partition. **Ledigt** nivåer ger inte dedicerade resurser: computing resurser delas av flera gratistjänster.
 
-## <a name="review-limits-per-tier"></a>Granska gränser för nivån
-Följande diagram är en delmängd av gränser från [Tjänstbegränsningarna i Azure Search](search-limits-quotas-capacity.md). Den listar faktorerna som sannolikt påverkar SKU beslut. Du kan referera till det här diagrammet när du granskar frågorna nedan.
+### <a name="limits"></a>Begränsningar
 
-| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Serviceavtal (SLA) |Nr <sup>1</sup> |Ja |Ja |Ja |Ja |Ja |
-| Index gränser |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
-| Dokumentet gränser |10 000 totalt |1 miljon per tjänst |15 miljoner per partition |60 miljoner per partition |120 miljoner per partition |1 miljon per index |
-| Maximal partitioner |Gäller inte |1 |12 |12 |12 |3 <sup>2</sup> |
-| Partitionsstorlek |Totalt antal 50 MB |2 GB per tjänst |25 GB per partition |100 GB per partition (upp till högst 1,2 TB per tjänst) |200 GB per partition (upp till högst 2,4 TB per tjänst) |200 GB (upp till 600 GB per tjänst) |
-| Maximal repliker |Gäller inte |3 |12 |12 |12 |12 |
+Services värdresurser, till exempel index, indexerare och så vidare. Varje nivå inför [gränser](search-limits-quotas-capacity.md) på antalet resurser som du kan skapa. Därför är ett tak på antalet index (och andra objekt) andra olika funktionen mellan nivåerna. Observera begränsningar i antal index när du granskar varje alternativ i portalen. Andra resurser, till exempel indexerare datakällor och kunskaper, knuten till indexet gränser.
 
-<sup>1</sup> ledigt nivå och förhandsgranska funktioner inte kommer med servicenivåavtal (SLA). För alla fakturerbar nivåer börjar SLA gälla när du etablerar tillräcklig redundans för din tjänst. Två eller flera repliker krävs för SERVICENIVÅAVTAL för frågan (läsa). Tre eller flera repliker krävs för fråga och indexering SLA (skrivskyddad). Antalet partitioner är inte ett SLA-faktor. 
+### <a name="search-units"></a>Sökenheter
 
-<sup>2</sup> S3 och S3 HD backas upp av identiska hög kapacitet infrastruktur, men var och en når sin maximala gränsen på olika sätt. S3 riktar sig till ett mindre antal mycket stora index. Därför dess maxgränsen är bundet till en resurs (2,4 TB för varje tjänst). S3 HD riktar sig till ett stort antal mycket små index. S3 HD når gränsen i form av indexet begränsningar på 1 000 index. Om du är en S3 HD kund som kräver mer än 1 000 index kan kontakta Microsoft Support för mer information om hur du fortsätter.
+Att förstå de viktigaste fakturering konceptet är en *sökenheten* (SU), vilket är fakturering enhet för Azure Search. Eftersom Azure Search är beroende av både repliker och partitioner som ska fungera, vara inte det klokt att fakturera genom en eller den andra. I stället baseras fakturering på en kombination av båda. Formulaically, en SU är produkten för replik- och partitioner som används av en tjänst: (R X P = SU). Minst var tjänsten startar med 1 SU (en replik multiplicerat med en partition), men en mer realistisk modell kan vara en replik 3, 3-partition tjänst debiteras som 9 SUs. 
 
-## <a name="eliminate-skus-that-dont-meet-requirements"></a>Eliminera SKU: er som inte uppfyller kraven
-Följande frågor kan hjälpa dig komma fram till SKU rätt beslut för din arbetsbelastning.
+Även om varje nivå ger progressivt högre kapacitet, kan du ta en del av den totala kapaciteten online, hålla resten reserv. Vad gäller fakturering är det antalet partitioner och repliker som du infogar online, beräknade med hjälp av SU-formel, som avgör vad du betalar.
 
-1. Har du **serviceavtalet (SLA)** krav? Du kan använda alla fakturerbar nivå (Basic på dig), men du måste konfigurera din tjänst för redundans. Två eller flera repliker krävs för SERVICENIVÅAVTAL för frågan (läsa). Tre eller flera repliker krävs för fråga och indexering SLA (skrivskyddad). Antalet partitioner är inte ett SLA-faktor.
-2. **Hur många indexerar** behöver du? En av de största variabler factoring i beslut SKU är antalet index som stöds av varje SKU. Index support finns på markant olika nivåer i de nedre prisnivåerna. Krav för antalet index kan vara en avgörande faktorn vad gäller SKU beslut.
-3. **Hur många dokument** läses in i varje index? Antalet och storleken på dokument som avgör den slutliga storleken för indexet. Under förutsättning att du kan beräkna planerade storleken på indexet, kan du jämföra det numret mot partitionsstorlek per SKU och utökas med antalet partitioner som krävs för att lagra ett index över den storleken.
-4. **Vad är förväntade frågebelastningen**? När lagringskraven förstås, Överväg frågan arbetsbelastningar. S2 och båda S3 SKU: er erbjuder nära motsvarande dataflöde, men SLA-krav ska utesluta alla preview SKU: er.
-5. Om du funderar på S2 eller S3 nivån avgöra om du behöver [indexerare](search-indexer-overview.md). Indexerare är ännu inte tillgängliga för S3 HD-nivå. Alternativ metod är att använda en push-modell för index uppdateringar, där du kan skriva programkod att skicka en uppsättning data till ett index.
+Fakturering frekvensen är varje timme per SU, med varje nivå har en annan hastighet. Bedömer för varje nivå kan hittas på [prisinformation](https://azure.microsoft.com/pricing/details/search/).
 
-De flesta kunder kan regeln en specifik SKU in eller ut baserat på deras svar på dessa frågor. Om du fortfarande inte vet vilka SKU att gå med, kan du ställa frågor till MSDN- eller StackOverflow forum eller kontakta Azure Support för ytterligare.
+## <a name="consumption-patterns"></a>Förbrukning mönster
 
-## <a name="decision-validation-does-the-sku-offer-sufficient-storage-and-qps"></a>Decision validering: erbjuder SKU: N tillräckligt med lagringsutrymme och QPS?
-Kontrollera igen som ett sista steg i [sida med priser](https://azure.microsoft.com/pricing/details/search/) och [per service och per index avsnitt i Tjänstbegränsningarna](search-limits-quotas-capacity.md) att dubbelkolla uppskattningar mot prenumeration och tjänsten gränser.
+De flesta kunder börjar med den **lediga** tjänsten, som de har på obestämd tid och väljer sedan en av de **Standard** nivåer för allvarliga arbetsbelastningar för utveckling och produktion. 
 
-Om priset eller lagring kraven är utanför intervallet, kanske du vill refactor arbetsbelastningar bland flera mindre tjänster (till exempel). På detaljnivå, kan du ändra designen index ska vara mindre eller använda filter för att effektivisera frågor.
+![Azure search nivåer](./media/search-sku-tier/tiers.png "Azure search prisnivåer")
+
+På endera änden **grundläggande** och **S3 HD** finns för viktiga men ovanliga förbrukning mönster. **Grundläggande** är för liten produktionsarbetsbelastningar: den erbjuder SLA särskilda resurser, hög tillgänglighet, men liten lagring, Fyll sammanlagt 2 GB. Det här skiktet är utformad för kunder som konsekvent under utnyttjade tillgänglig kapacitet. Slutet långt **S3 HD** är för arbetsbelastningar typiska för ISV: er, partners, [multitenant lösningar](search-modeling-multitenant-saas-applications.md), eller någon konfiguration för ett stort antal små index. Det är ofta självklart när **grundläggande** eller **S3 HD** nivå är rätt anpassning, men om du vill bekräfta du kan skicka till [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) eller [kontakta Azure Stöd för](https://azure.microsoft.com/support/options/) för ytterligare.
+
+Flytta fokus till vanliga standard nivåer, **S1 S3** är en utvecklingen av ökade kapacitet med angripits pekar på partitionsstorlek och maximala storlekar på antal index, indexerare och naturlig följd resurser:
+
+|  | S1 | S2 | S3 |  |  |  |  |
+|--|----|----|----|--|--|--|--|
+| Partitionsstorlek|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| index och indexeraren gränser| 50 | 200 | 200 |  |  |  |  |
+
+**S1** är ett vanligt val när dedicerade resurser blir nödvändigt. Med 25 GB partitioner för upp till 12 partitioner, begränsa per-tjänsten på **S1** är 300 GB total om du maximerar partitioner över repliker (se [allokera partitioner och repliker](search-capacity-planning.md#chart) mer realistiska och belastningsutjämnade sammansättningar.)
+
+Utöver lagring och gränser är andra aspekter av kapaciteten för tjänsten enhetliga mellan nivåerna. Repliker som är instanser av sökmotorn (hantering av indexering och fråga operations), inte varierar beroende på nivå: en **S1** repliken är samma som en **S3** repliken. På liknande sätt nyttolaster för förfrågan och svar, genomflödet av frågor per sekund och maximal körningstid också inte varierar beroende på nivån.
+
+**S3** och **S3 HD** backas upp av identiska hög kapacitet infrastruktur, men var och en når sin övre gräns på olika sätt. **S3** riktar sig till ett mindre antal mycket stora index. Därför dess maxgränsen är bundet till en resurs (2,4 TB för varje tjänst). **S3 HD** riktar sig till ett stort antal mycket små index. På 1 000 index **S3 HD** når gränsen i form av indexet begränsningar. Om du är en **S3 HD** kund som kräver mer än 1 000 index, kontakta Microsofts Support för information om hur du fortsätter.
 
 > [!NOTE]
-> Lagringskraven kan vara felaktigt luftfyllda om dokument innehåller främmande data. Vi rekommenderar innehåller dokument bara sökbara data eller metadata. Binära data är icke-sökbart och ska lagras separat (kanske i ett Azure table eller blob storage) med ett fält i indexet för en URL: en referens till externa data. Den maximala storleken för ett enskilt dokument är 16 MB (eller mindre om du är bulk överför flera dokument i en begäran). Se [gränser i Azure Search](search-limits-quotas-capacity.md) för mer information.
->
+> Tidigare var en faktor dokumentet gränser men inte längre gäller för de flesta Azure Search-tjänster som etablerats efter januari 2018. Mer information om villkor som dokumentet gränser gäller fortfarande finns [gränser: dokumentera gränser](search-limits-quotas-capacity.md#document-limits).
 >
 
-## <a name="next-step"></a>Nästa steg
-När du vet vilket SKU är rätt anpassning kan fortsätta på med de här stegen:
+## <a name="evaluate-capacity"></a>Utvärdera kapacitet
 
-* [Skapa en söktjänst på portalen](search-create-service-portal.md)
-* [Ändra tilldelning av partitioner och repliker att skala din tjänst](search-capacity-planning.md)
+Gå hand i hand kapacitet och kostnader för att köra tjänsten. Nivåer införa begränsningar på två nivåer, lagring och resurser, så bör du tänka både eftersom vilken som du kommer först är effektiva gränsen. 
+
+Affärsbehov kräver vanligtvis antalet index som du behöver. Till exempel ett globalt index för en stor lagringsplats för dokument, eller kanske flera index baserat på region, program eller business nischer.
+
+För att fastställa storleken på ett index måste du [bygga upp en](search-create-index-portal.md). Datastrukturen i Azure Search är i första hand en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index), som har andra egenskaper än källdata. För ett inverterad index bestäms storleken och komplexiteten av innehåll, inte nödvändigtvis mängden datafeed till den. En omfattande datakälla med massiv redundans kan resultera i ett index som är mindre än en mindre datamängd med hög variabel innehåll.  Det är därför sällan går att härleda Indexstorlek baserat på storleken på den ursprungliga datauppsättningen.
+
+### <a name="preliminary-estimates-using-the-free-tier"></a>Preliminär beräknar med hjälp av den kostnadsfria nivån
+
+En metod för att uppskatta kapacitet är att börja med den **lediga** nivå. Kom ihåg att den **lediga** tjänst erbjuder upp till 3 index, 50 MB lagringsutrymme och 2 minuter för indexering tid. Det kan vara en utmaning för att beräkna en planerade Indexstorlek med dessa villkor, men i följande exempel används en metod:
+
++ [Skapa en kostnadsfri tjänst](search-create-service-portal.md)
++ Förbereda en liten, representativ datauppsättning (antar fem tusen dokument och tio procent provtagning)
++ [Skapa ett inledande index](search-create-index-portal.md) och notera storleken på portalen (förutsätter 30 MB)
+
+Under förutsättning att provet har både i representant och tio procent av hela datakällan, blir ett 30 MB index ungefär 300 MB om alla dokument som indexeras. Tillsammans med den här preliminära nummer, kanske dubbla beloppet till budgeten för två index (utveckling och produktion) totalt 600 MB i lagringsbehov. Detta enkelt uppfyller den **grundläggande** nivån, utan det skulle startas.
+
+### <a name="advanced-estimates-using-a-billable-tier"></a>Avancerade beräknar med hjälp av en fakturerbar nivå
+
+Vissa kunder föredrar att börja med dedicerade resurser som kan hantera större provtagning och bearbetningstider och sedan utveckla realistiska uppskattningar av indexet antal, storlek och fråga volymer under utvecklingen. Från början, en tjänst har etablerats utifrån en bästa gissning uppskattning och sedan då utvecklingsprojektet utvecklas team vet vanligtvis om befintliga ligger över eller under kapacitet för planerade produktionsarbetsbelastningar. 
+
+1. [Granska tjänstbegränsningarna på varje nivå](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) att avgöra om lägre nivåer har stöd för antalet index som du behöver. I den **grundläggande**-**S1**- **S2** nivåer, index-gränserna är 15 50 200, respektive.
+
+1. [Skapa en tjänst på en fakturerbar nivå](search-create-service-portal.md):
+
+    + Starta ont om **grundläggande** eller **S1** om du är i början av din inlärningskurva.
+    + Starta hög på **S2** eller även **S3**om stora belastningarna för indexering och fråga är självklart.
+
+1. [Skapa ett inledande index](search-create-index-portal.md) att avgöra hur källdata översätter till ett index. Detta är det enda sättet att beräkna Indexstorlek.
+
+1. [Övervaka lagring, tjänstbegränsningarna, fråga volym och svarstid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsad frågor och Sök latens; som kan hjälpa dig att avgöra om du är på rätt nivå. Utöver portal statistik och, du kan konfigurera djupövervakning, till exempel klickningsförflyttningsrapport analys genom att aktivera [söka trafik analytics](search-traffic-analytics.md). 
+
+Index antal och storlek är lika relevant för din analys eftersom maximala gränsen nås via fullständig användning av lagring (partitioner) eller övre gräns för resurser (index, indexerare och så vidare), beroende på vilket som inträffar först. Portalen hjälper dig att hålla reda på båda visar aktuell användning och gränsvärden sida vid sida på översiktssidan.
+
+> [!NOTE]
+> Lagringskraven kan vara felaktigt luftfyllda om dokument innehåller främmande data. Vi rekommenderar innehåller dokument bara de data som behövs för sökupplevelsen. Binära data är icke-sökbart och ska lagras separat (kanske i ett Azure table eller blob storage) med ett fält i indexet för en URL: en referens till externa data. Den maximala storleken för ett enskilt dokument är 16 MB (eller mindre om du är bulk överför flera dokument i en begäran). [Gränser i Azure Search](search-limits-quotas-capacity.md) har mer information.
+>
+
+**Frågan volym överväganden**
+
+Frågor per sekund (QPS) är ett mått som får plats under inställning av prestanda, men vanligtvis är inte en nivå faktor om du förväntar dig mycket hög frågan volym från början.
+
+Alla standard nivåerna kan ge en balans mellan replikerna till partitioner, stöder efterfrågande frågan via ytterligare repliker för att läsa in belastningsutjämning och ytterligare partitioner för parallell bearbetning. Du kan finjustera prestanda när tjänsten har etablerats.
+
+Kunden som förväntar sig att strong upprätthållas frågan volymer från början bör tänka på högre nivåer, backas upp av kraftigare maskinvara. Du kan sedan kopplar partitioner och repliker eller växla till en lägre nivå tjänst även om volymerna fråga inte Materialisera. Mer information om hur du beräknar frågan genomströmning finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
+
+
+**Servicenivåavtal**
+
+Den **lediga** nivå och förhandsgranska funktioner inte kommer med [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). För alla fakturerbar nivåer börjar SLA gälla när du etablerar tillräcklig redundans för din tjänst. Två eller flera repliker krävs för SERVICENIVÅAVTAL för frågan (läsa). Tre eller flera repliker krävs för fråga och indexering SLA (skrivskyddad). Antalet partitioner är inte ett SLA-faktor. 
+
+## <a name="tips-for-tier-evaluation"></a>Tips för nivån utvärdering
+
++ Lär dig att skapa effektiva index och vilka metoder för uppdatering är den minsta impactful. Vi rekommenderar [söka trafik analytics](search-traffic-analytics.md) för kunskap för aktiviteten fråga.
+
++ Tillåt mått skapa runt frågor och samla in data runt användningsmönster (frågor under kontorstid, indexering vid låg belastning) och använda dessa data för att informera framtida service etableringsbeslut. Du kan dynamiskt justera partitioner och resurser för att hantera planerade ändringar i frågan volymer, eller oplanerade men varaktigt ändringar om nivåer håller tillräckligt lång som backar upp åtgärda medan inte praktiska på en nivå med timvis eller dagligen.
+
++ Kom ihåg att endast Nackdelen med av under etableringen är att du kan behöva går sönder ned en tjänst om de faktiska kraven är större än du beräknad. För att undvika avbrott i tjänsten kan du skapa en ny tjänst i samma prenumeration på en högre nivå och köras sida vid sida förrän alla appar och begäranden mål ny slutpunkt.
+
+## <a name="next-steps"></a>Nästa steg
+
+Börja med en **lediga** nivån och skapa ett inledande index med en delmängd av dina data för att förstå dess egenskaper. Datastrukturen i Azure Search är en inverterad index där storlek och komplexitet för ett inverterad index bestäms av innehållet. Kom ihåg att hög redundant innehåll tenderar att resultera i ett index som är mindre än hög oregelbundna innehåll. Därför är det innehåll egenskaper i stället för storleken på den datamängd som bestämmer indexet lagringsbehov.
+
+När du har en inledande uppfattning om Indexstorlek [etablera en fakturerbar tjänst](search-create-service-portal.md) på någon av de nivåer som beskrivs i den här artikeln antingen **grundläggande** eller en **Standard** nivå. Minska konstgjorda villkor i datadelmängder och [återskapa index](search-howto-reindex.md) att inkludera alla data som ska sökas.
+
+[Allokera partitioner och repliker](search-capacity-planning.md) som behövs för att få prestanda och skalning som du behöver.
+
+Om prestanda och kapacitet accepterar, är du klar. Annars kan återskapa en söktjänst på ett annat skikt mer stämmer överens med dina behov.
+
+> [!NOTE]
+> Mer hjälp med frågor efter att [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/).

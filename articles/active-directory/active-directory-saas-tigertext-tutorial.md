@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TigerText Secure Messenger."
+title: 'Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TigerText Secure Messenger.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: efbdf55f425d8e559b741f41b09527e9ce93f999
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b21f3474466c8338046ebdad5a9cae18bdda4fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger
 
@@ -29,9 +29,9 @@ Integrera TigerText Secure Messenger med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta inloggade TigerText Secure Messenger (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med TigerText Secure Messenger, behöver du följande:
 
@@ -106,9 +106,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Avsnittet TigerText Secure Messenger domän och URL: er](./media/active-directory-saas-tigertext-tutorial/tutorial_tigertext_url.png)
 
-    a. I den **inloggnings-URL** textruta typen URL: en som:`https://home.tigertext.com`
+    a. I den **inloggnings-URL** textruta typen URL: en som: `https://home.tigertext.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://saml-lb.tigertext.me/v1/organization/<instance Id>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [TigerText Secure Messenger-klienten supportteamet](mailTo:prosupport@tigertext.com) att hämta det här värdet. 
@@ -201,7 +201,7 @@ När du klickar på panelen TigerText på åtkomstpanelen du bör få automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

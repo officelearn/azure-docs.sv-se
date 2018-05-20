@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b668ff70d627a63fb34012b07d9b41fc6f6ecb6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps geokodning täckning
 
@@ -95,7 +95,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kambodja                                            |                 |                |              |      ✓     |          ✓         |
 | Kina |                 |                |              |      ✓     |          ✓         |
-| Julön                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Kiritimati, Julön                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kokosöarna|                 |                |              |      ✓     |          ✓         |
 | Komorerna|                 |                |              |      ✓     |          ✓         |
 | Cooköarna                                        |                 |                |              |      ✓     |          ✓         |
@@ -141,7 +141,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Wallis och Futuna|                 |                |              |      ✓     |          ✓         |
+| Wallis- och Futunaöarna|                 |                |              |      ✓     |          ✓         |
 
 ## <a name="europe"></a>Europa
 
@@ -242,7 +242,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guinea Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Iran                                                |                 |                |              |      ✓     |          ✓         |
 | Irak                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israel                                              |                 |                |              |      ✓     |          ✓         |
@@ -297,7 +297,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps geokodning finns i [Sök](https://docs.microsoft.com/rest/api/azure-maps/search) referera sidor.
+Mer information om Azure Maps geokodning finns i [Sök](https://docs.microsoft.com/rest/api/maps/search) referera sidor.
 
 Lär dig mer om den [täckningsområden för mappningarna trafik tjänsten](traffic-coverage.md). 
 

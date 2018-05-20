@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dc820a95a9ccd0feb8b67c898ecfa8ce9826838a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Hur tillhandahåller Azure AD Application Proxy enkel inloggning?
 
@@ -54,13 +54,13 @@ Det här alternativet är bra om lokala program kräver inte användare att aute
 
 Om du vill använda Azure Active Directory som ett valv lösenord för lokala program väljer du **lösenordsbaserade inloggning**. Det här alternativet är bra om programmet autentiserar med användarnamn/lösenord kombinationsruta i stället för åtkomst-token eller huvuden. Med lösenordsbaserade inloggning måste användarna logga in programmet första tills de har åtkomst till den. Efter det tillhandahåller Azure Active Directory användarnamnet och lösenordet för användarens räkning. 
 
-Information om hur du konfigurerar lösenordsbaserade inloggning finns i [lösenord vaulting för enkel inloggning med Application Proxy](../application-proxy-sso-azure-portal.md).
+Information om hur du konfigurerar lösenordsbaserade inloggning finns i [lösenord vaulting för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ## <a name="linked-sign-on"></a>Länkade inloggning
 
 Om du redan har en enkel inloggning lösning har ställts in för dina lokala identiteter väljer **länkade inloggning**. Det här alternativet kan Azure Active Directory för att utnyttja befintliga SSO-lösningar, men ger ändå användarna fjärråtkomst till programmet. 
 
-Information om länkade inloggning (tidigare kallat befintliga enkel inloggning) finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Information om länkade inloggning (tidigare kallat befintliga enkel inloggning) finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="integrated-windows-authentication"></a>Integrerad Windows-autentisering
 
@@ -72,10 +72,10 @@ Information om hur du konfigurerar integrerad Windows-autentisering finns i [Ker
 
 Om dina program använder huvuden för autentisering, Välj **huvud-baserade inloggning**. Med det här alternativet behöver användarna bara autentisering Azure Active Directory. Microsoft-partner med en autentiseringstjänst från tredje part kallas PingAccess som översättas Azure Active Directory-åtkomsttoken till en huvudformat för programmet. 
 
-Information om hur du konfigurerar huvud-baserad autentisering finns [huvud-baserad autentisering för enkel inloggning med Application Proxy](../application-proxy-ping-access.md).
+Information om hur du konfigurerar huvud-baserad autentisering finns [huvud-baserad autentisering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lösenord vaulting för enkel inloggning med Application Proxy](../application-proxy-sso-azure-portal.md)
+- [Lösenord vaulting för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos-begränsad delegering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Rubrik-baserad autentisering för enkel inloggning med Application Proxy](../application-proxy-ping-access.md) 
+- [Rubrik-baserad autentisering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 

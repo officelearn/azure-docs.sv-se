@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med LockPath Keylight | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LockPath Keylight."
+title: 'Självstudier: Azure Active Directory-integrering med LockPath Keylight | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LockPath Keylight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 74d9d80a1ce35f1766261038a985cc6f0cc39fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5eb3aa008ccfa5711d8282f6d98df44239d236a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Självstudier: Azure Active Directory-integrering med LockPath Keylight
 
@@ -29,9 +29,9 @@ Integrera LockPath Keylight med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på LockPath Keylight (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med LockPath Keylight, behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<company name>.keylightgrc.com/`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<company name>.keylightgrc.com/`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<company name>.keylightgrc.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<company name>.keylightgrc.com`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<company name>.keylightgrc.com/Login.aspx`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<company name>.keylightgrc.com/Login.aspx`
     
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [LockPath Keylight klienten supportteamet](https://www.lockpath.com/contact/) att hämta dessa värden. 
@@ -167,7 +167,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. Ange **automatiskt etablera kontotyp** till **fullständig användaren**.
 
-    Jag. Ange **automatiskt etablera säkerhetsrollen**väljer **standardanvändare med SAML**.
+    i. Ange **automatiskt etablera säkerhetsrollen**väljer **standardanvändare med SAML**.
     
     j. Ange **automatiskt etablera säkerhet config**väljer **Standard Användarkonfiguration**.
      
@@ -261,7 +261,7 @@ När du klickar på panelen LockPath Keylight på åtkomstpanelen du bör få au
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

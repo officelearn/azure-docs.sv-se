@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
         * [SQL API](sql-api-introduction.md): En JSON-databasmotor utan schema med omfattande SQL-frågemöjligheter.
         * [MongoDB API](mongodb-introduction.md): En mycket skalbar *MongoDB som en tjänst* som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för MongoDB.
         * [Cassandra API](cassandra-introduction.md): En globalt distribuerad Cassandra som en tjänst som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin (Graph) API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Graph-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Graph-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Tabell-API](table-introduction.md): En nyckel/värde-databastjänst som skapats för att tillhandahålla premium-funktioner (till exempel automatisk indexering, garanteras snabb svarstid, global distribution) till befintliga Azure Table Storage-program utan att göra några ändringar i appen.
         * Ytterligare datamodeller och API:er kommer snart!
 
@@ -97,7 +97,7 @@ Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
 * [Komma igång med SQL-API för Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Kom igång med MongoDB-API för Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Kom igång med Cassandra-API för Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Komma igång med Graph API för Azure Cosmos DB](create-graph-dotnet.md)
+* [Komma igång med Gremlin API för Azure Cosmos DB](create-graph-dotnet.md)
 * [Komma igång med Tabell-API för Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]

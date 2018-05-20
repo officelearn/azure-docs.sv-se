@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Integrera Azure Active Directory med Palo Alto nätverk - Admin-Gränssnittet | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto nätverk - Admin UI."
+title: 'Självstudier: Integrera Azure Active Directory med Palo Alto nätverk - Admin-Gränssnittet | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto nätverk - Admin UI.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aa3366810a40b004fe510cb2909f8da0f3513ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrera Azure Active Directory med Palo Alto nätverk - Admin-Gränssnittet
 
@@ -30,7 +30,7 @@ Av integrerande Azure AD med Palo Alto nätverk - Admin UI, får du följande f�
 - Du kan aktivera användarna att få inloggad automatiskt till Palo Alto nätverk - Admin UI (enkel inloggning eller SSO) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats, Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -119,7 +119,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
         
     | Attributets namn | Attributvärdet |
     | --- | --- |    
-    | användarnamn | user.userprincipalname |
+    | användarnamn | User.userPrincipalName |
     | adminrole | customadmin |
 
     a. Välj **Lägg till attributet**.  
@@ -180,7 +180,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
 
     ![Fönstret ”SAML identitet providern Server-profil”](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-    a. I den **identitet providern Servicenivåmål URL** rutan ersätter den tidigare importerat SLO-URL med följande URL:  **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0** .
+    a. I den **identitet providern Servicenivåmål URL** rutan ersätter den tidigare importerat SLO-URL med följande URL: **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0**.
   
     b. Välj **OK**.
 
@@ -312,7 +312,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

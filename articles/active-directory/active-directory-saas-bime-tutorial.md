@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Bime | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bime."
+title: 'Självstudier: Azure Active Directory-integrering med Bime | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: f48c784fe2c1fa30a034147571fac218919fe574
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53272126310b8c1ba38f5c81518073fded18b6bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudier: Azure Active Directory-integrering med Bime
 
@@ -29,9 +29,9 @@ Integrera Bime med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Bime (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Bime, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-bime-tutorial/tutorial_bime_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<tenant-name>.Bimeapp.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.Bimeapp.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<tenant-name>.Bimeapp.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenant-name>.Bimeapp.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Bime klienten supportteamet](https://bime.zendesk.com/hc/categories/202604307-Support-tech-notes-and-tips-) att hämta dessa värden. 
@@ -206,7 +206,7 @@ För att aktivera Azure AD-användare kan logga in på Bime etableras de i Bime.
 
     b. I den **efternamn** textruta Ange efternamn för användaren som **Simon**.
  
-    c. I den **e-post** textruta ange e-postadress för användaren som  **brittasimon@contoso.com** .
+    c. I den **e-post** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
 
     d. Klicka på **Spara**.
 
@@ -253,7 +253,7 @@ När du klickar på panelen Bime på åtkomstpanelen du bör få automatiskt log
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

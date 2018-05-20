@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Aktivera säkerhetskopiering för Azure-stacken med PowerShell
 
@@ -64,7 +64,7 @@ Redigera följande PowerShell-skript i samma PowerShell-session genom att lägga
 
 | Variabel        | Beskrivning   |
 |---              |---                                        |
-| $username       | Typ av **användarnamn** med domänen och användarnamnet för platsen för delad enhet. Till exempel `Contoso\administrator`. |
+| $username       | Typ av **användarnamn** med domänen och användarnamnet för den delade enhetsplatsen med behörighet att läsa och skriva filer. Till exempel `Contoso\backupshareuser`. |
 | $password       | Typ av **lösenord** för användaren. |
 | $sharepath      | Ange sökvägen till den **säkerhetskopiera lagringsplats**. Du måste använda en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs som finns på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Enheten måste vara i en annan plats för att säkerställa tillgängligheten för säkerhetskopierade data. |
 

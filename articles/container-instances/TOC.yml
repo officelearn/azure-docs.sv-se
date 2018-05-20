@@ -21,6 +21,12 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 – Distribuera program
       href: container-instances-tutorial-deploy-app.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: Mallar för Resurshanteraren
+      href: container-instances-samples-rm.md
 - name: Begrepp
   items:
     - name: Kvoter och regionala begränsningar
@@ -31,22 +37,28 @@
       href: container-instances-container-groups.md
 - name: Instruktionsguider
   items:
-    - name: Distribuera grupper med flera behållare
-      href: container-instances-multi-container-group.md
-    - name: Distribuera från Azure Container Registry
-      href: container-instances-using-azure-container-registry.md
-    - name: Köra ett kommando (exec)
-      href: container-instances-exec.md
-    - name: Köra behållarbaserade uppgifter
-      href: container-instances-restart-policy.md
-    - name: Ange miljövariabler (env)
-      href: container-instances-environment-variables.md
-    - name: Felsöka distributioner
-      href: container-instances-troubleshooting.md
-    - name: Jenkins-versionsagenter på ACI
-      href: container-instances-jenkins.md
-    - name: Övervaka användning av processor och minne
-      href: container-instances-monitor.md
+    - name: Distribuera
+      items:
+        - name: Distribuera grupper med flera behållare
+          href: container-instances-multi-container-group.md
+        - name: Distribuera från Azure Container Registry
+          href: container-instances-using-azure-container-registry.md
+        - name: Ange miljövariabler (env)
+          href: container-instances-environment-variables.md
+        - name: Felsöka distributioner
+          href: container-instances-troubleshooting.md
+    - name: Hantera
+      items:
+        - name: Köra ett kommando (exec)
+          href: container-instances-exec.md
+        - name: Övervaka användning av processor och minne
+          href: container-instances-monitor.md
+    - name: Köra arbetsbelastningar
+      items:
+        - name: Köra behållarbaserade uppgifter
+          href: container-instances-restart-policy.md
+        - name: Jenkins-versionsagenter på ACI
+          href: container-instances-jenkins.md
     - name: Konfigurera datavolymer
       items:
         - name: Azure Files

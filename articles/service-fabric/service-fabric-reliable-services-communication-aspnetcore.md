@@ -1,24 +1,24 @@
 ---
-title: "Tjänsten kommunikation med ASP.NET Core | Microsoft Docs"
-description: "Lär dig hur du använder ASP.NET Core i tillståndslösa och tillståndskänsliga Reliable Services."
+title: Tjänsten kommunikation med ASP.NET Core | Microsoft Docs
+description: Lär dig hur du använder ASP.NET Core i tillståndslösa och tillståndskänsliga Reliable Services.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
 
@@ -104,7 +104,7 @@ HttpSys bygger på den [Windows http-Server API](https://msdn.microsoft.com/libr
 
 Följande diagram illustrerar hur HttpSys använder den *http.sys* kernel-drivrutinen i Windows för delning av port:
 
-![http.sys][3]
+![HTTP.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys i en tillståndslös tjänst
 Att använda `HttpSys` i en tillståndslös tjänst åsidosätta den `CreateServiceInstanceListeners` metod och returnera ett `HttpSysCommunicationListener` instans:
@@ -132,7 +132,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys i en tillståndskänslig service
 
-`HttpSysCommunicationListener`för närvarande är inte avsedd för användning i tillståndskänsliga tjänster på grund av problem med den underliggande *http.sys* portdelning funktionen. Mer information finns i följande avsnitt på dynamisk porttilldelning med HttpSys. För tillståndskänsliga tjänster är Kestrel rekommenderade webbservern.
+`HttpSysCommunicationListener` för närvarande är inte avsedd för användning i tillståndskänsliga tjänster på grund av problem med den underliggande *http.sys* portdelning funktionen. Mer information finns i följande avsnitt på dynamisk porttilldelning med HttpSys. För tillståndskänsliga tjänster är Kestrel rekommenderade webbservern.
 
 ### <a name="endpoint-configuration"></a>Slutpunktskonfiguration
 

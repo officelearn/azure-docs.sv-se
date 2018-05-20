@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Kvotgränserna för Azure Data Lake Analytics
 
@@ -32,29 +32,33 @@ Om du vill sträcker sig utöver den här gränsen kan du testa dessa alternativ
 * Välj en annan region om lämplig
 * Kontakta Azure-supporten av [öppna ett supportärende](#increase-maximum-quota-limits) att begära en ökad kvot.
 
-## <a name="adla-account-limits"></a>ADLA gränser
+## <a name="default-adla-account-limits"></a>Standard ADLA gränser
 
-**Maximalt antal Analytics (Australien) per konto:** 250
+**Maximalt antal Analytics (Australien) per konto:** 32
 
 Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet kör Australien över alla jobb som överskrider denna gräns, nya jobb ställs i kö automatiskt. Exempel:
 
-* Om du har endast ett jobb körs med 250 Australien när du skickar en andra jobb den kommer att vänta i jobbkön tills det första jobbet har slutförts.
-* Om du redan har fem jobb som körs och var och en med 50 Australien när du skickar ett sjätte jobb som behöver 20 Australien den väntar i jobbkön tills det finns 20 Australien som är tillgängliga.
+* Om du har endast ett jobb körs med 32 Australien när du skickar en andra jobb den kommer att vänta i jobbkön tills det första jobbet har slutförts.
+* Om du redan har fyra körs och var och en med 8 Australien när du skickar ett femte jobb som behöver 8 Australien den väntar i jobbkön tills det finns 8 Australien som är tillgängliga.
+
+**Maximalt antal Analytics (Australien) per jobb:** 32
+
+Detta är standard maxantalet Australien som varje enskild jobb kan tilldelas i ditt konto. Jobb som har tilldelats fler än begränsningen avvisas, såvida inte påverkas av avsändaren av en princip för beräkning (jobbet skicka gräns) som ger dem mer Australien per jobb. Den övre gränsen för det här värdet är Australien gränsen för kontot.
 
 **Maximalt antal samtidiga U-SQL-jobb per konto:** 20
 
 Detta är det maximala antalet jobb som kan köras samtidigt i ditt konto. Ovanför det här värdet senare jobb ställs i kö automatiskt.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Justera ADLA kvotgränserna per konto
+## <a name="adjust-adla-account-limits"></a>Justera ADLA gränser
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj ett befintligt ADLA-konto.
 3. Klicka på **Egenskaper**.
-4. Justera **parallellitet** och **samtidiga jobb** som passar dina behov.
-
-    ![Portalsida för Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Justera värden för **maximala Australien**, **maximalt antal jobb som körs**, och **jobbet skicka gränser** som passar dina behov.
 
 ## <a name="increase-maximum-quota-limits"></a>Öka maximal kvotgränser
+
+Du hittar mer information om Azure gränser i den [Azure tjänstspecifika begränsar dokumentationen](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Öppna ett supportärende i Azure-portalen.
 

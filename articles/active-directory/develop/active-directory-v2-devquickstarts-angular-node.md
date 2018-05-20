@@ -1,51 +1,53 @@
 ---
-title: "Azure AD v2.0 NodeJS AngularJS sida app komma igång | Microsoft Docs"
-description: "Hur du skapar en vinkel JS sida-app som loggar in användare med både personliga Microsoft-konton och arbets-eller skolkonton."
+title: Azure AD v2.0 NodeJS AngularJS sida app komma igång | Microsoft Docs
+description: Hur du skapar en vinkel JS sida-app som loggar in användare med både personliga Microsoft-konton och arbets-eller skolkonton.
 services: active-directory
-documentationcenter: 
-author: navyasric
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6f617c43cc5b4d471f3effb6f4a633604b8dde0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Lägga till inloggning till en AngularJS sida app - NodeJS
 I den här artikeln ska vi lägga till logga in med Microsoft påslagen konton för en AngularJS-app med Azure Active Directory v2.0-slutpunkten. v2.0-slutpunkten kan du utföra en enkel integrering i din app och autentiserar användare med både personliga och arbete/skola konton.
 
-Det här exemplet är en enkel sida app för att göra-lista som lagrar uppgifter i en serverdel REST API, skrivna i NodeJS och skyddas med OAuth ägar-token från Azure AD.  AngularJS-appen kommer att använda våra öppen källkod JavaScript-autentiseringsbibliotek [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) kan hantera hela tecknet i processen och hämta token för att anropa REST-API.  Samma mönster som kan användas för att autentisera till andra REST-API: er, som den [Microsoft Graph](https://graph.microsoft.com) eller Azure Resource Manager API: er.
+Det här exemplet är en enkel sida app för att göra-lista som lagrar uppgifter i en serverdel REST API, skrivna i NodeJS och skyddas med OAuth ägar-token från Azure AD. AngularJS-appen kommer att använda våra öppen källkod JavaScript-autentiseringsbibliotek [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) kan hantera hela tecknet i processen och hämta token för att anropa REST-API. Samma mönster som kan användas för att autentisera till andra REST-API: er, som den [Microsoft Graph](https://graph.microsoft.com) eller Azure Resource Manager API: er.
 
 > [!NOTE]
-> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten.  Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
+> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download"></a>Ladda ned
-Om du vill komma igång, måste du hämta och installera [node.js](https://nodejs.org).  Sedan kan du klona eller [hämta](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) stommen app:
+Om du vill komma igång, måste du hämta och installera [node.js](https://nodejs.org). Sedan kan du klona eller [hämta](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) stommen app:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
-Appen stommen innehåller formaterad exempelkod för en enkel AngularJS-app, men saknar alla identitetsrelaterade bitar.  Om du inte vill att följa instruktionerna du i stället klona eller [hämta](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) det slutförda exemplet.
+Appen stommen innehåller formaterad exempelkod för en enkel AngularJS-app, men saknar alla identitetsrelaterade bitar. Om du inte vill att följa instruktionerna du i stället klona eller [hämta](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) det slutförda exemplet.
 
 ```
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
 ## <a name="register-an-app"></a>Registrera en app
-Först skapar du en app i den [App Registreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller följa dessa [detaljerade steg](active-directory-v2-app-registration.md).  Se till att:
+Först skapar du en app i den [App Registreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller följa dessa [detaljerade steg](active-directory-v2-app-registration.md). Se till att:
 
 * Lägg till den **Web** plattform för din app.
 * Ange rätt **omdirigerings-URI**. Standardvärdet för det här exemplet är `http://localhost:8080`.
@@ -54,13 +56,13 @@ Först skapar du en app i den [App Registreringsportalen](https://apps.dev.micro
 Kopiera den **program-ID** som har tilldelats din app behöver du den inom kort. 
 
 ## <a name="install-adaljs"></a>Installera adal.js
-Starta genom att gå till projektet du hämtade och installera adal.js.  Om du har [bower](http://bower.io/) installerat, du kan bara köra det här kommandot.  Välj den högre versionen för alla beroende version avvikelser.
+Starta genom att gå till projektet du hämtade och installera adal.js. Om du har [bower](http://bower.io/) installerat, du kan bara köra det här kommandot. Välj den högre versionen för alla beroende version avvikelser.
 
 ```
 bower install adal-angular#experimental
 ```
 
-Alternativt kan du manuellt hämta [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) och [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js).  Lägg till båda filer i den `app/lib/adal-angular-experimental/dist` directory.
+Alternativt kan du manuellt hämta [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) och [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js). Lägg till båda filer i den `app/lib/adal-angular-experimental/dist` directory.
 
 Öppna projektet i valfri textredigerare och läsa in adal.js i slutet av sidan brödtext:
 
@@ -76,7 +78,7 @@ Alternativt kan du manuellt hämta [adal.js](https://raw.githubusercontent.com/A
 ```
 
 ## <a name="set-up-the-rest-api"></a>Konfigurera REST API
-Medan vi konfigurerar saker, kan du få fungerande för backend-REST API.  Installera de nödvändiga paketen i en kommandotolk genom att köra (Kontrollera att du befinner dig i den översta katalogen i projektet):
+Medan vi konfigurerar saker, kan du få fungerande för backend-REST API. Installera de nödvändiga paketen i en kommandotolk genom att köra (Kontrollera att du befinner dig i den översta katalogen i projektet):
 
 ```
 npm install
@@ -94,12 +96,12 @@ exports.creds = {
 }
 ```
 
-REST API använder det här värdet för att validera token som tas emot från appen vinkel på AJAX-begäranden.  Observera att detta enkla REST-API lagrar data i minnet - så varje tid för att stoppa servern, förlorar du alla tidigare skapade aktiviteter.
+REST API använder det här värdet för att validera token som tas emot från appen vinkel på AJAX-begäranden. Observera att detta enkla REST-API lagrar data i minnet - så varje tid för att stoppa servern, förlorar du alla tidigare skapade aktiviteter.
 
-Det är den tid som ska vi använda diskutera hur REST API fungerar.  Passa på att undersöka i koden, men om du vill veta mer om att skydda webb-API: er med Azure AD, kolla [i den här artikeln](active-directory-v2-devquickstarts-node-api.md). 
+Det är den tid som ska vi använda diskutera hur REST API fungerar. Passa på att undersöka i koden, men om du vill veta mer om att skydda webb-API: er med Azure AD, kolla [i den här artikeln](active-directory-v2-devquickstarts-node-api.md). 
 
 ## <a name="sign-users-in"></a>Logga in användare
-Tid för att skriva kod identitet.  Du kanske redan har upptäckt att adal.js innehåller en AngularJS-provider som spelas snyggt vinkel routning mekanismer.  Starta genom att lägga till modulen adal appen:
+Tid för att skriva kod identitet. Du kanske redan har upptäckt att adal.js innehåller en AngularJS-provider som spelas snyggt vinkel routning mekanismer. Starta genom att lägga till modulen adal appen:
 
 ```js
 // app/scripts/app.js
@@ -135,7 +137,7 @@ adalProvider.init({
     }, $httpProvider);
 ```
 
-Bra, nu adal.js har all information som behövs för att skydda din app och inloggning av användare.  Om du vill tvinga inloggningen för ett visst flöde i appen, behöver du bara en rad med kod:
+Bra, nu adal.js har all information som behövs för att skydda din app och inloggning av användare. Om du vill tvinga inloggningen för ett visst flöde i appen, behöver du bara en rad med kod:
 
 ```js
 // app/scripts/app.js
@@ -151,7 +153,7 @@ Bra, nu adal.js har all information som behövs för att skydda din app och inlo
 ...
 ```
 
-Nu när användaren klickar på `TodoList` länk adal.js omdirigeras automatiskt till Azure AD för inloggning om det behövs.  Du kan också explicit skicka inloggning och utloggning begäranden genom att anropa adal.js i dina domänkontrollanter:
+Nu när användaren klickar på `TodoList` länk adal.js omdirigeras automatiskt till Azure AD för inloggning om det behövs. Du kan också explicit skicka inloggning och utloggning begäranden genom att anropa adal.js i dina domänkontrollanter:
 
 ```js
 // app/scripts/homeCtrl.js
@@ -175,7 +177,7 @@ angular.module('todoApp')
 ```
 
 ## <a name="display-user-info"></a>Visa användarinformation
-Nu när användaren är inloggad, måste du förmodligen att komma åt den inloggade användarens autentiseringsdata i ditt program.  Adal.js visar den här informationen för dig i den `userInfo` objekt.  För att komma åt det här objektet i en vy, först lägga till adal.js rot omfånget för motsvarande domänkontrollant:
+Nu när användaren är inloggad, måste du förmodligen att komma åt den inloggade användarens autentiseringsdata i ditt program. Adal.js visar den här informationen för dig i den `userInfo` objekt. För att komma åt det här objektet i en vy, först lägga till adal.js rot omfånget för motsvarande domänkontrollant:
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -216,9 +218,9 @@ Du kan också använda den `userInfo` objektet för att avgöra om användaren �
 ```
 
 ## <a name="call-the-rest-api"></a>Anropa REST-API
-Slutligen är det dags att hämta en token och anropa REST-API för att skapa, läsa, uppdatera och ta bort uppgifter.  Väl vet du vad?  Du behöver inte *något*.  Adal.js hand automatiskt tar om komma cachelagring och uppdatera token.  Den också hand tar om att de tokens till utgående AJAX-begäranden som du skickar till REST API.  
+Slutligen är det dags att hämta en token och anropa REST-API för att skapa, läsa, uppdatera och ta bort uppgifter. Väl vet du vad?  Du behöver inte *något*. Adal.js hand automatiskt tar om komma cachelagring och uppdatera token. Den också hand tar om att de tokens till utgående AJAX-begäranden som du skickar till REST API. 
 
-Hur fungerar det? Det är alla tack vare Magiskt tal för [AngularJS interceptorerna](https://docs.angularjs.org/api/ng/service/$http), vilket gör att adal.js att omvandla inkommande och utgående HTTP-meddelanden.  Adal.js förutsätter dessutom att skicka förfrågningar till samma domän som fönstret ska använda token är avsedda för samma program-ID som AngularJS-app.  Det är därför vi används samma program-ID i vinkel appen och i NodeJS REST API.  Du kan åsidosätta detta beteende och berätta adal.js att hämta token för andra REST API: er om det behövs - men med det här enkla scenariot standardvärdena gör.
+Hur fungerar det? Det är alla tack vare Magiskt tal för [AngularJS interceptorerna](https://docs.angularjs.org/api/ng/service/$http), vilket gör att adal.js att omvandla inkommande och utgående HTTP-meddelanden. Adal.js förutsätter dessutom att skicka förfrågningar till samma domän som fönstret ska använda token är avsedda för samma program-ID som AngularJS-app. Det är därför vi används samma program-ID i vinkel appen och i NodeJS REST API. Du kan åsidosätta detta beteende och berätta adal.js att hämta token för andra REST API: er om det behövs - men med det här enkla scenariot standardvärdena gör.
 
 Här är ett kodfragment som visar hur lätt det är att skicka begäranden med ägar-token från Azure AD:
 
@@ -230,15 +232,15 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Grattis!  Appen Azure AD-integrerade sida är slutförd.  Gå vidare, bugar.  Den kan autentisera användare, på ett säkert sätt anropa sina serverdelens REST-API med OpenID Connect och få grundläggande information om användaren.  Out of box, den har stöd för alla användare med ett personligt Microsoft-Account eller arbete/skolkonto från Azure AD.  Pröva appen genom att köra:
+Grattis!  Appen Azure AD-integrerade sida är slutförd. Gå vidare, bugar. Den kan autentisera användare, på ett säkert sätt anropa sina serverdelens REST-API med OpenID Connect och få grundläggande information om användaren. Out of box, den har stöd för alla användare med ett personligt Microsoft-Account eller arbete/skolkonto från Azure AD. Pröva appen genom att köra:
 
 ```
 node server.js
 ```
 
-I en webbläsare navigerar du till `http://localhost:8080`.  Logga in med ett personligt microsoftkonto eller arbete/skolkonto.  Lägg till aktiviteter i användarens att göra-lista och logga ut.  Försök att logga in med typ av konto. Om du behöver en Azure AD-klient för att skapa arbete/skola användare [Lär dig hur du skaffa en här](active-directory-howto-tenant.md) (det är ledigt).
+I en webbläsare navigerar du till `http://localhost:8080`. Logga in med ett personligt microsoftkonto eller arbete/skolkonto. Lägg till aktiviteter i användarens att göra-lista och logga ut. Försök att logga in med typ av konto. Om du behöver en Azure AD-klient för att skapa arbete/skola användare [Lär dig hur du skaffa en här](active-directory-howto-tenant.md) (det är ledigt).
 
-Fortsätta lära dig mer om den v2.0-slutpunkten head tillbaka till våra [v2.0 Utvecklarhandbok](active-directory-appmodel-v2-overview.md).  För ytterligare resurser, kolla:
+Fortsätta lära dig mer om den v2.0-slutpunkten head tillbaka till våra [v2.0 Utvecklarhandbok](active-directory-appmodel-v2-overview.md). För ytterligare resurser, kolla:
 
 * [Azure-exemplen på GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD på stackspill >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

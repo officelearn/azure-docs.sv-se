@@ -1,6 +1,6 @@
 ---
-title: "Azure ServiceFabric diagnostik- och övervakning | Microsoft Docs"
-description: "Den här artikeln beskriver övervakningsfunktioner för programprestanda i tillförlitliga ServiceRemoting för Service Fabric-körningsmiljön som prestandaräknare som sänds av den."
+title: Azure ServiceFabric diagnostik- och övervakning | Microsoft Docs
+description: Den här artikeln beskriver övervakningsfunktioner för programprestanda i tillförlitliga ServiceRemoting för Service Fabric-körningsmiljön som prestandaräknare som sänds av den.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,16 +9,16 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik- och prestandaövervakning för tillförlitlig tjänst fjärrkommunikation
 Tillförlitliga ServiceRemoting runtime avger [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur ServiceRemoting fungerar och hjälp med felsökning och övervakning av programprestanda.
@@ -29,8 +29,8 @@ Tillförlitliga ServiceRemoting runtime definierar följande prestandaräknarkat
 
 | Kategori | Beskrivning |
 | --- | --- |
-| Fabric-tjänsten |Räknare som är specifika för fjärrkommunikation med Azure Service Fabric-tjänsten, till exempel Genomsnittlig tid det tar att bearbeta begäran |
-| Metod för Service Fabric-tjänst |Räknare som är specifika för metoder implementeras av Service Fabric-fjärranslutningstjänsten, till exempel hur ofta en Servicemetoden har anropats |
+| Service Fabric-tjänst |Räknare som är specifika för fjärrkommunikation med Azure Service Fabric-tjänsten, till exempel Genomsnittlig tid det tar att bearbeta begäran |
+| Service Fabric-tjänstmetod |Räknare som är specifika för metoder implementeras av Service Fabric-fjärranslutningstjänsten, till exempel hur ofta en Servicemetoden har anropats |
 
 Var och en av ovanstående kategorier har en eller flera räknare.
 
@@ -84,19 +84,19 @@ Tillförlitlig tjänst runtime publicerar följande prestandaräknare som rör k
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Metod för Service Fabric-tjänst |Anrop/sek |Antalet gånger som Servicemetoden har anropats per sekund |
-| Metod för Service Fabric-tjänst |Genomsnittlig tid i millisekunder per anrop |Åtgången tid för att köra Servicemetoden i millisekunder |
-| Metod för Service Fabric-tjänst |Undantag/sek |Antal gånger som metoden tjänsten utlöste ett undantag per sekund |
+| Service Fabric-tjänstmetod |Anrop/sek |Antalet gånger som Servicemetoden har anropats per sekund |
+| Service Fabric-tjänstmetod |Genomsnittligt antal millisekunder per anrop |Åtgången tid för att köra Servicemetoden i millisekunder |
+| Service Fabric-tjänstmetod |Undantag/sek |Antal gånger som metoden tjänsten utlöste ett undantag per sekund |
 
 ### <a name="service-request-processing-performance-counters"></a>Prestandaräknare för tjänsten begäran bearbetning
 När en klient anropar en metod via en proxy webbtjänstobjektet, resulterar det i ett meddelande om begäran som skickas över nätverket till remoting service. Tjänsten bearbetar meddelandet med begäran och skickar tillbaka ett svar till klienten. Tillförlitliga ServiceRemoting runtime publicerar följande Prestandaräknare relaterade till behandling av begäranden för tjänsten.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Fabric-tjänsten |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
-| Fabric-tjänsten |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder av tjänsten för att bearbeta en begäran) |
-| Fabric-tjänsten |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att avserialisera begärandemeddelandet tjänsten när den tas emot med tjänsten |
-| Fabric-tjänsten |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet tjänst i tjänsten innan svaret skickas till klienten |
+| Service Fabric-tjänst |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
+| Service Fabric-tjänst |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder av tjänsten för att bearbeta en begäran) |
+| Service Fabric-tjänst |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att avserialisera begärandemeddelandet tjänsten när den tas emot med tjänsten |
+| Service Fabric-tjänst |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet tjänst i tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempelkod](https://github.com/Azure/servicefabric-samples)

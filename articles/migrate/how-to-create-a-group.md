@@ -1,17 +1,17 @@
 ---
-title: "Gruppera datorer för bedömning med Azure migrera | Microsoft Docs"
-description: "Beskriver hur du grupperar datorer innan du kör en bedömning med tjänsten Azure migrera."
+title: Gruppera datorer för bedömning med Azure migrera | Microsoft Docs
+description: Beskriver hur du grupperar datorer innan du kör en bedömning med tjänsten Azure migrera.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5c5b5dc97c0faf43c9543422406c4fa1c30ed679
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="group-machines-for-assessment"></a>Grupp datorer för utvärdering
 
@@ -31,4 +31,4 @@ När gruppen har skapats kan du ändra den genom att välja gruppen på den **gr
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du använder [datorn beroende mappning](how-to-create-group-machine-dependencies.md) skapa hög exakthet grupper.
-- [Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.
+- [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

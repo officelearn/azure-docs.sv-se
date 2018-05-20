@@ -4,7 +4,7 @@ description: Skapa, länkar, flytta och ta bort integrationskonton för enterpri
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: ecfan; LADocs
-ms.openlocfilehash: 8e31a84d4508075dcb7a1d7ad8a64fa8e142681d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: estfan
+ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Skapa och hantera integrationskonton för B2B-lösningar med logic apps
 
@@ -51,12 +51,12 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Ange information för ditt konto för integrering](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Egenskap | Krävs | Exempelvärde | Beskrivning | 
+   | Egenskap  | Krävs | Exempelvärde | Beskrivning | 
    |----------|----------|---------------|-------------|
    | Namn | Ja | test-integrering-konto | Namnet för kontot för integrering. Använd det angivna namnet för det här exemplet. | 
    | Prenumeration | Ja | <*Azure-prenumeration-name*> | Namnet för Azure-prenumerationen ska användas | 
    | Resursgrupp | Ja | test-integrering-konto-rg | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) används för att organisera relaterade resurser. Skapa en ny resursgrupp med det angivna namnet för det här exemplet. | 
-   | Prisnivå | Ja | Kostnadsfri | Den prisnivå som du vill använda. Det här exemplet väljer du **lediga**. | 
+   | Prisnivå | Ja | Kostnadsfri | Den prisnivå som du vill använda. Det här exemplet väljer du **lediga**, men mer information finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md) och [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Plats | Ja | Västra USA | Regionen var du vill lagra din kontoinformation för integrering. Välj samma plats som din logikapp eller skapa en logikapp på samma plats som ditt konto för integrering. I det här exemplet | 
    | Log Analytics | Nej | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    ||||| 

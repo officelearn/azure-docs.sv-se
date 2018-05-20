@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Aktivera flera innehavare i Azure-stacken
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 När du har slutfört stegen i katalogen Azure Stack måste Mary ge medgivande till Azure-stacken åtkomst till katalogen Gäst och registrera Azure stacken med gäst-katalogen. 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrerar Azure stacken med gäst-directory
-När gästen directory-administratören har angett ditt medgivande för Azure stackutrymme för att få åtkomst till katalogen Fabrikams, måste de registrera Azure Stack för Fabrikams directory-klient.
+När gästen directory-administratören har angett ditt medgivande för Azure stackutrymme för att få åtkomst till katalogen Fabrikams, måste Mary registrera Azure Stack för Fabrikams directory-klient.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"

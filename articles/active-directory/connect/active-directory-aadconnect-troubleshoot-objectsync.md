@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objekt synkronisering med Azure AD Connect-synkronisering
 Det här dokumentet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning.
@@ -90,6 +90,8 @@ En länkad postlåda ska associeras med ett externt master konto finns i en anna
 
 ## <a name="dynamic-distribution-group-issue"></a>Dynamisk distributionsgrupp problemet
 På grund av olika skillnader mellan lokala synkroniserar Active Directory och Azure Active Directory, Azure AD Connect inte dynamiska distributionsgrupper till Azure AD-klient.
+
+![Dynamiska distributionsgrupp](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML-rapport
 Förutom att analysera objektet genererar felsökning uppgiften också en HTML-rapport som har allt kända om objektet. HTML-rapport kan delas med supportteamet att göra ytterligare felsökning, om det behövs.

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
@@ -110,7 +110,7 @@ Nu ska du skapa en grafbehållare med hjälp av metoderna [CreateDocumentCollect
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serialisera hörn och kanter till .NET-objekt
@@ -121,7 +121,7 @@ Vi kan exempelvis arbeta med ett enkelt socialt nätverk med fyra personer. Vi t
 Namnområdet `Microsoft.Azure.Graphs.Elements` ger klasserna `Vertex`, `Edge`, `Property` och `VertexProperty` för deserialisering av GraphSON-svar på väldefinierade .NET-objekt.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Köra Gremlin med CreateGremlinQuery
-Gremlin, precis som SQL, stöder läs-, skriv- och frågeåtgärder. Till exempel visar följande kodfragment hur du skapar hörn, kanter, utför vissa exempelfrågor med `CreateGremlinQuery<T>`, samt asynkront itererar dessa resultat med hjälp av `ExecuteNextAsync` och 'HasMoreResults.
+Gremlin, precis som SQL, stöder läs-, skriv- och frågeåtgärder. Till exempel visar följande kodfragment hur du skapar hörn, kanter, utför vissa exempelfrågor med `CreateGremlinQuery<T>`, samt asynkront itererar dessa resultat med hjälp av `ExecuteNextAsync` och `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

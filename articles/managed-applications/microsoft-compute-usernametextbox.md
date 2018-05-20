@@ -1,25 +1,25 @@
 ---
 title: Azure UserNameTextBox UI-element | Microsoft Docs
 description: Beskriver Microsoft.Compute.UserNameTextBox UI-element för Azure-portalen.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4c8f62784b563bd8d39ccc763598b73b9b5d7195
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b65b62389fbb66c9461430d1dd2df42e71bf6cff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI element
+# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI-element
 En textruta med inbyggda verifiering för Windows och Linux-användarnamn.
 
 ## <a name="ui-sample"></a>UI-exempel

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)
 
@@ -228,10 +228,10 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder **[1]**
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Skapa logiska volymer
+        Skapa logiska volymer. Linjär volym skapas när du använder lvcreate utan -i växeln. Vi föreslår för att skapa stripe-volym för bättre i/o-prestanda, -i argumentet ska vara samma som antalet underliggande fysiska enheter. I det här dokumentet 2 fysiska volymer används för datavolym, så -i växla argumentet är 2. 1 fysiska volymen används för loggvolym så -i växeln används explicit. Använd -i växla och ersätter numret till samma underliggande fysiska volymnumret när du använder mer än 1 fysiska enheter för varje data, logg eller klusterdelade volymer.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

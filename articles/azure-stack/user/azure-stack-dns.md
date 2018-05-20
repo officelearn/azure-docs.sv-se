@@ -1,65 +1,75 @@
 ---
 title: DNS i Azure-stacken | Microsoft Docs
-description: DNS i Azure Stack
+description: Med hjälp av DNS i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="dns-in-azure-stack"></a>DNS i Azure Stack
+# <a name="using-dns-in-azure-stack"></a>Med hjälp av DNS i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure-stacken innehåller följande funktioner i DNS:
-* Stöd för DNS-värdnamn
+Azure-stacken stöder följande Domain Name System (DNS)-funktioner:
+
+* Matchning av DNS-värdnamn
 * Skapa och hantera DNS-zoner och poster med hjälp av API
 
 ## <a name="support-for-dns-hostname-resolution"></a>Stöd för DNS-värdnamn
-Du kan ange ett DNS-domännamnet för en offentlig IP-resurs, vilket skapar en mappning för *domainnamelabel.location*. cloudapp.azurestack.external till den offentliga IP-adressen i Azure-stacken hanterade DNS-servrar.  
 
-Om du skapar en offentlig IP-resurs med till exempel **contoso** som en domännamnet på den lokala Azure Stack-plats, det fullständigt kvalificerade domännamnet (FQDN) **contoso.local.cloudapp.azurestack.external**matchar den offentliga IP-adressen för resursen. Du kan använda den här FQDN för att skapa en anpassad domän CNAME-post som pekar på den offentliga IP-adressen i Azure-stacken.
+Du kan ange ett DNS-domännamnet för den offentliga IP-resurser. Azure-stacken använder *domainnamelabel.location*. cloudapp.azurestack.external för namn och mappar den till den offentliga IP-adressen i Azure-stacken hanterade DNS-servrar.
+
+Om du skapar en offentlig IP-resurs med till exempel **contoso** som en domännamnet på den lokala Azure Stack-plats i [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)  **Contoso.Local.cloudapp.azurestack.external** matchar den offentliga IP-adressen för resursen. Du kan använda den här FQDN för att skapa en anpassad domän CNAME-post som pekar på den offentliga IP-adressen i Azure-stacken.
+
+Mer information om namnmatchning avser den [DNS-matchning](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) artikel.
 
 > [!IMPORTANT]
-> Varje domännamnet som har skapats måste vara unika inom sin Azure Stack-plats.
+> Varje domännamnet som du skapar måste vara unika inom sin Azure Stack-plats.
 
-Om du skapar den offentliga IP-adressen med hjälp av portalen ser ut så här:
+I nästa skärmdump visar den **skapa offentlig IP-adress** dialogrutan för att skapa en offentlig IP-adress med hjälp av portalen.
 
 ![Skapa offentlig IP-adress](media/azure-stack-whats-new-dns/image01.png)
 
-Den här konfigurationen är användbar om du vill koppla en offentlig IP-adress till en resurs för Utjämning av nätverksbelastning. Du kan till exempel ha en belastningsutjämnare som bearbetar begäranden från ett webbprogram. Bakom belastningen är balancer en webbplats på en eller flera virtuella datorer. Du kan nu komma åt webbplatsen för Utjämning av nätverksbelastning med ett DNS-namn i stället för en IP-adress.
+**Exempelscenario**
 
-## <a name="create-and-manage-dns-zones-and-records-using-api"></a>Skapa och hantera DNS-zoner och poster med hjälp av API
-Du kan skapa och hantera DNS-zoner och poster i Azure-stacken.  
+Du har en belastningsutjämnare som bearbetar begäranden från ett webbprogram. Bakom belastningen är balancer en webbplats som körs på en eller flera virtuella datorer. Du kan komma åt webbplatsen Utjämning av nätverksbelastning med ett DNS-namn i stället för en IP-adress.
 
-Azure-stacken är en DNS-tjänst som Azure, med API: er som är konsekventa med Azures DNS-API: er.  Du kan hantera DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som andra Azure-tjänster som värd för dina domäner i Azure-stacken DNS. 
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Skapa och hantera DNS-zoner och poster med hjälp av API
 
-Azure-stacken DNS-infrastruktur är mer kompakt än Azures för uppenbara skäl. Därför omfång, skalning och prestanda som beror på skalan av Azure Stack-distributionen och miljön där den distribueras.  Så, till exempel prestanda, tillgänglighet, global distributionsplatsen och hög tillgänglighet (HA) kan variera från distribution till distribution.
+Du kan skapa och hantera DNS-zoner och poster i Azure-stacken.
+
+Azure-stacken är en DNS-tjänst som Azure, med API: er som är konsekventa med Azures DNS-API: er.  Du kan hantera dina DNS-poster med samma autentiseringsuppgifter, API: er och verktyg som värd för dina domäner i Azure-stacken DNS. Du kan också använda samma fakturering och stöd som andra Azure-tjänster.
+
+Azure-stacken DNS-infrastrukturen är mer kompakt än Azures. Storlek och placering av en Azure-stacken distribution påverkar DNS-scope, skalning och prestanda. Det innebär också att prestanda, tillgänglighet, global distributionsplatsen och hög tillgänglighet kan variera från distribution till distribution.
 
 ## <a name="comparison-with-azure-dns"></a>Jämförelse med Azure DNS
-DNS i Azure-stacken liknar DNS i Azure, med två viktiga undantag:
+
+DNS i Azure-stacken liknar DNS i Azure, men det finns viktiga undantag måste du förstå.
+
 * **Stöder inte AAAA-poster**
 
     Azure-stacken stöder inte AAAA-poster eftersom Azure stacken inte har stöd för IPv6-adresser.  Det här är en nyckel skillnaden mellan DNS i Azure och Azure-stacken.
 * **Det är inte flera innehavare**
 
-    Till skillnad från Azure är DNS-tjänsten i Azure-stacken inte flera innehavare. Så att varje klient kan inte skapa samma DNS-zon. Endast den första prenumeration som försöker skapa zonen lyckas och misslyckas efterföljande förfrågningar.  Det är ett känt problem och viktigaste skillnaden mellan Azure och Azure-stacken DNS. Det här problemet löses i en framtida version.
+    DNS-tjänsten i Azure-stacken är inte flera innehavare. Varje klient kan inte skapa samma DNS-zon. Endast den första prenumeration som försöker skapa zonen lyckas och misslyckas efterföljande förfrågningar.  Det är ett känt problem och viktigaste skillnaden mellan Azure och Azure-stacken DNS. Det här problemet löses i en framtida version.
+* **Taggar, metadata och Etags**
 
-Dessutom finns några mindre skillnader i hur Azure-stacken DNS implementerar taggar, Metadata, Etags och begränsningar.
+    Det finns mindre skillnader i hur Azure-stacken hanterar taggar, metadata, Etags och begränsningar.
 
-Följande information gäller specifikt för Azure-stacken DNS och skiljer sig något från Azure DNS. Läs mer om Azure DNS i [DNS-zoner och registrerar](../../dns/dns-zones-records.md) på webbplatsen Microsoft Azure-dokumentationen.
+Läs mer om Azure DNS i [DNS-zoner och registrerar](../../dns/dns-zones-records.md).
 
 ### <a name="tags-metadata-and-etags"></a>Taggar, metadata och Etags
 
@@ -99,4 +109,5 @@ Följande standard begränsningar gäller när du använder Azure Stack DNS:
 | Poster per uppsättningen av poster| 20|
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Introduktion till IDN: er för Azure-Stack](azure-stack-understanding-dns.md)

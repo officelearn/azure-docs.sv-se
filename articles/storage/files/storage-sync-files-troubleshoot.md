@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -154,7 +154,7 @@ Om synkroniseringen misslyckas på en server:
     2. Kontrollera att Azure filen Sync-tjänsten körs på servern. Öppna snapin-modulen tjänster i MMC för att göra detta, och kontrollera att lagring Sync Agent-tjänsten (FileSyncSvc) körs.
 
 <a id="replica-not-ready"></a>**Synkroniseringen misslyckas med felet: ”0x80c8300f - repliken är inte redo att utföra nödvändiga åtgärden”**  
-Det här problemet är förväntat om du skapar en molnslutpunkt och använda en Azure-filresurs som innehåller data. När ändringen identifiering jobbet har slutförts körs på Azure-filresursen (det kan ta upp till 24 timmar) ska starta synkronisering fungerar korrekt.
+Det här problemet är förväntat om du skapar en molnslutpunkt och använda en Azure-filresurs som innehåller data. Ändra identifiering jobbet som söker efter ändringar i Azure-filresursen är schemalagd till en gång per dygn.  Tid att slutföra beror på storleken på namnområdet i Azure-filresursen.  Det här felet ska försvinner när du är klar.
 
 
     > [!NOTE]

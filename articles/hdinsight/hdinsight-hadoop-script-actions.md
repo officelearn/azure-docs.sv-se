@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 921da2db8e235e17611788cae7e976597bd76703
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärd skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärder för HDInsight. Information om hur du använder skriptåtgärd skript finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster, se [utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -103,7 +103,7 @@ HDInsight tillhandahåller flera skript för att installera ytterligare komponen
 | Namn | Skript |
 | --- | --- |
 | **Installera Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Se [installera och använda Spark i HDInsight-kluster][hdinsight-install-spark]. |
-| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster][hdinsight-r-scripts]. |
+| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster] [hdinsight-r-skript]. |
 | **Installera Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
 | - **Installera Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
 
@@ -300,14 +300,12 @@ I händelse av att ett körningsfel inträffar ingå utdata som beskriver den oc
 ## <a name="see-also"></a>Se också
 * [Anpassa HDInsight-kluster med skriptåtgärder][hdinsight-cluster-customize]
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda R i HDInsight-kluster][hdinsight-r-scripts]
 * [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
 * [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
 [powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->

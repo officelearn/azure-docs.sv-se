@@ -3,22 +3,24 @@ title: Migrera från tjänsten Azure Access Control | Microsoft Docs
 description: Alternativ för att flytta appar och tjänster från Azure Access Control service
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från tjänsten Azure Access Control
 
@@ -71,7 +73,7 @@ Här följer schemat för att sluta åtkomstkontroll komponenter:
 - **7 november 2018**: alla åtkomstkontroll komponenter permanent är avstängd. Detta inkluderar hanteringsportalen för åtkomstkontroll, management-tjänsten, STS och token regeln omvandlingsmotorn. Nu är alla förfrågningar som skickas till åtkomstkontroll (som finns i \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker väl före denna tidpunkt.
 
 
-## <a name="migration-strategies"></a>Migreringsstrategier för
+## <a name="migration-strategies"></a>Migreringsstrategier
 
 I följande avsnitt beskrivs utförligt rekommendationer för att migrera från åtkomstkontroll med andra Microsoft-teknikerna.
 
@@ -152,14 +154,14 @@ På en hög nivå *Azure Active Directory är antagligen det bästa valet för d
 | WIF | Stöds | Stöds, men begränsad instruktioner finns |
 | WS-Federation | Stöds | Stöds |
 | OAuth 2.0 | Stöd för ett utkast till 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds ej |
+| WS-Trust | Stöds | Stöds inte |
 | **Token format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Förhandsgranskning |
+| SAML 1.1 | Stöds | Förhandsversion |
 | SAML 2.0 | Stöds | Stöds |
-| SWT | Stöds | Stöds ej |
+| SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
-| Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Stöds ej |
+| Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Stöds inte |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Stöds |
 | Anpassa anspråk i token |-Släpp igenom inkommande anspråk från identitetsleverantörer<br />-Hämta token från identitetsleverantören som ett anspråk<br />-Utfärda utgående anspråk baserade på värden för inkommande anspråk<br />-Utfärda utgående anspråk med konstanta värden |-Det går inte att passera anspråk från federerad Identitetsproviders<br />-Det går inte att hämta token från identitetsleverantören som ett anspråk<br />-Det går inte att utfärda utgående anspråk baserat på värdena för inkommande anspråk<br />-Kan utfärda utgående anspråk med konstanta värden<br />-Kan utfärda utgående anspråk baserat på Egenskaper för användare som synkroniseras till Azure AD |
 | **Automation** | | |
@@ -212,15 +214,15 @@ I följande tabell jämförs funktionerna för åtkomstkontroll som är relevant
 | Microsoft-konton för personligt bruk | Stöds | Stöds | 
 | Facebook, Google, Yahoo konton | Stöds | Facebook och Google stöds internt, Yahoo stöds via OpenID Connect federation med hjälp av anpassade principer |
 | **Protokoll och SDK-kompatibilitet** | | |
-| Windows Identity Foundation (WIF) | Stöds | Stöds ej |
-| WS-Federation | Stöds | Stöds ej |
+| Windows Identity Foundation (WIF) | Stöds | Stöds inte |
+| WS-Federation | Stöds | Stöds inte |
 | OAuth 2.0 | Stöd för ett utkast till 13 | Stöd för RFC 6749, i de flesta moderna specifikationen |
-| WS-Trust | Stöds | Stöds ej |
+| WS-Trust | Stöds | Stöds inte |
 | **Token format** | | |
 | JWT | Stöds i Beta | Stöds |
-| SAML 1.1 | Stöds | Stöds ej |
-| SAML 2.0 | Stöds | Stöds ej |
-| SWT | Stöds | Stöds ej |
+| SAML 1.1 | Stöds | Stöds inte |
+| SAML 2.0 | Stöds | Stöds inte |
+| SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
 | Anpassningsbara startsfär identifiering/konto-plockning UI | Nedladdningsbar kod som kan införlivas i appar | Helt anpassningsbar UI via anpassade CSS |
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Anpassade Signeringsnycklar, inte certifikat stöds via anpassade principer |
@@ -252,7 +254,7 @@ I dessa fall kanske du vill bör du migrera ditt webbprogram till en annan molnt
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel identitet molntjänst som har skapats [övergripande migrering vägledning för kunder i åtkomstkontroll](https://auth0.com/acs), och stöder nästan alla funktioner som ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
+| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt mål i att arbeta med Ping identitets- och Auth0 är att säkerställa att alla åtkomstkontroll kunder har en migreringssökväg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från åtkomstkontroll.
 
@@ -277,7 +279,7 @@ Access Control erbjuder följande funktioner och möjligheter för webbtjänster
 - Stöd för token följande format: JWT, SAML 1.1, SAML 2.0 och SWT.
 - Enkel token omvandling regler.
 
-Tjänstidentiteter i åtkomstkontroll används vanligtvis för att implementera server till server-autentisering.  
+Tjänstidentiteter i åtkomstkontroll används vanligtvis för att implementera server till server-autentisering. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrera till Azure Active Directory
 
@@ -290,8 +292,8 @@ Du kan också använda Azure AD för autentisering av server-till-server med hj�
 | Så här registrerar du en webbtjänst | Skapa en förlitande part i hanteringsportalen för åtkomstkontroll | Skapa en Azure AD-webbapp i Azure-portalen |
 | Så här registrerar du en klient | Skapa en tjänstidentitet i hanteringsportalen för åtkomstkontroll | Skapa en annan Azure AD-webbprogram i Azure-portalen |
 | Protokoll som används |-Protokollet OAuth OMSLUTNING<br />-Bevilja OAuth 2.0 utkast 13 klientens autentiseringsuppgifter | Bevilja OAuth 2.0 klientens autentiseringsuppgifter |
-| Klientautentiseringsmetoder |-Enkla lösenord<br />- Signed SWT<br />-SAML token från en federerad identitet-provider |-Enkla lösenord<br />- Signed JWT |
-| Token format |-JWT<br />-SAML 1.1<br />- SAML 2.0<br />-SWT<br /> | Endast JWT |
+| Klientautentiseringsmetoder |-Enkla lösenord<br />-Signerade SWT<br />-SAML token från en federerad identitet-provider |-Enkla lösenord<br />-JWT signerad |
+| Token format |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Endast JWT |
 | Omvandling av token |-Lägg till anpassade anspråk<br />-Enkelt om sedan anspråk utfärdande-logiken | Lägga till anpassade anspråk | 
 | Automatisera hantering och konfiguration av uppgifter | Stöds via Access Control Management-tjänsten | Stöds via Microsoft Graph och Azure AD Graph API |
 
@@ -314,7 +316,7 @@ I dessa fall kan du migrera ditt webbprogram till en annan molntjänst för aute
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel identitet molntjänst som har skapats [övergripande migrering vägledning för kunder i åtkomstkontroll](https://auth0.com/acs), och stöder nästan alla funktioner som ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter.  |
+| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identitet](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molntjänst identitet som stöder många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som ger bättre flexibilitet. Referera till [Ping's ACS pensionering vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt mål i att arbeta med Ping identitets- och Auth0 är att säkerställa att alla åtkomstkontroll kunder har en migreringssökväg för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från åtkomstkontroll.
 

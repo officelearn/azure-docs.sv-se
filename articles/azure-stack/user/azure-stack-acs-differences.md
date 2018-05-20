@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage för stacken: Skillnader och överväganden
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Azure-stacken Storage är en uppsättning lagring molntjänster i Microsoft Azure-stacken. Azure-stacken Storage tillhandahåller blob, tabell, kö och hanteringsfunktioner för konto med Azure-konsekvent semantik.
 
-Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från Azure Storage. Det sammanfattar också andra överväganden att tänka på när du distribuerar Azure stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
+Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från Azure Storage-tjänster. Dessutom visas saker att tänka på när du distribuerar Azure stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat blad: lagring skillnader
 
@@ -49,26 +49,28 @@ Mjuk borttagning för blob-lagring|Förhandsversion|Stöds inte än.
 |Tabell partitionsnyckel och rad nyckelstorlek|1 024 tecken (2 048 byte)|400 tecken (800 byte)
 |BLOB-ögonblicksbild|Max antal ögonblicksbilder av en blob är begränsad.|Max antal ögonblicksbilder av en blob är 1 000.|
 
-### <a name="metrics"></a>Mått
-Det finns vissa skillnader i jämförelse med storage-mätvärden:
+Det finns också skillnader i jämförelse med storage-mätvärden:
+
 * Transaktionsdata i storage-mätvärden görs ingen åtskillnad interna eller externa nätverksbandbredd.
 * Transaktionsdata i storage-mätvärden inkluderar inte åtkomst till de monterade diskarna virtuella datorn.
 
 ## <a name="api-version"></a>API-version
+
 Följande versioner stöds med Azure Storage för Stack:
 
 Azure Storage services API: er:
 
 Uppdatera 1802 eller senare:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Tidigare versioner:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage services management API: er:
 
@@ -78,7 +80,7 @@ Azure Storage services management API: er:
 
 ## <a name="sdk-versions"></a>SDK-versioner
 
-Följande klientbibliotek stöds med Azure Storage för Stack:
+Azure-stacken Storage stöder följande klientbiblioteken:
 
 | Klientbibliotek | Azure-stacken en version som stöds | Länk                                                                                                                                                                                                                                                                                                                                     | Specifikation för slutpunkten       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ Följande klientbibliotek stöds med Azure Storage för Stack:
 
 * [Kom igång med Azure-stacken Storage utvecklingsverktyg](azure-stack-storage-dev.md)
 * [Introduktion till Azure-stacken Storage](azure-stack-storage-overview.md)
-

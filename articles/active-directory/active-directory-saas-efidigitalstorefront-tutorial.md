@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med EFI digitala StoreFront | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EFI digitala StoreFront."
+title: 'Självstudier: Azure Active Directory-integrering med EFI digitala StoreFront | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EFI digitala StoreFront.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 38d24096977b093ba5b1af2258618b3cdb783e77
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7bdbad680e843c88f7ae22debd35fdb629c038b0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Självstudier: Azure Active Directory-integrering med EFI digitala StoreFront
 
@@ -30,9 +30,9 @@ Integrera EFI digitala StoreFront med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på EFI digitala StoreFront (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med EFI digitala StoreFront behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och EFI digitala StoreFront domän med enkel inloggning information](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.myprintdesk.net/DSF`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.myprintdesk.net/DSF`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.myprintdesk.net/DSF/asp4/`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.myprintdesk.net/DSF/asp4/`
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -202,7 +202,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Tråd lösning i Log Analytics | Microsoft Docs
-description: Wire-data är konsoliderade nätverks- och data från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata som hjälper dig att korrelera data.
+title: Wire Data-lösning i Log Analytics| Microsoft Docs
+description: Wire-data är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,84 +12,84 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="wire-data-20-preview-solution-in-log-analytics"></a>Överföring Data 2.0 (förhandsgranskning) lösning i logganalys
+# <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
-![Överföring Data symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
+![Wire Data-symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Wire-data är konsoliderade nätverks- och data som samlas in från Windows-kopplad och Linux datorer med OMS-agent, inklusive de som övervakas av Operations Manager i din miljö. Nätverksdata kombineras med dina andra loggdata som hjälper dig att korrelera data.
+Wire-data är konsoliderade nätverks- och prestandadata som samlas in från Windows- och Linux-anslutna datorer med OMS-agenten, inklusive de som övervakas av Operations Manager i din miljö. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
 
-Förutom OMS-agenten använder Wire-Data lösningen Microsoft beroende agenter som installeras på datorer i din IT-infrastruktur. Beroende agenter övervakar nätverksdata som skickas till och från dina datorer för nätverket nivåer 2-3 i den [OSI-modell](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till logganalys använder agenter.  
+Förutom OMS-agenten använder Wire Data-lösningen Microsofts beroendeagenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till Log Analytics med hjälp av agenter.  
 
 > [!NOTE]
-> Du kan inte lägga till den tidigare versionen av lösningen Wire-Data till nya arbetsytor. Om du har den ursprungliga lösningen för Data under överföring aktiverat, kan du fortsätta att använda den. Men för att använda överföring Data 2.0 måste du först ta bort den ursprungliga versionen.
+> Du kan inte lägga till den tidigare Wire Data-versionen på nya arbetsytor. Om du har den ursprungliga Wire Data-lösningen aktiverad, kan du fortsätta att använda den. Men för att använda Wire Data 2.0 måste du först ta bort den ursprungliga versionen.
 
-Som standard loggas logganalys data för CPU, minne, disk och nätverk prestandadata från räknare som är inbyggda i Windows och Linux, samt andra prestandaräknare som du kan ange. Nätverk och andra datainsamlingen är klar realtid för varje agent, inklusive undernät och programnivå protokoll som används av datorn.  Wire-Data verkar på nätverksdata på programnivå, inte ned på TCP-Transportskiktet.  Lösningen titta inte på enskilda bekräftelser och SYN-förfrågningar.  När handskakningen har slutförts är den anses vara en live-anslutning och markeras som ansluten. Att kopplingen förblir live så länge båda sidorna accepterar socket är öppen och överföra data fram och tillbaka.  När båda sidorna avslutar anslutningen kan markeras som frånkopplad.  Därför bara räknar bandbredden för paket som har slutförts, den inte rapporterar på skickar eller misslyckad paket.
+Som standard loggar Log Analytics data för CPU, minne, disk och nätverksprestanda från räknare som är inbyggda i Windows och Linux, samt från andra prestandaräknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå.  Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar.  När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka.  När någon av sidorna stänger anslutningen, markeras den som Frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
 
-Om du har använt [sFlow](http://www.sflow.org/) eller annan programvara med [Ciscos NetFlow protokollet](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), statistik och data som du ser från wire-data ska vara bekant med.
+Om du har använt [sFlow](http://www.sflow.org/) eller annan programvara med [Ciscos NetFlow-protokoll](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), känner du igen statistik och data som wire-datan visar.
 
-Några av typerna av inbyggda loggen sökfrågor är:
+Några av typerna i de inbyggda loggsökningsfrågorna är:
 
 - Agenter som tillhandahåller wire-data
-- IP-adressen för agenter som tillhandahåller wire-data
-- Utgående kommunikation via IP-adresser
-- Antal byte skickade efter programprotokoll
-- Antalet byte som skickats av en programtjänsten
-- Byte mottagna efter olika protokoll
-- Totalt antal byte som skickas och tas emot av IP-version
-- Genomsnittlig svarstid för anslutningar som har ett tillförlitligt sätt
-- Datorn bearbetar som initierat eller mottagit nätverkstrafik
+- IP-adresser för agenterna som tillhandahåller wire-data
+- Utgående kommunikation från IP-adresser
+- Antal byte som skickats med programprotokoll
+- Antal byte som skickats av en tillämpningstjänst
+- Mottagna byte med olika protokoll
+- Totalt antal byte som skickats och tagits emot av IP-versionen
+- Genomsnittlig svarstid för anslutningar som har en tillförlitlig mätning
+- Datorprocesser som har initierat eller mottagit nätverkstrafik
 - Mängden nätverkstrafik för en process
 
-När du söker med wire-data kan du filtrera och gruppera data att visa information om de översta agenter och övre protokoll. Eller så kan du visa när vissa datorer (IP-adresser/MAC-adresser) kommunicerat med varandra, hur lång tid och hur mycket data skickades – i princip du visa metadata om nätverkstrafik som är Sökbaserade.
+När du söker med wire-data kan du filtrera och gruppera data för att se information om toppagenter och topprotokoll. Du kan också se när vissa datorer (IP-adresser/MAC-adresser) har kommunicerat med varandra, under hur lång tid och hur mycket data som skickades. I princip ser du metadata om nätverkstrafiken som är sökbaserad.
 
-Eftersom du visar metadata, är det dock inte nödvändigtvis användbart för avancerad felsökning. Wire-data i logganalys är inte en fullständig insamlingen av nätverksdata.  Det är inte avsedd för djupt paketnivå felsökning. Fördelen med att använda agenten jämfört med andra metoder för samlingen, är att du inte behöver installera apparater, konfigurera om dina nätverksväxlar eller utför komplicerade konfigurationer. Wire-data är helt enkelt agent-baserad – du installerar agenten på en dator och den ska övervaka sin egen nätverkstrafik. En annan fördel är när du vill övervaka arbetsbelastningar som körs i molntjänstleverantörer eller värdleverantör eller Microsoft Azure, där användaren inte äger fabric-lagret.
+Men eftersom du ser metadata är det inte säkert att det går att använda vid avancerad felsökning. Wire-data i Log Analytics är inte en komplett avbildning av nätverksdata.  Den är inte avsedd för djupgående felsökning på paketnivå. Fördelen med att använda agenten, jämfört med andra insamlingsmetoder, är att du inte behöver utföra några andra installationer, konfigurera om dina nätverksväxlar eller göra komplicerade konfigurationer. Wire-data är helt enkelt agentbaserad – du installerar agenten på en dator och den övervakar sin egen nätverkstrafik. En annan fördel är när du vill övervaka arbetsbelastningar som körs i molnleverantörer, värdleverantörer eller Microsoft Azure, där användaren inte äger infrastrukturnivån.
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Wire-Data hämtar data från Microsoft Beroendeagent. Agenten beroende beror på OMS-Agent för sina anslutningar till logganalys. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan installerar du agenten beroende. I följande tabell beskrivs de anslutna källor som har stöd för lösningen Wire-Data.
+Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten använder OMS-agenten för sina anslutningar till Log Analytics. Detta innebär att en server måste ha installerat och konfigurerat OMS-agenten först, därefter kan du installera beroendeagenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
 
-| **Ansluten datakälla** | **Stöds** | **Beskrivning** |
+| **Ansluten källa** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
-| Windows-agenter | Ja | Wire-Data analyserar och samlar in data från datorer med Windows-agenten. <br><br> Förutom den [OMS-Agent](log-analytics-windows-agent.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
-| Linux-agenter | Ja | Wire-Data analyserar och samlar in data från datorer för Linux-agenten.<br><br> Förutom den [OMS-Agent](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
-| System Center Operations Manager-hanteringsgrupp | Ja | Wire-Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](log-analytics-om-agents.md). <br><br> Det krävs en direkt anslutning från System Center Operations Manager-agentdatorn till logganalys. Till logganalys vidarebefordras data från hanteringsgruppen. |
-| Azure Storage-konto | Nej | Wire-Data samlar in data från agentdatorer, så det finns inga data från det att samla in från Azure Storage. |
+| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom [OMS-agenten](log-analytics-windows-agent.md) kräver Windows-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom [OMS-agenten](log-analytics-quick-collect-linux-computer.md) kräver Linux-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. Data vidarebefordras från hanteringsgruppen till Log Analytics. |
+| Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
-I Windows används Microsoft Monitoring Agent (MMA) av både System Center Operations Manager och logganalys att samla in och skicka data. Beroende på kontext kallas agenten System Center Operations Manager-Agent, OMS-Agent, Log Analytics Agent, MMA eller direkt Agent. System Center Operations Manager och Log Analytics tillhandahåller något olika versioner av MMA. Dessa versioner kan varje rapport till System Center Operations Manager till logganalys eller båda.
+I Windows används MMA (Microsoft Monitoring Agent) av både System Center Operations Manager och Log Analytics till att samla in och skicka data. Beroende på sammanhang kallas agenten för System Center Operations Manager-agent, OMS-agent, Log Analytics-agent, MMA eller direktagent. System Center Operations Manager och Log Analytics innehåller något olika versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.
 
-På Linux, OMS-Agent för Linux samlar in och skickar data till logganalys. Du kan använda Wire-Data på servrar med OMS direkt agenter eller servrar som är kopplade till logganalys via System Center Operations Manager-hanteringsgrupper.
+I Linux samlar OMS-agenten för Linux in och skickar data till Log Analytics. Du kan använda Wire Data på servrar med OMS-direktagenter eller på servrar som är kopplade till Log Analytics via System Center Operations Manager-hanteringsgrupper.
 
-Referenser till alla agenter i den här artikeln om Linux- eller Windows, om ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics kallas den _OMS-agent_. Vi använder distributionsnamnet på agenten endast om det behövs för kontext.
+Referenser till alla agenter i den här artikeln, oavsett om det är Linux eller Windows och oavsett om de är anslutna till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics, kallas för _OMS-agent_. Vi använder endast det specifika distributionsnamnet på agenten om det behövs för sammanhanget.
 
-Beroende agenten överföra inte alla data och kräver inte ändringar brandväggar och portar. Data i Wire-Data är alltid överförs av OMS-agent till logganalys, antingen direkt eller via OMS-Gateway.
+Beroendeagenten överför inte några data och kräver inte att brandväggar och portar ändras. Datan i Wire Data överförs alltid av OMS-agenten till Log Analytics, antingen direkt eller via OMS-gatewayen.
 
-![agenten diagram](./media/log-analytics-wire-data/agents.png)
+![agentdiagram](./media/log-analytics-wire-data/agents.png)
 
-Om du är en System Center Operations Manager-användare med en hanteringsgrupp som är ansluten till logganalys:
+Om du är en System Center Operations Manager-användare med en hanteringsgrupp som är ansluten till Log Analytics:
 
-- Ingen ytterligare konfiguration krävs när System Center Operations Manager-agenter kan komma åt Internet för att ansluta till logganalys.
-- Du måste konfigurera OMS-Gateway att fungera med System Center Operations Manager när System Center Operations Manager-agenter inte kan komma åt logganalys via Internet.
+- Ingen ytterligare konfiguration krävs när System Center Operations Manager-agenter har åtkomst till Internet för att ansluta till Log Analytics.
+- Du måste konfigurera OMS-gatewayen till att fungera med System Center Operations Manager när System Center Operations Manager-agenter inte har åtkomst till Log Analytics via Internet.
 
-Om du använder direkt agenten måste du konfigurera OMS själva agenten att ansluta till logganalys eller till din OMS-Gateway. Du kan hämta OMS-Gateway från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Om du använder direktagenten måste du konfigurera själva OMS-agenten till att ansluta till Log Analytics eller till din OMS-gateway. Du kan ladda ned OMS-gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Kräver den [insikt och Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) lösningen-erbjudandet.
-- Om du använder en tidigare version av lösningen Wire-Data måste du först bort den. Alla data som hämtats via den ursprungliga lösningen Wire-Data är dock fortfarande tillgängliga i överföring Data 2.0 och Sök i loggfilen.
-- Administratörsbehörighet krävs för att installera eller avinstallera agenten beroende.
-- Beroende agenten måste installeras på en dator med ett 64-bitars operativsystem.
+- Kräver lösningen [Insikter och analys](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
+- Om du använder en tidigare version av Wire Data-lösningen måste du först bort den. Alla data som hämtats via den ursprungliga Wire Data-lösningen är dock fortfarande tillgängliga i Wire Data 2.0 och loggsökningen.
+- Du måste ha administratörsbehörighet för att kunna installera eller avinstallera beroendeagenten.
+- Beroendeagenten måste installeras på en dator med ett 64-bitars operativsystem.
 
 ### <a name="operating-systems"></a>Operativsystem
 
-Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-Data stöder inte 32-bitars arkitekturer för alla operativsystem.
+I följande avsnitt visas vilka operativsystem som stöds för beroendeagenten. Wire Data stöder inte 32-bitars arkitekturer för något operativsystem.
 
 #### <a name="windows-server"></a>Windows Server
 
@@ -105,17 +105,17 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 - Windows 8
 - Windows 7
 
-#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux och Oracle Linux (med RHEL Kernel)
+#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux och Oracle Linux (med RHEL-kernel)
 
-- Endast standard och SMP Linux kernel-versioner stöds.
-- Avvikande kernel Frigör som PAE och Xen, inte stöds för Linux-distribution. Till exempel ett system med versionen sträng med _2.6.16.21-0.8-xen_ stöds inte.
-- Anpassade kärnor, inklusive omkompileringar standard kärnor stöds inte.
-- CentOSPlus kernel stöds inte.
-- Oracle Unbreakable Enterprise Kernel (UEK) ingår i ett senare avsnitt i den här artikeln.
+- Endast standardversioner och SMP Linux-kernelversioner stöds.
+- Avvikande kernelversioner, som exempelvis PAE och Xen, stöds inte för någon Linux-distribution. Till exempel stöds inte ett system med versionssträngen _2.6.16.21-0.8-xen_.
+- Anpassade kernlar, inklusive omkompileringar av standardkernlar, stöds inte.
+- CentOSPlus-kernel stöds inte.
+- Oracle Unbreakable Enterprise Kernel (UEK) beskrivs i ett senare avsnitt i den här artikeln.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,91 +180,91 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| **OS-version** | **Kernel-version** |
+| **Operativsystemversion** | **Kernelversion** |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
-#### <a name="dependency-agent-downloads"></a>Hämtar Beroendeagent
+#### <a name="dependency-agent-downloads"></a>Nedladdningar av beroendeagent
 
 | **Fil** | **OS** | **Version** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
 ## <a name="configuration"></a>Konfiguration
 
-Utför följande steg för att konfigurera lösningen Wire-Data för dina arbetsytor.
+Utför följande steg när du konfigurerar Wire Data-lösningen för dina arbetsytor.
 
-1. Aktivera aktivitet logganalys-lösning från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. Installera agenten beroende på varje dator där du vill hämta data. Beroende agenten kan övervaka anslutningar till omedelbar grannar, så du inte kan ha en agent på varje dator.
+1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+2. Installera beroendeagenten på varje dator som du vill hämta data från. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
-### <a name="install-the-dependency-agent-on-windows"></a>Installera agenten beroende på Windows
+### <a name="install-the-dependency-agent-on-windows"></a>Installera beroendeagenten i Windows
 
 Administratörsbehörighet krävs för att installera eller avinstallera agenten.
 
-Beroende-agenten är installerad på Windows-datorer via InstallDependencyAgent Windows.exe. Om du kör den här körbara filen utan alternativ startas en guide som du kan följa om du vill installera interaktivt.
+Beroendeagenten installeras på Windows-datorer med InstallDependencyAgent-Windows.exe. Om du kör den här körbara filen utan alternativ, startas en guide som du kan följa om du vill installera interaktivt.
 
-Använd följande steg för att installera agenten beroende på varje dator som kör Windows:
+Använd följande steg för att installera beroendeagenten på varje dator som kör Windows:
 
-1. Installera OMS-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
-2. Hämta Windows beroende agenten med hjälp av länken i föregående avsnitt och kör sedan med hjälp av följande kommando: `InstallDependencyAgent-Windows.exe`
+1. Installera OMS-agenten genom att följa stegen i [Samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
+2. Hämta Windows beroendeagent med hjälp av länken i föregående avsnitt och kör den sedan med hjälp av följande kommando: `InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
-4. Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. Loggkatalogen är %Programfiles%\Microsoft beroende Agent\logs för Windows-agenter.
+4. Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. Loggkatalogen för Windows-agenter är %Programfiles%\Microsoft Dependency Agent\logs.
 
-#### <a name="windows-command-line"></a>Windows-kommandoraden
+#### <a name="windows-command-line"></a>Windows-kommandorad
 
-Använd alternativen i följande tabell för att installera från en kommandorad. Om du vill se en lista över flaggor för installation, kör installationsprogrammet med hjälp av den /? Flagga på följande sätt.
+Använd alternativen i följande tabell för att installera från en kommandorad. Om du vill se en lista med installationsflaggor kör du installationsprogrammet med hjälp av /? flagga enligt nedan.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
-| **Flaggan** | **Beskrivning** |
+| **Flagga** | **Beskrivning** |
 | --- | --- |
-| <code>/?</code> | Hämta en lista över kommandoradsalternativ. |
-| <code>/S</code> | Utföra en tyst installation utan uppmaningar för användaren. |
+| <code>/?</code> | Hämta en lista med kommandoradsalternativ. |
+| <code>/S</code> | Utför en tyst installation utan någon användarprompter. |
 
-Filer för Windows Beroendeagent placeras i C:\Program Files\Microsoft beroende agenten som standard.
+Filer för Windows beroendeagent placeras i C:\Program Files\Microsoft Dependency Agent som standard.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Installera agenten beroende på Linux
+### <a name="install-the-dependency-agent-on-linux"></a>Installera beroendeagenten i Linux
 
-Rotåtkomst krävs för att installera eller konfigurera agenten.
+Du måste ha rotbehörighet för att kunna installera eller konfigurera agenten.
 
-Beroende-agenten är installerad på Linux-datorer via InstallDependencyAgent-Linux64.bin, ett kommandoskript med en självextraherande binär. Du kan köra filen med hjälp av _del_ eller Lägg till körbehörighet till själva filen.
+Beroendeagenten installeras på Linux-datorer med InstallDependencyAgent-Linux64.bin, ett kommandoskript med en självextraherande binär fil. Du kan köra filen med hjälp av _sh_ eller lägga till körningsbehörighet till själva filen.
 
-Använd följande steg för att installera agenten beroende på varje Linux-dator:
+Använd följande steg för att installera beroendeagenten på varje dator som kör Linux:
 
-1. Installera OMS-agenten följa stegen i [samla in data från Linux-datorer i din miljö](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Hämta Linux beroende agenten med hjälp av länken i föregående avsnitt och installera den som rot med hjälp av följande kommando: del InstallDependencyAgent Linux64.bin
-3. Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. På Linux-agenter loggkatalogen är: /var/opt/microsoft/dependency-agent/log.
+1. Installera OMS-agenten genom att följa stegen i [Samla in data från Linux-datorer i din miljö](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+2. Ladda ned Linux-beroendeagenten med hjälp av länken i föregående avsnitt och installera den som rot med hjälp av följande kommando: sh InstallDependencyAgent-Linux64.bin
+3. Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. På Linux-agenter är loggkatalogen: /var/opt/microsoft/dependency-agent/log.
 
-Om du vill se en lista över flaggor för installation, kör du installationsprogrammet med det `-help` flaggan på följande sätt.
+Om du vill se en lista med installationsflaggorna kör du installationsprogrammet med `-help`-flaggan enligt nedan.
 
 ```
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flaggan** | **Beskrivning** |
+| **Flagga** | **Beskrivning** |
 | --- | --- |
-| <code>-help</code> | Hämta en lista över kommandoradsalternativ. |
-| <code>-s</code> | Utföra en tyst installation utan uppmaningar för användaren. |
-| <code>--check</code> | Kontrollera behörigheter och operativsystemet, men inte installera agenten. |
+| <code>-help</code> | Hämta en lista med kommandoradsalternativ. |
+| <code>-s</code> | Utför en tyst installation utan någon användarprompter. |
+| <code>--check</code> | Kontrollera behörigheter och operativsystemet, men installera inte agenten. |
 
-Filer för Beroendeagent placeras i följande kataloger:
+Filer för beroendeagenten placeras i följande kataloger:
 
 | **Filer** | **Plats** |
 | --- | --- |
-| -Filer | /OPT/Microsoft/Dependency-Agent |
-| Loggfiler | /var/OPT/Microsoft/Dependency-Agent/log |
-| Config-filer | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Tjänsten körbara filer | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| Binära filer | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Kärnfiler | /opt/microsoft/dependency-agent |
+| Loggfiler | /var/opt/microsoft/dependency-agent/log |
+| Konfigurationsfiler | /etc/opt/microsoft/dependency-agent/config |
+| Körbara tjänstfiler | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binära lagringsfiler | /var/opt/microsoft/dependency-agent/storage |
 
-### <a name="installation-script-examples"></a>Exempel på skript för installation
+### <a name="installation-script-examples"></a>Exempel på installationsskript
 
-För att enkelt distribuera agenten beroende på flera servrar samtidigt, hjälper det för att använda ett skript. Du kan använda i följande skriptexempel att ladda ned och installera agenten beroende på Windows- eller Linux.
+Det är enklare att distribuera beroendeagenten på flera servrar samtidigt med ett skript. Du kan använda följande skriptexempel till att ladda ned och installera beroendeagenten på antingen Windows eller Linux.
 
-#### <a name="powershell-script-for-windows"></a>Windows PowerShell-skript
+#### <a name="powershell-script-for-windows"></a>PowerShell-skript för Windows
 
 ```PowerShell
 
@@ -274,7 +274,7 @@ Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile Ins
 
 ```
 
-#### <a name="shell-script-for-linux"></a>Shell-skript för Linux
+#### <a name="shell-script-for-linux"></a>Kommandoskript för Linux
 
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
@@ -286,7 +286,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 ### <a name="desired-state-configuration"></a>Önskad tillståndskonfiguration
 
-Om du vill distribuera Beroendeagent via Desired State Configuration, kan du använda modulen xPSDesiredStateConfiguration och lite kod som liknar följande:
+Om du vill distribuera beroendeagenten via Desired State Configuration, kan du använda modulen xPSDesiredStateConfiguration och en bit kod som liknar följande:
 
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -338,19 +338,19 @@ Node $NodeName
 }
 
 ```
-### <a name="uninstall-the-dependency-agent"></a>Avinstallera agenten beroende
+### <a name="uninstall-the-dependency-agent"></a>Avinstallera beroendeagenten
 
-Använd följande avsnitt som hjälper dig att ta bort beroendet.
+Använd följande avsnitt som hjälp när du tar bort beroendeagenten.
 
-#### <a name="uninstall-the-dependency-agent-on-windows"></a>Avinstallera agenten beroende på Windows
+#### <a name="uninstall-the-dependency-agent-on-windows"></a>Avinstallera beroendeagenten i Windows
 
-En administratör kan avinstallera beroende agenten för Windows via Kontrollpanelen.
+En administratör kan avinstallera beroendeagenten för Windows via Kontrollpanelen.
 
-En administratör kan också köra %Programfiles%\Microsoft beroende Agent\Uninstall.exe avinstallera agenten beroende.
+Administratören kan också köra %Programfiles%\Microsoft Dependency Agent\Uninstall.exe för att avinstallera beroendeagenten.
 
-#### <a name="uninstall-the-dependency-agent-on-linux"></a>Avinstallera agenten beroende på Linux
+#### <a name="uninstall-the-dependency-agent-on-linux"></a>Avinstallera beroendeagenten i Linux
 
-Om du vill avinstallera helt beroende agenten från Linux, måste du ta bort själva agenten och connector, som installeras automatiskt med agenten. Du kan avinstallera både med hjälp av följande kommando:
+Om du vill avinstallera beroendeagenten helt från Linux, måste du ta bort själva agenten och anslutningsprogrammet som installerades automatiskt med agenten. Du kan avinstallera båda med hjälp av följande kommando:
 
 ```
 rpm -e dependency-agent dependency-agent-connector
@@ -358,9 +358,9 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-När Wire-Data är aktiverat i logganalys-arbetsytan, skickas ett 300 KB hanteringspaket till alla Windows-servrar på arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](log-analytics-om-agents.md), Dependency Monitor-hanteringspaket distribueras från System Center Operations Manager. Om agenter är anslutna direkt levererar Log Analytics management pack.
+När Wire Data är aktiverat på en Log Analytics-arbetsyta, skickas ett hanteringspaket på 300 KB till alla Windows-servrar på arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](log-analytics-om-agents.md), distribueras Dependency Monitor-hanteringspaketet från System Center Operations Manager. Om agenterna är direktanslutna levererar Log Analytics hanteringspaketet.
 
-Management pack heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. De skrivs till: %Programfiles%\Microsoft övervakning Agent\Agent\Health State\Management servicepack. Datakällan som används av management pack är: % Program files%\Microsoft övervakning Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Hanteringspaketet heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Det skrivs till: %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. Datakällan som hanteringspaketet använder är: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
@@ -368,86 +368,86 @@ Management pack heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. 
 
 Använd följande information för att installera och konfigurera lösningen.
 
-- Wire-Data lösningen hämtar data från datorer som kör Windows Server 2012 R2, Windows 8.1 och senare operativsystem.
-- Microsoft .NET Framework 4.0 eller senare krävs på datorer där du vill hämta wire-data från.
-- Lägg till lösningen Wire-Data i logganalys-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
-- Om du vill visa wire-data för en viss lösning måste du har redan lagts till i din arbetsyta-lösning.
+- Wire Data-lösningen hämtar data från datorer som kör operativsystemen Windows Server 2012 R2, Windows 8.1 och senare.
+- Microsoft .NET Framework 4.0 eller senare krävs på de datorer som du vill hämta wire-data från.
+- Lägg till Wire Data på din Log Analytics-arbetsyta med hjälp av processen som beskrivs i [Lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
+- Om du vill se wire-data för en viss lösning måste du redan ha lagt till lösningen på din arbetsyta.
 
-När du har agenter som installerats och du installerar lösningen, visas överföring Data 2.0-panelen på arbetsytan.
+När du har installerade agenter och du installerar lösningen, visas Wire Data 2.0-panelen på arbetsytan.
 
-![Panelen Wire-Data](./media/log-analytics-wire-data/wire-data-tile.png)
+![Wire Data-panel](./media/log-analytics-wire-data/wire-data-tile.png)
 
-## <a name="using-the-wire-data-20-solution"></a>Med lösningen överföring Data 2.0
+## <a name="using-the-wire-data-20-solution"></a>Använda Wire Data 2.0-lösningen
 
-I OMS-portalen klickar du på den **överföring Data 2.0** öppna instrumentpanelen Wire-Data. Instrumentpanelen innehåller bladen i följande tabell. Varje bladet visar upp till 10 objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster genom att klicka på **se alla** längst ned på bladet eller genom att klicka på rubriken bladet.
+På sidan **Översikt** för Log Analytics-arbetsytan i Azure Portal, klickar du på panelen **Wire Data 2.0** för att öppna instrumentpanelen för Wire Data. Instrumentpanelen innehåller bladen i följande tabell. Varje blad visar en lista med upp till tio objekt som matchar bladets kriterier för angivet omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned på bladet eller genom att klicka på bladrubriken.
 
-| **Bladet** | **Beskrivning** |
+| **Blad** | **Beskrivning** |
 | --- | --- |
-| Agenter som samlar in nätverkstrafik | Visar antalet agenter som hämtar nätverkstrafik och visar de översta 10 datorer hämtar trafik. Klicka på siffran om du vill köra en logg sökning efter <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Klicka på en dator i listan om du vill köra en logg sökning returnera det totala antalet byte som har hämtats. |
-| Lokala undernät | Visar antalet lokala undernät som agenter har identifierats.  Klicka på siffran om du vill köra en logg sökning efter <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> som visar en lista över alla undernät med antalet byte som skickats över var och en. Klicka på ett undernät i listan för att köra en logg sökning returnera det totala antalet byte som skickats över undernätet. |
-| Protokoll på programnivå | Visar antalet protokoll på programnivå används, som identifierats av agenter. Klicka på siffran om du vill köra en logg sökning efter <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Klicka på ett protokoll för att köra en logg sökning returnera det totala antalet byte som skickats med protokollet. |
+| Agenter som samlar in nätverkstrafik | Visar antalet agenter som samlar in nätverkstrafik och visar en lista med de främsta 10 datorerna som hämtar trafik. Klicka på siffran om du vill köra en loggsökning efter <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Klicka på en dator i listan om du vill köra en loggsökning som returnerar det totala antalet byte som har hämtats. |
+| Lokala undernät | Visar antalet lokala undernät som agenterna har identifierat.  Klicka på siffran om du vill köra en loggsökning efter <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> som visar en lista över alla undernät med antalet byte som skickats i var och en. Klicka på ett undernät i listan om du vill köra en loggsökning som returnerar det totala antalet byte som har skickats i undernätet. |
+| Protokoll på programnivå | Visar antalet protokoll på programnivå som används och som identifierats av agenterna. Klicka på siffran om du vill köra en loggsökning efter <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Klicka på ett protokoll om du vill köra en loggsökning som returnerar det totala antalet byte som har skickats med protokollet. |
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![Överföring Data instrumentpanelen](./media/log-analytics-wire-data/wire-data-dash.png)
+![Wire Data-instrumentpanel](./media/log-analytics-wire-data/wire-data-dash.png)
 
-Du kan använda den **agenter som samlar in nätverkstrafik** bladet för att avgöra hur mycket nätverksbandbredd som används av datorer. Det här bladet kan hjälpa dig att enkelt hitta den _chattiest_ dator i din miljö. Sådana datorer kan vara överbelastad fungerar onormalt eller använder mer nätverksresurser än normalt.
+Du kan använda bladet **Agenter som samlar in nätverkstrafik** för att avgöra hur mycket nätverksbandbredd som används av datorerna. Det här bladet kan hjälpa dig att enkelt hitta den _trafikintensivaste_ datorn i din miljö. Sådana datorer kan vara överbelastade, bete sig onormalt eller använda fler nätverksresurser än normalt.
 
-![loggen Sök-exempel](./media/log-analytics-wire-data/log-search-example01.png)
+![exempel på loggsökning](./media/log-analytics-wire-data/log-search-example01.png)
 
-På liknande sätt kan du använda den **lokala undernät** bladet för att avgöra hur mycket trafik som flyttas via dina undernät. Användarna definiera ofta undernät runt viktiga områden för sina program. Det här bladet ger en överblick över dessa områden.
+På liknande sätt kan du använda bladet **Lokala undernät** till att avgöra hur mycket nätverkstrafik som passerar genom dina undernät. Användarna definierar ofta undernät runt kritiska områden för sina program. Det här bladet visar dessa områden.
 
-![loggen Sök-exempel](./media/log-analytics-wire-data/log-search-example02.png)
+![exempel på loggsökning](./media/log-analytics-wire-data/log-search-example02.png)
 
-Den **protokoll på programnivå** bladet är användbar eftersom den är användbara veta vilka protokoll som används. Du kan till exempel räknar SSH kan inte användas i din nätverksmiljö. Visa information som är tillgängliga i bladet kan snabbt bekräfta eller disprove din förväntan.
+Bladet **Protokoll på programnivå** är användbart eftersom det alltid är bra att veta vilka protokoll som används. Du kanske till exempel misstänker att SSH inte används i din nätverksmiljö. Genom att läsa den information som finns i bladet kan du snabbt få din misstanke bekräftad eller motbevisad.
 
-![loggen Sök-exempel](./media/log-analytics-wire-data/log-search-example03.png)
+![exempel på loggsökning](./media/log-analytics-wire-data/log-search-example03.png)
 
-I det här exemplet kan gå till SSH-information för att se vilka datorer som använder SSH och många andra kommunikationsdetaljer.
+I det här exemplet kan du söka i SSH-informationen för att se vilka datorer som använder SSH och annan kommunikationsinformation.
 
-![del sökresultat](./media/log-analytics-wire-data/ssh-details.png)
+![sh-sökresultat](./media/log-analytics-wire-data/ssh-details.png)
 
-Det är också bra att känna av om protokolltrafik ökar eller minskar med tiden. Till exempel om ökar mängden data som skickas av ett program som kan vara något du bör vara medveten om, eller att du kan hitta anmärkningsvärda.
+Det är också bra att veta om protokolltrafiken ökar eller minskar med tiden. Om till exempel mängden data som skickas av ett program ökar, kan det vara något som du bör vara medveten om eller vara uppmärksam på.
 
 ## <a name="input-data"></a>Indata
 
-Samlar in metadata om nätverkstrafik med hjälp av de agenter som du har aktiverat Wire-data. Varje agent skickar data om var 15: e sekund.
+Wire-datan samlar in metadata om nätverkstrafik med hjälp av de agenter som du har aktiverat. Varje agent skickar data var 15:e sekund.
 
 ## <a name="output-data"></a>Utdata
 
-En post med en typ av _WireData_ skapas för varje typ av indata. WireData poster har egenskaperna som visas i följande tabell:
+En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har egenskaper enligt följande tabell:
 
 | Egenskap | Beskrivning |
 |---|---|
-| Dator | Datornamnet där data har samlats in |
-| TimeGenerated | Tiden då posten |
+| Dator | Namn på den dator där data samlades in |
+| TimeGenerated | Tid för posten |
 | LocalIP | IP-adressen för den lokala datorn |
 | SessionState | Ansluten eller frånkopplad |
-| receivedBytes | Mängden byte som tagits emot |
-| ProtocolName | Namnet på nätverksprotokoll som används |
+| ReceivedBytes | Mängden byte som tagits emot |
+| ProtocolName | Namnet på det nätverksprotokoll som används |
 | IPVersion | IP-version |
 | Riktning | Inkommande eller utgående |
 | MaliciousIP | IP-adressen för en känd skadlig källa |
-| Allvarsgrad | Allvarlighetsgrad för misstänkt skadlig programvara |
+| Severity | Allvarlighetsgrad för misstänkt skadlig programvara |
 | RemoteIPCountry | Land för fjärr-IP-adress |
-| ManagementGroupName | Namnet på hanteringsgruppen för Operations Manager |
-| SourceSystem | Källan där data har samlats in |
-| SessionStartTime | Starttid för session |
-| SessionEndTime | Sluttid för session |
-| LocalSubnet | Undernät där data har samlats in |
-| LocalPortNumber | Lokala portnumret |
-| RemoteIP | Fjärranslutna IP-adress som används av fjärrdatorn |
-| RemotePortNumber | Portnummer för fjärr-IP-adress |
-| Sessions-ID | Ett unikt värde som identifierar kommunikationssessionen mellan två IP-adresser |
-| sentBytes | Antal skickade byte |
+| ManagementGroupName | Namn på Operations Manager-hanteringsgrupp |
+| SourceSystem | Källa där data samlades in |
+| SessionStartTime | Starttid för sessionen |
+| SessionEndTime | Sluttid för sessionen |
+| LocalSubnet | Undernät där data samlades in |
+| LocalPortNumber | Lokalt portnummer |
+| RemoteIP | Fjärr-IP-adress som används av fjärrdatorn |
+| RemotePortNumber | Portnummer som används av fjärr-IP-adressen |
+| SessionID | Ett unikt värde som identifierar kommunikationssessionen mellan två IP-adresser |
+| SentBytes | Antal skickade byte |
 | TotalBytes | Totalt antal byte som skickats under sessionen |
-| ApplicationProtocol | Nätverksprotokoll som används   |
-| Process-ID | Windows process-ID |
-| Processnamn | Sökvägen och filnamnet för processen |
-| RemoteIPLongitude | IP-Longitudvärde |
-| RemoteIPLatitude | IP-latitud värde |
+| ApplicationProtocol | Namnet på det nätverksprotokoll som används   |
+| ProcessID | Windows process-ID |
+| ProcessName | Sökväg och filnamn för processen |
+| RemoteIPLongitude | IP-longitudvärde |
+| RemoteIPLatitude | IP-latitudvärde |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Söka i loggar](log-analytics-log-searches.md) att visa detaljerad överföring sökposter.
+- [Sök i loggar](log-analytics-log-searches.md) för att se detaljerade sökposter för wire-data.

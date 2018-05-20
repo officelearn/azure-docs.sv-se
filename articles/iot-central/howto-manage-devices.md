@@ -1,0 +1,133 @@
+---
+title: Hantera enheter i din Azure IoT centralt program | Microsoft Docs
+description: Som operatör, Lär dig att hantera enheter i din Azure IoT centralt program.
+services: iot-central
+author: ellenfosborne
+ms.author: elfarber
+ms.date: 01/21/2018
+ms.topic: article
+ms.prod: microsoft-iot-central
+manager: timlt
+ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/17/2018
+---
+# <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i din Azure IoT centralt program
+
+Den här artikeln beskriver hur som en operatör att hantera enheter i Microsoft Azure IoT Central programmet. Som en operatör kan du:
+
+- Använd den **Explorer** sidan Visa, lägga till och ta bort enheter som är anslutna till din Azure IoT centralt program.
+- Upprätthåll en uppdaterad förteckning över dina enheter.
+- Hålla enhetens metadata uppdaterad genom att ändra de värden som lagras i egenskaperna för enheten.
+- Styr beteendet för dina enheter genom att uppdatera en inställning i en specifik enhet från den **inställningar** sidan.
+
+## <a name="view-your-devices"></a>Visa dina enheter
+
+Visa en enskild enhet:
+
+1. Välj **Explorer** på den vänstra navigeringsmenyn. Här ser du en lista över dina [enheten mallar](howto-set-up-template.md).
+
+1. Välj en **enheten mallen** i det vänstra fönstret.
+
+1. I den högra rutan visas en lista över enheter som har skapats med mallen för enheten. Välj en enskild enhet för att se den **enhetsinformation** sidan för den enheten:
+
+    [![Informationssidan för enheten](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
+
+## <a name="add-a-device"></a>Lägg till en enhet
+
+Lägga till en enhet i Azure IoT centrala programmet:
+
+1. Välj **Explorer** på den vänstra navigeringsmenyn.
+
+1. Välj den mall för enheten som du vill skapa en enhet.
+
+1. Välj + **nya**.
+
+1. Välj **verkliga** eller **simulerade**. En verklig enhet är för en fysisk enhet som du ansluter till dina Azure IoT centralt program. En simulerad enhet har exempeldata som genereras av Azure IoT Central. Det här exemplet används en verklig enhet. Välj **verkliga** att navigera till den **enhetsinformation** för den nya enheten.
+
+
+## <a name="bulk-import-devices"></a>Massimport enheter
+
+Om du vill ansluta stort antal enheter i tillämpningsprogrammet Azure IoT centrala bulk erbjudanden importera enheter via en CSV-fil. 
+
+Krav för CSV-filen:
+1. CSV-filen ska ha endast en kolumn som innehåller enhets-ID.
+
+1. Filen bör inte ha någon rubrik.
+
+
+För bulk-registrera enheter i ditt program:
+
+1. Välj **Explorer** på den vänstra navigeringsmenyn.
+
+1. Välj enhet mallen som du vill att Massredigera skapa enheterna på den vänstra panelen.
+
+1. Välj **ny** och välj **massimport**.
+
+    [![Importera massåtgärd](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+
+1. Välj den CSV-fil som innehåller listan över enhets-ID som ska importeras.
+
+1. Importera enheten startar när filen har överförts. Du kan spåra statusen importera överst i rutnätet för enheten.
+
+1. När importen är klar visas ett meddelande på enheten rutnätet.
+
+    [![Massinläsning importresultat](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+
+Om enheten importerar misslyckas kan det finnas ett fel som visas i rutnätet för enheten. En loggfil som avbildar alla fel genereras och kan hämtas genom att klicka på ett felmeddelande.
+
+
+
+## <a name="delete-a-device"></a>Ta bort en enhet
+
+Ta bort antingen en verklig eller simulerade enhet från dina Azure IoT centralt program:
+
+1. Välj **Explorer** på navigeringsmenyn.
+
+1. Välj mallen enhet på den enhet som du vill ta bort.
+
+1. Markera kryssrutan bredvid enheten som ska tas bort.
+
+1. Välj **ta bort**.
+
+## <a name="change-a-device-setting"></a>Ändra inställningen för en enhet
+
+Inställningar styr beteendet för en enhet. Med andra ord kan du ange indata till din enhet. Du kan visa och uppdatera inställningar för enheter på den **enhetsinformation** sidan.
+
+1. Välj **Explorer** på navigeringsmenyn.
+
+1. Välj mallen enhet på den enhet som du vill ändra inställningarna.
+
+1. Välj den **inställningar** fliken. Här ser du alla inställningar som enheten har och deras aktuella värden. Du kan se om enheten fortfarande synkroniseringen för varje inställning.
+
+1. Ändra inställningarna för din önskade värden. Du kan ändra inställningar för flera samtidigt och uppdatera dem på samma gång.
+
+1. Välj **uppdatering**. Värden skickas till din enhet. När enheten har bekräftat principinställningens ändring, status för inställningen går tillbaka till **synkroniseras**.
+
+## <a name="change-a-property"></a>Ändra en egenskap
+
+Egenskaperna är enhetsmetadata som associeras med enhet, till exempel city och serienummer. Du kan visa och uppdatera egenskaper på den **enhetsinformation** sidan.
+
+1. Välj **Explorer** på navigeringsmenyn.
+
+1. Välj mallen enhet på den enhet vars egenskaper du vill ändra.
+
+1. Välj den **egenskaper** fliken, där du kan se alla egenskaper.
+
+1. Ändra egenskaperna för din önskade värden. Du kan ändra flera egenskaper på samma gång och uppdatera dem på samma gång.
+
+1. Välj **uppdatering**.
+
+> [!NOTE]
+> Du kan inte ändra värdet för _enhetsegenskaper_. Egenskaper för enhet anges av enheten och är skrivskyddade i Azure IoT centrala programmet.
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu när du har lärt dig hur du hanterar enheter i ditt Azure IoT centrala program, är här det föreslagna nästa steget:
+
+> [!div class="nextstepaction"]
+> [Hur du använder enheten anger](howto-use-device-sets.md)
+
+<!-- Next how-tos in the sequence -->

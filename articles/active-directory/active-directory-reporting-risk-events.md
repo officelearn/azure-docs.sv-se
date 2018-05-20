@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory-riskhändelser | Microsoft Docs"
-description: "Det här avsnittet ger en detaljerad översikt över riskhändelser är."
+title: Azure Active Directory-riskhändelser | Microsoft Docs
+description: Den här artice ger en detaljerad översikt över riskhändelser är.
 services: active-directory
-keywords: "Azure active directory identitetsskydd, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
+keywords: Azure active directory identitetsskydd, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -39,12 +39,13 @@ För närvarande identifierar Azure Active Directory sex typer av riskhändelser
 Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Med Azure AD Premium P2-edition får du den mest detaljerade informationen om alla underliggande identifieringar. Med Azure AD Premium P1-edition identifieringar som inte omfattas av din licens visas som händelsen risk **logga in med ytterligare risker som identifierats**.
 
 
-Det här avsnittet får du en detaljerad översikt över vilka riskhändelser är och hur du kan använda dem för att skydda din Azure AD-identiteter.
+Den här artikeln får du en detaljerad översikt över vilka riskhändelser är och hur du kan använda dem för att skydda din Azure AD-identiteter.
 
 
 ## <a name="risk-event-types"></a>Typer av riskhändelser
 
-Egenskapen risk händelse typ är en identifierare för åtgärden misstänkta en händelsepost för risk har skapats för.  
+Egenskapen risk händelse typ är en identifierare för åtgärden misstänkta en händelsepost för risk har skapats för.
+
 Microsofts kontinuerliga investeringar i identifieringsprocessen leda till:
 
 - Förbättringar av noggrannhet identifiering av befintliga riskhändelser 
@@ -76,6 +77,8 @@ Algoritmen ignorerar uppenbara ”falska positiva identifieringar” bidrar till
 
 Den här typen av risk händelse anser tidigare inloggning platser (IP, latitud / longitud och ASN) att fastställa nya / okända platser. Systemet lagrar information om tidigare platser som används av en användare så att dessa ”bekant” platser. Risk-händelsen utlöses när inloggningen sker från en plats som inte är redan i listan över välkända platser. Systemet har en inledande learning-period på 30 dagar då inte flaggas några nya platser som okända platser. Inloggningar från bekant enheter och platser som är geografiskt nära en bekant plats ignoreras också. 
 
+Identity Protection identifierar inloggningar från okända platser också för grundläggande autentisering / äldre protokoll. Eftersom dessa protokoll inte har moderna bekant funktioner, till exempel klient-id, finns det inte tillräckligt med telemetri för att minska falska positiva identifieringar. För att minska antalet identifierade riskhändelser, bör du övergå till modern autentisering.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
 
 Den här typen av risk händelse identifierar inloggningar från enheter som infekterats med skadlig kod, som är kända aktivt kommunicera med en botserver. Detta bestäms genom att sammanföra IP-adresser för användarens enhet mot IP-adresser som varit i kontakt med en botserver. 
@@ -86,8 +89,7 @@ Den här typen av risk händelse identifierar IP-adresser som ett stort antal mi
 
 ## <a name="detection-type"></a>Identifieringstyp
 
-Egenskapen type identifiering är en indikator (realtid eller Offline) för identifiering tidsramen för en händelse för risk.  
-För närvarande kan identifieras de flesta riskhändelser offline i en åtgärd för efterbearbetning när risken händelse har inträffat.
+Egenskapen type identifiering är en indikator (realtid eller Offline) för identifiering tidsramen för en händelse för risk. För närvarande kan identifieras de flesta riskhändelser offline i en åtgärd för efterbearbetning när risken händelse har inträffat.
 
 I följande tabell visas hur lång tid det tar för en typ av identifiering till visas i en relaterad rapport:
 
@@ -113,8 +115,7 @@ För risk händelsetyper Azure Active Directory identifierar, är identifiering-
 
 Egenskapen risk nivå för en händelse för risk är en indikator (hög, medel eller låg) för allvarlighetsgrad och förtroende för en händelse för risk. Den här egenskapen hjälper dig att prioritera vilka åtgärder du måste utföra. 
 
-Allvarlighetsgrad för händelsen risk representerar styrkan hos signalen som en ge prognoser för identitet har komprometterats.  
-Förtroende är en indikator för falska positiva identifieringar. 
+Allvarlighetsgrad för händelsen risk representerar styrkan hos signalen som en ge prognoser för identitet har komprometterats. Förtroende är en indikator för falska positiva identifieringar. 
 
 Exempel: 
 
@@ -132,13 +133,12 @@ Läcka ut autentiseringsuppgifter riskhändelser klassificeras som en **hög**, 
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inloggningar från anonyma IP-adresser
 
-Risknivå för den här typen av risk händelse är **medel** eftersom en anonym IP-adress inte är en stark indikation på ett konto har komprometterats.  
-Vi rekommenderar att du omedelbart kontaktar användaren för att kontrollera om de använder anonym IP-adresser.
+Risknivå för den här typen av risk händelse är **medel** eftersom en anonym IP-adress inte är en stark indikation på ett konto har komprometterats. Vi rekommenderar att du omedelbart kontaktar användaren för att kontrollera om de använder anonym IP-adresser.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
-Omöjlig resa är vanligtvis en bra indikator som en hackare har kunnat har inloggning. FALSKT positiva kan dock uppstå när en användare reser med hjälp av en ny enhet eller en VPN-anslutning som normalt inte används av andra användare i organisationen. En annan källa för falskt positiva är program som skickar felaktigt server IP-adresser som klient IP-adresser, som kan ge ut av inloggningar äger rum från datacentret där programmet har backend-värd (det är ofta Microsoft datacenter, vilket kan ge intryck av inloggningar tar placera från Microsoft som ägs av IP-adresser). På grund av dessa FALSKT positiva risknivå för den här risken händelsen är **medel**.
+Omöjlig resa är vanligtvis en bra indikator som en hackare har kunnat logga in. FALSKT positiva kan dock uppstå när en användare reser med hjälp av en ny enhet eller en VPN-anslutning som normalt inte används av andra användare i organisationen. En annan källa för falskt positiva är program som skickar felaktigt server IP-adresser som klient IP-adresser, som kan ge ut av inloggningar äger rum från datacentret där programmet har backend-värd (det är ofta Microsoft datacenter, vilket kan ge intryck av inloggningar tar placera från Microsoft som ägs av IP-adresser). På grund av dessa FALSKT positiva risknivå för den här risken händelsen är **medel**.
 
 > [!TIP]
 > Du kan minska mängden rapporterade false-positiva identifieringar för den här typen av risk händelsen genom att konfigurera [med namnet platser](active-directory-named-locations.md). 

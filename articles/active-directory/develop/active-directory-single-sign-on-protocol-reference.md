@@ -1,13 +1,14 @@
 ---
-title: "Azure för enkel inloggning SAML-protokollet | Microsoft Docs"
-description: "Den här artikeln beskriver enkel inloggning på SAML-protokoll i Azure Active Directory"
+title: Azure för enkel inloggning SAML-protokollet | Microsoft Docs
+description: Den här artikeln beskriver enkel inloggning på SAML-protokoll i Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 Den här artikeln beskriver SAML 2.0 autentiseringsbegäranden och svar som har stöd för Azure Active Directory (Azure AD) för enkel inloggning.
@@ -44,9 +45,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID |Krävs |Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att lägga en sträng som ”id” till den sträng som innehåller ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
-| Version |Krävs |Detta bör vara **2.0**. |
-| IssueInstant |Krävs |Detta är ett DateTime-sträng med ett värde för UTC och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
+| ID |obligatorisk |Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att lägga en sträng som ”id” till den sträng som innehåller ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
+| Version |obligatorisk |Detta bör vara **2.0**. |
+| IssueInstant |obligatorisk |Detta är ett DateTime-sträng med ett värde för UTC och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
 | AssertionConsumerServiceUrl |valfri |Om det måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
 | ForceAuthn |valfri | Detta är ett booleskt värde. Om värdet är true, betyder det att användaren tvingas att autentisera igen, även om de har en ogiltig session med Azure AD. |
 | IsPassive |valfri |Detta är ett booleskt värde som anger om Azure AD som ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om sådan finns. Om detta är sant, försöker Azure AD autentiserar användaren med sessions-cookie. |
@@ -255,7 +256,7 @@ Innehåller anspråk om ämnet eller användare. Följande utdrag innehåller et
 ```        
 
 * **Namnge anspråk** : värdet för den `Name` attribut (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) är den autentiserade användaren, användarens huvudnamn som `testuser@managedtenant.com`.
-* **ObjectIdentifier anspråk** : värdet för den `ObjectIdentifier` attribut (`http://schemas.microsoft.com/identity/claims/objectidentifier`) är den `ObjectId` för objekt som representerar den autentiserade användaren i Azure AD. `ObjectId`är en oföränderlig globalt unik och återanvända säker identifierare för den autentiserade användaren.
+* **ObjectIdentifier anspråk** : värdet för den `ObjectIdentifier` attribut (`http://schemas.microsoft.com/identity/claims/objectidentifier`) är den `ObjectId` för objekt som representerar den autentiserade användaren i Azure AD. `ObjectId` är en oföränderlig globalt unik och återanvända säker identifierare för den autentiserade användaren.
 
 #### <a name="authnstatement"></a>AuthnStatement
 Det här elementet Assert att assertion ämnet autentiserades på ett visst sätt vid en viss tidpunkt.

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Boomi | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Boomi."
+title: 'Självstudier: Azure Active Directory-integrering med Boomi | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Boomi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Självstudier: Azure Active Directory-integrering med Boomi
 
@@ -30,7 +30,7 @@ Integrera Boomi med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Boomi (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Boomi domän med enkel inloggning information](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. I den **identifierare** textruta, ange ett URL-Adressen:`https://platform.boomi.com/`
+    a. I den **identifierare** textruta, ange ett URL-Adressen: `https://platform.boomi.com/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
     > Reply URL-värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Boomi supportteamet](https://boomi.com/company/contact/) värdet hämtas.
@@ -214,7 +214,7 @@ För att aktivera Azure AD-användare kan logga in på Boomi etableras de i Boom
 
     ![Användare](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "användare")
 
-3. Klicka på  **+**  ikon och **Lägg till/Underhåll användarroller** öppnas.
+3. Klicka på **+** ikon och **Lägg till/Underhåll användarroller** öppnas.
 
     ![Användare](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "användare")
 
@@ -275,7 +275,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

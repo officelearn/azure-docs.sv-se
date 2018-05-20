@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: 12248a719d7d30c9b83be9c72539e0a81f19fb7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualisera Remote övervakningsdata med tiden serien insikter
 
@@ -23,7 +23,7 @@ En operator kanske vill utöka out rutan data visualiseringen som tillhandahåll
 
 Du behöver följande för att slutföra den här anvisningar:
 
-* [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md)
+* [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Skapa en konsumentgrupp
 
@@ -87,12 +87,12 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Kontrollera att du an
     | Händelsekälla namn | Följande skärmbild använder namnet **contosorm iot hub**. Använda ditt eget unikt namn när du slutför det här steget. |
     | Källa | **IoT Hub** |
     | Importalternativ | **Använd IoT-hubb från tillgängliga prenumerationer** |
-    | Prenumeration-ID | Välj din Azure-prenumeration i listrutan. |
-    | IoT Hub-namn | **contosorma57a6**. Använd namnet på din IoT-hubb från din lösning för övervakning av fjärråtkomst. |
-    | IoT Hub-principnamn | **iothubowner** se till att den princip som används är en ägare. |
-    | IoT Hub-principnyckel | Det här fältet fylls i automatiskt. |
-    | IoT Hub-konsumentgrupp | **timeseriesinsights** |
-    | Händelseserialiseringsformat | **JSON**     | Egenskapsnamn för tidsstämpel | Lämna tomt |
+    | Prenumerations-ID | Välj din Azure-prenumeration i listrutan. |
+    | IOT-hubbnamnet | **contosorma57a6**. Använd namnet på din IoT-hubb från din lösning för övervakning av fjärråtkomst. |
+    | Principnamn för IOT-hubb | **iothubowner** se till att den princip som används är en ägare. |
+    | IOT-hubb principnyckel | Det här fältet fylls i automatiskt. |
+    | Konsumentgrupp för IOT-hubb | **timeseriesinsights** |
+    | Händelseserialiseringsformat | **JSON**     | Tidsstämpel egenskapsnamn | Lämna tomt |
 
     ![Skapa händelsekällan](media/iot-suite-time-series-insights/time-series-insights-event-source-create.png)
 

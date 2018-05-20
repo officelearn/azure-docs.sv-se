@@ -1,5 +1,5 @@
 ---
-title: Kapacitetsplanering för Azure Search | Microsoft Docs
+title: Allokera partitioner och repliker för fråga och indexering i Azure Search | Microsoft Docs
 description: Justera partition och repliken datorresurser i Azure Search, där varje resurs prissätts i fakturerbar search-enheter.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Skala resursen nivåer för fråga och indexering arbetsbelastningar i Azure Search
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Allokera partitioner och repliker för fråga och indexering arbetsbelastningar i Azure Search
 När du [Välj prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att om du vill öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal fakturering enheter. Den här artikeln beskriver hur du tilldela dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för körning av fråga, indexering och lagring.
 
 Resurskonfigurationen är tillgänglig när du skapar en tjänst på den [grundläggande nivån](http://aka.ms/azuresearchbasic) eller en av de [Standard nivåer](search-limits-quotas-capacity.md). För tjänster på dessa nivåer kapacitet köps i steg om *sökenheter* (SUs) där varje partition och repliken räknas som en SU. 

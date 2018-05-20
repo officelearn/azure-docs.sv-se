@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med EthicsPoint Incident Management (EPIM) | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EthicsPoint Incident Management (EPIM)."
+title: 'Självstudier: Azure Active Directory-integrering med EthicsPoint Incident Management (EPIM) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EthicsPoint Incident Management (EPIM).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 87525eacdb7224e7352f713028428d72d64a288e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be400e9b51e2956557297b3a57313f08a434f96d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Självstudier: Azure Active Directory-integrering med EthicsPoint Incident Management (EPIM)
 
@@ -29,9 +29,9 @@ Integrera EthicsPoint Incident Management (EPIM) med Azure AD ger dig följande 
 - Du kan aktivera användarna att automatiskt hämta inloggade till EthicsPoint Incident Management (EPIM) (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med EthicsPoint Incident Management (EPIM) behöver du följande:
 
@@ -116,9 +116,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.navexglobal.com`|
     | `https://<companyname>.ethicspointvp.com`|
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.navexglobal.com/adfs/services/trust`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<servername>.navexglobal.com/adfs/ls/`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL, identifierare och inloggnings-URL. Kontakta [EthicsPoint Incident Management (EPIM) klienten supportteamet](http://www.navexglobal.com/company/contact-us) att hämta dessa värden. 
@@ -210,7 +210,7 @@ När du klickar på panelen EthicsPoint Incident Management (EPIM) på åtkomstp
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -7,16 +7,16 @@ author: harahma
 manager: timlt
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: b2ba019f21256ee98276ef30847c43709b9b3462
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d56bb10041e3baffddf6fd4121a6e1f7ba8e0632
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric-värdmodell
 Den här artikeln innehåller en översikt över program som är värd för modeller som tillhandahålls av Azure Service Fabric och beskrivs skillnaderna mellan de **delad Process** och **exklusiv processen** modeller. Beskriver hur ett distribuerat program ser ut på en Service Fabric-nod och relationen mellan repliker (eller instanser) och service host-processen.
@@ -165,7 +165,7 @@ Båda tjänsterna har två repliker på en viss nod. Eftersom vi användas exklu
 ![Diagram över vyn nod för distribuerade program][node-view-five]
 
 
-I aktivering av 'MultiTypeServicePackge' för repliken av partitionen **P1** för tjänsten **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' är värd för repliken. 'MyCodePackageB' is running. På samma sätt i aktivering av 'MultiTypeServicePackge' för repliken av partitionen **P3** för tjänsten **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' är värd för repliken. 'MyCodePackageA' is running. Därför större antalet *CodePackages* (registrera olika *ServiceTypes*) per *ServicePackage*, desto högre redundant Resursanvändning. 
+I aktivering av 'MultiTypeServicePackge' för repliken av partitionen **P1** för tjänsten **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' är värd för repliken. 'MyCodePackageB' körs. På samma sätt i aktivering av 'MultiTypeServicePackge' för repliken av partitionen **P3** för tjänsten **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' är värd för repliken. 'MyCodePackageA' körs. Därför större antalet *CodePackages* (registrera olika *ServiceTypes*) per *ServicePackage*, desto högre redundant Resursanvändning. 
  
  Men om vi skapar tjänsterna **fabric: / SpecialApp/ServiceA** och **fabric: / SpecialApp/ServiceB** med delade processmodellen, Service Fabric aktiveras bara en kopia av ' MultiTypeServicePackge' för programmet **fabric: / SpecialApp**. Alla repliker för tjänsten är värd för 'MyCodePackageA' **fabric: / SpecialApp/ServiceA**. Alla repliker för tjänsten är värd för 'MyCodePackageB' **fabric: / SpecialApp/ServiceB**. Följande diagram visar vyn nod i den här inställningen: 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -112,7 +112,7 @@ Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synk
 
 **S:** Tillbakaskrivningen av lösenord fungerar i realtid.
 
-Mer information finns i [Komma igång med lösenordshantering](active-directory-passwords-getting-started.md).
+Mer information finns i [Komma igång med lösenordshantering](authentication/quickstart-sspr.md).
 
 - - -
 **F: Kan jag använda tillbakaskrivning av lösenord med lösenord som hanteras av en administratör?**
@@ -193,7 +193,7 @@ Mer information finns i:
 
 **S:** Azure AD Application Proxy ger enkel och säker åtkomst till lokala webbprogram som du väljer. Du kan komma åt dessa program på samma sätt som du kommer åt programvara som en tjänst (SaaS)-appar i Azure AD. Du behöver ingen VPN-anslutning och du behöver inte ändra din nätverksinfrastruktur.  
 
-Mer information finns i [Ge säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md).
+Mer information finns i [Ge säker fjärråtkomst till lokala program](manage-apps/application-proxy.md).
 
 - - -
 **F: Hur kräver jag Multi-Factor Authentication för användare som kommer åt ett visst program?**

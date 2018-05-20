@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Workpath | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workpath."
+title: 'Självstudier: Azure Active Directory-integrering med Workpath | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workpath.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 70aea0bc84b7aea47ec9b51fc46e502e93690db3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab0c407def62f89691a1989a869902d356c5bdc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Självstudier: Azure Active Directory-integrering med Workpath
 
@@ -29,9 +29,9 @@ Integrera Workpath med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Workpath (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Workpath, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.workpath.com/ `
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.workpath.com/ `
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Workpath supportteamet](https://help.workpath.com) att hämta dessa värden.
@@ -243,7 +243,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

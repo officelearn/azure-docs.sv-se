@@ -93,12 +93,10 @@
               href: azure-stack-kv-sample-app.md
         - name: Lösningsmallar
           items:
-            - name: Lösningsmallar
-              items:
-                - name: Distribuera ett Service Fabric-kluster
-                  href: azure-stack-solution-template-service-fabric-cluster.md
-                - name: Distribuera ett Kubernetes kluster
-                  href: azure-stack-solution-template-kubernetes-deploy.md
+            - name: Distribuera ett Service Fabric-kluster
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Distribuera ett Kubernetes kluster
+              href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Skapa appar
       items:
         - name: Utveckla för Azure Stack

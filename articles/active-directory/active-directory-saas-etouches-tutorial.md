@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med etouches | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och etouches."
+title: 'Självstudier: Azure Active Directory-integrering med etouches | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och etouches.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2b51227d89064e233ea1d1126bbf19169753094
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Självstudier: Azure Active Directory-integrering med etouches
 
@@ -30,9 +30,9 @@ Integrera etouches med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på etouches (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med etouches, behöver du följande:
 
@@ -107,9 +107,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![etouches domän och URL: er med enkel inloggning information](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.eiseverywhere.com/<instance name>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.eiseverywhere.com/<instance name>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du uppdaterar värdet med det faktiska inloggning URL och identifierare som beskrivs senare i självstudierna.
@@ -165,7 +165,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. Kopiera den **SP enhets-ID** värdet och klistrar in det i den **identifierare** textruta som finns i **etouches domän och URL: er** avsnitt på Azure-portalen.
 
-    Jag. Kopiera den **SSO URL / ACS** värdet och klistrar in det i den **inloggning URL** textruta som finns i **etouches domän och URL: er** avsnitt på Azure-portalen.
+    i. Kopiera den **SSO URL / ACS** värdet och klistrar in det i den **inloggning URL** textruta som finns i **etouches domän och URL: er** avsnitt på Azure-portalen.
    
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -246,7 +246,7 @@ När du klickar på panelen etouches på åtkomstpanelen du bör få automatiskt
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

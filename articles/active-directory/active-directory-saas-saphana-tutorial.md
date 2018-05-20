@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SAP HANA | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP HANA."
+title: 'Självstudier: Azure Active Directory-integrering med SAP HANA | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP HANA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 626dfe07c13c90686157dea710715b333a378136
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Självstudier: Azure Active Directory-integrering med SAP HANA
 
@@ -30,9 +30,9 @@ När du integrerar SAP HANA med Azure AD kan du få följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta inloggad SAP HANA med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats--Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SAP HANA behöver du följande:
 
@@ -109,9 +109,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och domän med enkel inloggning information](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-    a. I den **identifierare** skriver du följande:`HA100` 
+    a. I den **identifierare** skriver du följande: `HA100` 
 
-    b. I den **Reply URL** Skriv en URL med följande mönster:`https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+    b. I den **Reply URL** Skriv en URL med följande mönster: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och reply URL. Kontakta den [supportteamet för SAP HANA klienten](https://cloudplatform.sap.com/contact.html) att hämta dessa värden. 
@@ -144,7 +144,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > I standardkonfigurationen omdirigerar URL: en begäran till en inloggningssida, som kräver autentiseringsuppgifter för en autentiserad användare för SAP HANA-databas. Den användare som loggar in måste ha behörighet att utföra administrationsuppgifter i SAML.
 
-9. Gå till i webbgränssnitt XSA **SAML-identitetsprovider**. Därifrån väljer den  **+**  knappen längst ned på skärmen för att visa den **lägga till information om identitet** fönstret. Sedan gör du följande:
+9. Gå till i webbgränssnitt XSA **SAML-identitetsprovider**. Därifrån väljer den **+** knappen längst ned på skärmen för att visa den **lägga till information om identitet** fönstret. Sedan gör du följande:
 
     ![Lägg till identitetsleverantören.](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
@@ -152,7 +152,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Lägg till inställningar för identitetsleverantören.](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. Om innehållet i XML-dokumentet är giltiga tolkning processen extraherar den information som krävs för den **ämne, enhets-ID och utfärdaren** fält i den **allmänna data** Skrivbordsstorlek. Extraherar även information som krävs för URL-fälten i den **mål** Skrivbordsstorlek, till exempel den  **Base Webbadressen och SingleSignOn (*)** fält.
+    b. Om innehållet i XML-dokumentet är giltiga tolkning processen extraherar den information som krävs för den **ämne, enhets-ID och utfärdaren** fält i den **allmänna data** Skrivbordsstorlek. Extraherar även information som krävs för URL-fälten i den **mål** Skrivbordsstorlek, till exempel den **Base Webbadressen och SingleSignOn (*)** fält.
 
     ![Lägg till inställningar för identitetsleverantören.](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -276,7 +276,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

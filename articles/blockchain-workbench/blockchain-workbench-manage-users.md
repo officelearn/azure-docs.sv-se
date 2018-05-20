@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 440072a94ff7146ebcdb242a058ab48b434714f9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain arbetsstationen
 
@@ -43,9 +43,9 @@ Besök [Azure AD](../active-directory/add-users-azure-active-directory.md) dokum
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Hantera Blockchain arbetsstationen administratörer
 
-När en användare har lagts till katalogen, är nästa steg att välja vilka användare som är administratörer Blockchain arbetsstationen. Användare i den **administratörer** grupp är associerade med den **programmet administratörsroll** i Blockchain arbetsstationen. Administratörer kan lägga till eller ta bort användare, tilldela användare till specifika scenarier och skapa nya program.
+När en användare har lagts till katalogen, är nästa steg att välja vilka användare som är administratörer Blockchain arbetsstationen. Användare i den **administratör** grupp är associerade med den **programmet administratörsroll** i Blockchain arbetsstationen. Administratörer kan lägga till eller ta bort användare, tilldela användare till specifika scenarier och skapa nya program.
 
-Att lägga till användare till den **administratörer** i Azure AD-katalog:
+Att lägga till användare till den **administratör** i Azure AD-katalog:
 
 1.  Logga in på [Azure Portal](https://portal.azure.com).
 2.  Kontrollera att du är i Azure AD-klient som är associerade med Blockchain arbetsstationen genom att välja kontot i det övre högra hörnet.

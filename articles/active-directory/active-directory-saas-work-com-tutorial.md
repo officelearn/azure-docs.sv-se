@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Work.com | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Work.com."
+title: 'Självstudier: Azure Active Directory-integrering med Work.com | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Work.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7aa04faab5da9ee7dae977be3a8c040c3aed0b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bfc76d05a52d0283e3367f9c98dc8ed427cbe592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integrering med Work.com
 
@@ -30,9 +30,9 @@ Integrera Work.com med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Work.com (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Work.com, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Avsnittet Work.com domän och URL: er](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_url.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`http://<companyname>.my.salesforce.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Work.com klienten supportteamet](https://help.salesforce.com/articleView?id=000159855&type=3) att hämta det här värdet. 
@@ -181,7 +181,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. I **identitet providern logga ut URL** textruta klistra in värdet för **Sign-Out URL** som du har kopierat från Azure-portalen.
     
-    Jag. Som **providern initierade begära Tjänstbindning**väljer **HTTP Post**.
+    i. Som **providern initierade begära Tjänstbindning**väljer **HTTP Post**.
     
     j. Klicka på **Spara**.
 
@@ -259,9 +259,9 @@ För Azure Active Directory-användare för att kunna logga in, måste de etable
     
     c. I den **Alias** textruta typ av **namn** användarens **BrittaS**.
     
-    d. I den **e-post** textruta typ av **e-postadress** för användare  **Brittasimon@contoso.com** .
+    d. I den **e-post** textruta typ av **e-postadress** för användare **Brittasimon@contoso.com**.
     
-    e. I den **användarnamn** textruta, Skriv ett användarnamn för användaren som  **Brittasimon@contoso.com** .
+    e. I den **användarnamn** textruta, Skriv ett användarnamn för användaren som **Brittasimon@contoso.com**.
     
     f. I den **smeknamn** textruta typ a **smeknamn** för användare **Simon**.
     
@@ -314,7 +314,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

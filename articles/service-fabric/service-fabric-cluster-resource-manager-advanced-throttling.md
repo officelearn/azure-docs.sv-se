@@ -1,24 +1,24 @@
 ---
-title: "Begränsning i resurshanterare Service Fabric-kluster | Microsoft Docs"
-description: "Lär dig hur du konfigurerar begränsningar som tillhandahålls av Service Fabric klustret Resource Manager."
+title: Begränsning i resurshanterare Service Fabric-kluster | Microsoft Docs
+description: Lär dig hur du konfigurerar begränsningar som tillhandahålls av Service Fabric klustret Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Begränsning av Service Fabric klustret Resource Manager
 Även om du har konfigurerat klustret Resource Manager korrekt kan kan klustret hämta upplöst. Det kan till exempel vara samtidiga nod och feltolerans domän fel - vad som skulle hända om som uppstod under en uppgradering? Klustret Resource Manager försöker alltid åtgärda allt, förbrukar klusterresurser försök att ordna om och rätta till klustret. Begränsningar ger en backstop så att klustret kan använda resurser för att hålla - noderna komma tillbaka, network-partitioner läka, korrigerade bits distribueras.

@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 251cd7eaba439708e7ef4e1ee8ccbd7efe7d66bb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Snabbstart: Skapa ett nyckelvalv i Azure Portal
 
@@ -87,4 +87,4 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 I den här snabbstarten har du skapat ett nyckelvalv och lagrat en hemlighet. Om du vill lära dig mer om Key Vault och hur du kan använda det med dina program fortsätter du till självstudien om att använda webbprogram med Key Vault.
 
 > [!div class="nextstepaction"]
-> [Använda Azure Key Vault från ett webbprogram](key-vault-use-from-web-application.md) Om du vill lära dig att läsa en hemlighet från Key Vault via ett webbprogram som använder [hanterade tjänstidentiteter](/active-directory/managed-service-identity/overview.md) fortsätter du med självstudien [Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault](tutorial-web-application-keyvault.md)
+> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade tjänstidentiteter fortsätter du med självstudien [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](tutorial-web-application-keyvault.md)

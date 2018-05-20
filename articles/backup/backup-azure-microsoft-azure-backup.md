@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Om du inte vill köra grundläggande server i Azure kan du köra servern på en 
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 onwards) |
+| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 och senare) |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
@@ -73,40 +73,19 @@ Du kan deduplicera DPM-lagring med hjälp av Windows Server Deduplicering. Läs 
 > - En dator som kör Exchange Server
 > - En dator som är en nod i ett kluster
 
-Alltid ansluta till Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän, rekommenderas att du ansluter servern till den nya domänen innan du installerar Azure Backup Server. Flytta en befintlig Azure Backup Server-dator till en ny domän när distributionen är *stöds inte*.
+Alltid ansluta till Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän, installera Azure Backup Server först och sedan ansluta servern till den nya domänen. Flytta en befintlig Azure Backup Server-dator till en ny domän när distributionen är *stöds inte*.
 
-## <a name="recovery-services-vault"></a>Recovery Services-valv
-Om du skickar säkerhetskopierade data till Azure eller se till att den lokalt, måste programmet vara anslutna till Azure. För att vara mer specifik, Azure Backup Server-datorn måste vara registrerad med en recovery services-valvet.
+Om du skickar säkerhetskopierade data till Azure eller se till att den lokalt, måste Azure Backup-Server registreras med ett Recovery Services-valv.
 
-Så här skapar du ett Recovery Services-valv:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
-
-    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    Listan över Recovery Services-valv visas.
-3. På menyn **Recovery Services-valv** klickar du på **Lägg till**.
-
-    ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    Bladet Recovery Services-valv öppnas och du uppmanas att ange **namn**, **prenumeration**, **resursgrupp** och **plats**.
-
-    ![Skapa ett Recovery Services-valv (steg 5)](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
-5. Klicka på **Prenumeration** för att visa listan över prenumerationer. Om du inte är säker på vilken prenumeration du ska använda använder du standardprenumerationen (eller den föreslagna). Du kan bara välja mellan flera alternativ om ditt organisationskonto är associerat med flera Azure-prenumerationer.
-6. Klicka på **Resursgrupp** för att visa listan över resursgrupper eller klicka på **Nytt** för att skapa en ny resursgrupp. För komplett information om resursgrupper, se [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Klicka på **Plats** för att välja en geografisk region för valvet.
-8. Klicka på **Skapa**. Det kan ta en stund innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger på portalen.
-   När du har skapat ditt valv öppnas i portalen.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Om det här valvet är ditt primära valv lämna lagringsalternativet inställt på geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Som standard använder Recovery Services-valv geo-redundant lagring. Om det här valvet är ditt primära valv lämna lagringsalternativet inställt på geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
-1. Välj ditt valv för att öppna instrumentpanelen för valvet och bladet Inställningar. Om bladet **Inställningar** inte öppnas klickar du på **Alla inställningar** på instrumentpanelen för valvet.
-2. På bladet **Inställningar** klickar du på **Infrastruktur för säkerhetskopiering** > **Konfiguration av säkerhetskopiering** för att öppna bladet **Konfiguration av säkerhetskopiering**. På bladet **Konfiguration av säkerhetskopiering** väljer du alternativet för lagringsreplikering för ditt valv.
+1. Välj din valvet för att öppna instrumentpanelen valvet och menyn Inställningar. Om den **inställningar** inte öppna menyn, klicka på **alla inställningar** i instrumentpanelen för valvet.
+2. På den **inställningar** -menyn klickar du på **säkerhetskopiering infrastruktur** > **konfigurering av säkerhetskopiering** att öppna den **konfigurering av säkerhetskopiering**bladet. På den **konfigurering av säkerhetskopiering** -menyn väljer du alternativet lagring replikering för ditt valv.
 
     ![Lista över säkerhetskopieringsvalv](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +94,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 ## <a name="software-package"></a>Programpaket
 ### <a name="downloading-the-software-package"></a>Hämta programpaket
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Om du redan har ett öppet för Recovery Services-valvet vidare till steg 3. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
+2. Om du redan har ett öppet för Recovery Services-valvet vidare till steg 3. Klicka om du inte behöver öppna en Recovery Services-valv men är i Azure-portalen på huvudmenyn, **Bläddra**.
 
    * I listan över resurser skriver du **Recovery Services**.
    * När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv** klickar du på det.
@@ -137,7 +116,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     I den **Kom igång med säkerhetskopiering** bladet som öppnas, **säkerhetskopiering mål** blir automatiskt markerad.
 
-    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+    ![Backup-mål-standard-öppnas](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
 5. I den **säkerhetskopiering målet** bladet från den **var körs din arbetsbelastning** väljer du **lokalt**.
 
@@ -240,11 +219,11 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Aktiv |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
-| Förlorade anslutningen > 15 dagar |Aktiv |Stoppad |Stoppad |Tillåtet |Tillåtet |
-| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från anslutningsproblem

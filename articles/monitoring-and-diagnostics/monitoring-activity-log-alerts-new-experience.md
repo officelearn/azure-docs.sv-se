@@ -1,6 +1,6 @@
 ---
-title: Skapa aktivitet loggen aviseringar och hantera dem med hjälp av den nya aviseringar (förhandsgranskning)-miljön i Azure-Monitor | Microsoft Docs
-description: Den här artikeln innehåller information om hur du skapar aktiviteten loggen aviseringar från fliken aviseringar (förhandsgranskning) under Azure-Monitor. Den här artikeln beskrivs den nya användarupplevelsen för den här funktionen.
+title: Skapa aktivitet loggen aviseringar och hantera dem med hjälp av den nya upplevelsen för aviseringar i Azure-Monitor | Microsoft Docs
+description: Den här artikeln innehåller information om hur du skapar aktiviteten loggen aviseringar i Azure-Monitor på aviseringsfliken
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Skapa aktivitetsloggen får aviseringar via de nya aviseringarna (förhandsgranskning)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Skapa aktivitetsloggen aviseringar med de nya aviseringarna upplevelse
 
 Aktiviteten loggen aviseringar är de aviseringar som hämta aktiveras när en ny aktivitet logga en händelse inträffar som matchar de villkor som anges i aviseringen.
 
-Dessa aviseringar är för Azure-resurser kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapa, uppdatera, eller tas bort i Azure-portalen. Den här artikeln beskriver begrepp bakom aktivitet loggen aviseringar. Den sedan visar hur du använder Azure-portalen för att konfigurera en avisering på aktiviteten logghändelser med hjälp av den nya upplevelsen i [aviseringar i Azure (förhandsversion)](monitoring-overview-unified-alerts.md).
+Dessa aviseringar är för Azure-resurser kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapa, uppdatera, eller tas bort i Azure-portalen. Den här artikeln beskriver begrepp bakom aktivitet loggen aviseringar. Den sedan visar hur du använder Azure-portalen för att konfigurera en avisering på aktiviteten logghändelser med hjälp av den nya upplevelsen i [Azure aviseringar](monitoring-overview-unified-alerts.md).
 
 Normalt skapar du aktiviteten loggen aviseringar för att ta emot meddelanden när specifika ändringar sker för resurser i din Azure-prenumeration som ofta är begränsade till viss resursgrupp eller resurs. Du kanske exempelvis vill meddelas när någon virtuell dator i (exempel resursgrupp) **myProductionResourceGroup** har tagits bort kan du kanske vill bli meddelad om några nya roller har tilldelats en användare i din prenumeration.
 
@@ -46,11 +46,11 @@ Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure porta
 Läs mer om meddelanden om hälsostatus i [varningar aktivitet loggen på meddelanden om hälsostatus](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>What's new in aviseringar förhandsgranskning för aktivitetsloggar?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Vad är nytt i aviseringar för aktivitetsloggar?
 
-[Azure-aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) nu ger förbättrad användarupplevelse för aktiviteten loggen aviseringar. Med den [förbättrad användarupplevelse för aviseringar](monitoring-overview-unified-alerts.md), kan du nu:
+[Azure-aviseringar](monitoring-overview-unified-alerts.md) nu ger förbättrad användarupplevelse för aktiviteten loggen aviseringar. Med den [förbättrad användarupplevelse för aviseringar](monitoring-overview-unified-alerts.md), kan du nu:
 
-- [Skapa](#create-an-alert-rule-for-an-activity-log) och [hantera](#view-and-manage-activity-log-alert-rules) aktiviteten logga Varningsregler, från **övervakaren** > **aviseringar (förhandsgranskning)** bladet. Lär dig mer om [aktivitetsloggar](monitoring-overview-activity-logs.md).
+- [Skapa](#create-an-alert-rule-for-an-activity-log) och [hantera](#view-and-manage-activity-log-alert-rules) aktiviteten logga Varningsregler, från **övervakaren** > **aviseringar** bladet. Lär dig mer om [aktivitetsloggar](monitoring-overview-activity-logs.md).
 
 - **Nya alternativ för aviseringar mål**: när du skapar en ny aktivitet loggen varningsregeln nu kan du välja en målresurs eller en resursgrupp eller prenumeration.
 
@@ -68,8 +68,8 @@ Läs mer om meddelanden om hälsostatus i [varningar aktivitet loggen på meddel
 
 Följ dessa steg:
 
-1. Välj Azure-portalen **övervakaren** > **aviseringar (förhandsversion).**
-2. Klicka på **nya Varningsregeln** överst i den **aviseringar (förhandsgranskning)** fönster.
+1. Välj Azure-portalen **övervakaren** > **aviseringar**
+2. Klicka på **nya Varningsregeln** överst i den **aviseringar** fönster.
 
      ![ny varningsregel](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +130,7 @@ Följ dessa steg:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Visa och hantera aktivitet loggen Varningsregler
 
-1. Från Azure-portalen klickar du på **övervakaren** > **aviseringar (förhandsgranskning)** och på **hantera regler** på upp till vänster i fönstret.
+1. Från Azure-portalen klickar du på **övervakaren** > **aviseringar** och på **hantera regler** på upp till vänster i fönstret.
 
     ![ Hantera aviseringsregler](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

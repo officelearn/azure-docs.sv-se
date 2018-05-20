@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Prestandajustering för Hive i HDInsight och Azure Data Lake Store
 
@@ -46,9 +44,9 @@ Här är de viktigaste inställningarna att justera för bättre prestanda för 
 
 **hive.tez.container.size** -behållaren storlek avgör hur mycket minne som är tillgänglig för varje aktivitet.  Det här är den huvudsakliga indatan för att styra samtidighet i Hive.  
 
-**tez.Grouping.min storlek** – den här parametern kan du ange den minimala storleken för varje mappning.  Om antalet mappers som Tez väljer är mindre än värdet för den här parametern använder Tez värdet som anges här.  
+**tez.Grouping.min storlek** – den här parametern kan du ange den minimala storleken för varje mappning.  Om antalet mappers som Tez väljer är mindre än värdet för den här parametern använder Tez värdet som anges här.
 
-**tez.Grouping.Max storlek** – parametern kan du ange den maximala storleken för varje mappning.  Om antalet mappers som Tez väljer är större än värdet för den här parametern använder Tez värdet som anges här.  
+**tez.Grouping.Max storlek** – parametern kan du ange den maximala storleken för varje mappning.  Om antalet mappers som Tez väljer är större än värdet för den här parametern använder Tez värdet som anges här.
 
 **hive.Exec.Reducer.bytes.per.Reducer** – den här parametern anger storleken på varje reducer.  Som standard är varje reducer 256MB.  
 
@@ -75,9 +73,10 @@ Anta att du har en 8 noder D14 kluster.
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Begränsningar
+
 **ADLS-begränsning** 
 
-UIf nådde gränserna för bandbredd som tillhandahålls av ADLS, börjar du vill se misslyckade aktiviteter. Det kan identifieras av sett bandbreddsbegränsning fel i loggarna för aktiviteten.  Du kan minska parallellitet genom att öka storleken på Tez-behållare.  Om du behöver mer samtidighet för jobbet, kontaktar du oss.   
+UIf nådde gränserna för bandbredd som tillhandahålls av ADLS, börjar du vill se misslyckade aktiviteter. Det kan identifieras av sett bandbreddsbegränsning fel i loggarna för aktiviteten.  Du kan minska parallellitet genom att öka storleken på Tez-behållare.  Om du behöver mer samtidighet för jobbet, kontaktar du oss.
 
 Om du vill kontrollera om du har komma begränsats, måste du Aktivera felsökningsloggning på klientsidan. Här visas hur du kan göra det:
 

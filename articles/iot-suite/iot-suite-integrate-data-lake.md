@@ -9,11 +9,11 @@ description: Lär dig hur du integrerar Fjärrövervaknings-lösning med Azure D
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: d39330c7cc22a39aab6cb33eda0c1cefd70c8e3d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera Fjärrövervaknings-lösning med Azure Data Lake Store
 
@@ -25,7 +25,7 @@ I den här anvisningar använder du ett Azure Stream Analytics-jobb att datastr�
 
 Du behöver följande för att slutföra den här anvisningar:
 
-* [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md).
+* [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
   * Fjärrövervaknings lösningen ska distribuera IoT-hubb och Azure Stream Analytics-jobbet som används i den här artikeln i din Azure-prenumeration.
 * [Distribuera ett Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md)
   * Din Data Lake Store ska distribueras till samma region som din lösning för övervakning av fjärråtkomst.

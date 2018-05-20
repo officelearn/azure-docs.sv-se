@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Rally programvara | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Rally programvaran och Azure Active Directory."
+title: 'Självstudier: Azure Active Directory-integrering med Rally programvara | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Rally programvaran och Azure Active Directory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 9e3b5ad4487ff1309923a1b0ffac9589084e715b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f257ebe03129501034cca3b3e54e8fc796c357fc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Självstudier: Azure Active Directory-integrering med Rally programvara
 
@@ -30,9 +30,9 @@ Integrera Rally programvara med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Rally programvara (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Rally programvara, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Rally programvara domän och URL: er enkel inloggning information](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<tenant-name>.rally.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.rally.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<tenant-name>.rally.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenant-name>.rally.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Rally Programvaruklienten supportteamet](https://help.rallydev.com/) att hämta dessa värden. 
@@ -203,7 +203,7 @@ För Azure AD-användare för att kunna logga in, måste de etableras till Rally
 
     a. I den **användarnamn** textruta, ange namnet på användaren som **Brittsimon**.
    
-    b. I **e-postadress** textruta ange e-postadress för användaren som  **brittasimon@contoso.com** .
+    b. I **e-postadress** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
 
     c. I **Förnamn** text Ange först namnet på användaren som **Britta**.
 
@@ -253,7 +253,7 @@ När du klickar på panelen Rally programvara på åtkomstpanelen du bör få au
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

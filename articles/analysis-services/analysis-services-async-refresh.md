@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
@@ -97,7 +97,7 @@ Det är inte nödvändigt att ange parametrar. Standardvärdet används.
 
 |Namn  |Typ  |Beskrivning  |Standard  |
 |---------|---------|---------|---------|
-|Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna dataOnly, automatisk, lägga till och defragmentera.       |   Automatisk      |
+|Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna dataOnly, automatiskt, och defragmentera. Lägg till typen inte stöds.      |   Automatisk      |
 |CommitMode     |  Enum       |  Anger om objekt sparas i batchar eller bara när du är klar. Lägen omfattar: standard transactional, partialBatch.  |  transaktionell       |
 |MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetning kommandon parallellt. Det här värdet justerad med egenskapen MaxParallelism som kan anges i TMSL [aktivitetssekvensen kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
 |retryCount    |    Int     |   Anger antalet gånger som kommer att försöka igen innan åtgärden misslyckas.      |     0    |

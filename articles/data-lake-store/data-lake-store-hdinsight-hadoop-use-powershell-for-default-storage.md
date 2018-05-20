@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Data Lake Store som standardlagring med hjälp av PowerShell
+
 > [!div class="op_single_selector"]
 > * [Använda Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Använd PowerShell (för standardlagring)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ Här följer några viktiga överväganden när för att använda HDInsight med 
 Följ instruktionerna i följande fem avsnitt om du vill konfigurera HDInsight för att arbeta med Data Lake Store med hjälp av PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Innan du påbörjar den här självstudien måste du kontrollera att du uppfyller följande krav:
 
 * **En Azure-prenumeration**: Gå till [hämta kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 eller senare**: se [hur du installerar och konfigurerar PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: Om du vill installera Windows SDK, gå till [laddar ned och verktyg för Windows 10](https://dev.windows.com/en-us/downloads). SDK: N används för att skapa ett säkerhetscertifikat.
+* **Windows Software Development Kit (SDK)**: Om du vill installera Windows SDK, gå till [laddar ned och verktyg för Windows 10](https://dev.windows.com/downloads). SDK: N används för att skapa ett säkerhetscertifikat.
 * **Azure Active Directory-tjänstens huvudnamn**: den här självstudiekursen beskrivs hur du skapar ett huvudnamn för tjänsten i Azure Active Directory (AD Azure). Du måste dock vara en Azure AD-administratör om du vill skapa ett huvudnamn för tjänsten. Om du är administratör kan du gå vidare med självstudiekursen hoppa över det här kravet.
 
     >[!NOTE]
@@ -50,6 +50,7 @@ Innan du påbörjar den här självstudien måste du kontrollera att du uppfylle
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
+
 Om du vill skapa ett Data Lake Store-konto, gör du följande:
 
 1. Öppna ett PowerShell-fönster på skrivbordet och ange sedan fragmenten nedan. När du uppmanas att logga in, logga in som en prenumerationsadministratörer eller ägare. 
@@ -142,7 +143,7 @@ I det här avsnittet, skapa ett huvudnamn för tjänsten för Azure AD-program, 
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

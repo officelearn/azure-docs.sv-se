@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/26/2017
+ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e91a92d34131d0b35cfb7b0bfdca99637924552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudier: Förbereda ett geo-replikerat Azure Container Registry
 
@@ -31,17 +31,13 @@ I efterföljande självstudier distribuerar du behållaren från ditt privata re
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I den här självstudien krävs att du kör Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+För den här självstudien krävs en lokal installation av Azure CLI (version 2.0.31 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för behållare.
+Du bör känna till viktiga Docker-begrepp som behållare, behållaravbildningar och grundläggande Docker CLI-kommandon. Läs mer om grunderna för behållare i [Kom igång med Docker]( https://docs.docker.com/get-started/).
 
-För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+I den här självstudien behöver du en lokal Docker-installation. I Docker finns installationsanvisningar för [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i den här självstudien. Vi rekommenderar därför en lokal installation av Azure CLI och Docker-utvecklingsmiljön.
-
-> [!IMPORTANT]
-> Funktionen för geo-replikering för Azure Container Registry är finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
->
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 
@@ -91,9 +87,9 @@ När replikeringen är slutförd visar portalen *Klar* för båda regionerna. An
 
 ## <a name="container-registry-login"></a>Logga in på behållarregistret
 
-Nu när du har konfigurerat geo-replikering ska du skapa en behållaravbildning och push-överföra den till registret. Logga in på din ACR-instans innan du push-överför avbildningar till den. Med [SKU:er på nivån Basic, Standard och Premium](container-registry-skus.md) kan du autentisera med din Azure-identitet.
+Nu när du har konfigurerat geo-replikering ska du skapa en behållaravbildning och push-överföra den till registret. Logga in på din ACR-instans innan du push-överför avbildningar till den.
 
-Använd kommandot [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) för att autentisera och cachelagra autentiseringsuppgifterna för registret. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
+Använd kommandot [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) för att autentisera och cachelagra autentiseringsuppgifterna för registret. Ersätt `<acrName>` med namnet på registret som du skapade tidigare.
 
 ```azurecli
 az acr login --name <acrName>
@@ -103,7 +99,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exemplet i den här självstudien innehåller en liten webbapp som är inbyggd i [ASP.NET Core](http://dot.net). Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
+Exemplet i den här självstudien innehåller en liten webbapp som är skapad med [ASP.NET Core][aspnet-core]. Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
 
 ![Självstudieappen visas i webbläsare][tut-app-01]
 
@@ -114,11 +110,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
+Om du inte har `git` installerat, kan du [hämta ZIP-arkivet][acr-helloworld-zip] direkt från GitHub.
+
 ## <a name="update-dockerfile"></a>Uppdatera Dockerfile
 
-Den Dockerfile som finns i exemplet visar hur behållaren är byggd. Den startar från en officiell [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore)-avbildning, kopierar programfilerna till behållaren, installerar beroenden, kompilerar utdata med den officiella [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build)-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
+Den Dockerfile som finns i exemplet visar hur behållaren är byggd. Den startar från en officiell [aspnetcore][dockerhub-aspnetcore]-avbildning, kopierar programfilerna till behållaren, installerar beroenden, kompilerar utdatan med den officiella [aspnetcore-build][dockerhub-aspnetcore-build]-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
 
-Dockerfile finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
+[Dockerfile][dockerfile] finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +144,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-Programmet i avbildningen *acr-helloworld* försöker bestämma region som dess behållare distribuerades från genom att fråga DNS om information om registrets inloggningsserver. Du måste ange URL-adressen till registrets inloggningsserver i miljövariabeln `DOCKER_REGISTRY` i Dockerfile.
+Programmet i avbildningen *acr-helloworld* försöker bestämma region som dess behållare distribuerades från genom att fråga DNS om information om registrets inloggningsserver. Du måste ange det fullständiga domännamnet (FQDN) för registrets inloggningsserver i miljövariabeln `DOCKER_REGISTRY` i Dockerfile.
 
-Hämta först URL-adressen till registrets inloggningsserver med kommandot `az acr show`. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
+Hämta först registrets inloggningsserver med kommandot `az acr show`. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,7 +160,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Därefter uppdaterar du raden `DOCKER_REGISTRY` med registrets inloggningsserver-URL. I det här exemplet uppdaterar vi raden för att återspegla vårt exempelregisternamn, *uniqueregistryname*:
+Därefter uppdaterar du raden `ENV DOCKER_REGISTRY` med FQDN för registrets inloggningsserver. Det här exemplet visar exempelregistrets namn *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
@@ -170,7 +168,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 
 ## <a name="build-container-image"></a>Skapa behållaravbildning
 
-Nu när du har uppdaterat din Dockerfile med registrets URL kan du använda `docker build` för att skapa behållaravbildningen. Kör följande kommando för att skapa avbildningen och tagga den med URL-adressen till ditt privata register, där du återigen ersätter `<acrName>` med namnet på ditt register:
+Nu när du har uppdaterat Dockerfile med FQDN för registrets inloggningsserver, kan du använda `docker build` för att skapa behållaravbildningen. Kör följande kommando för att skapa avbildningen och tagga den med URL-adressen till ditt privata register, där du återigen ersätter `<acrName>` med namnet på ditt register:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -183,7 +181,9 @@ Sending build context to Docker daemon  523.8kB
 Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
 2.0: Pulling from microsoft/aspnetcore
 3e17c6eae66c: Pulling fs layer
-...
+
+[...]
+
 Step 18/18 : ENTRYPOINT dotnet AcrHelloworld.dll
  ---> Running in 6906d98c47a1
  ---> c9ca1763cfb1
@@ -192,23 +192,18 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Använd kommandot `docker images` för att se den skapade avbildningen:
+Använd `docker images` för att se den skapade och taggade avbildningen:
 
-```bash
-docker images
-```
-
-Resultat:
-
-```bash
+```console
+$ docker images
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
 uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
-...
+[...]
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Använd till slut kommandot `docker push` för att skicka avbildningen *acr-helloworld* till ditt register. Ersätt `<acrName>` med namnet på registret.
+Använd därefter kommandot `docker push` för att skicka avbildningen *acr-helloworld* till ditt register. Ersätt `<acrName>` med namnet på registret.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -216,9 +211,8 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Eftersom du har konfigurerat registret för georeplikering replikeras avbildningen automatiskt till både regionerna *USA, västra* och *USA, östra* med kommandot `docker push`.
 
-Resultat:
-
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 cd54739c444b: Pushed
 d6803756744a: Pushed
@@ -232,15 +226,9 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat ett privat, geo-replikerat behållarregister, skapat en behållaravbildning och sedan push-överfört avbildningen till ditt register. Genom att följa stegen i självstudien har du:
+I den här självstudien har du skapat ett privat, geo-replikerat behållarregister, skapat en behållaravbildning och sedan push-överfört avbildningen till ditt register.
 
-> [!div class="checklist"]
-> * Skapat ett georeplikerat Azure-behållarregister
-> * Klonat programmets källkod från GitHub
-> * Skapat en Docker-behållaravbildning från programkällkoden
-> * Överfört behållaravbildningen till registret
-
-Fortsätt till nästa självstudie om du vill lära dig att distribuera behållaren till flera Web Apps for Containers-instanser och använda geo-replikering för att hantera avbildningarna lokalt.
+Fortsätt till nästa självstudie för att distribuera behållaren till flera Web Apps for Containers-instanser, samt använd geo-replikering för att hantera avbildningarna lokalt.
 
 > [!div class="nextstepaction"]
 > [Distribuera webbapp från Azure Container Registry](container-registry-tutorial-deploy-app.md)
@@ -253,3 +241,10 @@ Fortsätt till nästa självstudie om du vill lära dig att distribuera behålla
 [tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
 [tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
+
+<!-- LINKS - External -->
+[acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
+[aspnet-core]: http://dot.net
+[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
+[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
+[dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

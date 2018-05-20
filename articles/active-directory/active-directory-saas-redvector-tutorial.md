@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med RedVector | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RedVector."
+title: 'Självstudier: Azure Active Directory-integrering med RedVector | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RedVector.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d00bca10ac10fb2ff88b921d406c822740ca5b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc507a2d28ec9e78c427a48be5f3f7dd328d4d94
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Självstudier: Azure Active Directory-integrering med RedVector
 
@@ -29,9 +29,9 @@ Integrera RedVector med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på RedVector (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med RedVector, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://sso2.redvector.com/adfs/<Companyname>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://sso2.redvector.com/adfs/<Companyname>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<Companyname>.redvector.com/saml2`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<Companyname>.redvector.com/saml2`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [RedVector klienten supportteamet](mailto:sso@redvector.com) att hämta dessa värden. 
@@ -209,7 +209,7 @@ När du klickar på panelen RedVector på åtkomstpanelen du bör få automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

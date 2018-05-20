@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Justera Azure Data Lake Store för prestanda
 
@@ -66,7 +64,7 @@ Analytics-motorer, till exempel HDInsight och Azure Data Lake Analytics har vanl
 
 I allmänhet ordna dina data i större storlek filer för bättre prestanda.  Som en tumregel ordna datauppsättningar i filer på 256MB eller större. I vissa fall, till exempel bilder och binära data går inte att behandla dem. parallellt.  I dessa fall rekommenderas att hålla enskilda filer under 2GB.
 
-Ibland begränsad data pipelines kontroll över rådata som har mycket små filer.  Vi rekommenderar att du har en ”tillagning” process som genererar större filer ska användas för underordnade program.  
+Ibland begränsad data pipelines kontroll över rådata som har mycket små filer.  Vi rekommenderar att du har en ”tillagning” process som genererar större filer ska användas för underordnade program.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Ordna Time Series-data i mappar
 
@@ -123,7 +121,7 @@ Det finns tre lager i ett HDInsight-kluster som kan anpassas för att öka antal
 
 Beroende på din arbetsbelastning, kommer det alltid att en YARN behållare minimistorleken som krävs. Om du väljer för liten för en behållare körs jobb i minnet är slut problem. Vanligtvis vara YARN behållare mindre än 1GB. Det är vanligt att visa 3GB YARN behållare. Du kanske måste större YARN-behållare för vissa arbetsbelastningar.  
 
-**Öka kärnor per YARN-behållare.**  Öka antalet kärnor tilldelas varje behållare för att öka antalet parallella aktiviteter som körs i varje behållare.  Detta fungerar för program som Spark som kör flera uppgifter per behållare.  För program som Hive som kör en tråd i varje behållare, är det bättre att ha fler behållare i stället för flera kärnor per behållare.   
+**Öka kärnor per YARN-behållare.**  Öka antalet kärnor tilldelas varje behållare för att öka antalet parallella aktiviteter som körs i varje behållare.  Detta fungerar för program som Spark som kör flera uppgifter per behållare.  För program som Hive som kör en tråd i varje behållare, är det bättre att ha fler behållare i stället för flera kärnor per behållare.
 
 ### <a name="workload-layer"></a>Arbetsbelastningen lager
 

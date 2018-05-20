@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Learning klient LMS | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Learning klient LMS."
+title: 'Självstudier: Azure Active Directory-integrering med Learning klient LMS | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Learning klient LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 478bd4fdc23b1f9944237bbf97c7454a8d30e6bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38b9f017fee4cf0d6905bb20848145386ac6df2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Självstudier: Azure Active Directory-integrering med Learning klient LMS
 
@@ -29,9 +29,9 @@ Integrera Learning klient LMS med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Learning klient LMS (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Learning klient LMS behöver du följande:
 
@@ -109,15 +109,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.learningseatlms.com`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.learningseatlms.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com`
      
     > [!NOTE] 
     > Dessa värden är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, Reply URL och inloggnings-URL. Kontakta [Learning klient supportteamet](http://help.learningseatlms.com/help) att hämta dessa värden. 
@@ -210,7 +210,7 @@ Klicka på panelen Learning klient LMS på åtkomstpanelen, du kommer att automa
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

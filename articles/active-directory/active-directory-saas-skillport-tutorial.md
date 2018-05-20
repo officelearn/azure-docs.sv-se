@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Skillport | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Skillport."
+title: 'Självstudier: Azure Active Directory-integrering med Skillport | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Skillport.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b14c40b402ae1877f6bfb267c137c9a051b8225
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 269c5aedb2e990a83358605445d19d9d61261f3b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Självstudier: Azure Active Directory-integrering med Skillport
 
@@ -29,9 +29,9 @@ Integrera Skillport med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Skillport (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Skillport, behöver du följande:
 
@@ -112,21 +112,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textruta anger du URL:
       
-      Europa Datacenter:`https://adfs.skillport.eu`
+      Europa Datacenter: `https://adfs.skillport.eu`
    
-      USA Datacenter:`https://sso.skillport.com`
+      USA Datacenter: `https://sso.skillport.com`
 
     b. I den **identifierare** textruta anger du URL:
       
-      Europa Datacenter:`http://adfs.skillport.eu/adfs/services/trust`
+      Europa Datacenter: `http://adfs.skillport.eu/adfs/services/trust`
    
-      USA Datacenter:`https://sso.skillport.com`
+      USA Datacenter: `https://sso.skillport.com`
    
     c. I den **Reply URL** textruta anger du URL:
     
-      Europa Datacenter:` https://adfs.skillport.eu/adfs/ls/`
+      Europa Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
     
-      USA Datacenter:`https://sso.skillport.com/sp/ACS.saml2`
+      USA Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
@@ -213,7 +213,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.mic
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

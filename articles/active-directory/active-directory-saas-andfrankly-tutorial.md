@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med & även | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och & även."
+title: 'Självstudier: Azure Active Directory-integrering med & även | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och & även.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: adac71abf24f377df078e793f7902ace80a0f572
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bab11e9bfa92fcecf614ef9edeb79ceec5e13f3b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Självstudier: Azure Active Directory-integrering med & även
 
@@ -29,9 +29,9 @@ Integrera & även med Azure AD ger dig följande fördelar:
 - Du kan ge användarna automatiskt får inloggade till & även (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD behöver-integrering med & även, du du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren inloggning och Reply-URL. Kontakta [andfrankly supportteamet](mailto:help@andfrankly.com) att hämta dessa värden.
 
@@ -209,7 +209,7 @@ När du klickar på & även panelen i åtkomstpanelen, bör det automatiskt logg
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

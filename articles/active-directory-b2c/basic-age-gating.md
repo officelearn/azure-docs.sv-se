@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Med hjälp av ålder gating i Azure AD B2C
 
@@ -47,25 +47,22 @@ När din katalog är konfigurerat att använda ålder gating kan använda du sed
 När ålder gating är aktiverad i flödet för användaren, användarupplevelse ändringar.  På Logga in att användare nu ombeds deras födelsedatum och land där tillsammans med användarattribut som konfigurerats för användaren flödet.  Användare som inte har angetts tidigare födelsedatum och land där uppmanas du för den här informationen nästa gång de loggar in på Logga in.  Azure AD B2C kommer från dessa två värden, identifiera om användaren är en mindre och uppdatera den `ageGroup` fältet värdet kan vara `null`, `Undefined`, `Minor`, `Adult`, och `NotAdult`.  Den `ageGroup` och `consentProvidedForMinor` fält används sedan för att beräkna `legalAgeGroupClassification`. 
 
 ##<a name="age-gating-options"></a>Ålder gating alternativ
-Du kan välja att ha Azure AD B2C block minderåriga utan ditt medgivande som förälder eller låta dem och har programmet fatta beslut om vad du gör med dem.  
+Du kan välja att har Azure AD B2C block minderåriga utan ditt medgivande som förälder eller låta dem och fatta beslut om vad du gör med dem. programmet.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Att tillåta minderåriga utan ditt medgivande som förälder
-Du kan välja att tillåta minderåriga utan ditt medgivande till programmet för användarens flöden som har antingen signering, logga in eller båda.  De är tillåtna för minderåriga utan ditt medgivande som förälder att logga in eller registrera dig i normalt läge och utfärdar en ID-token med den `legalAgeGroupClassification` anspråk.  Genom att använda detta anspråk som du kan välja dem som dessa användare har exempelvis gå via en upplevelse av att samla in föräldrars tillstånd (och uppdatera den `consentProvidedForMinor` fält).
+Du kan välja att tillåta minderåriga utan ditt medgivande till programmet för användarens flöden som tillåter antingen logga in, logga in eller båda.  De är tillåtna för minderåriga utan ditt medgivande som förälder att logga in eller registrera dig som normalt och Azure AD B2C utfärdar en ID-token med den `legalAgeGroupClassification` anspråk.  Genom att använda detta anspråk som du kan välja dem som dessa användare har exempelvis gå via en upplevelse av att samla in föräldrars tillstånd (och uppdatera den `consentProvidedForMinor` fält).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Blockerar minderåriga utan ditt medgivande som förälder
-För användarens flöden som har antingen signering, logga in eller båda, kan du blockera minderåriga utan ditt medgivande till programmet.  Det finns två alternativ för hantering av blockerade användare i Azure AD B2C:
+För användarens flöden som tillåter antingen logga in, logga in eller båda, kan du blockera minderåriga utan tillstånd från programmet.  Det finns två alternativ för hantering av blockerade användare i Azure AD B2C:
 * Skicka en JSON till programmet – det här alternativet skickar tillbaka ett svar till programmet att ett mindre har blockerats.
 * Visa en felsida - användaren visas en sida som informerar dem om att de inte komma åt programmet
 
 ##<a name="known-issues"></a>Kända problem
-###<a name="customization-unavailable-for-new-pages"></a>Anpassning som är tillgänglig för nya sidor
-Det finns två nya sidor som kan vara tillgängliga i flödet för användare när du aktiverar ålder gating.  Dessa sidor för att samla in land och födelsedatum på Logga in och felsidan kan inte användas med sidan layout eller språk anpassning.  Det här alternativet kan användas i en kommande uppdatering.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format för response när en mindre blockeras.
 Svaret för närvarande har inte rätt format, det här felet kommer att åtgärdas i en kommande uppdatering.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Ta bort specifika attribut som har lagts till under installationen kan du göra din katalog som inte kan använda ålder gating.
-I installationsprogrammet för ålder gating du konfigurerade din katalog via ett alternativ i din `Properties`.  Om du tar bort antingen `legalCountry` eller `dateOfBirth`, din klient inte längre kan använda ålder gating och dessa egenskaper kan inte återskapas.
+I installationsprogrammet för ålder gating du konfigurerade din katalog via ett alternativ i din `Properties`.  Om du tar bort antingen `legalCountry` eller `dateOfBirth` via diagram, din katalog kan inte längre använda ålder gating och dessa egenskaper kan inte återskapas.
 
 ###<a name="list-of-countries-is-incomplete"></a>Lista över länder är ofullständig
 För närvarande lista över länder för legalCountry är ofullständig, vi lägger till resten av länderna i en kommande uppdatering.

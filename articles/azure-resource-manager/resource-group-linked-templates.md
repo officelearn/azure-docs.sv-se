@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: e0c0c3f51b455983dbe3f937917ed090e51d0005
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använder länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -148,7 +148,7 @@ I följande exempel visas hur du skapar två webbadresserna för länkade mallar
 }
 ```
 
-Du kan också använda [deployment()](resource-group-template-functions-deployment.md#deployment) att hämta en bas-URL för den aktuella mallen och använda den för att hämta URL för andra mallar på samma plats. Den här metoden är användbart om din mallplats ändras (kanske på grund av versioning) eller om du vill undvika hård kodning URL: er i mallfilen.
+Du kan också använda [deployment()](resource-group-template-functions-deployment.md#deployment) att hämta en bas-URL för den aktuella mallen och använda den för att hämta URL för andra mallar på samma plats. Den här metoden är användbart om din mallplats ändras (kanske på grund av versioning) eller om du vill undvika hård kodning URL: er i mallfilen. Egenskapen templateLink returneras bara när du länkar till en fjärransluten mall med en URL. Om du använder en mall för lokala är egenskapen inte tillgänglig.
 
 ```json
 "variables": {
@@ -209,7 +209,7 @@ Den huvudsakliga mallen distribuerar mallen länkade och hämtar värdet som ret
 }
 ```
 
-Du kan ange beroenden mellan länkade mallen och andra resurser som andra typer av resurser. Därför när andra resurser kräver ett utdatavärde från den länka mallen kan kan du kontrollera länkade mallen distribueras före datakällorna. Eller när länkade mallen är beroende av andra resurser, kan du se till andra resurser har distribuerats innan länkade mallen.
+Du kan ange beroenden mellan länkade mallen och andra resurser som andra typer av resurser. Därför när andra resurser kräver ett utdatavärde från den länka mallen, kontrollera länkade mallen distribueras före datakällorna. Eller när den länkade mallen är beroende av andra resurser, se till andra resurser har distribuerats innan länkade mallen.
 
 I följande exempel visas en mall som distribuerar en offentlig IP-adress och returnerar resurs-ID:
 

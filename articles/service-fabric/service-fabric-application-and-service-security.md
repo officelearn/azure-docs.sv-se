@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: a84e42d3a0254c90bfad2d54eda1aa8e5e35650a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program och tjänster
 Arkitektur för mikrotjänster kan ta [många fördelar](service-fabric-overview-microservices.md). Hantera säkerheten för mikrotjänster, är dock en utmaning och annat än traditionella gigantiska program säkerhetshantering. 
@@ -95,7 +95,7 @@ Du kan upprätta säker anslutning mellan omvänd proxy och tjänster, vilket g�
 Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Lär dig att förbättra säkerheten när du använder tjänsten fjärrkommunikation (i [C#](service-fabric-reliable-services-secure-communication.md) eller [Java](service-fabric-reliable-services-secure-communication-java.md)) eller med hjälp av [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Kryptera programmet data i vila
-Varje [nodtypen](service-fabric-cluster-nodetypes.md) i ett Service Fabric-kluster körs i Azure backas upp av en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Med en Azure Resource Manager-mall kan du koppla datadiskar till skala uppsättning som utgör Service Fabric-klustret.  Om dina tjänster sparar data till en disk med bifogade data, kan du [kryptera dessa datadiskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) att skydda dina programdata.
+Varje [nodtypen](service-fabric-cluster-nodetypes.md) i ett Service Fabric-kluster körs i Azure backas upp av en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Genom att använda en Azure Resource Manager-mall, kan du ansluta datadiskar till skalningsuppsättningen som utgör Service Fabric-klustret.  Om dina tjänster sparar data till en disk med bifogade data, kan du [kryptera dessa datadiskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) att skydda dina programdata.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Metodtips för Virtuella Azure-säkerhet
 
@@ -55,7 +55,7 @@ När du aktiverar Resource Manager principer och RBAC för åtkomstkontroll för
 
 - [Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): hantera virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna.
 - [Klassiska Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): hantera virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen, men inte den virtuella nätverks- eller konto som de virtuella datorerna är anslutna.
-- [Säkerhetshanteraren](../role-based-access-control/built-in-roles.md#security-manager): hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer.
+- [Säkerhet Admin](../role-based-access-control/built-in-roles.md#security-admin): hantera säkerhetskomponenter och säkerhetsprinciper.
 - [DevTest Labs användaren](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
 
 Dela inte konton och lösenord för administratörer och inte återanvända lösenord i flera användarkonton eller tjänster, särskilt lösenord för sociala medier eller andra icke-administrativa aktiviteter. Helst bör du använda [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) mallar för att konfigurera dina virtuella datorer på ett säkert sätt. Genom att använda den här metoden kan du förbättra dina val för distribution och tillämpa säkerhetsinställningar under distributionen.

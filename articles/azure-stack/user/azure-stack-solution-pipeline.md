@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 483122f5d2e39c8595d0f28a6b937772c4ea2e50
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
@@ -71,7 +71,7 @@ Azure Stack
     - Du kan hitta detaljerade anvisningar om hur du distribuerar ASDK på ”[genomgång: distribuera ASDK med hjälp av installationsprogrammet](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)”
     - Du kan automatisera många av dina ASDK efter distributionen steg med följande PowerShell-skript [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > ASDK installationen tar en sju timmar att slutföra, så planera på lämpligt sätt.
 
  - Distribuera [Apptjänst](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-tjänster till Azure-stacken. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) och [logga in på VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Ansluta till projektet och [klona lokalt](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > Du behöver Azure stacken med rätt bilder automatiska ska köras (Windows Server och SQL) och har distribuerats Apptjänst.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Förbereda privata version och versionen agent för Visual Studio Team Services integration
@@ -207,7 +207,7 @@ I stället för att hantera varje agent individuellt ordna agenter i agenten poo
 
 3. Kopiera token.
     
-    > [!note]  
+    > [!Note]  
     > Hämta token information. Det kommer inte att visas igen när du lämnar den här skärmen. 
     
     ![Alternativ Text](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ Användare kan skapa slutpunkter så VSTO versioner kan distribuera appar i Azur
 
 Ställ in hybrid CI/CD för att distribuera Webbappen till Azure och Azure-stacken och automatisk push ändras till både moln.
 
-> [!note]  
+> [!Note]  
 > Du behöver Azure stacken med rätt bilder automatiska ska köras (Windows Server och SQL) och har distribuerats Apptjänst. Läs dokumentationen Apptjänst avsnittet ”förutsättningar” Azure Stack operatorn krav.
 
 ### <a name="add-code-to-vsts-project"></a>Lägg till kod i VSTS projekt
@@ -399,7 +399,7 @@ Visual Studio Team Services VSTS () och Team Foundation Server (TFS) ger en myck
 
 21. Spara alla ändringar.
 
-> [!note]  
+> [!Note]  
 > Vissa inställningar för uppgifter kan ha automatiskt definierats som [miljövariabler](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) när du skapade en definition av utgåva från en mall. De här inställningarna kan inte ändras i aktivitetsinställningar; Du måste i stället välja överordnade miljöobjekt du vill redigera inställningarna.
 
 ## <a name="create-a-release"></a>Skapa en version

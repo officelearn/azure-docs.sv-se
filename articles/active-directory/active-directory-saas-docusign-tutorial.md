@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med DocuSign | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign."
+title: 'Självstudier: Azure Active Directory-integrering med DocuSign | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c46e7071841552c5bcbf3df38d9d7771b0cfe6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Självstudier: Azure Active Directory-integrering med DocuSign
 
@@ -29,9 +29,9 @@ Integrera DocuSign med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på DocuSign (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med DocuSign, behöver du följande:
 
@@ -118,26 +118,26 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. Klicka på navigeringsmenyn till vänster **domäner**.
    
-    ![Konfigurera enkel inloggning][51]
+    ![Konfigurerar enkel inloggning][51]
 
 7. I den högra rutan, klickar du på **anspråk domän**.
    
-    ![Konfigurera enkel inloggning][52]
+    ![Konfigurerar enkel inloggning][52]
 
 8. På den **anspråk en domän** dialogrutan i den **domännamn** textruta Skriv företagets domän och klicka sedan på **anspråk**. Se till att du verifiera domänen och att statusen är aktiv.
    
-    ![Konfigurera enkel inloggning][53]
+    ![Konfigurerar enkel inloggning][53]
 
 9. Klicka på menyn till vänster **identitetsleverantörer**  
    
-    ![Konfigurera enkel inloggning][54]
+    ![Konfigurerar enkel inloggning][54]
 10. I den högra rutan, klickar du på **lägga till identitetsleverantör**. 
    
-    ![Konfigurera enkel inloggning][55]
+    ![Konfigurerar enkel inloggning][55]
 
 11. På den **identitet providerinställningar** utför följande steg:
    
-    ![Konfigurera enkel inloggning][56]
+    ![Konfigurerar enkel inloggning][56]
 
     a. I den **namn** textruta, ange ett unikt namn för din konfiguration. Använd inte blanksteg.
 
@@ -158,21 +158,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Använd rätt **användar-ID** att mappa användaren från Azure AD att DocuSign mappning. Välj rätt fältet och ange rätt värde baserat på dina organisationsinställningar.
           
-    ![Konfigurera enkel inloggning][57]
+    ![Konfigurerar enkel inloggning][57]
 
 13. I den **providern identitetscertifikat** klickar du på **Lägg till certifikat**, och sedan ladda upp det certifikat som du har hämtat från Azure AD-portalen.   
    
-    ![Konfigurera enkel inloggning][58]
+    ![Konfigurerar enkel inloggning][58]
 
 14. Klicka på **Spara**.
 
 15. I den **identitetsleverantörer** klickar du på **åtgärder**, och klicka sedan på **slutpunkter**.   
    
-    ![Konfigurera enkel inloggning][59]
+    ![Konfigurerar enkel inloggning][59]
  
 16. I den **visa SAML 2.0 slutpunkter** avsnittet på **DocuSign administrationsportal**, utför följande steg:
    
-    ![Konfigurera enkel inloggning][60]
+    ![Konfigurerar enkel inloggning][60]
    
     a. Kopiera den **Service Provider utfärdar-URL**, och sedan klistra in i den **identifierare** textruta på **DocuSign domän och URL: er** på Azure portal följer mönstret: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
@@ -264,7 +264,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Konfigurera Användaretablering](active-directory-saas-docusign-provisioning-tutorial.md)
 
 

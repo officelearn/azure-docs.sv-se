@@ -1,12 +1,12 @@
 ---
-title: "Genomgång av lösningen Ansluten fabrik – Azure | Microsoft Docs"
-description: "En beskrivning av den förkonfigurerade lösningen Ansluten fabrik i Azure IoT och dess arkitektur."
-services: 
+title: Genomgång av lösningen Ansluten fabrik – Azure | Microsoft Docs
+description: En beskrivning av lösningsacceleratorn Ansluten fabrik i Azure IoT och dess arkitektur.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Ansluten fabrik
 
-IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] Ansluten fabrik är en implementering av en branschlösning från slutpunkt till slutpunkt som:
+[Lösningsacceleratorn][lnk-preconfigured-solutions] Ansluten fabrik är en implementering av en branschlösning från slutpunkt till slutpunkt som:
 
-* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
+* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar om Ansluten fabrik](iot-suite-faq-cf.md).
 * Visar KPI:er och OEE:er för drift för enheterna och produktionsraderna.
 * Visar hur ett molnbaserat program kan användas för att interagera med OPC UA-serversystem.
 * Gör att du kan ansluta dina egna OPC UA-serverenheter.
@@ -34,19 +34,19 @@ IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] Ansluten fa
 
 Du kan använda lösningen som startpunkt för en egen implementering och [anpassa][lnk-customize] den efter dina egna affärsbehov.
 
-Den här artikeln beskriver några av de viktigaste elementen i den anslutna fabrikslösningen så att du förstår hur den fungerar. Artikeln beskriver också hur data flödar genom lösningen. Med den här kunskapen kan du sedan:
+Den här artikeln beskriver några av de viktigaste elementen i lösningen Ansluten fabrik, som gör det lättare att förstå hur den fungerar. Artikeln beskriver också hur data flödar genom lösningen. Med den här kunskapen kan du sedan:
 
 * Felsöka problem i lösningen.
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
-Mer information finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
+Mer information finns i [Vanliga frågor och svar om Ansluten fabrik](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
-Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
+Följande diagram illustrerar de logiska komponenterna i lösningsacceleratorn:
 
-![Logisk arkitektur för ansluten fabrik][connected-factory-logical]
+![Logisk arkitektur för Ansluten fabrik][connected-factory-logical]
 
 ## <a name="communication-patterns"></a>Kommunikationsmönster
 
@@ -122,7 +122,7 @@ IoT Hub ansvarar även för följande uppgifter i lösningen:
 Lösningen använder Azure Blob Storage som disklagring för den virtuella datorn och för att lagra distribueringsdata.
 
 ## <a name="web-app"></a>Webbapp
-Webbappen distribueras som en del av den förkonfigurerade lösningen består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
+Webbappen distribueras som en del av lösningsacceleratorn och består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
 
 ## <a name="telemetry-data-flow"></a>Telemetridataflöde
 
@@ -162,15 +162,15 @@ Webbappen distribueras som en del av den förkonfigurerade lösningen består av
 
 9. Data blir vilande i TSD.
 
-10. Den anslutna WebApp-fabriken i Azure App Service avfrågar TSI för att hitta alla nödvändiga data.
+10. Den anslutna WebApp-fabriken i Azure App Service frågar efter de data som krävs i TSI.
     - Använder TCP/TLS för säker kommunikation.
     - Det här steget utförs internt i datacentret.
 
 11. Webbläsaren ansluter till den anslutna WebApp-fabriken.
-    - En instrumentpanel renderas för den anslutna fabriken.
+    - En instrumentpanel renderas för Ansluten fabrik.
     - Ansluter via HTTPS.
-    - Åtkomst till den anslutna appfabriken kräver användarautentisering via Azure Active Directory.
-    - Alla WebApi-anrop till den anslutna appfabriken skyddas av antiförfalskningstoken.
+    - Åtkomst till appen Ansluten fabrik kräver användarautentisering via Azure Active Directory.
+    - Alla WebApi-anrop till appen Ansluten fabrik skyddas av antiförfalskningstokens.
 
 12. När data uppdateras skickar den anslutna WebApp-fabriken uppdaterade data till webbläsaren.
     - Använder SignalR-protokollet.
@@ -190,11 +190,11 @@ Webbappen distribueras som en del av den förkonfigurerade lösningen består av
     - Läser in alla kända enheter från IoT Hub.
     - Använder MQTT via TLS-socketanslutning eller säker Websocket-anslutning.
 
-3. Webbläsaren ansluter till den anslutna WebApp-fabriken. En instrumentpanel renderas för den anslutna fabriken.
+3. Webbläsaren ansluter till den anslutna WebApp-fabriken. En instrumentpanel renderas för Ansluten fabrik.
     - Använder HTTPS.
     - Användaren väljer en OPC UA-server att ansluta till.
 
-4. Den anslutna WebApp-fabriken skapar en OPC UA-session för den valda OPC UA-servern.
+4. Den anslutna WebApp-fabriken upprättar en OPC UA-session till den valda OPC UA-servern.
     - Använder OPC UA-stacken.
 
 5. OPC Proxy-transporten tar emot en begäran från OPC UA-stacken om att upprätta en TCP-socketanslutning till OPC UA-servern.
@@ -215,10 +215,10 @@ Webbappen distribueras som en del av den förkonfigurerade lösningen består av
 
 10. Svaret tas emot av socketen på OPC Proxy (serverkomponenten).
     - OPC Proxy skickar data som returvärde för enhetsmetoden till IoT Hub och OPC Proxy (klientkomponenten).
-    - Dessa data levereras till OPC UA-stacken i den anslutna appfabriken.
+    - Dessa data levereras till OPC UA-stacken i appen Ansluten fabrik.
 
-11. Den anslutna WebApp-fabriken returnerar OPC Browser UX som berikats med OPC UA-specifik information som togs emot från OPC UA-servern och som renderas i webbläsaren.
-    - När du söker igenom OPC-adressutrymmet och tillämpar funktioner på noderna i OPC-adressutrymmet kommer OPC Browser UX-klienten att använda AJAX-anrop via HTTPS som skyddas av antiförfalskningstoken för att hämta data från den anslutna WebApp-fabriken.
+11. Den anslutna WebApp-fabriken returnerar OPC Browser UX med OPC UA-specifik information som togs emot från OPC UA-servern och som renderas i webbläsaren.
+    - När du söker igenom OPC-adressutrymmet och tillämpar funktioner på noderna i OPC-adressutrymmet, kommer OPC Browser UX-klienten att använda AJAX-anrop via HTTPS som skyddas av antiförfalskningstokens för att hämta data från den anslutna WebApp-fabriken.
     - Vid behov använder klienten det kommunikationssätt som beskrivs i steg 4 till 10 för att få till ett informationsutbyte med OPC UA-servern.
 
 > [!NOTE]
@@ -229,15 +229,15 @@ Webbappen distribueras som en del av den förkonfigurerade lösningen består av
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
+Läs följande artiklar om du vill fortsätta och lära dig mer om lösningsacceleratorer i IoT:
 
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
-* [Distribuera en gateway på Windows eller Linux för den förkonfigurerade lösningen Ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
+* [Distribuera en gateway på Windows eller Linux för lösningsacceleratorn Ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 * [Referensimplementering för OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

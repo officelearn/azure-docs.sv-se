@@ -83,7 +83,8 @@
 
 
 ## Felsöka
-### [Anslutning](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD-anslutning med Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL Connectivty](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Fel under synkronisering](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objektet har inte synkroniserats](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Objektsynkronisering med hjälp av felsökningsaktiviteten](active-directory-aadconnect-troubleshoot-objectsync.md)

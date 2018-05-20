@@ -12,36 +12,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/12/2018
-ms.author: rli
+ms.date: 05/01/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+> [!IMPORTANT]
+> Den här funktionen är inte tillgänglig med **Azure CDN Standard från Akamai**-produkter. En jämförelse av CDN-funktionerna finns i [Azure CDN-översikt](cdn-features.md).
 
-Den här kursen visar hur du aktiverar HTTP-protokollet för en anpassad domän som är associerad med en Azure CDN-slutpunkt (Content Delivery Network). Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via SSL-kryptering när de skickas över Internet. HTTPS ger förtroende, autentisering och skyddar dina webbprogram mot attacker. Arbetsflödet för att aktivera HTTPS har förenklats med enklicksaktivering och fullständig certifikathantering, utan extra kostnad.
+Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med en Azure CDN-slutpunkt (Content Delivery Network). Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via SSL-kryptering när de skickas över Internet. HTTPS ger förtroende, autentisering och skyddar dina webbprogram mot attacker. 
 
 Azure CDN stöder HTTPS i CDN-slutpunktens värdnamn som standard. Om du skapar en CDN-slutpunkt som till exempel https:\//contoso.azureedge.net aktiveras HTTPS automatiskt.  
 
-Några viktiga punkter för HTTPS-funktionen:
+Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
 - Ingen extra kostnad: det kostar ingenting att förvärva eller förnya certifikat och det tillkommer ingen extra kostnad för HTTPS-trafik. Du betalar bara för utgående trafik (GB) från CDN.
 
 - Enkel aktivering: enklicksetablering är tillgänglig från [Azure Portal](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
 
-- Komplett certifikathantering: all anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
+- Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> - Aktivera HTTPS-protokollet på en anpassad domän
+> - Aktivera HTTPS-protokollet på din anpassade domän.
+> - Använda ett CDN-hanterat certifikat 
+> - Använda ditt eget certifikat
 > - Verifiera domänen
-> - Inaktivera HTTPS-protokollet på en anpassad domän
+> - Inaktivera HTTPS-protokollet på din anpassade domän.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -49,11 +52,13 @@ Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-pr
 
 Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
-## <a name="enable-the-https-feature"></a>Aktivera HTTPS-funktionen
+## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>Alternativ 1 (standard): Aktivera HTTPS-funktionen med ett CDN-hanterat certifikat  
+
+Med det här alternativet kan den anpassade HTTPS-funktionen aktiveras med bara några klick. Azure CDN hanterar alla certifikathanteringsuppgifter, till exempel anskaffning och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till CDN-slutpunkten, krävs ingen ytterligare åtgärd. Azure CDN behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
-1. I [Azure Portal](https://portal.azure.com) navigerar du till CDN-profilen **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
+1. I [Azure Portal](https://portal.azure.com) går du till profilen **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
 
 2. I listan med CDN-slutpunkter väljer du slutpunkten som innehåller din anpassade domän.
 
@@ -67,9 +72,60 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
     Sidan **Anpassad domän** visas.
 
-4. Välj **På** om du vill aktivera HTTPS och välj sedan **Använd**.
+4. Under certifikathanteringstyp väljer du **CDN-hanterat**.
 
-    ![HTTPS-status för anpassad domän](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+4. Välj **På** för att aktivera HTTPS.
+
+    ![HTTPS-status för anpassad domän](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
+
+
+## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Alternativ 2: Aktivera HTTPS-funktionen med ditt eget certifikat 
+ 
+Du kan använda ditt eget certifikat på Azure CDN för att leverera innehåll via HTTPS. Den här processen görs via en integrering med Azure Key Vault. Med Azure Key Vault kan kunderna lagra sina certifikat på ett säkert sätt. Azure CDN-tjänsten använder den här säkra metoden för att hämta certifikatet. När du använder ditt eget certifikat krävs några ytterligare steg.
+
+### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Steg 1: Förbered ditt Azure Key Vault-konto och certifikat
+ 
+1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som Azure CDN-profilen och CDN-slutpunkterna där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
+ 
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en certifikatutfärdare som Azure Key Vault integreras med. 
+
+### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Steg 2: Ge Azure CDN-åtkomst till nyckelvalvet
+ 
+Du måste ge Azure CDN-behörighet att komma åt certifikaten (hemligheterna) på ditt Azure Key Vault-konto.
+1. I nyckelvalvskonto under INSTÄLLNINGAR väljer du **Åtkomstprinciper** och sedan **Lägg till nytt** för att skapa en ny princip.
+
+    ![Skapa en ny åtkomstprincip](./media/cdn-custom-ssl/cdn-new-access-policy.png)
+
+    ![Åtkomstprincipinställningar](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+
+2. I **Välj huvudkonto** söker du efter och väljer **Azure CDN**.
+
+3. I **Hemliga behörigheter** väljer du **Hämta** för att CDN ska kunna utföra dessa behörigheter att hämta och visa en certifikatlista. 
+
+4. Välj **OK**. 
+
+    Azure CDN har nu åtkomst till nyckelvalvet och certifikaten (hemligheterna) som lagras i nyckelvalvet.
+ 
+### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Steg 3: Välj det certifikat som Azure CDN ska distribuera
+ 
+1. Gå tillbaka till Azure CDN-portalen och välj den profil och CDN-slutpunkt som du vill aktivera anpassad HTTPS för. 
+
+2. I listan med anpassade domäner väljer du den anpassade domänen som du vill aktivera HTTPS för.
+
+    Sidan **Anpassad domän** visas.
+
+3. Under Certifikathanteringstyp väljer du **Använd mitt eget certifikat**. 
+
+    ![Konfigurera ditt certifikat](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+
+4. Välj nyckelvalv, certifikat (hemlighet) och certifikatversion.
+
+    Azure CDN visar följande information: 
+    - Nyckelvalvskonton för ditt prenumerations-ID. 
+    - Certifikaten (hemligheterna) i det valda nyckelvalvet. 
+    - Tillgängliga certifikatversioner. 
+ 
+5. Välj **På** för att aktivera HTTPS.
 
 
 ## <a name="validate-the-domain"></a>Verifiera domänen
@@ -87,7 +143,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade d
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
 Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och lägger till det i SAN-certifikatet (alternativt namn för certifikatmottagare). DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
@@ -160,13 +216,15 @@ Om det uppstår ett fel innan begäran har skickats visas följande felmeddeland
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+
+
 ## <a name="clean-up-resources---disable-https"></a>Rensa resurser – inaktivera HTTPS
 
 I föregående steg aktiverade du HTTPS-protokollet på en anpassad domän. Om du inte längre vill använda HTTPS för din anpassade domän kan du inaktivera HTTPS på följande sätt:
 
 ### <a name="disable-the-https-feature"></a>Inaktivera HTTPS-funktionen 
 
-1. I [Azure Portal](https://portal.azure.com) navigerar du till CDN-profilen **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
+1. I [Azure Portal](https://portal.azure.com) går du till profilen **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
 
 2. I listan med slutpunkter klickar du på slutpunkten som innehåller din anpassade domän.
 
@@ -198,11 +256,11 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 
-    Microsoft använder ett SAN-certifikat (alternativt namn på certifikatmottagare) som tillhandahålls av DigiCert. Ett SAN-certifikat kan skydda flera fullständigt kvalificerade domännamn med ett certifikat.
+    I **Azure CDN från Verizon** används ett SAN-certifikat (Alternativt namn för certifikatmottagare) från DigiCert. Ett SAN-certifikat kan skydda flera fullständigt kvalificerade domännamn med ett certifikat. I **Azure CDN Standard från Microsoft** används ett enda certifikat från DigiCert.
 
-2. *Kan jag använda mitt dedikerade certifikat?*
-    
-    Inte för närvarande, men det ingår i vår plan.
+2. Använder du IP-baserad eller SNI-baserad TLS/SSL?
+
+    **Azure CDN från Verizon** använder IP-baserad TLS/SSL. **Azure CDN Standard från Microsoft** använde SNI-baserad TLS/SSL.
 
 3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
 
@@ -214,7 +272,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 5. *Kan jag använda HTTPS för en anpassad domän med Azure CDN från Akamai?*
 
-    Den här funktionen är för närvarande bara tillgänglig med Azure CDN från Verizon. Microsoft arbetar med att lägga till stöd för den här funktionen med Azure CDN från Akamai inom de närmsta månaderna.
+    Den här funktionen är för närvarande inte tillgänglig med **Azure CDN Standard från Akamai**-profiler. Microsoft kommer att lägga till stöd för den här funktionen inom de närmaste månaderna.
 
 6. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
@@ -223,15 +281,17 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vad du lärt dig:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> - Aktivera HTTPS-protokollet på en anpassad domän
-> - Verifiera domänen
-> - Inaktivera HTTPS-protokollet på en anpassad domän
+> - Aktivera HTTPS-protokollet på din anpassade domän.
+> - Använda ett CDN-hanterat certifikat 
+> - Använda ditt eget certifikat
+> - Verifiera domänen.
+> - Inaktivera HTTPS-protokollet på din anpassade domän.
 
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagring på en CDN-slutpunkt.
 
 > [!div class="nextstepaction"]
-> [Kontrollera funktionssättet för Azure CDN-cachelagring med cachelagringsregler](cdn-caching-rules.md)
+> [Självstudie: Konfigurera Azures CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
 

@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
+metadata:
+  document_id: 
+  title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
+  description: Lär dig hur du använder Hanterad tjänstidentitet (Managed Service Identity – MSI) för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
+  services: active-directory
+  ms.component: msi
+  author: daveba
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/16/2018
+  ms.author: daveba
+  ms.openlocfilehash: a6262b67e3d2029765ba798705234cb6be8abbd3
+  ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/17/2018
+abstract:
+  description: Hanterad tjänstidentitet (Managed Service Identity – MSI) tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade tjänstidentiteter med våra snabbstarter och självstudier.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du använder Hanterad tjänstidentitet (MSI) för att få åtkomst till API:et för Azure Resource Manager
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Windows Azure-dator</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Linux Azure-dator</a>
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du använder Hanterad tjänstidentitet (MSI) för att få säker åtkomst till Azure-resurser
+  - type: paragraph
+    text: Windows VM/VMSS
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Få åtkomst till Azure SQL</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
+  - type: paragraph
+    text: Linux VM/VMSS
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>
+    - title: Språk
+      html: <p><a href="dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi">Go</a></p>

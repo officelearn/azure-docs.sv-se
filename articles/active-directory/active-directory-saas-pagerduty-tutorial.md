@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med PagerDuty | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PagerDuty."
+title: 'Självstudier: Azure Active Directory-integrering med PagerDuty | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PagerDuty.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: a5a2e3a9d8aa32894e07fb8e96389167d5bb96f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6ba7e1fc2f58fd8fb7a05935ce2c4b99709d642c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integrering med PagerDuty
 
@@ -30,9 +30,9 @@ Integrera PagerDuty med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på PagerDuty (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med PagerDuty, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och PagerDuty domän med enkel inloggning information](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<tenant-name>.pagerduty.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.pagerduty.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<tenant-name>.pagerduty.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [PagerDuty klienten supportteamet](https://www.pagerduty.com/support/) att hämta dessa värden. 
@@ -210,7 +210,7 @@ När det gäller PagerDuty är etablering en manuell aktivitet.
 
     a. Typ av **första och sista namnet** för användare som **Britta Simon**. 
    
-    b. Ange **e-post** -adressen för användaren som  **brittasimon@contoso.com** .
+    b. Ange **e-post** -adressen för användaren som **brittasimon@contoso.com**.
    
     c. Klicka på **Lägg till**, och klicka sedan på **skicka inbjuder**.
    
@@ -258,7 +258,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

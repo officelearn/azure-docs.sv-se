@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor om Azure-filer | Microsoft Docs
+title: Vanliga frågor (FAQ) för Azure-filer | Microsoft Docs
 description: Få svar på vanliga frågor och svar om Azure-filer.
 services: storage
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (FAQ) om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
 
 Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funktioner, inklusive användning av Azure filsynkronisering med Azure-filer. Om du inte hittar svar på din fråga kan kontakta du oss via följande kanaler (i växande ordning):
@@ -232,7 +232,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hur gör jag säkerhetskopiera min Azure fil dela?**  
-    Du kan använda periodiska [dela ögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller tredje parts säkerhetskopiering som kan säkerhetskopiera en monterad filresurs. 
+    Du kan använda periodiska [dela ögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller tredje parts säkerhetskopiering som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure-filer. Lär dig mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Dela ögonblicksbilder
 ### <a name="share-snapshots-general"></a>Dela ögonblicksbilder: Allmänt
@@ -313,7 +313,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
      
      Dela ögonblicksbilder är inkrementell till sin natur. Grundläggande resursen ögonblicksbilden är resursen sig själv. Alla efterföljande resursen ögonblicksbilder är inkrementell och lagra skillnaden från föregående dela ögonblicksbild. Du debiteras endast för det ändrade innehållet. Om du har en resurs med 100 GiB av data, men endast 5 GiB har ändrats sedan din senaste dela ögonblicksbild, dela ögonblicksbild förbrukar endast 5 ytterligare GiB och du debiteras för 105 GiB. Mer information om transaktionen och standard utgång avgifter finns i [priser sidan](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="scale-and-performance"></a>Skalning och prestanda
+## <a name="scale-and-performance"></a>Skala och prestanda
 * <a id="files-scale-limits"></a>
 **Vad är Azure Files skala gränser?**  
     Information om skalbarhets- och prestandamål för Azure-filer, se [skalbarhets- och prestandamål för Azure-filer](storage-files-scale-targets.md).

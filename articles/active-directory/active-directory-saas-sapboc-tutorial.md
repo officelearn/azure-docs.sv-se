@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SAP Business objektet molntjänster | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Business objektet moln."
+title: 'Självstudier: Azure Active Directory-integrering med SAP Business objektet molntjänster | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Business objektet moln.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Självstudier: Azure Active Directory-integrering med SAP Business objektet moln
 
@@ -30,9 +30,9 @@ När du integrerar SAP Business objektet moln med Azure AD får du följande fö
 - Du kan logga in automatiskt användarna till SAP Business objektet moln med hjälp av enkel inloggning och användarens Azure AD-kontot.
 - Du kan hantera dina konton i en enda central plats och Azure-portalen.
 
-Läs mer om programvara som en tjänst (SaaS) appintegrering med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Läs mer om programvara som en tjänst (SaaS) appintegrering med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SAP Business objektet molnet, behöver du följande:
 
@@ -217,7 +217,7 @@ Att tillhandahålla ett användarkonto:
 
     ![Lägga till medarbetare](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. På den **användare** sidan om du vill lägga till nya användarinformation, Välj  **+** . 
+3. På den **användare** sidan om du vill lägga till nya användarinformation, Välj **+**. 
 
     ![Lägg till användare på sidan](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
@@ -231,7 +231,7 @@ Att tillhandahålla ett användarkonto:
 
     4. I den **VISNINGSNAMN** ange det fullständiga namnet på användaren som **Britta Simon**.
 
-    5. I den **e-post** ange e-postadressen för användaren som  **brittasimon@contoso.com** .
+    5. I den **e-post** ange e-postadressen för användaren som **brittasimon@contoso.com**.
 
     6. På den **Välj roller** väljer sedan rätt roll för användaren, och välj sedan **OK**.
 
@@ -281,7 +281,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

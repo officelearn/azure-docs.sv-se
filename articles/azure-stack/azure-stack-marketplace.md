@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure-stacken Marketplace-översikt
 
@@ -29,7 +29,7 @@ Marketplace är en uppsättning tjänster, program och resurser som är anpassad
 
 Som operatör Azure Stack kan du bestämma vilka objekt du lägger till (publicera) på Marketplace. Du kan publicera t.ex. databaser, Apptjänster och så vidare. Publicering gör dem synliga för alla användare. Du kan publicera anpassade objekt som du skapar. Du kan också publicera objekt från en växande [lista över Azure Marketplace-objekt](azure-stack-marketplace-azure-items.md). När du publicerar ett objekt på Marketplace kan användare se den inom fem minuter.
 
-Klicka för att öppna Marketplace **ny**.
+Om du vill öppna Marketplace i administrationskonsolen väljer **ny**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +47,6 @@ Alla objekt som har publicerats till Marketplace använder Azure Gallery-paket (
 Med version 1803 och senare konverterar Azure Stack bilder till sparse-filer när de hämtar från Azure eller när du överför anpassade avbildningar. Den här processen lägger på tid när du lägger till en bild, men sparar utrymme och snabbare att distribuera dessa avbildningar. Konverteringen gäller bara för nya bilder.  Befintliga avbildningar ändras inte. 
 
 ## <a name="next-steps"></a>Nästa steg
+[Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)  
 [Skapa och publicera en Marketplace-objektet](azure-stack-create-and-publish-marketplace-item.md)
 

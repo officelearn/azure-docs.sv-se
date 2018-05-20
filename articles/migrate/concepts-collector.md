@@ -4,14 +4,14 @@ description: En översikt över insamlaren installation och hur du konfigurerar 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -128,7 +128,7 @@ Du kan välja ett scope för att identifiera när du är ansluten till vCenter. 
 2. Du kan bara välja ett omfång i taget. Om du vill välja flera virtuella datorer kan du slutföra en identifiering och starta om processen för identifiering med ett nytt scope.
 3. Du kan bara välja en omfattning som har *mindre än 1500 virtuella datorer*.
 
-## <a name="specify-migration-project"></a>Ange migreringsprojekt
+## <a name="specify-migration-project"></a>Ange migreringsprojektet
 
 När lokal vCenter är ansluten och en omfattning har angetts kan ange du nu migrering projektinformationen som ska användas för identifiering och assessment. Ange projekt-ID och nyckel och ansluta.
 
@@ -154,7 +154,7 @@ Samlingen jobbet identifieras följande statiska metadata om de valda virtuella 
 
 I följande tabell visas de prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om räknaren inte samlas in.
 
-|Räknaren                                  |Nivå    |Nivå per enhet  |Bedömning påverkan                               |
+|Räknare                                  |Nivå    |Nivå per enhet  |Bedömning påverkan                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |CPU.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
 |Mem.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |

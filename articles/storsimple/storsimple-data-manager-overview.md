@@ -1,12 +1,12 @@
 ---
-title: "Översikt över Microsoft Azure StorSimple Data Manager | Microsoft Docs"
-description: "En översikt över StorSimple Data Manager-tjänsten"
+title: Översikt över Microsoft Azure StorSimple Data Manager | Microsoft Docs
+description: En översikt över StorSimple Data Manager-tjänsten
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Lösning: översikt för StorSimple Data Manager
 
@@ -80,6 +80,11 @@ Den här nyckeln används av beräkningsresurserna för att utföra omvandlingen
 Om din Data Manager region skiljer sig från jobbet definition region, är det viktigt att du förstår vilka data/metadata finns i var och en av dessa regioner. Följande diagram illustrerar effekten av att olika regioner Data Manager och jobbet definition.
 
 ![Tjänsten och jobbet definition i olika regioner](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>BNPR kompatibilitet
+
+[Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR innehåller många krav om hur du samlar in, lagra och använda dina personuppgifter. BNPR regler gäller för företag, myndigheter och andra organisationer som fungerar i Europa och samla in och analysera data som är knutna till Europa boende. Datahanteraren StorSimple är BNPR som är kompatibla. Data Manager-tjänsten samlar inte in personliga data.
+Mer information finns i Microsoft Privacy-policy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Nästa steg
 

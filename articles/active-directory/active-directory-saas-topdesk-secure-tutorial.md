@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med TOPdesk - säker | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - säker."
+title: 'Självstudier: Azure Active Directory-integrering med TOPdesk - säker | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - säker.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 34296313753eb795bee5d93a8d8f1c8ae5efac9f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudier: Azure Active Directory-integrering med TOPdesk - säker
 
@@ -30,9 +30,9 @@ Integrera TOPdesk - säker med Azure AD ger följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på TOPdesk - säker (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med TOPdesk - säker, behöver du följande:
 
@@ -108,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![TOPdesk - URL: er och säker domän med enkel inloggning information](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net/tas/public/login/saml`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Reply URL beskrivs senare i självstudiekursen. Kontakta [TOPdesk - Secure klienten supportteamet](http://www.topdesk.com/us/support) att hämta dessa värden. 
@@ -291,7 +291,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

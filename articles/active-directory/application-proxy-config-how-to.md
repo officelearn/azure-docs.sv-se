@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 816f2c10631de3809c6679c1e2715174f072f56d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 299d3df1c9ae82bb9f184e9ffb1dd922013e5e65
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Så här konfigurerar du ett program med Application Proxy
 
@@ -51,7 +51,7 @@ Felmeddelandet ska visas i det övre högra hörnet när du skapar i program. Du
 
 ## <a name="configure-connectorsconnector-groups"></a>Konfigurera grupper kopplingar-koppling
 
-Om du har problem med hur du konfigurerar programmet på grund av varning om kopplingar och connector grupper finns instruktioner om hur du aktiverar programproxy för information om hur du hämtar kopplingar. Om du vill veta mer om kopplingar finns i [kopplingar dokumentationen](application-proxy-understand-connectors.md).
+Om du har problem med hur du konfigurerar programmet på grund av varning om kopplingar och connector grupper finns instruktioner om hur du aktiverar programproxy för information om hur du hämtar kopplingar. Om du vill veta mer om kopplingar finns i [kopplingar dokumentationen](manage-apps/application-proxy-connectors.md).
 
 Om din kopplingar är inaktiva, betyder det att de inte går att nå tjänsten. Detta är ofta eftersom portarna som krävs inte är öppna. Om du vill se en lista över portar som krävs finns i avsnittet förutsättningar för att aktivera Application Proxy-dokumentationen.
 

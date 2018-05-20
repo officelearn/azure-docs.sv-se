@@ -4,13 +4,13 @@ description: Beskriver hur du utvärdera stort antal lokala datorer med hjälp a
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -88,7 +88,7 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
 
 3. Kontrollera att den genererade hashen matchar följande inställningar.
 
-    För ägg version 1.0.9.7
+    För OVA-version 1.0.9.7
 
     **Algoritm** | **Hash-värde**
     --- | ---
@@ -167,16 +167,16 @@ Vi rekommenderar att du vanliga filegenskaper (3) för statistik nivån så att 
 
 I följande tabell visas också utvärderingsresultat som kommer att påverkas om räknaren inte samlas in.
 
-| Räknaren                                 | Nivå | Nivå per enhet | Bedömning påverkan                    |
+| Räknare                                 | Nivå | Nivå per enhet | Bedömning påverkan                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| cpu.usage.average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
-| mem.usage.average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
+| CPU.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
+| Mem.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderade VM-storlek och kostnad         |
 | virtualDisk.read.average                | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
 | virtualDisk.write.average               | 2     | 2                | Diskstorleken och lagringskostnaden är VM-storlek |
 | virtualDisk.numberReadAveraged.average  | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
 | virtualDisk.numberWriteAveraged.average | 1     | 3                | Diskstorleken och lagringskostnaden är VM-storlek |
-| net.received.average                    | 2     | 3                | VM-storlek och nätverket kostnad             |
-| net.transmitted.average                 | 2     | 3                | VM-storlek och nätverket kostnad             |
+| NET.Received.Average                    | 2     | 3                | VM-storlek och nätverket kostnad             |
+| NET.Transmitted.Average                 | 2     | 3                | VM-storlek och nätverket kostnad             |
 
 > [!WARNING]
 > Om du precis har högre statistik, tar det till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
@@ -203,7 +203,7 @@ För varje identifiering som du behöver utföra kör insamlaren för att identi
 5.  Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
     - Ange namn (FQDN) eller IP-adressen för vCenter-servern.
     - I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i vCenter Server.
-    - I **väljer omfattning**, väljer du en omfattning för identifiering av virtuell dator. Insamlaren kan identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 000 virtuella datorer. 
+    - I **Välj omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 000 virtuella datorer. 
 
 6.  I **ange migrering projektet**anger ID: T och nyckeln för projektet. Om du inte kopierar dem, öppna Azure-portalen från VM-insamlaren. På projektets **översikt** väljer **identifiera datorer** och kopiera värdena.  
 7.  I **Visa förloppet för samlingen**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren visar en ungefärlig identifieringstid.

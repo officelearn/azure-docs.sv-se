@@ -3,21 +3,21 @@ title: Självstudie om Kubernetes i Azure – Uppdatera program
 description: Självstudie om AKS – Uppdatera program
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Självstudier: Uppdatera ett program i Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
-När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny behållaravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar. 
+När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny behållaravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
 
 I den här självstudien, del sex av åtta, uppdateras Azure Vote-exempelappen. Uppgifter som du kan slutföra inkluderar:
 
@@ -31,15 +31,15 @@ I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
+I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret.
 
 En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yaml`.
 
-Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app]. 
+Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Uppdatera program
 
-För den här självstudien görs en ändring av programmet, och det uppdaterade programmet distribueras till Kubernetes-klustret. 
+För den här självstudien görs en ändring av programmet, och det uppdaterade programmet distribueras till Kubernetes-klustret.
 
 Programmets källkod finns i katalogen `azure-vote`. Öppna filen `config_file.cfg` i valfritt redigeringsprogram. I det här exemplet används `vi`.
 
@@ -75,7 +75,7 @@ Gå till http://localhost:8080 om du vill se det uppdaterade programmet.
 
 ## <a name="tag-and-push-images"></a>Tagga och push-överföra avbildningar
 
-Tagga avbildningen `azure-vote-front` med namnet på inloggningsservern för behållarregistret. 
+Tagga avbildningen `azure-vote-front` med namnet på inloggningsservern för behållarregistret.
 
 Hämta inloggningsserverns namn med kommandot [az acr list](/cli/azure/acr#az_acr_list).
 
@@ -164,10 +164,10 @@ I den här självstudien har du uppdaterat ett program och distribuerat uppdater
 > * Push-överförde behållaravbildningen till Azure Container Registry
 > * Distribuerade det uppdaterade programmet
 
-Gå vidare till nästa självstudiekurs om du vill lära dig hur du övervakar Kubernetes med Log Analytics.
+Gå vidare till nästa självstudie om du vill lära dig om att uppgradera Kubernetes till en ny version.
 
 > [!div class="nextstepaction"]
-> [Övervaka Kubernetes med Log Analytics][aks-tutorial-monitor]
+> [Uppgradera Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Gå vidare till nästa självstudiekurs om du vill lära dig hur du övervakar K
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

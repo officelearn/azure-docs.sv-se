@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -145,7 +145,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 }
 ```
   
-## <a name="functions"></a>Funktioner  
+## <a name="functions"></a>Functions  
  Du kan anropa funktioner i uttryck. Följande avsnitt innehåller information om de funktioner som kan användas i ett uttryck.  
 
 ## <a name="string-functions"></a>Strängfunktioner  
@@ -203,7 +203,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
   
 -   heltal  
   
--   flyttal  
+-   flyt  
   
 -   boolesk  
   
@@ -215,8 +215,8 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 |-------------------|-----------------|  
 |int|Konvertera parametern till ett heltal. Exempelvis returnerar följande uttryck 100 som ett tal i stället för en sträng:  `int('100')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till ett heltal.|  
 |sträng|Konvertera parametern till en sträng. Följande uttryck returnerar till exempel `'10'`: `string(10)` du kan också konvertera ett objekt till en sträng, till exempel om den **foo** parametern är ett objekt med en egenskap `bar : baz`, och sedan följande skulle returnera `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till en sträng.|  
-|JSON|Konvertera parametern till ett JSON-värde för typen. Det är motsatsen till string(). Följande uttryck returnerar till exempel `[1,2,3]` som en matris i stället för en sträng:<br /><br /> `parse('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. Till exempel `json('{"bar" : "baz"}')` returnerar:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: sträng<br /><br /> **Beskrivning**: krävs. Den sträng som konverteras till en inbyggd typ-värde.<br /><br /> Json-funktionen stöder xml-indata. Till exempel parametervärdet för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> konverteras till följande json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|flyttal|Konvertera argumentet parametern till ett flyttal. Följande uttryck returnerar till exempel `10.333`:  `float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
+|JSON|Konvertera parametern till ett JSON-värde för typen. Det är motsatsen till string(). Följande uttryck returnerar till exempel `[1,2,3]` som en matris i stället för en sträng:<br /><br /> `json('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. Till exempel `json('{"bar" : "baz"}')` returnerar:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: sträng<br /><br /> **Beskrivning**: krävs. Den sträng som konverteras till en inbyggd typ-värde.<br /><br /> Json-funktionen stöder xml-indata. Till exempel parametervärdet för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> konverteras till följande json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|flyt|Konvertera argumentet parametern till ett flyttal. Följande uttryck returnerar till exempel `10.333`:  `float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
 |bool|Konvertera parametern till ett booleskt värde. Följande uttryck returnerar till exempel `false`:  `bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett booleskt värde.|  
 |Slå samman|Returnerar det första icke-null-objektet i argument som skickas. Obs: en tom sträng inte är null. Till exempel om parametrar 1 och 2 inte har definierats, returneras `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Namnet**: objektet*n*<br /><br /> **Beskrivning**: krävs. Objekt som ska eftersökas `null`.|  
 |Base64|Returnerar base64-representation av Indatasträngen. Följande uttryck returnerar till exempel `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: String 1<br /><br /> **Beskrivning**: krävs. Strängen som koda till base64-representation.|  
@@ -238,7 +238,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 |matris|Konvertera parametern till en matris.  Följande uttryck returnerar till exempel `["abc"]`: `array('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till en matris.|
 |createArray|Skapar en matris av parametrarna.  Följande uttryck returnerar till exempel `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Parameternummer**: 1... n<br /><br /> **Namnet**: alla n<br /><br /> **Beskrivning**: krävs. Värdena som används för att kombinera till en matris.|
 
-## <a name="math-functions"></a>Matematiska funktioner  
+## <a name="math-functions"></a>Matematikfunktioner  
  Dessa funktioner kan användas för båda typer av siffror: **heltal** och **flyter**.  
   
 |Funktionsnamn|Beskrivning|  

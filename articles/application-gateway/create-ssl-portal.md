@@ -1,6 +1,6 @@
 ---
-title: Skapa en Programgateway med SSL-avslutning - Azure-portalen | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med Azure-portalen.
+title: Konfigurera en Programgateway med SSL-avslutning - Azure-portalen | Microsoft Docs
+description: Lär dig hur du konfigurerar en Programgateway och lägga till ett certifikat för SSL-avslutning med Azure-portalen.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,17 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Skapa en Programgateway med SSL-avslutning med Azure-portalen
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Konfigurera en Programgateway med SSL-avslutning med Azure-portalen
 
-Du kan använda Azure-portalen för att skapa en [Programgateway](overview.md) med ett certifikat för SSL-avslutning som använder virtuella datorer för backend-servrar.
+Du kan använda Azure-portalen för att konfigurera en [Programgateway](overview.md) med ett certifikat för SSL-avslutning som använder virtuella datorer för backend-servrar.
 
 I den här artikeln kan du se hur du:
 

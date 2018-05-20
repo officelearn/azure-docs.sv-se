@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 5266acf2f053af62f907f71ff1fe0805e1008927
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -49,16 +49,22 @@ Finns i det språkspecifika:
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som loggar meddelandet Service Bus-kö.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som läser [meddelandet metadata](#trigger---message-metadata) och loggar meddelandet Service Bus-kö:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +72,7 @@ Det här exemplet är för Azure Functions version 1.x; för 2.x [utelämna para
  
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
-I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar meddelandet Service Bus-kö.
+I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser [meddelandet metadata](#trigger---message-metadata) och loggar meddelandet Service Bus-kö.
 
 Här är de bindande data den *function.json* fil:
 
@@ -88,9 +94,19 @@ Här är de bindande data den *function.json* fil:
 Här är skriptkod C#:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +140,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Utlösaren - JavaScript-exempel
 
-I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen loggar meddelandet Service Bus-kö. 
+I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen läser [meddelandet metadata](#trigger---message-metadata) och loggar meddelandet Service Bus-kö. 
 
 Här är de bindande data den *function.json* fil:
 
@@ -148,6 +164,9 @@ Här är JavaScript-skriptkod:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +266,30 @@ Hantering av skadligt meddelande kan inte kontrolleras eller konfigurerats i Azu
 
 ## <a name="trigger---peeklock-behavior"></a>Utlösaren - PeekLock beteende
 
-Functions-runtime tar emot ett meddelande i [PeekLock läge](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Anropar `Complete` på meddelandet om funktionen slutförs eller samtal `Abandon` om misslyckas åtgärden. Om funktionen körs längre än den `PeekLock` timeout låset förnyas automatiskt.
+Functions-runtime tar emot ett meddelande i [PeekLock läge](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Anropar `Complete` på meddelandet om funktionen slutförs eller samtal `Abandon` om misslyckas åtgärden. Om funktionen körs längre än den `PeekLock` timeout låset förnyas automatiskt så länge funktionen körs. 
+
+Funktioner 1.x kan du konfigurera `autoRenewTimeout` i *host.json*, som mappar till [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). Det högsta tillåtna för den här inställningen är 5 minuter enligt Service Bus-dokumentationen kan du öka tidsgränsen funktioner från standardvärdet 5 minuter till 10 minuter. För Service Bus-funktioner kan du vill göra det sedan eftersom du skulle överskrida gränsen på Service Bus-förnyelse.
+
+## <a name="trigger---message-metadata"></a>Utlösaren - meddelande metadata
+
+Service Bus-utlösare innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Dessa är egenskaper för den [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) klass.
+
+|Egenskap |Typ|Beskrivning|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Antal leveranser.|
+|`DeadLetterSource`|`string`|Källan för obeställbara meddelanden.|
+|`ExpiresAtUtc`|`DateTime`|Förfallotiden i UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|Köas tid i UTC.|
+|`MessageId`|`string`|Ett användardefinierat värde som Service Bus kan använda för att identifiera dubblerade meddelanden om aktiverat.|
+|`ContentType`|`string`|En content-type-identifierare som används av sändaren och mottagaren för specifika programlogik.|
+|`ReplyTo`|`string`|Svar till kön adress.|
+|`SequenceNumber`|`Int64`|Ett unikt nummer som tilldelas ett meddelande av Service Bus.|
+|`To`|`string`|Skicka till adressen.|
+|`Label`|`string`|Specifika Programetiketten.|
+|`CorrelationId`|`string`|Korrelations-ID|
+|`Properties`|`IDictionary<String,Object>`|Specifikt meddelande programegenskaperna.|
+
+Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare i den här artikeln.
 
 ## <a name="trigger---hostjson-properties"></a>Utlösaren - host.json egenskaper
 
@@ -404,7 +446,7 @@ Här är JavaScript-skriptkod som skapar ett enda meddelande:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +457,9 @@ Här är JavaScript-skriptkod som skapar flera meddelanden:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```

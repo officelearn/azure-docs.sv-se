@@ -3,22 +3,22 @@ title: Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs
 description: Tjänsten gränser och konfigurationsvärden för Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: cfowler
 editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 524a2dc7a1a5ae4f0747af03d1b9e69d512f0f00
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/14/2018
+ms.author: estfan
+ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurationsinformation för Logikappar i Azure
 
@@ -52,15 +52,26 @@ Här följer gränser för en enskild logik app definition:
 
 Här följer gränser för en enkel logikapp som kör:
 
-| Namn | Gräns | 
-| ---- | ----- | 
-| Kör varaktighet | 90 dagar | 
-| Kvarhållning av lagring | 90 dagar från kör starttid | 
-| Minsta intervall | 1 sekund </br>För logic apps med en App Service-Plan: 15 sekunder | 
-| Maximalt intervall | 500 dagar | 
-||| 
+| Namn | Gräns | Anteckningar | 
+|------|-------|-------| 
+| Kör varaktighet | 90 dagar | Om du vill ändra den här gränsen [ändra kör varaktighet](#change-duration). | 
+| Kvarhållning av lagring | 90 dagar från kör starttid | Om du vill ändra den här gränsen [ändra lagring kvarhållning](#change-retention). | 
+| Minsta intervall | 1 sekund | | 
+| Maximalt intervall | 500 dagar | | 
+|||| 
 
-Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### <a name="change-run-duration-and-storage-retention"></a>Ändra omgången varaktigheten och lagringen
+
+Du kan ändra den här gränsen till ett värde mellan sju dagar och 90 dagar. Men att överskrida den maximala gränsen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+
+1. I Azure-portalen på din logikapp-menyn väljer du **inställningar för arbetsflöde**. 
+
+2. Under **Runtime alternativ**, från den **kör historik kvarhållning dagar** Välj **anpassad**. 
+
+3. Ange eller dra reglaget för antalet dagar som du vill.
 
 <a name="looping-debatching-limits"></a>
 
@@ -113,7 +124,8 @@ Vissa åtgärder för kopplingen asynkrona anrop eller lyssna efter begäranden 
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Meddelandestorlek | 100 MB | Vissa kopplingar och API: er stöder inte 100 MB. | 
+| Meddelandestorlek | 100 MB | Du kan undvika den här gränsen genom att se [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). Dock kan vissa kopplingar och API: er inte stöder högoptimerat eller ens Standardgränsen. | 
+| Meddelandestorlek med högoptimerat | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för högoptimerat eller kan ha högoptimerat aktiverat i konfigurationen runtime-stöd. Mer information finns i [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Gränsen för utvärdering av uttryck | 131,072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. | 
 |||| 
 
@@ -146,21 +158,45 @@ Här följer gränser för anpassade kopplingar som du kan skapa från web API: 
 
 ### <a name="artifact-limits-per-integration-account"></a>Artefakt gränser per integration konto
 
-Här följer gränser för antalet artefakter för varje konto för integrering.
+Här följer gränser för antalet artefakter för varje konto för integrering. Mer information finns i [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Gratis prisnivån*
+*Kostnadsfri nivå*
 
-| Namn | Gräns | Anteckningar | 
-| ---- | ----- | ----- | 
-| Avtal | 10 | | 
-| Andra typer av artefakt | 25 | Artefakt typer är partners, scheman, certifikat och kartor. Varje typ kan ha upp till maximalt antal artefakter. | 
+| Artefakt | Gräns | Anteckningar | 
+|----------|-------|-------| 
+| EDI handelspartner | 25 | | 
+| Handel EDI-avtal | 10 | | 
+| Kartor | 25 | | 
+| Scheman | 25 | 
+| Sammansättningar | 10 | | 
+| Batchkonfigurationer | 5 | 
+| Certifikat | 25 | | 
 |||| 
 
-*Standard prisnivå*
+*Grundläggande nivån*
 
-| Namn | Gräns | Anteckningar | 
-| ---- | ----- | ----- | 
-| Alla typer av artefakt | 500 | Artefakt typer är avtal, partner, scheman, certifikat och kartor. Varje typ kan ha upp till maximalt antal artefakter. | 
+| Artefakt | Gräns | Anteckningar | 
+|----------|-------|-------| 
+| EDI handelspartner | 2 | | 
+| Handel EDI-avtal | 1 | | 
+| Kartor | 500 | | 
+| Scheman | 500 | 
+| Sammansättningar | 25 | | 
+| Batchkonfigurationer | 1 | | 
+| Certifikat | 2 | | 
+|||| 
+
+*Standardnivå*
+
+| Artefakt | Gräns | Anteckningar | 
+|----------|-------|-------| 
+| EDI handelspartner | 500 | | 
+| Handel EDI-avtal | 500 | | 
+| Kartor | 500 | | 
+| Scheman | 500 | 
+| Sammansättningar | 50 | | 
+| Batchkonfigurationer | 5 |  
+| Certifikat | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

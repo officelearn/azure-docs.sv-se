@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -95,7 +95,7 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
-En [Nätverkssäkerhetsgrupp (NSG)](../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn.
+En [Nätverkssäkerhetsgrupp (NSG)](../virtual-network/security-overview.md) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exempel NSG för virtuella nätverk med Azure AD Domain Services
 I följande tabell visas ett exempel på en NSG som du kan konfigurera för ett virtuellt nätverk med en Azure AD Domain Services-hanterad domän. Den här regeln kan inkommande trafik över portarna som krävs för att säkerställa hanterad domän-förblir korrigeras, uppdateras och kan övervakas av Microsoft. 'DenyAll' Standardregeln gäller för inkommande trafik från internet.
@@ -141,5 +141,5 @@ Du kan ansluta en Resource Manager-baserat virtuellt nätverk till Azure klassis
 ## <a name="related-content"></a>Relaterat innehåll
 * [Virtuella Azure-nätverket peering](../virtual-network/virtual-network-peering-overview.md)
 * [Konfigurera ett VNet-till-VNet-anslutning för den klassiska distributionsmodellen](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Säkerhetsgrupper för Azure-nätverk](../virtual-network/virtual-networks-nsg.md)
+* [Säkerhetsgrupper för Azure-nätverk](../virtual-network/security-overview.md)
 * [Skapa en säkerhetsgrupp för nätverk](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använd utkast med Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du sna
 > [!NOTE]
 > Om du har installerat ett utkast till före version 0,12 måste du först bort utkast från klustret med hjälp av `helm delete --purge draft` och ta sedan bort den lokala konfigurationen genom att köra `rm -rf ~/.draft`. Om du är på MacOS köra `brew upgrade draft`.
 
-Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden][install-draft].
+Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -288,7 +288,6 @@ Mer information om hur du använder ett utkast till dokumentationen i utkast på
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

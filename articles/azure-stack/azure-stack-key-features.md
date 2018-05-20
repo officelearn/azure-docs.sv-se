@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Viktiga funktioner och koncept i Azure-stacken
 Om du har använt Microsoft Azure-stacken kan dessa villkor och funktionsbeskrivning vara användbart.
@@ -86,14 +86,15 @@ En prenumeration är hur klienter köpa erbjudandena. En prenumeration är en ko
 
 Prenumerationer kan organisera och åtkomst till molnresurser och tjänster.
 
-För administratören skapas en prenumeration på Default leverantör under distributionen. Den här prenumerationen kan användas för att hantera Azure-stacken, distribuera ytterligare resursproviders och skapa planer och erbjudanden för klienter. Det bör inte användas för att köra kundens arbetsbelastningar och program. 
-
+För administratören skapas en prenumeration på Default leverantör under distributionen. Den här prenumerationen kan användas för att hantera Azure-stacken, distribuera ytterligare resursproviders och skapa planer och erbjudanden för klienter. Det bör inte användas för att köra kundens arbetsbelastningar och program. Från och med version 1804 komplettera två ytterligare prenumerationer standard providern prenumerationen; en avläsning prenumeration och en prenumeration för användning. Dessa tillägg underlätta avgränsa hanteringen av grundläggande infrastruktur och ytterligare resursproviders arbetsbelastningar.  
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Med Azure Resource Manager kan arbeta du med din för infrastrukturresurser i en mallbaserade deklarativ modell.   Det ger ett enda gränssnitt som du kan använda för att distribuera och hantera dina komponenter. Fullständig information och anvisningar finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Resursgrupper
 Resursgrupper är samlingar av resurser, tjänster och program, och varje resurs har en typ, till exempel virtuella datorer, virtuella nätverk, offentliga IP-adresser, lagringskonton och webbplatser. Varje resurs måste finnas i en resursgrupp och så resursgrupper logiskt att ordna resurser, exempelvis av arbetsbelastningen eller platsen.  I Microsoft Azure-stacken hanteras resurser, till exempel planer och erbjuder också i resursgrupper.
+
+Till skillnad från [Azure](../azure-resource-manager/resource-group-move-resources.md), du kan inte flytta resurser mellan resursgrupper. När du visar egenskaperna för en resurs eller en resursgrupp i Azure-stacken administrationsportal på *flytta* knappen är nedtonad och nedtonat. 
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 Du kan skapa en mall (i JSON-format) som definierar distributionen och konfigurationen av ditt program med Azure Resource Manager. Den här mallen kallas för en Azure Resource Manager-mall och tillhandahåller en deklarativ metod för att definiera distributionen. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent.
@@ -103,19 +104,19 @@ Resursproviders är webbtjänster som utgör grunden för alla Azure-baserade Ia
 
 Det finns fyra grundläggande RPs: nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och styra sina respektive resurser. Administratörer kan också lägga till nya anpassade providers.
 
-### <a name="compute-rp"></a>Compute RP
+### <a name="compute-rp"></a>Beräkna RP
 Beräkna Resource Provider (CRP) gör att Azure Stack-klienter kan skapa sina egna virtuella datorer. CRP omfattar möjligheten att skapa virtuella datorer samt tillägg för virtuell dator. Tjänsten Virtual Machine-tillägg ger IaaS-funktioner för Windows och Linux virtuella datorer.  Du kan använda CRP exempelvis för att etablera en virtuell Linux-dator och köra Bash-skript under distributionen för att konfigurera den virtuella datorn.
 
-### <a name="network-rp"></a>Network RP
+### <a name="network-rp"></a>Nätverket RP
 Nätverket Resource Provider (NRP) ger en uppsättning funktioner för Programvarudefinierad nätverksfunktion (SDN) och nätverk funktionen virtualisering (NFV) för det privata molnet.  Du kan använda NRP för att skapa resurser som programvara belastningen belastningsutjämnare, offentliga IP-adresser, nätverkssäkerhetsgrupper, virtuella nätverk.
 
-### <a name="storage-rp"></a>Storage RP
+### <a name="storage-rp"></a>Lagring RP
 Lagring RP levererar fyra konsekvent Azure storage-tjänster: blob-, tabell-, kö- och kontohantering. Det erbjuder också en lagring administration molntjänst för att underlätta administrationen av provider i Azure-konsekvent lagringstjänster. Azure Storage ger flexibilitet för att lagra och hämta stora mängder Ostrukturerade data, till exempel dokument och mediafiler med Azure BLOB och strukturerade NoSQL-baserade data med Azure-tabeller. Mer information om Azure Storage finns [introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### <a name="blob-storage"></a>Blob Storage
 BLOB storage lagrar alla datauppsättning. En blobb kan bestå av vilka slags textdata eller binära data som helst, till exempel ett dokument, en mediefil eller ett installationsprogram. Table storage lagrar strukturerade datauppsättningar. Table Storage är en nyckel- och attributdatabas för NoSQL som möjliggör snabb utveckling och snabb tillgång till stora mängder data. Queue storage erbjuder tillförlitlig meddelandehantering för arbetsflödesbearbetning och för kommunikation mellan komponenter i molntjänster.
 
-Varje blobb är underordnad en behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla ett obestämt antal behållare och en behållare kan innehålla ett obestämt antal blobbar, upp till lagringskontots kapacitetsgräns på 500 TB. Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar (diskar). Blockblobbar är optimerade för direktuppspelning och lagring av molnobjekt och är ett bra alternativ för att lagra dokument, mediefiler, säkerhetskopior osv. Tilläggsblobbar påminner om blockblobbar, men är optimerade för tilläggsåtgärder. En tilläggsblobb kan bara uppdateras genom att ett nytt block läggs till i slutet. Tilläggsblobbar är praktiska i scenarier som loggning, där nya data bara behöver skrivas till slutet av blobben. Sidblobbar är optimerade för att representera IaaS-diskar och stöd för slumpmässiga skrivningar och kan vara upp till 1 TB. En nätverksansluten IaaS-disk för en virtuell Azure-dator är en VHD som lagras som en sidblobb.
+Varje blobb är underordnad en behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla valfritt antal behållare och en behållare kan innehålla valfritt antal blobbar, upp till 500 TB kapacitetsgränsen för lagringskontot. Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar (diskar). Blockblobbar är optimerade för direktuppspelning och lagring av molnobjekt och är ett bra alternativ för att lagra dokument, mediefiler, säkerhetskopior osv. Tilläggsblobbar påminner om blockblobbar, men är optimerade för tilläggsåtgärder. En tilläggsblobb kan bara uppdateras genom att ett nytt block läggs till i slutet. Tilläggsblobbar är praktiska i scenarier som loggning, där nya data bara behöver skrivas till slutet av blobben. Sidblobbar är optimerade för att representera IaaS-diskar och stöd för slumpmässiga skrivningar och kan vara upp till 1 TB. En nätverksansluten IaaS-disk för en virtuell Azure-dator är en VHD som lagras som en sidblobb.
 
 #### <a name="table-storage"></a>Table Storage
 Table storage är Microsofts NoSQL-nyckel och attributdatabas – den har en design utan scheman, vilket skiljer den från traditionella relationsdatabaser. Eftersom data lagras saknas scheman, är det enkelt att anpassa dina data som behov utvecklas. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program. Table Storage är en nyckel- och attributdatabas, vilket innebär att varje värde i en tabell lagras med ett typbestämt egenskapsnamn. Egenskapsnamnet kan användas för att filtrera och ange urvalskriterier. En uppsättning egenskaper och deras värden utgör en entitet. Två entiteter i samma tabell kan innehålla olika samlingar egenskaper eftersom lagring saknas tabellscheman, och dessa egenskaper kan vara av olika typer. Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
@@ -129,21 +130,21 @@ KeyVault RP ger hantering och granskning av hemligheter, till exempel lösenord 
 ## <a name="high-availability-for-azure-stack"></a>Hög tillgänglighet för Azure-stacken
 *Gäller för: Azure Stack 1802 eller senare versioner*
 
-För att uppnå hög tillgänglighet för en multi-VM produktionssystem i Azure placeras virtuella datorer i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och update-domäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning av fel som visas i följande diagram:
+För att uppnå hög tillgänglighet till ett multi-VM produktionssystem i Azure placeras virtuella datorer i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och update-domäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning av fel som visas i följande diagram:
 
   ![Azure Stack hög tillgänglighet](media/azure-stack-key-features/high-availability.png)
 
-### <a name="availablity-sets-in-azure-stack"></a>Tillgänglighet anger i Azure-stacken
-När infrastrukturen i Azure-stacken är redan motståndskraftiga mot fel, den underliggande tekniken (failover clustering) fortfarande ådrar sig vissa avbrott för virtuella datorer på en fysisk server som påverkas om ett maskinvarufel. Azure-stacken stöder med en tillgänglighetsuppsättning med högst tre feldomäner överensstämmer med Azure.
+### <a name="availability-sets-in-azure-stack"></a>Tillgänglighetsuppsättningar i Azure-stacken
+När infrastrukturen i Azure-stacken är redan motståndskraftiga mot fel, den underliggande tekniken (failover clustering) fortfarande ådrar sig vissa avbrott för virtuella datorer på en fysisk server påverkas om ett maskinvarufel. Azure-stacken stöder med en tillgänglighetsuppsättning med högst tre feldomäner överensstämmer med Azure.
 
-- **Fault domäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer vara fysiskt isolerade från varandra genom att sprida dem jämnt som möjligt över flera feldomäner (Azure Stack noder). I händelse av ett maskinvarufel kommer virtuella datorer från misslyckade feldomänen att startas om om andra feldomäner, men om möjligt sparas i separata feldomäner från de andra virtuella datorerna i samma tillgänglighetsuppsättning. När maskinvaran är tillbaka online, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
+- **Fault domäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer vara fysiskt isolerade från varandra genom att sprida dem jämnt som möjligt över flera feldomäner (Azure Stack noder). Om det finns ett maskinvarufel, kommer virtuella datorer från misslyckade feldomänen att startas om om andra feldomäner, men om möjligt sparas i separata feldomäner från de andra virtuella datorerna i samma tillgänglighetsuppsättning. När maskinvaran är tillbaka online, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
  
 - **Uppdatera domäner**. Uppdatera domäner är ett annat Azure koncept som ger hög tillgänglighet i tillgänglighetsuppsättningar. En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan genomgår underhåll på samma gång. Virtuella datorer finns i samma uppdateringsdomän startas tillsammans under planerat underhåll. Eftersom klienter kan du skapa virtuella datorer i en tillgänglighetsuppsättning, Azure-plattformen automatiskt distribuerar virtuella datorer mellan dessa uppdatera domäner. I Azure-stacken är live migreras över online värddatorerna i klustret innan den underliggande värden uppdateras. Eftersom det inte finns inget driftstopp klient under en uppdatering av värden, finns funktionen domän på Azure-stacken endast för kompatibilitet med Azure. 
 
 ### <a name="upgrade-scenarios"></a>Uppgraderingsscenarier 
-Virtuella datorer i tillgänglighetsuppsättningar innan Azure Stack version 1802 ges ett antal fel och uppdatera domäner standard (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och update domän antal enligt beskrivningen i [ändringen i tillgänglighetsuppsättning för en Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+Virtuella datorer i tillgänglighetsuppsättningar som skapades innan Azure Stack version 1802 ges ett antal fel och uppdatera domäner standard (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och update domän antal enligt beskrivningen i [ändringen i tillgänglighetsuppsättning för en Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
-Skalningsuppsättningar, en tillgänglighetsuppsättning har skapats internt med en standard domän och uppdatera feldomänsantalet (3 och 5 respektive). Alla VM skala innan 1802 uppdateringen kommer att placeras i en tillgänglighetsuppsättning med antal för standard-fel och uppdatera domän anger (1 och 1 respektive). Skala ut skalningsuppsättningar efter antalet instanser som fanns före uppdateringen av 1802 och ta sedan bort de äldre instanserna av skalningsuppsättningar om du vill uppdatera dessa VM scale set-instanser för att uppnå nyare spridning. 
+Skaluppsättningar för virtuell dator, en tillgänglighetsuppsättning har skapats internt med en standard domän och uppdatera feldomänsantalet (3 och 5 respektive). Alla skalningsuppsättningar i virtuella innan uppdateringen 1802 placeras i en tillgänglighetsuppsättning med fel och uppdatera standarddomänen räknar (1 och 1 respektive). Om du vill uppdatera dessa scale set instanser för virtuella datorer för att uppnå nyare spridning skala ut skaluppsättningar för virtuell dator efter antalet instanser som fanns före uppdateringen av 1802 och ta sedan bort äldre instanser av skaluppsättningar för virtuell dator. 
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 Du kan använda RBAC för att bevilja åtkomst till systemet till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure-stacken resurser.

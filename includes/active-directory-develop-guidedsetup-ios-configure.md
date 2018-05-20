@@ -1,12 +1,14 @@
+## <a name="register-your-application"></a>Registrera ditt program
+Du kan registrera ditt program på två sätt som beskrivs i följande två avsnitt.
 
-## <a name="create-an-application-express"></a>Skapa ett program (snabb)
+### <a name="option-1-express-mode"></a>Alternativ 1: Express-läge
 Nu måste du registrera ditt program i den *Microsoft Programregistreringsportalen*:
 1. Registrera ditt program via den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
 2.  Ange ett namn för ditt program och din e-post
 3.  Kontrollera att alternativet för interaktiv installation är markerat
 4.  Följ instruktionerna för att hämta program-ID och klistra in den i din kod
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Lägga till registreringsinformationen program i lösningen (Avancerat)
+### <a name="option-2-advanced-mode"></a>Alternativ 2: Avancerat läge
 
 1.  Gå till [Portal för Microsoft-program](https://apps.dev.microsoft.com/portal/register-app)
 2.  Ange ett namn för ditt program och din e-post

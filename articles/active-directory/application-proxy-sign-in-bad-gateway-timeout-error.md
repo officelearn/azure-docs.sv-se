@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f57b470208ab3bd071b83c0736efa739c7e70363
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett program med Application Proxy
 
@@ -95,7 +95,7 @@ Om du vill kontrollera att alla portar är öppna, finns i dokumentationen om hu
 
 Om inget av ovanstående löser problemet, är nästa steg att söka efter problem eller fel med kopplingen själv. Du kan se några vanliga fel i den [Felsök dokumentet](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av felmeddelandena dela specifika rekommendationer för korrigeringar. Om du vill visa loggfilerna kan se den [kopplingar dokumentationen](application-proxy-understand-connectors.md#under-the-hood).
+Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av felmeddelandena dela specifika rekommendationer för korrigeringar. Om du vill visa loggfilerna kan se den [kopplingar dokumentationen](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Ytterligare lösningar
 
@@ -107,7 +107,7 @@ Om programmet är konfigurerat för att använda integrerad autentisering IWA (W
 
 Om du ser felet, gå till datorn där kopplingen har installerats, öppna en webbläsare och försöker komma åt den interna URL som används för programmet. Kopplingen fungerar som en annan klient från samma dator. Om du inte kan nå programmet, kan du undersöka varför som datorn är inte når programmet eller använda en koppling på en server som har tillgång till programmet.
 
-Om du kan komma åt programmet från den datorn för att leta efter problem eller fel med kopplingen själv. Du kan se några vanliga fel i den [Felsök dokumentet](active-directory-application-proxy-troubleshoot.md#connector-errors). Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av våra felmeddelanden ska kunna dela mer specifika rekommendationer för korrigeringar. Information om hur du visar loggarna finns [vår dokumentation kopplingar](application-proxy-understand-connectors.md#under-the-hood).
+Om du kan komma åt programmet från den datorn för att leta efter problem eller fel med kopplingen själv. Du kan se några vanliga fel i den [Felsök dokumentet](active-directory-application-proxy-troubleshoot.md#connector-errors). Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av våra felmeddelanden ska kunna dela mer specifika rekommendationer för korrigeringar. Information om hur du visar loggarna finns [vår dokumentation kopplingar](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD Application Proxy-kopplingar](application-proxy-understand-connectors.md)
+[Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md)

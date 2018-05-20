@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Ett program med Application Proxy tar för lång tid att läsa in
 
 Den här artikeln hjälper dig att förstå varför ett program för Azure AD Application Proxy kan ta lång tid att läsa in. Här beskrivs också vad du kan göra för att lösa problemet.
 
 ## <a name="overview"></a>Översikt
-Även om dina program fungerar, kan det leda till en lång fördröjning. Det kan finnas nätverks topologi justeringar som du kan göra att snabbare. En utvärdering av olika topologier finns i [nätverk överväganden dokumentet](application-proxy-network-topology-considerations.md).
+Även om dina program fungerar, kan det leda till en lång fördröjning. Det kan finnas nätverks topologi justeringar som du kan göra att snabbare. En utvärdering av olika topologier finns i [nätverk överväganden dokumentet](manage-apps/application-proxy-network-topology.md).
 
 Förutom nätverkstopologi finns det inga ytterligare rekommendationer för prestandajustering. Som Application Proxy service expanderar komma den till ett datacenter som fysiskt ligger närmare. Det finns närmare kan hjälpa dig med svarstid. En lista över Azure-datacenter, finns det [svarstid testsida](http://www.azurespeed.com/Azure/Latency). 
 
@@ -36,4 +36,4 @@ Det kan finnas Azure-datacenter som inte ännu inkludera Application Proxy, men 
 Microsoft arbetar på ytterligare funktioner för att förbättra svarstiden. När dessa förbättringar finns uppdateras i dokumentationen.
 
 ## <a name="next-steps"></a>Nästa steg
-[Arbeta med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md)
+[Arbeta med befintliga lokala proxyservrar](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)

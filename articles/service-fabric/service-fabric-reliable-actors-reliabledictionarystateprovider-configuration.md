@@ -1,24 +1,24 @@
 ---
-title: "Ändra inställningar för ReliableDictionaryActorStateProvider i Azure mikrotjänster | Microsoft Docs"
-description: "Lär dig mer om hur du konfigurerar Azure Service Fabric tillståndskänslig aktörer av typen ReliableDictionaryActorStateProvider."
+title: Ändra inställningar för ReliableDictionaryActorStateProvider i Azure mikrotjänster | Microsoft Docs
+description: Lär dig mer om hur du konfigurerar Azure Service Fabric tillståndskänslig aktörer av typen ReliableDictionaryActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurera Reliable Actors--ReliableDictionaryActorStateProvider
 Du kan ändra standardkonfigurationen av ReliableDictionaryActorStateProvider genom att ändra filen settings.xml har skapats i Visual Studio-rot för package under mappen Config för angivna aktören.
@@ -82,13 +82,13 @@ Standardkonfigurationen genereras av Visual Studio-mall och bör vara tillräckl
 | Namn | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0.015 |Tidsperiod som replikatorn på de sekundära väntar när du har fått en åtgärd innan du skickar tillbaka en bekräftelse till den primära servern. Andra bekräftelser skickas för åtgärder som behandlas inom intervallet skickas som ett svar. |
-| ReplicatorEndpoint |Saknas |Ingen standard--obligatorisk parameter |Ange IP-adress och port som primära och sekundära replikatorn ska använda för att kommunicera med andra replikatörer i replikeringen. Detta bör referera en TCP-slutpunkt för resurs i service manifest. Referera till [Service manifest resurser](service-fabric-service-manifest-resources.md) du kan läsa mer om hur du definierar endpoint resurser i service manifest. |
+| ReplicatorEndpoint |Gäller inte |Ingen standard--obligatorisk parameter |Ange IP-adress och port som primära och sekundära replikatorn ska använda för att kommunicera med andra replikatörer i replikeringen. Detta bör referera en TCP-slutpunkt för resurs i service manifest. Referera till [Service manifest resurser](service-fabric-service-manifest-resources.md) du kan läsa mer om hur du definierar endpoint resurser i service manifest. |
 | MaxReplicationMessageSize |Byte |50 MB |Maximal storlek för replikeringsdata som kan överföras i ett enda meddelande. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i primära kön. En åtgärd frigjorts när primära replikatorn tar emot en bekräftelse från de sekundära replikatörer. Det här värdet måste vara större än 64 och delbart med 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i sekundär kö. När du har gjort tillståndet hög tillgänglighet via beständiga frigjorts en åtgärd. Det här värdet måste vara större än 64 och delbart med 2. |
 | CheckpointThresholdInMB |MB |200 |Mängden utrymme i loggfilen efter vilken tillståndet är kontrollpunkt. |
 | MaxRecordSizeInKB |kB |1024 |Största poststorleken replikatorn kan skriva i loggen. Det här värdet måste vara en multipel av 4 och större än 16. |
-| OptimizeLogForLowerDiskUsage |Booleskt värde |SANT |Om värdet är true är loggen konfigurerad så att den repliken dedikerade loggfil skapas med hjälp av en NTFS-sparse-fil. Detta minskar den faktiska diskutrymmesanvändningen för filen. Om värdet är false skapas filen med fast allokering som ger bäst skrivprestanda. |
+| OptimizeLogForLowerDiskUsage |Boolesk |true |Om värdet är true är loggen konfigurerad så att den repliken dedikerade loggfil skapas med hjälp av en NTFS-sparse-fil. Detta minskar den faktiska diskutrymmesanvändningen för filen. Om värdet är false skapas filen med fast allokering som ger bäst skrivprestanda. |
 | SharedLogId |GUID |"" |Anger ett unikt guid som används för att identifiera delade loggfilen som används med den här repliken. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogId anges måste sedan SharedLogPath också anges. |
 | SharedLogPath |Fullständig sökväg |"" |Anger den fullständiga sökvägen där delade loggfilen för den här replikeringen kommer att skapas. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogPath anges måste sedan SharedLogId också anges. |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -241,11 +241,11 @@ Ungefärlig tid till slutförd: 20 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Ett Microsoft Azure AD basic eller premium-prenumeration och Azure AD-katalog som du är en global administratör | [Azure Active Directory-versioner](active-directory-editions.md) |
+| Ett Microsoft Azure AD basic eller premium-prenumeration och Azure AD-katalog som du är en global administratör | [Azure Active Directory-versioner](active-directory-whatis.md) |
 | Ett webbprogram finns lokalt som du vill konfigurera för fjärråtkomst |  |
-| En server som kör Windows Server 2012 R2 eller Windows 8.1 eller senare, där du kan installera Application Proxy Connector | [Förstå Azure AD Application Proxy-kopplingar](application-proxy-understand-connectors.md) |
+| En server som kör Windows Server 2012 R2 eller Windows 8.1 eller senare, där du kan installera Application Proxy Connector | [Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md) |
 | Om det finns en brandvägg i sökvägen, kontrollerar du att den är öppen så att anslutningsverktyget kan göra HTTPS (TCP) förfrågningar till Application Proxy | [Aktivera Application Proxy på Azure-portalen: krav för Application Proxy](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
-| Om din organisation använder proxyservrar för att ansluta till internet, titta närmare på bloggen efter arbeta med befintliga lokala proxyservrar för information om hur du konfigurerar dem. | [Arbeta med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md) |
+| Om din organisation använder proxyservrar för att ansluta till internet, titta närmare på bloggen efter arbeta med befintliga lokala proxyservrar för information om hur du konfigurerar dem. | [Arbeta med befintliga lokala proxyservrar](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Steg
@@ -255,13 +255,13 @@ Ungefärlig tid till slutförd: 20 minuter
 | Installera en koppling på servern | [Aktivera Application Proxy på Azure-portalen: Installera och registrera kopplingen](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
 | Publicera lokala program i Azure AD som ett program med Application Proxy | [Publicera program med Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md) |
 | Tilldela testanvändare | [Publicera program med Azure AD Application Proxy: Lägg till en testanvändare](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Alternativt kan du konfigurera en enkel inloggning för dina användare | [Tillhandahålla enkel inloggning med Azure AD Application Proxy](application-proxy-sso-azure-portal.md) |
+| Alternativt kan du konfigurera en enkel inloggning för dina användare | [Tillhandahålla enkel inloggning med Azure AD Application Proxy](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Testa appen genom att logga in till MyApps portalen som tilldelad användare | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Överväganden
 
-1. Vi rekommenderar att placera kopplingen i företagets nätverk, men det finns fall när du ser bättre prestanda att placera det i molnet. Läs mer: [nätverk topologiöverväganden när du använder Azure Active Directory Application Proxy](application-proxy-network-topology-considerations.md)
-2. För ytterligare säkerhetsinformation om och hur detta ger ett särskilt säker fjärråtkomst lösning genom att bara hantera utgående anslutningar finns: [säkerhetsaspekter för att komma åt appar från en fjärrdator med hjälp av Azure AD Application Proxy](application-proxy-security-considerations.md)
+1. Vi rekommenderar att placera kopplingen i företagets nätverk, men det finns fall när du ser bättre prestanda att placera det i molnet. Läs mer: [nätverk topologiöverväganden när du använder Azure Active Directory Application Proxy](manage-apps/application-proxy-network-topology.md)
+2. För ytterligare säkerhetsinformation om och hur detta ger ett särskilt säker fjärråtkomst lösning genom att bara hantera utgående anslutningar finns: [säkerhetsaspekter för att komma åt appar från en fjärrdator med hjälp av Azure AD Application Proxy](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Allmän LDAP Connector-konfiguration
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-autentisering och Resource Manager | Microsoft Docs
-description: "En utvecklare guide för att autentisering med Azure Resource Manager API och Azure Active Directory för att integrera en app med andra Azure-prenumerationer."
+description: En utvecklare guide för att autentisering med Azure Resource Manager API och Azure Active Directory för att integrera en app med andra Azure-prenumerationer.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.author: dugill
+ms.openlocfilehash: 1a526663b0280bd1bb7739ccc9a4ebf78882754d
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Autentisering-Använd Resource Manager API för åtkomst-prenumerationer
 ## <a name="introduction"></a>Introduktion
@@ -29,7 +29,7 @@ Appen har åtkomst till Resource Manager-API: er i på två sätt:
 1. **Användar- + appåtkomst**: för appar som har åtkomst till resurser för en inloggad användare. Den här metoden fungerar för appar, till exempel webbprogram och kommandoradsverktyg som handlar om endast ”interaktiva management” Azure-resurser.
 2. **Endast App-åtkomst**: för appar som körs daemon tjänster och schemalagda jobb. Appens identitet beviljas direkt åtkomst till resurserna. Den här metoden fungerar för appar som behöver långsiktiga fjärradministrerade (obevakad installation) åtkomst till Azure.
 
-Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du utför varje steg med REST API- eller C#. Fullständig ASP.NET MVC-program finns på [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du utför varje steg med REST API- eller C#. Fullständig ASP.NET MVC-program finns på [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Webbprogrammet har
 Webbprogrammet:
@@ -224,7 +224,7 @@ Du bara ha en åtkomst-token för Azure Resource Manager - du behöver en ny åt
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Hämta endast app-åtkomst-token för Azure AD Graph API
-För att autentisera din app och hämta en token för Azure AD Graph API, utfärda en tokenbegäran av flödet klientens autentiseringsuppgifter bevilja OAuth2.0 till Azure AD-token för slutpunkt (**https://login.microsoftonline.com/ {directory_domain_name} / OAuth2/Token**).
+För att autentisera din app och hämta en token för Azure AD Graph API, utfärda en tokenbegäran av flödet klientens autentiseringsuppgifter bevilja OAuth2.0 till Azure AD-token för slutpunkt (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metod i ASP.net MVC-exempelprogram hämtar endast app-åtkomst-token för Graph API med Active Directory-Autentiseringsbibliotek för .NET.
 

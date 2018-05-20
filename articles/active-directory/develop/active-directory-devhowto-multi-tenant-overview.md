@@ -3,26 +3,28 @@ title: Hur du skapar en app som kan logga in alla Azure AD-användare
 description: Visar hur du skapar ett program med flera innehavare som kan logga in en användare från en Azure Active Directory-klient.
 services: active-directory
 documentationcenter: ''
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
+ms.reviewer: elisol
 ms.custom: aaddev
-ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd02cde6327cb929d1b4c0c2e3d430d64645ca26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Hur du loggar in alla Azure Active Directory-användare med flera innehavare programmönster
-Du kan konfigurera programmet att acceptera inloggningar från alla Azure Active Directory (AD)-klient om du tillhandahåller en programvara som en tjänst för många organisationer. Den här konfigurationen kallas för att göra ditt program med flera innehavare. Användare i Azure AD-klient kommer att kunna logga in på ditt program efter principer för att använda sitt konto med ditt program.  
+Du kan konfigurera programmet att acceptera inloggningar från alla Azure Active Directory (AD)-klient om du tillhandahåller en programvara som en tjänst för många organisationer. Den här konfigurationen kallas för att göra ditt program med flera innehavare. Användare i Azure AD-klient kommer att kunna logga in på ditt program efter principer för att använda sitt konto med ditt program. 
 
 Om du har ett befintligt program som har ett eget konto eller andra typer av inloggningar från andra molntjänstleverantörer av har stöd för är att lägga till Azure AD-inloggning från en klient enkelt. Registrera din app, Lägg till kod logga in via OAuth2, OpenID Connect eller SAML och placera bara en [”logga In med Microsoft” knappen] [ AAD-App-Branding] i ditt program.
 
@@ -39,19 +41,19 @@ Det finns fyra enkla steg för att konvertera programmet till en app för flera 
 Nu ska vi titta på varje steg i detalj. Du kan även gå direkt till [den här listan med flera innehavare exempel][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registreringen för flera innehavare
-Som standard är web app/API registreringar i Azure AD enda innehavare.  Du kan göra registreringen flera innehavare genom att söka efter den **flera innehavare** växla den **egenskaper** registreringen programmet i rutan i [Azure-portalen] [ AZURE-portal] och ange värdet till **Ja**.
+Som standard är web app/API registreringar i Azure AD enda innehavare. Du kan göra registreringen flera innehavare genom att söka efter den **flera innehavare** växla den **egenskaper** registreringen programmet i rutan i [Azure-portalen] [ AZURE-portal] och ange värdet till **Ja**.
 
 Innan ett program kan göras med flera innehavare, kräver Azure AD App-ID-URI för programmet som ska vara globalt unika. URI för App-ID är ett sätt som ett program har identifierats i protokollmeddelanden. Den är tillräcklig för URI: N App-ID är unikt i den klienten för en enskild klient-program. För ett program med flera innehavare, måste den vara globalt unika så att Azure AD kan hitta programmet på alla klienter. Globala unika tillämpas genom att kräva att App-ID-URI har ett värdnamn som matchar en verifierad domän till Azure AD-klient. Appar som har skapats via Azure portal har ett globalt unikt App-ID URI ange för att skapa en app som standard, men du kan ändra det här värdet.
 
-Till exempel om namnet på din klient har contoso.onmicrosoft.com sedan en giltig URI för App-ID är `https://contoso.onmicrosoft.com/myapp`.  Om din klient har en verifierad domän i `contoso.com`, och sedan en giltig URI för App-ID kan även vara `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster, ange ett program som misslyckas av flera innehavare.
+Till exempel om namnet på din klient har contoso.onmicrosoft.com sedan en giltig URI för App-ID är `https://contoso.onmicrosoft.com/myapp`. Om din klient har en verifierad domän i `contoso.com`, och sedan en giltig URI för App-ID kan även vara `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster, ange ett program som misslyckas av flera innehavare.
 
 > [!NOTE] 
-> -Klientregistreringar samt [v2 program](./active-directory-appmodel-v2-overview.md) är flera innehavare som standard.  Du behöver inte vidta några åtgärder för att dessa program registreringar flera innehavare.
+> -Klientregistreringar samt [v2 program](./active-directory-appmodel-v2-overview.md) är flera innehavare som standard. Du behöver inte vidta några åtgärder för att dessa program registreringar flera innehavare.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Uppdatera din kod för att skicka begäranden till/Common
 Inloggning begäranden skickas till klientens inloggning slutpunkt i en enskild klient-program. Till exempel skulle contoso.onmicrosoft.com slutpunkten vara för: `https://login.microsoftonline.com/contoso.onmicrosoft.com`
 
-Förfrågningar som skickas till slutpunkten för en klient kan logga in användare (eller gäster) i den klienten till program i den klienten. Med ett program med flera innehavare vet programmet inte direkt vilken klient som användaren är från, så du inte kan skicka förfrågningar till slutpunkten för en klient.  I stället skickas begäranden till en slutpunkt som multiplexes över alla Azure AD-klienter: `https://login.microsoftonline.com/common`
+Förfrågningar som skickas till slutpunkten för en klient kan logga in användare (eller gäster) i den klienten till program i den klienten. Med ett program med flera innehavare vet programmet inte direkt vilken klient som användaren är från, så du inte kan skicka förfrågningar till slutpunkten för en klient. I stället skickas begäranden till en slutpunkt som multiplexes över alla Azure AD-klienter: `https://login.microsoftonline.com/common`
 
 När Azure AD tar emot en begäran på på/Common slutpunkt, den användaren loggar in och, som en följd identifierar vilken klient som användaren är från. Den/vanliga slutpunkt som fungerar med alla autentiseringsprotokollet som stöds av Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 och WS-Federation.
 
@@ -61,12 +63,12 @@ Logga in svaret sedan innehåller en token som representerar användaren. Utfär
 > Den/det är bara en multiplexor vanliga slutpunkt är inte en klient och är inte en utfärdare,. När du använder/Common måste logiken i ditt program för att validera token uppdateras för att ta hänsyn till. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Uppdatera din kod för att hantera flera utfärdaren värden
-Webbprogram och webb-API: er får och validera token från Azure AD.  
+Webbprogram och webb-API: er får och validera token från Azure AD. 
 
 > [!NOTE]
-> Inbyggda klientprogram begära och ta emot token från Azure AD, gör de det om du vill skicka dem till API: er, där de verifieras.  Interna program validera inte token och hantera dem som täckande.
+> Inbyggda klientprogram begära och ta emot token från Azure AD, gör de det om du vill skicka dem till API: er, där de verifieras. Interna program validera inte token och hantera dem som täckande.
 
-Nu ska vi titta på hur ett program validerar token tas emot från Azure AD.  En enskild klient-program tar normalt en slutpunktsvärde som:
+Nu ska vi titta på hur ett program validerar token tas emot från Azure AD. En enskild klient-program tar normalt en slutpunktsvärde som:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -86,7 +88,7 @@ Eftersom den gemensamma endpoint motsvarar inte en klient och är inte en utfär
 
     https://sts.windows.net/{tenantid}/
 
-Därför kan ett program med flera innehavare kan inte verifiera token genom att bara matchar utfärdaren värdet i metadata med den `issuer` värde i token. Ett program med flera innehavare måste logik för att bestämma utfärdaren värden som är giltiga och som inte är baserade på klient-ID delen av utfärdaren värdet.  
+Därför kan ett program med flera innehavare kan inte verifiera token genom att bara matchar utfärdaren värdet i metadata med den `issuer` värde i token. Ett program med flera innehavare måste logik för att bestämma utfärdaren värden som är giltiga och som inte är baserade på klient-ID delen av utfärdaren värdet. 
 
 Till exempel om ett program med flera innehavare kan bara logga in från specifika klienter som har registrerat dig för tjänsten, den måste kontrollera värdet utfärdaren eller `tid` anspråksvärde i token för att se till att klient sin lista över prenumeranter. Om ett program med flera innehavare endast behandlar enskilda användare och inte göra någon åtkomst beslut baserat på klienter, kan den Ignorera utfärdaren värdet helt och hållet.
 
@@ -137,7 +139,7 @@ Detta visas i en-klienten på flera nivåer anropa webb-API-exemplet i den [rela
 
 **Flera nivåer i flera innehavare**
 
-Liknande fall händer om olika nivåer av ett program som har registrerats i olika klienter. Till exempel vara fallet för att skapa ett enhetligt klientprogram som Office 365 Exchange Online API-anropar. Exchange Online tjänstens huvudnamn måste vara uppfyllda för att utveckla intern, och senare för det ursprungliga programmet att köras i en kund-klient. I det här fallet måste utvecklaren och kunden köpa Exchange Online för tjänsten som ska skapas i sina klienter.  
+Liknande fall händer om olika nivåer av ett program som har registrerats i olika klienter. Till exempel vara fallet för att skapa ett enhetligt klientprogram som Office 365 Exchange Online API-anropar. Exchange Online tjänstens huvudnamn måste vara uppfyllda för att utveckla intern, och senare för det ursprungliga programmet att köras i en kund-klient. I det här fallet måste utvecklaren och kunden köpa Exchange Online för tjänsten som ska skapas i sina klienter. 
 
 Utvecklaren av API: N måste ge ett sätt för kunderna att godkänna programmet till sina kunder klienter om en API som skapats av en organisation än Microsoft. Det är den rekommenderade designen för utvecklare att bygga API: N så att den kan också fungera som en webbklient att implementera registrering från tredje part. Gör så här:
 

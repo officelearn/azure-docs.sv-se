@@ -1,24 +1,24 @@
 ---
-title: "Visualisera ditt kluster med hjälp av Azure Service Fabric Explorer | Microsoft Docs"
-description: "Service Fabric Explorer är ett program för att kontrollera och hantera molnprogram och noder i ett Microsoft Azure Service Fabric-kluster."
+title: Visualisera ditt kluster med hjälp av Azure Service Fabric Explorer | Microsoft Docs
+description: Service Fabric Explorer är ett program för att kontrollera och hantera molnprogram och noder i ett Microsoft Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -45,12 +45,12 @@ Använd följande länkar för att hämta Service Fabric Explorer som ett skrivb
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Kör Service Fabric Explorer från klustret
 
-Service Fabric Explorer finns också i Service Fabric-klustret HTTP management-slutpunkten. Bläddra till klustrets HTTP-slutpunkt för hantering i valfri webbläsare – till exempel https://clusterFQDN:19080 om du vill starta SFX i en webbläsare.
+Service Fabric Explorer finns också i Service Fabric-klustret HTTP management-slutpunkten. Om du vill starta SFX i en webbläsare, bläddra till klustrets HTTP-slutpunkt för hantering i valfri webbläsare – till exempel https://clusterFQDN:19080.
 
 För utvecklare arbetsstation installationen kan du starta Service Fabric-Utforskaren på din lokala klustret genom att gå till https://localhost:19080/Explorer. Titta på den här artikeln [förbereda din utvecklingsmiljö](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
-Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”ansluta till localhost” för att ansluta till det lokala klustret på din arbetsstation.
+Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). Till exempel https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”ansluta till localhost” för att ansluta till det lokala klustret på din arbetsstation.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 Du kan kontrollera klientåtkomst till Service Fabric-kluster med certifikat eller med hjälp av Azure Active Directory (AAD).

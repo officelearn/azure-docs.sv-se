@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: Hantera personliga data
-          href: manage-personal-data-azure.md
-        - name: 'Upptäcka, identifiera och klassificera personliga data'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Skydda personliga data i Azure
-          href: protect-personal-data-azure.md
-        - name: Skydda personliga data med Security Center
-          href: protect-personal-data-azure-security-center.md
-        - name: Skydda personliga data med Application Gateway
-          href: protect-personal-data-network-security.md
-        - name: Skydda personliga data med hjälp av identitets- och åtkomstkontroller
-          href: protect-personal-data-identity-access-controls.md
-        - name: Skydda personliga vilande data med hjälp av kryptering
-          href: protect-personal-data-at-rest.md
-        - name: Skydda personliga data under överföring med hjälp av kryptering
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Skydda personliga data med hjälp av Azure-rapporteringsverktyg
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: Datanalys
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: Datanalys

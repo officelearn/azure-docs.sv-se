@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Palo Alto nätverk - internt Portal | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto nätverk - internt Portal."
+title: 'Självstudier: Azure Active Directory-integrering med Palo Alto nätverk - internt Portal | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto nätverk - internt Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aaa2adc30d1d798312b50370d4b635d0d8a123e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Självstudier: Azure Active Directory-integrering med Palo Alto nätverk - internt Portal
 
@@ -30,9 +30,9 @@ Integrera Palo Alto nätverk - internt Portal med Azure AD ger dig följande fö
 - Du kan aktivera användarna att automatiskt hämta loggat in på Palo Alto nätverk - internt Portal (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Palo Alto nätverk - internt Portal, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Palo Alto nätverk - internt Portal domän och URL: er enkel inloggning information](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltocaptiveportal_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<Customer Firewall Hostname>/SAML20/SP`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<Customer Firewall Hostname>/SAML20/SP`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Palo Alto nätverk - internt Portal supportteamet](https://support.paloaltonetworks.com/support) att hämta dessa värden.
@@ -222,7 +222,7 @@ Internt Portal är konfigurerat bakom brandväggen på Windows VM.  Testa enkel 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

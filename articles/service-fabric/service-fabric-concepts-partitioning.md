@@ -1,24 +1,24 @@
 ---
-title: "Partitionering Service Fabric-tjänster | Microsoft Docs"
-description: "Beskriver hur du partitionera tillståndskänslig Service Fabric-tjänster. Partitioner möjliggör lagring av data på lokala datorer så att data och beräkning kan skalas tillsammans."
+title: Partitionering Service Fabric-tjänster | Microsoft Docs
+description: Beskriver hur du partitionera tillståndskänslig Service Fabric-tjänster. Partitioner möjliggör lagring av data på lokala datorer så att data och beräkning kan skalas tillsammans.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionen Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för partitionering tillförlitliga Azure Service Fabric-tjänster. Källkoden som används i artikeln finns även på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -238,7 +238,7 @@ Eftersom vi bokstavligt vill ha en partition per enhetsbeteckning kan vi använd
     }
     ```
    
-    `ProcessInternalRequest`läser värdena för frågesträngparametern som används för att anropa partition och anrop `AddUserAsync` att lägga till efternamn tillförlitliga ordlistan `dictionary`.
+    `ProcessInternalRequest` läser värdena för frågesträngparametern som används för att anropa partition och anrop `AddUserAsync` att lägga till efternamn tillförlitliga ordlistan `dictionary`.
 10. Lägg till en tillståndslös tjänst projekt för att se hur du kan anropa en viss partition.
     
     Den här tjänsten fungerar som ett enkelt webbgränssnitt som accepterar efternamn som en frågesträngsparameter anger Partitionsnyckeln och skickar det till tjänsten Alphabet.Processing för bearbetning.
@@ -321,7 +321,7 @@ Eftersom vi bokstavligt vill ha en partition per enhetsbeteckning kan vi använd
     ```
     
     Kom ihåg att det här exemplet använder vi 26 partitioner med en partitionsnyckel per partition.
-    Nu ska vi får service partitionen `partition` för den här nyckeln med hjälp av den `ResolveAsync` metod på den `servicePartitionResolver` objekt. `servicePartitionResolver`definieras som
+    Nu ska vi får service partitionen `partition` för den här nyckeln med hjälp av den `ResolveAsync` metod på den `servicePartitionResolver` objekt. `servicePartitionResolver` definieras som
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();

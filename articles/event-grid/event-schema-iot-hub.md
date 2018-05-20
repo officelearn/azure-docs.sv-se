@@ -1,20 +1,20 @@
 ---
-title: "Azure händelse rutnätet schemat för IoT-hubb | Microsoft Docs"
-description: "Referenssida för händelsen schemaformat och egenskaperna för IoT-hubb"
+title: Azure händelse rutnätet schemat för IoT-hubb | Microsoft Docs
+description: Referenssida för händelsen schemaformat och egenskaperna för IoT-hubb
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure händelse rutnätet Händelseschema för IoT-hubb
 
@@ -84,7 +84,7 @@ Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Det 
 
 Alla händelser som innehåller samma översta data: 
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | Unik identifierare för händelsen. |
 | Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
@@ -92,12 +92,12 @@ Alla händelser som innehåller samma översta data:
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
 | EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | data | objekt | IoT-hubb händelsedata.  |
-| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Innehållet i dataobjektet är olika för varje händelse utgivare. Dataobjekt som innehåller följande egenskaper för IoT-hubb händelser:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | hubName | sträng | Namnet på IoT-hubben där enheten skapas eller tas bort. |
 | deviceId | sträng | Unik identifierare för enheten. Den här skiftlägeskänsliga strängen kan vara upp till 128 tecken långt och har stöd för ASCII-7-bitars alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |

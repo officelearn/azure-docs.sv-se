@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Apache Kafka – Azure HDInsight | Microsoft Docs
-description: Lär dig hur du skapar ett Apache Kafka-kluster i Azure HDInsight. Lär dig hur du skapar ämnen, prenumeranter och konsumenter.
+title: Snabbstart för Apache Kafka – Azure HDInsight | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure Portal. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -8,24 +8,48 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: mvc,hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="start-with-apache-kafka-on-hdinsight"></a>Kom igång med Apache Kafka i HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Kafka-kluster på HDInsight
 
-Lär dig hur du skapar och använder ett [Apache Kafka](https://kafka.apache.org)-kluster i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod som är tillgänglig i HDInsight. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. Kafka används ofta med Apache Spark och Apache Storm för meddelanden, aktivitetsspårning, strömsammansättning eller dataomvandling.
+Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
+
+I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kafka.apache.org)-kluster med hjälp av Azure Portal. Du kommer också lära dig hur du kan använda de inkluderade verktygen för att skicka och ta emot meddelanden med Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+
+> [!IMPORTANT]
+> Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket.
+>
+> Mer information finns i dokumentet [Anslut till Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+* En SSH-klient. Stegen i det här dokumentet använder SSH för att ansluta till klustret.
+
+    Kommandot `ssh` tillhandahålls som standard i Linux-, Unix- och macOS-system. I Windows 10 använder du någon av följande metoder för att installera kommandot `ssh`:
+
+    * Använd [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell tillhandahåller `ssh`-kommandot och kan konfigureras för att använda antingen Bash eller PowerShell som gränssnittsmiljö.
+
+    * [Installera Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributioner som är tillgängliga via Microsoft Store tillhandahåller `ssh`-kommandot.
+
+    > [!IMPORTANT]
+    > Stegen i det här dokumentet förutsätter att du använder någon av de SSH-klienter som nämns ovan. Om du använder en annan SSH-klient och stöter på problem så sök efter en lösning i SSH-klientens dokumentation.
+    >
+    > Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-a-kafka-cluster"></a>Skapa ett Kafka-kluster
 
@@ -35,76 +59,115 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
    
     ![Skapa ett HDInsight-kluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. Från **Grundläggande**, ange följande information:
+2. Från **Grundläggande**, ange eller välj följande information:
 
-    * **Klusternamn**: Namnet på HDInsight-klustret. Det här namnet måste vara unikt.
-    * **Prenumeration**: Välj den prenumeration som du vill använda.
-    * **Klustertyp**: Välj den här posten och ange följande värden från **Klusterkonfiguration**:
+    | Inställning | Värde |
+    | --- | --- |
+    | Klusternamn | Ett unikt namn för HDInsight-klustret. |
+    | Prenumeration | Välj din prenumeration. |
+    
+    Välj __Klustertyp__ för att visa **Klusterkonfiguration**.
 
-        * **Klustertyp**: Kafka
-        * **Version**: Kafka 0.10.0 (HDI 3.6)
+    ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-        Använd knappen **Välj** för att spara klustertypinställningarna.
+3. I __Klusterkonfiguration__ väljer du följande värden:
 
-        ![Välj klustertyp](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+    | Inställning | Värde |
+    | --- | --- |
+    | Typ av kluster | Kafka |
+    | Version | Kafka 0.10.0 (HDI 3.6) |
 
-    * **Användarnamn för klusterinloggning** och **Lösenord för klusterinloggning**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till tjänster som Ambari-webbgränssnittet eller REST API.
-    * **Secure Shell-användarnamn (SSH)**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
-    * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
-    * **Plats**: Azure-region som klustret ska skapas i.
+    Använd knappen **Välj** för att spara klustertypsinställningarna och återgå till __Grundläggande__.
 
-        > [!IMPORTANT]
-        > För hög tillgänglighet för data rekommenderar vi att du väljer en plats (region) som innehåller __tre feldomäner__. Mer information finns i avsnittet [Hög tillgänglighet för data](#data-high-availability).
-   
- ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
+    ![Välj klustertyp](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-3. Använd knappen __Nästa__ för att slutföra den grundläggande konfigurationen.
+4. Från __Grundläggande__, ange eller välj följande information:
 
-4. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+    | Inställning | Värde |
+    | --- | --- |
+    | Användarnamn för klusterinloggning | Inloggningsnamnet vid åtkomst till webbtjänster eller REST API:er som hanteras i klustret. Behåll standardvärdet (admin). |
+    | Lösenord för klusterinloggning | Inloggningslösenordet vid åtkomst till webbtjänster eller REST API:er som hanteras i klustret. |
+    | Secure Shell (SSH)-användarnamn | Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning. |
+    | Resursgrupp | Resursgruppen som klustret ska skapas i. |
+    | Plats | Azure-region som klustret ska skapas i. |
 
-    ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
+    > [!TIP]
+    > Varje Azure-region (plats) har _feldomäner_. En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
+    >
+    > För hög datatillgänglighet, välj en plats (region) som innehåller __tre feldomäner__. Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-5. Från __Program (valfritt)__ väljer du __Nästa__ för att fortsätta. Inga program krävs för det här exemplet.
+    ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-6. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
+    Använd knappen __Nästa__ för att slutföra den grundläggande konfigurationen.
 
-    > [!WARNING]
-    > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Mer information finns i avsnittet [Hög tillgänglighet för data](#data-high-availability).
+5. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+
+    ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+
+6. Från __Program (valfritt)__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
+
+7. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
+
+    > [!IMPORTANT]
+    > För att kunna garantera tillgängligheten för Kafka på HDInsight, måste __antalet arbetarnoder__ anges till 3 eller fler. Standardvärdet är 4.
+    
+    > [!TIP]
+    > Antalet **diskar per arbetsnod** konfigurerar hur skalbart Kafka i HDInsight är. Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetarnoderna (Kafka-mäklarna) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard.
 
     ![Ange klusterstorlek för Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!IMPORTANT]
-    > Antalet **diskar per arbetsnod** konfigurerar hur skalbart Kafka i HDInsight är. Kafka på HDInsight använder den lokala disken för virtuella datorer i klustret. Kafka är i/o-stor, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och ge mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Premiumdiskar används med DS- och GS-serien virtuella datorer. Alla andra typer av virtuella dator använder standard.
+8. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
 
-7. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
-
-8. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
+9. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
    
-    ![Sammanfattning av klusterkonfiguration](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
+    ![Sammanfattning av klusterkonfiguration](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
     > [!NOTE]
     > Det kan ta upp till 20 minuter att skapa klustret.
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-> [!IMPORTANT]
-> När du utför följande steg måste du använda en SSH-klient. Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Anslut till Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Kafka-klustret.
 
-Om du vill ansluta till klustret med SSH måste du ange SSH-användarens kontonamn och namnet på klustret. Ersätt `sshuser` och `clustername` med kontots och klustrets namn i följande exempel:
+    ```bash
+    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```
 
-```ssh sshuser@clustername-ssh.azurehdinsight.net```
+2. När du ansluter till HDInsight första gången kan SSH-klienten visa en varning om att värdens äkthet inte kan fastställas. Skriv __ja__ när du uppmanas till detta och tryck sedan på __Retur__ så läggs värden till i SSH-klientens lista över betrodda servrar.
 
-När du uppmanas till det anger du det lösenord som du använde för SSH-kontot.
+3. Ange SSH-användarens lösenord när du uppmanas till detta.
 
-Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+När du är ansluten visas ett meddelande av följande slag:
+
+```text
+Authorized uses only. All activity may be monitored and reported.
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+83 packages can be updated.
+37 updates are security updates.
+
+
+
+Welcome to Kafka on HDInsight.
+
+Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
+ssuhuser@hn0-mykafk:~$
+```
 
 ## <a id="getkafkainfo"></a>Hämta information om värden i Zookeeper och Broker
 
-När du arbetar med Kafka måste du känna till *Zookeeper*-värdarna och *Broker*-värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
+När du arbetar med Kafka måste du känna till *Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
 
-Skapa miljövariabler som innehåller värdinformationen med hjälp av följande steg:
+I det här avsnittet hämtas information om värden från klustrets Ambari REST API.
 
-1. Använd följande kommando från en SSH-anslutning till klustret för att installera verktyget `jq`. Det här verktyget används för att parsa JSON-dokument och är användbart vid hämtning av värdinformation för asynkron meddelandekö:
+1. Installera verktyget `jq` genom att använda följande kommando från SSH-anslutningen till klustret. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
    
     ```bash
     sudo apt -y install jq
@@ -113,8 +176,10 @@ Skapa miljövariabler som innehåller värdinformationen med hjälp av följande
 2. Använd följande kommando om du vill ange en miljövariabel i klustrets namn:
 
     ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
+
+    Ange Kafka-klustrets namn när du uppmanas till detta.
 
 3. Använd följande kommando om du vill ange en miljövariabel med Zookeeper-värdens information:
 
@@ -122,7 +187,10 @@ Skapa miljövariabler som innehåller värdinformationen med hjälp av följande
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
+    Ange klusterinloggningskontots lösenord när du uppmanas till detta (inte SSH-kontot).
+
+    > [!NOTE]
+    > Detta kommando hämtar alla Zookeeper-värdar och returnerar bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
 4. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
 
@@ -140,7 +208,7 @@ Skapa miljövariabler som innehåller värdinformationen med hjälp av följande
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
+    Ange klusterinloggningskontots lösenord när du uppmanas till detta (inte SSH-kontot).
 
 6. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
 
@@ -151,35 +219,73 @@ Skapa miljövariabler som innehåller värdinformationen med hjälp av följande
     Det här kommandot returnerar information liknande följande text:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-   
-> [!WARNING]
-> Förlita dig inte på att den information som returneras från den här sessionen alltid är korrekt. Nya asynkrona meddelandeköer läggs till respektive tas bort när du skalar klustret. Om ett fel uppstår och en nod ersätts kan värdnamnet för noden ändras.
->
-> Du bör hämta värdinformation om Zookeeper och asynkron meddelandekö strax innan du använder den för att kontrollera att du har giltig information.
 
-## <a name="create-a-topic"></a>Skapa ett ämne
+## <a name="manage-kafka-topics"></a>Hantera Kafka-ämnen
 
-Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Från en SSH-anslutning till en klusterhuvudnod använder du ett skript som medföljer Kafka för att skapa ett ämne:
+Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämnena med verktyget `kafka-topics.sh`.
+
+* **Du skapar ett ämne** med följande kommando i SSH-anslutningen:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Det här kommandot ansluter till Zookeeper med hjälp av värdinformationen som lagras i `$KAFKAZKHOSTS`. Det skapar sedan ett Kafka-ämne med namnet **test**. 
+
+    * Data som lagras i det här ämnet partitioneras över åtta partitioner.
+
+    * Varje partition replikeras mellan tre arbetarnoder i klustret.
+
+        > [!IMPORTANT]
+        > Om du har skapat klustret i en Azure-region som tillhandahåller tre feldomäner så använd replikeringsfaktorn 3. I annat fall använder du replikeringsfaktorn 4.
+        
+        I områden med tre feldomäner kan replikeringsfaktorn 3 tillåta att repliker sprids till feldomänerna. I områden med två feldomäner kan replikeringsfaktorn 4 tillåta att repliker sprids jämnt över domänerna.
+        
+        Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
+
+        > [!IMPORTANT] 
+        > Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
+
+        Garantera hög tillgänglighet med [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Kafka-klusters huvudnod.
+
+        Om du vill ha bästa möjliga tillgänglighet för dina Kafka-data måste du balansera om ämnets partitionsrepliker när:
+
+        * Du skapar ett nytt ämne eller en ny partition
+
+        * Du skalar upp ett kluster
+
+* **Om du vill lista ämnena** använder du följande kommando:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Det här kommandot listar de ämnen som är tillgängliga på Kafka-klustret.
+
+* **Om du vill ta bort ett ämne** använder du följande kommando:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Det här kommandot tar bort ämnet med namnet `topicname`.
+
+    > [!WARNING]
+    > Om du tar bort ämnet `test`, som du skapade tidigare, måste du återskapa det. Det används under steg senare i det här dokumentet.
+
+Om du vill ha mer information om vilka kommandon som är tillgängliga med verktyget `kafka-topics.sh` använder du följande kommando:
 
 ```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh
 ```
-
-Det här kommandot ansluter till Zookeeper med hjälp av värdinformationen som lagras i `$KAFKAZKHOSTS`. Det skapar sedan ett Kafka-ämne med namnet **test**. Du kan verifiera att ämnet har skapats med hjälp av följande skript för att lista ämnen:
-
-```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-```
-
-Utdata från det här kommandot visar Kafka-avsnitt i klustret.
 
 ## <a name="produce-and-consume-records"></a>Skapa och använda poster
 
-Kafka lagrar *poster* i ämnen. Poster produceras av *producenter*, och används av *konsumenter*. Producenter producerar poster till Kafka-*utjämnare*. Varje arbetsnod i HDInsight-klustret är en asynkron Kafka-meddelandekö.
+Kafka lagrar *poster* i ämnen. Poster produceras av *producenter*, och används av *konsumenter*. Producenter och konsumenter kommunicerar med *Kafka-koordinator*tjänsten. Varje arbetsnod i HDInsight-klustret är en Kafka-koordinatorvärd.
 
 Använd följande steg för att lagra poster i det testämne som du skapade tidigare och sedan läsa dem med en konsument:
 
-1. Använd ett skript som medföljer Kafka för att skriva poster till ämnet från SSH-sessionen:
+1. Om du vill skriva poster i ämnet använder du verktyget `kafka-console-producer.sh` från SSH-anslutningen:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
@@ -189,7 +295,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
 2. Skriv in ett textmeddelande på den tomma raden och tryck på Retur. Ange några meddelanden på det här sättet och använd sedan **Ctrl + C** för att komma tillbaka till den vanliga kommandotolken. Varje rad skickas som en separat post till Kafka-ämnet.
 
-3. Använd ett skript som medföljer Kafka för att läsa poster från ämnet:
+3. Om du vill läsa poster i ämnet använder du verktyget `kafka-console-consumer.sh` från SSH-anslutningen:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -204,47 +310,23 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
 Du kan också programmässigt skapa producenter och konsumenter. Om du vill se ett exempel på att använda denna API kan du läsa dokumentet [Kafka-producent och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md).
 
-## <a name="data-high-availability"></a>Hög tillgänglighet för data
+## <a name="clean-up-resources"></a>Rensa resurser
 
-Varje Azure-region (plats) har _feldomäner_. En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
+För att rensa de resurser som har skapats med den här snabbstarten kan du ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade HDInsight-klustret och eventuella andra resurser som är associerade med resursgruppen.
 
-Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
+Ta bort en resursgrupp med Azure Portal:
 
-> [!IMPORTANT]
-> Använd om möjligt en Azure-region som innehåller tre feldomäner, och skapa ämnen med replikeringsfaktorn 3.
+1. I Azure Portal expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer sedan __Resursgrupper__ för att visa listan med dina resursgrupper.
+2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen __Mer__ (...) till höger om listan.
+3. Välj __Ta bort resursgrupp__ och bekräfta.
 
-Om du använder en region som bara har två feldomäner ska du använda replikeringsfaktorn 4, så att replikerna fördelas jämnt mellan de två feldomänerna.
-
-### <a name="kafka-and-fault-domains"></a>Kafka och feldomäner
-
-Kafka har ingen information om feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet. Garantera hög tillgänglighet med [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-session till huvudnoden för ditt Kafka-kluster.
-
-Du får bästa möjliga tillgänglighet för dina Kafka-data om du balanserar om partitionsreplikerna för ditt ämne när:
-
-* Du skapar ett nytt ämne eller en ny partition
-
-* Du skalar upp ett kluster
-
-## <a name="delete-the-cluster"></a>Ta bort klustret
-
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="troubleshoot"></a>Felsöka
-
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../hdinsight-administer-use-portal-linux.md#create-clusters).
+> [!WARNING]
+> Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används.
+> 
+> Om du tar bort en Kafka i ett HDInsight-kluster tas alla data som lagrats i Kafka bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I detta dokument har du lärt dig grunderna för att arbeta med Apache Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
+> [!div class="nextstepaction"]
+> [Använda Apache Spark med Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 
-* [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
-* [Replikera data mellan Kafka-kluster](apache-kafka-mirroring.md)
-* [Kafka-producent och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md)
-* [Kafka Streams-API med HDInsight](apache-kafka-streams-api.md)
-* [Använda Apache Spark-strömning (DStream) med Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Använda Apache Spark Structured Streaming med Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Använda Apache Spark Structured Streaming för att flytta data från Kafka på HDInsight till Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Använda Apache Storm med Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Ansluta till Kafka via ett trådlöst Azure-nätverk](apache-kafka-connect-vpn-gateway.md)
-* [Använda Kafka med Azure Container Service](apache-kafka-azure-container-services.md)
-* [Använda Kafka med Azure-funktionsappar](apache-kafka-azure-functions.md)

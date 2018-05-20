@@ -1,24 +1,24 @@
 ---
-title: "Lär dig mer om Azure Service Fabric | Microsoft Docs"
-description: "Lär dig mer om grundläggande begrepp och huvudområden i Azure Service Fabric. En utökad översikt över Service Fabric och hur du skapar mikrotjänster."
+title: Lär dig mer om Azure Service Fabric | Microsoft Docs
+description: Lär dig mer om grundläggande begrepp och huvudområden i Azure Service Fabric. En utökad översikt över Service Fabric och hur du skapar mikrotjänster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Därför vill du lär dig mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har en stor ytan emellertid och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp programmeringsmodeller, program livscykel, testa, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande lista för innehåll, men länkar till översikt och komma igång artiklar för varje del av Service Fabric. 
@@ -97,7 +97,7 @@ Service Fabric kan integreras med [ASP.NET Core](service-fabric-reliable-service
 - Värdbaserad som en gäst körbar fil. Främst används för att köra befintliga ASP.NET Core program på Service Fabric utan ändringar i koden.
 - Kör i en tillförlitlig tjänst. Detta kan bättre integration med Service Fabric-runtime och tillståndskänsliga ASP.NET Core services.
 
-### <a name="guest-executables"></a>Gästen körbara filer
+### <a name="guest-executables"></a>Körbara gästfiler
 En [gäst körbara](service-fabric-guest-executables-introduction.md) är en befintlig, valfri körbar fil (skrivs på olika språk) finns på ett Service Fabric-kluster tillsammans med andra tjänster. Gästen körbara filer integrerar inte direkt med Service Fabric API: er. Men de fortfarande dra nytta av funktioner som plattformen erbjuder, till exempel anpassade hälsa och läsa in reporting och tjänsten synlighet genom att anropa REST API: er. De kan också ha fullständig programmets livscykeln för support. 
 
 ## <a name="application-lifecycle"></a>Programlivscykel

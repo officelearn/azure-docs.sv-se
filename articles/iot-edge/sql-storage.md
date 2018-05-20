@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Lagra data på kanten med SQL Server-databaser
 
@@ -95,7 +95,7 @@ I steg 3 måste du lägga till skapa alternativ till SQL Server-behållare som �
         }
    ```
 
-3. Ersätt den `<docker registry address>` med adressen fylls i slutförda kursen [distribuera Azure-funktion som en gräns för IoT-modul - förhandsgranskning](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Ersätt den `<docker registry address>` med adressen fylls i slutförda kursen [distribuera Azure-funktion som en IoT-Edge-modul](tutorial-deploy-function.md).
 
    >[!NOTE]
    >Behållarregistrets adressen är samma som den inloggningsserver som du kopierade från ditt register. Det bör vara i form av `<your container registry name>.azurecr.io`

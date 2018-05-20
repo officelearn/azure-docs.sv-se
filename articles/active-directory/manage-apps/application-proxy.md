@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c5f706e6e9402bfc404c370a0d1a45fc07656a9e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Hur du ger säker fjärråtkomst till lokala program
 
@@ -52,15 +52,15 @@ Azure AD Application Proxy är:
 Du kan komma åt olika typer av interna program med Azure AD Application Proxy:
 
 * Webbprogram som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering  
-* Webbprogram som använder formulärbaserad eller [huvud-baserade](../application-proxy-ping-access.md) åtkomst  
+* Webbprogram som använder formulärbaserad eller [huvud-baserade](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst  
 * Web API: er som du vill exponera omfattande program på olika enheter  
-* Program som finns bakom en [servern för fjärrskrivbordsgateway](../application-proxy-publish-remote-desktop.md)  
+* Program som finns bakom en [servern för fjärrskrivbordsgateway](application-proxy-integrate-with-remote-desktop-services.md)  
 * Rich-klientprogram som är integrerade med Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Hur fungerar Application Proxy?
 Det finns två komponenter som måste du konfigurera om du vill göra Application Proxy fungerar: en koppling och den externa slutpunkten. 
 
-Kopplingen har en förenklad agent som placeras på en Windows-Server i nätverket. Kopplingen underlättar trafikflöde från Application Proxy-tjänst i molnet till ditt program lokalt. Den används endast utgående anslutningar, så du behöver öppna ingående portar eller placera något i Perimeternätverket. Kopplingarna är tillståndslösa och hämta information från molnet vid behov. Mer information om kopplingar, t.ex. hur de belastningsutjämning och autentisera, se [förstå Azure AD Application Proxy kopplingar](../application-proxy-understand-connectors.md). 
+Kopplingen har en förenklad agent som placeras på en Windows-Server i nätverket. Kopplingen underlättar trafikflöde från Application Proxy-tjänst i molnet till ditt program lokalt. Den används endast utgående anslutningar, så du behöver öppna ingående portar eller placera något i Perimeternätverket. Kopplingarna är tillståndslösa och hämta information från molnet vid behov. Mer information om kopplingar, t.ex. hur de belastningsutjämning och autentisera, se [förstå Azure AD Application Proxy kopplingar](application-proxy-connectors.md). 
 
 Den externa slutpunkten är hur användarna kan nå dina program medan utanför nätverket. De kan antingen gå direkt till en extern Webbadress som du bestämmer eller de kan komma åt programmet via MyApps-portalen. Om användare besöker någon av dessa slutpunkter, de autentiseras i Azure AD och sedan dirigeras via anslutningen till lokala program.
 
@@ -95,9 +95,9 @@ När du har publicerat din första app finns mycket mer du kan göra med Applica
 
 * [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Publicera program med ditt domännamn](application-proxy-configure-custom-domain.md)
-* [Lär dig mer om Azure AD Application Proxy-kopplingar](../application-proxy-understand-connectors.md)
-* [Arbeta med befintliga lokala proxyservrar](../application-proxy-working-with-proxy-servers.md) 
-* [Ange en anpassad startsida](../application-proxy-office365-app-launcher.md)
+* [Lär dig mer om Azure AD Application Proxy-kopplingar](application-proxy-connectors.md)
+* [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md) 
+* [Ange en anpassad startsida](application-proxy-configure-custom-home-page.md)
 
 Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Zscaler privata RAS-administratören | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zscaler privata RAS-administratören."
+title: 'Självstudier: Azure Active Directory-integrering med Zscaler privata RAS-administratören | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zscaler privata RAS-administratören.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: bf0b7cbd8047dfdbc1a4503775e6d36f8e8a67c1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c3918e4b54d60d6f609e99e24ed2f4b2995bf80c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Självstudier: Azure Active Directory-integrering med Zscaler privat åtkomst administratör
 
@@ -30,7 +30,7 @@ Integrera Zscaler privat åtkomst administratör med Azure AD ger dig följande 
 - Du kan aktivera användarna att automatiskt hämta inloggade till Zscaler privat åtkomst administratör (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -214,7 +214,7 @@ De måste etableras i Zscaler privata RAS-administratören om du vill aktivera A
 
     ![Administratören Zscaler privata Användaradministration](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. I den **användarnamn** textruta ange e-postadress för användaren som  **BrittaSimon@contoso.com** .
+    a. I den **användarnamn** textruta ange e-postadress för användaren som **BrittaSimon@contoso.com**.
 
     b. I den **lösenord** textruta skriver du lösenordet.
 
@@ -222,7 +222,7 @@ De måste etableras i Zscaler privata RAS-administratören om du vill aktivera A
 
     d. Välj **rollen** som **Zscaler privata administratören**.
 
-    e. I den **e-post** textruta ange e-postadress för användaren som  **BrittaSimon@contoso.com** .
+    e. I den **e-post** textruta ange e-postadress för användaren som **BrittaSimon@contoso.com**.
 
     f. I den **Phone** textruta ange telefonnumret.
 
@@ -270,7 +270,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

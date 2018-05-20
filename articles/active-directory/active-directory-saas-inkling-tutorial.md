@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Inkling | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Inkling."
+title: 'Självstudier: Azure Active Directory-integrering med Inkling | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Inkling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5cc3a184c278371ad90db8a512bb34a4cb2b4b49
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20a3212a0d4832bd64a5ca83dbef0e6fe4e2fa47
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Självstudier: Azure Active Directory-integrering med Inkling
 
@@ -29,9 +29,9 @@ Integrera Inkling med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Inkling (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - till Azure-hanteringsportalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Inkling, behöver du följande:
 
@@ -115,9 +115,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_01.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
     > Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med de faktiska identifierare och Reply-URL. Kontakta [Inkling supportteamet](mailto:press@inkling.com) att hämta dessa värden.
@@ -225,7 +225,7 @@ När du klickar på panelen Inkling på åtkomstpanelen du bör få automatiskt 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

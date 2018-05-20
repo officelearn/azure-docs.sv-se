@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Hantera enkel inloggning för företagsappar i
 
-Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera enkel inloggning-inställningar för företagsprogram. Enterprise-appar är appar som har distribuerats och används i din organisation. Den här artikeln gäller särskilt för appar som har lagts till från den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera enkel inloggning-inställningar för företagsprogram. Enterprise-appar är appar som har distribuerats och används i din organisation. Den här artikeln gäller särskilt för appar som har lagts till från den [Azure Active Directory-programgalleriet](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 Alla program som har ställts in för enkel inloggning kan visas och hanteras i Azure-portalen. Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. 
@@ -43,7 +43,7 @@ För att hantera inställningar för enkel inloggning, Välj **enkel inloggning*
 * **Lösenordsbaserade inloggning** -det här alternativet är tillgängligt om Azure AD stöder ifyllning av lösenordet för det här programmet.
 * **Länkad inloggning** -kallades ”befintliga enkel inloggning”, det här alternativet gör att administratörer kan placera en länk till det här programmet i startprogrammet för sina användare Azure AD-åtkomstpanelen eller Office 365.
 
-Mer information om dessa lägen finns [hur fungerar enkel inloggning med Azure Active Directory fungerar](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Mer information om dessa lägen finns [hur fungerar enkel inloggning med Azure Active Directory fungerar](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>SAML-baserade inloggning
 Den **SAML-baserade inloggning** alternativet är indelat i fyra avsnitt:
@@ -79,12 +79,12 @@ Den **konfigurera programmet** meny innehåller nya kortfattat och inbäddade in
 ![Inbäddade dokument](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Lösenordsbaserade inloggning
-Om stöds för programmet att välja lösenordsbaserade SSO-läge och välja **spara** omedelbart konfigureras för att göra lösenordsbaserade enkel inloggning. Mer information om hur du distribuerar lösenordsbaserade SSO finns [hur fungerar enkel inloggning med Azure Active Directory fungerar](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Om stöds för programmet att välja lösenordsbaserade SSO-läge och välja **spara** omedelbart konfigureras för att göra lösenordsbaserade enkel inloggning. Mer information om hur du distribuerar lösenordsbaserade SSO finns [hur fungerar enkel inloggning med Azure Active Directory fungerar](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Lösenordsbaserade inloggning](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Länkade inloggning
-Om stöds för programmet kan att välja det länkade SSO-läget du ange den URL som du vill att Azure AD-åtkomstpanelen eller Office 365 ska användas när användarna klickar du på den här appen. Läs mer om länkade SSO (kallades tidigare ”befintliga SSO”), [hur fungerar enkel inloggning med Azure Active Directory fungerar](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Om stöds för programmet kan att välja det länkade SSO-läget du ange den URL som du vill att Azure AD-åtkomstpanelen eller Office 365 ska användas när användarna klickar du på den här appen. Läs mer om länkade SSO (kallades tidigare ”befintliga SSO”), [hur fungerar enkel inloggning med Azure Active Directory fungerar](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Länkade inloggning](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

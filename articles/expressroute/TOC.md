@@ -1,42 +1,50 @@
 # [Dokumentation om ExpressRoute](index.md)
 
 # Översikt
+
 ## [Vad är ExpressRoute?](expressroute-introduction.md)
-## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
+
+# Självstudier
+## [Skapa och ändra en krets](expressroute-howto-circuit-portal-resource-manager.md)
+## [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-portal-resource-manager.md)
+## [Länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
+## [Konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-portal.md)
+
+# Begrepp
+
 ## [Anslutningsmodeller](expressroute-connectivity-models.md)
 ## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
 ## [Platser och partners](expressroute-locations.md)
 ### [Leverantörer efter plats](expressroute-locations-providers.md)
 ### [Platser efter leverantör](expressroute-locations.md)
 ## [Virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md)
-
-# Kom igång
 ## [Förutsättningar](expressroute-prerequisites.md)
 ## [Arbetsflöden](expressroute-workflows.md)
 ## [Routningskrav](expressroute-routing.md)
 ## [QoS-krav](expressroute-qos.md)
 ## [Om att flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
 
-# Gör så här för att
+# Instruktionsguider
+
 ## Skapa och ändra en krets
-### [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Skapa och ändra peering-konfiguration
-### [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## Länka ett virtuellt nätverk till en ExpressRoute-krets
-### [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## [Konfigurera ett virtuellt privat nätverk för plats-till-plats via Microsoft-peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurera en virtuell nätverksgateway för ExpressRoute
-### [Azure-portalen](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
 ## Konfigurera routningsfilter för Microsoft-peering
-### [Azure-portalen](how-to-routefilter-portal.md)
+### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
 ## [Flytta från offentlig peering till Microsoft-peering](how-to-move-peering.md)
@@ -52,13 +60,11 @@
 ### [Länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
 ### [Konfigurera ExpressRoute-anslutningar och S2S-anslutningar som kan användas samtidigt](expressroute-howto-coexist-classic.md)
 ### [Lägg till en gateway till ett virtuellt nätverk](expressroute-howto-add-gateway-classic.md)
-
 ## Metodtips
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)
 ### [Optimera routning](expressroute-optimize-routing.md)
 ### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
 ### [NAT för ExpressRoute](expressroute-nat.md)
-
 ## Felsöka
 ### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
 ### [Lösa problem med nätverksprestanda](expressroute-troubleshooting-network-performance.md)
@@ -67,19 +73,14 @@
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 
 # Referens
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+
+## [Azure PowerShell](/powershell/module/azurerm.network#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Relaterat
-## [Virtual Network](/azure/virtual-network/)
-## [VPN-gateway](/azure/vpn-gateway/)
-## [Virtuella datorer](/azure/virtual-machines/)
-## [Belastningsutjämnare](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-
 # Resurser
+## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Fallstudier](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Nätverksblogg](https://azure.microsoft.com/blog/topics/networking/)

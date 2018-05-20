@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7361a71d9e178f47761c42cebe706246eb9d5e64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core
 Den här självstudiekursen är den tredje delen i en serie.  Du får lära dig att aktivera HTTPS i en ASP.NET Core-tjänst som körs på Service Fabric. När du är färdig har du ett röstningsprogram med en HTTPS-aktiverad webbklientdel i ASP.NET Core som lyssnar på port 443. Om du inte vill skapa röstningsprogrammet manuellt i [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md) kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) till det färdiga programmet.
@@ -274,7 +274,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Köra konfigurationsskriptet som lokal administratör
 Som standard körs den körbara filen för tjänstens konfigurationsstartpunkt med samma autentiseringsuppgifter som Service Fabric (vanligtvis kontot NetworkService). För *SetCertAccess.ps1* krävs administratörsbehörighet. Du kan ändra säkerhetsbehörigheterna i manifestet så att startskriptet körs under ett lokalt administratörskonto.  
 
-Öppna *Voting/ApplicationPackageRoot/ManifestManifest.xml* i Solution Explorer. Skapa först avsnittet **Principals** (Huvudkonton) och lägg till en ny användare (till exempel ”SetupAdminUser”). Lägg till användarkontot SetupAdminUser i systemgruppen Administrators.
+Öppna *Voting/ApplicationPackageRoot/ApplicationManifest.xml* i Solution Explorer. Skapa först avsnittet **Principals** (Huvudkonton) och lägg till en ny användare (till exempel ”SetupAdminUser”). Lägg till användarkontot SetupAdminUser i systemgruppen Administrators.
 I avsnittet **ServiceManifestImport** för VotingWebPkg ska du sedan konfigurera en **RunAsPolicy** så att huvudkontot SetupAdminUser används för konfigurationsstartpunkten. Den här principen anger för Service Fabric att filen Setup.bat körs som SetupAdminUser (med administratörsbehörighet). 
 
 ```xml

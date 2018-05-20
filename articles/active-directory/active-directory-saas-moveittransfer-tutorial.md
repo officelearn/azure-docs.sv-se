@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med MOVEit överföring - integrering med Azure AD | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MOVEit överföringen - integrering med Azure AD."
+title: 'Självstudier: Azure Active Directory-integrering med MOVEit överföring - integrering med Azure AD | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MOVEit överföringen - integrering med Azure AD.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d9955655119a51656d6b17ba1cecf624c416874
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9bfd3ad884ad36026d56af514391c5f75a97e51
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Självstudier: Azure Active Directory-integrering med MOVEit överföring - Azure AD-integrering
 
@@ -30,9 +30,9 @@ Integrera MOVEit överföring - Azure AD-integrering med Azure AD ger dig följa
 - Du kan aktivera användarna att automatiskt hämta inloggade MOVEit - överföring av Azure AD-integrering (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med MOVEit överföring - Azure AD-integrering, behöver du följande:
 
@@ -108,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://contoso.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://contoso.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://contoso.com/<tenatid>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://contoso.com/<tenatid>`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Du kan se dessa värden senare i **URL för tjänstmetadata providern** avsnitt eller kontakta [MOVEit överföring - supportteamet för Azure AD-integrering klienten](https://community.ipswitch.com/s/support) att hämta dessa värden.
@@ -251,7 +251,7 @@ När du klickar på MOVEit överföringen - panelen Azure AD-integrering i panel
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

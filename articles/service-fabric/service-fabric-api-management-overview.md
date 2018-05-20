@@ -1,28 +1,28 @@
 ---
-title: "Azure Service Fabric API Management översikt | Microsoft Docs"
-description: "Den här artikeln är en introduktion till Azure API Management som en gateway till Service Fabric-program."
+title: Azure Service Fabric API Management översikt | Microsoft Docs
+description: Den här artikeln är en introduktion till Azure API Management som en gateway till Service Fabric-program.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med översikt över Azure API Management
 
-Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. I Service Fabric en gateway kan alla tillståndslösa tjänster som en [ASP.NET Core programmet](service-fabric-reliable-services-communication-aspnetcore.md), eller en annan tjänst som utformats för trafik ingång [Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/), [IoT-hubb](https://docs.microsoft.com/azure/iot-hub/), eller [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric en gateway kan alla tillståndslösa tjänster som en [ASP.NET Core programmet](service-fabric-reliable-services-communication-aspnetcore.md), eller en annan tjänst som utformats för trafik ingång [Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/), [IoT-hubb](https://docs.microsoft.com/azure/iot-hub/), eller [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
 Den här artikeln är en introduktion till Azure API Management som en gateway till Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. 
 
@@ -80,8 +80,8 @@ I det här exemplet skapas en ny instans av tillståndslösa tjänsten för varj
 
  Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodat i APIM principer eller regler för routning. I stället namnet på den tjänst som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` värden som anges i URL-begäran-sökväg. Exempel:
 
-  - En begäran om att `/api/users/foo` dirigeras till tjänstinstans`fabric:/app/users/foo`
-  - En begäran om att `/api/users/bar` dirigeras till tjänstinstans`fabric:/app/users/bar`
+  - En begäran om att `/api/users/foo` dirigeras till tjänstinstans `fabric:/app/users/foo`
+  - En begäran om att `/api/users/bar` dirigeras till tjänstinstans `fabric:/app/users/bar`
 
 ![Service Fabric med översikt över Azure API Management-topologi][sf-apim-dynamic-stateless]
 
@@ -99,8 +99,8 @@ I det här exemplet skapas en ny tillståndskänslig service-instans för varje 
 
  Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodat i APIM principer eller regler för routning. I stället namnet på den tjänst som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` värdet som en URL-sökväg för begäran. Exempel:
 
-  - En begäran om att `/api/users/foo` dirigeras till tjänstinstans`fabric:/app/users/foo`
-  - En begäran om att `/api/users/bar` dirigeras till tjänstinstans`fabric:/app/users/bar`
+  - En begäran om att `/api/users/foo` dirigeras till tjänstinstans `fabric:/app/users/foo`
+  - En begäran om att `/api/users/bar` dirigeras till tjänstinstans `fabric:/app/users/bar`
 
 Varje tjänstinstans är också partitionerad använder Int64 partitionsschema med två partitioner och flera nycklar som omfattar `Int64.MinValue` till `Int64.MaxValue`. Backend-principen beräknar en partitionsnyckel inom det intervallet genom att konvertera den `id` värden som anges i URL-begäran-sökvägen till en 64-bitars heltal, även om en algoritm kan användas här för att beräkna Partitionsnyckeln. 
 

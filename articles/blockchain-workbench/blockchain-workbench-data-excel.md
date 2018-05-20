@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Blockchain arbetsstationen data i Microsoft Excel
-description: Lär dig mer om att läsa in och visa Azure Blockchain arbetsstationen SQL DB-data i Microsoft Excel.
+title: Använda Azure Blockchain Workbench-data i Microsoft Excel
+description: Lär dig hur du läser in och visar SQL DB-data i Azure Blockchain Workbench i Microsoft Excel.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,61 +10,62 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 70297bd0af6322d0f3ac2c719d1827e4bc5898cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Visa Azure Blockchain arbetsstationen data med Microsoft Excel
+# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Visa Azure Blockchain Workbench-data med Microsoft Excel
 
-Du kan använda Microsoft Excel för att visa data i Azure Blockchain arbetsstationen SQL-databas. Den här artikeln innehåller steg som du behöver:
+Du kan använda Microsoft Excel för att visa data i SQL DB i Azure Blockchain Workbench. Den här artikeln förklarar de steg du följer för att:
 
-* Ansluta till databasen Blockchain arbetsstationen från Microsoft Excel
-* Titta på Blockchain arbetsstationen databastabeller och vyer
-* Läsa in Blockchain arbetsstationen visa data i Excel
+* Ansluta till Blockchain Workbench-databasen från Microsoft Excel
+* Visa tabeller och vyer i Blockchain Workbench-databasen
+* Läsa in Blockchain Workbench-vydata till Excel
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Ansluta till databasen Blockchain arbetsstationen
+## <a name="connect-to-the-blockchain-workbench-database"></a>Ansluta till Blockchain Workbench-databasen
 
-Att ansluta till en databas för Blockchain arbetsstationen:
+Så här ansluter du till en Blockchain Workbench-databas:
 
 1. Öppna Microsoft Excel.
-2. På den **Data** , Välj **hämta Data**.
-3. Välj **från Azure** och välj sedan **från Azure SQL Database**.
+2. Välj **Hämta data** på fliken **Data**.
+3. Välj **Från Azure** och sedan **Från Azure SQL Database**.
 
    ![Ansluta till Azure SQL-databas](media/blockchain-workbench-data-excel/connect-sql-db.png)
 
-4. I den **SQL Server-databas** dialogrutan:
+4. I dialogrutan **SQL Server-databas**:
 
-    * För **Server**, ange namnet på servern Blockchain arbetsstationen.
-    * För **databasen (valfritt)**, ange namnet på databasen.
+    * För **Server** anger du namnet på Blockchain Workbench-servern.
+    * För **Databas (valfritt)** anger du namnet på databasen.
 
-   ![Ange databasservern och databasen](media/blockchain-workbench-data-excel/provide-server-db.png)
+   ![Ange databasserver och databas](media/blockchain-workbench-data-excel/provide-server-db.png)
 
-5. I den **SQL Server-databas** dialogrutan navigeringsfältet väljer **databasen**. Ange din **användarnamn** och **lösenord**, och välj sedan **Anslut**.
+5. Välj **Databas** i navigeringsfältet i dialogrutan **SQL Server-databas**. Ange ditt **användarnamn** och **lösenord** och välj sedan **Anslut**.
 
     > [!NOTE]
-    > Om du använder autentiseringsuppgifter som skapades under distributionsprocessen Azure Blockchain arbetsstationen i **användarnamn** är `dbadmin`. Den **lösenord** är den du skapade när du distribuerade Blockchain arbetsstationen.
+    > Om du använder autentiseringsuppgifterna som skapades i samband med Azure Blockchain Workbench-distributionen är **Användarnamn** `dbadmin`. **Lösenord** är det lösenord som du skapade när du distribuerade Blockchain Workbench.
     
-   ![Ange autentiseringsuppgifter för att komma åt databasen](media/blockchain-workbench-data-excel/provide-credentials.png)
+   ![Ange autentiseringsuppgifterna för åtkomst till databasen](media/blockchain-workbench-data-excel/provide-credentials.png)
 
-## <a name="look-at-database-tables-and-views"></a>Titta på databastabeller och vyer
+## <a name="look-at-database-tables-and-views"></a>Visa tabeller och vyer i databasen
 
-Dialogrutan Excel Navigator öppnas när du ansluter till databasen. Du kan använda Navigatören titta på de tabeller och vyer i databasen. Vyerna som är utformade för rapportering och deras namn med prefixet **vw**.
+Dialogrutan Excel Navigator (Excel-navigatör) öppnas när du har anslutit till databasen. Du kan använda navigatören för att titta närmare på tabellerna och vyerna i databasen. Vyerna är utformade för rapportering och deras namn har prefixet **vw**.
 
-   ![Excel Navigator förhandsgranskning av en vy](media/blockchain-workbench-data-excel/excel-navigator.png)
+   ![Förhandsgranskning av en vy i Excel-navigatören](media/blockchain-workbench-data-excel/excel-navigator.png)
 
-## <a name="load-view-data-into-an-excel-workbook"></a>Läs in visa data i en Excel-arbetsbok
+## <a name="load-view-data-into-an-excel-workbook"></a>Läsa in vydata till en Excel-arbetsbok
 
-I nästa exempel visas hur du kan läsa in data från en vy i en Excel-arbetsbok.
+I nästa exempel ser du hur du kan läsa in data från en vy till en Excel-arbetsbok.
 
-1. I den **Navigator** rullningslist, Välj den **vwContractAction** vyn. Den **vwContractAction** förhandsgranskning visar alla åtgärder som rör ett kontrakt i databasen Blockchain arbetsstationen.
-2. Välj **belastningen** att hämta alla data i vyn och placera den i din Excel-arbetsbok.
+1. Välj vyn **vwContractAction** i rullningslisten i **Navigatör**. Förhandsgranskningen av **vwContractAction** visar alla åtgärder som rör ett kontrakt i Blockchain Workbench-databasen.
+2. Välj **Läs in** för att hämta alla data i vyn och infoga dem i Excel-arbetsboken.
 
    ![Data läses in från en vy](media/blockchain-workbench-data-excel/view-data.png)
 
-Nu när du har data som lästs in, kan du använda Excel-funktioner för att skapa egna rapporter med metadata och transaktionen data från Azure Blockchain arbetsstationen-databasen.
+Nu när alla data har lästs in kan du använda Excel-funktioner för att skapa egna rapporter med hjälp av metadata och transaktionsdata från Azure Blockchain Workbench-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Databasvyer i Azure Blockchain arbetsstationen](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Databasvyer i Azure Blockchain Workbench](blockchain-workbench-database-views.md)

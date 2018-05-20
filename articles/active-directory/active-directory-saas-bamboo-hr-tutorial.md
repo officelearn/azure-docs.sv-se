@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med BambooHR | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BambooHR."
+title: 'Självstudier: Azure Active Directory-integrering med BambooHR | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BambooHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Självstudier: Azure Active Directory-integrering med BambooHR
 
@@ -30,7 +30,7 @@ Integrera BambooHR med Azure AD ger följande fördelar:
 - Du kan aktivera användarna att få loggas automatiskt BambooHR med enkel inloggning (SSO) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats, Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -187,7 +187,7 @@ Om du vill aktivera Azure AD-användare att logga in på BambooHR lägga upp dem
    
     ![Knappen Inställningar](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "inställning")
 
-3. Välj **översikt**.
+3. Välj **Översikt**.
 
 4. I den vänstra rutan, Välj **säkerhet** > **användare**.
 
@@ -239,7 +239,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om att integrera SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,25 +1,27 @@
 ---
-title: "Azure AD Xamarin komma igång | Microsoft Docs"
-description: "Skapa Xamarin-program som integreras med Azure AD för inloggning och anropa Azure AD-skyddade API: er med hjälp av OAuth."
+title: Azure AD Xamarin komma igång | Microsoft Docs
+description: 'Skapa Xamarin-program som integreras med Azure AD för inloggning och anropa Azure AD-skyddade API: er med hjälp av OAuth.'
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -57,8 +59,7 @@ Om du vill aktivera app att hämta token, måste du först registrera det i Azur
   * **Omdirigerings-URI** är en kombination av schemat och strängen som Azure AD som används för att returnera token svar. Ange ett värde (till exempel http://DirectorySearcher).
 6. När du har slutfört registreringen, tilldelar Azure AD appen ett unikt-ID. Kopiera värdet från den **programmet** fliken, eftersom du behöver senare.
 7. På den **inställningar** väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**.
-8. Välj **Microsoft Graph** som API. Under **delegerade behörigheter**, lägga till den **läsa katalogdata** behörighet.  
-Den här åtgärden aktiverar appen att fråga Graph API för användare.
+8. Välj **Microsoft Graph** som API. Under **delegerade behörigheter**, lägga till den **läsa katalogdata** behörighet. Den här åtgärden aktiverar appen att fråga Graph API för användare.
 
 ## <a name="step-3-install-and-configure-adal"></a>Steg 3: Installera och konfigurera ADAL
 Nu när du har en app i Azure AD kan du installera ADAL och Skriv koden identitetsrelaterade. Om du vill aktivera ADAL att kommunicera med Azure AD, ger det viss information om appregistrering.
@@ -103,8 +104,7 @@ Nästan alla appens autentiseringslogiken ligger i `DirectorySearcher.SearchByAl
     {
     ```
 
-2. Initiera `AuthenticationContext`, vilket är den primära klassen av ADAL.  
-Den här åtgärden klarar ADAL koordinaterna kommunicera med Azure AD.
+2. Initiera `AuthenticationContext`, vilket är den primära klassen av ADAL. Den här åtgärden klarar ADAL koordinaterna kommunicera med Azure AD.
 3. Anropa `AcquireTokenAsync(...)`, som tar emot den `IPlatformParameters` objekt och anropar autentiseringsflödet som krävs för att returnera en token till appen.
 
     ```csharp

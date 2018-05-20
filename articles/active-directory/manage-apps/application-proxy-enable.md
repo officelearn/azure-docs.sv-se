@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 227792bcf5776b4fd13c263e02aa462b4d2d104f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Kom igång med Application Proxy och installera connector
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
@@ -33,7 +33,7 @@ Innan du kan aktivera och använda Application Proxy-tjänster behöver du:
 * En server som kör Windows Server 2012 R2 eller 2016, där du kan installera Application Proxy Connector. Servern behöver för att kunna ansluta till Application Proxy-tjänster i molnet och lokala program som du publicerar.
   * För enkel inloggning till ditt publicerade program med hjälp av Kerberos-begränsad delegering, måste den här datorn vara ansluten till domänen i samma AD-domän som de program som du publicerar. Mer information finns i [KCD för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-Om din organisation använder proxyservrar för att ansluta till internet, kan du läsa [fungerar med befintliga lokala proxyservrar](../application-proxy-working-with-proxy-servers.md) mer information om hur du konfigurerar dem innan du börjar med Application Proxy.
+Om din organisation använder proxyservrar för att ansluta till internet, kan du läsa [fungerar med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md) mer information om hur du konfigurerar dem innan du börjar med Application Proxy.
 
 ## <a name="open-your-ports"></a>Öppna portar
 
@@ -51,7 +51,7 @@ För att förbereda din miljö för Azure AD Application Proxy, måste du först
    > [!IMPORTANT]
    > Tabellen visar portkrav för koppling versioner 1.5.132.0 och senare. Om du fortfarande har en äldre version av koppling, du måste också aktivera följande portar förutom 80 och 443: 5671 8080 9090 9091 9350 9352 10100 – 10120.
    >
-   >Information om hur du uppdaterar din kopplingar till den senaste versionen finns [förstå Azure AD Application Proxy kopplingar](../application-proxy-understand-connectors.md#automatic-updates).
+   >Information om hur du uppdaterar din kopplingar till den senaste versionen finns [förstå Azure AD Application Proxy kopplingar](application-proxy-connectors.md#automatic-updates).
 
 2. Om din brandvägg eller proxyserver kan vitlistning av DNS kan du godkända anslutningar till msappproxy.net och servicebus.windows.net. Om inte, måste du tillåta åtkomst till den [Azure DataCenter-IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
 
@@ -99,10 +99,10 @@ Kontrollera listan över aktiva tjänster för anslutningen och connector update
 
    ![Application Proxy Connector-tjänster – skärmbild](./media/application-proxy-enable/app_proxy_services.png)
 
-Information om kopplingar och hur de hålls uppdaterad finns [förstå Azure AD Application Proxy kopplingar](../application-proxy-understand-connectors.md).
+Information om kopplingar och hur de hålls uppdaterad finns [förstå Azure AD Application Proxy kopplingar](application-proxy-connectors.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu kan du börja [publicera program med Application Proxy](application-proxy-publish-azure-portal.md).
 
-Om du har program som finns i separata nätverk eller olika platser kan du använda anslutningstjänsten grupper för att organisera olika kopplingar i logiska enheter. Läs mer i [Arbeta med programproxyanslutningar](../active-directory-application-proxy-connectors-azure-portal.md).
+Om du har program som finns i separata nätverk eller olika platser kan du använda anslutningstjänsten grupper för att organisera olika kopplingar i logiska enheter. Läs mer i [Arbeta med programproxyanslutningar](application-proxy-connector-groups.md).

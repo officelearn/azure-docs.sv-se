@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Igloo programvara | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Igloo programvaran och Azure Active Directory."
+title: 'Självstudier: Azure Active Directory-integrering med Igloo programvara | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Igloo programvaran och Azure Active Directory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8fc957a6a54f9f3a640147f453ebefcb8aac9d4c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 17ccb7fdb765462b8753be26ca823fd68160af34
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Självstudier: Azure Active Directory-integrering med Igloo programvara
 
@@ -29,9 +29,9 @@ Integrera Igloo programvara med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Igloo programvara (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Igloo programvara, behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<company name>.igloocommmunities.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<company name>.igloocommmunities.com/saml.digest`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<company name>.igloocommmunities.com/saml.digest`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Igloo Programvaruklienten supportteamet](https://www.igloosoftware.com/services/support) att hämta dessa värden. 
@@ -263,7 +263,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

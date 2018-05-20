@@ -104,6 +104,16 @@
       items:
         - name: Översikt
           href: sql-database-security-overview.md
+        - name: Advanced Threat Protection
+          href: sql-advanced-threat-protection.md
+        - name: Dataidentifiering och -klassificering
+          href: sql-database-data-discovery-and-classification.md
+        - name: Sårbarhetsbedömning
+          href: sql-vulnerability-assessment.md
+        - name: Hotidentifiering – SQL Database
+          href: sql-database-threat-detection.md
+        - name: Hotidentifiering – Managed Instance
+          href: sql-database-managed-instance-threat-detection.md
         - name: Brandväggsregler
           href: sql-database-firewall-configure.md
         - name: Brandväggsregler för virtuellt nätverk
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Granskning – Hanterad instans
           href: sql-database-managed-instance-auditing.md
-        - name: Hotidentifiering – SQL Database
-          href: sql-database-threat-detection.md
-        - name: Hotidentifiering – Managed Instance
-          href: sql-database-managed-instance-threat-detection.md
         - name: Tabellgranskning och TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamisk datamaskning
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Sårbarhetsbedömning
-          href: sql-vulnerability-assessment.md
-        - name: Dataidentifiering och -klassificering
-          href: sql-database-data-discovery-and-classification.md
     - name: Verksamhetskontinuitet
       items:
         - name: Översikt

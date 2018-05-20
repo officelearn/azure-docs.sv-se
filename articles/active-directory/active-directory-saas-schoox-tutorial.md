@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Schoox | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Schoox."
+title: 'Självstudier: Azure Active Directory-integrering med Schoox | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Schoox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b23b7d4f62994c81de211823822192956c8df84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28bd931b2d2776ae3dc2edc2df38169d9f29ab93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>Självstudier: Azure Active Directory-integrering med Schoox
 
@@ -30,9 +30,9 @@ Integrera Schoox med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Schoox (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Schoox, behöver du följande:
 
@@ -108,16 +108,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Schoox domän med enkel inloggning information](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_url.png)
 
-    I den **identifierare** textruta, ange ett URL-Adressen:`https://saml.schoox.com/saml/adfsmetadata`
+    I den **identifierare** textruta, ange ett URL-Adressen: `https://saml.schoox.com/saml/adfsmetadata`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Schoox domän med enkel inloggning information](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://saml.schoox.com/saml/login?idpUrl=<entityID>`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://saml.schoox.com/saml/login?idpUrl=<entityID>`
     
     > [!Note]
-    > `<entityID>`SAML-enhets-ID som kopieras från avsnittet Snabbreferens beskrivs senare i självstudiekursen. 
+    > `<entityID>` SAML-enhets-ID som kopieras från avsnittet Snabbreferens beskrivs senare i självstudiekursen. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -212,7 +212,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

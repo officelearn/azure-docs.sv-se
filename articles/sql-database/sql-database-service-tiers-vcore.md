@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>vCore-baserade inköpsmodell för Azure SQL Database (förhandsgranskning)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/11/2018
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
 |DTU-baserade modellen|Den här modellen är baserad på ett anpassade mått för bearbetning, lagring och i/o-resurser. Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-what-is-a-dtu.md)?|Bäst för kunder som vill enkla, förkonfigurerade alternativ.| 
-|vCore-baserade modellen|Den här modellen kan du skala beräknings-och lagringsresurserna oberoende av varandra. Du kan också använda Azure Hybrid-förmån för SQL Server för att få besparingar.|Bäst för kunder som värdet flexibilitet, kontroll- och insyn.|
+|vCore-baserade modellen|Den här modellen kan du oberoende skala beräkning och lagring - upp till 80 vCores, 4 TB lagringsutrymme och 200000 IOPS. Du kan också använda Azure Hybrid-förmån för SQL Server för att få besparingar.|Bäst för kunder som värdet flexibilitet, kontroll- och insyn.|
 ||||  
 
 ![prismodellen](./media/sql-database-service-tiers/pricing-model.png)
@@ -65,10 +65,10 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 ||**Generella**|**Verksamhetskritiska**|
 |---|---|---|
 |Bäst för|De flesta arbetsbelastningar. Erbjudanden budget objektorienterad belastningsutjämnade och skalbar beräkning och lagring-alternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
-|Compute|1-16 vCore|1-16 vCore|
+|Compute|1 och 80 vCore Generation 4 och 5 Generation |1 och 80 vCore Generation 4 och 5 Generation|
 |Minne|7 GB per kärna |7 GB per kärna |
-|Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 1 TB|
-|I/o-genomströmning (CA)|500 IOPS per vCore med 7500 högsta IOPS|5 000 IOPS per kärna|
+|Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokala SSD-lagringen, 5 GB – 4 TB|
+|I/o-genomströmning (CA)|500 IOPS per vCore med 7000 högsta IOPS|5 000 IOPS per kärna med 200000 högsta IOPS|
 |Tillgänglighet|1 repliken, utan läsning skalning|3 repliker, 1 [Läs skala](sql-database-read-scale-out.md), zonen redundant hög tillgänglighet|
 |Säkerhetskopior|RA-GRS, 7-35 dagar (7 dagar som standard)|RA-GRS, 7-35 dagar (7 dagar som standard) *|
 |I minnet|Gäller inte|Stöds|

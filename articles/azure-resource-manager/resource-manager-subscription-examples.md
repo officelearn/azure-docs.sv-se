@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exempel på att implementera kodskelett Azure enterprise
-Det här avsnittet innehåller exempel på hur ett företag kan implementera rekommendationer för en [Azure enterprise kodskelett](resource-manager-subscription-governance.md). Fiktiva företaget Contoso används för att illustrera Metodtips för vanliga scenarier.
+Den här artikeln innehåller exempel på hur ett företag kan implementera rekommendationer för en [Azure enterprise kodskelett](resource-manager-subscription-governance.md). Fiktiva företaget Contoso används för att illustrera Metodtips för vanliga scenarier.
 
 ## <a name="background"></a>Bakgrund
-Contoso är ett globalt företag som tillhandahåller ange kedjan lösningar för kunder i allt från en modell för ”programvara som tjänst” till en paketerad modell distribueras lokalt.  De utvecklar programvara världen med betydande Utvecklingscenter i Indien, USA och Kanada.
+Contoso är ett globalt företag som tillhandahåller ange kedjan lösningar för kunder. De ger allt från ett program som en modell för en paketerad modellen distribueras lokalt.  De utvecklar programvara världen med betydande Utvecklingscenter i Indien, USA och Kanada.
 
 ISV-delen av företaget är indelade i flera oberoende affärsenheter som hanterar produkter i ett betydande företag. Varje affärsenhet har egna utvecklare, projektledare och arkitekter.
 
 Enterprise teknik Services ETS affärsenhet ger centraliserade IT och hanterar flera datacenter där affärsenheter värd sina program. Tillsammans med hantering av datacenter, ETS organisationen ger och hanterar centraliserad samarbete (till exempel e-post och webbplatser) och nätverk/telefoni tjänster. De kan också hantera kund-riktade arbetsbelastningar för mindre enheter som inte har operativa personal.
 
-Följande personer som används i det här avsnittet:
+Följande personer som används i den här artikeln:
 
 * Dave är ETS Azure-administratör.
 * Alice har Contosos Director för utveckling i affärsenheten ange kedjan.
 
-Contoso måste skapa en line-of-business-app och en kund-riktade app. Beslutade att köra apparna på Azure. Dave läser den [normativ prenumeration styrning](resource-manager-subscription-governance.md) avsnittet, och är nu redo att implementera rekommendationerna.
+Contoso måste skapa en line-of-business-app och en kund-riktade app. Beslutade att köra apparna på Azure. Dave läser den [normativ prenumeration styrning](resource-manager-subscription-governance.md) artikel och är nu redo att implementera rekommendationerna.
 
 ## <a name="scenario-1-line-of-business-application"></a>Scenario 1: line-of-business-program
-Contoso skapar ett hanteringssystem för källa kod (BitBucket) som ska användas av utvecklare över hela världen.  Programmet använder infrastruktur som en tjänst (IaaS) som värd för och består av webbservrar och en databasserver. Utvecklare får åtkomst till servrar i utvecklingsmiljöer, men de behöver inte åtkomst till servrarna i Azure. Contoso ETS vill tillåta program ägare och team för att hantera programmet. Programmet är endast tillgängligt när Contosos företagsnätverk. Dave måste ställa in prenumerationen för det här programmet. Prenumerationen kommer också vara värd för andra developer-relaterade program i framtiden.  
+Contoso skapar ett hanteringssystem för källa kod (BitBucket) som ska användas av utvecklare över hela världen.  Programmet använder infrastruktur som en tjänst (IaaS) som värd för och består av webbservrar och en databasserver. Utvecklare får åtkomst till servrar i utvecklingsmiljöer, men de behöver inte åtkomst till servrarna i Azure. Contoso ETS vill ge programmet ägare och team för att hantera programmet. Programmet är endast tillgängligt när Contosos företagsnätverk. Dave måste ställa in prenumerationen för det här programmet. Prenumerationen kommer också vara värd för andra developer-relaterade program i framtiden.  
 
 ### <a name="naming-standards--resource-groups"></a>Namnge standards & resursgrupper
-Dave skapar en prenumeration för att stödja utvecklingsverktyg som är gemensamma för alla affärsenheter. Han måste skapa beskrivande namn för prenumeration och resurs grupper (för programmet och nätverk). Han skapar följande prenumeration och resurs grupper:
+Dave skapar en prenumeration för att stödja utvecklingsverktyg som är gemensamma för alla affärsenheter. Dave behöver skapa beskrivande namn för prenumeration och resurs grupper (för programmet och nätverk). Han skapar följande prenumeration och resurs grupper:
 
 | Objekt | Namn | Beskrivning |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave tilldelar följande roller för prenumerationen:
 | Roll | Tilldelat till | Beskrivning |
 | --- | --- | --- |
 | [Ägare](../role-based-access-control/built-in-roles.md#owner) |Hanterade ID från Contosos AD |Detta ID kontrolleras med precis tid JIT-åtkomst via Contosos Identitetshantering verktyg och säkerställer att granskas fullständigt prenumeration ägare åtkomst |
-| [Säkerhetshantering](../role-based-access-control/built-in-roles.md#security-manager) |Avdelningen för informationssäkerhet och riskhantering management |Den här rollen kan du titta i Azure Security Center och status för resurser |
+| [Säkerhet läsare](../role-based-access-control/built-in-roles.md#security-reader) |Avdelningen för informationssäkerhet och riskhantering management |Den här rollen kan du titta i Azure Security Center och status för resurser |
 | [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) |Nätverk-teamet |Den här rollen kan Contosos nätverksteam för att hantera plats-till-plats-VPN och virtuella nätverk |
 | *Anpassad roll* |Programmet ägare |Dave skapar en roll som ger möjlighet att ändra resurser i resursgruppen. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md) |
 
@@ -90,7 +90,7 @@ Han lägger till följande [taggar](resource-group-using-tags.md) till resursgru
 | Affärsenheten |**ETS** (affärsenhet som är associerade med prenumerationen) |
 
 ### <a name="core-network"></a>Kärnnätverket
-Contoso ETS information informationssäkerhet och riskhantering ledningen granskar Daves föreslagna planen för att flytta programmet till Azure. De vill se till att programmet inte exponerad mot internet.  Dave har också developer-appar som i framtiden kommer att flyttas till Azure. Dessa appar kräver offentliga gränssnitt.  Han ger både interna och externa virtuella nätverk och en säkerhetsgrupp för nätverk för att begränsa åtkomsten för att uppfylla kraven.
+Contoso ETS information informationssäkerhet och riskhantering ledningen granskar Daves föreslagna planen för att flytta programmet till Azure. De vill se till att programmet inte är exponerad mot internet.  Dave har också developer-appar som i framtiden kommer att flyttas till Azure. Dessa appar kräver offentliga gränssnitt.  Han ger både interna och externa virtuella nätverk och en säkerhetsgrupp för nätverk för att begränsa åtkomsten för att uppfylla kraven.
 
 Han skapar följande resurser:
 
@@ -115,7 +115,7 @@ Dave har inget att automatisera för det här programmet. Även om han skapade e
 ### <a name="azure-security-center"></a>Azure Security Center
 Contoso IT-tjänsthantering behöver snabbt identifiera och hantera hot. De vill också att förstå vilka problem kan finnas.  
 
-För att uppfylla dessa datahanteringskrav Dave gör den [Azure Security Center](../security-center/security-center-intro.md), och ger åtkomst till rollen Security Manager.
+För att uppfylla dessa datahanteringskrav Dave gör den [Azure Security Center](../security-center/security-center-intro.md), och ger åtkomst till rollen säkerhet läsare.
 
 ## <a name="scenario-2-customer-facing-app"></a>Scenario 2: kund-riktade app
 Företag position inom affärsenheten ange kedja har identifierats av olika möjligheter att öka användarnas interaktion med Contosos kunder med en kortet. Alice team måste skapa det här programmet och beslutar att Azure ökar de kan uppfylla företagets behov. Alice fungerar med Dave från ETS så här konfigurerar du två prenumerationer för utveckling och drift av det här programmet.
@@ -137,7 +137,7 @@ För den **development prenumeration**, de skapar följande princip:
 | --- | --- | --- |
 | location |Granska |Gransknings-och skapa resurser i en region |
 
-De begränsa inte typ av sku som en användare kan skapa under utveckling och de behöver inte taggar för alla resursgrupper eller resurser.
+De begränsa inte typ av sku som en användare kan skapa under utveckling och de kräver inte taggar för resursgrupper eller resurser.
 
 För den **produktion prenumeration**, de skapar följande principer:
 
@@ -148,7 +148,7 @@ För den **produktion prenumeration**, de skapar följande principer:
 | tags |avvisa |Kräv avdelning tagg |
 | tags |Lägg till |Lägg till tagg i varje resursgrupp som anger produktionsmiljö |
 
-De begränsar inte typ av sku som en användare kan skapa i produktion.
+De begränsa inte typ av sku som en användare kan skapa i produktion.
 
 ### <a name="resource-tags"></a>Resurstaggar
 Dave förstår att han måste ha specifik information för att identifiera rätt affärsgrupper för fakturering och ägare. Han definierar resurstaggar för resursgrupper och resurser.

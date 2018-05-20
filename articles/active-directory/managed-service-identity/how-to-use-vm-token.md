@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9300c3a45f57da7e55eed1dbdf8fd6e94b094c31
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för token 
 
@@ -282,10 +282,10 @@ Den hanterade tjänstidentiteten slutpunkten signalerar fel via fältet status k
 
 | Statuskod | Fel orsak | Hur du hanterar |
 | ----------- | ------------ | ------------- |
+| Det gick inte att hitta 404. | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se anvisningar nedan. |
 | 429 för många begäranden. |  Begränsa IMDS har nåtts. | Försök igen med exponentiell Backoff. Se anvisningar nedan. |
 | 4xx fel i begäran. | En eller flera parametrar för begäran var felaktig. | Försök inte.  Granska felinformationen för mer information.  4xx fel uppstår fel i designläge.|
 | 5xx tillfälligt fel från tjänsten. | MSI-undersystem eller Azure Active Directory returnerade ett tillfälligt fel. | Det är säkert att försöka igen efter att ha väntat i minst 1 sekund.  Om du gör för snabbt eller för ofta kan IMDS och/eller Azure AD returnera ett gränsen hastighet (429).|
-| Det gick inte att hitta 404. | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se anvisningar nedan. |
 | timeout | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se anvisningar nedan. |
 
 Om ett fel inträffar innehåller motsvarande HTTP svarstexten JSON med felinformation:

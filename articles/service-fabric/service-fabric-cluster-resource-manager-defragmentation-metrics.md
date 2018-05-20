@@ -1,24 +1,24 @@
 ---
-title: "Defragmentering av mätvärden i Azure Service Fabric | Microsoft Docs"
-description: "En översikt över använder defragmentering eller packa som en strategi för mått i Service Fabric"
+title: Defragmentering av mätvärden i Azure Service Fabric | Microsoft Docs
+description: En översikt över använder defragmentering eller packa som en strategi för mått i Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mätvärden och belastningen i Service Fabric
 Service Fabric klustret resurshanterare standard strategi för att hantera belastningen mått i klustret är att fördela belastningen. Se till att noderna är jämnt utnyttjade undviker varm eller kall punkter som leda till både konkurrens och oanvänt resurser. Distribution av arbetsbelastningar i klustret är också den säkraste vad gäller kvarvarande fel eftersom det garanterar att fel inte ta ut en stor del av en viss arbetsbelastning. 

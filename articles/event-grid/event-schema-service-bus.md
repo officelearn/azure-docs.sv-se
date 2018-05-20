@@ -1,18 +1,18 @@
 ---
-title: "Azure Service Bus för händelsen rutnätet Händelseschema"
-description: "Beskriver de egenskaper som har angetts för Service Bus-händelser med Azure händelse rutnätet"
+title: Azure Service Bus för händelsen rutnätet Händelseschema
+description: Beskriver de egenskaper som har angetts för Service Bus-händelser med Azure händelse rutnätet
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure händelse rutnätet Händelseschema för Service Bus
 
@@ -77,7 +77,7 @@ Schemat för en händelse för obeställbara kön är ungefär:
 
 En händelse har följande översta data:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
 | Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
@@ -85,17 +85,17 @@ En händelse har följande översta data:
 | EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
 | data | objekt | BLOB storage händelsedata. |
-| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | nameSpaceName | sträng | Service Bus-namnrymd resursen finns i. |
 | requestUri | sträng | URI: N till den eller de specifika prenumeration avger händelsen. |
 | EntityType | sträng | Typ av Service Bus-entitet avger händelser (kön eller prenumeration). |
-| queueName | sträng | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om avsnitt om att använda / prenumerationer. |
+| Könamn | sträng | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om avsnitt om att använda / prenumerationer. |
 | topicName | sträng | Avsnittet Service Bus-prenumerationen med aktiva meddelanden tillhör. Värdet null om du använder en kö. |
 | SubscriptionName | sträng | Service Bus-prenumeration med aktiva meddelanden. Värdet null om du använder en kö. |
 

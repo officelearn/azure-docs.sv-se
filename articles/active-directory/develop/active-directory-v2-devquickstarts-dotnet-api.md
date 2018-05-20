@@ -1,38 +1,40 @@
 ---
-title: "Lägga till inloggning i en .NET MVC-webb-API med hjälp av Azure AD v2.0-slutpunkten | Microsoft Docs"
-description: "Hur du skapar en .NET MVC webb-Api som accepterar token från både personliga Account och arbets-eller skolkonton."
+title: Lägga till inloggning i en .NET MVC-webb-API med hjälp av Azure AD v2.0-slutpunkten | Microsoft Docs
+description: Hur du skapar en .NET MVC webb-Api som accepterar token från både personliga Account och arbets-eller skolkonton.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa73e918cbd49fee850e402859708ba0c4185a19
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Skydda en MVC-webb-API
 Med Azure Active Directory v2.0-slutpunkten kan du skydda ett webb-API med hjälp av [OAuth 2.0](active-directory-v2-protocols.md) åtkomst-token så att användarna med både personliga Microsoft-konto och arbets- eller skolkonto konton för säker åtkomst webb-API.
 
 > [!NOTE]
-> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten.  Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
+> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
 >
 >
 
-I ASP.NET webb-API: er, kan du göra detta med hjälp av Microsofts OWIN mellanprogram som ingår i .NET Framework 4.5.  Vi använder här OWIN för att skapa en ”att göra-lista” MVC webb-API som tillåter klienter att skapa och läsa uppgifter från en användares att göra-lista.  Webb-API verifierar att inkommande begäranden innehåller en giltig åtkomst-token och avvisa alla begäranden som inte klarar valideringen på en skyddad väg.  Det här exemplet har skapats med Visual Studio 2015.
+I ASP.NET webb-API: er, kan du göra detta med hjälp av Microsofts OWIN mellanprogram som ingår i .NET Framework 4.5. Vi använder här OWIN för att skapa en ”att göra-lista” MVC webb-API som tillåter klienter att skapa och läsa uppgifter från en användares att göra-lista. Webb-API verifierar att inkommande begäranden innehåller en giltig åtkomst-token och avvisa alla begäranden som inte klarar valideringen på en skyddad väg. Det här exemplet har skapats med Visual Studio 2015.
 
 ## <a name="download"></a>Ladda ned
-Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  Om du vill följa med kan du [ladda ned appens stomme som en .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) eller klona stommen:
+Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet). Om du vill följa med kan du [ladda ned appens stomme som en .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) eller klona stommen:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -45,11 +47,11 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## <a name="register-an-app"></a>Registrera en app
-Skapa en ny app på [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller följa dessa [detaljerade steg](active-directory-v2-app-registration.md).  Se till att:
+Skapa en ny app på [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller följa dessa [detaljerade steg](active-directory-v2-app-registration.md). Se till att:
 
 * Kopiera den **program-Id** tilldelats din app måste den snart.
 
-Visual studio-lösning innehåller också en ”TodoListClient”, vilket är en enkel WPF-program.  TodoListClient används för att demonstrera hur en användare loggar in och hur en klient kan skicka begäranden till ditt webb-API.  I det här fallet representeras både TodoListClient och TodoListService av samma app.  Om du vill konfigurera TodoListClient, bör du också:
+Visual studio-lösning innehåller också en ”TodoListClient”, vilket är en enkel WPF-program. TodoListClient används för att demonstrera hur en användare loggar in och hur en klient kan skicka begäranden till ditt webb-API. I det här fallet representeras både TodoListClient och TodoListService av samma app. Om du vill konfigurera TodoListClient, bör du också:
 
 * Lägg till den **Mobile** plattform för din app.
 
@@ -66,8 +68,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>Konfigurera OAuth-autentisering
-* Lägg till en OWIN-startklass i TodoListService-projektet som kallas `Startup.cs`.  Högerklicka på projektet--> **Lägg till** --> **nytt objekt** --> Sök efter ”OWIN”.  OWIN-mellanprogrammet anropar `Configuration(…)`-metoden när appen startas.
-* Ändra klassdeklarationen till `public partial class Startup` -vi har implementerat en del av den här klassen som du redan i en annan fil.  I den `Configuration(…)` metod, gör ett anrop till ConfgureAuth(...) du konfigurerar autentisering för ditt webbprogram.
+* Lägg till en OWIN-startklass i TodoListService-projektet som kallas `Startup.cs`. Högerklicka på projektet--> **Lägg till** --> **nytt objekt** --> Sök efter ”OWIN”. OWIN-mellanprogrammet anropar `Configuration(…)`-metoden när appen startas.
+* Ändra klassdeklarationen till `public partial class Startup` -vi har implementerat en del av den här klassen som du redan i en annan fil. I den `Configuration(…)` metod, gör ett anrop till ConfgureAuth(...) du konfigurerar autentisering för ditt webbprogram.
 
 ```csharp
 public partial class Startup
@@ -95,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app)
 
                 // In a real applicaiton, you might use issuer validation to
                 // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // signed up for the app. Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
@@ -105,7 +107,7 @@ public void ConfigureAuth(IAppBuilder app)
         // that will be recieved, which are JWTs for the v2.0 endpoint.
 
         // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // metadata endpoint which is not supported by the v2.0 endpoint. Instead, this
         // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
         // metadata document.
 
@@ -116,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Nu kan du använda `[Authorize]` attribut för att skydda dina domänkontrollanter och åtgärder med OAuth 2.0-ägar-autentisering.  Skapa snygga den `Controllers\TodoListController.cs` klass med en auktorisera-tagg.  Detta tvingar användaren att logga in innan sidan.
+* Nu kan du använda `[Authorize]` attribut för att skydda dina domänkontrollanter och åtgärder med OAuth 2.0-ägar-autentisering. Skapa snygga den `Controllers\TodoListController.cs` klass med en auktorisera-tagg. Detta tvingar användaren att logga in innan sidan.
 
 ```csharp
 [Authorize]
@@ -124,13 +126,13 @@ public class TodoListController : ApiController
 {
 ```
 
-* När en auktoriserad anroparen har anropar någon av de `TodoListController` API: er, åtgärden kanske behöver åtkomst till information om anroparen.  OWIN ger tillgång till anspråk i ägartoken via den `ClaimsPrincipal` objekt.  
+* När en auktoriserad anroparen har anropar någon av de `TodoListController` API: er, åtgärden kanske behöver åtkomst till information om anroparen. OWIN ger tillgång till anspråk i ägartoken via den `ClaimsPrincipal` objekt. 
 
 ```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
+    // user making the call. In this case, we use the 'sub' or
     // NameIdentifier claim to serve as a key for the tasks in the data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
@@ -150,14 +152,14 @@ Innan du kan se tjänsten Todo i åtgärden måste du konfigurera klienten för 
 * Öppna i projektet TodoListClient `App.config` och ange dina konfigurationsvärden i den `<appSettings>` avsnitt.
   * Din `ida:ClientId` program-Id som du kopierade från portalen.
 
-Slutligen, rensa, skapa och köra varje projekt!  Nu har du en .NET MVC webb-API som accepterar token från både personliga Microsoft-konton och arbets-eller skolkonton.  Logga in på TodoListClient och anropa dina webb-api för att lägga till aktiviteter i användarens att göra-lista.
+Slutligen, rensa, skapa och köra varje projekt!  Nu har du en .NET MVC webb-API som accepterar token från både personliga Microsoft-konton och arbets-eller skolkonton. Logga in på TodoListClient och anropa dina webb-api för att lägga till aktiviteter i användarens att göra-lista.
 
 För referens anger det slutförda exemplet (utan dina konfigurationsvärden) [har angetts som en .zip här](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), eller kan du klona den från GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu gå vidare till ytterligare information.  Du kanske vill prova:
+Du kan nu gå vidare till ytterligare information. Du kanske vill prova:
 
 [Anropa ett webb-API från ett webbprogram >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 

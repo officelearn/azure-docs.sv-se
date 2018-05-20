@@ -1,11 +1,11 @@
 ---
 title: Rapportaviseringar i Azure Active Directory
-description: "Hur du använder Azure Active Directory reporting meddelanden för misstänkt tecken moduler."
+description: Hur du använder Azure Active Directory reporting meddelanden för misstänkt tecken moduler.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Rapportaviseringar i Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Vilka rapporter Generera e-postaviseringar
@@ -39,7 +39,7 @@ E-postmeddelandet skickas om 10 nya oregelbundna inloggning aktiviteter som intr
 När du klickar på länken omdirigeras till sidan i Azure-portalen. Du måste vara både för att komma åt rapporten:
 
 * En administratör eller medadministratör för Azure-prenumerationen
-* En global administratör i katalogen, och tilldelas en Active Directory Premium-licens. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+* En global administratör i katalogen, och tilldelas en Active Directory Premium-licens. Mer information finns i [Azure Active Directory-versioner](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Kan jag inaktivera dessa e-postmeddelanden?
 Ja, om du vill inaktivera aviseringar som rör avvikande inloggningar i Azure-portalen klickar du på **konfigurera**, och välj sedan **inaktiverad** under den **meddelanden** avsnitt.

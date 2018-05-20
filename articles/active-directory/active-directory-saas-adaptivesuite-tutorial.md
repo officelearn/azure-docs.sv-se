@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med anpassningsbar Suite | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbar Suite."
+title: 'Självstudier: Azure Active Directory-integrering med anpassningsbar Suite | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbar Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e128ddf53a93fe30350d8e914657f3539701603
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0932eea407ea6dbb43760c2e64c49be802363360
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Självstudier: Azure Active Directory-integrering med anpassningsbar Suite
 
@@ -31,7 +31,7 @@ Integrera anpassningsbar Suite med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med anpassningsbar Suite, behöver du följande:
 
@@ -110,11 +110,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    I den **Reply URL** textruta Skriv en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
     > Du får det här värdet från det anpassade paketet **SAML SSO inställningar** sidan.
-    >  
+    >
+    
+    Kontrollera den **visa avancerade inställningar för URL: en** rutan. I den **identifierare (enhets-ID)** textruta anger du samma URL som du angav i den **Reply URL** textruta.
+    
+    >[!NOTE]
+    > Entitets-ID för varje domän som anpassningsbar insikter är samma som dess reply-URL.
+    >
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

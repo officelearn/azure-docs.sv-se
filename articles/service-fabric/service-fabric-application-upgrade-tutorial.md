@@ -1,24 +1,24 @@
 ---
-title: "Uppgradera självstudier för Service Fabric-app | Microsoft Docs"
-description: "Den här artikeln beskriver hur erfarenhet av distribution av ett Service Fabric-program, ändra koden och distribution av en uppgradering med hjälp av Visual Studio."
+title: Uppgradera självstudier för Service Fabric-app | Microsoft Docs
+description: Den här artikeln beskriver hur erfarenhet av distribution av ett Service Fabric-program, ändra koden och distribution av en uppgradering med hjälp av Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Service Fabric uppgradera självstudiekursen använder Visual Studio
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Att välja **publicera** öppnas ett popup-fönster, och du kan ange den **mål 
 
 ![Publicera ett Service Fabric-program][image2]
 
-Nu kan du klicka på **publicera** i dialogrutan. Du kan använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet visuella objekt har en webbtjänst som du kan gå till genom att skriva [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) i adressfältet i webbläsaren.  Du bör se 10 flytande visuella objekt flytta runt på skärmen.
+Nu kan du klicka på **publicera** i dialogrutan. Du kan använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet visuella objekt har en webbtjänst som du kan gå till genom att skriva [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) i adressfältet i webbläsaren.  Du bör se 10 flytande visuella objekt flytta runt på skärmen.
 
 **Obs:** om distribuerar till `Cloud.xml` profil (Azure Service Fabric) programmet sedan ska vara tillgängligt vid **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Kontrollera att du har `8081/TCP` konfigurerats i belastningsutjämnaren (hitta belastningsutjämnare i samma resursgrupp som Service Fabric-instans).
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Vodeclic | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vodeclic."
+title: 'Självstudier: Azure Active Directory-integrering med Vodeclic | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vodeclic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 940c7bb5040fb91a03b01dc43ee07d52e3d4e63b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: bc889919f2d869478843881cc8eae06fc9cb232c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Självstudier: Azure Active Directory-integrering med Vodeclic
 
@@ -30,9 +30,9 @@ Integrera Vodeclic med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Vodeclic (enkel inloggning eller SSO) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats--Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Vodeclic, behöver du följande:
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Vodeclic domän med enkel inloggning information](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_url.png)
 
-    a. I den **identifierare** Skriv en URL med följande mönster:`https://<companyname>.lms.vodeclic.net/auth/saml`
+    a. I den **identifierare** Skriv en URL med följande mönster: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    b. I den **Reply URL** Skriv en URL med följande mönster:`https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+    b. I den **Reply URL** Skriv en URL med följande mönster: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
 4. Om du vill konfigurera programmet i **SP** initierade läge, Välj den **visa avancerade inställningar för URL: en** kryssrutan och utför följande steg:
 
     ![URL: er och Vodeclic domän med enkel inloggning information](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
-    I den **inloggnings-URL** Skriv en URL med följande mönster:`https://<companyname>.lms.vodeclic.net/auth/saml`
+    I den **inloggnings-URL** Skriv en URL med följande mönster: `https://<companyname>.lms.vodeclic.net/auth/saml`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svara URL och inloggnings-URL. Kontakta den [Vodeclic klienten supportteamet](mailto:hotline@vodeclic.com) att hämta dessa värden.
@@ -214,7 +214,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Salesforce | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce."
+title: 'Självstudier: Azure Active Directory-integrering med Salesforce | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Självstudier: Azure Active Directory-integrering med Salesforce
 
@@ -30,9 +30,9 @@ Integrera Salesforce med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in till Salesforce (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Salesforce, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     a. I den **inloggnings-URL** textruta Skriv det värde som använder följande mönster:
     
-    Enterprise-konto:`https://<subdomain>.my.salesforce.com`
+    Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
-    Utvecklarkonto för:`https://<subdomain>-dev-ed.my.salesforce.com`
+    Utvecklarkonto för: `https://<subdomain>-dev-ed.my.salesforce.com`
     
     b. I den **identifierare** textruta Skriv det värde som använder följande mönster:
     
-    Enterprise-konto:`https://<subdomain>.my.salesforce.com`
+    Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
-    Utvecklarkonto för:`https://<subdomain>-dev-ed.my.salesforce.com`
+    Utvecklarkonto för: `https://<subdomain>-dev-ed.my.salesforce.com`
     
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Salesforce klienten supportteamet](https://help.salesforce.com/support) att hämta dessa värden.
@@ -169,8 +169,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **enhets-Id textruta**, ange ditt Salesforce-domännamn med hjälp av följande mönster:
       
-      * Enterprise-konto:`https://<subdomain>.my.salesforce.com`
-      * Utvecklarkonto för:`https://<subdomain>-dev-ed.my.salesforce.com`
+      * Enterprise-konto: `https://<subdomain>.my.salesforce.com`
+      * Utvecklarkonto för: `https://<subdomain>-dev-ed.my.salesforce.com`
       
     d. Att överföra den **providern identitetscertifikat**, klickar du på **Välj fil** att bläddra och välja den certifikatfil som du har hämtat från Azure-portalen.
 
@@ -188,7 +188,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. I **identitet providern inloggnings-URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen
     
-    Jag. Klicka slutligen på **spara** tillämpa SAML enkel inloggning inställningarna.
+    i. Klicka slutligen på **spara** tillämpa SAML enkel inloggning inställningarna.
 
 14. Klicka på det vänstra navigeringsfönstret i Salesforce **Företagsinställningar** Expandera avsnittet relaterade och klicka sedan på **min domän**.
 
@@ -286,7 +286,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,24 +1,24 @@
 ---
 title: Priser och fakturering - Azure Logic Apps | Microsoft Docs
-description: "Lär dig hur priser och fakturering fungerar för Logikappar i Azure"
-author: kevinlam1
-manager: anneta
-editor: 
+description: Lär dig hur priser och fakturering fungerar för Logikappar i Azure
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Prissättningsmodell för Logic Apps
 
@@ -57,7 +57,7 @@ Alla fel och har kör åtgärder räknas och uppmätta som åtgärden körningar
 
 ## <a name="integration-account-usage"></a>Användningen av integration konton
 
-Förbrukningsbaserad användning innehåller en [integrering konto](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utveckla och testa den [B2B/EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) funktioner i Logic Apps utan extra kostnad. Du kan ha något av kontona integration per region och lagra upp till 10 avtal och 25 maps. Du kan ha och överför obegränsade partners, scheman och certifikat.
+Förbrukningsbaserad användning innehåller en [integrering konto](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utveckla och testa den [B2B/EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) funktioner i Logic Apps utan extra kostnad. Du kan ha ett konto för integrering per region och lagra upp till specifika [antal artefakter](../logic-apps/logic-apps-limits-and-config.md), till exempel EDI handelspartner och avtal, kartor, scheman, sammansättningar, certifikat och batch-konfigurationer.
 
 Logic Apps erbjuder också basic och standard integrationskonton med stöds Logic Apps SLA. Du kan använda grundläggande integrationskonton när du antingen använda endast meddelandehantering eller fungera som en partner för småföretag som har en handel partner-relation med en större företag entitet. Standard integrationskonton stöd för mer komplexa B2B-relationer och öka antalet enheter som du kan hantera. Mer information finns i [priser för Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 

@@ -1,23 +1,23 @@
 ---
 title: Azure-hanterade program skapa UI definition funktioner | Microsoft Docs
-description: "Beskriver funktionerna som ska användas när man skapar UI definitioner för hanterade program i Azure"
-services: azure-resource-manager
+description: Beskriver funktionerna som ska användas när man skapar UI definitioner för hanterade program i Azure
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition funktioner
 Det här avsnittet innehåller signaturer för alla funktioner som stöds av en CreateUiDefinition.
@@ -40,7 +40,7 @@ Om tillämpligt, kan du referera egenskaper för utdata för en funktion med hj�
 "[func().prop1]"
 ```
 
-## <a name="referencing-functions"></a>Refererar till funktioner
+## <a name="referencing-functions"></a>Referensfunktioner
 Dessa funktioner kan användas för att referera till utdata från de egenskaper eller kontexten för en CreateUiDefinition.
 
 ### <a name="basics"></a>Grunderna
@@ -130,7 +130,7 @@ I följande exempel returneras `"FOOBAR"`:
 ## <a name="collection-functions"></a>Samlingen funktioner
 Dessa funktioner kan användas med samlingar som JSON-strängar, matriser och -objekt.
 
-### <a name="contains"></a>Innehåller
+### <a name="contains"></a>innehåller
 Returnerar `true` om en sträng som innehåller den angivna delsträngen, en matris som innehåller det angivna värdet eller ett objekt som innehåller den angivna nyckeln.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -369,7 +369,7 @@ I följande exempel returneras `{"key2": "raboof"}`:
 ## <a name="logical-functions"></a>Logiska funktioner
 Dessa funktioner kan användas i villkorlig sats. Vissa funktioner kanske inte stöder alla JSON-datatyper.
 
-### <a name="equals"></a>är lika med
+### <a name="equals"></a>lika med
 Returnerar `true` om båda parametrarna har samma typ och värde. Den här funktionen stöder alla JSON-datatyper.
 
 I följande exempel returneras `true`:
@@ -510,7 +510,7 @@ I följande exempel returneras `2`:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>flyttal
+### <a name="float"></a>flyt
 Konverterar parametern till ett flyttal. Den här funktionen har stöd för parametrar av typen nummer och strängen.
 
 I följande exempel returneras `1.0`:
@@ -525,7 +525,7 @@ I följande exempel returneras `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>Sträng
+### <a name="string"></a>sträng
 Konverterar parametern till en sträng. Den här funktionen stöder alla datatyper i JSON-parametrar.
 
 I följande exempel returneras `"1"`:
@@ -642,8 +642,8 @@ I följande exempel returneras `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Matematiska funktioner
-### <a name="add"></a>Lägg till
+## <a name="math-functions"></a>Matematikfunktioner
+### <a name="add"></a>lägg till
 Adderar två tal och returnerar resultatet.
 
 I följande exempel returneras `3`:
@@ -703,7 +703,7 @@ I följande exempel returneras `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>Max
+### <a name="max"></a>max
 Returnerar högre av de två talen.
 
 I följande exempel returneras `2`:

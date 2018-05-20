@@ -1,24 +1,24 @@
 ---
-title: "Hantera Azure mikrotjänster belastningen med hjälp av mätvärden | Microsoft Docs"
-description: "Lär dig mer om hur du konfigurerar och använder mått i Service Fabric för att hantera tjänsten resursförbrukning."
+title: Hantera Azure mikrotjänster belastningen med hjälp av mätvärden | Microsoft Docs
+description: Lär dig mer om hur du konfigurerar och använder mått i Service Fabric för att hantera tjänsten resursförbrukning.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastningen i Service Fabric med
 *Mått* är de resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Exempelvis kan du titta på minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat syfte är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.

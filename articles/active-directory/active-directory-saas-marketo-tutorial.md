@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Marketo | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Marketo."
+title: 'Självstudier: Azure Active Directory-integrering med Marketo | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Marketo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 10ce59668127ff918a85caf537e8ab495c542278
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 48aee4565548fd57ef9925a41299b06660df2718
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Självstudier: Azure Active Directory-integrering med Marketo
 
@@ -29,9 +29,9 @@ Integrera Marketo med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Marketo (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Marketo, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://saml.marketo.com/sp`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://saml.marketo.com/sp`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Marketo supportteamet](http://investors.marketo.com/contactus.cfm) att hämta dessa värden.
@@ -174,7 +174,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Om ditt användar-ID inte UPN-värde kan ändra värdet i fliken attribut.
    
-    Jag. Ladda upp certifikatet som du har hämtat från Azure AD-konfigurationsguiden. **Spara** inställningarna.
+    i. Ladda upp certifikatet som du har hämtat från Azure AD-konfigurationsguiden. **Spara** inställningarna.
    
     j. Redigera inställningar för omdirigera felsidor.
    
@@ -315,7 +315,7 @@ När du klickar på panelen Marketo på åtkomstpanelen du bör få automatiskt 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

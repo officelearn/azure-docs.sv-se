@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Velpic SAML | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Velpic SAML."
+title: 'Självstudier: Azure Active Directory-integrering med Velpic SAML | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Velpic SAML.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03ef1ef04d80ac9bb83bcce2082b6cc3f617d812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Självstudier: Azure Active Directory-integrering med Velpic SAML
 
@@ -29,9 +29,9 @@ Integrera Velpic SAML med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Velpic SAML (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - till Azure-hanteringsportalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Velpic SAML behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv värdet som:`https://<sub-domain>.velpicsaml.net`
+    a. I den **inloggnings-URL** textruta Skriv värdet som: `https://<sub-domain>.velpicsaml.net`
 
-    b. I den **identifierare** textruta klistra in den **'Enkel inloggning på URL'** värde`https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. I den **identifierare** textruta klistra in den **'Enkel inloggning på URL'** värde `https://auth.velpic.com/saml/v2/<entity-id>/login`
     
     > [!NOTE]
     > Observera att URL: en inloggning kommer att tillhandahållas av Velpic SAML-teamet och identifierarvärde blir tillgänglig när du konfigurerar enkel inloggning plugin-programmet på Velpic SAML-sida. Du måste kopiera värdet från Velpic SAML program sida och klistra in den här.
@@ -204,7 +204,7 @@ Logga in på webbplatsen Velpic SAML företag som administratör och utför föl
 
 2. På den **”skapa nya användare”** dialogrutan utför följande steg.
 
-    ![användare](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
+    ![Användare](./media/active-directory-saas-velpicsaml-tutorial/velpic_8.png)
     
     a. I den **Förnamn** textruta Ange först namnet på Britta Simon.
 
@@ -262,7 +262,7 @@ I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

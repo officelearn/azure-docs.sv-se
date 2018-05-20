@@ -15,24 +15,22 @@ ms.workload: identity
 ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 475b0229b9e627a56b02d2299ee2e5400aa0ede1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräv MFA för specifika appar med Azure Active Directory för villkorlig åtkomst 
 
 För att förenkla inloggning av användare, kanske du vill att de kan logga in på dina molnappar med ett användarnamn och ett lösenord. Men har många miljöer minst några appar som är det lämpligt att kräva en säkrare form av verifiering för kontot, till exempel multifaktorautentisering (MFA). Det kan vara för exempel Sant för åtkomst till organisationens e-postsystemet eller HR-appar. Du kan göra det här målet med en princip för villkorlig åtkomst i Azure Active Directory (AD Azure).    
 
-Den här snabbstarten visar hur du konfigurerar en [principen för villkorlig åtkomst i Azure AD](active-directory-conditional-access-azure-portal.md) som kräver multifaktorautentisering för en uppsättning valda molnappar i din miljö.
+Den här snabbstarten visar hur du konfigurerar en [principen för villkorlig åtkomst i Azure AD](active-directory-conditional-access-azure-portal.md) som kräver multifaktorautentisering för ett valt moln-app i din miljö.
+
+![Skapa princip](./media/active-directory-conditional-access-app-based-mfa/32.png)
 
 
-## <a name="scenario-description"></a>Scenariobeskrivning
-
-Scenario i den här artikeln används Azure portal som platshållare för ett molnapp som kräver MFA för en viss användare. Isabella Simonsen är en användare i din organisation. När hon loggar in på Azure-portalen, vill henne att ytterligare Kontrollera sitt konto med MFA.
-
-![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
 
@@ -40,27 +38,31 @@ Scenario i den här artikeln används Azure portal som platshållare för ett mo
 
 Om du vill slutföra scenariot i den här snabbstarten, behöver du:
 
-- **Åtkomst till en Azure AD Premium edition** -Azure AD villkorlig åtkomst är en Azure AD Premium-funktion. Om du inte har åtkomst till en Azure AD Premium edition kan du [registrerar dig för en utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/).
+- **Åtkomst till en Azure AD Premium edition** -Azure AD villkorlig åtkomst är en Azure AD Premium-funktion. 
 
-- **Ett testkonto kallas Isabella Simonsen** - om du inte vet hur du skapar ett testkonto läsa [instruktionerna](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+- **Ett testkonto kallas Isabella Simonsen** - om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 
 ## <a name="create-your-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst 
 
-Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs.  
-I din princip anger du:
+Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs. Ett scenario för denna Snabbstart använder:
+
+- Azure-portalen som platshållare för en molnapp som kräver MFA. 
+- Din exempelanvändare att testa principen för villkorlig åtkomst.  
+
+Ange din princip:
 
 |Inställning |Värde|
 |---     | --- |
 |Användare och grupper | Isabella Simonsen |
 |Molnappar | Hantering av Microsoft Azure |
-|Bevilja | Kräv multifaktorautentisering |
+|Bevilja åtkomst | Kräv multifaktorautentisering |
  
 
 ![Skapa princip](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
-
+ 
 
 
 **Konfigurera princip för villkorlig åtkomst:**
@@ -137,9 +139,19 @@ I din princip anger du:
 13. Klicka på **Skapa**.
 
 
-## <a name="evaluate-your-conditional-access-policy"></a>Utvärdera princip för villkorlig åtkomst
+## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat principen för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Som ett första steg bör du använda den [villkorlig åtkomst till vilka om principen verktyget](active-directory-conditional-access-whatif.md) att simulera en inloggning för en användare. När du konfigurerar verktyget med **Isabella Simonsen** som användare och **Microsoft Azure Management** som molnappen, verktyget visar **kräver MFA för Azure portalåtkomst** under **Principer som gäller** och **kräva multifaktorautentisering** som **bevilja kontroller**.
+Nu när du har konfigurerat principen för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg vad händer om principen för att simulera en inloggning för dina användare. Simuleringen beräknar effekt detta inloggning har på dina principer och genererar en simuleringsrapport.  
+
+Initiera nyheter om utvärderingsverktyget för principen, ange:
+
+- **Isabella Simonsen** som användare 
+- **Microsoft Azure Management** som cloud app
+
+ Klicka på **vad händer om** skapar en simuleringsrapport som visar:
+
+- **Kräva MFA för Azure portalåtkomst** under **principer som gäller** 
+- **Kräva multifaktorautentisering** som **bevilja kontroller**.
 
 ![Vad händer om principen verktyget](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
@@ -174,11 +186,22 @@ Nu när du har konfigurerat principen för villkorlig åtkomst kan vill du förm
 
 ## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
 
-Föregående avsnitt i det föregående avsnittet du 
+I det föregående avsnittet har du lärt dig hur du utvärdera en simulerad inloggning. Förutom en simulering bör du också testa din princip för villkorlig åtkomst för att säkerställa att den fungerar som förväntat. 
 
 Om du vill testa din princip försöker logga in på ditt [Azure-portalen](https://portal.azure.com) med din **Isabella Simonsen** testa konto. Du bör se en dialogruta som du måste ange ditt konto för ytterligare säkerhetsverifiering.
 
 ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När det inte längre behövs tar du bort testanvändaren och principen för villkorlig åtkomst:
+
+- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+
+- Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet Snabbåtkomst.
+
+    ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/33.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

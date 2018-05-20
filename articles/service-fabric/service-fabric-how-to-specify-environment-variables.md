@@ -1,22 +1,22 @@
 ---
-title: "Anvisningar anger miljövariabler för tjänster i Azure Service Fabric | Microsoft Docs"
-description: "Visar hur du använder miljövariabler för program i Service Fabric"
+title: Anvisningar anger miljövariabler för tjänster i Azure Service Fabric | Microsoft Docs
+description: Visar hur du använder miljövariabler för program i Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: d487eeadde9f9a45549763863f8fe5b06b2945a4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4325b3acd3cbc73ee5976021bebe96c267b2a6dd
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Hur du anger miljövariabler för tjänster i Service Fabric
 

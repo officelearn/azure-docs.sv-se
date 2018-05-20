@@ -1,11 +1,11 @@
 ---
-title: "Felsöka Autoskala med Virtual Machine-Skalningsuppsättningar | Microsoft Docs"
-description: "Felsöka Autoskala med virtuella datorer. Förstå vanliga problem och hur du löser dem."
+title: Felsöka Autoskala med Virtual Machine-Skalningsuppsättningar | Microsoft Docs
+description: Felsöka Autoskala med virtuella datorer. Förstå vanliga problem och hur du löser dem.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka Autoskala med virtuella datorer
-**Problemet** – du har skapat en autoskalning infrastruktur i Azure Resource Manager med skaluppsättningar för den virtuella datorn – t.ex, genom att distribuera en mall som det här: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss bottle Autoskala – du har din definierade regler för skala och passar utmärkt, förutom oavsett hur mycket belastning som du angav i de virtuella datorerna inte Autoskala.
+**Problem** – du har skapat en autoskalning infrastruktur i Azure Resource Manager med skaluppsättningar för den virtuella datorn – t.ex, genom att distribuera en mall som det här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har din definierade regler för skala och den passar utmärkt, utom Nej betydelse hur mycket inläsning på de virtuella datorerna kan den inte Autoskala.
 
-## <a name="troubleshooting-steps"></a>Felsökningssteg
+## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 Vissa saker att tänka på är:
 
 * Hur många vCPUs finns varje virtuell dator, och du läser in varje vCPU?
@@ -78,7 +78,7 @@ Vissa saker att tänka på är:
     Om data inte är det, innebär det att problemet har med filnamnstillägget diagnostik körs i de virtuella datorerna. Om data är det, innebär det att det finns problem med din skalningsregler eller Insights-tjänsten. Kontrollera [Azure Status](https://azure.microsoft.com/status/).
     
     När du har genom stegen, om du fortfarande har problem med Autoskala, kan du prova följande resurser: 
-    * Läsa forumen på [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), eller [stackspill](http://stackoverflow.com/questions/tagged/azure) 
+    * Läsa forumen på [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), eller [stackspill](http://stackoverflow.com/questions/tagged/azure) 
     * Logga kundsupport. Var beredd på att dela mallen och en vy av prestandadata.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

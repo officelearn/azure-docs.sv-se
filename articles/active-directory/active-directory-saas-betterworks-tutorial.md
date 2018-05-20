@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med BetterWorks | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BetterWorks."
+title: 'Självstudier: Azure Active Directory-integrering med BetterWorks | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BetterWorks.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 85c815218bca322bcbfd25b5a10b9eaa17ea4adf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d70e853450ac2ff5c16db005849239901184da9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Självstudier: Azure Active Directory-integrering med BetterWorks
 
@@ -29,9 +29,9 @@ Integrera BetterWorks med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på BetterWorks (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med BetterWorks, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://app.betterworks.com/saml2/metadata/`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://app.betterworks.com/saml2/metadata/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://app.betterworks.com/saml2/acs/`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://app.betterworks.com/saml2/acs/`
 
 4. På den **BetterWorks domän och URL: er** om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
     
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Klicka på den **visa avancerade inställningar för URL: en**.
 
-    b. I den **logga URL** textruta Skriv en URL med följande mönster:`https://app.betterworks.com`
+    b. I den **logga URL** textruta Skriv en URL med följande mönster: `https://app.betterworks.com`
 
     > [!NOTE] 
     > Detta är inte verkliga värden. Uppdatera dessa värden med Reply URL, identifierare och faktiska logga URL. Kontakta [BetterWorks supportteam](mailto:support@betterworks.com) att hämta dessa värden.
@@ -236,7 +236,7 @@ När du klickar på panelen BetterWorks på åtkomstpanelen du bör få automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

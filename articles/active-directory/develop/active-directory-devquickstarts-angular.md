@@ -3,29 +3,31 @@ title: Azure AD AngularJS komma igång | Microsoft Docs
 description: 'Hur du skapar en enkel sida AngularJS-program som kan integreras med Azure AD för inloggning och anropar Azure AD-skyddade API: er med hjälp av OAuth.'
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS komma igång
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (AD Azure) gör det lätt att lägga till inloggning, utloggning och säker OAuth-API anrop till en sida-appar.  Det gör att dina appar att autentisera användare med sina Windows Server Active Directory-konton och använda en webb-API som Azure AD hjälper till att skydda, till exempel API: er för Office 365 eller Azure API.
+Azure Active Directory (AD Azure) gör det lätt att lägga till inloggning, utloggning och säker OAuth-API anrop till en sida-appar. Det gör att dina appar att autentisera användare med sina Windows Server Active Directory-konton och använda en webb-API som Azure AD hjälper till att skydda, till exempel API: er för Office 365 eller Azure API.
 
 För JavaScript-program som körs i en webbläsare, innehåller Azure AD Active Directory Authentication Library (ADAL) eller adal.js. Det enda syftet med adal.js är att göra det lättare för din app för att få åtkomst-token. För att demonstrera hur lätt det är ska här vi skapa ett program med AngularJS att göra-lista som:
 
@@ -53,7 +55,7 @@ Om du vill aktivera din app för att autentisera användare och hämta token må
 5. Följ anvisningarna och skapa ett nytt webbprogram och/eller webb-API:
   * **Namnet** beskriver ditt program till användare.
   * **URL: en inloggning** är den plats som Azure AD som returneras av token. Standardplatsen för det här exemplet är `https://localhost:44326/`.
-6. När du har slutfört registreringen tilldelar ett unikt ID i Azure AD till din app.  Du behöver det här värdet i nästa avsnitt så kopiera den från programfliken.
+6. När du har slutfört registreringen tilldelar ett unikt ID i Azure AD till din app. Du behöver det här värdet i nästa avsnitt så kopiera den från programfliken.
 7. Adal.js använder implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för programmet:
   1. Klicka på programmet och välj **Manifest** att öppna redigeraren infogade manifestet.
   2. Leta upp den `oauth2AllowImplicitFlow` egenskapen. Ange värdet till `true`.
@@ -118,11 +120,11 @@ Adal.js integreras med AngularJS flödes- och HTTP-providers, så kan du säkra 
     ```
 
 ## <a name="summary"></a>Sammanfattning
-Nu har du en säker sida-app som kan logga in användare och utfärda ägar-token-skyddade begäranden till dess backend-API. När användaren klickar på **TodoList** länk adal.js omdirigeras automatiskt till Azure AD för inloggning om det behövs. Dessutom kommer adal.js automatiskt koppla en åtkomst-token till Ajax-begäranden som skickas till appens serverdel.  
+Nu har du en säker sida-app som kan logga in användare och utfärda ägar-token-skyddade begäranden till dess backend-API. När användaren klickar på **TodoList** länk adal.js omdirigeras automatiskt till Azure AD för inloggning om det behövs. Dessutom kommer adal.js automatiskt koppla en åtkomst-token till Ajax-begäranden som skickas till appens serverdel. 
 
 Föregående steg är att skapa en enkel sida-app med hjälp av adal.js utan minsta nödvändiga. Men några andra funktioner som är användbara i en sida app:
 
-* Om du vill utfärda explicit logga in och utloggningsförfrågningar, kan du definiera funktioner i din domänkontrollanter som anropar adal.js.  I `App/Scripts/homeCtrl.js`:
+* Om du vill utfärda explicit logga in och utloggningsförfrågningar, kan du definiera funktioner i din domänkontrollanter som anropar adal.js. I `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ Föregående steg är att skapa en enkel sida-app med hjälp av adal.js utan min
     ...
     ```
 
-* Det finns många scenarier där du vill veta om användaren är inloggad eller inte. Du kan också använda den `userInfo` objekt att samla in informationen.  Till exempel på `index.html`, du kan visa den **inloggning** eller **logga ut** knappen baserat på autentiseringsstatus:
+* Det finns många scenarier där du vill veta om användaren är inloggad eller inte. Du kan också använda den `userInfo` objekt att samla in informationen. Till exempel på `index.html`, du kan visa den **inloggning** eller **logga ut** knappen baserat på autentiseringsstatus:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

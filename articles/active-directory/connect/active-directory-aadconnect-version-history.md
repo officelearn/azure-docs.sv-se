@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 89e94e922a8a361abf52909583c22d731c38bba8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -34,6 +34,65 @@ Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgra
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+2018-5/4: publicerat för automatisk uppgradering och nedladdning.
+
+
+
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+
+Nya funktioner och förbättringar
+
+
+- Den här versionen innehåller förhandsversion av PingFederate i Azure AD Connect. Med den här versionen kan kunder enkelt och tillförlitligt konfigurera sina Azure Active Directory-miljö för att kunna utnyttja PingFederate som deras federationsleverantör. Om du vill veta mer om hur du använder den här nya funktionen kan du besöka vårt [onlinedokumentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Vi har uppdaterat Azure AD Connect guiden felsökning verktyget, där vi nu analysera mer fel scenario, till exempel länkade postlådor och dynamiska grupper i AD. Läs mer om verktyget felsökning [här](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Konfiguration för tillbakaskrivning av enheter hanteras nu endast inom den Azure AD Connect-guiden.
+- En ny PowerShell-modulen kallas ADSyncTools.psm1 har lagts till som kan användas för att felsöka problem med SQL-anslutningen och även andra felsökningsfunktioner. Läs mer om modulen ADSyncTools [här](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- En ny ytterligare uppgift ”konfigurera Enhetsalternativ” har lagts till. Du kan använda uppgiften för att konfigurera följande två åtgärder: 
+    -   **Ansluta till Azure AD-hybridlösning**: om din miljö har en lokal AD storleken och du även vill utnyttja funktionerna i Azure Active Directory, du kan implementera hybrid Azure AD anslutna enheter. Dessa är enheter som är både, ansluten till din lokala Active Directory och Azure Active Directory.
+    -   **Tillbakaskrivning av enheter**: tillbakaskrivning av enheter som används för att aktivera villkorlig åtkomst baserat på enheter med AD FS (2012 R2 eller högre) skyddade enheter
+
+   >[!NOTE] 
+   > - Att aktivera tillbakaskrivning av enheter från anpassa synkroniseringsalternativ är avmarkerad. 
+   > -  PowerShell-modulen för ADPrep är föråldrad med den här versionen.
+
+
+
+### <a name="fixed-issues"></a>Fast problem 
+
+- Den här versionen uppdaterar SQL Server Express-installationen till SQL Server 2012 SP4, som bland annat innehåller korrigeringar för flera säkerhetsproblem.  Se [här](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) mer information om SQL Server 2012 SP4.
+- Synkronisera regeln bearbetning: utgående anslutning till sync-regler med inga ansluta villkor bör vara Frigör tillämpade om överordnade syncrule gäller inte längre
+- Flera hjälpmedel korrigeringar har tillämpats på Synchronization Service Manager-UI och redigeraren för regler för synkronisering
+- Azure AD Connect-guiden: Fel vid skapande av AD-koppling konto när Azure AD Connect finns i en arbetsgrupp
+- Azure AD Connect-guiden: På den Azure AD-inloggningssida visas kryssrutan verifiering när det finns en matchning av datatyp i AD-domäner och Azure AD-verifierad domäner
+- Uppgradera automatiskt PowerShell åtgärda ska ställas in automatiskt uppgraderingstillståndet korrekt i vissa fall när det gjordes ett försök att uppgradera automatiskt.
+- Azure AD Connect-guiden: Uppdatera telemetri för att samla in information som tidigare saknas
+- Azure AD Connect-guiden: Följande ändringar har gjorts när du använder den **ändra användarens inloggning** aktiviteten för att växla från AD FS till direkt-autentisering:
+    - Direkt-autentisering-agenten är installerad på Azure AD Connect-servern och funktionen direkt-autentisering är aktiverat innan vi konverterar domäner från federerad som hanteras.
+    - Användarna konverteras inte längre från federerad som hanteras. Endast domäner konverteras.
+- Azure AD Connect-guiden: AD FS flera domän Regex är inte korrekt när användare UPN har ' specialtecken Regex uppdatering som stöder specialtecken
+- Azure AD Connect-guiden: Ta bort falska ”konfigurera ankare källattribut” visas när ingen ändring 
+- Azure AD Connect-guiden: AD FS stöd för dubbel Federationsscenario
+- Azure AD Connect-guiden: AD FS-anspråk inte uppdateras för tillagda domän när du konverterar en hanterad domän att federerad
+- Azure AD Connect-guiden: Under identifiering över installerade paket vi hitta inaktuella Dirsync-/ Azure AD Sync-/ Azure AD Connect relaterade produkter. Vi försöker nu att avinstallera de inaktuella produkterna.
+- Azure AD Connect-guiden: Rätt fel meddelande mappning när installationen av agenten för genomströmning autentisering misslyckas
+- Azure AD Connect-guiden: Bort ”Configuration” behållare från domänen Organisationsenhetsfiltrering sidan
+- Installera Synkroniseringsmotorn: ta bort onödiga äldre logik som ibland inte från Synkroniseringsmotorn installera msi
+- Azure AD Connect-guiden: Åtgärda popup hjälptext som visas på sidan för valfria funktioner för lösenordets Hash-synkronisering
+- Synkronisera motorn för körning: åtgärda scenario där en CS-objektet har ett importerade delete och regler för synkronisering försöker etablera objektet.
+- Synkronisera motorn för körning: lägga till hjälp Online anslutningen felsökningsguide för i händelseloggen för ett fel vid Import-länk
+- Synkronisera motorn för körning: minskad minnesanvändning av Sync Scheduler vid uppräkning av kopplingar
+- Azure AD Connect-guiden: Åtgärda ett problem lösa en anpassad synkroniseringstjänstkontot som har inga AD läs privilegier
+- Azure AD Connect-guiden: Förbättra loggning av domän och Organisationsenhet filtrering val
+- Azure AD Connect-guiden: Standard AD FS lägga till anspråk till federationsförtroende som skapats för MFA scenariot
+- Azure AD Connect-guiden: AD FS distribuera WAP: lägga till servern inte kan använda nya certifikat
+- Azure AD Connect-guiden: DSSO undantag när onPremCredentials inte initierats för en domän 
+- Företrädesvis trafikflödet AD distinguishedName attribut från Active användarobjektet.
+- Fast ett rent kosmetiskt programfel där prioriteten för den första regeln för OOB-synkronisering har angetts till 99 i stället för 100
+
+
 
 ## <a name="117510"></a>1.1.751.0
 Status 4/12/2018: publicerat endast för hämtning

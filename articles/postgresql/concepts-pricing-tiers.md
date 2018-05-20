@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
 
@@ -72,7 +72,7 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 
 Beroende på prisnivå, är varje vCore utrustad med en viss mängd minne. Om du ökar eller minskar antalet vCores serverns minne ökar eller minskar proportionerligt. Generella nivån innehåller dubbla mängden minne per vCore jämfört med den grundläggande nivån. Den Minnesoptimerade nivån innehåller dubbla mängden minne jämfört med generella nivån.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure-databas för PostgreSQL-server. Lagringsutrymmet som används för databasfilerna, temporära filer, transaktionsloggar och PostgreSQL-servern loggar. Den totala mängden lagringsutrymme som du etablerar definierar även i/o-kapaciteten tillgänglig till servern.
 
@@ -86,6 +86,14 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Den grundläggande nivån innehåller inte en IOPS-garanti. I den generella och Minnesoptimerade prisnivåer, skala IOPS med den etablerade lagringsstorleken i förhållandet 3:1.
 
 Du kan övervaka dina i/o-användning i Azure-portalen eller genom att använda Azure CLI-kommandona. Mätvärdena som är relevanta för att övervaka är [lagringsgräns, lagringsprocent, lagringsutrymme som används och IO-procent](concepts-monitoring.md).
+
+### <a name="reaching-the-store-limit"></a>Att lagra gränsen
+
+Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerade lagring, som är minst. Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går till exempel 95 GB, servern är skrivskyddad. Alternativt, om du har tillhandahållit 5 GB lagringsutrymme, servern är skrivskyddad när mängden ledigt utrymme når mindre än 250 MB.  
+
+När servern har angetts till skrivskyddad kopplas bort alla befintliga sessioner och ogenomförda transaktioner återställs. Alla efterföljande skrivåtgärder och transaktionen genomför misslyckas. Alla efterföljande skrivskyddade frågor fungerar utan avbrott.  
+
+Du kan öka mängden lagringsutrymme som är allokerade till servern, eller så kan du starta en ny session i läsa / skriva-läge och släpp data att frigöra ledigt utrymme. Kör `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` anger den aktuella sessionen med read-write-läge. För att undvika att data skadas, utför inte någon skrivåtgärder när servern är i skrivskyddat läge status.
 
 ## <a name="backup"></a>Backup
 

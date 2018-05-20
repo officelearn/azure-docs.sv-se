@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera säkra anslutningar i Azure Service Fabric-kluster | Microsoft Docs"
-description: "Lär dig hur du använder Visual Studio för att konfigurera säkra anslutningar som stöds av Azure Service Fabric-klustret."
+title: Konfigurera säkra anslutningar i Azure Service Fabric-kluster | Microsoft Docs
+description: Lär dig hur du använder Visual Studio för att konfigurera säkra anslutningar som stöds av Azure Service Fabric-klustret.
 services: service-fabric
 documentationcenter: na
 author: cawaMS
@@ -9,16 +9,16 @@ editor: tglee
 ms.assetid: 80501867-dd7a-4648-8bd6-d4f26b68402d
 ms.service: multiple
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2772cc2c59b93c7e523eaa0127dcf4ea0bc589e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric-kluster från Visual Studio
 Lär dig hur du använder Visual Studio säker åtkomst till ett Azure Service Fabric-kluster med principer för åtkomstkontroll konfigurerats.

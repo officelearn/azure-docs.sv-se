@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Wdesk | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wdesk."
+title: 'Självstudier: Azure Active Directory-integrering med Wdesk | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9338c8b8ef740885562ea3f2f1ac316b2a0783fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c55b9c32ccf6712da69c869a6f44c71e1c209627
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Självstudier: Azure Active Directory-integrering med Wdesk
 
@@ -29,9 +29,9 @@ Integrera Wdesk med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Wdesk (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Wdesk, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge, utföra följande steg:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Du kan få värdena från WDesk portal när du konfigurerar SSO. 
@@ -216,7 +216,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Wdesk etableras de i Wd
    
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser1.png)  
 
-5. I **användare** text Ange användarnamnet för användaren som  **brittasimon@contoso.com**  och på **Fortsätt** knappen.
+5. I **användare** text Ange användarnamnet för användaren som **brittasimon@contoso.com** och på **Fortsätt** knappen.
 
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser3.png)
 
@@ -224,7 +224,7 @@ Om du vill aktivera Azure AD-användare kan logga in på Wdesk etableras de i Wd
   
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser4.png)
  
-    a. I **e-post** text Ange e-postadressen för användaren som  **brittasimon@contoso.com** .
+    a. I **e-post** text Ange e-postadressen för användaren som **brittasimon@contoso.com**.
 
     b. I **Förnamn** text Ange först namnet på användaren som **Britta**.
 
@@ -275,7 +275,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

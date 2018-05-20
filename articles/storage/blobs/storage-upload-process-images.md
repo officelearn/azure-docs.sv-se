@@ -1,8 +1,8 @@
 ---
-title: "Överföra avbildningsdata i molnet med Azure Storage | Microsoft Docs"
-description: "Använda Azure blobblagring med ett webbprogram för att lagra programdata"
+title: Överföra avbildningsdata i molnet med Azure Storage | Microsoft Docs
+description: Använda Azure blobblagring med ett webbprogram för att lagra programdata
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Överföra avbildningsdata i molnet med Azure Storage
 
@@ -72,7 +72,7 @@ Hämta nyckeln till lagringskontot med kommandot [az storage account keys list](
 I det här fallet är `<blob_storage_account>` namnet på det blobblagringskonto som du skapade. Den offentliga åtkomsten för behållaren _avbildningar_ har angetts till `off`, medan den offentliga åtkomsten för behållaren _miniatyrer_ är inställd på `container`. Inställningen för offentlig åtkomst för `container` ska visas för personer som besöker webbsidan.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 

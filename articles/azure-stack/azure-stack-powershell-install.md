@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: cb672c8e378db80707db1b0cf77a3196e36b1eb5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken
 
@@ -72,8 +72,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -91,8 +91,8 @@ Om installationen lyckas visas AzureRM och AzureStack-moduler i utdata.
 
 I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för en dator som är ansluten till Internet och överför dem till Azure-stacken Development Kit för installation.
 
-> [!IMPORTANT]
-> Version av PowerShell-modulen AzureRM 1.2.12 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 version, finns det [Migreringsguide](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> [!IMPORTANT]  
+> Versionen av Azure Stack 1.3.0 PowerShell-modulen innehåller en lista över bryta ändringar. Uppgradera från 1.2.11 version, finns det [Migreringsguide](https://aka.ms/azspowershellmigration).
 
 1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:
 
@@ -105,7 +105,7 @@ I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för e
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -113,11 +113,11 @@ I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för e
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> Om du inte kör Azure stacken med update 1804 eller större, ändrar du den **requiredversion** parametervärde för `1.2.11`. 
+  > [!Important]  
+  > Om du inte kör Azure stacken med update 1804 eller större, ändrar du den **requiredversion** parametervärde för `1.2.11`. 
 
 2. Kopiera de hämta paketen över till en USB-enhet.
 

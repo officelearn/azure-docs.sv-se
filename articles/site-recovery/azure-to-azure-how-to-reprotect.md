@@ -6,13 +6,13 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/15/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Skyddar redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -53,13 +53,13 @@ Du kan anpassa följande egenskaper för målet VMe under återaktivera skydd.
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap |Anteckningar  |
+|Egenskap  |Anteckningar  |
 |---------|---------|
 |Målresursgruppen     | Ändra målresursgruppen där den virtuella datorn skapas. Målet VM som del av återaktivera skydd, har tagits bort. Du kan välja en ny resursgrupp som du vill skapa den virtuella datorn efter växling vid fel under.        |
 |Mål virtuellt nätverk     | Målnätverket kan inte ändras under Skapa nytt jobb. Gör om nätverksmappningen om du vill ändra i nätverket.         |
 |Mål-Lagringskontot (sekundära virtuella datorn inte använder hanterade diskar)     | Du kan ändra lagringskontot som den virtuella datorn använder efter växling vid fel.         |
 |Replik hanterade diskar (sekundär virtuell dator använder hanterade diskar)    | Site Recovery skapar diskar replik som hanteras i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         | 
-|Cache Storage     | Du kan ange ett cache-lagringskonto som ska användas vid replikering. Som standard är ett nytt lagringskonto för cachen skapas om den inte finns.         |
+|Cachelagring     | Du kan ange ett cache-lagringskonto som ska användas vid replikering. Som standard är ett nytt lagringskonto för cachen skapas om den inte finns.         |
 |Tillgänglighetsuppsättning     |Om den virtuella datorn i den sekundära regionen är en del av en tillgänglighetsuppsättning, kan du välja en tillgänglighetsuppsättning för målet VM i den primära regionen. Site Recovery som standard försöker hitta den befintliga tillgänglighetsuppsättning i den primära regionen och använda den. Vid anpassning, kan du ange en ny tillgänglighetsuppsättning.         |
 
 

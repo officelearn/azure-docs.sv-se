@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med T & E Express | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och T & E Express."
+title: 'Självstudier: Azure Active Directory-integrering med T & E Express | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och T & E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudier: Azure Active Directory-integrering med T & E Express
 
@@ -29,9 +29,9 @@ Integrera T & E Express med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta inloggade & E Express (Single Sign-On) till med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - till Azure-hanteringsportalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med T & E Express, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. I den **identifierare** textruta Skriv värdet som:`https://<domain>.tyeexpress.com`
+    a. I den **identifierare** textruta Skriv värdet som: `https://<domain>.tyeexpress.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
     > Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med de faktiska identifierare och Reply-URL. Här rekommenderar vi att du om du vill använda det unika värdet på strängen i identifieraren. Kontakta [T & E Express supportteam](http://www.tyeexpress.com/contacto.aspx) att hämta dessa värden.
@@ -182,7 +182,7 @@ Vid T & E Express är etablering en manuell aktivitet.
 
     ![Lägga till medarbetare](./media/active-directory-saas-tyeexpress-tutorial/tye-adminusers.png)
 
-3. På sidan, klickar du på  **+**  att lägga till användarna.
+3. På sidan, klickar du på **+** att lägga till användarna.
 
     ![Lägga till medarbetare](./media/active-directory-saas-tyeexpress-tutorial/tye-usershome.png)
 
@@ -232,7 +232,7 @@ När du klickar på panelen T & E Express på åtkomstpanelen du bör få automa
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

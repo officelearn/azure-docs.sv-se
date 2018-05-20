@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -51,16 +51,18 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 Se [behörigheter i Azure Security Center](security-center-permissions.md) för mer information om roller och tillåtna åtgärder i Security Center.
 
 ## <a name="data-collection"></a>Datainsamling
-Security Center samlar in data från dina virtuella datorer för att utvärdera deras säkerhetstillstånd, ange säkerhetsrekommendationer och varna dig om hot. Första gången du öppnar Security Center, är insamling av data aktiverat på alla virtuella datorer i din prenumeration. Du kan även aktivera datainsamling i Security Center-princip.
+Security Center samlar in data från dina virtuella Azure-datorer (VM) och Azure-datorer att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
 
 ### <a name="how-do-i-disable-data-collection"></a>Hur inaktiverar insamling av data?
-Om du använder Azure Security Center kostnadsfria nivån, kan du inaktivera insamling av data från virtuella datorer när som helst. Insamling av data krävs för prenumerationer på standardnivån. Du kan inaktivera datainsamling för en prenumeration i säkerhetsprincipen. ([Logga in på Azure portal](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **princip**.)  När du väljer en prenumeration, ett nytt blad öppnas och ger dig möjlighet att inaktivera **datainsamling**.
+Automatisk etablering är inaktiverat som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk etablering rekommenderas för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS säkerhetsrisker och endpoint protection.
+
+Inaktivera datainsamling, [logga in på Azure portal](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **väljer principen för**. Välj den prenumeration du vill avaktivera automatisk etablering för. När du väljer en prenumeration **säkerhetsprincip - datainsamling** öppnas. Under **Automatisk etablering**väljer **av**.
 
 ### <a name="how-do-i-enable-data-collection"></a>Hur aktiverar insamling av data?
-Du kan aktivera datainsamling för din Azure-prenumeration i säkerhetsprincipen. Att aktivera insamling av data. [Logga in på Azure portal](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **princip**. Ange **datainsamling** till **på**.
+Du kan aktivera datainsamling för din Azure-prenumeration i säkerhetsprincipen. Att aktivera insamling av data. [Logga in på Azure portal](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **säkerhetsprincip**. Välj den prenumeration som du vill aktivera automatisk etablering. När du väljer en prenumeration **säkerhetsprincip - datainsamling** öppnas. Under **Automatisk etablering**väljer **på**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Vad händer när datainsamling har aktiverats?
-När datainsamling har aktiverats, Microsoft Monitoring Agent etableras automatiskt på alla befintliga och nya kompatibla virtuella datorer som distribueras i prenumerationen.
+När automatisk etablering är aktiverat, stöds Security Center tillhandahåller Microsoft Monitoring Agent på alla virtuella datorer i Azure och nya filer som skapas. Automatisk etablering rekommenderas men manuell agentinstallation är också tillgänglig. [Lär dig hur du installerar tillägget för Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 Agenten kan processen att skapa händelsen 4688 och *CommandLine* fältet inuti 4688-händelse. Nya processer som skapats på den virtuella datorn registreras av händelseloggen och övervakas av Security Center identifieringstjänster. Mer information om de information som registrerats för varje ny process finns [beskrivningsfält i 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agenten samlar in 4688 händelser som skapats på den virtuella datorn också och lagrar dem i sökningen.
 

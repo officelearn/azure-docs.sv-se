@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain arbetsstationen felsökning
 
@@ -48,9 +48,10 @@ Skriptet accepterar följande parametrar:
 | Parameter  | Beskrivning | Krävs |
 |---------|---------|----|
 | Prenumerations-ID | SubscriptionID som ska skapa och hitta alla resurser. | Ja |
-| resourceGroupName | Namnet på Azure-resursgrupp där Blockchain arbetsstationen har distribuerats. | Ja |
-| OutputDirectory | Sökvägen till skapa utdata. ZIP-filen. Om inte anges används den aktuella katalogen. | Nej
-| OmsSubscriptionId | Prenumerations-id där OMS distribueras. Bara skicka den här parametern om OMS för nätverkets blockchain distribueras utanför Blockchain arbetsstationen resursgruppen.| Nej |
+| ResourceGroupName | Namnet på Azure-resursgrupp där Blockchain arbetsstationen har distribuerats. | Ja |
+| OutputDirectory | Sökvägen till skapa utdata. ZIP-filen. Om inte anges används den aktuella katalogen. | Nej |
+| LookbackHours | Antal timmar som ska användas när dra telemetri. Standardvärdet är 24 timmar. Högsta tillåtna värde är 90 timmar | Nej |
+| OmsSubscriptionId | Prenumerations-ID där OMS distribueras. Bara skicka den här parametern om OMS för nätverkets blockchain distribueras utanför Blockchain arbetsstationen resursgruppen.| Nej |
 | OmsResourceGroup |Resursgruppen där OMS distribueras. Bara skicka den här parametern om OMS för nätverkets blockchain distribueras utanför Blockchain arbetsstationen resursgruppen.| Nej |
 | OmsWorkspaceName | Namnet på OMS-arbetsytan. Bara skicka den här parametern om OMS för nätverkets blockchain distribueras utanför Blockchain arbetsstationen resursgruppen. | Nej |
 
@@ -58,15 +59,17 @@ Skriptet accepterar följande parametrar:
 
 Utdata ZIP-filen innehåller följande mappstrukturen:
 
-| Mappen \ fil | Beskrivning  |
+| Mapp eller fil | Beskrivning  |
 |---------|---------|
 | \Summary.txt | Sammanfattning av systemet |
-| \metrics\blockchain | Mått om blockchain |
-| \metrics\workbench | Mått om arbetsstationen |
-| \details\blockchain | Detaljerade loggar om blockchain |
-| \details\workbench | Detaljerade loggar om arbetsstationen |
+| \Metrics\blockchain | Mått om blockchain |
+| \Metrics\Workbench | Mått om arbetsstationen |
+| \Details\Blockchain | Detaljerade loggar om blockchain |
+| \Details\Workbench | Detaljerade loggar om arbetsstationen |
 
 Översikt över fil får du en ögonblicksbild av det övergripande tillståndet för programmet och hälsotillståndet för programmet. Sammanfattningen innehåller rekommenderade åtgärder, visar översta fel och metadata om kör tjänster.
+
+Den **mått** mappen innehåller mätvärden för olika komponenter över tid. Till exempel utdatafilen `\Details\Workbench\apiMetrics.txt` innehåller en sammanfattning av olika svarskoder och svarstider under hela samlingen. Den **information** mappen innehåller detaljerade loggar för felsökning av problem med arbetsstationen eller det underliggande blockchain-nätverket. Till exempel `\Details\Workbench\Exceptions.csv` innehåller en lista över de senaste undantag som uppstått i systemet, vilket är användbart för felsökning av fel med smart kontrakt och interaktioner med blockchain. 
 
 ## <a name="next-steps"></a>Nästa steg
 

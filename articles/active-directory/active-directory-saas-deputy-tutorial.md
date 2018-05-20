@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med vice | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vice."
+title: 'Självstudier: Azure Active Directory-integrering med vice | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vice.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 612a0d298eb1153bc8a64f0d7fbcb4dbd8752672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4e1239855756690be7d6c4d1c91eb58ce2aa11f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Självstudier: Azure Active Directory-integrering med vice
 
@@ -29,9 +29,9 @@ Integrera vice med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på vice (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med vice behöver du följande:
 
@@ -152,7 +152,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<your-subdomain>.<region>.deputy.com`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<your-subdomain>.<region>.deputy.com`
     
     >[!NOTE]
     > Vice region suffix är valfritt eller den ska använda något av följande: Australien | na | Europa | som | la | af | en | ent Australien | ent na | ent Europa | ent-som | överordnad la | överordnad af | en överordnad
@@ -184,7 +184,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     b. Öppna din Base64-kodat certifikat hämtas från Azure-portalen i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **OpenSSL certifikat** textruta.
    
-    c. Ange i textrutan SAML SSO-URL`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. Ange i textrutan SAML SSO-URL `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
     d. I textrutan URL för SAML SSO ersätter `<your subdomain>` med din underdomänen.
    
@@ -295,7 +295,7 @@ När du klickar på panelen vice på åtkomstpanelen du bör få automatiskt log
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

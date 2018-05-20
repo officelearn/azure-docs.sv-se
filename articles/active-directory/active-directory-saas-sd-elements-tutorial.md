@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SD element | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SD-element."
+title: 'Självstudier: Azure Active Directory-integrering med SD element | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SD-element.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 796f4d1b679c06be8677cd07f52ce305a7bc1ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b523841fc40f8ac07448abc80125f1f510cba840
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Självstudier: Azure Active Directory-integrering med SD-element
 
@@ -29,9 +29,9 @@ Integrera SD-element med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på SD-element (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SD-element behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [SD element supportteam](mailto:support@sdelements.com) att hämta dessa värden.
@@ -228,7 +228,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Skapa en testanvändare SD-element](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. I den **e-post** textruta ange e-postadress för användaren som  **brittasimon@contoso.com** .
+    a. I den **e-post** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
    
     b. I den **Förnamn** textruta Ange först namnet på användaren som **Britta**.
    
@@ -277,7 +277,7 @@ När du klickar på panelen SD-element i åtkomstpanelen du bör få automatiskt
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

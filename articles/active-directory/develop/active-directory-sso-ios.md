@@ -2,22 +2,24 @@
 title: Aktivera enkel inloggning mellan appar på iOS använder ADAL | Microsoft Docs
 description: 'Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program. '
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b0179e217a23d612ddcdc219f589a5d1fbca644e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Aktivera enkel inloggning mellan appar på iOS använder ADAL
 Tillhandahåller enkel inloggning (SSO) så att användarna behöver bara ange sina autentiseringsuppgifter en gång och dessa autentiseringsuppgifter automatiskt fungerar över förväntade program nu av kunder. Svårt att ange sina användarnamn och lösenord på en liten skärm, ofta gånger kombineras med ytterligare en faktor (2FA) som ett telefonsamtal eller en textläge kod leder till att snabbt klagomål om en användare har att göra det mer än en gång till produkten.
@@ -84,7 +86,7 @@ Här är en representation av hur Microsoft Identity SDK fungerar med delad lagr
 Service Broker-stödd inloggningar är inloggning upplevelser som inträffar i Service broker-programmet och använder lagring och säkerhet för Service broker för att dela autentiseringsuppgifter för alla program på enheten som gäller Microsoft Identity-plattformen. Detta innebär att dina program som förlitar sig på Service broker för inloggning av användare. På iOS och Android sker dessa mäklare via nedladdningsbara program att kunder installeras fristående eller pushas till enheten av ett företag som hanterar enheten för sina användare. Ett exempel på den här typen av program är Microsoft Authenticator-appen på iOS. Den här funktionen tillhandahålls av en inbyggd i operativsystemet, kända tekniskt Webbautentiseringskoordinatorn väljare av användarkonto i Windows.
 Upplevelsen varierar efter plattform och ibland kan vara störande för användarna om de inte hanteras på rätt sätt. Du är mest förmodligen är bekant med det här mönstret om du har installerat Facebook-program och använder Facebook ansluta från ett annat program. Microsoft Identity-plattformen använder samma mönster.
 
-För iOS som leder till att en ”övergång” kommer animering där programmet skickas till bakgrunden medan Microsoft Authenticator-program i förgrunden för användaren att välja vilket konto som de vill logga in med.  
+För iOS som leder till att en ”övergång” kommer animering där programmet skickas till bakgrunden medan Microsoft Authenticator-program i förgrunden för användaren att välja vilket konto som de vill logga in med. 
 
 För Android och Windows visas väljare av användarkonto ovanpå ditt program som är mindre störande för användaren.
 

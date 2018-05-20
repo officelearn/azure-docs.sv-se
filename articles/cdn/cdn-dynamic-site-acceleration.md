@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska acceleration via Azure CDN
 
@@ -144,7 +144,7 @@ Den här funktionen automatiskt övervakar nätverket kvalitet och använder sta
 
 Komprimering av anpassningsbar avbildningen | Filnamnstillägg  
 --- | ---  
-JPEG-komprimering | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
+JPEG-komprimering | JPG, JPEG, jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Cachelagring
 
@@ -158,7 +158,7 @@ För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai*
 
 1. Från den **CDN-profilen** sidan under inställningar, väljer **cachelagring regler**.  
     
-    ![Knappen CDN cachelagring regler](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![Knappen CDN-cachelagringsregler](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     Den **cachelagring regler** öppnas.
 
@@ -183,9 +183,6 @@ För **Azure CDN Premium från Verizon** profiler kan du aktivera cachelagring f
 Du kan också använda två CDN-slutpunkter: en slutpunkt som har optimerats med DSA att leverera dynamiskt tillgångar och en annan slutpunkt optimerats med en statisk optimering typ, till exempel allmänna web leverans till leverans Cacheable ställs tillgångar. Ändra din webbsida URL: er att länka direkt till tillgången på CDN-slutpunkt som du tänker använda. 
 
 Till exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och har lästs in från DSA-slutpunkten.  HTML-sidan refererar till flera statiska resurser, t.ex JavaScript-bibliotek och bilder som har lästs in från statisk CDN-slutpunkten som `mystatic.azureedge.net/banner.jpg` och `mystatic.azureedge.net/scripts.js`. 
-
-Ett exempel om hur du använder domänkontrollanter i ASP.NET-webbprogram för att hantera innehåll via en specifik CDN-URL finns [innehåll från domänkontrollanten åtgärder via Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

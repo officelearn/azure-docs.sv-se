@@ -1,24 +1,24 @@
 ---
 title: Azure Service Fabric korrigering orchestration-program | Microsoft Docs
-description: "Program för att automatisera operativsystemet korrigering på ett Service Fabric-kluster."
+description: Program för att automatisera operativsystemet korrigering på ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Windows-operativsystemet i Service Fabric-kluster
 
@@ -144,12 +144,12 @@ Program i sfpkg format kan hämtas från [sfpkg länk](https://go.microsoft.com/
 
 Korrigering av orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att passera i parametern program under skapa program eller uppdatering. Parametrar för program kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdlets.
 
-|**Parameter**        |**Typ**                          | **Detaljer**|
+|**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal Windows Update-resultat, som ska cachelagras. <br>Standardvärdet är 3000 under förutsättning att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som händer på en nod per månad är fem. <br> -Antalet resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en domän i taget. (Max, alla noder som tillhör en domän kan gå för Windows Update.)
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för korrigering orchestration app loggar i MB, vilket kan sparas lokalt på noder.
-| WUQuery               | sträng<br>(Default: "IsInstalled=0")                | Frågan att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | sträng<br>(Standard ”: IsInstalled = 0”)                | Frågan att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: True)                 | Den här flaggan kan uppdateringar av Windows-operativsystemet installeras.            |
 | WUOperationTimeOutInMinutes | Int <br>(Standard: 90).                   | Anger timeout för någon Windows Update-åtgärd (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tidsgränsen, avbryts.       |
 | WURescheduleCount     | Int <br> (Standard: 5).                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemaläggs automatiskt på nytt i Windows.          |
@@ -226,7 +226,7 @@ Fält | Värden | Information
 -- | -- | --
 OperationResult | 0 - lyckades<br> 1 - slutförd med fel<br> 2 - misslyckades<br> 3 - avbröts<br> 4 - avbröts med tidsgräns | Visar resultatet av övergripande (vanligtvis som innefattar installationen av en eller flera uppdateringar).
 ResultCode | Samma som OperationResult | Fältet visar resultatet av installationen för en enskild uppdatering.
-OperationType | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
+Åtgärdstyp | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
 WindowsUpdateQuery | Standardvärdet är ”IsInstalled = 0” |Windows update-fråga som användes för att söka efter uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger om omstart krävs för att slutföra installationen av uppdateringar.
 

@@ -292,6 +292,7 @@
 # Resurser
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
+## [Kunddataförfrågningar](iot-hub-customer-data-requests.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer-verktyg](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics-verktyg](https://github.com/Azure/iothub-diagnostics)

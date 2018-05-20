@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning) i Azure Automation
 
@@ -185,7 +185,7 @@ Alla överordnade runbooks innehåller den *WhatIf* parameter. Om värdet är **
 |AutoStop_Disable | inga | Inaktiverar AutoStop aviseringar och standardschemat.|
 |AutoStop_StopVM_Child | WebHookData | Anropas från den överordnade runbooken. Varningsregler anropa denna runbook för att stoppa den virtuella datorn.|
 |Bootstrap_Main | inga | Används en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|
-|ScheduledStartStop_Child | VMName <br> Åtgärd: Starta eller stoppa <br> resourceGroupName | Anropas från den överordnade runbooken. Utför en åtgärd för att stoppa schemalagda att starta eller stoppa.|
+|ScheduledStartStop_Child | VMName <br> Åtgärd: Starta eller stoppa <br> ResourceGroupName | Anropas från den överordnade runbooken. Utför en åtgärd för att stoppa schemalagda att starta eller stoppa.|
 |ScheduledStartStop_Parent | Åtgärd: Starta eller stoppa <br>VMList <br> WhatIf: True eller False | Detta påverkar alla virtuella datorer i prenumerationen. Redigera den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** ska köras endast på dessa mål resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel *vm1 vm2, vm3*.<br> *WhatIf* validerar runbook-logik utan att köra.|
 |SequencedStartStop_Parent | Åtgärd: Starta eller stoppa <br> WhatIf: True eller False<br>VMList| Skapa taggar med namnet **SequenceStart** och **SequenceStop** på varje virtuell dator som du vill starta/stoppa sekvensaktivitet. Värdet för taggen ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel *vm1 vm2, vm3*. <br> *WhatIf* validerar runbook-logik utan att köra. <br> **Obs**: virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
 

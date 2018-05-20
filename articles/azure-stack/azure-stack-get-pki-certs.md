@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 17737c2b272f2a123df3d58c62c471b3da5bebe1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 69a4529e009d9fdd7081bc4d4b53c468befd8e6d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certifikat signering begäran generation
 
@@ -68,10 +68,10 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat:
     > [!note]  
     > Om ett nätverksnamn (CN) anges detta kommer att skrivas över med det första DNS-namnet för certifikatbegäran.
 
-3.  Deklarera en målkatalogen som redan finns:
+3.  Deklarera en målkatalogen som redan finns. Exempel:
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  Deklarera identifiera system
 
@@ -95,7 +95,7 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat:
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` utgör grunden som alla externa DNS-namn i Azure-stacken skapas i det här exemplet, portalen att `portal.east.azurestack.contoso.com`.
+    > `<regionName>.<externalFQDN>` utgör grunden som alla externa DNS-namn i Azure-stacken skapas i det här exemplet, portalen att `portal.east.azurestack.contoso.com`.  
 
 6. Generera en enda certifikatbegäran med flera Alternativt ämnesnamn:
 

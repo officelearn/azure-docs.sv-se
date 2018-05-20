@@ -3,23 +3,25 @@ title: Autentiseringsscenarier för Azure AD | Microsoft Docs
 description: En översikt över de fem vanligaste scenarierna för autentisering för Azure Active Directory (AD Azure)
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f85898d566ea5c6791350df809e960f7e951012d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Autentiseringsscenarier för Azure AD
 
@@ -49,7 +51,7 @@ Diagrammet ovan i åtanke är här vad du behöver veta om dess olika komponente
 * Azure AD är identitetsleverantören som ansvarar för att verifiera identiteten för användare och program som finns i en organisation directory och slutligen utfärdar säkerhetstoken vid autentisering av användare och program.
 * Ett program som du vill flytta ut autentisering till Azure AD måste registreras i Azure AD, som registrerar och som unikt identifierar appen i katalogen.
 * Utvecklare kan använda öppen källkod Azure AD-autentiseringsbibliotek så att autentisering lättare genom att hantera protocol-information för dig. Mer information finns i [Azure Active Directory-Autentiseringsbibliotek](active-directory-authentication-libraries.md).
-* När en användare har autentiserats, måste programmet verifiera användarens säkerhets-token för att säkerställa att autentiseringen lyckades.  Vi har prover av programmet måste göra på olika språk och ramverk på [GitHub](https://github.com/Azure-Samples?q=active-directory).  Om du utvecklar ett webbprogram i ASP.NET, finns det [lägga till inloggning för en ASP.NET web app guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  Om du utvecklar en API-resurs i ASP.NET-webbplats finns på [webb-API Kom igång med](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* När en användare har autentiserats, måste programmet verifiera användarens säkerhets-token för att säkerställa att autentiseringen lyckades. Vi har prover av programmet måste göra på olika språk och ramverk på [GitHub](https://github.com/Azure-Samples?q=active-directory). Om du utvecklar ett webbprogram i ASP.NET, finns det [lägga till inloggning för en ASP.NET web app guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Om du utvecklar en API-resurs i ASP.NET-webbplats finns på [webb-API Kom igång med](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * Flödet av begäranden och -svar för autentiseringsprocessen bestäms av autentiseringsprotokoll som används, till exempel OAuth 2.0, OpenID Connect WS-Federation och SAML 2.0. Dessa protokoll beskrivs i detalj i den [Azure Active Directory-autentiseringsprotokoll](active-directory-authentication-protocols.md) artikeln och i avsnitten nedan.
 
 > [!NOTE]
@@ -72,7 +74,7 @@ Säkerhetstoken (åtkomst och ID-token) utfärdat av Azure AD innehåller anspr�
 | Grupper | Innehåller objekt-ID: N för Azure AD-grupper som användaren är medlem i. |
 | Identitetsprovider | Registrerar den identitetsleverantör som autentiserats föremål för token. |
 | Utfärdat till | Registrerar den tid då token har utfärdats, används ofta för token dokumentens. |
-| Utgivare | Identifierar STS som orsakat token som Azure AD-klient. |
+| Utfärdare | Identifierar STS som orsakat token som Azure AD-klient. |
 | Efternamn | Innehåller användarens efternamn som angetts i Azure AD. |
 | Namn | Ger en mänsklig läsbar värde som identifierar föremål för token. |
 | Objekt-ID | Innehåller en ändras, unik identifierare för ämnet i Azure AD. |
@@ -189,7 +191,7 @@ Om du använder ADAL.js kan med:
 * Uppdatera en token som har upphört att gälla
 * begär en åtkomsttoken att anropa ett webb-API-resurs
 
-Efter en lyckad autentisering skriver en cookie i användarens webbläsare för att upprätta en session i Azure AD.  Observera att sessionen finns mellan användare och Azure AD (inte mellan användaren och webbprogrammet). När en token upphör att gälla använder ADAL.js den här sessionen tyst få en annan token. ADAL.js använder en dold iFrame för att skicka och ta emot begäran med hjälp av OAuth Implicit Grant-protokollet. ADAL.js kan också använda samma mekanism för att erhålla åtkomsttoken tyst för andra webb-API-resurser som programmet anropar så länge dessa resurser stöder resursdelning för korsande ursprung (CORS) har registrerats i katalogen för den användaren och alla nödvändiga medgivande har angetts av användaren under inloggning.
+Efter en lyckad autentisering skriver en cookie i användarens webbläsare för att upprätta en session i Azure AD. Observera att sessionen finns mellan användare och Azure AD (inte mellan användaren och webbprogrammet). När en token upphör att gälla använder ADAL.js den här sessionen tyst få en annan token. ADAL.js använder en dold iFrame för att skicka och ta emot begäran med hjälp av OAuth Implicit Grant-protokollet. ADAL.js kan också använda samma mekanism för att erhålla åtkomsttoken tyst för andra webb-API-resurser som programmet anropar så länge dessa resurser stöder resursdelning för korsande ursprung (CORS) har registrerats i katalogen för den användaren och alla nödvändiga medgivande har angetts av användaren under inloggning.
 
 ### <a name="native-application-to-web-api"></a>Det ursprungliga programmet i webb-API
 
@@ -260,7 +262,7 @@ Både Programidentitet och delegerade identitet användartyper diskuteras nedan 
 
 1. En användare har redan loggat in till ett webbprogram vars autentiseringsmekanism är oberoende av Azure AD.
 1. Webbprogrammet kräver en auktoriseringskod att förvärva en åtkomst-token så att den skickar en begäran via webbläsaren till Azure AD autentiseringsslutpunkt att tillhandahålla det program-ID och omdirigerings-URI för webbprogrammet efter en lyckad autentisering. Användaren loggar in på Azure AD.
-1. Om användaren av webbprogrammet inte har ännu godkänt för att tillåta att webbprogrammet anropa webb-API i dess ställe, måste användaren att godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Den här medgivande gäller både enkla och flera innehavare program.  Om en organisation kan administratör utföra admin medgivande medgivande åt sina användare.  Detta kan göras med hjälp av den `Grant Permissions` knappen i den [Azure Portal](https://portal.azure.com). 
+1. Om användaren av webbprogrammet inte har ännu godkänt för att tillåta att webbprogrammet anropa webb-API i dess ställe, måste användaren att godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Den här medgivande gäller både enkla och flera innehavare program. Om en organisation kan administratör utföra admin medgivande medgivande åt sina användare. Detta kan göras med hjälp av den `Grant Permissions` knappen i den [Azure Portal](https://portal.azure.com). 
 1. När användaren har godkänt får webbprogrammet Auktoriseringskoden som behöver få åtkomst-token.
 1. Med auktoriseringskod som utfärdats av Azure AD skickar webbprogrammet en begäran till tokenslutpunkten för Azure AD som innehåller Auktoriseringskoden information om klientprogrammet (program-ID och omdirigerings-URI) och en resurs (program-ID URI för webb-API).
 1. Auktoriseringskoden och information om webbprogram och webb-API verifieras av Azure AD. När valideringen har lyckats, Azure AD returnerar två token: en JWT-åtkomsttoken och en uppdatering JWT-token.

@@ -1,11 +1,11 @@
 ---
 title: Problem med att installera agenten Application Proxy Connector | Microsoft Docs
-description: "Felsökning av problem som kan uppstår när du installerar agenten Application Proxy Connector"
+description: Felsökning av problem som kan uppstår när du installerar agenten Application Proxy Connector
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera agenten Application Proxy Connector
 
@@ -69,4 +69,4 @@ Ansluta till <https://login.microsoftonline.com> och använda samma autentiserin
 Välj ditt användarkonto, sedan ”Directory roll” på menyn. Kontrollera att den valda rollen är ”Global administratör”. Om du inte går att komma åt någon av sidorna på de här stegen kan är du inte en global administratör.
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD Application Proxy-kopplingar](application-proxy-understand-connectors.md)
+[Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md)

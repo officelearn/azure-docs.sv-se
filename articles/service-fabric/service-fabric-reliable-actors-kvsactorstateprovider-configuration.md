@@ -1,24 +1,24 @@
 ---
-title: "Ändra inställningar för KVSActorStateProvider i Azure mikrotjänster | Microsoft Docs"
-description: "Lär dig mer om hur du konfigurerar Azure Service Fabric tillståndskänslig aktörer av typen KVSActorStateProvider."
+title: Ändra inställningar för KVSActorStateProvider i Azure mikrotjänster | Microsoft Docs
+description: Lär dig mer om hur du konfigurerar Azure Service Fabric tillståndskänslig aktörer av typen KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
 Du kan ändra standardkonfigurationen av KVSActorStateProvider genom att ändra filen settings.xml som skapas i Microsoft Visual Studio-rot för package under mappen Config för den angivna aktören.
@@ -48,7 +48,7 @@ Standardkonfigurationen genereras av Visual Studio-mall och bör vara tillräckl
 | Namn | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0.015 |Tidsperiod som replikatorn på de sekundära väntar när du har fått en åtgärd innan du skickar tillbaka en bekräftelse till den primära servern. Andra bekräftelser skickas för åtgärder som behandlas inom intervallet skickas som ett svar. |
-| ReplicatorEndpoint |Saknas |Ingen standard--obligatorisk parameter |Ange IP-adress och port som primära och sekundära replikatorn ska använda för att kommunicera med andra replikatörer i replikeringen. Detta bör referera en TCP-slutpunkt för resurs i service manifest. Referera till [Service manifest resurser](service-fabric-service-manifest-resources.md) du kan läsa mer om hur du definierar endpoint resurser i service manifest. |
+| ReplicatorEndpoint |Gäller inte |Ingen standard--obligatorisk parameter |Ange IP-adress och port som primära och sekundära replikatorn ska använda för att kommunicera med andra replikatörer i replikeringen. Detta bör referera en TCP-slutpunkt för resurs i service manifest. Referera till [Service manifest resurser](service-fabric-service-manifest-resources.md) du kan läsa mer om hur du definierar endpoint resurser i service manifest. |
 | RetryInterval |Sekunder |5 |Tidsperiod efter vilken replikatorn igen skickar ett meddelande om den inte får ett godkännande för en åtgärd. |
 | MaxReplicationMessageSize |Byte |50 MB |Maximal storlek för replikeringsdata som kan överföras i ett enda meddelande. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |1024 |Maximalt antal åtgärder i primära kön. En åtgärd frigjorts när primära replikatorn tar emot en bekräftelse från de sekundära replikatörer. Det här värdet måste vara större än 64 och delbart med 2. |
@@ -64,7 +64,7 @@ Standardkonfigurationen genereras av Visual Studio-mall och bör vara tillräckl
 ### <a name="configuration-names"></a>Konfigurationsnamn
 | Namn | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |millisekunder |200 |Anger den maximala batchbearbetning intervall för beständig lokalt Arkiv genomföranden. |
+| MaxAsyncCommitDelayInMilliseconds |Millisekunder |200 |Anger den maximala batchbearbetning intervall för beständig lokalt Arkiv genomföranden. |
 | MaxVerPages |Antal sidor |16384 |Det maximala antalet version sidor i lokalt lagra databasen. Den anger det maximala antalet utestående transaktioner. |
 
 ## <a name="sample-configuration-file"></a>Exempel på konfigurationsfil

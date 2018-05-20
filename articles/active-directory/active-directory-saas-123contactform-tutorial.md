@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med 123ContactForm | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 123ContactForm."
+title: 'Självstudier: Azure Active Directory-integrering med 123ContactForm | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 70955676e78642e6c8a6eb85f8165b327baece3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f7ad606fc8ee394125300a55dc0586a055a33be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Självstudier: Azure Active Directory-integrering med 123ContactForm
 
@@ -29,9 +29,9 @@ Integrera 123ContactForm med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på 123ContactForm (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med 123ContactForm, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-123contactform-tutorial/url1.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
 
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Klicka på den **visa avancerade inställningar för URL: en** alternativet
 
-    b. I den **logga URL** textruta Skriv en URL som:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+    b. I den **logga URL** textruta Skriv en URL som: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du behöver uppdatera dessa värde från faktiska URL: er och identifierare som beskrivs senare i självstudierna.
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-123contactform-tutorial/tutorial_general_400.png)
 
-7. Konfigurera enkel inloggning på **123ContactForm** sida, gå till [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) och utför följande steg:
+7. Konfigurera enkel inloggning på **123ContactForm** sida, gå till [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-123contactform-tutorial/submit.png) 
 
@@ -232,7 +232,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Belastningsutjämna virtuella datorer över alla zoner för tillgänglighet med hjälp av Azure CLI
 
@@ -61,11 +61,11 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-load-balancer-standard"></a>Skapa Azure Load Balancer Standard
-Det här avsnittet beskrivs hur du kan skapa och konfigurera belastningsutjämnaren följande komponenter:
-- klientdelens IP-poolen som tar emot inkommande nätverkstrafik på belastningsutjämnaren.
-- en backend IP-adresspool om poolen klientdel skickar belastningen belastningsutjämnade trafik.
-- en hälsoavsökningen som avgör hälsotillståndet för serverdelens VM-instanser.
-- en regel för belastningsutjämnare som definierar hur trafiken distribueras till de virtuella datorerna.
+Det här avsnittet beskriver hur du gör för att skapa och konfigurera följande komponenter i belastningsutjämnaren:
+- en klientdels-IP-pool som tar emot inkommande nätverkstrafik i belastningsutjämnaren.
+- en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+- en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
+- en belastningsutjämningsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
 ### <a name="create-the-load-balancer"></a>Skapa belastningsutjämnaren
 Skapa en Standard belastningsutjämnare med [az nätverket lb skapa](/cli/azure/network/lb#az_network_lb_create). I följande exempel skapas en belastningsutjämnare med namnet *myLoadBalancer* och tilldelar den *myPublicIP* adressen till frontend IP-konfigurationen.
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Skapa regel för belastningsutjämnare för port 80
-En regel för belastningsutjämnare definierar frontend IP-konfiguration för inkommande trafik och backend-IP-adresspool för att ta emot trafik, tillsammans med nödvändig käll- och port. Skapa en regel för belastningsutjämnare *myLoadBalancerRuleWeb* med [az nätverket lb regeln skapa](/cli/azure/network/lb/rule#az_network_lb_rule_create) för att lyssna på port 80 i poolen klientdel *myFrontEndPool* och skicka belastningsutjämnad trafik till backend-adresspool *myBackEndPool* också använder port 80.
+En belastningsutjämningsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa belastningsutjämningsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -110,7 +110,7 @@ az network lb rule create \
 ```
 
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
-Innan du distribuerar vissa virtuella datorer och testa din belastningsutjämnare, skapa stödresurser för virtuellt nätverk.
+Innan du distribuerar några virtuella datorer och testar din belastningsutjämnare, måste du skapa virtuella nätverksresurser som stöd.
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -152,7 +152,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Skapa nätverkskort
-Skapa tre virtuella nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create) och koppla dem till den offentliga IP-adressen och nätverkssäkerhetsgruppen. I följande exempel skapar sex virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg). Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
+Skapa tre virtuella nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create) och koppla dem till den offentliga IP-adressen och nätverkssäkerhetsgruppen. I följande exempel skapar sex virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -166,12 +166,12 @@ for i in `seq 1 3`; do
         --lb-address-pools myBackEndPool
 done
 ```
-## <a name="create-backend-servers"></a>Skapa backend-servrar
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 I det här exemplet kan du skapa tre virtuella datorer finns i zonen 1, zon 2 och zon 3 som ska användas som backend-servrar för belastningsutjämnaren. Du kan också installera NGINX på de virtuella datorerna för att kontrollera att belastningsutjämnaren har skapats.
 
 ### <a name="create-cloud-init-config"></a>Skapa en cloud-init-konfiguration
 
-Du kan använda en konfigurationsfil för molnet init för att installera NGINX och köra en ”Hello World” Node.js-app på en Linux-dator. Skapa en fil med namnet molnet init.txt och kopiera och klistra in följande konfiguration i gränssnittet i din aktuella shell. Kontrollera att du kopierar hela molnet init filen korrekt, särskilt den första raden:
+Du kan använda en konfigurationsfil för cloud-init för att installera NGINX och köra en Hello World Node.js-app på en virtuell Linux-dator. Skapa en fil med namnet cloud-init.txt i ditt nuvarande gränssnitt och kopiera och klistra in följande konfiguration i gränssnittet. Se till att kopiera hela cloud-init-filen korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -218,17 +218,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Skapa zonal virtuella datorer
 Skapa de virtuella datorerna med [az vm skapa](/cli/azure/vm#az_vm_create) i zonen 1, zon 2 och zon 3. I följande exempel skapar en virtuell dator i varje zon och genererar SSH-nycklar, om de inte redan finns:
 
-Skapa virtuella datorer i zonen 1
+Skapa en virtuell dator i varje zon (zonen 1 zon2 och zon 3) för den *westeurope* plats.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
 
@@ -248,7 +250,7 @@ Du kan sedan ange den offentliga IP-adressen i en webbläsare. Kom ihåg - det t
 Du kan stoppa en virtuell dator i en viss zon och uppdatera din webbläsare belastningsutjämnaren distribuera trafik mellan virtuella datorer i alla tre tillgänglighet zoner som kör appen visas.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [Standard belastningsutjämnare](./load-balancer-standard-overview.md)
+- Mer information finns i [Standardbelastningsutjämnare](./load-balancer-standard-overview.md)
 
 
 

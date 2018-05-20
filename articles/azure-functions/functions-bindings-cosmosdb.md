@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffb18ef65bc0d901fe237ec9c4f97fdae43dc472
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -35,6 +35,8 @@ Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\s
 Cosmos-DB-bindningar för funktioner version 1.x finns i den [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet-paketet. För funktioner 2.x, paketet är [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Källkoden för bindningar finns i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Utlösare
 
@@ -166,17 +168,17 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**DatabaseName**|**DatabaseName**  | Namnet på Azure DB som Cosmos-databasen med den samling som övervakas. |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på samlingen som övervakas. |
 |**LeaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lease-samling. När inte har angetts i `connectionStringSetting` värdet används. Den här parametern anges automatiskt när bindning skapas i portalen. Anslutningssträngen för samlingen lån måste ha skrivbehörighet.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller den samling som används för att lagra lån. Om inte värdet, för den `databaseName` inställningen används. Den här parametern anges automatiskt när bindning skapas i portalen. |
-|**leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. Om värdet inte, `leases` används. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Valfritt) Om värdet är `true`, samlingen lån skapas automatiskt när den inte redan finns. Standardvärdet är `false`. |
+|**LeaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller den samling som används för att lagra lån. Om inte värdet, för den `databaseName` inställningen används. Den här parametern anges automatiskt när bindning skapas i portalen. |
+|**LeaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. Om värdet inte, `leases` används. |
+|**CreateLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Valfritt) Om värdet är `true`, samlingen lån skapas automatiskt när den inte redan finns. Standardvärdet är `false`. |
 |**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Valfritt) Definierar mängden begära enheter tilldelas när samlingen lån skapas. Den här inställningen är endast användas när `createLeaseCollectionIfNotExists` är inställd på `true`. Den här parametern anges automatiskt när bindning har skapats med hjälp av portalen.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Valfritt) När inställningen läggs ett prefix till lån som skapats i samlingen lån för den här funktionen så effektivt att två separata Azure-funktioner att dela samma lån samling genom att använda olika prefix.
+|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (Valfritt) När inställningen läggs ett prefix till lån som skapats i samlingen lån för den här funktionen så effektivt att två separata Azure-funktioner att dela samma lån samling genom att använda olika prefix.
 |**FeedPollDelay**| **FeedPollDelay**| (Valfritt) När alla aktuella ändringar är att ta slut när mängd definierar, i millisekunder, fördröjning mellan avsöker en partition för nya ändringar i denna feed. Standardvärdet är 5000 (5 sekunder).
 |**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Valfritt) När inställningen definierar, i millisekunder intervallet som startar en aktivitet för att beräkna om partitioner fördelas jämnt mellan kända värddatorinstanser. Standardvärdet är 13000 (13 sekunder).
 |**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Valfritt) När inställningen definierar, i millisekunder det intervall som lånet utförs på ett lån som representerar en partition. Om lånet inte förnyas inom intervallet, kommer den att gälla och ägare för partitionen flyttas till en annan instans. Standardvärdet är 60000 (60 sekunder).
 |**LeaseRenewInterval**| **LeaseRenewInterval**| (Valfritt) När inställningen definierar, i millisekunder, förnyelseintervall för alla lån för partitioner som för tillfället hålls av en instans. Standardvärdet är 17000 (17 sekunder).
 |**CheckpointFrequency**| **CheckpointFrequency**| (Valfritt) När inställningen definierar, i millisekunder, intervallet mellan lån kontrollpunkter. Standardvärdet är alltid efter en lyckad funktionsanrop.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Valfritt) När inställningen anpassar den den maximala mängden objekt tas emot varje funktionsanrop.
+|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (Valfritt) När inställningen anpassar den den maximala mängden objekt tas emot varje funktionsanrop.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -486,7 +488,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**DatabaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på den samling som innehåller dokumentet. |
 |**ID**    | **Id** | ID för dokumentet ska hämtas. Den här egenskapen stöder [bindningsuttryck](functions-triggers-bindings.md#binding-expressions-and-patterns). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
-|**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
+|**SqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
 |**Anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 |**PartitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
 

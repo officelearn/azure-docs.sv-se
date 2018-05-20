@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Convercent | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Convercent."
+title: 'Självstudier: Azure Active Directory-integrering med Convercent | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Convercent.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: f202e42da7ef052f059e2284f0884b8f86912d6e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7049c16d771ea2b7155053f0dee79486938eb2a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Självstudier: Azure Active Directory-integrering med Convercent
 
@@ -29,9 +29,9 @@ Integrera Convercent med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Convercent (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Convercent, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_url.png)
 
-    I den **identifierare** textruta Skriv en URL med följande mönster:`https://<instancename>.convercent.com/`
+    I den **identifierare** textruta Skriv en URL med följande mönster: `https://<instancename>.convercent.com/`
  
 4. Om du vill konfigurera programmet i **SP initierade läge**på den **Convercent domän och URL: er** avsnittet utför följande steg:
     
@@ -118,9 +118,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
      a. Klicka på **”visa avancerade inställningar för URL”.** 
 
-     b. I den **logga URL** textruta Skriv det värde som använder följande mönster:`https://<instancename>.convercent.com/`
+     b. I den **logga URL** textruta Skriv det värde som använder följande mönster: `https://<instancename>.convercent.com/`
 
-     c. I den **Relay tillstånd** textruta Skriv det värde som använder följande mönster:`https://<instancename>.convercent.com/`
+     c. I den **Relay tillstånd** textruta Skriv det värde som använder följande mönster: `https://<instancename>.convercent.com/`
 
     > [!NOTE] 
     > Dessa värden är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, logga URL och Relay tillstånd. Kontakta [Convercent klienten supportteamet](http://support.convercent.com) att hämta dessa värden.
@@ -213,7 +213,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

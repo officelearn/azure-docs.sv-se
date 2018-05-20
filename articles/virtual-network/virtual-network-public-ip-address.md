@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
-Lär dig mer om en offentlig IP-adress och hur du skapar, ändra och ta bort ett. En offentlig IP-adress är en resurs med en egen konfigurerbara inställningar. Tilldela en offentlig IP-adress till andra Azure-resurser kan:
-- Inkommande Internet-anslutning till resurser som virtuella datorer i Azure, Azure Virtual Machine-Skalningsuppsättningar, Azure VPN-Gateway, programgatewayer och Internet-riktade Azure belastningsutjämnare. Azure-resurser kan inte ta emot inkommande kommunikation från Internet utan en tilldelad offentliga IP-adress. Medan vissa Azure-resurser är allmänt tillgängligt via offentliga IP-adresser, måste andra resurser ha offentliga IP-adresser som tilldelats är tillgänglig från Internet.
-- Utgående anslutning till Internet via en förutsägbar IP-adress. En virtuell dator kan till exempel kommunicera utgående till Internet utan en offentlig IP-adress tilldelas, men dess adress är nätverksadress översättas av Azure till ett oförutsägbart offentlig adress. Tilldela en offentlig IP-adress till en resurs kan du vet vilken IP-adress används för utgående anslutning. Även om förutsägbar, kan adressen ändras beroende på tilldelningsmetod valt. Mer information finns i [skapa en offentlig IP-adress](#create-a-public-ip-address). Mer information om utgående anslutningar från Azure-resurser i [förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
+Lär dig mer om en offentlig IP-adress och hur du skapar, ändra och ta bort ett. En offentlig IP-adress är en resurs med en egen konfigurerbara inställningar. Tilldela en offentlig IP-adress till en Azure-resurs som har stöd för offentliga IP-adresser kan:
+- Inkommande kommunikation från Internet till resurs, till exempel Azure virtuella datorer (VM), Programgatewayer i Azure, Azure belastningsutjämnare, Azure VPN-gatewayer och andra. Du kan fortfarande kommunicera med vissa resurser, till exempel virtuella datorer från Internet, om en virtuell dator inte har en offentlig IP-adress som tilldelats den, så länge som den virtuella datorn är en del av en load belastningsutjämnaren backend-adresspool och belastningsutjämnaren har tilldelats en offentlig IP-adress. Finns i dokumentationen för tjänsten för att avgöra om en resurs för en viss Azure-tjänst kan tilldelas en offentlig IP-adress eller om den kan överföras med via offentliga IP-adressen för en annan Azure-resurs. 
+- Utgående anslutning till Internet via en förutsägbar IP-adress. En virtuell dator kan till exempel kommunicera utgående till Internet utan en offentlig IP-adress tilldelas, men dess adress är nätverksadress översättas av Azure till ett oförutsägbart offentlig adress som standard. Tilldela en offentlig IP-adress till en resurs kan du vet vilken IP-adress används för utgående anslutning. Även om förutsägbar, kan adressen ändras beroende på tilldelningsmetod valt. Mer information finns i [skapa en offentlig IP-adress](#create-a-public-ip-address). Läs mer om utgående anslutningar från Azure-resurser i [förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

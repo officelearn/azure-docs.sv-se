@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric programming modellen översikt | Microsoft Docs"
-description: "Service Fabric erbjuder två ramverk för att skapa tjänster: aktören framework och ramverk för tjänster. De erbjuder distinkta avvägningarna i enkelhet och kontroll."
+title: Service Fabric programming modellen översikt | Microsoft Docs
+description: 'Service Fabric erbjuder två ramverk för att skapa tjänster: aktören framework och ramverk för tjänster. De erbjuder distinkta avvägningarna i enkelhet och kontroll.'
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,21 +9,21 @@ editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programming översikt över säkerhetsmodell
 Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan du använda Service Fabric-API: er för att dra full nytta av funktioner och ramverk för programmet för plattformen. Tjänster kan också vara alla kompilerade körbara program som skrivits i valfritt språk eller en kod som körs i en behållare som finns på ett Service Fabric-kluster.
 
-## <a name="guest-executables"></a>Gästen körbara filer
+## <a name="guest-executables"></a>Körbara gästfiler
 En [gäst körbara](service-fabric-guest-executables-introduction.md) är en befintlig godtycklig körbar fil (skrivs på olika språk) som kan köras som en tjänst i ditt program. Gästen körbara filer anropar inte API: er för Service Fabric SDK direkt. Men de fortfarande dra nytta av funktioner som plattformen erbjuder, till exempel tjänsten synlighet, anpassade hälsa och läsa in rapportering genom att anropa REST-API: er för Service Fabric. De kan också ha fullständig programmets livscykeln för support.
 
 Kom igång med gäst körbara filer genom att distribuera din första [gäst körbara programmet](service-fabric-deploy-existing-app.md).

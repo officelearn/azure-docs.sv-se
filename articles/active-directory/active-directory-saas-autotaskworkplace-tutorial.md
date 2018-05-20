@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Autotask arbetsplats | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Autotask arbetsplats."
+title: 'Självstudier: Azure Active Directory-integrering med Autotask arbetsplats | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Autotask arbetsplats.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: e8bd7a770f8544ed4845dd751e43ae5325c68e07
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1468d48c7a60176638d6c0be1a0072b2e5e1ba82
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudier: Azure Active Directory-integrering med Autotask arbetsplats
 
@@ -30,9 +30,9 @@ Integrera Autotask arbetsplats med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta inloggade Autotask arbetsyta (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Autotask arbetsplats, behöver du följande:
 
@@ -111,15 +111,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Autotask arbetsplats domän URL: er och enkel inloggning information för IDP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
 4. Om du vill konfigurera programmet i **SP** initierade läge, kontrollera **visa avancerade inställningar för URL: en** och utför följande steg:
 
     ![Autotask arbetsplats domän URL: er och enkel inloggning information för SP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.awp.autotask.net/loginsso`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.awp.autotask.net/loginsso`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Autotask arbetsplats klienten supportteamet](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) att hämta dessa värden. 
@@ -234,7 +234,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

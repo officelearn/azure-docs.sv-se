@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Cisco Webex | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex."
+title: 'Självstudier: Azure Active Directory-integrering med Cisco Webex | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 527d74910244058506e8435d431e239968896cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex
 
@@ -30,9 +30,9 @@ Cisco Webex integrera med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att få loggas automatiskt Cisco Webex med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats--Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Cisco Webex, behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Cisco Webex domän med enkel inloggning information](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
-    a. I den **inloggnings-URL** Skriv en URL med följande mönster:`https://<subdomain>.webex.com`
+    a. I den **inloggnings-URL** Skriv en URL med följande mönster: `https://<subdomain>.webex.com`
 
     b. I den **identifierare** Skriv URL: en `http://www.webex.com`.
 
-    c. I den **Reply URL** Skriv en URL med följande mönster:`https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
+    c. I den **Reply URL** Skriv en URL med följande mönster: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska reply URL: en och URL: en inloggning. Kontakta [Cisco Webex klient supportteamet](https://www.webex.co.in/support/support-overview.html) att hämta dessa värden. 
@@ -161,7 +161,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. I den **AuthnContextClassRef** skriver **urn: oasis: namn: tc: SAML:2.0:ac:classes:Password**.
 
-    Jag. I den **kunden URL för enkel inloggning logga ut** klistra in **Sign-Out URL**, som du kopierade från Azure-portalen.
+    i. I den **kunden URL för enkel inloggning logga ut** klistra in **Sign-Out URL**, som du kopierade från Azure-portalen.
    
     j. Välj **uppdatering**.
 
@@ -222,9 +222,9 @@ Om du vill aktivera Azure AD-användare att logga in på Cisco Webex, måste de 
 
     c. I den **efternamn** skriver efternamn för användaren (i det här fallet **Simon**).
 
-    d. I den **användarnamn** Skriv e-postadressen för användaren (i det här fallet  **Brittasimon@contoso.com** ).
+    d. I den **användarnamn** Skriv e-postadressen för användaren (i det här fallet **Brittasimon@contoso.com**).
 
-    e. I den **e-post** Skriv e-postadressen för användaren (i det här fallet  **Brittasimon@contoso.com** ).
+    e. I den **e-post** Skriv e-postadressen för användaren (i det här fallet **Brittasimon@contoso.com**).
 
     f. I den **lösenord** Skriv användarens lösenord.
 
@@ -278,7 +278,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

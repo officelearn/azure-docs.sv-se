@@ -1,24 +1,24 @@
 ---
 title: Repliker och instanser i Azure Service Fabric | Microsoft Docs
-description: "Förstå replikeringar och instanser--deras funktion och applivscykler"
+description: Förstå replikeringar och instanser--deras funktion och applivscykler
 services: service-fabric
 documentationcenter: .net
 author: appi101
 manager: anuragg
-editor: 
+editor: ''
 ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="replicas-and-instances"></a>Repliker och instanser 
 Den här artikeln ger en översikt över livscykeln för repliker av tillståndskänsliga tjänster och instanser av tillståndslösa tjänster.
@@ -97,7 +97,7 @@ Om programvärden eller nod för en inledande replikering krascher, går över t
 
 Rollen repliken är inte relevant i tillståndet öppnas.
 
-### <a name="standby-sb"></a>StandBy (SB)
+### <a name="standby-sb"></a>Vänteläge (SB)
 En StandBy-replik är en replik av en beständig tjänst som avslutades och sedan har öppnats. Den här repliken kanske används av Service Fabric om behöver lägga till en annan replik i repliken (eftersom repliken redan har en del av status och build-processen är snabbare). När StandByReplicaKeepDuration upphör att gälla tas vänteläge repliken bort.
 
 Om programvärden eller nod för en vänteläge replik krascher, går över till läget ner.

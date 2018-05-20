@@ -19,6 +19,10 @@
   items:
     - name: Köra frågor i ett Spark-kluster
       href: apache-spark-load-data-run-query.md
+    - name: Använda VSCode för att köra Spark-frågor
+      href: ../hdinsight-for-vscode.md
+    - name: Använda IntelliJ för att köra Spark-frågor
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analysera data med BI-verktyg
       href: apache-spark-use-bi-tools.md
     - name: Köra ett direktuppspelningsjobb
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Skapa appar med IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Felsöka Spark-jobb via en fjärranslutning med IntelliJ genom VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Felsöka Spark-jobb via en fjärranslutning med IntelliJ genom SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Felsöka Spark-jobb via en fjärranslutning med IntelliJ genom VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Felsöka Spark-jobb
           href: apache-spark-job-debugging.md
+        - name: Använda IntelliJ för att felsöka Spark-jobb
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

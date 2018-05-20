@@ -1,0 +1,186 @@
+- name: ExpressRoute dokumentation
+  href: index.md
+- name: Översikt
+  items:
+    - name: Vad är ExpressRoute?
+      href: expressroute-introduction.md
+- name: Självstudier
+  items:
+    - name: Skapa och ändra en krets
+      href: expressroute-howto-circuit-portal-resource-manager.md
+    - name: Skapa och ändra peering-konfiguration
+      href: expressroute-howto-routing-portal-resource-manager.md
+    - name: Länka ett virtuellt nätverk till en ExpressRoute-krets
+      href: expressroute-howto-linkvnet-portal-resource-manager.md
+    - name: Konfigurera routningsfilter för Microsoft-peering
+      href: how-to-routefilter-portal.md
+- name: Begrepp
+  items:
+    - name: Anslutningsmodeller
+      href: expressroute-connectivity-models.md
+    - name: Kretsar och routningsdomäner
+      href: expressroute-circuit-peerings.md
+    - name: Platser och partners
+      href: expressroute-locations.md
+      items:
+        - name: Leverantörer efter plats
+          href: expressroute-locations-providers.md
+        - name: Platser efter leverantör
+          href: expressroute-locations.md
+    - name: Virtuella nätverksgatewayer för ExpressRoute
+      href: expressroute-about-virtual-network-gateways.md
+    - name: Nödvändiga komponenter
+      href: expressroute-prerequisites.md
+    - name: Arbetsflöden
+      href: expressroute-workflows.md
+    - name: Routningskrav
+      href: expressroute-routing.md
+    - name: QoS-krav
+      href: expressroute-qos.md
+    - name: Om att flytta kretsar från klassisk till Resource Manager
+      href: expressroute-move.md
+- name: Instruktionsguider
+  items:
+    - name: Skapa och ändra en krets
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-circuit-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-circuit-arm.md
+        - name: Azure CLI
+          href: howto-circuit-cli.md
+    - name: Skapa och ändra peering-konfiguration
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-routing-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-routing-arm.md
+        - name: Azure CLI
+          href: howto-routing-cli.md
+    - name: Länka ett virtuellt nätverk till en ExpressRoute-krets
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-linkvnet-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-linkvnet-arm.md
+        - name: Azure CLI
+          href: howto-linkvnet-cli.md
+    - name: Konfigurera ett virtuellt privat nätverk för plats-till-plats via Microsoft-peering
+      href: site-to-site-vpn-over-microsoft-peering.md
+    - name: Konfigurera en virtuell nätverksgateway för ExpressRoute
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-add-gateway-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-gateway-resource-manager.md
+    - name: Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt
+      href: expressroute-howto-coexist-resource-manager.md
+    - name: Konfigurera routningsfilter för Microsoft-peering
+      items:
+        - name: Azure Portal
+          href: how-to-routefilter-portal.md
+        - name: Azure PowerShell
+          href: how-to-routefilter-powershell.md
+        - name: Azure CLI
+          href: how-to-routefilter-cli.md
+    - name: Flytta från offentlig peering till Microsoft-peering
+      href: how-to-move-peering.md
+    - name: Flytta en krets från klassisk till Resource Manager
+      href: expressroute-howto-move-arm.md
+    - name: Migrera associerade virtuella nätverk från klassisk till Resource Manager
+      href: expressroute-migration-classic-resource-manager.md
+    - name: Konfigurera en router för ExpressRoute
+      items:
+        - name: Konfigurera en router
+          href: expressroute-config-samples-routing.md
+        - name: Exempel på routerkonfigurationer för NAT
+          href: expressroute-config-samples-nat.md
+    - name: Konfigurera övervakare av nätverksprestanda för ExpressRoute
+      href: how-to-npm.md
+    - name: Artiklar om den klassiska distributionsmodellen
+      items:
+        - name: Ändra en krets
+          href: expressroute-howto-circuit-classic.md
+        - name: Skapa och ändra peering-konfiguration
+          href: expressroute-howto-routing-classic.md
+        - name: Länka ett virtuellt nätverk till en ExpressRoute-krets
+          href: expressroute-howto-linkvnet-classic.md
+        - name: Konfigurera ExpressRoute-anslutningar och S2S-anslutningar som kan användas samtidigt
+          href: expressroute-howto-coexist-classic.md
+        - name: Lägg till en gateway till ett virtuellt nätverk
+          href: expressroute-howto-add-gateway-classic.md
+    - name: Metodtips
+      items:
+        - name: Bästa metoder för nätverkssäkerhet och molntjänster
+          href: ../best-practices-network-security.md
+        - name: Optimera routning
+          href: expressroute-optimize-routing.md
+        - name: Asymmetrisk routning
+          href: expressroute-asymmetric-routing.md
+        - name: NAT för ExpressRoute
+          href: expressroute-nat.md
+    - name: Felsöka
+      items:
+        - name: Verifiera ExpressRoute-anslutning
+          href: expressroute-troubleshooting-expressroute-overview.md
+        - name: Lösa problem med nätverksprestanda
+          href: expressroute-troubleshooting-network-performance.md
+        - name: Återställa en misslyckad krets
+          href: reset-circuit.md
+        - name: Hämta ARP-tabeller
+          href: expressroute-troubleshooting-arp-resource-manager.md
+        - name: Hämta ARP-tabeller (klassisk)
+          href: expressroute-troubleshooting-arp-classic.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.network#expressroute'
+    - name: Azure CLI
+      href: /cli/azure/network/express-route
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+    - name: REST (klassisk)
+      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+- name: Resurser
+  items:
+    - name: Vanliga frågor och svar för ExpressRoute
+      href: expressroute-faqs.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Fallstudier
+      href: 'https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products'
+    - name: Nätverksblogg
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/expressroute/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=expressroute'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: Prenumerations- och tjänstbegränsningar
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: ExpressRoute för Cloud Solution Providers (CSP)
+      href: expressroute-for-cloud-solution-providers.md
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=expressroute'
+      items:
+        - name: Anslut en virtuell nätverksgateway till en krets
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/'
+        - name: Skapa ett virtuellt nätverk för ExpressRoute
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/'
+        - name: Skapa en virtuell nätverksgateway för ExpressRoute
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/'
+        - name: Skapa en ExpressRoute-krets
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/'
+        - name: Utveckla anslutningarna i nätverksinfrastrukturen
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615124'
+        - name: Så här konfigurerar du privat peering för din krets
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/'
+        - name: 'Hybridpartners: Aktivera scenarier lokalt'
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615125'
+        - name: Konfigurera Microsoft-peering för din krets
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/'
+        - name: Konfigurera offentlig peering för din krets
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/'

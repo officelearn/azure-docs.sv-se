@@ -102,6 +102,7 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Hantera personliga data](resource-manager-personal-data.md)
 ## [Begränsningsbegäranden](resource-manager-request-limits.md)
 ## [Spåra asynkrona åtgärder](resource-manager-async-operations.md)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Konfigurera rutan för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och rutan."
+title: 'Självstudier: Konfigurera rutan för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och rutan.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Konfigurera rutan för automatisk användaretablering
 
@@ -43,7 +43,7 @@ Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vi
 Den **rutan > användare och grupper** fliken i Azure-portalen kan du ange vilka användare och grupper bör ha åtkomst till Box. Tilldelning av en användare eller grupp gör följande inträffar:
 
 * Azure AD tillåter den tilldelade användaren (antingen direkt av tilldelning av eller gruppmedlemskap) för att autentisera till rutan. Om en användare inte har tilldelats, Azure AD tillåter inte dem att logga in på rutan och returnerar ett fel på sidan för Azure AD.
-* En app-panelen för Box har lagts till i användarens [startprogrammet](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* En app-panelen för Box har lagts till i användarens [startprogrammet](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * Om automatisk etablering aktiveras sedan läggs tilldelade användare och/eller grupper till köns etablering etableras automatiskt.
   
   * Om endast användarobjekt har konfigurerats för att etableras, sedan alla direkt tilldelade användare placeras i kön för etablering och alla användare som är medlemmar i de tilldelade grupperna placeras i kön för etablering. 
@@ -120,5 +120,5 @@ I rutan-klient synkroniserade användare visas under **hanterade användare** i 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användare konto-etablering för företag-appar](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](active-directory-saas-box-tutorial.md)

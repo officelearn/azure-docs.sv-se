@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Trello | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trello."
+title: 'Självstudier: Azure Active Directory-integrering med Trello | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trello.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39ea5cc19e73cb6e9ea6da9757f5e8013d1a5ffe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dfdbef1138c166beca0a470d2e55dd24703d237c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Självstudier: Azure Active Directory-integrering med Trello
 
@@ -30,9 +30,9 @@ Integrera Trello med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Trello (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Trello, behöver du följande:
 
@@ -95,7 +95,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Trello, måste du
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Trello program.
 
 >[!NOTE]
->Du bör få den  **\<enterprise\>**  slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug du enterprise.
+>Du bör få den **\<enterprise\>** slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug du enterprise.
     > 
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Trello:**
@@ -112,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Trello domän med enkel inloggning information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
     
-    a. I den **identifierare** textruta, ange följande URL:`https://trello.com/auth/saml/metadata`
+    a. I den **identifierare** textruta, ange följande URL: `https://trello.com/auth/saml/metadata`
     
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://trello.com/auth/saml/consume/<enterprise>`
 
 4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Kontrollera **visa avancerade inställningar för URL: en**.
 
-    b. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/login/<enterprise>` 
+    b. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Trello program förväntar SAML intyg som innehåller specifika attribut. Konfigurera följande attribut för det här programmet. Du kan hantera värden för attributen från den **”användarattribut”** av programmet. Följande skärmbild visar ett exempel för det här.
 
@@ -245,7 +245,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

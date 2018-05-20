@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Questetra BPM Suite | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Questetra BPM Suite."
+title: 'Självstudier: Azure Active Directory-integrering med Questetra BPM Suite | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Questetra BPM Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e2515d571aa1615f14b597ef82b1087df3827f82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 122473da723cb101e0f0f9226b34aa3294477657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudier: Azure Active Directory-integrering med Questetra BPM Suite
 
@@ -30,9 +30,9 @@ Integrera Questetra BPM Suite med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Questetra BPM Suite (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Questetra BPM Suite, behöver du följande:
 
@@ -107,9 +107,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Avsnittet Questetra BPM Suite domän och URL: er](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.questetra.net/`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.questetra.net/`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Du kan få värdena från **SP Information** avsnittet på din **Questetra BPM Suite** företagets plats, vilket beskrivs senare i självstudiekursen eller kontakta [Questetra BPM Suite klientstöd team](https://www.questetra.com/contact/). 
@@ -207,9 +207,9 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Skapa testanvändare][300] 
    
-    a. I den **namn** textruta typen **namn** användarens  **britta.simon@contoso.com** .
+    a. I den **namn** textruta typen **namn** användarens **britta.simon@contoso.com**.
    
-    b. I den **e-post** textruta typen **e-post** för användaren**britta.simon@contoso.com**
+    b. I den **e-post** textruta typen **e-post** för användaren **britta.simon@contoso.com**
    
     c. I den **lösenord** textruta typ a **lösenord** för användaren.
     
@@ -255,7 +255,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

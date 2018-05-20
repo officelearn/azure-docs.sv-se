@@ -1,6 +1,6 @@
 ---
-title: Introduktion till Azure Container Service för Kubernetes
-description: Med Azure Container Service för Kubernetes kan du enkelt distribuera och hantera behållarbaserade program i Azure.
+title: Introduktion till Azure Kubernetes Service
+description: Med Azure Kubernetes Service kan du enkelt distribuera och hantera behållarbaserade program i Azure.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,20 +9,20 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4936554465fbbed45000f43853a6a77567c3028f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introduction-to-azure-container-service-aks-preview"></a>Introduktion till förhandsversion av Azure Container Service (AKS)
+# <a name="introduction-to-azure-kubernetes-service-aks-preview"></a>Introduktion till förhandsversionen av Azure Kubernetes Service (AKS)
 
-Azure Container Service gör det enkelt att skapa, konfigurera och hantera ett kluster med virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
+Med Azure Kubernetes Service (AKS) kan du enkelt skapa, konfigurera och hantera ett kluster med virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
 
 Genom att använda AKS kan du dra nytta av Azures funktioner på företagsnivå samtidigt som programmen fortsätter att vara bärbara via Kubernetes och Docker-avbildningsformatet.
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Azure Kubernetes Service (AKS) finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
 ## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes i Azure
@@ -37,11 +37,11 @@ AKS minskar komplexiteten och arbetet med att hantera ett Kubernetes-kluster gen
 
 När Azure sköter hanteringen av noderna i AKS-klustret behöver du inte längre utföra så många uppgifter manuellt, t.ex. klusteruppgraderingar. Eftersom Azure hanterar dessa viktiga underhållsuppgifter åt dig behöver inte AKS ge direktåtkomst (t.ex. med SSH) till klustret.
 
-## <a name="using-azure-container-service-aks"></a>Använda Azure Container Service (AKS)
+## <a name="using-azure-kubernetes-service-aks"></a>Använda Azure Kubernetes Service (AKS)
 Målet med AKS är att tillhandahålla en behållarvärdmiljö med hjälp av verktyg och teknik med öppen källkod som är populära bland kunderna idag. Därför tillgängliggör vi Kubernetes API-standardslutpunkter. Genom att använda dessa standardslutpunkter kan du använda all programvara som kan kommunicera till ett Kubernetes-kluster. Du kan till exempel välja [kubectl][kubectl-overview], [helm][helm] eller [draft][draft].
 
-## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Skapa ett Kubernetes-kluster med Azure Container Service (AKS)
-Om du vill börja använda AKS distribuerar du ett AKS-kluster med [Azure CLI][aks-quickstart] eller via portalen (sök på Marketplace efter **Azure Container Service**). Om du är en avancerad användare som behöver mer kontroll över Azure Resource Manager-mallarna kan du öppna projektet [acs-engine][acs-engine] med öppen källkod för att bygga ett eget anpassat Kubernetes-kluster och distribuera det via `az` CLI.
+## <a name="creating-a-kubernetes-cluster-using-azure-kubernetes-service-aks"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service (AKS)
+Om du vill börja använda AKS distribuerar du ett AKS-kluster med [Azure CLI][aks-quickstart] eller via portalen (sök efter **Azure Kubernetes Service** på Marketplace). Om du är en avancerad användare som behöver mer kontroll över Azure Resource Manager-mallarna kan du öppna projektet [acs-engine][acs-engine] med öppen källkod för att bygga ett eget anpassat Kubernetes-kluster och distribuera det via `az` CLI.
 
 ### <a name="using-kubernetes"></a>Använda Kubernetes
 Kubernetes automatiserar distributionen, skalningen och hanteringen av program som använder behållare. Det har en omfattande uppsättning funktioner. Till exempel:
@@ -56,7 +56,7 @@ Kubernetes automatiserar distributionen, skalningen och hanteringen av program s
 
 ## <a name="videos"></a>Videoklipp
 
-Azure Container Service (AKS) – Azure Friday, oktober 2017:
+Azure Kubernetes Service (AKS) – Azure Friday, oktober 2017:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >

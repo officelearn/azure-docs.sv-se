@@ -9,11 +9,11 @@ ms.service: multiple
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner
 
@@ -31,6 +31,7 @@ Bild 1 – Azure regionala par
 |:--- |:--- |:--- |
 | Asien |Östasien |Sydostasien |
 | Australien |Östra Australien |Sydöstra Australien |
+| Australien |Australien, centrala |Australien Central (2) |
 | Brasilien |Södra (2) |Södra centrala USA |
 | Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Norra Kina |Östra Kina|

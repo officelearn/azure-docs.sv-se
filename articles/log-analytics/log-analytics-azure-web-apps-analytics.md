@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> Azure Web Apps Analytics-lösningen är föråldrad.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men Azure Web Apps Analytics går inte att lägga till nya arbetsytor.
+> Azure Web Apps Analytics-lösningen är föråldrad.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men Azure Web Apps Analytics går inte att lägga till nya arbetsytor.  Om du vill övervaka ditt webbprogram, rekommenderar vi du använder [Programinsikter](../application-insights/app-insights-overview.md). 
 
 Lösningen Azure Web Apps Analytics (förhandsversion) ger insikter om din [Azure Web Apps](../app-service/app-service-web-overview.md) genom att samla in olika mått för alla webbprogram i Azure-resurser. Med lösningen kan du analysera och söka efter måttdata för web app resurs.
 

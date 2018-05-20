@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric-mönster och scenarier | Microsoft Docs"
-description: "Lär dig bästa praxis och beprövade återanvändbara mönster för att utforma, utveckla och hantera din mikrotjänster på Service Fabric."
+title: Azure Service Fabric-mönster och scenarier | Microsoft Docs
+description: Lär dig bästa praxis och beprövade återanvändbara mönster för att utforma, utveckla och hantera din mikrotjänster på Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d5aa75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric-mönster och scenarier
 Om du tittar på bygga storskaliga mikrotjänster med hjälp av Azure Service Fabric, lär du dig av experter som designas och skapas den här plattformen som en tjänst (PaaS). Kom igång med rätt arkitektur och lär dig hur du optimerar resurserna för ditt program. Den [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) kursen svarar på frågor som ofta och av verkliga kunder svar om Service Fabric-scenarier och moduler.

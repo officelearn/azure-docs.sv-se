@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC) | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mercer BenefitsCentral (av MBC)."
+title: 'Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mercer BenefitsCentral (av MBC).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: dfc963be9d087c6ad1c56dcdaf922ff5dbf5b284
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a9fc6c906af96bd613c02e8b4248fc2125d9e1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC)
 
@@ -30,9 +30,9 @@ Integrera Mercer av BenefitsCentral (MBC) med Azure AD ger dig följande fördel
 - Du kan aktivera användarna att automatiskt hämta inloggade till Mercer BenefitsCentral (av MBC) (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Mercer BenefitsCentral (av MBC) behöver du följande:
 
@@ -70,7 +70,7 @@ Du måste lägga till Mercer BenefitsCentral (av MBC) från galleriet i listan �
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Mercer BenefitsCentral (av MBC)**väljer **Mercer BenefitsCentral (av MBC)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Mercer BenefitsCentral (av MBC)** väljer **Mercer BenefitsCentral (av MBC)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Mercer BenefitsCentral (av MBC) i resultatlistan](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_addfromgallery.png)
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och mercer BenefitsCentral (av MBC)-domän med enkel inloggning information](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`stg.mercerhrs.com/saml2.0`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `stg.mercerhrs.com/saml2.0`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
     > [!NOTE] 
     > Svars-URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska Reply-URL. Kontakta [Mercer BenefitsCentral (av MBC) supportteamet](https://www.mercer.com/contact-us.html) att hämta det här värdet.
@@ -208,7 +208,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

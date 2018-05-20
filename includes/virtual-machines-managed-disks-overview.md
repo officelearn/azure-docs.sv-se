@@ -47,7 +47,7 @@ Låt oss ta en närmare titt på dessa.
 **Lagringstyp:** hanterade diskar erbjuder 2 prestandanivåer: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-baserad) och [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-baserat). Fakturering för hanterade diskar beror på vilken typ av lagring som du har valt för disken.
 
 
-**Diskstorlek**: fakturering för hanterade diskar beror på den etablerade storleken på disken. Azure mappar etablerade storleken (avrunda uppåt) till närmaste hanterade diskar alternativet som anges i tabellerna nedan. Varje hanterade disken mappar till en av de etablerade storlekarna som stöds och därefter faktureras. Om du skapar en standard hanterade diskar och ange en etablerade storlek på 200 GB debiteras du till exempel enligt prissättning S20 disktyp.
+**Diskstorlek**: fakturering för hanterade diskar beror på den etablerade storleken på disken. Azure mappar etablerade storleken (avrunda uppåt) till närmaste hanterade diskar alternativet som anges i tabellerna nedan. Varje hanterade disken mappar till en av de etablerade storlekarna som stöds och därefter faktureras. Om du skapar en standard hanterade diskar och ange en etablerade storlek på 200 GB debiteras du till exempel enligt prissättning S15 disktyp.
 
 Här är storlekar för diskar som är tillgängliga för en hanterad premium-disk:
 
@@ -58,9 +58,9 @@ Här är storlekar för diskar som är tillgängliga för en hanterad premium-di
 
 Här är storlekar för diskar som är tillgängliga för en standard hanterade diskar:
 
-| **Standard hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Diskstorlek        | 32 giB   | 64 giB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
+| **Standard hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 **Antal transaktioner**: du debiteras för antal transaktioner som du kan utföra på en standard hanterade disk. Det kostar inget för transaktioner för en hanterad premium-disk.

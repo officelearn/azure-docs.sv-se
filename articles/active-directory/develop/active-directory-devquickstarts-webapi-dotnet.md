@@ -1,25 +1,27 @@
 ---
-title: ".NET Web av Azure AD-API som komma igång | Microsoft Docs"
-description: "Hur du skapar ett .NET MVC-webb-API som kan integreras med Azure AD för autentisering och auktorisering."
+title: .NET Web av Azure AD-API som komma igång | Microsoft Docs
+description: Hur du skapar ett .NET MVC-webb-API som kan integreras med Azure AD för autentisering och auktorisering.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa527f66035ce8ea95ecdf405ef307c1202a92a6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>.NET Web av Azure AD-API som komma igång
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -125,8 +127,8 @@ Om du vill validera inkommande begäranden och token, måste du konfigurera ditt
     ```
 
 7. Öppna den `web.config` filen i roten av projektet TodoListService och ange dina konfigurationsvärden i den `<appSettings>` avsnitt.
-  * `ida:Tenant`är namnet på din Azure AD-klient – till exempel contoso.onmicrosoft.com.
-  * `ida:Audience`är URI: N App-ID för det program som du angav i Azure-portalen.
+  * `ida:Tenant` är namnet på din Azure AD-klient – till exempel contoso.onmicrosoft.com.
+  * `ida:Audience` är URI: N App-ID för det program som du angav i Azure-portalen.
 
 ## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Steg 3: Konfigurera ett klientprogram och köra tjänsten
 Innan du kan se att göra tjänsten i åtgärden måste du konfigurera klienten för att göra-listan så att den kan hämta token från Azure AD-anrop till tjänsten.
@@ -143,9 +145,9 @@ Innan du kan se att göra tjänsten i åtgärden måste du konfigurera klienten 
 
 5. Öppna i Visual Studio `App.config` i TodoListClient projektet och sedan ange dina konfigurationsvärden i den `<appSettings>` avsnitt.
 
-  * `ida:Tenant`är namnet på din Azure AD-klient – till exempel contoso.onmicrosoft.com.
-  * `ida:ClientId`är det app-ID som du kopierade från Azure-portalen.
-  * `todo:TodoListResourceId`är URI: N App-ID för att göra listan tjänstprogrammet som du angav i Azure-portalen.
+  * `ida:Tenant` är namnet på din Azure AD-klient – till exempel contoso.onmicrosoft.com.
+  * `ida:ClientId` är det app-ID som du kopierade från Azure-portalen.
+  * `todo:TodoListResourceId` är URI: N App-ID för att göra listan tjänstprogrammet som du angav i Azure-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 Slutligen, rensa, skapa och kör varje projekt. Om du inte redan gjort nu är det dags att skapa en ny användare i din klient med en *. onmicrosoft.com-domän. Logga in på klienten för att göra-lista med användaren och lägga till vissa uppgifter i användarens att göra-lista.

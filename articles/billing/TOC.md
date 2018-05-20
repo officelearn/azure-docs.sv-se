@@ -43,6 +43,7 @@
 ### [Uppdatera betalningsinformation](billing-how-to-change-credit-card.md)
 ### [Betala för prenumerationer med faktura](billing-how-to-pay-by-invoice.md)
 ### [Länka partner-ID](billing-partner-admin-link-started.md)
+### [Visa faktureringskonton](billing-view-all-accounts.md)
 ## [Hantera reserverade VM-instanser](billing-manage-reserved-vm-instance.md)
 ## Felsöka
 ### [Registreringsproblem](https://support.microsoft.com/en-us/help/4042959)
@@ -52,11 +53,19 @@
 ### [Företagskostnadsvy inaktiverad](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Referens
-## [API-översikt](billing-usage-rate-card-overview.md)
-## [Översikt över Enterprise Reporting-API](billing-enterprise-api.md)
-## [Faktura-REST](/rest/api/billing)
-## [Användning och RateCard-REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partnerlösning: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Översikt över API för Azure fakturerings](billing-usage-rate-card-overview.md)
+### [REST API för Azure-fakturering](https://docs.microsoft.com/rest/api/billing)
+### [Partnerlösning – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## API för Azure Consumption
+### [REST API för Azure Consumption](https://docs.microsoft.com/rest/api/consumption) 
+### [REST API för RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [REST API för användning](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Översikt över Enterprise Reporting](billing-enterprise-api.md)
+### [REST API för Enterprise Reporting](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## Kodexempel för fakturering
+### [Kodexempel för API för faktura](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Kodexempel för API för användning](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [Kodexempel för API för RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

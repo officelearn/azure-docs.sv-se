@@ -1,24 +1,22 @@
 ---
-title: "Strömma data från Stream Analytics i Data Lake Store | Microsoft Docs"
-description: "Använd Azure Stream Analytics att sända data till Azure Data Lake Store"
+title: Strömma data från Stream Analytics i Data Lake Store | Microsoft Docs
+description: Använd Azure Stream Analytics att sända data till Azure Data Lake Store
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Data Lake Store med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Store som utdata för ett Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från ett Azure Storage blob (indata) och skriver data till Data Lake Store (utdata).
@@ -96,7 +94,7 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller ingen källa och 
     
     Klicka på **Skapa**. Portalen nu lägger till utdata och testar anslutningen till den.
     
-## <a name="run-the-stream-analytics-job"></a>Kör Stream Analytics-jobbet
+## <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
 1. Om du vill köra ett Stream Analytics-jobb, måste du köra en fråga från den **frågan** fliken. För den här självstudiekursen, du kan köra exempelfråga genom att ersätta platshållarna med jobbet indata och utdata alias, som visas i skärmdumpen nedan.
 

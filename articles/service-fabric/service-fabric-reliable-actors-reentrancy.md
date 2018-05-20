@@ -1,6 +1,6 @@
 ---
-title: "Återinträde i aktören-baserad Azure mikrotjänster | Microsoft Docs"
-description: "Introduktion till återinträde för Service Fabric Reliable Actors"
+title: Återinträde i aktören-baserad Azure mikrotjänster | Microsoft Docs
+description: Introduktion till återinträde för Service Fabric Reliable Actors
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,24 +9,24 @@ editor: amanbha
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-actors-reentrancy"></a>Tillförlitliga aktörer återinträde
 Körningsmiljön Reliable Actors tillåter som standard logiska anropet kontext-baserade återinträde. Detta ger aktörer ska fleraktivt om de finns i samma kedja för anrop kontext. Till exempel skickar aktören A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A och är meddelandet fleraktivt, så ska tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills bearbetningen har slutförts.
 
 Det finns två alternativ för aktören återinträde som definierats i den `ActorReentrancyMode` uppräkningen:
 
-* `LogicalCallContext`(standardinställningen)
-* `Disallowed`-inaktiverar återinträde
+* `LogicalCallContext` (standardinställningen)
+* `Disallowed` -inaktiverar återinträde
 
 ```csharp
 public enum ActorReentrancyMode

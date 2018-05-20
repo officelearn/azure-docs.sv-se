@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29f6b3e8b7d7d940da098953e8f9d3deaccf78dc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid bindningar
 
@@ -29,6 +29,8 @@ Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https:
 SendGrid-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -183,14 +185,14 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ**|| Krävs – måste vara inställd på `sendGrid`.|
-|**Riktning**|| Krävs – måste vara inställd på `out`.|
+|**typ**|| Krävs – måste vara inställd på `sendGrid`.|
+|**riktning**|| Krävs – måste vara inställd på `out`.|
 |**Namn**|| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
 |**apiKey**|**apiKey**| Namnet på en appinställning som innehåller API-nyckel. Om inte aktiverad, standardappen inställningen är ”AzureWebJobsSendGridApiKey”.|
 |**Att**|**Till**| mottagarens e-postadress. |
-|**from**|**Från**| avsändarens e-postadress. |
+|**Från**|**Från**| avsändarens e-postadress. |
 |**Ämne**|**Ämne**| ämnet för e-postmeddelandet. |
-|**text**|**Text**| e-postinnehåll. |
+|**Text**|**Text**| e-postinnehåll. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

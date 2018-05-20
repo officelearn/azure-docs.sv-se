@@ -10,11 +10,11 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1dba7c302d8acad6133c0e7c6a2186f7ba617e2c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera utan slutanvändarregistrering för återställning av lösenord
 
@@ -33,16 +33,27 @@ För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode Pho
 
 Om du använder standardinställningarna i Azure AD Connect, görs följande avbildningar:
 
-| Lokalt Active Directory | Azure AD | Azure AD authentication kontaktinformation |
-| --- | --- | --- |
-| telephoneNumber | Arbetstelefon | Alternativ telefon |
-| mobila | Mobiltelefon | Telefon |
+| Lokalt Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | Arbetstelefon |
+| mobila | Mobiltelefon |
 
-Fälten kan visas tom tills användaren bekräftar sitt autentiseringsdata.
+När en användare verifierar sin mobiltelefonnummer, fylls även fältet Phone under autentisering kontaktinformation i Azure AD med det numret.
 
-En Global administratör kan manuellt ange kontaktinformation för autentisering för användaren som visas i följande skärmbild.
+## <a name="authentication-contact-info"></a>Information om autentiseringskontakt
+
+En Global administratör kan ange manuellt kontaktinformation för autentisering för en användare som visas i följande skärmbild.
 
 ![Kontakta][Contact]
+
+Om fylls fältet Phone mobiltelefon är aktiverat i principen för SSPR och ser användaren att numret på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde. 
+
+Fältet alternativt telefonnummer används inte för återställning av lösenord.
+
+Om fylls fältet för e-post och e-post är aktiverat i SSPR-principen, visas som e-post på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
+
+Om fylls fältet alternativa e-post och e-post är aktiverat i SSPR-princip, kommer användaren **inte** finns att e-post på lösenordet återställa registreringssidan, men de kommer att se den under lösenordet återställning av arbetsflöde. 
+
 
 ## <a name="security-questions-and-answers"></a>Säkerhetsfrågor och svar
 

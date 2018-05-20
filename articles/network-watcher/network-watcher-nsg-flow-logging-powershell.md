@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2419bf981f613137dba02ba0b767edc491324d27
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f0ffdb9127555ecfdd37a399335335885a10a6ea
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurera Network Security Group flöda loggar med PowerShell
 
@@ -51,7 +51,7 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
-Storage-konto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar åtkomst till nätverket till endast Microsoft-tjänster eller specifika virtuella nätverk.
+Storage-konto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar åtkomst till nätverket till endast Microsoft-tjänster eller specifika virtuella nätverk. Storage-konto kan vara i samma eller en annan Azure-prenumeration än NSG: N som du aktiverar flödet loggen för. Om du använder olika prenumerationer, måste de båda vara kopplade till samma Azure Active Directory-klienten. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgruppen flöde loggar
 

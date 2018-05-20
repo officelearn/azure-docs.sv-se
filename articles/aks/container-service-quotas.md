@@ -1,22 +1,22 @@
 ---
-title: "Kvoter och regional tillgänglighet för Azure Container Service (AKS)"
-description: "Standardkvoter och regional tillgänglighet för tjänsten Azure Container Service (AKS)."
+title: Kvoter och regional tillgänglighet för Azure Kubernetes Service (AKS)
+description: Standardkvoter och regional tillgänglighet för Azure Kubernetes Service (AKS).
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Kvoter och regional tillgänglighet för Azure Container Service (AKS)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Kvoter och regional tillgänglighet för Azure Kubernetes Service (AKS)
 
-Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och funktioner. Följande avsnitt beskriver standardresursgränserna för flera Azure Container Service-resurser (AKS), samt tillgänglighet för AKS-tjänsten i Azure-regioner.
+Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och funktioner. Följande avsnitt beskriver standardresursgränserna för flera Azure Kubernetes Service-resurser (AKS), samt tillgänglighet för AKS-tjänsten i Azure-regioner.
 
 ## <a name="service-quotas-and-limits"></a>Kvoter och begränsningar för tjänsten
 
@@ -28,7 +28,7 @@ Alla andra begränsningar för nätverk, beräkning och lagring gäller för den
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure Container Service (AKS) är tillgänglig för förhandsversion i följande regioner:
+Azure Kubernetes Service (AKS) är tillgänglig som förhandsversion i följande regioner:
 - Östra USA
 - Västra Europa
 - Centrala USA

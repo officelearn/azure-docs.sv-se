@@ -41,7 +41,7 @@
 ### [Beviljande av OAuth 2.0-auktoriseringkod](active-directory-protocols-oauth-code.md)
 ### [Implicit beviljande av OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Konfigurera rollanspråk](active-directory-enterprise-app-role-management.md)
+### [Konfigurera rollanspråk](../active-directory-enterprise-app-role-management.md)
 ### [Anpassa anspråk](active-directory-saml-claims-customization.md)
 ### [Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md)
 ### [SAML-protokoll för enkel inloggning](active-directory-single-sign-on-protocol-reference.md)

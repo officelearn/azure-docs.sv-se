@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Halogen programvara | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Halogen programvaran och Azure Active Directory."
+title: 'Självstudier: Azure Active Directory-integrering med Halogen programvara | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Halogen programvaran och Azure Active Directory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: af9c9d4b9bd562169bfe6c9158254beec5c3e1e7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd2a45d34d93f1233302c89c502fb171da2873e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Självstudier: Azure Active Directory-integrering med Halogen programvara
 
@@ -29,9 +29,9 @@ Integrera Halogen programvara med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Halogen programvara (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Halogen programvara, behöver du följande:
 
@@ -112,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-halogen-software-tutorial/tutorial_halogensoftware_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://global.hgncloud.com/<companyname>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://global.hgncloud.com/<companyname>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://global.halogensoftware.com/<companyname>`,`https://global.hgncloud.com/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Halogen Programvaruklienten supportteamet](https://support.halogensoftware.com/) att hämta dessa värden. 
@@ -259,7 +259,7 @@ När du klickar på panelen Halogen programvara på åtkomstpanelen du bör få 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

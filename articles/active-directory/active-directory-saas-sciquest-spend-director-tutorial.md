@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med SciQuest tillbringar Director | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SciQuest tillbringar Director."
+title: 'Självstudier: Azure Active Directory-integrering med SciQuest tillbringar Director | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SciQuest tillbringar Director.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: be9b17f31bedca1ae5704b484760c3ad24fbb14d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fd0bf33f7929d67839303d5a1e584a25862e58fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Självstudier: Azure Active Directory-integrering med SciQuest tillbringar Director
 
@@ -30,9 +30,9 @@ Integrera SciQuest tillbringar Director med Azure AD ger dig följande fördelar
 - Du kan aktivera användarna att automatiskt hämta loggat in på SciQuest tillbringar Director (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med SciQuest tillbringar Director, behöver du följande:
 
@@ -108,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och SciQuest tillbringar Director domän med enkel inloggning information](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.sciquest.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.sciquest.com`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [SciQuest tillbringar Director klienten supportteamet](https://www.jaggaer.com/contact-us/) att hämta dessa värden. 
@@ -214,7 +214,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med administratörsbehörighet för SQL delegerad
 Innan den senaste versionen i Azure AD Connect stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.
@@ -42,7 +42,7 @@ Använd följande steg för att tillhandahålla databasen out of band och instal
 
 
 1.  SQL-administratör skapa ADSync databasen med en skiftlägeskänslig sorteringsordning har **(Latin1_General_CI_AS)**.  Databasen måste ha namnet **ADSync**.  Återställningsmodellen, kompatibilitetsnivå och inneslutning typen uppdateras till rätt värden när Azure AD Connect är installerat.  Men i sorteringsordningen måste vara korrekt inställda av SQL-administratören annars Azure AD Connect kommer att blockera installationen.  Om du vill återställa SA måste ta bort och återskapa databasen.</br>
-![Sortering](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Sortering](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Tilldela Azure AD Connect-administratören och domänkontot följande behörigheter:
     - SQL-inloggning 
     - **databasen owner(dbo)** rättigheter.  </br>

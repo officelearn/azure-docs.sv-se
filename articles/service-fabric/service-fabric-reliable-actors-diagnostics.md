@@ -1,6 +1,6 @@
 ---
-title: "Övervakning och aktörer diagnostik | Microsoft Docs"
-description: "Den här artikeln beskriver diagnostik- och prestandaövervakning funktioner i Service Fabric Reliable Actors körning, inklusive händelser och prestandaräknare som sänds av den."
+title: Övervakning och aktörer diagnostik | Microsoft Docs
+description: Den här artikeln beskriver diagnostik- och prestandaövervakning funktioner i Service Fabric Reliable Actors körning, inklusive händelser och prestandaräknare som sänds av den.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Körningsmiljön Reliable Actors avger [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser och [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningsmiljön fungerar och hjälp med felsökning och övervakning av programprestanda.
@@ -43,8 +43,8 @@ Körningsmiljön Reliable Actors definierar följande prestandaräknarkategorier
 
 | Kategori | Beskrivning |
 | --- | --- |
-| Service Fabric aktören |Räknare som är specifika för Azure Service Fabric aktörer, t.ex. tid att spara aktörstillstånd |
-| Service Fabric-Aktörsmetod |Räknare för specifika för metoder som införts av Service Fabric aktörer, t.ex. hur ofta en aktören-metoden har anropats |
+| Service Fabric-aktör |Räknare som är specifika för Azure Service Fabric aktörer, t.ex. tid att spara aktörstillstånd |
+| Service Fabric-aktörsmetod |Räknare för specifika för metoder som införts av Service Fabric aktörer, t.ex. hur ofta en aktören-metoden har anropats |
 
 Ovanstående kategorier har en eller flera räknare.
 
@@ -91,7 +91,7 @@ I exemplet ovan, `ivoicemailboxactor.leavemessageasync` är metodnamnet på `2` 
 ### <a name="actor-method-events-and-performance-counters"></a>Aktören metoden händelser och prestandaräknare
 Körningsmiljön Reliable Actors genererar följande händelser relaterade till [aktören metoder](service-fabric-reliable-actors-introduction.md).
 
-| händelsenamnet | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Utförlig |0x2 |Aktörer runtime håller på att anropa en aktörsmetod. |
 | ActorMethodStop |8 |Utförlig |0x2 |En aktörsmetod har avslutats. Det vill säga den runtime asynkront anrop till metoden aktören har returnerat och aktiviteten som returneras av metoden aktören har slutförts. |
@@ -101,14 +101,14 @@ Körningsmiljön Reliable Actors publicerar följande prestandaräknare som rör
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric-Aktörsmetod |Anrop/sek |Antalet gånger som aktörstjänstmetoden anropas per sekund |
-| Service Fabric-Aktörsmetod |Genomsnittlig tid i millisekunder per anrop |Åtgången tid i millisekunder för att köra aktörstjänstmetoden |
-| Service Fabric-Aktörsmetod |Undantag/sek |Antal gånger som aktörstjänstmetoden utlöste ett undantag per sekund |
+| Service Fabric-aktörsmetod |Anrop/sek |Antalet gånger som aktörstjänstmetoden anropas per sekund |
+| Service Fabric-aktörsmetod |Genomsnittligt antal millisekunder per anrop |Åtgången tid i millisekunder för att köra aktörstjänstmetoden |
+| Service Fabric-aktörsmetod |Undantag/sek |Antal gånger som aktörstjänstmetoden utlöste ett undantag per sekund |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Concurrency-händelser och prestandaräknare
 Körningsmiljön Reliable Actors genererar följande händelser relaterade till [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| händelsenamnet | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Utförlig |0x8 |Den här händelsen är skriven i början av varje ny Stäng i en aktör. Den innehåller antalet väntande aktörsanrop som väntar på att låsa per aktör, som tillämpar bygger samtidighet. |
 
@@ -116,14 +116,14 @@ Körningsmiljön Reliable Actors publicerar följande prestandaräknare som rör
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric aktören |Antal aktörsanrop som väntar på aktörslås |Antalet väntande aktörsanrop som väntar på att låsa per aktör, som tillämpar bygger samtidighet |
-| Service Fabric aktören |Genomsnittlig låsväntetid i millisekunder |Tid (i millisekunder) att låsa per aktör, som tillämpar bygger samtidighet |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder för aktörslåsaktivering |Tid (i millisekunder) som hålls lås per aktör |
+| Service Fabric-aktör |Antal aktörsanrop som väntar på aktörslås |Antalet väntande aktörsanrop som väntar på att låsa per aktör, som tillämpar bygger samtidighet |
+| Service Fabric-aktör |Genomsnittlig låsväntetid i millisekunder |Tid (i millisekunder) att låsa per aktör, som tillämpar bygger samtidighet |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder för aktörslåsaktivering |Tid (i millisekunder) som hålls lås per aktör |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Aktören management händelser och prestandaräknare
 Körningsmiljön Reliable Actors genererar följande händelser relaterade till [aktören tillståndshantering](service-fabric-reliable-actors-state-management.md).
 
-| händelsenamnet | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Utförlig |0x4 |Aktörer runtime är att spara tillståndet aktören. |
 | ActorSaveStateStop |11 |Utförlig |0x4 |Aktörer runtime är klar sparar aktörstillstånd. |
@@ -132,13 +132,13 @@ Körningsmiljön Reliable Actors publicerar följande prestandaräknare relatera
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder per Spara tillstånd-åtgärd |Åtgången tid för att spara aktörstillstånd i millisekunder |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder per Läs in tillstånd-åtgärd |Åtgången tid för att läsa in aktörstillstånd i millisekunder |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder per Spara tillstånd-åtgärd |Åtgången tid för att spara aktörstillstånd i millisekunder |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder per Läs in tillstånd-åtgärd |Åtgången tid för att läsa in aktörstillstånd i millisekunder |
 
 ### <a name="events-related-to-actor-replicas"></a>Händelser relaterade till aktören repliker
 Körningsmiljön Reliable Actors genererar följande händelser relaterade till [aktören repliker](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| händelsenamnet | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Information |0x1 |Aktören replik ändrade rollen till primär. Detta innebär att aktörer för den här partitionen kommer att skapas i den här repliken. |
 | ReplicaChangeRoleFromPrimary |2 |Information |0x1 |Aktören replik ändrade rollen till icke-primär. Detta innebär att aktörer för den här partitionen inte längre kommer att skapas i den här repliken. Inga nya begäranden skickas till aktörer som redan har skapats i den här repliken. Aktörer kommer att raderas när alla pågående begäranden har slutförts. |
@@ -146,7 +146,7 @@ Körningsmiljön Reliable Actors genererar följande händelser relaterade till 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Aktören aktivering och inaktivering av händelser och prestandaräknare
 Körningsmiljön Reliable Actors genererar följande händelser relaterade till [aktören aktivering och inaktivering av](service-fabric-reliable-actors-lifecycle.md).
 
-| händelsenamnet | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Nyckelordet | Beskrivning |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Information |0x1 |En aktör har aktiverats. |
 | ActorDeactivated |6 |Information |0x1 |En aktör har inaktiverats. |
@@ -155,17 +155,17 @@ Körningsmiljön Reliable Actors publicerar följande prestandaräknare som rör
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder OnActivateAsync |Tid i millisekunder för att köra OnActivateAsync-metoden |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder för OnActivateAsync |Tid i millisekunder för att köra OnActivateAsync-metoden |
 
 ### <a name="actor-request-processing-performance-counters"></a>Aktören begäranbearbetningen prestandaräknare
 När en klient anropar en metod via ett aktören proxy-objekt, resulterar det i ett meddelande om begäran som skickas över nätverket till tjänsten aktören. Tjänsten bearbetar meddelandet med begäran och skickar tillbaka ett svar till klienten. Körningsmiljön Reliable Actors publicerar följande Prestandaräknare relaterade till behandling av begäranden aktören.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric aktören |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder av tjänsten för att bearbeta en begäran) |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att avserialisera begärandemeddelandet aktören när den tas emot med tjänsten |
-| Service Fabric aktören |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet aktören på tjänsten innan svaret skickas till klienten |
+| Service Fabric-aktör |Antal väntande förfrågningar |Antalet begäranden som bearbetas i tjänsten |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder per begäran |Tid (i millisekunder av tjänsten för att bearbeta en begäran) |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder för deserialiseringsbegäran |Tid (i millisekunder) att avserialisera begärandemeddelandet aktören när den tas emot med tjänsten |
+| Service Fabric-aktör |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet aktören på tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hur Reliable Actors använda Service Fabric-plattformen](service-fabric-reliable-actors-platform.md)

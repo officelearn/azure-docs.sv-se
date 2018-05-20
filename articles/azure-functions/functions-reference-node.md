@@ -328,8 +328,8 @@ När du arbetar med JavaScript-funktioner måste du vara medveten om övervägan
 
 När du skapar en funktionsapp som använder App Service-plan, rekommenderar vi att du väljer en enskild vCPU plan i stället för en plan med flera vCPUs. Idag funktioner körs effektivare JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer inte ger förväntade prestandaförbättringarna. Vid behov, du kan skala ut genom att lägga till flera enskild vCPU VM-instanser manuellt eller kan du aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
-### <a name="typescript-and-coffeescript-support"></a>Stöd för maskin- och CoffeeScript
-Eftersom direktstöd ännu inte finns för kompilering av automatisk maskin- eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution. 
+### <a name="typescript-and-coffeescript-support"></a>Stöd för TypeScript och CoffeeScript
+Eftersom direktstöd ännu inte finns för automatisk kompilering av TypeScript eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution.  
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/29/2018
+ms.date: 05/14/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 1012cdc73e721c65502d749ce27eb6e9cbda6bf4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d27dd6e59ac36c024e5f4e3e36b5067797f4e062
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -63,10 +63,10 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK och Tools 3.0.480
-* Service Fabric-körning 6.1.480
-* Service Fabric Tools för Visual Studio 2015 2.0.10124.2
-* Visual Studio 2017 15.5.6 innehåller Service Fabric-verktyg för Visual Studio 2.0.20180124.2  
+* Service Fabric SDK och -verktyg 3.1.274
+* Service Fabric runtime 6.2.274
+* Service Fabric-verktyg för Visual Studio 2015 2.1.20180510.2
+* Visual Studio 2017 15.7 innehåller Service Fabric-verktyg för Visual Studio 2.1.20180423.1 
 
 En lista över versioner som stöds finns i [Service Fabric-stöd](service-fabric-support.md)
 
@@ -91,7 +91,7 @@ Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra app
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 * [Automatisera uppdatering av operativsystemet i klustret](service-fabric-patch-orchestration-application.md)
 
-[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric-kampanjsida"
+[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric-kampanjsida"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Länk till VS 2015 WebPI"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Länk till Dev15 WebPI"

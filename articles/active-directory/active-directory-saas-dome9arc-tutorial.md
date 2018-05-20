@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Dome9 båge | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dome9 båge."
+title: 'Självstudier: Azure Active Directory-integrering med Dome9 båge | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dome9 båge.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ce4bb1be8b0124c69991765e18ce9922bd2f4a4
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: de164f6a439fd68b4746dc96c43ff5cb0740ffe8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Självstudier: Azure Active Directory-integrering med Dome9 båge
 
@@ -30,7 +30,7 @@ Integrera Dome9 båge med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Dome9 båge (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Dome9 båge domän med enkel inloggning information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://secure.dome9.com/`
+    a. I den **identifierare** textruta anger du URL: `https://secure.dome9.com/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > Du väljer din företagets namn-värde på administrationsportalen för dome9 som beskrivs senare i självstudierna.
@@ -119,7 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Dome9 båge domän med enkel inloggning information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Dome9 båge klienten supportteamet](https://dome9.com/about/contact-us/) att hämta dessa värden. 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn  | Attributvärde | 
     | --------------- | --------------- | 
-    | memberof | user.assignedroles | 
+    | memberof | User.assignedroles | 
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 
@@ -290,7 +290,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

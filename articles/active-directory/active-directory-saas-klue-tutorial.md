@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Klue | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Klue."
+title: 'Självstudier: Azure Active Directory-integrering med Klue | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Klue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 56df0048a2dea9d09392f6c39b001f0ae1f6c05c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d3cd24ebacacd030e326dce19c5135254abb1aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Självstudier: Azure Active Directory-integrering med Klue
 
@@ -29,9 +29,9 @@ Integrera Klue med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Klue (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Klue, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-klue-tutorial/tutorial_klue_url1.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`urn:klue:<Customer ID>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `urn:klue:<Customer ID>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-klue-tutorial/tutorial_klue_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL, identifierare och inloggnings-URL. Kontakta [Klue klienten supportteamet](mailto:support@klue.com) att hämta dessa värden.
@@ -242,7 +242,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

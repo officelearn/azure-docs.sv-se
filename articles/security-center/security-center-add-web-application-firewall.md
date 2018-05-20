@@ -1,31 +1,31 @@
 ---
-title: "Lägg till en brandvägg för webbaserade program i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna **lägga till en brandvägg för webbaserade program** och **Slutför programskydd**."
+title: Lägg till en brandvägg för webbaserade program i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna **lägga till en brandvägg för webbaserade program** och **Slutför programskydd**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Lägg till en brandvägg för webbaserade program i Azure Security Center
 Azure Security Center kan rekommenderar att du lägger till en brandvägg för webbaserade program (Brandvägg) från en Microsoft-partner att skydda dina webbprogram. Det här dokumentet vägleder dig genom ett exempel på hur du använder den här rekommendationen.
 
 En Brandvägg rekommendation visas för alla offentliga Internetriktade IP-adresser (instans nivå IP eller Load belastningsutjämnade IP) som har en nätverkssäkerhetsgrupp med öppna webbplats för inkommande portar (80,443).
 
-Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker webbaserade program på virtuella datorer och externa Apptjänstmiljöer som mål. En App Service miljö (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan alternativet för Azure App Service som tillhandahåller en helt isolerad och dedikerad miljö för Azure App Service-program som körs på ett säkert sätt. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).
+Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker målobjekt för webbaserade program på virtuella datorer och på externa App Service-miljöer (ASE) distribueras den [isolerad](https://azure.microsoft.com/pricing/details/app-service/windows/) service-plan. I Isolerad miljö finns dina appar i en privat särskild Azure-miljö vilket passar perfekt för appar som kräver säkra anslutningar till det lokala nätverket eller ytterligare prestanda och skalning. Appen måste ha en extern IP-adress som belastningsutjämnaren förutom appen som i en isolerad miljö. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det här dokumentet är inte en stegvis guide.

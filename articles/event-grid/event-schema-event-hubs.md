@@ -1,18 +1,18 @@
 ---
-title: "Azure händelse rutnätet hubbar händelse Händelseschema"
-description: "Beskriver de egenskaper som har angetts för event hubs händelser med Azure händelse rutnätet"
+title: Azure händelse rutnätet hubbar händelse Händelseschema
+description: Beskriver de egenskaper som har angetts för event hubs händelser med Azure händelse rutnätet
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure händelse rutnätet Händelseschema för händelsehubbar
 
@@ -55,7 +55,7 @@ Den här händelsen i exemplet visar schemat för en händelse hubbar händelse 
 
 En händelse har följande översta data:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
 | Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
@@ -63,16 +63,16 @@ En händelse har följande översta data:
 | EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
 | data | objekt | Event hub händelsedata. |
-| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | fileUrl | sträng | Sökvägen till filen avbildning. |
 | Filtyp | sträng | Avbilda filen filtyp. |
-| partitionId | sträng | Fragment-ID: t. |
+| partitions-ID | sträng | Fragment-ID: t. |
 | sizeInBytes | heltal | Filstorleken. |
 | eventCount | heltal | Antalet händelser i filen. |
 | firstSequenceNumber | heltal | Det minsta sekvensnumret från kön. |

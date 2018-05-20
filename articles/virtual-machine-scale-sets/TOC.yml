@@ -1,0 +1,163 @@
+- name: Dokumentation om Virtual Machines Scale Sets
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är VM-skalningsuppsättningar?
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa på Azure Portal
+      href: quick-create-portal.md
+    - name: Skapa med Azure CLI 2.0
+      href: quick-create-cli.md
+    - name: Skapa med Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Skapa med en mall
+      items:
+        - name: Linux-skalningsuppsättning
+          href: quick-create-template-linux.md
+        - name: Windows-skalningsuppsättning
+          href: quick-create-template-windows.md
+- name: Självstudier
+  items:
+    - name: 1 – Skapa/hantera skalningsuppsättningar
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 – Använda datadiskar
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 – Använda anpassade VM-avbildningar
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 – Distribuera appar till en skalningsuppsättning
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Mall
+          href: tutorial-install-apps-template.md
+    - name: 5 – Autoskala skalningsuppsättningar
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Mall
+          href: tutorial-autoscale-template.md
+    - name: Distribuera appar till en skalningsuppsättning för en virtuell Azure-dator med en anpassad Packer-avbildning
+      items:
+        - name: Azure CLI 2.0
+          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
+- name: Exempel
+  items:
+    - name: Azure CLI 2.0
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+- name: Gör så här för att
+  items:
+    - name: Planera och designa
+      items:
+        - name: Designöverväganden
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: 'Förstå instans-ID: n'
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Skapa en mall
+      items:
+        - name: Läs mer om skalningsuppsättningsmallar
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Använda ett befintligt virtuellt nätverk
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Använda en anpassad avbildning
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Använda gästbaserad autoskalning med en Linux-mall för skalningsuppsättning
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Distribuera
+      items:
+        - name: Skapa med Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Använda tillgänglighetszoner
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Autoskala en skalningsuppsättning
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Använda Azure-portalen
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Avancerad automatisk skalning
+              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Program i skalningsuppsättningar
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Använda datadiskar med skalningsuppsättningar
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Kryptera diskar i skalningsuppsättningar
+          items:
+            - name: Använd PowerShell
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Använda Azure CLI 2.0
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Arbeta med stora skalningsuppsättningar
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Använda låg prioritet
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Hantera
+      items:
+        - name: Vanliga administrativa uppgifter
+          items:
+            - name: Använda Azure CLI 2.0
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Använda Azure PowerShell
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Vertikal skalning i en skalningsuppsättning
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Automatiska uppgraderingar av operativsystem
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Ändra en skalningsuppsättning
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Använda DSC och skalningsuppsättningar
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Nätverk för skalningsuppsättningar
+          href: virtual-machine-scale-sets-networking.md
+        - name: Konvertera en mall till hanterade diskar
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Felsöka
+      items:
+        - name: Automatisk skalning
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      items:
+        - name: Vanliga frågor och svar om skalningsuppsättningar
+          href: virtual-machine-scale-sets-faq.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Azure CLI
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Prissättning
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'

@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0 tokens referens | Microsoft Docs
 description: Typer av token och anspråk som sänds av Azure AD v2.0-slutpunkten
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
 Azure Active Directory (AD Azure) v2.0-slutpunkten genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -69,10 +71,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | namn |`name` |`Babe Ruth` |Anspråk namn innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unika, är det föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | e-post |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Den primära e-postadress som är associerade med användarkontot, om sådan finns. Värdet är föränderliga och kan ändras med tiden. Den `email` omfattning krävs för att ta emot denna begäran. |
 | prioriterade användarnamn |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Primära användarnamnet som representerar användaren i v2.0-slutpunkten. Det kan vara en e-postadress, telefonnummer och ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras med tiden. Eftersom det föränderliga, får du inte använda det här värdet vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot denna begäran. |
-| Ämne |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Den användare som token Assert information, till exempel användare av en app. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token som används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token att Azure AD-problem, bör du använda det här värdet i ett system med allmänna tillstånd. Ämne är dock en pairwise identifierare – det är unikt för ett visst program-ID.  Därför om en användare loggar in på två olika appar som använder två olika klient-ID: N, får de apparna som två olika värden för ämne anspråket.  Detta kan eller inte vara önskvärt beroende på dina krav arkitektur och sekretess. |
-| Objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto.  Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk.  Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph.  Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto.  Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
+| Ämne |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Den användare som token Assert information, till exempel användare av en app. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token som används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token att Azure AD-problem, bör du använda det här värdet i ett system med allmänna tillstånd. Ämne är dock en pairwise identifierare – det är unikt för ett visst program-ID. Därför om en användare loggar in på två olika appar som använder två olika klient-ID: N, får de apparna som två olika värden för ämne anspråket. Detta kan eller inte vara önskvärt beroende på dina krav arkitektur och sekretess. |
+| Objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto. Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 
-### <a name="access-tokens"></a>Åtkomst-token
+### <a name="access-tokens"></a>Åtkomsttoken
 
 V2.0-slutpunkten kan appar från tredje part som har registrerats med Azure AD för att utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Mer information om hur du konfigurerar ett program att utfärda åtkomsttoken finns [hur du registrerar en app med v2.0-slutpunkten](active-directory-v2-app-registration.md). Vid registreringen programmet med v2.0-slutpunkten utvecklaren kan ange åtkomstnivåer, kallas **scope**, för vilka åtkomst token kan utfärdas. Till exempel den **calendars.read** räckvidden i Microsoft Graph API ger behörighet att läsa användarens kalender. När programmet tar emot en åtkomst-token från v2.0-slutpunkten, måste du verifiera token signatur, utfärdare, målgrupp, förfallotid och andra anspråk beroende på ditt scenario. 
 
@@ -83,7 +85,7 @@ Uppdatera token är säkerhetstokens som din app kan använda för att få nya �
 
 Uppdaterings-tokens är flera resurs. En uppdateringstoken som togs emot under en Tokenbegäran för en resurs kan lösas för åtkomst-token till en helt annan resurs.
 
-Om du vill få en uppdatering i en token svar din app måste begära och beviljas den `offline_acesss` omfång. Mer information om den `offline_access` omfång, finns i [medgivande och scope](active-directory-v2-scopes.md) artikel.
+Om du vill få en uppdatering i en token svar din app måste begära och beviljas den `offline_access` omfång. Mer information om den `offline_access` omfång, finns i [medgivande och scope](active-directory-v2-scopes.md) artikel.
 
 Uppdatera token är och alltid kommer att vara, helt ogenomskinlig till din app. De kan har utfärdats av Azure AD v2.0-slutpunkten och bara kontrolleras och tolkas av v2.0-slutpunkten. De är långlivade, men din app inte att skriva kan förvänta sig att en uppdateringstoken ska gälla för en viss tidsperiod. Uppdaterings-tokens kan vara inaktuella när som helst av olika skäl - mer information finns i [token återkallade](active-directory-token-and-claims.md#token-revocation). Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa genom att göra en tokenbegäran v2.0-slutpunkten.
 
@@ -123,7 +125,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Metadatadokumentet är en JSON-objekt som har flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för OpenID Connect-autentisering.  Dokumentet innehåller också en *jwks_uri*, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokument som finns på jwks_uri har alla offentlig nyckelinformation som används för närvarande. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en token. Signaturverifiering utför sedan genom att använda rätt offentlig nyckel och den angivna algoritmen.
+Metadatadokumentet är en JSON-objekt som har flera användbara delar av information, t.ex platsen för de olika slutpunkter som krävs för OpenID Connect-autentisering. Dokumentet innehåller också en *jwks_uri*, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokument som finns på jwks_uri har alla offentlig nyckelinformation som används för närvarande. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en token. Signaturverifiering utför sedan genom att använda rätt offentlig nyckel och den angivna algoritmen.
 
 Utför signaturverifiering ligger utanför omfånget för det här dokumentet. Det finns många bibliotek med öppen källkod som hjälper dig med detta.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark för att läsa och skriva HBase-data
 
@@ -129,7 +129,7 @@ I det här steget Skapa och fylla i en enkel tabell i HBase som sedan kan du st�
 1. Ansluta till ditt Spark-kluster med SSH huvudnod.
 2. Starta spark shell, ange paketets Spark HBase-anslutningen:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
 
 3. Håll den här instansen Spark Shell öppet och fortsätta till nästa steg.
 

@@ -2,20 +2,20 @@
 title: Video indexerade Azure SaaS SQL app | Microsoft Docs
 description: Den här artikeln indexerar olika tidpunkter på vår 81 minuter video om SaaS DB appdesign innehavare, från Ignite konferens hålls 11 oktober 2017. Du kan gå vidare till delen som intresserar dig. Minst 3 mönster beskrivs. Azure-funktioner som underlättar utveckling och hantering beskrivs.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Video indexerade och kommenterade för mulit klient SaaS-program med Azure SQL Database
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video indexerade och kommenterade för flera innehavare SaaS-program med Azure SQL Database
 
 Den här artikeln är ett kommenterade index i tid platserna för en 81 minuter lång video om SaaS innehavare modeller eller mönster. Den här artikeln kan du hoppa bakåt eller framåt i videon till vilken del intresserar dig. Videon förklarar viktiga designalternativen för ett databasprogram med flera innehavare på Azure SQL Database. Videon innehåller demonstrationer genomgångar av kod för hantering och ibland detalj informera upplevelse än vad som kan vara i vår skriftlig dokumentation.
 
@@ -112,7 +112,7 @@ Klicka på någon skärmbild bild går du till den exakta tidpunkt platsen i vid
 
 &nbsp; <a name="anchor-image-wtip-min00417"/>
 #### <a name="3-agenda-00409"></a>3. Ärende 0:04:09
-[![Agenda][image-wtip-min00417-agenda]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=249)
+[![Ärende][image-wtip-min00417-agenda]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=249)
 
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>

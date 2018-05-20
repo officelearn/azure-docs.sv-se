@@ -15,11 +15,11 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f31b5be80ae56ffe4d0f570cb8d25da8cc098009
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Åtkomst till lokala program via Microsoft-Teams
 
@@ -54,5 +54,5 @@ När en medlem i ett team lägger du till fliken, visas den för alla i kanalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [publicera lokala SharePoint-webbplatser](application-proxy-enable-remote-access-sharepoint.md) med Application Proxy.
+- Lär dig hur du [publicera lokala SharePoint-webbplatser](manage-apps/application-proxy-integrate-with-sharepoint-server.md) med Application Proxy.
 - Konfigurera dina appar att använda [anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md) för sina externa URL: en. 

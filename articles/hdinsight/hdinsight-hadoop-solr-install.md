@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: d263f6255eedb9b45b7f0b232e1595197556b7c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installera och använda Solr på Windows-baserade HDInsight-kluster
 
@@ -51,7 +51,7 @@ Exempelskript som används i det här avsnittet skapar ett Windows-baserade Solr
     ![Använd skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Använd skriptåtgärder att anpassa ett kluster")
 
     <table border='1'>
-        <tr><th>Egenskap</th><th>Värde</th></tr>
+        <tr><th>Egenskap </th><th>Värde</th></tr>
         <tr><td>Namn</td>
             <td>Ange ett namn för skriptåtgärden. Till exempel <b>installera Solr</b>.</td></tr>
         <tr><td>Skript-URI</td>
@@ -176,11 +176,9 @@ Se [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-c
 * [Anpassa HDInsight-kluster med skriptåtgärder][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärder.
 * [Utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions.md).
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärder exempel om hur du installerar Spark.
-* [Installera R på HDInsight-kluster][hdinsight-install-r]: skriptåtgärder exempel om hur du installerar R.
 * [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md): skriptåtgärder exempel om hur du installerar Giraph.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

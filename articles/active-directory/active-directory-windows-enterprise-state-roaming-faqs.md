@@ -1,9 +1,9 @@
 ---
-title: "Inställningar och dataroaming vanliga frågor och svar | Microsoft Docs"
-description: "Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering."
+title: Inställningar och dataroaming vanliga frågor och svar | Microsoft Docs
+description: Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering.
 services: active-directory
-keywords: "Enterprise tillstånd centrala inställningar för windows-moln, vanliga frågor och svar för enterprise tillstånd centrala"
-documentationcenter: 
+keywords: Enterprise tillstånd centrala inställningar för windows-moln, vanliga frågor och svar för enterprise tillstånd centrala
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
-Det här avsnittet besvarar några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
+Den här artikeln besvarar några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
 
 ## <a name="what-data-roams"></a>Vilka data flyttas?
 **Windows-inställningar**: datorinställningar som är inbyggda i Windows-operativsystemet. I allmänhet dessa finns inställningar som anpassar datorn och de innehåller följande kategorier:
@@ -70,12 +70,12 @@ Om du har lagrat personliga data på enheten företagets bör du vara medveten o
 I November 2015 eller senare versioner av Windows 10 stöds Enterprise tillstånd centrala bara för ett enskilt konto i taget. Om du loggar in till Windows med ett arbets- eller skolkonto för Azure AD, synkroniseras alla data via Azure AD. Om du loggar in till Windows med ett personligt microsoftkonto synkroniseras alla data via Microsoft-konto. Universal appdata ska flyttas via endast det primära inloggning kontot på enheten och den kommer flyttas endast om appens licens ägs av det primära kontot. Universal appdata för appar som ägs av alla sekundära konton synkroniseras inte.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Inställningar synkroniseras för Azure AD-konton från flera klienter?
-När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, måste du uppdatera enhetens registret för att kommunicera med Azure Rights Management (Azure RMS) för varje Azure AD-klient.  
+När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, måste du uppdatera enhetens registret för att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
 
-1. Hitta GUID för varje Azure AD-klient. Öppna Azure-portalen och välj en Azure AD-klient. GUID för klienten är på egenskapssidan för den valda klientorganisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) med etiketten **katalog-ID**. 
+1. Hitta GUID för varje Azure AD-klient. Öppna Azure-portalen och välj en Azure AD-klient. GUID för klienten är på egenskapssidan för den valda klientorganisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), namngivna **katalog-ID**. 
 2. När du har GUID som du behöver lägga till registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klient-ID-GUID >**.
    Från den **klient-ID-GUID** nyckeln, skapa ett nytt flersträngsvärde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**. Ange licensiering distribution point URL: er i Azure klienter som ansluter till enheten för sina data.
-3. Du kan hitta licensiering distribution point URL: er genom att köra den **Get-AadrmConfiguration** cmdlet. Om värdena för den **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** är olika, ange båda värdena. Om värdena är samma, värdet anges en gång.
+3. Du kan hitta licensiering distribution point URL: er genom att köra den **Get-AadrmConfiguration** cmdlet från modulen AADRM. Om värdena för den **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** är olika, ange båda värdena. Om värdena är samma, värdet anges en gång.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Vad är alternativen centrala inställningar för befintliga Windows-datorprogram?
 Centrala fungerar bara för universella Windows-appar. Det finns två alternativ för att aktivera roaming på ett befintligt stationära Windows-program:
@@ -95,9 +95,9 @@ Microsoft kan i framtiden, Undersök sätt att göra UE-V djupt integrerad i Win
 Enterprise tillstånd centrala lagrar alla synkroniserade data i Azure-molnet. UE-V erbjuder en lokal centrala lösning.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Vem äger datan som är att flyttade?
-Företag egna data flyttade via Enterprise tillstånd nätverksväxling. Data lagras i ett Azure-datacenter. Alla användardata krypteras både under överföring och i vila i molnet med Azure RMS. Detta är en förbättring jämfört med Microsoft-konto-baserade inställningar sync, som krypterar vissa känsliga data, till exempel autentiseringsuppgifter innan de lämnar enheten.
+Företag egna data flyttade via Enterprise tillstånd nätverksväxling. Data lagras i ett Azure-datacenter. Alla användardata krypteras både under överföring och i vila i molnet med Azure Rights Management-tjänsten från Azure Information Protection. Detta är en förbättring jämfört med Microsoft-konto-baserade inställningar sync, som krypterar vissa känsliga data, till exempel autentiseringsuppgifter innan de lämnar enheten.
 
-Microsoft strävar efter att skydda kundens data. En enterprise-användarens inställningsdata krypteras automatiskt av Azure RMS innan de lämnar en Windows 10-enhet, så att andra användare kan läsa informationen. Om din organisation har en betald prenumeration för Azure RMS, kan du använda andra Azure RMS-funktioner, till exempel spåra och återkalla dokument, automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera egna nycklar (”bring your own key” lösningen, kallas även BYOK). Mer information om de här funktionerna och hur Azure RMS fungerar finns [vad är Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
+Microsoft strävar efter att skydda kundens data. En enterprise-användare inställningsdata krypteras automatiskt med Azure Rights Management-tjänsten innan du lämnar en Windows 10-enhet, så att andra användare kan läsa informationen. Om din organisation har en betald prenumeration på Azure Rights Management-tjänsten, du kan använda andra skyddsfunktioner, till exempel spåra och återkalla dokument automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera egna nycklar (i ”ta din egen nyckel ”lösning, kallas även BYOK). Mer information om de här funktionerna och hur den här skyddstjänsten fungerar finns [vad är Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan jag hantera synkronisering för en viss app eller inställningen?
 I Windows 10 finns det ingen MDM eller en grupprincip inställning att inaktivera roaming för ett enskilt program. Innehavaradministratörer kan inaktivera appdata synkronisering för alla program på en hanterad enhet, men det finns ingen ökad kontroll på en per app eller i app-nivå.
@@ -116,8 +116,8 @@ När du använder Enterprise tillstånd centrala och UE-V, gäller följande reg
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Hur Enterprise tillstånd centrala stöder virtuell datorinfrastruktur (VDI)?
 Enterprise tillstånd centrala stöds på Windows 10-klient SKU: er, men inte på servern SKU: er. Om en klient VM finns på en hypervisor-dator och du loggar in via fjärranslutning till den virtuella datorn, kommer dina data flyttas. Om flera användare delar samma OS och användare loggar in till en server för en fullständig Skrivbordsmiljö via fjärranslutning, kanske roaming inte fungerar. Det senare fallet sessionsbaserad stöds inte officiellt.
 
-## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>Vad händer när organisationen köper Azure RMS när du använder centrala?
-Om din organisation redan använder nätverksväxling i Windows 10 med kostnadsfria prenumerationen Azure RMS begränsad användning köpa en betald prenumeration på Azure RMS inte har någon inverkan på funktionaliteten för den centrala och inga konfigurationsändringar krävs av IT-administratören.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Vad händer när organisationen köper en prenumeration som omfattar Azure Rights Management när du använder centrala?
+Om din organisation redan använder nätverksväxling i Windows 10 med den kostnadsfria prenumerationen begränsad användning för Azure Rights Management, kan du köpa en [betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) som innehåller Azure Rights Management inte har skyddstjänsten inverkan på funktionaliteten för den centrala och inga konfigurationsändringar krävs av IT-administratören.
 
 ## <a name="known-issues"></a>Kända problem
 Finns i dokumentationen i den [felsökning](active-directory-windows-enterprise-state-roaming-troubleshooting.md) avsnittet för en lista över kända problem. 

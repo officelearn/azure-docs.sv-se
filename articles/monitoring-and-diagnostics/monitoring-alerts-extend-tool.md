@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Hur du utökar (kopiera) aviseringar från OMS till Azure
 Från **den 14 maj 2018**, alla kunder som använder aviseringar som har konfigurerats i [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), utökas till Azure. Aviseringar som har utökats till Azure fungerar på samma sätt som i OMS. Övervakningsfunktioner förblir intakta. Utöka aviseringar som skapats i OMS till Azure ger många fördelar. Mer information om fördelar och utöka aviseringar från OMS till Azure finns [utöka aviseringar från OMS till Azure](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> Startar den 14 maj 2018 - Microsoft börjar processen med att utöka automatiskt aviseringar till Azure. Inte alla aviseringar och arbetsytor utökas dag. i stället börjar Microsoft att utöka aviseringar automatiskt i omgångar under kommande veckorna. Därför aviseringarna i OMS-portalen kommer inte automatiskt-utöka till Azure direkt på den 14 maj 2018 och användarens manuellt kan utöka sina aviseringar via alternativ informationen nedan.
 
 Kunder som vill flytta sina aviseringar från OMS till Azure omedelbart, kan göra det genom att använda ett av alternativen som anges.
 

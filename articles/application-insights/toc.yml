@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Konsolen
           href: application-insights-console.md
+        - name: Instrumentpanel för program
+          href: app-insights-overview-dashboard.md
     - name: Övervaka Java-appar
       items:
         - name: Webbappar
@@ -208,7 +210,7 @@
               href: app-insights-usage-flows.md
             - name: Arbetsböcker
               href: app-insights-usage-workbooks.md
-        - name: Analys
+        - name: Analytics
           items:
             - name: Översikt
               href: app-insights-analytics.md
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Automatisera med Azure Logic App
           href: automate-with-logic-apps.md
+        - name: Anpassade e-postrapporter
+          href: automate-custom-reports.md
     - name: Utveckla
       items:
         - name: API för anpassade händelser och mått
@@ -276,7 +280,7 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: Felsökningsprogram för ögonblicksbilder
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analys
+        - name: Analytics
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md

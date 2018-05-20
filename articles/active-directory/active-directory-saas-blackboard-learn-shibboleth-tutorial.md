@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med svart tavla Läs - Shibboleth | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och svart tavla Läs - Shibboleth."
+title: 'Självstudier: Azure Active Directory-integrering med svart tavla Läs - Shibboleth | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och svart tavla Läs - Shibboleth.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ac2894a7ec10db52a23bdff74840723e02ed677
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc4899a8770037d6f0e5c58d61ce73ec862de9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Självstudier: Azure Active Directory-integrering med svart tavla Läs - Shibboleth
 
@@ -29,9 +29,9 @@ Integrera svart tavla Läs - Shibboleth med Azure AD ger dig följande fördelar
 - Du kan aktivera användarna att automatiskt hämta inloggade svart tavla Läs - Shibboleth (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med svart tavla Läs - Shibboleth, behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearn-shibboleth_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/Login`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/Login`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<yourblackoardlearnserver>.blackboardlearn.com/shibboleth-sp`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<yourblackoardlearnserver>.blackboardlearn.com/shibboleth-sp`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST`
  
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [svart tavla Läs - Shibboleth klienten supportteamet](https://www.blackboard.com/forms/contact-us_form.aspx) att hämta dessa värden. 
@@ -211,7 +211,7 @@ När du klickar på svart tavla Läs - Shibboleth panelen på panelen åtkomst d
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

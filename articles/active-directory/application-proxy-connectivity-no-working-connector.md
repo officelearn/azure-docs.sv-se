@@ -1,11 +1,11 @@
 ---
-title: "Ingen koppling arbetsgruppen hittades för ett program med Application Proxy | Microsoft Docs"
-description: "Åtgärda problem som kan uppstå när det finns ingen aktiv anslutning i en grupp för anslutningen för ditt program med Azure AD Application Proxy"
+title: Ingen koppling arbetsgruppen hittades för ett program med Application Proxy | Microsoft Docs
+description: Åtgärda problem som kan uppstå när det finns ingen aktiv anslutning i en grupp för anslutningen för ditt program med Azure AD Application Proxy
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 7aad43be4dc411215a4b54c21a16c4cbb949c7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 679b8654ad926ddb80747ad4c93064946c9bc82b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Ingen koppling arbetsgruppen hittades för ett program med Application Proxy
 
-Den här artikeln hjälp dig att lösa vanliga problem inför när det inte är en koppling upptäcktes för ett program med Application Proxy integrerat med Azure Active Directory.
+Den här artikeln hjälper till att lösa vanliga problem inför när det inte är en koppling upptäcktes för ett Application Proxy-program som är integrerad med Azure Active Directory.
 
 ## <a name="overview-of-steps"></a>Översikt över steg
 Om det finns ingen aktiv anslutning i en grupp för kopplingen för programmet, finns det några sätt att lösa problemet:
@@ -38,19 +38,19 @@ Om det finns ingen aktiv anslutning i en grupp för kopplingen för programmet, 
 
     -   Flytta en aktiv koppling till gruppen
 
-Om du vill veta vilka av dessa är problemet, öppna menyn ”Application Proxy” i ditt program och titta på varningsmeddelandet Connector grupp. Det anger att gruppen måste minst en koppling (du har ingen i gruppen) eller att det finns inga aktiva anslutningar (även om du har förmodligen inaktiva kopplingar).
+Öppna menyn ”Application Proxy” i ditt program för att lösa problemet och titta på varningsmeddelandet Connector grupp. Om det finns inga anslutningar i gruppen, anger varningsmeddelandet gruppen måste minst en koppling. Om du har inga aktiva kopplingar, förklarar som i varningsmeddelandet. Det är vanligt att inaktiva anslutningar. 
 
-   ![Val av anslutningen i Azure Portal](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
+   ![Val av anslutningen i Azure-portalen](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-Mer information om de här alternativen finns i avsnittet motsvarande nedan. Var och en av dessa förutsätter att du startar från sidan för hantering av anslutningen. Om du tittar på felmeddelandet går du till den här sidan genom att klicka på varningsmeddelandet. Annars det hittar du genom att gå till **Azure Active Directory**, klicka på **företagsprogram**, sedan **Application Proxy.**
+Mer information om de här alternativen finns i avsnittet motsvarande nedan. Anvisningarna förutsätter att du startar från sidan för hantering av anslutningen. Om du tittar på felmeddelandet går du till den här sidan genom att klicka på varningsmeddelandet. Du kan också få till sidan genom att gå till **Azure Active Directory**, klicka på **företagsprogram**, sedan **Application Proxy.**
 
-   ![Kopplingen grupphantering i Azure Portal](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
+   ![Kopplingen grupphantering i Azure-portalen](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## <a name="download-a-new-connector"></a>Hämta en ny koppling
 
 Använd knappen ”Hämta anslutning” längst upp på sidan om du vill hämta en ny koppling.
 
-Observera anslutningen måste vara installerad på en dator med fri till backend-programmet och placeras vanligtvis på samma server som programmet. När du har hämtat, ska kopplingen visas i den här menyn. Klicka på anslutningen och använda listrutan ”Connector grupp” för att se till att det tillhör gruppen rätt. Spara ändringen.
+Installera anslutningen på en dator med fri till backend-programmet. Normalt har anslutningstjänsten installerats på samma server som programmet. När du har hämtat, ska kopplingen visas i den här menyn. Klicka på anslutningen och använda listrutan ”Connector grupp” för att se till att det tillhör gruppen rätt. Spara ändringen.
 
    ![Ladda ned anslutningen från Azure-portalen](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
@@ -65,6 +65,6 @@ Om endast kopplingar i gruppen är inaktiva sannolikt de på en dator som inte h
 Se portar felsöka dokument för mer information på undersöker problemet.
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå Azure AD Application Proxy-kopplingar](application-proxy-understand-connectors.md)
+[Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Yonyx interaktiva stödlinjer | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Yonyx interaktiva guider och Azure Active Directory."
+title: 'Självstudier: Azure Active Directory-integrering med Yonyx interaktiva stödlinjer | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Yonyx interaktiva guider och Azure Active Directory.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e221959a9997c44bbcb1fe97273b2e40b1eec06c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4448c8810d1411cb84b5c7e55a710e157c821e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Självstudier: Azure Active Directory-integrering med Yonyx interaktiva stödlinjer
 
@@ -30,9 +30,9 @@ Integrera Yonyx interaktiva guider med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Yonyx interaktiva guider (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Yonyx interaktiva stödlinjer, behöver du följande:
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Yonyx interaktiva guider domän med enkel inloggning information](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<company name>.yonyx.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<company name>.yonyx.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Yonyx interaktiva guider klienten supportteamet](mailto:support@yonyx.com) att hämta dessa värden. 
@@ -172,7 +172,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Yonyx interaktiva guider om den inte finns.
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt, måste du kontakta supportteamet Yonyx interaktiva guider via < mailto:support@yonyx.com >. 
+>Om du behöver skapa en användare manuellt, måste du kontakta supportteamet Yonyx interaktiva guider via <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -215,7 +215,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

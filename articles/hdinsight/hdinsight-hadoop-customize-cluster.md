@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärder
 **Script åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
@@ -53,7 +53,7 @@ HDInsight tillhandahåller flera skript för att installera följande komponente
 | Namn | Skript |
 | --- | --- |
 | **Installera Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Se [installera och använda Spark i HDInsight-kluster][hdinsight-install-spark]. |
-| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster][hdinsight-install-r]. |
+| **Installera R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Se [installera och använda R i HDInsight-kluster] [hdinsight-installation-r]. |
 | **Installera Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
 | - **Installera Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
 | **Läsa in Hive-bibliotek** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Se [lägga till Hive-bibliotek i HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
@@ -67,7 +67,7 @@ HDInsight tillhandahåller flera skript för att installera följande komponente
     ![Använd skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Använd skriptåtgärder att anpassa ett kluster")
 
     <table border='1'>
-        <tr><th>Egenskap</th><th>Värde</th></tr>
+        <tr><th>Egenskap </th><th>Värde</th></tr>
         <tr><td>Namn</td>
             <td>Ange ett namn för skriptåtgärden.</td></tr>
         <tr><td>Skript-URI</td>
@@ -312,12 +312,10 @@ Se [utveckla skriptåtgärd skript för HDInsight][hdinsight-write-script].
 * [Skapa Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skriptåtgärd skript för HDInsight][hdinsight-write-script]
 * [Installera och använda Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda R i HDInsight-kluster][hdinsight-install-r]
 * [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
 * [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

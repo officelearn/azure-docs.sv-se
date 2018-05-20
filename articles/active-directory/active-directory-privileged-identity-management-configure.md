@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -32,7 +32,7 @@ Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, k
 >- En Azure-resurs-rollen med precis i tid, eller direkt (klockslag) tilldelningar  
 >- Tilldelad till en åtkomst-granskning
 >
->Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+>Mer information finns i [Azure Active Directory-versioner](active-directory-whatis.md).
 
 Organisationer som vill minimera antalet personer som har åtkomst till säkra information eller resurser, eftersom som minskar risken för att en obehörig användare komma att åtkomst eller en behörig användare oavsiktligt påverkar en känsliga resurs.  Dock användare fortfarande behöver utföra Privilegierade åtgärder i Azure AD Azure, Office 365 eller SaaS-appar. Organisationer kan ge användare privilegierad åtkomst till Azure-resurser som prenumerationer och Azure AD. Det finns behov av tillsyn för vad användarna gör med deras administratörsrättigheter. Azure AD Privileged Identity Management hjälper till att minska risken för långa, onödiga eller felanvändning åtkomsträttigheter.
 

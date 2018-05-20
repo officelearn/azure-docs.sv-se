@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -209,6 +209,8 @@ När du flyttar ett virtuellt nätverk, måste du även flytta dess beroende res
 Om du vill flytta peered virtuella nätverk måste du först inaktivera peering virtuellt nätverk. När inaktiverat, kan du flytta det virtuella nätverket. Återaktivera efter överflyttningen, virtuella nätverk peering.
 
 Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om en resurs för Redis-Cache har distribuerats i ett undernät har som undernät en resurslänk för navigering.
+
+Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller en anpassad DNS-server. Flytta det virtuella nätverket genom att ange den till standard (Azure-tillhandahållna) DNS-server. Konfigurera anpassade DNS-servern efter överflyttningen.
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 

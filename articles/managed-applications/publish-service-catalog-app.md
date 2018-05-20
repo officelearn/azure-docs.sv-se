@@ -1,6 +1,6 @@
 ---
-title: "Skapa och publicera ett program för katalogen som hanteras av Azure-tjänst | Microsoft Docs"
-description: "Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation."
+title: Skapa och publicera ett program för katalogen som hanteras av Azure-tjänst | Microsoft Docs
+description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicera ett hanterat program för internt bruk
 
@@ -55,7 +55,7 @@ Lägg till följande JSON i din fil. Den definierar parametrar för att skapa et
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +138,7 @@ Lägg till följande JSON i filen.
 }
 ```
 
-Spara filen createUIDefinition.json.
+Spara filen createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Paketet filerna
 
@@ -152,8 +152,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +172,9 @@ Nästa steg är att välja en användargrupp eller ett program för att hantera 
 
 Du måste objekt-ID i gruppen du använder för att hantera resurser. 
 
-![Hämta grupp-ID](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Hämta rolldefinitions-ID:
 
@@ -203,21 +204,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Skapa det hanterade programmet med hjälp av portalen
+## <a name="create-the-managed-application"></a>Skapa det hanterade programmet
+
+Du kan distribuera hanterade program via portalen, PowerShell eller Azure CLI.
+
+### <a name="powershell"></a>PowerShell
+
+Först ska vi använda PowerShell för att distribuera det hanterade programmet.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Hanterade programmet och hanterad infrastruktur finns nu i prenumerationen.
+
+### <a name="portal"></a>Portalen
 
 Nu ska vi använda portalen för att distribuera det hanterade programmet. Du kan se användargränssnittet som du skapade i paketet.
 
-1. Gå till Azure-portalen. Välj **+ ny** och Sök efter **tjänstkatalogen**.
+1. Gå till Azure-portalen. Välj **+ skapa en resurs** och Sök efter **tjänstkatalogen**.
 
-   ![Sök tjänstkatalogen](./media/publish-service-catalog-app/select-new.png)
+   ![Sök tjänstkatalogen](./media/publish-service-catalog-app/create-new.png)
 
 1. Välj **Tjänstkatalogen hanterat program**.
 
-   ![Välj tjänstkatalogen](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Välj tjänstkatalogen](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Välj **Skapa**.
 
@@ -227,17 +256,17 @@ Nu ska vi använda portalen för att distribuera det hanterade programmet. Du ka
 
    ![Hitta det hanterade programmet](./media/publish-service-catalog-app/find-application.png)
 
-1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som innehåller det hanterade programmet. Välj **Väst centrala oss** för platsen. När du är klar väljer **OK**.
+1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som innehåller det hanterade programmet. Välj **Väst centrala oss** för platsen. När du är klar väljer du **OK**.
 
-   ![Ange parametrar för hanterade program](./media/publish-service-catalog-app/provide-basics.png)
+   ![Ange parametrar för hanterade program](./media/publish-service-catalog-app/add-basics.png)
 
-1. Ange värden som är specifika för resurser i det hanterade programmet. När du är klar väljer **OK**.
+1. Ange värden som är specifika för resurser i det hanterade programmet. När du är klar väljer du **OK**.
 
-   ![Ange Resursparametrar för](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Ange Resursparametrar för](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. Mallen verifierar de värden du angav. Om verifieringen lyckas, väljer **OK** att starta distributionen.
 
-   ![Validera hanterade program](./media/publish-service-catalog-app/validate.png)
+   ![Validera hanterade program](./media/publish-service-catalog-app/view-summary.png)
 
 När distributionen är klar finns det hanterade programmet i en resursgrupp med namnet applicationGroup. Storage-konto finns i en resursgrupp med namnet applicationGroup plus ett strängvärde som hashformaterats.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -151,6 +151,21 @@ I exemplet ovan genererar återanropet ett fel om åtgärden misslyckades. Annar
 Den här lagrade proceduren kan ändras för att ta en matris med dokumentet organ som indata och skapar dem i samma lagrade procedurkörningen i stället för flera förfrågningar till skapa dem individuellt. Den här lagrade proceduren kan användas för att implementera en effektiv bulk-Importverktyget för Cosmos-DB (beskrivs senare i den här självstudiekursen).   
 
 Det exempel som beskrivs visas hur du använder lagrade procedurer. Nästa du lära dig om utlösare och användardefinierade funktioner (UDF) senare under kursen.
+
+### <a name="known-issues"></a>Kända problem
+
+När du definierar en lagrad procedur med hjälp av Azure-portalen, skickas indataparametrar alltid som en sträng till den lagrade proceduren. Även om du skickar en matris med strängar som indata matrisen konverteras till en sträng och skickas till den lagrade proceduren. För att lösa det här problemet kan du definiera en funktion i en lagrad procedur för att parsa strängen som en matris. Följande kod är ett exempel för att parsa strängen som en matris: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Programmet databastransaktioner
 Transaktion i en typisk databas kan definieras som en sekvens med åtgärder som utförs som en logisk enhet på arbetet. Varje transaktion innehåller **ACID garantier**. AV är en välkänd förkortning som står för fyra egenskaper - odelbarhet, konsekvens, isolering och hållbarhet.  

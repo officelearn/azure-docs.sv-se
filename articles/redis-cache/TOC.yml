@@ -6,19 +6,19 @@
       href: cache-overview.md
 - name: Snabbstarter
   items:
-    - name: ASP.NET
+    - name: Skapa en ASP.NET-app
       href: cache-web-app-howto.md
-    - name: .NET
+    - name: Skapa en NET-app
       href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Node
+    - name: Skapa en Node.js-app
       href: cache-nodejs-get-started.md
-    - name: Java
+    - name: Skapa en Java-app
       href: cache-java-get-started.md
-    - name: Python
+    - name: Skapa en Python-app
       href: cache-python-get-started.md
 - name: Självstudier
   items:
-    - name: Resultattavlor för cachelagring
+    - name: Använda cachelagring med rankningslistor
       href: cache-web-app-cache-aside-leaderboard.md
 - name: Exempel
   items:

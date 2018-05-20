@@ -3,16 +3,16 @@ title: Integrera med Azure-hanterade tjänster med Open Service Broker for Azure
 description: Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
@@ -27,7 +27,7 @@ Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör O
 
 * Behörigheter för att skapa tjänstens huvudnamn med deltagarrollen på din Azure-prenumeration
 
-* Ett befintligt Azure Container Service-kluster (AKS). Om du behöver ett AKS-kluster följer du snabbstarten [Skapa ett AKS-kluster][create-aks-cluster].
+* Ett befintligt AKS-kluster (Azure Kubernetes Service). Om du behöver ett AKS-kluster följer du snabbstarten [Skapa ett AKS-kluster][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installera tjänstkatalogen
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Nästa steg
 
-Genom att följa den här artikeln har du distribuerat Tjänstkatalog till ett AKS-kluster (Azure Container Service). Du har använt Open Service Broker for Azure för att distribuera en WordPress-installation som använder Azure-hanterade tjänster, i det här fallet Azure Database for MySQL.
+Genom att följa den här artikeln har du distribuerat Tjänstkatalog till ett AKS-kluster (Azure Kubernetes Service). Du har använt Open Service Broker for Azure för att distribuera en WordPress-installation som använder Azure-hanterade tjänster, i det här fallet Azure Database for MySQL.
 
 På lagringsplatsen [Azure/helm-charts][helm-charts] kan du få åtkomst till andra uppdaterade OSBA-baserade Helm-diagram. Om du är intresserad av att skapa egna diagram som fungerar med OSBA kan du läsa [Skapa ett nytt diagram][helm-create-new-chart].
 

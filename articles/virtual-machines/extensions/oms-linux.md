@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/16/2018
 ms.author: danis
-ms.openlocfilehash: 5c292bf0f92423826d58fb0e9175f51d0599bf44
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dcc5637b159341fc4b6cc8130b1807c8a2f604fc
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
@@ -35,12 +35,12 @@ Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 5, 6 och 7 |
-| Oracle Linux | 5, 6 och 7 |
-| Red Hat Enterprise Linux Server | 5, 6 och 7 |
-| Debian GNU/Linux | 6, 7 och 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
-| SUSE Linux Enterprise Server | 11 och 12 |
+| CentOS Linux | 5, 6 och 7 (x86/x64) |
+| Oracle Linux | 5, 6 och 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 5, 6 och 7 (x86/x64) |
+| Debian GNU/Linux | 6, 7 och 8 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 och 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Agent och VM-tillägget version
 Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och OMS-Agent paket för varje version. En länk till viktig information om OMS paket agentversionen ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  

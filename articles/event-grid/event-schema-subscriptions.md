@@ -1,18 +1,18 @@
 ---
-title: "Azure händelse rutnätet prenumeration Händelseschema"
-description: "Beskriver de egenskaper som har angetts för prenumerationshändelser med Azure händelse rutnätet"
+title: Azure händelse rutnätet prenumeration Händelseschema
+description: Beskriver de egenskaper som har angetts för prenumerationshändelser med Azure händelse rutnätet
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04bcc3018346e9cf162d26b0a23147c88e902e1e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure händelse rutnätet Händelseschema för prenumerationer
 
@@ -93,7 +93,7 @@ Schemat för en resurs tas bort händelse är ungefär:
 
 En händelse har följande översta data:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
 | Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
@@ -101,12 +101,12 @@ En händelse har följande översta data:
 | EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata i prenumerationen. |
-| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Auktorisering | sträng | Det begärda tillståndet för åtgärden. |
 | Anspråk | sträng | Egenskaperna för anspråk. |
@@ -117,7 +117,7 @@ Dataobjektet har följande egenskaper:
 | operationName | sträng | Åtgärden som utfördes. |
 | status | sträng | Status för åtgärden. |
 | subscriptionId | sträng | Prenumerations-ID för resursen. |
-| tenantId | sträng | Klient-ID för resursen. |
+| Klient-ID | sträng | Klient-ID för resursen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

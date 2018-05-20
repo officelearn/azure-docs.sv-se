@@ -1,22 +1,22 @@
 ---
-title: "Så här anger du portnumret för en tjänst med parametrar i Azure Service Fabric | Microsoft Docs"
-description: "Visar hur du använder parametrar för att ange porten för ett program i Service Fabric"
+title: Så här anger du portnumret för en tjänst med parametrar i Azure Service Fabric | Microsoft Docs
+description: Visar hur du använder parametrar för att ange porten för ett program i Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: aca5b6a476e9526498a5e4834aaa28eb73750562
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du portnumret för en tjänst med parametrar i Service Fabric
 
@@ -46,7 +46,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API som anvä
       </ServiceManifestImport>
     ```
 
-1. I den `Endpoint` element, kan du nu åsidosätta alla attribut som använder en parameter. I det här exemplet anger du `Port` och ange det till ett parameternamn med hakparenteser - t.ex.`[MyWebAPI_PortNumber]`
+1. I den `Endpoint` element, kan du nu åsidosätta alla attribut som använder en parameter. I det här exemplet anger du `Port` och ange det till ett parameternamn med hakparenteser - t.ex. `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -68,7 +68,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API som anvä
       </Parameters>
     ```
 
-1. Och definiera en`DefaultValue`
+1. Och definiera en `DefaultValue`
 
     ```xml
       <Parameters>

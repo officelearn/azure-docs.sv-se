@@ -1,25 +1,27 @@
 ---
 title: Skydda ett Azure Active Directory v2.0 webb-API med Node.js | Microsoft Docs
-description: "Lär dig mer om att skapa en Node.js-webb-API som accepterar token från en personligt Microsoft-konto och från arbetet eller skolan konton."
+description: Lär dig mer om att skapa en Node.js-webb-API som accepterar token från en personligt Microsoft-konto och från arbetet eller skolan konton.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19ad25c7b08ff073097cacf3be359772ca0a327f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Säkra ett webb-API med Node.js
 > [!NOTE]
@@ -139,7 +141,7 @@ Restify har en kraftfull mekanism för att spåra REST-anrop med DTrace. DTrace 
     ```
 
 ## <a name="6-add-passport-azure-ad-to-your-web-api"></a>6: Lägg till passport-azure-ad i ditt webb-API
-Lägg sedan till OAuth-strategin genom att använda passport-azuread. `passport-azuread`är en uppsättning strategier som ansluter Azure AD med Passport. Vi använder den här strategin för ägar-token i REST API-exemplet.
+Lägg sedan till OAuth-strategin genom att använda passport-azuread. `passport-azuread` är en uppsättning strategier som ansluter Azure AD med Passport. Vi använder den här strategin för ägar-token i REST API-exemplet.
 
 > [!NOTE]
 > Även om OAuth 2.0 erbjuder ett ramverk där alla kända token-typer kan utfärdas, används ofta för vissa typer av token. Ägar-token används ofta för att skydda slutpunkter. Ägar-token är den mest typ token i OAuth 2.0. Många OAuth 2.0 olika implementeringar utgår ifrån att ägar-token är den enda typ av token som utfärdas.

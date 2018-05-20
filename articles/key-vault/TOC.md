@@ -1,7 +1,7 @@
 # [Dokumentation om Key Vault](index.yml)
 
 # Översikt
-## [Översikt över Key Vault](key-vault-overview.md)
+## [Om Key Vault](key-vault-overview.md)
 
 # Snabbstarter
 ## [Skapa Key Vault – CLI](quick-create-cli.md)
@@ -65,9 +65,10 @@
 ## [Tjänstöversikt](https://azure.microsoft.com/services/key-vault/)
 ## [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
 ### [Komma igång med certifikat](certificate-scenarios.md)
-#### [Metoder för att skapa certifikat](create-certificate.md)
-#### [Övervaka och hantera processen för att skapa certifikat](create-certificate-scenarios.md)
+### [Metoder för att skapa certifikat](create-certificate.md)
+### [Övervaka och hantera processen för att skapa certifikat](create-certificate-scenarios.md)
 ## [Autentisering, begäranden och svar](authentication-requests-and-responses.md)
+## [Kunddatafunktioner](key-vault-customer-data.md)
 ## [Vanliga parametrar och sidhuvuden](common-parameters-and-headers.md)
 ## [Key Vault-versioner](key-vault-versions.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)

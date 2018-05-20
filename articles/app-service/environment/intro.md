@@ -11,26 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
 ## <a name="overview"></a>Översikt ##
 
-Azure App Service-miljön är en funktion i Azure App Service som ger en helt isolerad och dedikerad miljö där du kan köra App Service-appar säkert på hög nivå. Den här funktionen kan vara värd för dina webbappar, [mobilappar][mobileapps], API-appar och [funktioner][Functions].
+Azure App Service-miljön är en funktion i Azure App Service som ger en helt isolerad och dedikerad miljö där du kan köra App Service-appar säkert på hög nivå. Den här funktionen kan vara värd för:
+
+* Windows-webbappar
+* Linux-webbappar (förhandsversioner)
+* Dockerbehållare (förhandsversioner)
+* Mobilappar
+* Functions
 
 App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som kräver:
 
-- Mycket hög skala.
-- Isolering och säker nätverksåtkomst.
-- Hög minnesanvändning.
+* Mycket hög skala.
+* Isolering och säker nätverksåtkomst.
+* Hög minnesanvändning.
 
 Kunderna kan skapa flera ASE-miljöer inom en enda Azure-region eller över flera Azure-regioner. Den här flexibiliteten gör ASE-miljöer perfekta för vågrätt skalning av tillståndslösa programnivåer med stöd för höga RPS-arbetsbelastningar.
 
@@ -39,7 +45,7 @@ ASE-miljöer är isolerade så att de endast kör en enda kunds program och de d
 * ASE-miljöer möjliggör appvärdfunktioner med hög skala och säker nätverksåtkomst. Mer information finns i [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) (Djupgående om AzureCon) om ASE-miljöer.
 * Flera ASE-miljöer kan användas för att skala vågrätt. Om du vill ha mer information kan du läsa om [hur man konfigurerar ett geodistribuerat appfotavtryck](app-service-app-service-environment-geo-distributed-scale.md).
 * ASE-miljöer kan användas för att konfigurera en säkerhetsarkitektur, vilket visas i AzureCon Deep Dive (Djupgående om AzureCon). Om du vill se hur säkerhetsarkitekturen som visades i AzureCon Deep Dive (Djupgående om AzureCon) har konfigurerats kan du läsa [artikeln om att implementera en arkitektur med flernivåsäkerhet](app-service-app-service-environment-layered-security.md) med App Service-miljöer.
-* Appar som körs i ASE kan ha sin egen åtkomst begränsad av överordnade enheter, t.ex. brandväggar för webbaserade program (WAF). Mer information finns i [Configure a WAF for App Service environments](app-service-app-service-environment-web-application-firewall.md) (Konfigurera en brandvägg för webbaserade program i App Service-miljöer).
+* Appar som körs i ASE kan ha sin egen åtkomst begränsad av överordnade enheter, t.ex. brandväggar för webbaserade program (WAF). Mer information finns i [Integrera din ILB App Service-miljö med Azure Application Gateway][AppGW].
 
 ## <a name="dedicated-environment"></a>Dedikerad miljö ##
 
@@ -59,7 +65,7 @@ Det finns en fast månadskostnad för en ASE-miljö som betalar för infrastrukt
 
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk ##
 
-En ASE-miljö kan bara skapas i ett virtuellt Azure Resource Manager-nätverk. Mer information om virtuella Azure-nätverk finns i [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/) (Vanliga frågor och svar om virtuella Azure-nätverk). En ASE-miljö finns alltid i ett virtuellt nätverk och, mer exakt, i ett undernät till ett virtuellt nätverk. Du kan använda säkerhetsfunktionerna för virtuella nätverk för att styra inkommande och utgående nätverkskommunikation för apparna.
+Funktionen ASE är en distribution av Azure App Service direkt till en kunds virtuella Azure Resource Manager-nätverk. Mer information om virtuella Azure-nätverk finns i [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/) (Vanliga frågor och svar om virtuella Azure-nätverk). En ASE-miljö finns alltid i ett virtuellt nätverk och, mer exakt, i ett undernät till ett virtuellt nätverk. Du kan använda säkerhetsfunktionerna för virtuella nätverk för att styra inkommande och utgående nätverkskommunikation för apparna.
 
 En ASE-miljö kan vara antingen Internetuppkopplad med en offentlig IP-adress eller intern med bara en adress för en intern belastningsutjämnare (ILB) i Azure.
 

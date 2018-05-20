@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med GitHub | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GitHub."
+title: 'Självstudier: Azure Active Directory-integrering med GitHub | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef9d0bb112738e9abea5894fb0f321368b7fc26e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Självstudier: Azure Active Directory-integrering med GitHub
 
@@ -30,9 +30,9 @@ Integrera GitHub med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på GitHub (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - till Azure-hanteringsportalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med GitHub, behöver du följande:
 
@@ -116,9 +116,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    a. I den **inloggnings-URL** textruta Skriv värdet som:`https://github.com/orgs/<entity-id>/sso`
+    a. I den **inloggnings-URL** textruta Skriv värdet som: `https://github.com/orgs/<entity-id>/sso`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://github.com/orgs/<entity-id>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
     > Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med de faktiska rör-URL och identifierare. Här rekommenderar vi att du om du vill använda det unika värdet på strängen i identifieraren. Gå till GitHub-administratör att hämta dessa värden. 
@@ -177,7 +177,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Inställningar](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
-16. Klicka på **spara**
+16. Klicka på **Spara**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas Britta Simon.
@@ -284,7 +284,7 @@ När du klickar på GitHub-panelen på åtkomstpanelen du ska hämta loggat in p
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

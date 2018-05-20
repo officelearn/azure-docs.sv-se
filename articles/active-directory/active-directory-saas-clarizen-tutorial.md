@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Clarizen | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Clarizen."
+title: 'Självstudier: Azure Active Directory-integrering med Clarizen | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Självstudier: Azure Active Directory-integrering med Clarizen
 
@@ -32,9 +32,9 @@ Ett scenario för den här kursen består av två huvudsakliga aktiviteter:
 1. Lägg till Clarizen från galleriet.
 2. Konfigurera och testa Azure AD enkel inloggning.
 
-Om du vill ha mer information om programvara som en tjänst (SaaS) appintegrering med Azure AD, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Om du vill ha mer information om programvara som en tjänst (SaaS) appintegrering med Azure AD, se [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att konfigurera Azure AD-integrering med Clarizen, behöver du följande:
 
 - En Azure AD-prenumeration
@@ -225,7 +225,7 @@ Aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja sin 
 
     ![Klicka på ”användare och grupper”][202]
 
-4. Klicka på den **Lägg till** knappen. I den **Lägg uppdrag** dialogrutan **användare och grupper**.
+4. Klicka på knappen **Lägg till**. I den **Lägg uppdrag** dialogrutan **användare och grupper**.
 
     ![Knappen ”Lägg till” och dialogrutan ”Lägg till tilldelning”][203]
 
@@ -243,7 +243,7 @@ När du klickar på panelen Clarizen på åtkomstpanelen bör du vara automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

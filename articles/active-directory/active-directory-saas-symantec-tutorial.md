@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS) | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Symantec Web Security Service (WSS)."
+title: 'Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Symantec Web Security Service (WSS).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0dc75a1091c56ddbbffcd54047b2465ece231254
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS)
 
@@ -32,9 +32,9 @@ Integrera Symantec Web Security Service (WSS) med Azure AD ger dig följande fö
 
 - Aktivera verkställandet av användare och grupp säkerhetsnivå för regler som definierats i WSS-konto.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Symantec Web Security Service (WSS) behöver du följande:
 
@@ -73,7 +73,7 @@ Du måste lägga till Symantec Web Security Service (WSS) från galleriet i list
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Symantec Web Security Service (WSS)**väljer **Symantec Web Security Service (WSS)** resultatet-panelen klickar **Lägg till** för att lägga till den programmet.
+4. I sökrutan skriver **Symantec Web Security Service (WSS)** väljer **Symantec Web Security Service (WSS)** resultatet-panelen klickar **Lägg till** för att lägga till den programmet.
 
     ![Symantec Web Security Service (WSS) i resultatlistan](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_addfromgallery.png)
 
@@ -111,9 +111,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Symantec Web Security Service (WSS)-domän med enkel inloggning information](./media/active-directory-saas-symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://saml.threatpulse.net:8443/saml/saml_realm`
+    a. I den **identifierare** textruta anger du URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
-    b. I den **Reply URL** textruta anger du URL:`https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
+    b. I den **Reply URL** textruta anger du URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
     > [!NOTE]
     > Kontakta den [Symantec Web Security Service (WSS) klienten supportteamet](https://www.symantec.com/contact-us) om värdena för den **identifierare** och **Reply URL** inte är av någon anledning.
@@ -209,7 +209,7 @@ När du har konfigurerat webbläsaren att proxy trafik till WSS, när du öppnar
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

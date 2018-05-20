@@ -1,18 +1,18 @@
 ---
-title: "Bästa metoderna i Azure Container Registry"
-description: "Lär dig att använda Azure Container Registry på ett effektivt sätt genom att följa dessa bästa metoder."
+title: Bästa metoderna i Azure Container Registry
+description: Lär dig att använda Azure Container Registry på ett effektivt sätt genom att följa dessa bästa metoder.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: 684b778f57da4adb331958c5daef6b9906b6d253
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
@@ -27,7 +27,7 @@ Dessutom implementerar alla offentliga moln, inklusive Azure, avgifter för nät
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Geo-replikering av distributioner över flera regioner
 
-Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Azure Container Registry om du distribuerar behållare till flera regioner. Oavsett om du arbetar med globala kunder från lokala datacenter eller om utvecklingsteamet finns på olika platser kan du förenkla registerhanteringen och minimera svarstiden genom geo-replikering i registret. Den här funktionen finns för närvarande i en förhandsversion i [Premium](container-registry-skus.md)-register.
+Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Azure Container Registry om du distribuerar behållare till flera regioner. Oavsett om du arbetar med globala kunder från lokala datacenter eller om utvecklingsteamet finns på olika platser kan du förenkla registerhanteringen och minimera svarstiden genom geo-replikering i registret. Geo-replikering är endast tillgänglig med [Premium](container-registry-skus.md)-register.
 
 Information om hur du använder geo-replikering finns i självstudien [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md) (Geo-replikering i Azure Container Registry) i tre delar.
 

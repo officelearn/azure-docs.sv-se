@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric-katastrofåterställning | Microsoft Docs"
-description: "Azure Service Fabric erbjuder funktionerna som är nödvändiga för att hantera alla typer av katastrofer. Den här artikeln beskrivs vilka typer av katastrofer som kan uppstå och hur du hanterar dem."
+title: Azure Service Fabric-katastrofåterställning | Microsoft Docs
+description: Azure Service Fabric erbjuder funktionerna som är nödvändiga för att hantera alla typer av katastrofer. Den här artikeln beskrivs vilka typer av katastrofer som kan uppstå och hur du hanterar dem.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Katastrofåterställning i Azure Service Fabric
 En viktig del av ger hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver vissa vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Det beskrivs åtgärder och åtgärder som ska vidtas om en katastrof hände ändå. Målet är att begränsa eller att inga avbrott eller dataförlust när de uppstår fel, planerade eller annars kan uppstå.

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 9a025716c2bb6266c1c1c552a2d0791b39429cac
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5224fe4682509f92e1f18d865e5cc5afb1218ad1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-with-azure-and-azure-stack-applications"></a>Självstudier: Konfigurera hybrididentitet moln med Azure och Azure Stack-program
 
@@ -60,7 +60,7 @@ En installation av Azure-stacken ansluten till Azure Active Directory med en pre
 
 Använda slutpunkter för Azure Resource Manager API för att ansluta till Azure-stacken använder kod att hämta autentiserings- och diagram slutpunkter för din Azure Stack-installation och sedan autentisera med hjälp av REST-begäranden. Du hittar ett exempelprogram [här](https://github.com/shriramnat/HybridARMApplication).
 
-> [!note]  
+> [!Note]  
 Om Azure SDK för din valda språket inte stöder Azure API-profiler, kanske SDK inte fungerar med Azure-stacken. Mer information om Azure API-profiler, [här](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Nästa steg

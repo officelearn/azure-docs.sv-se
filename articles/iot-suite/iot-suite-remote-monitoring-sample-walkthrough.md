@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Fjärråtkomst övervakning accelerator lösningsarkitektur
 
-Fjärråtkomst övervakning [lösningsaccelerator](iot-suite-what-are-solution-accelerators.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](iot-suite-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
+Fjärråtkomst övervakning [lösningsaccelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
 
 Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
-Diagrammet nedan visar logiska komponenter för fjärråtkomst övervakning solution accelerator högst upp på den [IoT-arkitekturen](iot-suite-what-is-azure-iot.md):
+Diagrammet nedan visar logiska komponenter för fjärråtkomst övervakning solution accelerator högst upp på den [IoT-arkitekturen](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Om du vill utforska källa kod och utvecklare dokumentationen börjar du med en 
 * [Solution accelerator för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Solution accelerator för fjärråtkomst övervakning arkitektur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Mer information om fjärråtkomst övervakning solution accelerator finns [anpassa solution accelerator](iot-suite-remote-monitoring-customize.md).
+Mer information om fjärråtkomst övervakning solution accelerator finns [anpassa solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

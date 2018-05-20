@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric DNS-tjänsten | Microsoft Docs"
-description: "Använda Service Fabric DNS-tjänsten för identifiering av mikrotjänster från i klustret."
+title: Azure Service Fabric DNS-tjänsten | Microsoft Docs
+description: Använda Service Fabric DNS-tjänsten för identifiering av mikrotjänster från i klustret.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -9,30 +9,41 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
-ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 656aed1f1fbd3294c4318520058ace480fd2219c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
-DNS-tjänsten är en valfri systemtjänst som du kan aktivera i klustret för att identifiera andra tjänster med hjälp av DNS-protokollet.
+DNS-tjänsten är en valfri systemtjänst som du kan aktivera i klustret för att identifiera andra tjänster med hjälp av DNS-protokollet. 
 
 Många tjänster, särskilt av tjänster, kan ha ett befintligt URL-namn och att kunna lösa dem med hjälp av DNS-standardprotokollet (i stället för protokollet Naming Service) är önskvärt, särskilt i ”lyfta och flytta” scenarier. DNS-tjänsten kan du mappa DNS-namn till ett namn och därför matcha IP-adresser för slutpunkt. 
 
-Tjänsten DNS matchar DNS-namn till tjänstnamn som i sin tur kan matchas med namngivningstjänst att returnera tjänstslutpunkten. DNS-namn för tjänsten tillhandahålls vid tidpunkten för skapandet. 
+Tjänsten DNS matchar DNS-namn till tjänstnamn som i sin tur kan matchas med namngivningstjänst att returnera tjänstslutpunkten. DNS-namn för tjänsten tillhandahålls vid tidpunkten för skapandet.
 
-![slutpunkter][0]
+![slutpunkter](./media/service-fabric-dnsservice/dns.png)
+
+Dynamiska portar stöds inte av DNS-tjänsten. Lös tjänster som exponeras av dynamiska portar med de [omvänd proxy-tjänsten](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>Aktivera DNS-tjänsten
-Du måste först aktivera tjänsten DNS i klustret. Hämta mallen för det kluster som du vill distribuera. Du kan använda den [exempel mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en Resource Manager-mall. Du kan aktivera DNS-tjänsten med följande steg:
+När du skapar ett kluster med hjälp av portalen DNS-tjänsten är aktiverad som standard i den **inkluderar DNS-tjänsten** kryssrutan på den **klusterkonfigurationen** menyn:
 
-1. Kontrollera att den `apiversion` är inställd på `2017-07-01-preview` för den `Microsoft.ServiceFabric/clusters` resursen, och om inte, uppdatera det som visas i följande utdrag:
+![Aktivera DNS-tjänsten via portalen][2]
+
+Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett befintligt kluster, behöver du aktivera tjänsten DNS i en mall:
+
+- Om du vill distribuera ett nytt kluster som du kan använda den [exempel mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en egen Resource Manager-mall. 
+- För att uppdatera ett befintligt kluster, kan du gå till resursgruppen på portalen och klicka på **Automatiseringsskriptet** att arbeta med en mall som motsvarar det aktuella tillståndet för klustret och andra resurser i gruppen. Läs mer i [Exportera mallen från resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+
+När du har en mall kan aktivera du DNS-tjänsten med följande steg:
+
+1. Kontrollera att den `apiversion` är inställd på `2017-07-01-preview` eller senare för att den `Microsoft.ServiceFabric/clusters` resursen, och om inte, uppdatera det som visas i följande fragment:
 
     ```json
     {
@@ -55,18 +66,16 @@ Du måste först aktivera tjänsten DNS i klustret. Hämta mallen för det klust
         ],
     ```
 
-3. När du har uppdaterat mallen för kluster med föregående ändringarna kan använda dem och låta uppgraderingen slutförts. När installationen är klar startas tjänsten DNS-systemet körs i klustret som kallas `fabric:/System/DnsService` under system service-avsnittet i Service Fabric explorer. 
-
-Du kan också aktivera DNS-tjänsten via portalen när klustret skapas. DNS-tjänsten kan aktiveras med en kryssruta för `Include DNS service` i den `Cluster configuration` menyn som visas i följande skärmbild:
-
-![Aktivera DNS-tjänsten via portalen][2]
+3. När du har uppdaterat mallen för kluster med föregående ändringarna kan använda dem och låta uppgraderingen slutförts. När uppgraderingen är klar startar tjänsten DNS system körs i klustret. Tjänstnamnet är `fabric:/System/DnsService`, och du hittar den under den **System** avsnitt i Service Fabric explorer-tjänsten. 
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Ange ett DNS-namn för tjänsten
-När DNS-tjänsten körs i klustret, kan du ange ett DNS-namn för dina tjänster deklarativt för standardtjänster i antingen den `ApplicationManifest.xml` eller via Powershell-kommandon.
+När DNS-tjänsten körs i klustret, kan du ange ett DNS-namn för dina tjänster deklarativt för standardtjänster i antingen den `ApplicationManifest.xml` eller via PowerShell-kommandon.
+
+DNS-namnet för din tjänst måste matchas i hela klustret. Vi rekommenderar att du använder en namngivningsschemat för `<ServiceDnsName>.<AppInstanceName>`, till exempel `service1.application1`. På så sätt att DNS-namnet i hela klustret unikt. Om ett program distribueras med Docker compose, tjänster tilldelas automatiskt med hjälp av den här namngivningsschemat DNS-namn.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ange DNS-namnet för en standardtjänst i ApplicationManifest.xml
-Öppna projektet i Visual Studio eller ditt favoritprogram redigerare och öppna den `ApplicationManifest.xml` filen. Gå till avsnittet standard tjänster och för varje tjänst lägga till den `ServiceDnsName` attribut. I följande exempel visas hur du anger DNS-namnet på tjänsten`service1.application1`
+Öppna projektet i Visual Studio eller ditt favoritprogram redigerare och öppna den `ApplicationManifest.xml` filen. Gå till avsnittet standard tjänster och för varje tjänst lägga till den `ServiceDnsName` attribut. I följande exempel visas hur du anger DNS-namnet på tjänsten `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -80,7 +89,7 @@ När programmet har distribuerats, service-instans i Service Fabric explorer vis
 ![slutpunkter][1]
 
 ### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Ange DNS-namnet för en tjänst med Powershell
-Du kan ange DNS-namnet för en tjänst när du skapar den med hjälp av den `New-ServiceFabricService` Powershell. I följande exempel skapas en ny tillståndslös tjänst med DNS-namn`service1.application1`
+Du kan ange DNS-namnet för en tjänst när du skapar den med hjälp av den `New-ServiceFabricService` Powershell. I följande exempel skapas en ny tillståndslös tjänst med DNS-namn `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -94,7 +103,7 @@ Du kan ange DNS-namnet för en tjänst när du skapar den med hjälp av den `New
 ```
 
 ## <a name="using-dns-in-your-services"></a>Med hjälp av DNS i dina tjänster
-Om du distribuerar mer än en tjänst hittar du slutpunkter av andra tjänster kan kommunicera med genom att använda en DNS-namn. DNS-tjänsten kan bara användas för tillståndslösa tjänster, eftersom DNS-protokollet inte kan kommunicera med tillståndskänsliga tjänster. Du kan använda inbyggda omvänd proxy för http-anrop för tillståndskänsliga tjänster för att anropa en viss tjänst partition.
+Om du distribuerar mer än en tjänst hittar du slutpunkter av andra tjänster kan kommunicera med genom att använda en DNS-namn. DNS-tjänsten kan bara användas för tillståndslösa tjänster, eftersom DNS-protokollet inte kan kommunicera med tillståndskänsliga tjänster. För tillståndskänsliga tjänster, kan du använda inbyggt [omvänd proxy-tjänsten](./service-fabric-reverseproxy.md) för http-anrop att anropa en viss tjänst partition. Dynamiska portar stöds inte av DNS-tjänsten. Du kan använda omvänd proxy för att lösa tjänster som använder dynamiska portar.
 
 Följande kod visar hur du anropar en annan tjänst som ger helt enkelt en vanliga http-anropet du porten och en valfri sökväg som en del av URL: en.
 

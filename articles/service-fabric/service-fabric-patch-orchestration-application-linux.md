@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric korrigering orchestration-program för linux | Microsoft Docs"
-description: "Program för att automatisera operativsystemet uppdatering på en Linux Service Fabric-klustret."
+title: Azure Service Fabric korrigering orchestration-program för linux | Microsoft Docs
+description: Program för att automatisera operativsystemet uppdatering på en Linux Service Fabric-klustret.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/22/2018
 ms.author: nachandr
-ms.openlocfilehash: dac8068705e284b04d84d128eb1ce62c459d44ff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Linux-operativsystem i Service Fabric-kluster
 
@@ -124,7 +124,7 @@ Hämta programmet från den [Hämta länk](https://go.microsoft.com/fwlink/?link
 
 Korrigering av orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att passera i parametern program under skapa program eller uppdatering. Parametrar för program kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdlets.
 
-|**Parameter**        |**Typ**                          | **Detaljer**|
+|**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal Update resultat som ska cachelagras. <br>Standardvärdet är 3000 under förutsättning att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som händer på en nod per månad är fem. <br> -Antalet resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Uppdateringarna är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Uppdateringarna är installerade en domän i taget. (Max, alla noder som tillhör en domän kan gå för uppdateringen.)
@@ -220,7 +220,7 @@ Fält | Värden | Information
 -- | -- | --
 OperationResult | 0 - lyckades<br> 1 - slutförd med fel<br> 2 - misslyckades<br> 3 - avbröts<br> 4 - avbröts med tidsgräns | Visar resultatet av övergripande (vanligtvis som innefattar installationen av en eller flera uppdateringar).
 ResultCode | Samma som OperationResult | Fältet visar resultatet av installationen för en enskild uppdatering.
-OperationType | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
+Åtgärdstyp | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
 UpdateClassification | Standardvärdet är ”securityupdates” | Typ av uppdateringar som installeras under uppdateringen
 UpdateFrequency | Standardvärdet är ”vecka, Onsdag 7:00:00” | Uppdatera den konfigurerade synkroniseringsfrekvensen för den här uppdateringen.
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger en omstart krävdes för att slutföra installationen av uppdateringar.
@@ -360,5 +360,5 @@ Korrigering orchestration appen samlar in telemetri om du vill spåra användnin
 ### <a name="version-010"></a>Version 0.1.0
 - Privata förhandsversionen
 
-### <a name="version-200-latest"></a>Version 2.0.0 (Latest)
+### <a name="version-200-latest"></a>Version 2.0.0 (senaste)
 - Offentliga utgåvan

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Cisco Spark | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Spark."
+title: 'Självstudier: Azure Active Directory-integrering med Cisco Spark | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Spark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c7ee96abacffc6599187ded9a5049cc3bf672e0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4307904e87bdf9a0361a7fb143e87ae3a662f18e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Självstudier: Azure Active Directory-integrering med Cisco Spark
 
@@ -29,9 +29,9 @@ Integrera Cisco Spark med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Cisco Spark (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Cisco Spark, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL som:`https://web.ciscospark.com/#/signin`
+    a. I den **inloggnings-URL** textruta Skriv en URL som: `https://web.ciscospark.com/#/signin`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://idbroker.webex.com/<companyname>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://idbroker.webex.com/<companyname>`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [Cisco Spark klient supportteamet](https://support.ciscospark.com/) att hämta det här värdet. 
@@ -218,7 +218,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i Cisco Spa
     
     b. I den **efternamn** textruta typen **Simon**.
     
-    c. I den **e-postadress** textruta typen  **britta.simon@contoso.com** .
+    c. I den **e-postadress** textruta typen **britta.simon@contoso.com**.
 
 5. Klicka på plustecknet för att lägga till Britta Simon. Klicka sedan på **Nästa**.
 
@@ -263,7 +263,7 @@ När du klickar på panelen Cisco Spark på åtkomstpanelen du bör få automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

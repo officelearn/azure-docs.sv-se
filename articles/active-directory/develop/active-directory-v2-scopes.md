@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory v2.0-scope, behörigheter och medgivande | Microsoft Docs"
-description: "En beskrivning av auktorisering i Azure AD v2.0-slutpunkten, inklusive scope, behörigheter och samtycke."
+title: Azure Active Directory v2.0-scope, behörigheter och medgivande | Microsoft Docs
+description: En beskrivning av auktorisering i Azure AD v2.0-slutpunkten, inklusive scope, behörigheter och samtycke.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scope, behörigheter och medgivande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriseringsmodell som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats och ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för det här tillståndet modellen, inklusive scope, behörigheter och samtycke.
@@ -61,7 +63,7 @@ Om en app utför logga in med hjälp av [OpenID Connect](active-directory-v2-pro
 ### <a name="email"></a>e-post
 Den `email` omfång kan användas med den `openid` scope och övriga. Det ger appen åtkomst till användarens primära e-postadress i form av den `email` anspråk. Den `email` anspråk ingår i en token endast om en e-postadress som är kopplad till det användarkonto som inte alltid fallet. Om den använder den `email` omfång, din app ska vara beredd att hantera ett fall där det `email` anspråk finns inte i token.
 
-### <a name="profile"></a>Profil
+### <a name="profile"></a>profil
 Den `profile` omfång kan användas med den `openid` scope och övriga. Det ger appen åtkomst till en stor mängd information om användaren. Den kan komma åt informationen inkluderar, men är inte begränsat till användarens förnamn, efternamn, prioriterade användarnamn och objekt-ID. En fullständig lista över profil anspråk finns i parametern id_tokens för en viss användare, finns det [v2.0 tokens referens](active-directory-v2-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Du kan använda den resulterande åtkomst-token i HTTP-begäranden till resursen. På ett tillförlitligt sätt anger till resursen att din app har rätt behörighet att utföra en viss uppgift.  
+Du kan använda den resulterande åtkomst-token i HTTP-begäranden till resursen. På ett tillförlitligt sätt anger till resursen att din app har rätt behörighet att utföra en viss uppgift. 
 
 Läs mer om OAuth 2.0-protokollet och hur du kan få åtkomst-token i [protokollreferens för v2.0-slutpunkten](active-directory-v2-protocols.md).

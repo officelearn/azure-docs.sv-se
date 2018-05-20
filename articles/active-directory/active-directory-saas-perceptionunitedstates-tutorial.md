@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med uppfattning USA (icke-UltiPro) | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och uppfattning USA (icke-UltiPro)."
+title: 'Självstudier: Azure Active Directory-integrering med uppfattning USA (icke-UltiPro) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och uppfattning USA (icke-UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d94d233a12e51bf851a791fda481b91c513d64b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da0529897bb02745a2346f6a0282be86923468ba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudier: Azure Active Directory-integrering med uppfattning USA (icke-UltiPro)
 
@@ -30,9 +30,9 @@ Integrera uppfattning USA (icke-UltiPro) med Azure AD ger dig följande fördela
 - Du kan aktivera användarna att automatiskt hämta inloggade till uppfattning USA (icke-UltiPro) (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med uppfattning USA (icke-UltiPro) behöver du följande:
 
@@ -70,7 +70,7 @@ För att konfigurera integrering av uppfattning USA (icke-UltiPro) till Azure AD
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **uppfattning USA (icke-UltiPro)**väljer **uppfattning USA (icke-UltiPro)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **uppfattning USA (icke-UltiPro)** väljer **uppfattning USA (icke-UltiPro)** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Uppfattning USA (icke-UltiPro) i resultatlistan](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och uppfattning USA (icke-UltiPro)-domän med enkel inloggning information](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://perception.kanjoya.com/sp`
+    a. I den **identifierare** textruta anger du URL: `https://perception.kanjoya.com/sp`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     > [!NOTE] 
     > Värdet är inte verkliga. Du uppdaterar värdet med faktiska Reply-URL, vilket beskrivs senare i självstudierna.
@@ -163,7 +163,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     c. I **identitet providernamn** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen. 
 
-    d. I **SAML domän textruta**, ange domänen som  **@contoso.com** .
+    d. I **SAML domän textruta**, ange domänen som **@contoso.com**.
 
     e. Klicka på **överför igen** att överföra den **XML-Metadata för** fil.
 
@@ -249,7 +249,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

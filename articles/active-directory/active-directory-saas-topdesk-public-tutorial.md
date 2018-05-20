@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med TOPdesk - offentliga | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - allmänheten."
+title: 'Självstudier: Azure Active Directory-integrering med TOPdesk - offentliga | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - allmänheten.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 8f88b232df01aa73a7e06b891ef5ff635d03086a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76b75ffde280047f8ed6c2d4173e905df1d7a658
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Självstudier: Azure Active Directory-integrering med TOPdesk - offentliga
 
@@ -30,9 +30,9 @@ Integrera TOPdesk - offentliga med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på TOPdesk - offentlig (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Konfigurera Azure AD-integrering med TOPdesk - offentliga, behöver du följande:
 
@@ -108,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![TOPdesk - URL: er och den offentliga domänen enkel inloggning information](./media/active-directory-saas-topdesk-public-tutorial/tutorial_topdesk-public_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net`
     
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/public/login/verify`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net/tas/public/login/verify`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<companyname>.topdesk.net/tas/public/login/saml`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Svars-URL är explaned senare i självstudiekursen. Kontakta [TOPdesk - offentliga klienten supportteamet](https://help.topdesk.com/saas/enterprise/user/) att hämta dessa värden.  
@@ -289,7 +289,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

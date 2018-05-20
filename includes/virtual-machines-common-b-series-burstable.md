@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 B-serien VM-familjen kan du välja vilka VM-storlek ger dig den nödvändiga basnivån prestandan för din arbetsbelastning möjligheten att burst CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2,3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
@@ -58,8 +58,8 @@ Om jag ta 120 krediter som jag har fått låg och subtrahera 96 krediter som jag
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>F: B-serien stöder Premium-lagring datadiskar?
 **En**: Ja, alla B-serien storlekar stöd för Premium-lagring datadiskar.   
     
-### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>F: min återstående kredit har angetts till 0 när du har en redepoy eller stoppa/starta.
-**En** : när en virtuell dator är ”REDPLOYED”, det vill säga, den virtuella datorn flyttas till en annan nod och den ackumulerade krediten går förlorade. Om den virtuella datorn stoppade/startade, men finns kvar på samma nod, behåller den virtuella datorn ackumulerade kredit. När den virtuella datorn börjar ny på en nod, får den en inledande kredit, Standard_B8ms är det 240 minuter.
+### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>F: Varför är min återstående kredit har angetts till 0 när du har en redepoy eller stoppa/starta?
+**En** : när en virtuell dator är ”REDPLOYED” och den virtuella datorn flyttas till en annan nod ackumulerade krediten går förlorade. Om den virtuella datorn stoppade/startade, men finns kvar på samma nod, behåller den virtuella datorn ackumulerade kredit. När den virtuella datorn börjar ny på en nod, får den en inledande kredit, Standard_B8ms är det 240 minuter.
 
     
 

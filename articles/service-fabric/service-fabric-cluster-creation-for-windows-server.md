@@ -1,24 +1,24 @@
 ---
-title: "Skapa ett fristående Azure Service Fabric-kluster | Microsoft Docs"
-description: "Skapa ett Azure Service Fabric-kluster på en dator (fysiska eller virtuella) med Windows Server, om den är lokalt eller i något moln."
+title: Skapa ett fristående Azure Service Fabric-kluster | Microsoft Docs
+description: Skapa ett Azure Service Fabric-kluster på en dator (fysiska eller virtuella) med Windows Server, om den är lokalt eller i något moln.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att distribuera och köra Service Fabric-program i en miljö som innehåller en uppsättning sammankopplade Windows Server-datorer, att den lokala eller med en molntjänstleverantör för. Service Fabric ger ett installationspaket för att skapa Service Fabric-kluster kallas det fristående installationspaketet för Windows Server.
@@ -130,7 +130,7 @@ Exempel:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>Steg 3: Ta fram Service Fabric Explorer
-Nu du kan ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna http://localhost:19080/Explorer/index.html eller via fjärranslutning med http://<*IPAddressofaMachine*>: 19080/Explorer / index.HTML.
+Nu du kan ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http://localhost:19080/Explorer/index.html eller via fjärranslutning med http://<*IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Lägga till och ta bort noder
 Du kan lägga till eller ta bort noder i fristående Service Fabric-klustret när ditt företag behöver ändras. Se [lägga till eller ta bort noder i ett fristående Service Fabric-kluster](service-fabric-cluster-windows-server-add-remove-nodes.md) detaljerade anvisningar.
@@ -154,9 +154,9 @@ Det här skriptet kan köras på en dator som har administratörsåtkomst till a
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Telemetridata som samlas in och hur du kan välja bort den
-Samlar in telemetri i Service Fabric-syntax för att förbättra produkten som standard produkten. Best Practices Analyzer som körs som en del av installationen kontrollerar anslutningen till [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Om den inte kan nås, kommer installationen att misslyckas om du avanmäler dig från telemetri.
+Samlar in telemetri i Service Fabric-syntax för att förbättra produkten som standard produkten. Best Practices Analyzer som körs som en del av installationen kontrollerar anslutningen till [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Om den inte kan nås, kommer installationen att misslyckas om du avanmäler dig från telemetri.
 
-1. Telemetri pipeline försöker överföra data till följande [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) varje gång om dagen. Det är en bästa överföring och har ingen inverkan på funktionen kluster. Telemetrin skickas endast från noden som kör failover manager primära. Inga andra noder skicka ut telemetri.
+1. Telemetri pipeline försöker överföra data till följande [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) varje gång om dagen. Det är en bästa överföring och har ingen inverkan på funktionen kluster. Telemetrin skickas endast från noden som kör failover manager primära. Inga andra noder skicka ut telemetri.
 2. Telemetrin består av följande:
 
 * Antal tjänster

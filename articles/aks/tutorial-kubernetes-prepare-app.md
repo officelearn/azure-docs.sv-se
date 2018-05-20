@@ -3,24 +3,24 @@ title: Självstudie om Kubernetes i Azure – förbereda app
 description: AKS-självstudie – förbereda app
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Självstudier: Förbereda ett program för Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
 
-I den här självstudien, som är del ett av åtta, förbereds ett program med flera behållare för användning i Kubernetes. Det här är några av stegen:  
+I den här självstudien, som är del ett av åtta, förbereds ett program med flera behållare för användning i Kubernetes. Det här är några av stegen:
 
 > [!div class="checklist"]
-> * Klona programkällan från GitHub  
+> * Klona programkällan från GitHub
 > * Skapa en behållaravbildning från programkällan
 > * Testa programmet i en lokal Docker-miljö
 
@@ -32,7 +32,7 @@ I efterföljande självstudier har behållaravbildningen laddats upp till ett Az
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa om hur du [kommer igång med Docker][docker-get-started] och få en genomgång om behållare. 
+Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa om hur du [kommer igång med Docker][docker-get-started] och få en genomgång om behållare.
 
 För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-dator.
 
@@ -40,7 +40,7 @@ Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slut
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exempelprogrammet som används i den här självstudien är en enkel röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Webbkomponenten paketeras i en anpassad behållaravbildning. Redis-instansen använder en oförändrad avbildning från Docker Hub.  
+Exempelprogrammet som används i den här självstudien är en enkel röstningsapp. Programmet består av en webbkomponent på klientsidan och en Redis-instans på serversidan. Webbkomponenten paketeras i en anpassad behållaravbildning. Redis-instansen använder en oförändrad avbildning från Docker Hub.
 
 Använd git och ladda ned en kopia av programmet till utvecklingsmiljön.
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och en Kubernetes-manifestfil. De här filerna används i hela självstudien. 
+Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och en Kubernetes-manifestfil. De här filerna används i hela självstudien.
 
 ## <a name="create-container-images"></a>Skapa behållaravbildningar
 
@@ -97,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Testa programmet lokalt
 
-Gå till http://localhost:8080 om du vill se det program som körs.
+Gå till http://localhost:8080 om du vill se programmet som körs.
 
 ![Bild av Kubernetes-kluster i Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -124,7 +124,7 @@ När du är klar har du en behållaravbildning som innehåller programmet Azure 
 I den här självstudien testades ett program och behållaravbildningar skapades för programmet. Följande steg har slutförts:
 
 > [!div class="checklist"]
-> * Klona programkällan från GitHub  
+> * Klona programkällan från GitHub
 > * Skapade en behållaravbildning från programkällan
 > * Testade programmet i en lokal Docker-miljö
 

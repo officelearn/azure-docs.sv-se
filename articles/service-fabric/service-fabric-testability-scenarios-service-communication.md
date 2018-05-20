@@ -1,24 +1,24 @@
 ---
-title: "Möjlighet att testa: Tjänsten kommunikation | Microsoft Docs"
-description: "Service-to-service-kommunikation är en kritisk integrering av ett Service Fabric-program. Den här artikeln beskrivs överväganden vid utformning och tester tekniker."
+title: 'Möjlighet att testa: Tjänsten kommunikation | Microsoft Docs'
+description: Service-to-service-kommunikation är en kritisk integrering av ett Service Fabric-program. Den här artikeln beskrivs överväganden vid utformning och tester tekniker.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric möjlighet att testa scenarier: tjänsten kommunikation
 Mikrotjänster och tjänstorienterad arkitektur formatmallar ytan naturligt i Azure Service Fabric. I dessa typer av distribuerade arkitekturer består komponentbaserade mikrotjänster program vanligtvis av flera tjänster som behöver kommunicera med varandra. I även de enklaste fall kan har du vanligtvis minst en tillståndslös webbtjänst och en tillståndskänslig data storage-tjänst som behöver kommunicera.

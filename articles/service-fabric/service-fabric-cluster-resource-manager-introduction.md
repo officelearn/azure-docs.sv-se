@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f25a422385abfcdb7020eb7477c0ae2ee55cd8fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till resurshanteraren för Service Fabric-kluster
 Traditionellt hantera IT-system eller onlinetjänster avsedda för dessa specifika tjänster eller system trafikklass särskilda fysiska eller virtuella datorer. Tjänster har konstruerad som nivåer. Det vore en nivå med ”web” och ”data” eller ”lagring”-nivån. Program skulle ha en meddelanden nivå där förfrågningar gått in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller en typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen får några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade datorer som du ville på Kör för hot och du har lagt till flera datorer med samma konfigurationen nivån. Dock inte alla arbetsbelastningar kan inte skalas ut så enkelt - särskilt med datanivå du vanligtvis ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet på lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roligt).
@@ -43,7 +43,7 @@ Klustret Resource Manager är den komponent som hanterar orchestration i Service
 2. Optimera din miljö
 3. Hjälper till med andra processer
 
-Titta på följande Microsoft Virtual Academy videoklipp om du vill se hur klustret Resource Manager fungerar:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
+Titta på följande Microsoft Virtual Academy videoklipp om du vill se hur klustret Resource Manager fungerar: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
 <img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -57,7 +57,7 @@ Vissa av dessa strategier är intressant, är Service Fabric klustret Resource M
 Eftersom klustret Resource Manager ansvarar för att flytta tjänster, innehåller en uppsättning med olika funktioner jämfört med vad du hittar i en Utjämning av nätverksbelastning. Det beror på att nätverksbelastningsutjämnare leverera nätverkstrafik till där tjänster redan är, även om platsen inte är idealiskt för att köra själva tjänsten. Resurshanteraren för Service Fabric klustret använder helt olika strategier för att säkerställa att resurserna i klustret är effektiv.
 
 ## <a name="next-steps"></a>Nästa steg
-- Information om arkitektur och information om flödet inom klustret Resource Manager kolla [den här artikeln](service-fabric-cluster-resource-manager-architecture.md)
+- Information om arkitektur och information om flödet inom klustret Resource Manager kolla [den här artikeln ](service-fabric-cluster-resource-manager-architecture.md)
 - Klustret Resource Manager har många alternativ för att beskriva klustret. Kolla in den här artikeln om du vill veta mer om mått på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - Mer information om hur du konfigurerar tjänster, [Lär dig mer om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - Mått är hur Service Fabric-kluster Resource Manager hanterar förbrukning och kapacitet i klustret. Mer information om mått och hur du konfigurerar dem checka ut [i den här artikeln](service-fabric-cluster-resource-manager-metrics.md)

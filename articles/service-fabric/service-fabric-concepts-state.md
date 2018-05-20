@@ -1,26 +1,26 @@
 ---
-title: "Definine och hantera tillstånd i Azure mikrotjänster | Microsoft Docs"
-description: "Definiera och hantera i Service Fabric-tjänstens tillstånd"
+title: Definine och hantera tillstånd i Azure mikrotjänster | Microsoft Docs
+description: Definiera och hantera i Service Fabric-tjänstens tillstånd
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="service-state"></a>Tillstånd för tjänsten
+# <a name="service-state"></a>Tjänsttillstånd
 **Tjänsten tillstånd** refererar till det i minnet eller på disk som en tjänst kräver att fungera. Det innehåller till exempel datastrukturer och medlemsvariabler som tjänsten läser och skriver till fungerar. Beroende på hur tjänsten är konstruerad, kan den också innehålla filer eller andra resurser som är lagrade på disken. Till exempel filerna en-databas skulle använda att lagra data och transaktionsloggarna.
 
 Nu ska vi titta Kalkylatorn som en exempel-tjänst. En enkel kalkylator tjänst tar två tal och returnerar sina summan. Utför den här beräkningen innebär att inga Medlemsvariabler eller annan information.

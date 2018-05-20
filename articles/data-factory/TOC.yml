@@ -350,16 +350,18 @@
           href: data-factory-service-identity.md
     - name: Övervaka och hantera
       items:
-        - name: 'Använda SDK:er'
-          href: monitor-programmatically.md
-        - name: Använda Azure Monitor
-          href: monitor-using-azure-monitor.md
         - name: Övervaka visuellt
           href: monitor-visually.md
-        - name: Hantera Azure SSIS Integration Runtime
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Övervaka med Azure Monitor
+          href: monitor-using-azure-monitor.md
+        - name: Övervaka med SDKs
+          href: monitor-programmatically.md
         - name: Övervaka Integration Runtime
           href: monitor-integration-runtime.md
+        - name: Övervaka Azure-SSIS-integreringskörning
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Hantera Azure SSIS Integration Runtime
+          href: manage-azure-ssis-integration-runtime.md
     - name: Skapa integration runtime
       items:
         - name: Azure Integration Runtime
@@ -370,24 +372,22 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Kör SSIS-paket i Azure
       items:
-        - name: Anpassa konfiguration för Azure-SSIS Integration Runtime
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Etablera Enterprise Edition för Azure-SSIS Integration Runtime
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Hantera Azure SSIS Integration Runtime
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Konfigurera prestandainställningar för Azure SSIS Integration Runtime
+        - name: Konfigurera hög prestanda för Azure-SSIS-integreringskörning
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Etablera Enterprise Edition för Azure-SSIS Integration Runtime
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Anpassa konfiguration för Azure-SSIS-integreringskörning
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Utveckla licensierade komponenter för Azure-SSIS-integreringskörning
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Köra SSIS-paket med SSIS-aktivitet
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: Köra SSIS-paket med hjälp av en lagrad proceduraktivitet
+        - name: Köra SSIS-paket med en lagrad proceduraktivitet
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Schemalägga Azure SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Utveckla licensierade komponenter för Azure-SSIS Integration Runtime
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Skapa utlösare
       items:
         - name: Skapa en schemautlösare

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med iQualify LMS | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och iQualify LMS."
+title: 'Självstudier: Azure Active Directory-integrering med iQualify LMS | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och iQualify LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 341f2175d283c08496534f3ac0d946dd8671f63c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Självstudier: Azure Active Directory-integrering med iQualify LMS
 
@@ -30,9 +30,9 @@ Integrera iQualify LMS med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på iQualify LMS (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med iQualify LMS behöver du följande:
 
@@ -111,14 +111,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **identifierare** textruta Skriv en URL med följande mönster: 
     | |
     |--|--|
-    | Produktionsmiljö:`https://<yourorg>.iqualify.com/`|
-    | Testmiljö:`https://<yourorg>.iqualify.io`|
+    | Produktionsmiljö: `https://<yourorg>.iqualify.com/`|
+    | Testmiljö: `https://<yourorg>.iqualify.io`|
     
     b. I den **Reply URL** textruta Skriv en URL med följande mönster: 
     | |
     |--|--|
-    | Produktionsmiljö:`https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Testmiljö:`https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | Produktionsmiljö: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
+    | Testmiljö: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -127,8 +127,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textruta Skriv en URL med följande mönster:
     | |
     |--|--|
-    | Produktionsmiljö:`https://<yourorg>.iqualify.com/login` |
-    | Testmiljö:`https://<yourorg>.iqualify.io/login` |
+    | Produktionsmiljö: `https://<yourorg>.iqualify.com/login` |
+    | Testmiljö: `https://<yourorg>.iqualify.io/login` |
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [iQualify LMS klienten supportteamet](https://www.iqualify.com) att hämta dessa värden. 
@@ -290,7 +290,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

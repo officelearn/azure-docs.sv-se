@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med små förbättringar | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och mindre förbättringar."
+title: 'Självstudier: Azure Active Directory-integrering med små förbättringar | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och mindre förbättringar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 959033978ace68012ab65655cb5fd6a62de87290
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f6cab5dd7c10e4036cdd2013c809142bf7ec846
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudier: Azure Active Directory-integrering med små förbättringar
 
@@ -29,9 +29,9 @@ Integrera små förbättringar med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på små förbättringar (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med små förbättringar, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.small-improvements.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.small-improvements.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.small-improvements.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Small förbättringar Client supportteamet](mailto:support@small-improvements.com) att hämta dessa värden. 
@@ -214,7 +214,7 @@ Om du vill aktivera Azure AD-användare kan logga in på små förbättringar, m
 
     b. Ange den **efternamn** för användare som **Simon**.
 
-    c. Ange den **e-post** för användare som  **brittasimon@contoso.com** . 
+    c. Ange den **e-post** för användare som **brittasimon@contoso.com**. 
 
     d. Du kan också välja att ange personligt meddelande i den **skicka e-postmeddelande** rutan. Om du inte vill skicka meddelandet avmarkerar du kryssrutan.
 
@@ -259,7 +259,7 @@ När du klickar på panelen små förbättringar på åtkomstpanelen du bör få
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

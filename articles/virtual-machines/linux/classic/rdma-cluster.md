@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurera ett Linux RDMA-kluster för att köra MPI-program
 Lär dig hur du ställer in ett Linux RDMA-kluster i Azure med [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. Den här artikeln innehåller steg för att förbereda en Linux HPC-avbildning för att köra Intel MPI på ett kluster. Efter förberedelse, kan du distribuera ett kluster för virtuella datorer med hjälp av den här avbildningen och en av RDMA-kompatibla Azure VM-storlekar (för närvarande H16r H16mr, A8 eller A9). Använd klustret för att köra MPI-program som effektiv kommunicerar över ett nätverk för låg latens, hög genomströmning baserat på remote direct memory access (RDMA)-teknik.
@@ -42,7 +42,7 @@ Följande steg visar hur du använder Azure CLI för att distribuera en SUSE Lin
 >
 >
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * **Klientdatorn**: du behöver en Mac, Linux eller Windows-klientdator att kommunicera med Azure. De här stegen förutsätter att du använder en Linux-klient.
 * **Azure-prenumeration**: Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en prenumeration med användningsbaserad betalning eller andra köpalternativ för större kluster.
 * **Tillgänglighet för VM-storlek**: följande instans storleken är RDMA-kompatibla: H16r, H16mr, A8 och A9. Kontrollera [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner.
@@ -210,7 +210,7 @@ Det finns två metoder för att upprätta förtroende mellan compute-noderna på
 
 Ett exempelskript som bidrog från gemenskapen är tillgängligt på [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) för att aktivera enkel användarautentisering på ett CentOS-baserade HPC-kluster. Hämta och använda det här skriptet med hjälp av följande steg. Du kan också ändra det här skriptet eller använda någon annan metod för att upprätta passwordless SSH-autentisering mellan klusternoderna för beräkning.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Om du vill köra skriptet som du behöver veta prefix för IP-adresser för undernät. Hämta prefixet genom att köra följande kommando på en av klusternoderna. Din utdata ska se ut ungefär 10.1.3.5 och att prefixet är 10.1.3 del.
 

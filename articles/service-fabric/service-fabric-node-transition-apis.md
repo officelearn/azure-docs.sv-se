@@ -1,24 +1,24 @@
 ---
-title: "Starta och stoppa klusternoder för att testa Azure mikrotjänster | Microsoft Docs"
-description: "Lär dig hur du använder fel injection för att testa ett Service Fabric-program genom att starta och stoppa klusternoder."
+title: Starta och stoppa klusternoder för att testa Azure mikrotjänster | Microsoft Docs
+description: Lär dig hur du använder fel injection för att testa ett Service Fabric-program genom att starta och stoppa klusternoder.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
 manager: rsinha
-editor: 
+editor: ''
 ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Ersätta noden starta och stoppa noden API: er med API: T för noden övergång
 
@@ -44,7 +44,7 @@ Vi har åtgärdas problemen ovan i en ny uppsättning API: er.  Den nya noden ö
 Om noden övergången API inget genereras ett undantag när den anropas sedan systemet har godkänt den asynkrona åtgärden och körs den.  Lyckade anrop innebär inte åtgärden har slutförts ännu.  Anropa API: T för noden övergången förlopp för att få information om det aktuella tillståndet för åtgärden (hanterade: [GetNodeTransitionProgressAsync()][gntp]) med guid som används när du anropar API: T för noden övergången för den här åtgärden.  API: T för noden övergången förlopp returnerar ett NodeTransitionProgress-objekt.  Det här objektet tillstånd egenskapen anger det aktuella tillståndet för åtgärden.  Om tillståndet ”körs” körs igen.  Om den är slutförd, avslutad igen utan fel.  Om det är fel, ett problem uppstod när åtgärden.  Egenskapen resultatet Undantagsegenskapen visar vad problemet är.  Se https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate för mer information om egenskapen State och avsnittet ”exempel” nedan kodexempel.
 
 
-**Skilja mellan en stoppad nod och en inaktiv nod** om en nod *stoppats* med hjälp av noden övergången API, resultatet av en nod-fråga (hanterade: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) visar att den här noden har en *IsStopped* egenskapsvärdet true.  Observera att detta skiljer sig från värdet för den *NodeStatus* -egenskap som talar om *ned*.  Om den *NodeStatus* egenskap har ett värde av *ned*, men *IsStopped* är false, och sedan noden inte har stoppats med hjälp av noden övergången API och *ned* på grund av någon anledning.  Om den *IsStopped* egenskapen är true, och *NodeStatus* egenskapen är *ned*, sedan den stoppades med hjälp av noden övergången API.
+**Skilja mellan en stoppad nod och en inaktiv nod** om en nod *stoppats* med hjälp av noden övergången API, resultatet av en nod-fråga (hanterade: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) visar att den här noden har en *IsStopped* egenskapsvärdet true.  Observera att detta skiljer sig från värdet för den *NodeStatus* -egenskap som talar om *ned*.  Om den *NodeStatus* egenskap har ett värde av *ned*, men *IsStopped* är false, och sedan noden inte har stoppats med hjälp av noden övergången API och *ned* på grund av någon anledning.  Om den *IsStopped* egenskapen är true, och *NodeStatus* egenskapen är *ned*, sedan den stoppades med hjälp av noden övergången API.
 
 Starta en *stoppats* nod med hjälp av noden övergången API returneras den så att den fungerar som en normal medlem i klustret igen.  Visar resultatet av frågan nod API *IsStopped* som FALSKT och *NodeStatus* som något som inte är nere (t.ex. upp).
 

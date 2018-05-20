@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 Följande begränsningar gäller för Log Analytics-resurser per prenumeration:
 
@@ -39,5 +39,5 @@ Följande begränsningar gäller för varje Log Analytics-arbetsyta:
 | Kategori | Begränsningar | Kommentarer
 | --- | --- | --- |
 | API för datainsamling | Maximal storlek för ett enskilt inlägg är 30 MB<br>Maximal storlek för fältvärden är 32 kB | Dela större volymer i flera olika inlägg<br>Fält som är längre än 32 kB trunkeras. |
-| Sök-API | 5 000 poster returneras för ej sammanräknade data<br>500 000 poster för sammanräknade data | Sammanräknade data är en sökning som innefattar kommandot `measure`
+| Sök-API | 5 000 poster returneras för ej sammanräknade data<br>500 000 poster för sammanräknade data | Sammanräknade data är en sökning som innefattar kommandot `summarize`
  

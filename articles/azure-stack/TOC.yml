@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Viktig information
       items:
+        - name: 1804 uppdatering
+          href: azure-stack-update-1804.md
         - name: 1803 uppdatering
           href: azure-stack-update-1803.md
         - name: 1802 uppdatering
           href: azure-stack-update-1802.md
         - name: 1712 uppdatering
           href: azure-stack-update-1712.md
-        - name: 1711 uppdatering
-          href: azure-stack-update-1711.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: Konfigurera PowerShell – molnoperator
               href: azure-stack-powershell-configure-admin.md
-            - name: Komma igång med PowerShell
-              href: azure-stack-powershell-configure-quickstart.md
         - name: Åtkomst till privilegierad slutpunkt
           href: azure-stack-privileged-endpoint.md
         - name: Hantera uppdateringar

@@ -9,23 +9,21 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
 
 Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv. När aktiverad loggas diagnostik och/eller begäranden för bästa prestanda. Både begäranden och diagnostik loggposter skapas bara om det finns begäranden som görs mot tjänstslutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -114,9 +112,9 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
     }
 
 #### <a name="request-log-schema"></a>Schemat för begäran-logg
-| namn | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| tid |Sträng |Loggen tidsstämpel (i UTC) |
+| time |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Log-kategori. Till exempel **begäranden**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
@@ -127,7 +125,7 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
 | properties |JSON |Mer information finns nedan |
 
 #### <a name="request-log-properties-schema"></a>Begäran loggen egenskaper schema
-| namn | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden används för åtgärden. Till exempel få. |
 | Sökväg |Sträng |Sökvägen åtgärden utfördes på |
@@ -161,9 +159,9 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
     }
 
 #### <a name="audit-log-schema"></a>Granska loggen schema
-| namn | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| tid |Sträng |Loggen tidsstämpel (i UTC) |
+| time |Sträng |Loggen tidsstämpel (i UTC) |
 | resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
 | category |Sträng |Log-kategori. Till exempel **Audit**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
@@ -174,7 +172,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | properties |JSON |Mer information finns nedan |
 
 #### <a name="audit-log-properties-schema"></a>Granska loggen egenskaper schema
-| namn | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 

@@ -112,14 +112,6 @@
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Så här aktiverar du Write Accelerator
-          href: how-to-enable-write-accelerator.md
-        - name: Felsöka anslutna virtuella hårddiskar
-          items:
-            - name: Fel vid borttagning av lagringsresurs
-              href: storage-resource-deletion-errors.md
-            - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
-              href: unexpected-reboots-attached-vhds.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt
@@ -393,6 +385,8 @@
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Distribuera diskar med mall
           href: using-managed-disks-template-deployments.md
+        - name: Aktivera Write Accelerator
+          href: how-to-enable-write-accelerator.md
         - name: Optimera prestanda
           href: optimization.md
           items:
@@ -500,6 +494,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md
+        - name: Anslutna virtuella hårddiskar
+          items:
+            - name: Fel vid borttagning av lagringsresurs
+              href: storage-resource-deletion-errors.md
+            - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+              href: unexpected-reboots-attached-vhds.md
 - name: Referens
   items:
     - name: Azure CLI

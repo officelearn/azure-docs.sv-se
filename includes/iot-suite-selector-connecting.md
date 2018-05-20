@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.lasthandoff: 05/07/2018
 > * [Node.js på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-I kursen får du implementerar en **kylaggregat** enhet som skickar följande telemetri för fjärråtkomst övervakning [lösningsaccelerator](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
+I kursen får du implementerar en **kylaggregat** enhet som skickar följande telemetri för fjärråtkomst övervakning [lösningsaccelerator](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Temperatur
 * Tryck
@@ -43,7 +43,7 @@ Innan du skriva kod för enheten kan du distribuera din fjärråtkomst övervakn
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera din fjärråtkomst övervakning solution accelerator
 
-Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) lösningsaccelerator. Om du inte redan har etablerats fjärråtkomst övervakning solution accelerator i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) lösningsaccelerator. Om du inte redan har etablerats fjärråtkomst övervakning solution accelerator i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 När distributionsprocessen för fjärranslutna övervakningslösning är klar klickar du på **starta** att öppna lösningen instrumentpanelen i webbläsaren.
 

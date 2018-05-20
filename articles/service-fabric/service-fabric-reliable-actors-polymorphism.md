@@ -1,6 +1,6 @@
 ---
-title: "Polymorfism inom ramen för Reliable Actors | Microsoft Docs"
-description: "Skapa hierarkier av .NET-gränssnitt och typer i Reliable Actors framework återanvända funktioner och API-definitioner."
+title: Polymorfism inom ramen för Reliable Actors | Microsoft Docs
+description: Skapa hierarkier av .NET-gränssnitt och typer i Reliable Actors framework återanvända funktioner och API-definitioner.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 38a86b25b30420c6f0b3027258fa094529c90278
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism inom ramen för Reliable Actors
 Reliable Actors framework kan du skapa aktörer med många av samma teknik som du vill använda i objektorienterad design. En av dessa tekniker är polymorfism som tillåter typer och gränssnitt för att ärva från flera generaliserad överordnade. Arv inom ramen för Reliable Actors följer vanligtvis .NET modellen med några ytterligare begränsningar. Vid Java-/ Linux följer Java-modellen.

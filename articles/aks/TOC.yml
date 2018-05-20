@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: Konfigurera datavolymer
       items:
-        - name: Kubernetes-volym – diskar
-          href: azure-disk-volume.md
-        - name: Kubernetes-volym – filer
-          href: azure-files-volume.md
-        - name: Beständig volym – diskar
+        - name: Dynamisk AzureDisk-etablering
           href: azure-disks-dynamic-pv.md
-        - name: Beständig volym – filer
+        - name: Statisk AzureDisk-etablering
+          href: azure-disk-volume.md
+        - name: Dynamisk AzureFile-etablering
           href: azure-files-dynamic-pv.md
+        - name: Statisk AzureFile-etablering
+          href: azure-files-volume.md
     - name: Konfigurera nätverk
       items:
         - name: Nätverksöversikt

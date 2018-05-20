@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ceridian Dayforce HCM."
+title: 'Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ceridian Dayforce HCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 09f9d6d096944453d28a588de4d73dc3c95fc695
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM
 
@@ -30,9 +30,9 @@ Integrera Ceridian Dayforce HCM med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Ceridian Dayforce HCM (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Ceridian Dayforce HCM behöver du följande:
 
@@ -110,21 +110,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     a. I den **logga URL** textruta, Skriv URL: en som används av dina användare logga in i tillämpningsprogrammet Ceridian Dayforce HCM.
     
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | För testet | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
     b. I den **identifierare** textruta Skriv en URL med följande mönster:
     
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp` |
     | För testet | `https://fs-test.dayforcehcm.com/sp` |
     
     c. I den **Reply URL** textruta, Skriv URL-Adressen används av Azure AD publicera svaret.
     
-    | Miljö | Webbadress |
+    | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | För testet | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
@@ -276,7 +276,7 @@ När du klickar på panelen Ceridian Dayforce HCM på åtkomstpanelen du bör f�
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

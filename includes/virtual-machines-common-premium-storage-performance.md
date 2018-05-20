@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
-## <a name="overview"></a>Översikt
+
 Den här artikeln innehåller riktlinjer för att bygga program med Azure Premium-lagring med hög prestanda. Du kan använda instruktionerna i det här dokumentet som kombineras med prestandarelaterade metodtips gäller för tekniker som används av ditt program. För att illustrera riktlinjerna har vi använt SQL Server körs på Premium-lagring som exempel i hela dokumentet.
 
 Medan vi adress prestanda scenarier för lagringsskikt i den här artikeln, behöver du optimera Applikationsnivån. Om du är värd för en SharePoint-grupp på Azure Premium-lagring, kan du till exempel använda SQL Server-exempel från den här artikeln för att optimera databasservern. Dessutom optimera SharePoint-servergruppen webbservern och få de flesta prestanda-programserver.
@@ -83,14 +83,14 @@ Det bästa sättet att mäta prestandakraven för ditt program är att använda 
 
 PerfMon-räknare är tillgängliga för processor, minne och varje logisk disk och fysisk disk för servern. När du använder premiumdiskar för lagring med en virtuell dator fysisk disk är för varje disk för premium-lagring och räknare för logisk disk är för varje volym som har skapats på diskar med premium-lagring. Du måste hämta värden för de diskar som värd för din arbetsbelastning i programmet. Om det finns en en-till-en-mappning mellan logiska och fysiska diskar, kan du referera till räknare för fysiska diskar; Annars finns räknare för logiska diskar. På Linux skapar kommandot iostat en rapport över processor- och diskresurser. Diskanvändningsrapporten innehåller statistik per fysisk enhet eller partition. Om du har en databasserver med dess data och loggfiler på separata diskar kan du samla in informationen för båda diskarna. Tabellen nedan beskrivs räknare för diskar, processor och minne:
 
-| Räknaren | Beskrivning | PerfMon | Iostat |
+| Räknare | Beskrivning | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antalet i/o-begäranden som utfärdats till Lagringsdisken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |transaktionsprogram <br> r/s <br> w/s |
 | **Diskläsningar och skrivningar** |% av läsåtgärder och skrivåtgärder utföras på disken. |Läs Disktid i procent <br> Skriv Disktid i procent |r/s <br> w/s |
 | **Dataflöde** |Mängd data läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
 | **Svarstid** |Total tid för att slutföra en disk-i/o-begäran. |Medel s/diskläsning <br> Medel s/diskskrivning |await <br> svctm |
 | **I/o-storlek** |Storleken på i/o-begäranden problem att diskar med lagringsutrymme. |Genomsnittligt antal byte/diskläsning <br> Genomsnittlig Disk byte/skrivning |avgrq sz |
-| **Ködjup** |Antal utestående i/o-begäranden väntar på att läsas formuläret eller skrivas till lagringsdisk. |Aktuell diskkölängd |avgqu sz |
+| **Ködjup** |Antal utestående i/o-begäranden väntar på att läsas från eller skrivas till lagringsdisk. |Aktuell diskkölängd |avgqu sz |
 | **Max. Minne** |Mängden minne som krävs för att köra programmet smidigt |% Använda dedikerade byte |Använd vmstat |
 | **Max. CPU** |Mängden CPU som krävs för att köra programmet smidigt |% Processortid |% util |
 
@@ -102,15 +102,18 @@ De viktigaste faktorerna som påverkar prestanda för ett program som körs på 
 I hela det här avsnittet avse program krav checklista som du skapade för att identifiera hur mycket du behöver att optimera programprestanda för ditt. Baserat på som kommer du att kunna avgöra vilka faktorer från det här avsnittet måste du justera. Om du vill diskvittne effekterna av varje faktor på programmets prestanda, köra benchmarking verktyg på programinstallationen. Referera till den [Benchmarking](#Benchmarking) avsnittet i slutet av den här artikeln steg för att köra vanliga benchmarking verktyg i Windows och Linux virtuella datorer.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, genomflöde och svarstid i korthet
-Tabellen nedan sammanfattar alla prestandafaktorer och stegen för att optimera IOPS, genomflöde och svarstid. Den här sammanfattningen i följande avsnitt beskriver varje faktorn är mycket mer djup.
+
+Tabellen nedan sammanfattar prestandafaktorer och stegen för att optimera IOPS, genomflöde och svarstid. Den här sammanfattningen i följande avsnitt beskriver varje faktorn är mycket mer djup.
+
+Mer information på VM-storlekar och på IOPS, genomflöde och svarstid som är tillgängliga för varje typ av VM finns [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md) eller [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Dataflöde** | **Svarstid** |
 | --- | --- | --- | --- |
 | **Exempelscenario** |Enterprise OLTP-program som kräver mycket hög transaktioner per andra hastighet. |Enterprise Data warehousing programmet bearbetning stora mängder data. |Nära realtidsprogram som kräver omedelbar svar på användarförfrågningar som onlinespel. |
 | Prestandafaktorer | &nbsp; | &nbsp; | &nbsp; |
 | **I/o-storlek** |Mindre i/o-storlek ger högre IOPS. |Större i/o-storlek till ger högre genomströmning. | &nbsp;|
-| **VM-storlek** |Använda en VM-storlek som erbjuder IOPS som är större än din programkrav. Se VM-storlekar och deras här IOPS-gränser. |Använda en VM-storlek med genomflödet gräns som är större än din programkrav. Se VM-storlekar och deras genomströmning gränser här. |Använda en VM-storlek att erbjudanden skala gränser som är större än din programkrav. Se VM-storlekar och deras gränser här. |
-| **Diskens storlek** |Använd storleken för en disk som erbjuder IOPS som är större än din programkrav. Visa storlekar för diskar och deras här IOPS-gränser. |Använd storleken för en disk med genomflödet gräns som är större än din programkrav. Se storlekar för diskar och deras genomströmning gränser här. |Använd en diskstorlek så att erbjudanden skala gränser som är större än din programkrav. Visa storlekar för diskar och deras gränser här. |
+| **VM-storlek** |Använda en VM-storlek som erbjuder IOPS som är större än din programkrav. |Använda en VM-storlek med genomflödet gräns som är större än din programkrav. |Använda en VM-storlek att erbjudanden skala gränser som är större än din programkrav. |
+| **Diskens storlek** |Använd storleken för en disk som erbjuder IOPS som är större än din programkrav. |Använd storleken för en disk med genomflödet gräns som är större än din programkrav. |Använd en diskstorlek så att erbjudanden skala gränser som är större än din programkrav. |
 | **VM- och Skalningsgränser för Disk** |IOPS-gräns på VM-storlek valt ska vara större än IOPS totalt styrs av premium storage diskar som är anslutna till den. |Genomströmning gränsen på VM-storlek valt ska vara större än totala genomflödet som drivs av premium storage diskar som är anslutna till den. |Gränser för VM-storlek valt måste vara större än totala gränser för bifogade premium storage diskar. |
 | **Cachelagring på disk** |Aktivera ReadOnly-cachen på diskar med premium-lagring med tunga läsåtgärder få högre Läs IOPS. | &nbsp; |Aktivera ReadOnly-cachen på diskar med premium-lagring med redo tunga åtgärder för att hämta Läs mycket låg latens. |
 | **Disk-Striping** |Använda flera diskar och stripe-dem tillsammans för att få en kombinerad högre IOPS och genomströmning gräns. Observera att kombinerade gränsen per VM ska vara högre än bifogade premiumdiskar kombinerade gränser. | &nbsp; | &nbsp; |

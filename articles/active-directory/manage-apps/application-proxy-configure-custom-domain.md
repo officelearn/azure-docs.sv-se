@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 502f2c8992e63ffc3eb1d3335387444114b19e05
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -82,7 +82,7 @@ Alla certifikathantering är för närvarande via enskilda programsidor så du b
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) till publicerade appar med Azure AD-autentisering.
-* [Aktivera villkorlig åtkomst](../application-proxy-enable-remote-access-sharepoint.md) till publicerade appar.
+* [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md) till publicerade appar.
 * [Lägga till ett eget domännamn i Azure AD](../add-custom-domain.md)
 
 

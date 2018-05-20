@@ -1,0 +1,418 @@
+---
+title: Ladda upp, koda och strömma med Azure Media Services | Microsoft Docs
+description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon och strömma ditt innehåll med Azure Media Services.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: cfowler
+editor: ''
+ms.service: media-services
+ms.workload: ''
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/09/2018
+ms.author: juliako
+ms.openlocfilehash: 1f0ce5599cce7fc830075e57af1bcba80d0e69e7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/07/2018
+---
+# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Självstudie: Ladda upp, koda och strömma videor med API:er
+
+Den här självstudien visar hur du laddar upp, kodar och strömmar videofiler med Azure Media Services. Du kan strömma ditt innehåll i Apples format för HLS, MPEG-DASH eller CMAF, så att det kan visas i olika webbläsare och enheter. Videon måste vara rätt kodad och paketerad innan du kan strömma den.
+
+Självstudien vägleder dig genom stegen för att ladda upp en video, men du kan också koda innehåll som du gör tillgängligt på Media Services-kontot via en HTTPS-webbadress.
+
+![Spela upp videon](./media/stream-files-tutorial-with-api/final-video.png)
+
+I den här självstudiekursen lär du dig att:    
+
+> [!div class="checklist"]
+> * Starta Azure Cloud Shell
+> * Skapa ett Media Services-konto
+> * Åtkomst till Media Services-API:n
+> * Konfigurera exempelappen
+> * Granska koden i detalj
+> * Kör appen
+> * Testa strömnings-URL:en
+> * Rensa resurser
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+
+## <a name="download-the-sample"></a>Hämta exemplet
+
+Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till din dator med följande kommando:  
+
+ ```bash
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
+ ```
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
+
+[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+
+## <a name="examine-the-code"></a>Granska koden
+
+Det här avsnittet går igenom funktionerna som definierats i filen [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) för projektet *UploadEncodeAndStreamFiles*.
+
+### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
+
+Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. Först måste du hämta en token och sedan skapa ett **ClientCredential**-objekt från den token som returnerades. I den kod som du klonade i början av artikeln används objektet **ArmClientCredential** för att hämta token.  
+
+```csharp
+private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
+{
+    ArmClientCredentials credentials = new ArmClientCredentials(config);
+
+    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
+    {
+        SubscriptionId = config.SubscriptionId,
+    };
+}
+```
+
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
+
+Funktionen **CreateInputAsset** skapar en ny indatatillgång och laddar upp den angivna lokala videofilen till den. Tillgången används som indata för kodningsjobbet. I Media Services v3 kan indata till ett jobb antingen vara en tillgång eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Om du vill lära dig hur du kodar från en HTTPS-webbadress kan du läsa [denna](job-input-from-http-how-to.md) artikel.  
+
+I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. I följande .NET-kodfragment visas hur du gör detta.
+
+Den här funktionen utför följande åtgärder:
+
+* Skapar en tillgång 
+* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [behållare i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Laddar upp filen till behållaren i lagringen med hjälp av SAS-URL:en
+
+```csharp
+private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
+{
+    // Check if an Asset already exists.
+    Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
+
+    if (asset == null)
+    {
+        asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
+
+        var response = client.Assets.ListContainerSas(
+                resourceGroupName,
+                accountName,
+                assetName,
+                permissions: AssetContainerPermission.ReadWrite,
+                expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime()
+            );
+
+        var sasUri = new Uri(response.AssetContainerSasUrls.First());
+        CloudBlobContainer container = new CloudBlobContainer(sasUri);
+        var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+        blob.UploadFromFile(fileToUpload);
+    }
+
+    // In this sample method, we are going to assume that if an Asset already exists with the desired name, 
+    // then we can go ahead an use it for encoding or analyzing.
+
+    return asset;
+}
+```
+
+### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Skapa en utdatatillgång där resultatet av ett jobb lagras 
+
+Utdatatillgången lagrar resultatet av ditt kodningsjobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från den här utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
+
+```csharp
+private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
+{
+    // Check if an Asset already exists
+    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
+    Asset asset = new Asset();
+    string outputAssetName = assetName;
+
+    if (outputAsset != null)
+    {
+        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+        // Note that the returned Asset can have a different name than the one specified as an input parameter.
+        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        outputAssetName += uniqueness;
+    }
+
+    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
+}
+```
+
+### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den uppladdade filen
+När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video, tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
+
+#### <a name="transform"></a>Transformering
+
+När du skapar en ny instans för en **Transformering**, måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är objektet **TransformOutput** som visas i koden nedan. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. Förinställningen kodar indatavideon i en automatiskt genererad bithastighetsstege (par för bithastighetsupplösning) som baseras på indatans upplösning och bithastighet, samt producerar ISO MP4-filer med H.264-video och AAC-ljud som motsvarar varje par för bithastighetsupplösningen. Information om denna förinställning finns i [Automatisk generering av bithastighetsstege](autogen-bitrate-ladder.md).
+
+Du kan använda andra inbyggda EncoderNamedPreset eller anpassade förinställningar. 
+
+När du skapar en **Transformering** bör du först kontrollera om det redan finns en. Det gör du med metoden **Get** som visas i koden nedan.  I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
+
+```csharp
+private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName)
+{
+    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
+    // also uses the same recipe or Preset for processing content.
+    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
+
+    if (transform == null)
+    {
+        // Start by defining the desired outputs.
+        TransformOutput[] outputs = new TransformOutput[]
+        {
+            new TransformOutput
+            {
+                Preset = new BuiltInStandardEncoderPreset()
+                {
+                    PresetName = EncoderNamedPreset.AdaptiveStreaming
+                }
+            }
+        };
+
+        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
+    }
+
+    return transform;
+}
+```
+
+#### <a name="job"></a>Jobb
+
+Som nämns ovan är objektet **Transformering** receptet och ett **Jobb** är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
+
+I det här exemplet har indatavideon laddats upp från din lokala dator. Om du vill lära dig hur du kodar från en HTTPS-webbadress kan du läsa [denna](job-input-from-http-how-to.md) artikel.
+
+```csharp
+private static Job SubmitJob(IAzureMediaServicesClient client, 
+    string resourceGroupName, 
+    string accountName, 
+    string transformName, 
+    string jobName, 
+    JobInput jobInput, 
+    string outputAssetName)
+{
+    string uniqueJobName = jobName;
+    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+    if (job != null)
+    {
+        // Job already exists with the same name, so let's append a GUID
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        uniqueJobName += uniqueness;
+    }
+
+    JobOutput[] jobOutputs =
+    {
+        new JobOutputAsset(outputAssetName),
+    };
+
+    job = client.Jobs.Create(
+        resourceGroupName,
+        accountName,
+        transformName,
+        jobName,
+        new Job
+        {
+            Input = jobInput,
+            Outputs = jobOutputs,
+        });
+
+    return job;
+}
+```
+
+### <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
+
+Kodexemplet nedan visar hur du ser jobbets status i tjänsten. Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av att svarstiden kan bli lång. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid.
+
+Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+
+**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+
+```csharp
+private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName,
+    string jobName)
+{
+    int SleepInterval = 60 * 1000;
+
+    Job job = null;
+
+    while (true)
+    {
+        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
+        {
+            break;
+        }
+
+        Console.WriteLine($"Job is {job.State}.");
+        for (int i = 0; i < job.Outputs.Count; i++)
+        {
+            JobOutput output = job.Outputs[i];
+            Console.Write($"\tJobOutput[{i}] is {output.State}.");
+            if (output.State == JobState.Processing)
+            {
+                Console.Write($"  Progress: {output.Progress}");
+            }
+            Console.WriteLine();
+        }
+        System.Threading.Thread.Sleep(SleepInterval);
+    }
+
+    return job;
+}
+```
+
+### <a name="get-a-streaminglocator"></a>Hämta en StreamingLocator
+
+När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en **StreamingLocator** och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+
+Processen att skapa en **StreamingLocator** kallas för publicering. Som standard kan din **StreamingLocator** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
+
+När du skapar en **StreamingLocator** måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du rensat eller icke-krypterat innehåll, så den fördefinierade rensningsströmningsprincipen **PredefinedStreamingPolicy.ClearStreamingOnly** kan användas.
+
+> [!IMPORTANT]
+> När du använder en anpassad StreamingPolicy bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto, samt återanvända dem för dina StreamingLocators när samma alternativ för kryptering och protokoll behövs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.
+
+Följande kod förutsätter att du anropar funktionen med ett unikt locatorName.
+
+```csharp
+private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
+                                                        string resourceGroup,
+                                                        string accountName,
+                                                        string assetName,
+                                                        string locatorName)
+{
+    StreamingLocator locator =
+        client.StreamingLocators.Create(resourceGroup,
+        accountName,
+        locatorName,
+        new StreamingLocator()
+        {
+            AssetName = assetName,
+            StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
+        });
+
+    return locator;
+}
+```
+
+Även om exemplet i det här avsnittet beskriver strömning, kan du använda samma anrop för att skapa en StreamingLocator som levererar video via progressiv nedladdning.
+
+### <a name="get-streaming-urls"></a>Hämta strömnings-URL:er
+
+Nu när en StreamingLocator har skapats kan du hämta strömmande URL:er, enligt det som visas i **GetStreamingURLs**. Om du vill skapa en URL måste du sammanfoga värdnamnet **StreamingEndpoint** och sökvägen **StreamingLocator**. I det här exemplet används *standardvärdet* **StreamingEndpoint**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+
+> [!NOTE]
+> I den här metoden behöver du det locatorName som användes när du skapade **StreamingLocator** för utdatatillgången.
+
+```csharp
+static IList<string> GetStreamingURLs(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    String locatorName)
+{
+    IList<string> streamingURLs = new List<string>();
+
+    string streamingUrlPrefx = "";
+
+    StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
+
+    if (streamingEndpoint != null)
+    {
+        streamingUrlPrefx = streamingEndpoint.HostName;
+
+        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
+            client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
+    }
+
+    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
+    {
+        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
+    }
+
+    return streamingURLs;
+}
+```
+
+### <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
+
+Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du t.ex. återanvänder transformeringar behåller du StreamingLocators osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända.  Följande kod tar exempelvis bort Jobb.
+
+```csharp
+static void CleanUp(IAzureMediaServicesClient client,
+        string resourceGroupName,
+        string accountName,
+        string transformName)
+{
+    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
+    {
+        client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
+    }
+
+    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
+    {
+        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
+    }
+}
+```
+
+## <a name="run-the-sample-app"></a>Kör exempelappen
+
+1. Tryck på Ctrl+F5 för att köra programmet *EncodeAndStreamFiles*.
+2. Kopiera en av de strömmande URL:erna från konsolen.
+
+I det här exemplet visas URL:er som kan användas för att spela upp videon med olika protokoll:
+
+![Resultat](./media/stream-files-tutorial-with-api/output.png)
+
+## <a name="test-the-streaming-url"></a>Testa strömnings-URL:en
+
+I den här artikeln används Azure Media Player till att testa strömningen. 
+
+> [!NOTE]
+> Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
+
+1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+2. I rutan **URL:** klistrar du in ett av de strömmande URL-värden som du fick när du körde programmet. 
+3. Tryck på **Uppdatera spelare**.
+
+Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. Du kan använda verktyget **CloudShell**.
+
+Kör följande kommando i **CloudShell**:
+
+```azurecli-interactive
+az group delete --name amsResourceGroup
+```
+
+## <a name="multithreading"></a>Flertrådsteknik
+
+SDK:erna i Azure Media Services v3 är inte trådsäkra. När du utvecklar ett flertrådat program bör du skapa och använda ett nytt AzureMediaServicesClient-objekt per tråd.
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu när du vet hur du ska ladda upp, koda och strömma videon kan du läsa följande artikel: 
+
+> [!div class="nextstepaction"]
+> [Analysera videor](analyze-videos-tutorial-with-api.md)

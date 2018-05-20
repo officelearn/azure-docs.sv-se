@@ -3,23 +3,25 @@ title: Azure AD v2.0 OAuth2.0 på-flöde | Microsoft Docs
 description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänster autentisering med hjälp av OAuth2.0 på-flöde.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ccec8df0741870f3dd3ed21be43f96aa8ba90927
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 och flödet för OAuth 2.0 On-Behalf-Of
 OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.
@@ -30,10 +32,10 @@ OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar
 >
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
-Anta att användaren har autentiserats på ett program som använder den [OAuth 2.0 flöde beviljat med auktoriseringskod](active-directory-v2-protocols-oauth-code.md).  Programmet har nu en åtkomst-token *för API-A* (token A) med användarens anspråk och medgivande till mellannivå-webb-API (API-A). Nu måste API A att begära en autentiserad underordnat webb-API (API-B).
+Anta att användaren har autentiserats på ett program som använder den [OAuth 2.0 flöde beviljat med auktoriseringskod](active-directory-v2-protocols-oauth-code.md). Programmet har nu en åtkomst-token *för API-A* (token A) med användarens anspråk och medgivande till mellannivå-webb-API (API-A). Nu måste API A att begära en autentiserad underordnat webb-API (API-B).
 
 > [!IMPORTANT]
-> Token har köpt med hjälp av den [implicit bevilja](active-directory-v2-protocols-implicit.md) kan inte användas för On-Behalf-Of-flöde.  Klienten i implcit flöden har autentiserats inte (via t.ex. en klienthemlighet) och därför bör inte bootstrap i en annan, möjligen kraftigare token.
+> Token har köpt med hjälp av den [implicit bevilja](active-directory-v2-protocols-implicit.md) kan inte användas för On-Behalf-Of-flöde. Klienten i implcit flöden har autentiserats inte (via t.ex. en klienthemlighet) och därför bör inte bootstrap i en annan, möjligen kraftigare token.
 
 De steg som följer utgöra On-Behalf-Of-flöde och förklaras med hjälp av följande diagram.
 
@@ -64,12 +66,12 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkom
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |Krävs | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
-| client_id |Krävs | Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| client_secret |Krävs | Den hemlighet som programmet som du skapade för din app i portalen för registrering av programmet. |
-| kontrollen |Krävs | Värdet för den token som används i begäran. |
-| omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. Mer information finns i [scope](active-directory-v2-scopes.md).|
-| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| grant_type |obligatorisk | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
+| client_id |obligatorisk | Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| client_secret |obligatorisk | Den hemlighet som programmet som du skapade för din app i portalen för registrering av programmet. |
+| kontrollen |obligatorisk | Värdet för den token som används i begäran. |
+| omfång |obligatorisk | Ett utrymme avgränsade lista över scope för tokenbegäran. Mer information finns i [scope](active-directory-v2-scopes.md).|
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 
 #### <a name="example"></a>Exempel
 Följande HTTP POST-begäran som en åtkomst-token och uppdateringstoken med `user.read` omfånget för den https://graph.microsoft.com webb-API.
@@ -94,13 +96,13 @@ En token-tjänster åtkomst-begäran med ett certifikat innehåller följande pa
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |Krävs | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
-| client_id |Krävs | Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| client_assertion_type |Krävs |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program.  Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
-| kontrollen |Krävs | Värdet för den token som används i begäran. |
-| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. Mer information finns i [scope](active-directory-v2-scopes.md).|
+| grant_type |obligatorisk | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
+| client_id |obligatorisk | Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
+| kontrollen |obligatorisk | Värdet för den token som används i begäran. |
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| omfång |obligatorisk | Ett utrymme avgränsade lista över scope för tokenbegäran. Mer information finns i [scope](active-directory-v2-scopes.md).|
 
 Observera att parametrarna är nästan desamma som i fallet med begäran från delad hemlighet förutom att client_secret-parameter har ersatts av två parametrar: en client_assertion_type och client_assertion.
 
@@ -149,7 +151,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token f
 ```
 
 > [!NOTE]
-> Observera att ovan åtkomsttoken är en V1-formaterade token.  Det beror på att token har angetts baserat på den aktuella resursen.  Microsoft Graph begär V1-token, så Azure AD producerar V1 åtkomsttoken när en klient begär token för Microsoft Graph.  Endast program ska titta på åtkomsttoken - klienter behöver inte inspektera dem. 
+> Observera att ovan åtkomsttoken är en V1-formaterade token. Det beror på att token har angetts baserat på den aktuella resursen. Microsoft Graph begär V1-token, så Azure AD producerar V1 åtkomsttoken när en klient begär token för Microsoft Graph. Endast program ska titta på åtkomsttoken - klienter behöver inte inspektera dem. 
 
 
 ### <a name="error-response-example"></a>Fel svar-exempel

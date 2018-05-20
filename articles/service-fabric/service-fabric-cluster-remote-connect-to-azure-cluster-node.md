@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c7b3626db0e38d28513d4665a83dd7155663034
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärranslutning till en virtuell dator scale set-instans eller en klusternod
 I ett Service Fabric-kluster som körs i Azure, varje nodtyp i klustret som du definierar [ställer in en separat virtuell skala](service-fabric-cluster-nodetypes.md).  Du kan ansluta fjärr till skalan uppsättning instanser (eller noder i klustret).  Till skillnad från single instance VM scale set instanser inte sina egna virtuella IP-adresser. Detta kan vara en utmaning när du söker efter en IP-adress och port som du kan använda för att fjärransluta till en specifik instans.

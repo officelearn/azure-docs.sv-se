@@ -1,8 +1,8 @@
 ---
-title: "Självstudier: Konfigurera Cerner Central för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
-description: "Lär dig hur du konfigurerar Azure Active Directory automatiskt etablera användare till en listan i Cerner Central."
+title: 'Självstudier: Konfigurera Cerner Central för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory automatiskt etablera användare till en listan i Cerner Central.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
@@ -57,7 +57,7 @@ Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vi
 Det här avsnittet hjälper dig att ansluta din Azure AD till Cerner Central användaren listan med Cerner's SCIM användarkonto API-etablering och konfigurera tjänsten etablering för att skapa, uppdatera och inaktivera tilldelad användare konton i Cerner Central baserat på tilldelning av användare och grupper i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserade enkel inloggning för Cerner centrala, följa instruktionerna i [Azure-portalen (https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner kompletterar varandra. Mer information finns i [Cerner Central enkel inloggning kursen](active-directory-saas-cernercentral-tutorial.md).
+> Du kan också välja att aktivera SAML-baserade enkel inloggning för Cerner centrala, följer du instruktionerna som anges i [Azure-portalen (https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner kompletterar varandra. Mer information finns i [Cerner Central enkel inloggning kursen](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Konfigurera automatisk konto användaretablering till Cerner Central i Azure AD:
@@ -67,25 +67,25 @@ För att kunna etablera användarkonton till Cerner Central måste du begära en
 
 1.  Det första steget är att se till att de personer som hanterar Cerner och Azure AD-integrering har ett konto för CernerCare som krävs för att få åtkomst till dokumentationen som behövs för att slutföra anvisningarna. Om det behövs kan du använda adresserna nedan för att skapa CernerCare konton i varje tillämplig miljö.
 
-   * Sandbox: https://sandboxcernercare.com/accounts/create
+   * Sandbox:  https://sandboxcernercare.com/accounts/create
 
-   * Produktion: https://cernercare.com/accounts/create  
+   * Produktion:  https://cernercare.com/accounts/create  
 
 2.  Därefter måste en system-kontot skapas för Azure AD. Du kan följa anvisningarna nedan för att begära ett systemkonto för din sandbox och produktionsmiljöer.
 
-   * Anvisningar: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Anvisningar:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produktion: https://cernercentral.com/system-accounts/
+   * Produktion:  https://cernercentral.com/system-accounts/
 
 3.  Därefter Generera en OAuth ägar-token för var och en av dina Systemkonton. Följ anvisningarna nedan om du vill göra detta.
 
-   * Anvisningar: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Anvisningar:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Produktion: https://cernercentral.com/system-accounts/
+   * Produktion:  https://cernercentral.com/system-accounts/
 
 4. Slutligen måste du hämta användaridentiteter listan sfär för både den sandbox och produktionsmiljöer i Cerner för att slutföra konfigurationen. Mer information om hur du skaffar detta finns: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -105,7 +105,7 @@ För att kunna etablera användarkonton till Cerner Central måste du begära en
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Produktion: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * I den **hemlighet Token** skriver OAuth-ägar-token som du genererade i steg #3 och klicka på **Testanslutningen**.
 
@@ -130,7 +130,7 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 * [Cerner Central: Publicering av identitetsdata med Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Självstudier: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Hantera användare konto-etablering för företag-appar](active-directory-enterprise-apps-manage-provisioning.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lär dig hur du granska loggarna och få rapporter om etablering aktiviteten](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

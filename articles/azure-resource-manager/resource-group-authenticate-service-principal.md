@@ -1,6 +1,6 @@
 ---
-title: Skapa en identitet för Azure-app med PowerShell | Microsoft Docs
-description: Beskriver hur du använder Azure PowerShell för att skapa ett Azure Active Directory-program och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Den visar hur du autentiserar program med ett certifikat.
+title: Skapa identiteter för Azure-appar med PowerShell | Microsoft Docs
+description: Beskriver hur du använder Azure PowerShell för att skapa en Azure Active Directory-app och tjänstens huvudnamn och bevilja åtkomst till resurser via rollbaserad åtkomstkontroll. Visar hur du autentiserar appar med ett certifikat.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ab1b2357e88525f4730b5ad550cfcf3acbb906e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6ad1fd0ab51a93dbab5651ee80f6b6792dd331b9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Skapa ett huvudnamn för tjänsten med ett certifikat med hjälp av Azure PowerShell
+# <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
-När du har en app eller skript som behöver åtkomst till resurser, kan du ställa in en identitet för appen och autentisera appen med sina egna autentiseringsuppgifter. Den här identiteten kallas ett huvudnamn för tjänsten. Den här metoden kan du:
+När du har en app eller ett skript som behöver åtkomst till resurser, kan du ställa in en identitet för appen och autentisera den med sina egna autentiseringsuppgifter. Den här identiteten kallas tjänstens huvudnamn. Med den här metoden kan du:
 
-* Tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till exakt vad appen behöver göra.
-* Använda ett certifikat för autentisering när du kör ett oövervakat skript.
+* Tilldela behörigheter till app-identiteten som skiljer sig från din egen behörighet. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
+* Använda ett certifikat för autentisering när du kör oövervakade skript.
 
 > [!IMPORTANT]
-> Överväg att använda Azure AD hanterade tjänstidentiteten för tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD-MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är ett bättre alternativ för Azure AD-MSI. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande, [hanterade tjänstidentiteten för Azure-resurser](../active-directory/managed-service-identity/overview.md).
+> Överväg att använda Azure AD hanterad tjänstidentitet som tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är Azure AD MSI ett bättre alternativ för dig. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande under avsnittet om [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-service-identity/overview.md).
 
-Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord finns [skapa en Azure tjänstens huvudnamn med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
-Du måste ha den [senaste versionen](/powershell/azure/get-started-azureps) PowerShell för den här artikeln.
+Du måste ha den [senaste versionen](/powershell/azure/get-started-azureps) av PowerShell för den här artikeln.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Du måste ha tillräckliga behörigheter i Azure Active Directory och Azure-prenumeration för att slutföra den här artikeln. Mer specifikt måste du att kunna skapa en app i Azure Active Directory och tilldela en roll tjänstens huvudnamn.
+För att avsluta artikeln måste du ha tillräcklig behörighet i både Azure Active Directory och Azure-prenumerationen. Du måste specifikt kunna skapa en app i Azure Active Directory och tilldela tjänstens huvudnamn till en roll.
 
-Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet](resource-group-create-service-principal-portal.md#required-permissions).
+Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](resource-group-create-service-principal-portal.md#required-permissions).
 
-## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa tjänstens huvudnamn med självsignerade certifikat
+## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa huvudnamn för tjänsten med självsignerade certifikat
 
-I följande exempel innehåller ett enkelt scenario. Den använder [ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och använder [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att tilldela den [deltagare](../role-based-access-control/built-in-roles.md#contributor)rollen till tjänstens huvudnamn. Rolltilldelningen är begränsad till din valda Azure-prenumeration. Välj en annan prenumeration genom att använda [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Följande exempel visar ett enkelt scenario. Det använder [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) för att skapa ett huvudnamn för tjänsten med ett självsignerat certifikat och använder [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) för att ge den rollen [deltagare](../role-based-access-control/built-in-roles.md#contributor) för tjänstens huvudnamn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Välj en annan prenumeration med [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -58,31 +58,30 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge, visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”. Lös det här felet genom att vänta ett ögonblick som kör den **ny AzureRmRoleAssignment** kommandot igen.
+Exemplet vilar i 20 sekunder för att ge den nya tjänstens huvudnamn lite tid att spridas i Azure Active Directory. Om skriptet inte väntar tillräckligt länge visas ett felmeddelande: "Principal {ID} does not exist in the directory {DIR-ID}." (Huvudkontot {ID} finns inte i katalogen {DIR-ID}). Lös det här felet genom att vänta lite och sedan köra kommandot **New-AzureRmRoleAssignment** igen.
 
-Du kan ange omfång rolltilldelning till en viss resursgrupp med hjälp av den **ResourceGroupName** parameter. Du kan ange omfång för en viss resurs med hjälp av även de **ResourceType** och **ResourceName** parametrar. 
+Du kan ange omfånget för rolltilldelningen till en viss resursgrupp med hjälp av parametern **ResourceGroupName**. Du kan också ange omfånget för en viss resurs med parametrarna **ResourceType** och **ResourceName**. 
 
-Om du **inte har Windows 10 eller Windows Server 2016**, måste du hämta den [självsignerat certifikat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
+Om du **inte har Windows 10 eller Windows Server 2016** måste du ladda ned den [självsignerade certifikatgeneratorn](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
 Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 ```
 
-Ersätt följande två rader om du vill generera certifikatet i skriptet.
+Ersätt följande två rader i skriptet för att generera certifikatet.
 
 ```powershell
 New-SelfSignedCertificateEx -StoreLocation CurrentUser `
-  -StoreName My `
   -Subject "CN=exampleapp" `
   -KeySpec "Exchange" `
   -FriendlyName "exampleapp"
 $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
 ```
 
-### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via automatisk PowerShell-skript
+### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via det automatiska PowerShell-skriptet
 
-När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory.
+När du loggar in som tjänstens huvudnamn måste du ange klientorganisations-ID för katalogen för din AD-app. En klientorganisation är en instans av Azure Active Directory.
 
 ```powershell
 $TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -95,9 +94,9 @@ $ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).App
   -TenantId $TenantId
 ```
 
-## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Skapa tjänstens huvudnamn med certifikat från certifikatutfärdare
+## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Skapa tjänstens huvudnamn med certifikat från certifikatutfärdaren
 
-I följande exempel används ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn. Tilldelningen begränsas till angivna Azure-prenumerationen. Huvudnamn för tjänsten läggs den [deltagare](../role-based-access-control/built-in-roles.md#contributor) roll. Om ett fel inträffar under rolltilldelningen återförsök tilldelningen.
+I följande exempel används ett certifikat som utfärdats från en certifikatutfärdare för att skapa tjänstens huvudnamn. Tilldelningen begränsas till den angivna Azure-prenumerationen. Det lägger till tjänstens huvudnamn till rollen som [Deltagare](../role-based-access-control/built-in-roles.md#contributor). Om ett fel inträffar under rolltilldelningen försöker det göra om tilldelningen.
 
 ```powershell
 Param (
@@ -141,8 +140,8 @@ Param (
  $NewRole
 ```
 
-### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via automatisk PowerShell-skript
-När du loggar in som ett huvudnamn för tjänsten som du behöver ange klient-ID för katalogen för din AD-app. En klient är en instans av Azure Active Directory.
+### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via det automatiska PowerShell-skriptet
+När du loggar in som tjänstens huvudnamn måste du ange klientorganisations-ID för katalogen för din AD-app. En klientorganisation är en instans av Azure Active Directory.
 
 ```powershell
 Param (
@@ -172,13 +171,13 @@ Param (
   -TenantId $TenantId
 ```
 
-Program-ID och klient-ID inte skiftlägeskänslig, så du kan bädda in dem direkt i skriptet. Använd om du behöver hämta klient-ID:
+App-ID och klientorganisations-ID är inte känsliga data, så du kan bädda in dem direkt i skriptet. Om du behöver hämta klientorganisations-ID, använd:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Använd om du behöver hämta program-ID:
+Om du behöver hämta app-ID, använd:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -186,15 +185,15 @@ Använd om du behöver hämta program-ID:
 
 ## <a name="change-credentials"></a>Ändra autentiseringsuppgifter
 
-Om du vill ändra autentiseringsuppgifterna för en AD-app, antingen på grund av ett säkerhetsintrång eller en autentiseringsuppgift upphör att gälla kan den [ta bort AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) och [ny AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlets.
+Om du vill ändra autentiseringsuppgifterna för en AD-app, antingen på grund av ett säkerhetsintrång eller för att en autentiseringsuppgift upphört att gälla, kan du använda cmdletarna [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) och [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
-Ta bort alla autentiseringsuppgifter för ett program med:
+För att ta bort alla autentiseringsuppgifter för en app, använd:
 
 ```powershell
 Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
-Skapa ett självsignerat certifikat för att lägga till ett Certifikatvärde som visas i den här artikeln. Använd sedan:
+Skapa ett självsignerat certifikat för att lägga till ett certifikatvärde som visas i den här artikeln. Använd sedan:
 
 ```powershell
 Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
@@ -205,14 +204,14 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 ## <a name="debug"></a>Felsökning
 
-Du får följande fel när du skapar ett huvudnamn för tjänsten:
+Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 
-* **”Authentication_Unauthorized”** eller **”ingen prenumeration hittades i kontexten”.** – Du ser det här felet när ditt konto inte har den [nödvändiga behörigheter](#required-permissions) på Azure Active Directory att registrera en app. Normalt ser du det här felet när endast administrativa användare i Azure Active Directory kan du registrera appar och ditt konto är inte en administratör. Fråga din administratör antingen tilldela dig en administratör eller så att användarna kan registrera appar.
+* **"Authentication_Unauthorized"** (Ej auktoriserad autentisering) eller **"No subscription found in the context."** (Ingen prenumeration hittades i sammanhanget). – Du får det här felet när ditt konto inte har [nödvändiga behörigheter](#required-permissions) på Azure Active Directory att registrera en app. Du får vanligen det här felet om bara administrativa användare i Azure Active Directory kan registrera appar och du inte har ett administratörskonto. Be din administratör antingen tilldela dig en administratörsroll eller ändra inställningar så att användare kan registrera appar.
 
-* Ditt konto **”har inte behörighet att utföra åtgärden 'Microsoft.Authorization/roleAssignments/write' över område '/subscriptions/ {guid}'”.**  -Det här felet visas när ditt konto inte har tillräcklig behörighet för att tilldela en roll till en identitet. Be administratören att lägga till dig till rollen Administratör för användaråtkomst prenumeration.
+* Ditt konto **"har inte behörighet att utföra åtgärden 'Microsoft.Authorization/roleAssignments/write' för omfånget '/subscriptions/{guid}'."** – Du får det här felet om ditt konto inte har tillräcklig behörighet att tilldela en roll till en identitet. Be din prenumerationsadministratör att ge dig rollen som administratör för användaråtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera ett huvudnamn för tjänsten med lösenord finns [skapa en Azure tjänstens huvudnamn med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-* Detaljerade anvisningar för att integrera ett program i Azure för att hantera resurser, se [Utvecklarhandbok tillstånd med Azure Resource Manager API](resource-manager-api-authentication.md).
-* En mer detaljerad förklaring av program och tjänstens huvudnamn finns [program och tjänstens huvudnamn objekt](../active-directory/active-directory-application-objects.md). 
-* Läs mer om Azure Active Directory-autentisering, [Autentiseringsscenarier för Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+* För detaljerade anvisningar om hur man integrerar ett program i Azure för att hantera resurser, se [utvecklarguiden för auktorisering med Azure Resource Manager API](resource-manager-api-authentication.md).
+* En mer detaljerad förklaring av program och tjänstens huvudnamn finns i [Programobjekt och tjänstobjekt](../active-directory/active-directory-application-objects.md). 
+* Mer information om Azure Active Directory-autentisering finns i [Autentiseringsscenarier för Azure AD](../active-directory/active-directory-authentication-scenarios.md).

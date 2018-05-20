@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 7dc4cfe580246b0f34073113f790ca3b5057995d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
+<!---Loc Comment: Please, check the comment in coversation section---> 
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Hantera fysiskt minneskapacitet för Azure-stacken
 
 *Gäller för: Azure Stack integrerat system*
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 Du kan lägga till ytterligare minne för att öka den totala mängden tillgängliga minneskapaciteten för Azure-stacken. I Azure-stacken fysiska servern också kallas en *skala enhet nod*. Alla scale unit noder som är medlemmar i en enda skalningsenhet måste ha samma mängd minne.
 
 > [!note]  
-> Innan du fortsätter maskinvarudokumentationen tillverkaren om leverantören stöder en uppgradering av fysiskt minne. Ditt supportavtal för OEM-maskinvara leverantör kan kräva att de fungerar fysisk server rack placering och firmware-uppdatering för enheten.
+> Innan du fortsätter dokumentationen du maskinvarutillverkaren och se om en tillverkaren stöder en uppgradering av fysiskt minne. Ditt supportavtal för OEM-maskinvara leverantör kan kräva att leverantören utför fysisk server rack placering och firmware-uppdatering för enheten.
 
 Följande flöde diagram visar den allmänna processen att lägga till minne i varje scale unit nod.
 

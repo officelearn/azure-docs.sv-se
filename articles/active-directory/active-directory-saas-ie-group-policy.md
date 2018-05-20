@@ -1,8 +1,8 @@
 ---
-title: "Distribuera Azure Access panelen-tillägg för Internet Explorer med hjälp av ett grupprincipobjekt | Microsoft Docs"
-description: "Hur du använder grupprinciper för att distribuera Internet Explorer-tillägget för Mina appar portalen."
+title: Distribuera Azure Access panelen-tillägg för Internet Explorer med hjälp av ett grupprincipobjekt | Microsoft Docs
+description: Hur du använder grupprinciper för att distribuera Internet Explorer-tillägget för Mina appar portalen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
@@ -15,20 +15,20 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Hur du distribuerar Access panelen-tillägg för Internet Explorer med hjälp av Grupprincip
-Den här kursen visar hur du använder grupprinciper för att fjärrinstallera åtkomstpanelen-tillägg för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som är konfigurerade med [lösenordsbaserade enkel inloggning](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+Den här kursen visar hur du använder grupprinciper för att fjärrinstallera åtkomstpanelen-tillägg för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som är konfigurerade med [lösenordsbaserade enkel inloggning](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 Vi rekommenderar att administratörer automatisera distributionen av det här tillägget. I annat fall behöver användarna ladda ned och installera tillägget själva, som är lätt fel och måste ha administratörsbehörighet. Den här självstudiekursen beskriver en metod för att automatisera programvarudistributioner med hjälp av Grupprincip. [Läs mer om grupprinciper.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 Tillägget åtkomstpanelen är också tillgängligt för [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) och [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), som inte kräver administratörsbehörighet för att installera.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du har ställt in [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), och du har anslutit användarnas datorer till domänen.
 * Du måste ha behörigheten ”Redigera inställningar” så här redigerar du den grupprincipobjektet (GPO). Som standard medlemmar i följande säkerhetsgrupper har denna behörighet: Domänadministratörer, Företagsadministratörer och skapare och ägare av Grupprincip. [Läs mer.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -107,8 +107,8 @@ Förutom att köra installationsprogrammet, måste alla tillägg för Internet E
     ![Klicka på Aktivera och klicka sedan på Visa...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
 4. I den **Visa innehåll** fönster, utför följande steg:
    
-   1. För den första kolumnen (den **värdenamn** fältet), kopiera och klistra in följande klass-ID:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. För den andra kolumnen (den **värdet** fältet), anger följande värde:`1`
+   1. För den första kolumnen (den **värdenamn** fältet), kopiera och klistra in följande klass-ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. För den andra kolumnen (den **värdet** fältet), anger följande värde: `1`
    3. Klicka på **OK** att stänga den **Visa innehåll** fönster.
       
       ![Fyll i värdena som anges ovan.](./media/active-directory-saas-ie-group-policy/show-contents.png)
@@ -151,7 +151,7 @@ Användare kommer inte längre att kunna lagra sina autentiseringsuppgifter elle
 Följ stegen nedan för att kontrollera om tillägget distributionen har lyckats:
 
 1. Om du har distribuerat med **Datorkonfiguration**, logga in på en klientdator som hör till den Organisationsenhet som du valde i [steg 2: skapa grupprincipobjektet](#step-2-create-the-group-policy-object). Om du har distribuerat med **Användarkonfiguration**, se till att logga in som en användare som tillhör denna Organisationsenhet.
-2. Det kan ta ett par logga moduler för grupprincipen ändras till fullständigt uppdatera till den här datorn. Om du vill tvinga uppdateringen, öppna en **kommandotolk** fönster och kör sedan följande kommando:`gpupdate /force`
+2. Det kan ta ett par logga moduler för grupprincipen ändras till fullständigt uppdatera till den här datorn. Om du vill tvinga uppdateringen, öppna en **kommandotolk** fönster och kör sedan följande kommando: `gpupdate /force`
 3. Du måste starta om datorn för att installationen ska kunna utföras. Autostart kan ta betydligt längre tid än vanligt när tillägget installeras.
 4. Efter omstart, öppna **Internet Explorer**. Klicka på det övre högra hörnet i fönstret **verktyg** (kugghjulsikonen) och välj sedan **Hantera tillägg**.
    
@@ -162,6 +162,6 @@ Följ stegen nedan för att kontrollera om tillägget distributionen har lyckats
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
-* [Programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Felsökning av Access panelen-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

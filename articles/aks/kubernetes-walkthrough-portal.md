@@ -3,19 +3,19 @@ title: Snabbstart – Snabbstart för Azure Kubernetes-klusterportal
 description: Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure-portalen.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/24/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6fa40d1d170c9a9c5666c7c96980e658d1fe85fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Container Service-kluster (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
 I den här snabbstarten ska du distribuera ett AKS-kluster med hjälp av Azure-portalen. Därefter kör vi ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 
@@ -27,53 +27,43 @@ Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begre
 
 Logga in på Azure Portal på http://portal.azure.com.
 
-## <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-Innan du skapar AKS-klustret i Azure-portalen måste du skapa tjänstens huvudnamn. Azure använder tjänstens huvudnamn för att hantera infrastrukturen som är associerad med AKS-klustret.
-
-Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
-
-Ange ett namn på programmet. Det kan vara vilket värde som helst. Välj **Webbapp/API** som programtyp. Ange ett värde för **Inloggnings-URL**. Det kan vara vilket värde som helst i ett giltigt URL-format, men det måste inte vara en riktig slutpunkt.
-
-Välj **Skapa** när du är klar.
-
-![Skapa tjänstens huvudnamn ett](media/container-service-walkthrough-portal/create-sp-one.png)
-
-Välj den nyligen skapade programregistreringen och anteckna programmets ID. Värdet behövs när du skapar AKS-klustret.
-
-![Skapa tjänstens huvudnamn två](media/container-service-walkthrough-portal/create-sp-two.png)
-
-Sedan måste du lägga till ett nytt lösenord för tjänstens huvudnamn. Välj **Alla inställningar** > **Nycklar** och ange valfritt värde för nyckelbeskrivningen. Välj en varaktighet som är hur länge tjänstens huvudnamn ska vara giltigt.
-
-Klicka på **Spara** och anteckna lösenordsvärdet. Lösenordet behövs när du skapar ett AKS-kluster.
-
-![Skapa tjänstens huvudnamn tre](media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Välj **Skapa en resurs** > **Behållare** > **Azure Container Service – AKS (förhandsversion)**.
+Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
 
-Ange klusternamnet, DNS-prefix, resursgruppens namn, plats och Kubernetes-version för klustret. Anteckna klusternamnet och resursgruppens namn. De behövs när du ansluter till klustret.
+Utför följande steg under varje rubrik för att skapa AKS-klustret.
 
-Välj **OK** när du är klar.
+- **PROJEKTINFORMATION**: välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
+- **KLUSTERINFORMATION**: ange namn, region, version och DNS-prefix för AKS-klustret.
+- **AUTENTISERING**: skapa ett nytt huvudnamn för tjänsten eller använd ett befintligt. Du måste ange ID och hemlighet för SPN-klienten om du använder ett befintligt SPN.
+- **SKALNING**: välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats. Markera också antalet noder som ska distribueras till klustret. Antalet noder **kan** justeras efter att klustret har distribuerats.
 
-![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/create-aks-portal-one.png)
+Välj **Nästa: nätverk** när du är klar.
 
-I konfigurationsformuläret anger du följande:
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-1.png)
 
-- Användarnamn – namnet som anges till de administrativa kontona på klusternoderna.
-- Offentlig SSH-nyckel – associeras med nyckeln som används för att komma åt klusternoderna.
-- Klient-ID för tjänstens huvudnamn – program-ID:t för tjänstens huvudnamn som du skapade tidigare i det här dokumentet.
-- Klienthemlighet för tjänstens huvudnamn – lösenordet för tjänstens huvudnamn som du skapade tidigare i det här dokumentet.
-- Antal noder – antal AKS-noder att skapa.
-- Nodstorlek för virtuell dator – AKS-nodernas VM-storlek
-- OS-diskstorlek – storleken på AKS-nodernas OS-disk.
+Konfigurera följande nätverksalternativ:
 
-Välj **OK** när du är klar och **OK** igen när verifiering har slutförts.
+- **HTTP-programroutning** – konfigurerar en integrerad kontrollant för inkommande trafik som automatiskt skapar offentliga DNS-namn. Mer information om HTTP-routning finns i [AKS HTTP-routning och DNS][http-routing].
+- **Nätverkskonfiguration** – välj mellan grundläggande konfiguration med hjälp av [kubenet][kubenet] plugin-programmet Kubernetes eller avancerad konfiguration med hjälp av [Azure CNI][azure-cni]. Mer information om nätverksalternativ finns i [Översikt över AKS-nätverk][aks-network].
 
-![Skapa AKS-kluster två](media/container-service-walkthrough-portal/create-aks-portal-two.png)
+Välj **Nästa: övervakning** när du är klar.
 
-Efter en kort stund är ASK-klustret distribuerat och klart att användas.
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-2.png)
+
+När du distribuerar ett AKS-kluster, kan Azure Container Insights konfigureras för att övervaka hälsotillståndet för AKS-klustret och poddar som körs i klustret. Mer information om övervakning av hälsotillstånd för behållare finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+
+Välj **Ja** för att aktivera övervakning av behållaren och välj en befintlig Log Analytics-arbetsyta eller skapa en ny.
+
+Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
+
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-3.png)
+
+Efter en kort stund är ASK-klustret distribuerat och klart att användas. Bläddra till AKS-klusterresursgruppen och välj AKS-resursen, så bör du se AKS-klusterinstrumentpanel.
+
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-5.png)
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
@@ -82,11 +72,6 @@ Hantera Kubernetes-kluster med [kubectl][kubectl], Kubernetes kommandoradsklient
 Öppna Cloud Shell med knappen längst upp till höger i Azure-portalen.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
-
-Ange prenumeration (om du inte redan gjort det)
-```azurecli-interactive
-az account set -s SUBSCRIPTION_NAME
-```
 
 Du konfigurerar kubectl att ansluta till ditt Kubernetes-kluster genom att köra kommandot [aaz aks get-credentials][az-aks-get-credentials].
 
@@ -106,14 +91,14 @@ Resultat:
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-1   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
+aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
+aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
+aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 ```
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka behållaravbildningar som ska köras. I det här exemplet använder du ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet.
+Kubernetes-manifestfiler definierar ett önskat tillstånd för ett kluster, till exempel vilka behållaravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Dessa objekt omfattar två [Kubernetes-distributioner][kubernetes-deployment], en för Azure Vote-klientdelen och den andra för en Redis-instans. Dessutom skapas två [Kubernetes-tjänster][kubernetes-service], en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell kan du skapa filen med ”vi” eller Nano som i ett virtuellt eller fysiskt system.
 
@@ -178,10 +163,10 @@ spec:
     app: azure-vote-front
 ```
 
-Använd kommandot [kubectl create][kubectl-create] för att köra programmet.
+Använd kommandot [kubectl apply][kubectl-apply] för att köra programmet.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Resultat:
@@ -195,7 +180,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>Testa programmet
 
-När programmet körs skapas en [Kubernetes-tjänst][kubernetes-service] som exponerar programmets klientdel mot Internet. Den här processen kan ta ett par minuter att slutföra.
+När programmet körs skapas en [Kubernetes-tjänst][kubernetes-service] för att göra programmet tillgängligt mot Internet. Den här processen kan ta ett par minuter att slutföra.
 
 Du kan övervaka förloppet genom att använda kommandot [kubectl get service][kubectl-get] med argumentet `--watch`.
 
@@ -220,12 +205,24 @@ Gå till den externa IP-adressen så att du ser Azure Vote-appen.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
+
+Om övervakningen av insikter om behållaren har aktiverats, finns hälsomått för både AKS-klustret och poddar som körs på klustret tillgängliga i instrumentpanelen för AKS-klustret. Mer information om övervakning av hälsotillstånd för behållare finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+
+Om du vill visa aktuell status, driftstid och resursanvändning för Azure Vote-poddar, går du tillbaka till AKS-resursen och väljer **Övervaka behållarens hälsotillstånd** > namnområdet **standard** > **Behållare**. Det kan ta några minuter för dessa data att hämtas till Azure Portal.
+
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-6.png)
+
+Om du vill se loggarna för podden `azure-vote-front`, väljer du länken **Visa loggar**. Loggarna inkluderar strömmarna stdout och stderr från behållaren.
+
+![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-7.png)
+
 ## <a name="delete-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs kan du ta bort klusterresursgruppen. Då tas alla associerade resurser bort. Det kan du göra i Azure-portalen genom att välja resursgruppen och klicka på borttagningsknappen. Du kan även använda kommandot [az group delete][az-group-delete] i Cloud Shell.
+När klustret inte längre behövs, kan du ta bort klusterresursen. Alla associerade resurser tas då också bort. Du kan göra detta i Azure Portal genom att klicka på borttagningsknappen på AKS-klustrets instrumentpanel. Du kan även använda kommandot [az aks delete][az-aks-delete] i Cloud Shell.
 
 ```azurecli-interactive
-az group delete --name myAKSCluster --no-wait
+az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Hämta koden
@@ -245,15 +242,19 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-delete]: /cli/azure/group#delete
+[az-aks-delete]: /cli/azure/aks#az-aks-delete
+[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-
-
+[http-routing]: ./http-application-routing.md

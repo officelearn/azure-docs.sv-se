@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 432fc630cad172255c6adcdce74291e3ec275c7b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 26234ca17d833fef01ad5a6465824c99d84cc556
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
@@ -55,7 +55,7 @@ Följande steg visar hur du skapar en Hive ODBC-datakällan.
 4. Välj **Microsoft Hive ODBC-drivrutinen**, och klicka sedan på **Slutför**. Du bör se den **Microsoft Hive ODBC-drivrutinen DNS-inställningar för** dialogrutan.
 5. Ange eller välj följande värden:
    
-   | Egenskap | Beskrivning |
+   | Egenskap  | Beskrivning |
    | --- | --- |
    |  Namn på datakälla |Namnge din datakälla |
    |  Värd |Ange &lt;HDInsightClusterName>.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |

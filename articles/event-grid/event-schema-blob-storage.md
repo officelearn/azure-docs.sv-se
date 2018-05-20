@@ -1,18 +1,18 @@
 ---
-title: "Azure händelse rutnätet blob storage Händelseschema"
-description: "Beskriver de egenskaper som har angetts för blob storage-händelser med Azure händelse rutnätet"
+title: Azure händelse rutnätet blob storage Händelseschema
+description: Beskriver de egenskaper som har angetts för blob storage-händelser med Azure händelse rutnätet
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure händelse rutnätet Händelseschema för Blob storage
 
@@ -86,7 +86,7 @@ Schemat för en blob bort händelse är ungefär:
 
 En händelse har följande översta data:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
 | Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
@@ -94,20 +94,20 @@ En händelse har följande översta data:
 | EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
 | data | objekt | BLOB storage händelsedata. |
-| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | api | sträng | Åtgärden som utlöste händelsen. |
-| clientRequestId | sträng | Klienten genererade, täckande värde med en 1 KB tecken. När du har aktiverat storage analytics loggning registreras den i analytics-loggarna. |
-| requestId | sträng | Den unika identifieraren för begäran. Använda det för felsökning av begäran. |
+| ClientRequestId | sträng | Klienten genererade, täckande värde med en 1 KB tecken. När du har aktiverat storage analytics loggning registreras den i analytics-loggarna. |
+| begärande-ID | sträng | Den unika identifieraren för begäran. Använda det för felsökning av begäran. |
 | ETag | sträng | Det värde som du kan använda för att utföra åtgärder enligt villkor. |
-| contentType | sträng | Innehållstyp som angetts för blob. |
+| ContentType | sträng | Innehållstyp som angetts för blob. |
 | contentLength | heltal | Storleken på blobben i byte. |
-| blobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
+| BlobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
 | url | sträng | Sökvägen till blob. |
 | sequencer | sträng | Ett användar-kontrollerade värde som du kan använda för att spåra förfrågningar. |
 | storageDiagnostics | objekt | Information om lagring diagnostik. |

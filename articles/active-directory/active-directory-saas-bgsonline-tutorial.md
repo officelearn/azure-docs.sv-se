@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med PÅSAR Online | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PÅSAR Online."
+title: 'Självstudier: Azure Active Directory-integrering med PÅSAR Online | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PÅSAR Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e415aab14e6c79ec937607433e0b8f13a0e971c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc551aaa0a1383376d345f922c3e226cb88c4d26
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Självstudier: Azure Active Directory-integrering med PÅSAR Online
 
@@ -29,9 +29,9 @@ Integrera PÅSAR Online med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på PÅSAR Online (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med PÅSAR Online, behöver du följande:
 
@@ -112,15 +112,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textruta Skriv en URL med följande mönster:
 
-    Använd det här mönstret för produktionsmiljö`https://<company name>.millwardbrown.report` 
+    Använd det här mönstret för produktionsmiljö `https://<company name>.millwardbrown.report` 
 
-    Använd det här mönstret för testmiljö`https://millwardbrown.marketingtracker.nl/mt5/`
+    Använd det här mönstret för testmiljö `https://millwardbrown.marketingtracker.nl/mt5/`
 
     b. I den **Reply URL** textruta Skriv en URL med följande mönster:
     
-    Använd det här mönstret för produktionsmiljö`https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
+    Använd det här mönstret för produktionsmiljö `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
       
-    Använd det här mönstret för testmiljö`https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
+    Använd det här mönstret för testmiljö `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [PÅSAR Online-teamet](mailTo:bgsdashboardteam@millwardbrown.com) att hämta dessa värden.
@@ -218,7 +218,7 @@ När du klickar på panelen PÅSAR Online på åtkomstpanelen du bör få automa
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

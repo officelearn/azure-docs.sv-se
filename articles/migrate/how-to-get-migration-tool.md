@@ -1,16 +1,16 @@
 ---
-title: "Migrera datorer efter bedömning med Azure migrera | Microsoft Docs"
-description: "Beskriver hur du hämtar rekommendationer för att migrera datorer när du har kört en bedömning med tjänsten Azure migrera."
+title: Migrera datorer efter bedömning med Azure migrera | Microsoft Docs
+description: Beskriver hur du hämtar rekommendationer för att migrera datorer när du har kört en bedömning med tjänsten Azure migrera.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 242a8b95e7eb278a7884eec7d0cc6a607bdf24d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrera datorer efter utvärdering
 
@@ -35,15 +35,15 @@ För att få förslag om Migreringsverktyg, måste du göra en djupidentifiering
 1. Innan du får en föreslagna migreringsmetod måste du skapa ett Azure migrera projekt, identifiera lokala datorer och köra en utvärdering av migreringen. [Läs mer](tutorial-assessment-vmware.md).
 2. När bedömningen har skapats kan du visa den i projektet > **översikt** > **instrumentpanelen**. Klicka på **Readiness Assessment**
 
-    ![Bedömning beredskap](./media/tutorial-assessment-vmware/assessment-report.png)  
+    ![Utvärderingsberedskap](./media/tutorial-assessment-vmware/assessment-report.png)  
 
 3. I **förslag verktyget**, granska förslag för verktyg som du kan använda för migrering.
 
-    ![Föreslagna verktyget](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![Föreslaget verktyg](./media/tutorial-assessment-vmware/assessment-suitability.png) 
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.
+[Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

@@ -1,23 +1,24 @@
 ---
-title: "Felhantering Metodtips för klienter för Azure Active Directory Authentication Library (ADAL)"
-description: "Ger felhantering vägledning och bästa praxis för ADAL-klientprogram."
+title: Felhantering Metodtips för klienter för Azure Active Directory Authentication Library (ADAL)
+description: Ger felhantering vägledning och bästa praxis för ADAL-klientprogram.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: 
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Felhantering Metodtips för klienter för Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +50,7 @@ Det finns en uppsättning fel som genereras av operativsystemet, vilket kan krä
 
 Det är grunden, två fall av AcquireTokenSilent fel:
 
-| Ärende | Beskrivning |
+| Fall | Beskrivning |
 |------|-------------|
 | **Fall 1**: fel kan matchas med en interaktiv inloggning | En interaktiv begäran är nödvändiga för fel som orsakats av brist på giltig token. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken ett AcquireToken-anrop för att lösa.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan du göra en interaktiv begäran omedelbart efter användarinteraktion (till exempel träffa en inloggningsknapp) eller senare. Det beror på önskat beteende för programmet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den.|
 | **Fall 2**: fel kan inte matchas med en interaktiv inloggning | För nätverket och tillfälligt/tillfälliga fel eller andra fel löser utför en interaktiv AcquireToken begäran inte problemet. Onödiga frågor för interaktiv inloggning kan också vara frustrerande för användare. ADAL försöker automatiskt en enda retry för de flesta fel på AcquireTokenSilent fel.<br><br>Klientprogrammet kan även ett nytt försök förr eller senare, men när och hur du gör det är beroende av programmets beteende och önskade slutanvändarens upplevelse. Programmet kan till exempel göra en AcquireTokenSilent försök igen efter några minuter eller som svar på en åtgärd som slutanvändaren. En omedelbara försök resulterar i programmet begränsas och inte ska testas.<br><br>Efterföljande försök igen med samma fel innebär inte klienten gör en interaktiv begäran med hjälp av AcquireToken, eftersom den inte åtgärda felet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den. |
@@ -58,8 +59,8 @@ Det är grunden, två fall av AcquireTokenSilent fel:
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentAsync(…)
-- acquireTokenSilentSync(…) 
+- acquireTokenSilentAsync(...)
+- acquireTokenSilentSync(...) 
 - [inaktuell] acquireTokenSilent(...)
 - [inaktuell] acquireTokenByRefreshToken(...) 
 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -102,7 +103,7 @@ catch (AdalException e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentSync(…)
+- acquireTokenSilentSync(...)
 - acquireTokenSilentAsync(...)
 - [inaktuell] acquireTokenSilent(...)
 
@@ -138,7 +139,7 @@ public void onError(Exception e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentWithResource(…)
+- acquireTokenSilentWithResource(...)
 
 Koden skulle genomföras enligt följande:
 
@@ -157,7 +158,7 @@ Koden skulle genomföras enligt följande:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ Koden skulle genomföras enligt följande:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken är ADAL standardmetoden används för att hämta token. I fall där användaridentiteten krävs AcquireToken försöker hämta en token tyst första, så visar Användargränssnittet vid behov (om PromptBehavior.Never skickas). I fall där Programidentitet krävs AcquireToken försöker hämta en token, men visar inte Gränssnittet eftersom det inte finns några användare.  
+AcquireToken är ADAL standardmetoden används för att hämta token. I fall där användaridentiteten krävs AcquireToken försöker hämta en token tyst första, så visar Användargränssnittet vid behov (om PromptBehavior.Never skickas). I fall där Programidentitet krävs AcquireToken försöker hämta en token, men visar inte Gränssnittet eftersom det inte finns några användare. 
 
-När AcquireToken felhantering felhantering är beroende på plattform och scenariot programmet försöker uppnå.  
+När AcquireToken felhantering felhantering är beroende på plattform och scenariot programmet försöker uppnå. 
 
 Operativsystemet kan också skapa en uppsättning fel, vilket kräver felhantering beroende på det specifika programmet. Mer information finns i ”operativsystemsfel” i [fel och loggning referens](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ Operativsystemet kan också skapa en uppsättning fel, vilket kräver felhanteri
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Fel och tillämplig steg: Native client-program
 
-Om du utvecklar en native client-program finns några fel hantering fall att överväga som relaterar till nätverksproblem, tillfälligt fel och andra plattformsspecifika fel. I de flesta fall bör inte ett program utföra omedelbara försök, men i stället väntar användarinteraktion som frågar en inloggning.  
+Om du utvecklar en native client-program finns några fel hantering fall att överväga som relaterar till nätverksproblem, tillfälligt fel och andra plattformsspecifika fel. I de flesta fall bör inte ett program utföra omedelbara försök, men i stället väntar användarinteraktion som frågar en inloggning. 
 
 Det finns några särskilda fall där en enda försök kan lösa problemet. Till exempel när en användare måste aktivera data på en enhet eller slutfört Azure AD-broker hämta efter första felet. 
 
@@ -208,10 +209,10 @@ Hantera fel i intern program kan definieras av två fall:
 
 Vägledningen innehåller exempel för felhantering tillsammans med alla icke-tysta AcquireToken(...) ADAL-metoder, *utom*: 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync (..., IClientAssertionCertification,...)
 - AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync (..., ClientAssertion,...)
+- AcquireTokenAsync(...,UserAssertion,...)   
 
 Koden skulle genomföras enligt följande:
 
@@ -252,7 +253,7 @@ catch (AdalException e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireToken(…, PromptBehavior.Never)
+- acquireToken(..., PromptBehavior.Never)
 
 Koden skulle genomföras enligt följande:
 
@@ -344,7 +345,7 @@ Om du utvecklar en .NET-webbapp som anropar hämtar en token med hjälp av en Au
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenByAuthorizationCodeAsync(…)
+- AcquireTokenByAuthorizationCodeAsync(...)
 
 Koden skulle genomföras enligt följande:
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och tillämplig steg: den enda sidan program (adal.js)
 
-Om du utvecklar ett program för en sida med AcquireToken adal.js liknar felhantering koden en typisk tyst inbjudan.  I adal.js visar AcquireToken aldrig ett gränssnitt. 
+Om du utvecklar ett program för en sida med AcquireToken adal.js liknar felhantering koden en typisk tyst inbjudan. I adal.js visar AcquireToken aldrig ett gränssnitt. 
 
 Misslyckade AcquireToken har följande fall:
 
@@ -413,10 +414,10 @@ För *alla* tjänst-till-tjänst programmet scenarier, inklusive on-behalf-of:
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync (..., IClientAssertionCertification,...)
 - AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion, …)
+- AcquireTokenAsync (..., ClientAssertion,...)
+- AcquireTokenAsync (..., UserAssertion,...)
 
 Koden skulle genomföras enligt följande:
 
@@ -441,7 +442,7 @@ För *on-behalf-of* Programscenarier tjänst-till-tjänst.
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenAsync(…, UserAssertion, …)
+- AcquireTokenAsync (..., UserAssertion,...)
 
 Koden skulle genomföras enligt följande:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

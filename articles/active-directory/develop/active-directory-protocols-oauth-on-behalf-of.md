@@ -1,25 +1,27 @@
 ---
-title: "Azure AD tjänster auth med OAuth2.0 On-Behalf-Of utkast till en specifikation | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänster autentisering med hjälp av OAuth2.0 på-flöde."
+title: Azure AD tjänster auth med OAuth2.0 On-Behalf-Of utkast till en specifikation | Microsoft Docs
+description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänster autentisering med hjälp av OAuth2.0 på-flöde.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänsten tjänstanrop med delegerad användaridentitet i On-Behalf-Of-flöde
 OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.
@@ -76,16 +78,16 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkom
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |Krävs | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
-| kontrollen |Krävs | Värdet för den token som används i begäran. |
-| client_id |Krävs | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
-| client_secret |Krävs | Nyckeln som har registrerats för anropa tjänsten i Azure AD. Det här värdet ska har konstaterats vid tiden för registrering. |
-| resurs |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
-| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| Omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
+| grant_type |obligatorisk | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
+| kontrollen |obligatorisk | Värdet för den token som används i begäran. |
+| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
+| client_secret |obligatorisk | Nyckeln som har registrerats för anropa tjänsten i Azure AD. Det här värdet ska har konstaterats vid tiden för registrering. |
+| resurs |obligatorisk | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| omfång |obligatorisk | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
 
 #### <a name="example"></a>Exempel
-Följande HTTP POST-begäranden en åtkomsttoken för https://graph.windows.net webb-API. Den `client_id` identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST-begäran som en åtkomsttoken för den https://graph.windows.net webb-API. Den `client_id` identifierar den tjänst som begär åtkomst-token.
 
 ```
 // line breaks for legibility only
@@ -108,19 +110,19 @@ En token-tjänster åtkomst-begäran med ett certifikat innehåller följande pa
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |Krävs | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
-| kontrollen |Krävs | Värdet för den token som används i begäran. |
-| client_id |Krävs | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
-| client_assertion_type |Krävs |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program.  Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
-| resurs |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
-| requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
-| Omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
+| grant_type |obligatorisk | Typ av tokenbegäran. Värdet måste vara en begäran som använder en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägar**. |
+| kontrollen |obligatorisk | Värdet för den token som används i begäran. |
+| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
+| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
+| resurs |obligatorisk | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| omfång |obligatorisk | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
 
 Observera att parametrarna är nästan desamma som i fallet med begäran från delad hemlighet förutom att client_secret-parameter har ersatts av två parametrar: en client_assertion_type och client_assertion.
 
 #### <a name="example"></a>Exempel
-Följande HTTP POST-begäranden en åtkomsttoken för https://graph.windows.net webb-API med ett certifikat. Den `client_id` identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST-begäran som en åtkomsttoken för den https://graph.windows.net webb-API med ett certifikat. Den `client_id` identifierar den tjänst som begär åtkomst-token.
 
 ```
 // line breaks for legibility only
@@ -145,7 +147,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 | Parameter | Beskrivning |
 | --- | --- |
 | token_type |Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [OAuth 2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Omfång |Omfattningen av åtkomst som beviljas i token. |
+| omfång |Omfattningen av åtkomst som beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |
 | resurs |App-ID URI för tjänsten mottagande (skyddad resurs). |
@@ -154,7 +156,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 | refresh_token |Uppdateringstoken för den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella åtkomst-token upphör att gälla. |
 
 ### <a name="success-response-example"></a>Lyckade svar-exempel
-I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken för https://graph.windows.net webb-API.
+I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token för den https://graph.windows.net webb-API.
 
 ```
 {

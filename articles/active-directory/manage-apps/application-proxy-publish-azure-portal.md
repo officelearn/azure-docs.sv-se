@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ab4530047daec9e8cf163b0223109be6b18525b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -53,7 +53,7 @@ Följ dessa steg för att publicera dina appar med Application Proxy. Om du inte
    - **Intern URL**: URL: en som används för att komma åt programmet inifrån ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika platser på samma server som olika appar och ge vart och ett eget namn och regler.
 
      > [!TIP]
-     > Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app är i till exempel https://yourapp/app och använder avbildningar som finns på https://yourapp/media, och du bör publicera https://yourapp/ som sökväg. Intern URL: en måste inte vara landningssida användarna finns. Mer information finns i [ange en anpassad hemsida för publicerade appar](../application-proxy-office365-app-launcher.md).
+     > Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app är i till exempel https://yourapp/app och använder avbildningar som finns på https://yourapp/media, och du bör publicera https://yourapp/ som sökväg. Intern URL: en måste inte vara landningssida användarna finns. Mer information finns i [ange en anpassad hemsida för publicerade appar](application-proxy-configure-custom-home-page.md).
 
    - **Extern URL**: adressen användarna skickas till för att komma åt appen från utanför nätverket. Om du inte vill använda Application Proxy standarddomänen Läs om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
    - **Förautentisering**: hur Application Proxy verifierar användare innan de får åtkomst till ditt program. 
@@ -69,7 +69,7 @@ Följ dessa steg för att publicera dina appar med Application Proxy. Om du inte
 5. Om det behövs kan du konfigurera ytterligare inställningar. De flesta fall bör du behålla inställningarna i sina standardtillstånd. 
    - **Tidsgränsen för backend-programmet**: det här värdet till **lång** endast om ditt program går långsamt att autentisera och ansluta. 
    - **Översätta URL: er i sidhuvuden**: behålla det här värdet som **Ja** om ursprungliga värdhuvudet i begäran om autentisering krävs för ditt program.
-   - **Översätta URL: er i programmet brödtext**: behålla det här värdet som **nr** om du har hårdkodad HTML länkar till andra lokala program och Använd inte anpassade domäner. Mer information finns i [länka översättning med Application Proxy](../application-proxy-link-translation.md).
+   - **Översätta URL: er i programmet brödtext**: behålla det här värdet som **nr** om du har hårdkodad HTML länkar till andra lokala program och Använd inte anpassade domäner. Mer information finns i [länka översättning med Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
    
    ![Konfigurera ditt program](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
@@ -99,6 +99,6 @@ Navigera till den externa URL som du konfigurerade under steget publicera i din 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hämta kopplingar](application-proxy-enable.md) och [skapa grupper för anslutningstjänsten](../active-directory-application-proxy-connectors-azure-portal.md) att publicera program på separata nätverk och platser.
+- [Hämta kopplingar](application-proxy-enable.md) och [skapa grupper för anslutningstjänsten](application-proxy-connector-groups.md) att publicera program på separata nätverk och platser.
 
-- [Konfigurera enkel inloggning](../application-proxy-sso-azure-portal.md) för din nyligen publicerade app
+- [Konfigurera enkel inloggning](application-proxy-configure-single-sign-on-password-vaulting.md) för din nyligen publicerade app

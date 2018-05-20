@@ -1,23 +1,21 @@
 ---
-title: "Slutanvändarens autentisering: REST-API med Data Lake Store med Azure Active Directory | Microsoft Docs"
-description: "Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med hjälp av REST API"
+title: 'Slutanvändarens autentisering: REST-API med Data Lake Store med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med hjälp av REST API
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 5ee13756e4276055a8c9bdd9642d0766c3ca7e5c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7bebe1948d26b26716262cafb92e3563f5c6b349
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -50,7 +48,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<REDIRECT-URI> måste kodas för användning i en URL. Alltså ska `https%3A%2F%2Flocalhost` användas för https://localhost)
+   > \<REDIRECT-URI> måste kodas för användning i en URL. I så fall för https://localhost, Använd `https%3A%2F%2Flocalhost`)
    > 
    > 
    

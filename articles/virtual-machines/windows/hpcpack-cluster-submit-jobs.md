@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Registrera HPC-jobb från lokala datorer till ett HPC Pack-kluster som distribuerats i Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +29,9 @@ Konfigurera en lokal klientdator för att skicka jobb till en [Microsoft HPC Pac
 ![Skicka ett jobb till ett kluster i Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **HPC Pack huvudnod distribueras i en Azure VM** -rekommenderar vi att du använder automatiserade verktyg som en [Azure quickstart mallen](https://azure.microsoft.com/documentation/templates/) eller en [Azure PowerShell-skript](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) att distribuera huvudnod och kluster . Du behöver DNS-namnet på huvudnoden och autentiseringsuppgifterna för en Klusteradministratör för att slutföra stegen i den här artikeln.
+* **HPC Pack huvudnod distribueras i en Azure VM** -rekommenderar vi att du använder automatiserade verktyg som en [Azure quickstart mallen](https://azure.microsoft.com/documentation/templates/) att distribuera huvudnod och kluster. Du behöver DNS-namnet på huvudnoden och autentiseringsuppgifterna för en Klusteradministratör för att slutföra stegen i den här artikeln.
 * **Klientdatorn** -du behöver en Windows- eller Windows Server-klientdator som kan köra HPC Pack klientverktyg (se [systemkrav](https://technet.microsoft.com/library/dn535781.aspx)). Om du endast vill använda HPC Pack webbportal eller REST API för att skicka jobb kan du använda alla klientdatorer som du väljer.
-* **HPC Pack installationsmediet** - om du vill installera HPC Pack klientverktyg, ledigt installationspaketet för den senaste versionen av HPC Pack (HPC Pack 2012 R2) är tillgängliga från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Kontrollera att du hämtar samma version av HPC Pack som är installerad på huvudnoden VM.
+* **HPC Pack installationsmediet** - om du vill installera HPC Pack klientverktyg, ledigt installationspaketet för den senaste versionen av HPC Pack är tillgänglig från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Kontrollera att du hämtar samma version av HPC Pack som är installerad på huvudnoden VM.
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Steg 1: Installera och konfigurera webbkomponenterna på huvudnoden
 Se till att webbkomponenterna HPC Pack konfigureras på huvudnoden HPC Pack om du vill aktivera ett REST-gränssnitt att skicka jobb till klustret via HTTPS. Om de inte redan har installerats måste du först installera komponenterna genom att köra HpcWebComponents.msi installationsfilen. Konfigurera sedan komponenterna genom att köra HPC PowerShell-skriptet **Set HPCWebComponents.ps1**.
@@ -39,7 +39,7 @@ Se till att webbkomponenterna HPC Pack konfigureras på huvudnoden HPC Pack om d
 Detaljerade anvisningar finns [installera Microsoft HPC Pack Webbkomponenter](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Vissa mallar för Azure quickstart för HPC Pack installera och konfigurera webbkomponenterna automatiskt. Om du använder den [HPC Pack IaaS distributionsskriptet](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) för att skapa klustret, kan du eventuellt installerar och konfigurerar webbkomponenterna som en del av distributionen.
+> Vissa mallar för Azure quickstart för HPC Pack kluster installera och konfigurera webbkomponenterna automatiskt.
 > 
 > 
 
@@ -81,7 +81,7 @@ Detaljerade anvisningar finns [installera Microsoft HPC Pack Webbkomponenter](ht
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Steg 2: Installera klientverktyg HPC Pack på en lokal dator
-Om du vill installera klientverktyg HPC Pack på datorn hämta HPC Pack-installationsfiler (fullständig installation) från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). När du påbörjar installationen, välja installationsprogrammet för den **HPC Pack klientverktyg**.
+Om du vill installera klientverktyg HPC Pack på datorn hämta HPC Pack-installationsfiler (fullständig installation) från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). När du påbörjar installationen, välja installationsprogrammet för den **HPC Pack klientverktyg**.
 
 Om du vill använda klientverktygen HPC Pack för att skicka jobb till huvudnoden VM, måste du också exportera ett certifikat från huvudnod och installera den på klientdatorn. Certifikatet måste vara i. CER-format.
 

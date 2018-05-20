@@ -1,8 +1,8 @@
 ---
-title: "Självstudiekurs: DevOps med Azure Portal | Microsoft Docs"
-description: "Lär dig om de olika DevOps-arbetsflödena i Azure Portal."
+title: 'Självstudier: DevOps med Azure-portalen | Microsoft Docs'
+description: Lär dig om de olika DevOps-arbetsflödena i Azure Portal.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,17 +11,17 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="tutorial-devops-with-the-azure-portal"></a>Självstudiekurs: DevOps med Azure Portal
-Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självstudiekursen lär du dig hur du utnyttjar funktionerna i Azure Portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs. Den här självstudiekursen fokuserar på följande:
+# <a name="tutorial-devops-with-the-azure-portal"></a>Självstudier: DevOps med Azure-portalen
+Azure-plattformen är full av flexibla DevOps-arbetsflöden. Lär dig hur man utnyttjar funktionerna i Azure portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs i den här självstudiekursen. Den här självstudiekursen fokuserar på följande:
 
 1. Skapa en webbapp och aktivera kontinuerlig distribution
 2. Utveckla och testa en app
@@ -29,12 +29,12 @@ Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självst
 4. Allmänna programhanteringsaktiviteter
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Skapa en webbapp och aktivera kontinuerlig distribution
-Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/app-service/), som du ska använda i resten av den här kursen. Du ska börja med att aktivera kontinuerlig distribution från lagringsplatsen för din källkod till vår aktiva Azure-miljö.
+Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/app-service/), som du ska använda i resten av den här kursen. Du måste först aktivera kontinuerlig distribution från din kod källdatabasen i körs Azure-miljön.
 
-1. Logga in i Azure Portal
-2. Välj **Apptjänster** &gt; **ikonen Lägg till** och ange ett namn. Välj din prenumeration och skapa en ny resursgrupp som ska användas som behållare för tjänsten.
+1. Logga in på Azure-portalen
+2. Välj **App Services**&gt;**ikonen Lägg till** och ange ett namn. Välj din prenumeration och skapa en ny resursgrupp som ska användas som behållare för tjänsten.
    
-   Du kan använda resursgrupper om du vill hantera olika aspekter av lösningen, t.ex. fakturering, distributioner och övervakning, som en grupp med hjälp av [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Resursgrupper kan du hantera olika aspekter av lösningen såsom fakturering, distribution och övervakning av alla som en enda grupp via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Din apptjänst skapas efter en liten stund. Ägna några minuter åt att utforska de olika menyalternativen för tjänsten på portalen.
@@ -43,7 +43,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
 4. Klicka på URL:en. Lägg märke till de många olika tillgängliga alternativen för verktyg och lagerplatser. Du kan också använda önskade språk och ramverk, inklusive .NET, Java, Ruby.
    
    ![image3][image3]    
-5. Med Azure-portalen blir kontinuerlig distribution en enkel process som endast kräver några få enkla steg. På Azure-portalen väljer du inställningar från ikonen för den apptjänst som du precis skapat.
+5. Med Azure-portalen blir kontinuerlig distribution en enkel process som endast kräver några få enkla steg. Välj inställningarna på ikonen för app service som du skapade i Azure-portalen.
    
    ![image4][image4]
    
@@ -53,7 +53,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
 6. Konfigurera några inställningar för att aktivera kontinuerlig distribution för appen. Klicka på Distributionskälla och sedan på Välj källa. Lägg märke till de olika alternativ som du kan välja mellan för källans lagerplats.
    
    ![image6][image6]
-7. Välj GitHub i det här exemplet. Du kan också välja valfri lagringsplats och konfigurera autentiseringsuppgifterna.
+7. I det här exemplet väljer du GitHub. Du kan också välja valfri lagringsplats och konfigurera autentiseringsuppgifterna.
    
    ![image7][image7]
 8. Efter auktoriseringen till lagerplatsen kan du välja ett projekt och en gren som du vill distribuera. Det finns flera fiktiva exempel nedan.
@@ -62,7 +62,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
 9. Klicka på OK när du har valt projekt och gren. Nu bör du se meddelanden om en distribution.
    
    ![image9][image9]
-10. Gå tillbaka till GitHub för att se webhooken som skapades för att integrera källkontrolldatabasen med Azure. Med några få enkla steg kan du integrera Azure Portal med GitHub.
+10. Gå tillbaka till GitHub för att se webhooken som skapades för att integrera källkontrolldatabasen med Azure. Azure-portalen möjliggör integrering med GitHub med några enkla steg.
     
     ![image10][image10]
 11. Om du vill se den kontinuerliga distributionen kan du snabbt lägga till lite innehåll i datalagret. Som ett enkelt exempel kan du lägga till en textfil i en GitHub-databas. Du kan använda .NET, Ruby, Python eller någon annan typ av program med App Service. Lägg till en textfil eller ett ASP.NET MVC-, Java- eller Ruby-program i valfritt datalager.
@@ -71,7 +71,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
 12. När du har bekräftat lagerändringarna kan du se att en ny distribution har initierats i portalens meddelandefält. Klicka på Synkronisera om du inte ser ändringarna när du har sparat dem i lagret.
     
     ![image12][image12]
-13. Om du i detta läge försöker läsa in sidan för apptjänsten kan fel 403 returneras. I det här exemplet beror det på att det inte finns någon typisk standarddokumentkonfiguration för sidan, t.ex. en fil som index.htm eller default.html. Du kan snabbt åtgärda detta med verktygsuppsättningen i Azure Portal.  Välj Inställningar &gt; Programinställningar i Azure Portal.
+13. Om du i detta läge försöker läsa in sidan för apptjänsten kan fel 403 returneras. I det här exemplet beror det på att det inte finns någon typisk standarddokumentkonfiguration för sidan, t.ex. en fil som index.htm eller default.html. Snabbt lösa med verktygsuppsättning i Azure-portalen.  Välj inställningar i Azure portal &gt; programinställningar.
     
      ![image13][image13]
 14. Ett blad öppnas för programinställningar. Ange namnet på sidan ”SamplePage.html” och klicka på Spara. Ägna några minuter åt att utforska de andra inställningarna.
@@ -81,18 +81,18 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
     
     ![image15][image15]
     
-    Det är enkelt att aktivera kontinuerlig distribution med Azure Portal. Du kan också skapa mer komplexa publiceringskanaler och använda många andra tekniker med befintliga system för källkontroll och kontinuerlig integration för distribution till Azure, t.ex. genom att använda automatiska utvecklings- och versionshanteringssystem.
+    Aktiverar kontinuerlig distribution med Azure-portalen är ett enkelt upplevelse. Du kan också skapa mer komplexa publiceringskanaler och använda många andra tekniker med befintliga system för källkontroll och kontinuerlig integration för distribution till Azure, t.ex. genom att använda automatiska utvecklings- och versionshanteringssystem.
 
 ## <a name="develop-and-test-an-app"></a>Utveckla och testa en app
-Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändringar. Du ska också konfigurera prestandatestning för webbappen.
+Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändringar. Du kan också ställa in upp vissa prestandatestning för webbprogrammet.
 
-1. Välj App Services i navigeringsfönstret i Azure Portal och leta upp din apptjänst.
+1. Välj Apptjänster i navigeringsfönstret i Azure-portalen och leta upp din Apptjänst.
    
    ![image16][image16]
 2. Klicka på Verktyg
    
    ![image17][image17]
-3. Lägg märke till utvecklingskategorin under Verktyg. Det finns flera användbara verktyg här som vi kan använda för att arbeta med appar utan att lämna Azure Portal. Klicka på Konsol.
+3. Lägg märke till utvecklingskategorin under Verktyg. Det finns flera användbara verktyg här som ger oss möjlighet att arbeta med appar utan att lämna den Azure-portalen. Klicka på Konsol.
    
    ![image18][image18]
 4. Du kan skicka kommandon live för din app i konsolfönstret. Skriv kommandot dir och tryck på Retur. Observera att kommandon som kräver utökade privilegier inte fungerar.
@@ -141,7 +141,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
     När testet är klart kan du visa mer information genom att klicka på resultatet.
     
     ![image33][image33]
-16. I det här exemplet skapade du en liten testkörning, vilket innebär att mängden data som ska analyseras är begränsad, men du kan se olika mått och köra om testet från den här vyn. Med Azure Portal är det enkelt att skapa, köra och analysera webbprestandatester. Skärmbilderna nedan visar prestandadata.
+16. I det här exemplet skapade du en liten testkörning, vilket innebär att mängden data som ska analyseras är begränsad, men du kan se olika mått och köra om testet från den här vyn. Azure portal är att skapa, testar köra och analysera webbprestanda en enkel process. Skärmbilderna nedan visar prestandadata.
     
     ![image34][image34]
     
@@ -152,7 +152,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Övervaka och felsöka en app
 Azure tillhandahåller många funktioner för övervakning och felsökning av program som körs.
 
-1. Välj Verktyg för vår webbapp i Azure Portal.
+1. Välj Verktyg i Azure-portalen för webbprogrammet.
    
    ![image37][image37]
 2. Observera de olika verktygsalternativen för att felsöka potentiella problem med en aktiv app under kategorin Felsök. Du kan till exempel övervaka Live HTTP-trafik, aktivera självåterställning, visa loggar osv.
@@ -175,7 +175,7 @@ Azure tillhandahåller många funktioner för övervakning och felsökning av pr
    Genom att klicka på minnesdumpfilen kan du ladda ned och analysera en DebugDiag-analysrapport för att identifiera möjliga fel.
    
    ![image43][image43]
-6. Om du vill visa mer data måste du aktivera ytterligare loggning. Navigera till webbappen och välj Inställningar i Azure Portal.
+6. Om du vill visa mer data måste du aktivera ytterligare loggning. Navigera till webbappen i Azure-portalen och välja inställningar.
    
    ![image44][image44]
 7. Bläddra ned till funktionskategorin och välj Diagnostikloggar.
@@ -193,10 +193,10 @@ Azure tillhandahåller många funktioner för övervakning och felsökning av pr
 11. Genom att klicka på HTML-filloggen kan du skapa en detaljerad webbläsarbaserad rapport för vidare utredning.
     
     ![image49][image49]
-12. Gå tillbaka till verktygsavsnittet i Azure Portal för appen. Bläddra ned till verktygsavsnittet och välj Processutforskaren.
+12. Gå tillbaka till avsnittet verktyg i Azure-portalen för appen. Bläddra ned till verktygsavsnittet och välj Processutforskaren.
     
     ![image50][image50]
-13. Genom att välja Processutforskaren kan du visa information om processer som körs. Observera nedan att du kan visa mer detaljer om processer och även avsluta processer från Azure Portal.
+13. Genom att välja Processutforskaren kan du visa information om processer som körs. Meddelande nedan du kan detaljerat processer och även avsluta processer från Azure-portalen.
     
     ![image51][image51]
     
@@ -204,13 +204,13 @@ Azure tillhandahåller många funktioner för övervakning och felsökning av pr
 14. Gå tillbaka till bladet Inställningar till vänster. Klicka på Ny supportförfrågan.
     
     ![image53][image53]
-15. Från bladet till höger kan du fylla i information om problemen, ange kontaktinformation och ladda upp diagnostikdata. Med Azure Portal är det enkelt att arbeta med Microsofts support.
+15. Från bladet till höger kan du fylla i information om problemen, ange kontaktinformation och ladda upp diagnostikdata. Azure-portalen kan arbeta med Microsoft-supporten smidigt.
     
     ![image54][image54]
     
     ![image55][image55]
     
-    Azure Portal ger åtkomst till kraftfulla och välbekanta verktygsmiljöer som gör det enkelt att övervaka och felsöka program som körs. Du kan också snabbt vidta åtgärder och till exempel återanvända processer, aktivera och inaktivera olika datasamlingar eller integrera med Microsofts support.
+    Azure-portalen ger kraftfulla och välbekanta verktyg upplevelser hjälper dig att övervaka och felsöka ditt program som körs. Du kan också snabbt vidta åtgärder och till exempel återanvända processer, aktivera och inaktivera olika datasamlingar eller integrera med Microsofts support.
 
 ## <a name="general-application-management"></a>Allmän programhantering
 När du hanterar program behöver du ofta utföra många olika slags aktiviteter, till exempel konfigurera säkerhetskopieringsstrategier, implementera och hantera identitetsproviders och konfigurera rollbaserad åtkomstkontroll. Precis som med de andra DevOps-miljöerna integrerar Azure-plattformen dessa uppgifter direkt på portalen.
@@ -230,7 +230,7 @@ När du hanterar program behöver du ofta utföra många olika slags aktiviteter
 5. Skapa och välj en lagringsbehållare för säkerhetskopiorna. Klicka på Skapa längst ned på bladet. Välj behållaren.
    
    ![image60][image60]
-6. När du har valt behållaren kan du konfigurera scheman och säkerhetskopieringar för dina databaser. I det här scenariot klickar du på ikonen Spara.
+6. När du har valt behållaren kan du konfigurera scheman, samt konfigurerar säkerhetskopieringar för dina databaser. I det här scenariot klickar du på ikonen Spara.
    
     ![image61][image61]
 7. När du har sparat bläddrar du tillbaka till bladet till vänster för Säkerhetskopieringar. Säkerhetskopiera programmet genom att klicka på Säkerhetskopiera nu.
@@ -248,13 +248,13 @@ När du hanterar program behöver du ofta utföra många olika slags aktiviteter
 11. Välj App Service-autentisering till höger på bladet. Lägg märke till de olika alternativ som du kan konfigurera med populära providers.
     
      ![image66][image66]
-12. Välj önskat provideralternativ och observera alternativen för omfånget. Du kan ange ett app-ID och en apphemlighet och snabbt aktivera Facebook-autentisering för appen. Azure Portal erbjuder autentisering som en nyckelfärdig lösning för appar.
+12. Välj önskat provideralternativ och observera alternativen för omfånget. Du kan ange ett app-ID och en apphemlighet och snabbt aktivera Facebook-autentisering för appen. Azure-portalen aktiverar autentisering som en helhetslösning för appar.
     
      ![image67][image67]
 13. Gå tillbaka till bladet Inställningar och välj Användare under kategorin Resurshantering.
     
      ![image68][image68]
-14. Utforska de olika alternativen för att lägga till roller och användare på bladet till höger. På Azure Portal kan du enkelt styra programmets rollbaserade åtkomst.
+14. Utforska de olika alternativen för att lägga till roller och användare på bladet till höger. Azure-portalen kan du enkelt styra RBAC (rollbaserad åtkomstkontroll) för programmet.
     
      ![image69][image69]
 

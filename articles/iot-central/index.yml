@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure IoT Central (förhandsversion)
+metadata:
+  title: Dokumentation om Azure IoT Central (förhandsversion) – självstudier, API-referens | Microsoft Docs
+  description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+  services: iot-central
+  author: czeumault
+  manager: carolz
+  ms.prod: microsoft-iot-central
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: carolz
+  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/16/2018
+abstract:
+  description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du <a href="quick-deploy-iot-central">skapar ett nytt Azure IoT Central-program</a>.
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du anpassar och använder det nya Azure IoT Central-programmet.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-define-device-type">Definiera en ny enhetstyp</a>
+    - html: <a href="tutorial-configure-rules">Konfigurera regler</a>
+    - html: <a href="tutorial-customize-operator">Anpassa operator-vyn</a>
+    - html: <a href="tutorial-monitor-devices">Övervaka dina enheter</a>
+    - html: <a href="tutorial-add-device">Lägga till en riktig enhet</a>

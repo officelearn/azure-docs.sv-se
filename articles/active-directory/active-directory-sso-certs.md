@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 Den här artikeln innehåller vanliga frågor och information som rör certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till SaaS-program. Lägg till program från appgalleriet för Azure AD eller genom att använda en mall för icke-galleriet program. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
@@ -76,5 +76,5 @@ Följande förnyelse ska leda till ingen betydande driftstopp för dina använda
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
-* [Programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md)

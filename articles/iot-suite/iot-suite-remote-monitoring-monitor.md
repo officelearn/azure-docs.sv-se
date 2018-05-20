@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-suite-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="choose-the-devices-to-display"></a>Välj vilka enheter som ska visas
 
@@ -115,7 +115,7 @@ Den här självstudiekursen visades hur du använder den **instrumentpanelen** a
 
 Nu när du har lärt dig hur du övervakar dina enheter, föreslagna nästa steg är att lära dig hur du:
 
-* [Identifiera problem med tröskelvärdesbaserad regler](./iot-suite-remote-monitoring-automate.md).
+* [Identifiera problem med tröskelvärdesbaserad regler](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Hantera och konfigurera dina enheter](./iot-suite-remote-monitoring-manage.md).
 * [Felsök och åtgärda enhetsproblem](./iot-suite-remote-monitoring-maintain.md).
 * [Testa din lösning med simulerade enheter](iot-suite-remote-monitoring-test.md).

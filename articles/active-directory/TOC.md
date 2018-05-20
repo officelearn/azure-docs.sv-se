@@ -16,6 +16,7 @@
 ## [Lägga till användare i Azure AD](add-users-azure-active-directory.md)
 ## [Tilldela licenser till användare](license-users-groups.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](authentication/quickstart-sspr.md)
+## [Lägg till din organisations sekretessinformation i Azure AD](active-directory-properties-area.md)
 
 
 # Gör så här för att
@@ -58,6 +59,7 @@
 #### [B2B-delningsprinciper](active-directory-b2b-delegate-invitations.md)
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamiska grupper och B2B-användare](active-directory-b2b-dynamic-groups.md)
+#### [Lämna en organisation](active-directory-b2b-leave-the-organization.md)
 #### [Granskning och rapporter](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B för hybridorganisationer](active-directory-b2b-hybrid-organizations.md)
 ##### [Bevilja B2B-användare åtkomst till lokala appar](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,32 +180,32 @@
 
 ### [Få åtkomst till appar med App Proxy](manage-apps/application-proxy.md)
 #### Kom igång
-##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
-##### [Publicera appar](application-proxy-publish-azure-portal.md)
-##### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
-#### [Enkel inloggning](application-proxy-sso-overview.md)
-##### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
-##### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
-##### [Enkel inloggning med lösenordsvalv](application-proxy-sso-azure-portal.md)
+##### [Aktivera App Proxy](manage-apps/application-proxy-enable.md)
+##### [Publicera appar](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Anpassade domäner](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Enkel inloggning](manage-apps/application-proxy-single-sign-on.md)
+##### [Enkel inloggning med KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+##### [Enkel inloggning med rubriker](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [Enkel inloggning med lösenordsvalv](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Begrepp
-##### [Anslutningsappar](application-proxy-understand-connectors.md)
-##### [Säkerhet](application-proxy-security-considerations.md)
-##### [Nätverk](application-proxy-network-topology-considerations.md)
+##### [Anslutningsappar](manage-apps/application-proxy-connectors.md)
+##### [Säkerhet](manage-apps/application-proxy-security.md)
+##### [Nätverk](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Uppgradera från TMG eller UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Uppgradera från TMG eller UAG](manage-apps/application-proxy-migration.md)
 
 #### Avancerade konfigurationer
-##### [Publicera i separata nätverk](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Proxyservrar](application-proxy-working-with-proxy-servers.md)
-##### [Anspråksmedvetna appar](active-directory-application-proxy-claims-aware-apps.md)
-##### [Ursprungliga klientappar](active-directory-application-proxy-native-client.md)
-##### [Tyst installation](active-directory-application-proxy-silent-installation.md)
-##### [Anpassad startsida](application-proxy-office365-app-launcher.md)
-##### [Översätt infogade länkar](application-proxy-link-translation.md)
+##### [Publicera i separata nätverk](manage-apps/application-proxy-connector-groups.md)
+##### [Proxyservrar](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Anspråksmedvetna appar](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Ursprungliga klientappar](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Tyst installation](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Anpassad startsida](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Översätt infogade länkar](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Publicera genomgångar
-##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Fjärrskrivbord](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

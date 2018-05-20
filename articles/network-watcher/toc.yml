@@ -39,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Vy för nätverkssäkerhetsgrupp
       href: network-watcher-security-group-view-overview.md
-    - name: Visa nätverkstopologi
-      href: network-watcher-topology-overview.md
+    - name: Behörigheter för rollbaserad åtkomstkontroll
+      href: required-rbac-permissions.md
 - name: Instruktionsguider
   items:
     - name: Konfigurera Network Watcher
@@ -150,16 +150,8 @@
           href: network-watcher-monitor-with-azure-automation.md
         - name: Diagnostisera lokal anslutning via VPN Gateway
           href: network-watcher-diagnose-on-premises-connectivity.md
-    - name: Visa din nätverkstopologi
-      items:
-        - name: Azure PowerShell
-          href: network-watcher-topology-powershell.md
-        - name: Azure CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST
-          href: network-watcher-topology-rest.md
+    - name: Visa nätverkstopologi
+      href: view-network-topology.md
     - name: Fastställa relativ svarstid mellan en plats och en Azure-region
       href: view-relative-latencies.md
 - name: Referens

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Grovo | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Grovo."
+title: 'Självstudier: Azure Active Directory-integrering med Grovo | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Grovo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7016208aad3ec60f2db8d071bf67f9dae66a59bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Självstudier: Azure Active Directory-integrering med Grovo
 
@@ -30,7 +30,7 @@ Integrera Grovo med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Grovo (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Grovo domän med enkel inloggning information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 4. Kontrollera **visa avancerade inställningar för URL: en**, utföra följande steg:
 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Grovo domän med enkel inloggning information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
     
-    I den **inloggning URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    I den **inloggning URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare, Reply URL på URL: en och Relay tillstånd. Kontakta [Grovo supportteamet](https://www.grovo.com/contact-us) att hämta dessa värden.
@@ -135,7 +135,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
-    | Förnamn          | user.givenname |
+    | Förnamn          | User.givenName |
     | Efternamn           | User.surname |
     | E-postadress       | User.Mail    |
     | EmployeeID          | User.EmployeeID |
@@ -272,7 +272,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

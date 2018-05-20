@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med TalentLMS | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TalentLMS."
+title: 'Självstudier: Azure Active Directory-integrering med TalentLMS | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TalentLMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 171457617c23f2c0ff761f7ae1e78dcf152cd0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c81d3e01170b2d134f83551911f9fcbd6e5f6e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Självstudier: Azure Active Directory-integrering med TalentLMS
 
@@ -29,9 +29,9 @@ Integrera TalentLMS med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på TalentLMS (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med TalentLMS, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<tenant-name>.TalentLMSapp.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenant-name>.TalentLMSapp.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`http://<tenant-name>.talentlms.com`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `http://<tenant-name>.talentlms.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [TalentLMS klienten supportteamet](https://www.talentlms.com/contact) att hämta dessa värden. 
@@ -153,13 +153,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     f. Fyll i följande: 
 
-    * I den **TargetedID** textruta typ`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+    * I den **TargetedID** textruta typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
      
-    * I den **Förnamn** textruta typ`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    * I den **Förnamn** textruta typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
     
-    * I den **efternamn** textruta typ`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    * I den **efternamn** textruta typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
     
-    * I den **e-post** textruta typ`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    * I den **e-post** textruta typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     
 11. Klicka på **Spara**.
  
@@ -216,7 +216,7 @@ Om du vill aktivera Azure AD-användare kan logga in på TalentLMS etableras de 
 
     b. I den **efternamn** textruta Ange efternamn för användaren som **Simon**.
  
-    c. I den **e-postadress** textruta ange e-postadress för användaren som  **brittasimon@contoso.com** .
+    c. I den **e-postadress** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
 
     d. Klicka på **lägga till användare**.
 
@@ -263,7 +263,7 @@ När du klickar på panelen TalentLMS på åtkomstpanelen du bör få automatisk
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

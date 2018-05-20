@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH till noder i Azure Kubernetes Service (AKS)
 
-Ibland kan behöva du åtkomst till en Azure Kubernetes Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. Azure Kubernetes Service (AKS) noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
+Ibland kan behöva du åtkomst till en Azure Kubernetes Service (AKS)-nod för underhåll, Logginsamling eller andra åtgärder för felsökning. AKS noder exponeras inte till internet. Använd stegen som beskrivs i det här dokumentet för att skapa en SSH-anslutning med en AKS-nod.
 
 ## <a name="reset-ssh-keys"></a>Återställ SSH-nycklar
 
@@ -31,7 +31,7 @@ Välj **återställa SSH offentlig nyckel**, ange AKS klustret användarnamn är
 
 ![AKS portal VM med knappen för återställning av lösenord](media/aks-ssh/reset-password-2.png)
 
-Du kan skapa en SSH ansluta med hjälp av motsvarande privata nyckel när SSH-nyckeln har återställts.
+Du kan skapa en SSH-anslutning med hjälp av motsvarande privata nyckel när SSH-nyckeln har återställts.
 
 ## <a name="get-aks-node-address"></a>Hämta AKS nodadress
 

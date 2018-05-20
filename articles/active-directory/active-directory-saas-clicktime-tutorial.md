@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ClickTime | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ClickTime."
+title: 'Självstudier: Azure Active Directory-integrering med ClickTime | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ClickTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f19e1968c736cb21a2a80b9807fa86461e05ee42
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24dab1856880a3d8c69701257167cae8d97e241
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Självstudier: Azure Active Directory-integrering med ClickTime
 
@@ -30,9 +30,9 @@ Integrera ClickTime med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på ClickTime (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med ClickTime, behöver du följande:
 
@@ -108,7 +108,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och ClickTime domän med enkel inloggning information](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL som:`https://app.clicktime.com/sp/`
+    a. I den **identifierare** textruta Skriv en URL som: `https://app.clicktime.com/sp/`
     
     b. I den **Reply URL** textruta Skriv en URL med följande mönster: 
 
@@ -201,7 +201,7 @@ När det gäller ClickTime är etablering en manuell aktivitet.
    
     a.  I den **fullständigt namn** textruta typen fullständigt namn för användaren som **Britta Simon**. 
   
-    b.  I den **e-postadress** textruta, ange den e-posten för användare som  **brittasimon@contoso.com** .
+    b.  I den **e-postadress** textruta, ange den e-posten för användare som **brittasimon@contoso.com**.
        
     > [!NOTE]
     > Om du vill kan ange du ytterligare egenskaper i objektet person.
@@ -248,7 +248,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

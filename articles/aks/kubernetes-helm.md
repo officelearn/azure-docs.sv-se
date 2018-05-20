@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 53201021433b71aa6cd5b53e2089c2a105bade07
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Använda Helm med Azure Kubernetes-tjänsten (AKS)
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 Den [helm init] [ helm-init] kommando som används för att installera Helm komponenter i ett Kubernetes kluster och ge klientsidan konfigurationer. Kör följande kommando för att installera Helm på AKS klustret och konfigurera Helm-klienten.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Resultat:
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Om du vill distribuera en domänkontrollant för en NGINX-ingång använder den [helm installera] [ helm-install] kommando.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Utdata liknar följande, men innehåller ytterligare information, till exempel instruktioner om hur du använder Kubernetes-distributionen.

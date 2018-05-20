@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Picturepark | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Picturepark."
+title: 'Självstudier: Azure Active Directory-integrering med Picturepark | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Picturepark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d9fd7127a36e9a699a352dbe6899edd5ea99e92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6421921d75b299d44cdd0942b64e524a73dfa042
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudier: Azure Active Directory-integrering med Picturepark
 
@@ -29,9 +29,9 @@ Integrera Picturepark med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Picturepark (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Picturepark, behöver du följande:
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-picturepark-tutorial/tutorial_picturepark_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.picturepark.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.picturepark.com`
 
     b. I den **identifierare** textruta Skriv en URL med följande mönster: 
     
@@ -221,7 +221,7 @@ För att aktivera Azure AD-användare att logga in på Picturepark etableras de 
    
     ![Skapa användare](./media/active-directory-saas-picturepark-tutorial/ic795069.png "skapa användare")
    
-    a. I den **e-postadress** textruta typ av **e-postadress** användarens  **BrittaSimon@contoso.com** .  
+    a. I den **e-postadress** textruta typ av **e-postadress** användarens **BrittaSimon@contoso.com**.  
    
     b. I den **lösenord** och **Bekräfta lösenord** textrutor, typen av **lösenord** av BrittaSimon. 
    
@@ -237,7 +237,7 @@ För att aktivera Azure AD-användare att logga in på Picturepark etableras de 
    
     h. I den **Stad** textruta typ av **Ortnamn** för användaren.
 
-    Jag. Välj en **språk**.
+    i. Välj en **språk**.
    
     j. Klicka på **Skapa**.
 
@@ -284,7 +284,7 @@ När du klickar på panelen Picturepark på åtkomstpanelen du bör få automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

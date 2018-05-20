@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -156,7 +156,7 @@ Om tjänstleverantören erbjuder ExpressRoute på båda platser kan du arbeta me
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag har flera ExpressRoute-kretsar i samma metro? Kan jag koppla dem till samma virtuella nätverk?
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera platser för ExpressRoute-peering och kretsarna skapas på olika peering platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka dem till samma virtuella nätverk.
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera platser för ExpressRoute-peering och kretsarna skapas på olika peering platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka dem till samma virtuella nätverk. Varje platsnamn i Azure Portal eller PowerShell/CLI API representerar en peeringplatsen. Du kan till exempel välja peering platser ”Singapore” och ”Singapore2” och ansluta kretsar från varje till samma virtuan nätverk. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur ansluter mitt virtuella nätverk till en ExpressRoute-krets
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Panorama9 | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Panorama9."
+title: 'Självstudier: Azure Active Directory-integrering med Panorama9 | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Panorama9.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cbb6e45f730b8eaef4cb25307cfeaf9f1c853a1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4008567333d0c1881ab2b79ac62c1a4755bd319e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integrering med Panorama9
 
@@ -29,9 +29,9 @@ Integrera Panorama9 med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Panorama9 (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Panorama9, behöver du följande:
 
@@ -111,9 +111,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL som:`https://dashboard.panorama9.com/saml/access/3262`
+    a. I den **inloggnings-URL** textruta Skriv en URL som: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`http://www.panorama9.com/saml20/<tenant-name>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `http://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Panorama9 klienten supportteamet](https://support.panorama9.com) att hämta dessa värden. 
@@ -197,7 +197,7 @@ När det gäller Panorama9 är etablering en manuell aktivitet.
    
   ![Användare](./media/active-directory-saas-panorama9-tutorial/ic790027.png "användare")
 
-3. I avsnittet användare klickar du på  **+**  att lägga till nya användare.
+3. I avsnittet användare klickar du på **+** att lägga till nya användare.
 
  ![Användare](./media/active-directory-saas-panorama9-tutorial/ic790028.png "användare")
 
@@ -248,7 +248,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

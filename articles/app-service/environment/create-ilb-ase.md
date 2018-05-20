@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 72ba97727fd4de1c419091475f14427065790cc7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern belastningsutjämnare med en App Service-miljö #
 
@@ -63,6 +63,8 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
 4. Välj eller skapa ett virtuellt nätverk (VNet).
 
+    * Om du väljer ett nytt virtuellt nätverk, kan du ange ett namn och en plats. För tillfället stöds endast 6 regioner för värdbaserade Linux-appar på ASE: **USA, västra; USA, östra; Europa, västra; Europa, norra; Australien, östra; Asien, sydöstra.** 
+
 5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/25`, som har 128 adresser och kan hantera en ASE med maximal storlek. Den minsta storleken du kan välja är `/28`. Beroende på infrastrukturens behov kan den här storleken bara skalas till högst 3 instanser.
 
     * Överskrid standardmängden på högst 100 instanser i dina App Service-planer.
@@ -106,7 +108,7 @@ Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-d
 
 Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanligtvis.
 
-1. I Azure-portalen väljer du **Skapa en resurs** > **Webb och mobilt** > **Webb** eller **Mobil** eller **API-app**.
+1. I Azure Portal väljer du **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
 
 2. Ange appens namn.
 
@@ -114,9 +116,13 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 4. Välj eller skapa en Resursgrupp.
 
-5. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
+5. Välj ditt operativsystem. 
 
-6. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
+    * Du kan bara ta din egen behållare med anvisningarna här om du vill skapa en Linux-app med hjälp av en anpassad dockerbehållare. 
+
+6. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
+
+7. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
 
     ![Skapa App Service plan][2]
 
@@ -209,7 +215,7 @@ SCM-webbplatsens namn tar dig till Kudu-konsolen som heter **Avancerad portal** 
 
 I App Service för flera innehavare och i en extern ASE finns det enkel inloggning mellan Azure-portalen och Kudu-konsolen. För ILB ASE måste du emellertid använda dina pucliceringsautentiseringsuppgifter för att logga in på Kudu-konsolen.
 
-Internet-baserade CI-system, som GitHub och Visual Studio Team Services, fungerar inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
+Internetbaserade CI-system, t.ex GitHub och Visual Studio Team Services, fungerar fortfarande med en ILB ASE om Build Agent är tillgänglig via Internet och på samma nätverk som ILB ASE. För Visual Studio Team Services gäller att om Build Agent har skapats på samma virtuella nätverk som ILB ASE (olika undernät går bra) kan den hämta koden från VSTS-git och distribuera till ILB ASE. Om du inte vill skapa en egen Build Agent måste du använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publiceringsprofil och i appens portalblad (**Översikt** > **Essentials** och även **Egenskaper**). Om du har en ILB ASE med underdomänen *contoso.net* och en app som heter *mytest* ska du använda *mytest.contoso.net* för FTP och *mytest.scm.contoso.net* för webbdistribution.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och använda modulen twins i IoT-hubb
 
@@ -27,7 +27,7 @@ Den här artikeln förutsätter att du har läst [förstå och använda enheten 
 
 På sidan enheten IoT Hub-enhet SDK kan du skapa moduler som varje öppnar en oberoende anslutning till IoT-hubb. På så sätt kan du använda separata namnområden för olika komponenter på enheten. Du har till exempel en Varuautomat som har tre olika sensorer. Varje sensor styrs av olika avdelningar inom företaget. Du kan skapa en modul för varje sensor. På så sätt kan varje avdelning kan bara skicka jobb eller direkt metoder sensor som de styr undvika konflikter och användarfel.
 
- Modulen identitets- och modulen dubbla innehåller samma funktioner som enheten identitets- och devic dubbla men på en ökad detaljnivå. Den här ökad detaljnivå kan kompatibla enheter som operativsystemet baserade enheter eller enheter för inbyggd hantering av flera komponenter, om du vill isolera konfiguration och villkor för var och en av dessa komponenter. Modulen identitet och modulen twins ger en hanteringen åtskillnad mellan problem när du arbetar med IoT-enheter som har modulära programkomponenter. Vi syftar till att stödja alla enheten identiska funktioner på modulen dubbla nivå av modulen dubbla allmän tillgänglighet. 
+ Modulen identitets- och modulen dubbla innehåller samma funktioner som identitet till en enhet och enheten dubbla men på en ökad detaljnivå. Den här ökad detaljnivå kan kompatibla enheter som operativsystemet baserade enheter eller enheter för inbyggd hantering av flera komponenter, om du vill isolera konfiguration och villkor för var och en av dessa komponenter. Modulen identitet och modulen twins ger en hanteringen åtskillnad mellan problem när du arbetar med IoT-enheter som har modulära programkomponenter. Vi syftar till att stödja alla enheten identiska funktioner på modulen dubbla nivå av modulen dubbla allmän tillgänglighet. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -34,6 +34,8 @@ Den här artikeln förklarar hur du arbetar med timer utlösare i Azure Function
 Timer-utlösare har angetts i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -168,16 +170,16 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
+|**typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appen inställningsnamn kapslas in i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
 |**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter.|
-|**useMonitor**|**UseMonitor**|Ange till `true` eller `false` att indikera om schemat bör övervakas. Övervakning av schemat kvarstår schema förekomster till stöd för schemat underhålls på rätt sätt när du startar om funktionen app-instanser. Om den inte har angetts explicit är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard är `false`.
+|**UseMonitor**|**UseMonitor**|Ange till `true` eller `false` att indikera om schemat bör övervakas. Övervakning av schemat kvarstår schema förekomster till stöd för schemat underhålls på rätt sätt när du startar om funktionen app-instanser. Om den inte har angetts explicit är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard är `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Syntax
+## <a name="usage"></a>Användning
 
 När en timer utlösaren funktionen anropas på [timer-objekt](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) skickades till funktionen. Följande JSON är ett exempel representation av timer-objektet. 
 
@@ -206,11 +208,11 @@ Varje fält kan ha något av följande typer av värden:
 
 |Typ  |Exempel  |När den utlöses  |
 |---------|---------|---------|
-|Ett specifikt värde |<nobr>"0 5 * * * *"</nobr>|vid hh:05:00 där hh är varje Timma (en gång i timmen)|
-|Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|vid 5:mm: 00 varje dag, mm är där varje minuten i timmen (60 gånger per dag)|
-|Ett intervall (`-` operatorn)|<nobr>"5-7 * * * * *"</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH är minuten i timmen (3 gånger minut)|  
-|En uppsättning värden (`,` operatorn)|<nobr>"5,8,10 * * * * *"</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH är minuten i timmen (3 gånger minut)|
-|Ett intervallvärde (`/` operatorn)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
+|Ett specifikt värde |<nobr>”0-5 *** *”</nobr>|vid hh:05:00 där hh är varje Timma (en gång i timmen)|
+|Alla värden (`*`)|<nobr>”0 * 5 ** *”</nobr>|vid 5:mm: 00 varje dag, mm är där varje minuten i timmen (60 gånger per dag)|
+|Ett intervall (`-` operatorn)|<nobr>”5-7 **** *”</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH är minuten i timmen (3 gånger minut)|  
+|En uppsättning värden (`,` operatorn)|<nobr>”5,8,10 **** *”</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH är minuten i timmen (3 gånger minut)|
+|Ett intervallvärde (`/` operatorn)|<nobr>”0 * / 5 *** *”</nobr>|hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
 
 ### <a name="cron-examples"></a>CRON-exempel
 
@@ -218,12 +220,12 @@ Här följer några exempel på CRON-uttryck som du kan använda för utlösaren
 
 |Exempel|När den utlöses  |
 |---------|---------|
-|"0 */5 * * * *"|en gång var femte minut|
-|"0 0 * * * *"|en gång längst upp i varje timme|
-|"0 0 */2 * * *"|en gång varannan timme|
-|"0 0 9-17 * * *"|en gång i timmen från 9: 00 och 17: 00|
-|"0 30 9 * * *"|på 9:30:00 varje dag|
-|"0 30 9 * * 1-5"|på 9:30:00 varje vardag|
+|”0 * / 5 *** *”|en gång var femte minut|
+|”0 0 *** *”|en gång längst upp i varje timme|
+|”0 0 * / 2 ** *”|en gång varannan timme|
+|”0 0-9-17 ** *”|en gång i timmen från 9: 00 och 17: 00|
+|”0 30 9 ** *”|på 9:30:00 varje dag|
+|”0 30 9 ** 1-5”|på 9:30:00 varje vardag|
 
 >[!NOTE]   
 >Du kan hitta CRON exempel på uttryck online, men många av dem utelämna den `{second}` fältet. Om du kopierar från en av dem, lägger du till den saknade `{second}` fältet. Vanligtvis vill du noll i fältet, inte en asterisk.
@@ -256,8 +258,8 @@ Uttryckt i form av en sträng i `TimeSpan` format är `hh:mm:ss` när `hh` är m
 
 |Exempel |När den utlöses  |
 |---------|---------|
-|"01:00:00" | Varje timme        |
-|"00:01:00"|Varje minut         |
+|”01: 00:00” | varje timma        |
+|”00: 01:00”|Varje minut         |
 |"24:00:00" | var 24: e dag        |
 
 ## <a name="scale-out"></a>Skalbarhet

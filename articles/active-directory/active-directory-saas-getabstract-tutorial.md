@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Getabstract | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Getabstract."
+title: 'Självstudier: Azure Active Directory-integrering med Getabstract | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Getabstract.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 37419f8f65f5dfa171302bb0d85cef23e8cea93b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 388a2a3f38db1637994e6daae37ca98c51b6067d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Självstudier: Azure Active Directory-integrering med Getabstract
 
@@ -30,9 +30,9 @@ Integrera Getabstract med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt hämta loggat in på Getabstract (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Getabstract, behöver du följande:
 
@@ -110,15 +110,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textruta anger du URL:
 
-    För steg/pre_production:`https://int.getabstract.com`
+    För steg/pre_production: `https://int.getabstract.com`
 
-    För produktion:`https://www.getabstract.com`
+    För produktion: `https://www.getabstract.com`
 
     b. I den **Reply URL** textruta anger du URL:
     
-    För steg/pre_production:`https://int.getabstract.com/ACS.do`
+    För steg/pre_production: `https://int.getabstract.com/ACS.do`
     
-    För produktion:`https://www.getabstract.com/ACS.do`
+    För produktion: `https://www.getabstract.com/ACS.do`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -126,9 +126,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     I den **inloggnings-URL** textruta Skriv en URL med följande mönster:
     
-    För steg/pre_production:`https://int.getabstract.com/portal/<org_username>`
+    För steg/pre_production: `https://int.getabstract.com/portal/<org_username>`
     
-    För produktion:`https://www.getabstract.com/portal/<org_username>`
+    För produktion: `https://www.getabstract.com/portal/<org_username>`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Getabstract klienten supportteamet](https://www.getabstract.com/en/contact) att hämta det här värdet.
@@ -225,7 +225,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 05/15/2018
 ms.author: kumud
-ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Hantera DNS-poster och postuppsättningar i Azure DNS använder Azure CLI 2.0
 
@@ -41,7 +41,7 @@ Mer information om DNS-poster i Azure DNS finns i [DNS-zoner och poster](dns-zon
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
-Du kan skapa en DNS-post med den `az network dns record-set <record-type> set-record` kommando (där `<record-type>` är typ av post engångsfaktorautentisering en, srv txt, etc.) Om du vill ha hjälp, så gå till `az network dns record-set --help`.
+Du kan skapa en DNS-post med den `az network dns record-set <record-type> add-record` kommando (där `<record-type>` är typ av post engångsfaktorautentisering en, srv txt, etc.) Om du vill ha hjälp, så gå till `az network dns record-set --help`.
 
 När du skapar en post måste du ange resursgruppsnamn, zonnamn, postuppsättningsnamn, posttyp och information om posten som skapas. Namnet på postuppsättningen anges måste vara en *relativa* namn, vilket innebär att den inte får innehålla zonnamnet.
 
@@ -52,13 +52,13 @@ Om en ny postuppsättning skapas, används ett standard TTL-värde (Time to Live
 Följande exempel skapar en A-post som heter *www* i zonen *contoso.com* i resursgruppen *MyResourceGroup*. IP-adressen för A-posten är *1.2.3.4*.
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 Skapa en post överst i zonen (i det här fallet ”contoso.com”) genom att använda postnamnet "@", inklusive citattecknen.
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>Skapa en uppsättning av DNS-poster
@@ -81,13 +81,13 @@ I följande exempel skapas en postuppsättning med två metadataposter ”Avd = 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-Att ha skapat en tom postuppsättningen, poster kan läggas till med `azure network dns record-set <record-type> set-record` enligt beskrivningen i [skapa en DNS-post](#create-a-dns-record).
+Att ha skapat en tom postuppsättningen, poster kan läggas till med `azure network dns record-set <record-type> add-record` enligt beskrivningen i [skapa en DNS-post](#create-a-dns-record).
 
 ## <a name="create-records-of-other-types"></a>Skapa poster för andra typer
 
 Har sett i detalj hur du skapar ”A” poster, visar i följande exempel hur du skapar andra posttyper som stöds av Azure DNS-post.
 
-Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `--ipv4-address <IPv4 address>`. Parametrarna för varje posttyp kan visas med hjälp av `az network dns record-set <record-type> set-record --help`.
+Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `--ipv4-address <IPv4 address>`. Parametrarna för varje posttyp kan visas med hjälp av `az network dns record-set <record-type> add-record --help`.
 
 I varje fall visar vi hur du skapar en enskild post. Posten läggs till den befintliga uppsättningen av poster eller en uppsättning av poster som skapats implicit. Mer information om hur du skapar postuppsättningar och definierar post parametern uttryckligen finns i avsnittet [skapa en DNS-postuppsättning](#create-a-dns-record-set).
 
@@ -96,7 +96,7 @@ Vi inte ger ett exempel för att skapa en SOA-poster, eftersom SOAs skapas och t
 ### <a name="create-an-aaaa-record"></a>Skapa en AAAA-post
 
 ```azurecli
-az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-an-caa-record"></a>Skapa en post för CAA
@@ -121,13 +121,13 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 I det här exemplet använder vi postuppsättningsnamnet "@" för att skapa MX-posten i basdomänen (i det här fallet "contoso.com").
 
 ```azurecli
-az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>Skapa en NS-post
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>Skapa en PTR-post
@@ -135,7 +135,7 @@ az network dns record-set ns set-record --resource-group myresourcegroup --zone-
 I det här fallet ”min-arpa-zone.com' representerar ARPA zonen som motsvarar IP-adressintervall. Varje PTR-post som har angetts i den här zonen motsvarar en IP-adress i IP-intervallet.  Postnamnet ”10” är den sista oktetten i IP-adress inom den här IP-adressintervall som representeras av den här posten.
 
 ```azurecli
-az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>Skapa en SRV-post
@@ -143,7 +143,7 @@ az network dns record-set ptr set-record --resource-group myresourcegroup --zone
 När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records), ange den  *\_service* och  *\_protokollet* i postuppsättningens namn. Det finns inget behov av att inkludera ”@” i namnet på postuppsättningen när du skapar en SRV-post på zonens apex.
 
 ```azurecli
-az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>Skapa en TXT-post
@@ -151,7 +151,7 @@ az network dns record-set srv set-record --resource-group myresourcegroup --zone
 I följande exempel visas hur du skapar en TXT-post. Mer information om den maximala stränglängden som stöds i TXT-poster finns [TXT-poster](dns-zones-records.md#txt-records).
 
 ```azurecli
-az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>Hämta en uppsättning poster
@@ -184,7 +184,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Lägga till en post i en befintlig postuppsättning
 
-Du kan använda `az network dns record-set <record-type> set-record` att skapa en post i en ny postuppsättning eller lägga till en post i en befintlig postuppsättningen.
+Du kan använda `az network dns record-set <record-type> add-record` att skapa en post i en ny postuppsättning eller lägga till en post i en befintlig postuppsättningen.
 
 Mer information finns i [skapa en DNS-post](#create-a-dns-record) och [skapa poster för andra typer](#create-records-of-other-types) ovan.
 
@@ -194,7 +194,7 @@ Ta bort en DNS-post från en befintlig post med `az network dns record-set <reco
 
 Det här kommandot tar bort en DNS-post från en postuppsättning. Om den sista posten i en postuppsättning tas bort raderas även postuppsättningen sig själv. Om du vill behålla tom postuppsättningen i stället använda den `--keep-empty-record-set` alternativet.
 
-Du måste ange posten som ska tas bort och zonen den bör tas bort från, med samma parametrar som när du skapar en post med hjälp av `az network dns record-set <record-type> set-record`. Dessa parametrar beskrivs i [skapa en DNS-post](#create-a-dns-record) och [skapa poster för andra typer](#create-records-of-other-types) ovan.
+Du måste ange posten som ska tas bort och zonen den bör tas bort från, med samma parametrar som när du skapar en post med hjälp av `az network dns record-set <record-type> add-record`. Dessa parametrar beskrivs i [skapa en DNS-post](#create-a-dns-record) och [skapa poster för andra typer](#create-records-of-other-types) ovan.
 
 I följande exempel tar bort en post med värdet '1.2.3.4 ”från posten uppsättning med namnet *www* i zonen *contoso.com*, i resursgrupp *MyResourceGroup*.
 
@@ -213,7 +213,7 @@ Om du vill ändra en befintlig post av typen A, AAAA, CAA, MX, NS, PTR, SRV och 
 I följande exempel visas hur du ändrar en ”A” post från IP-adress: 1.2.3.4 till IP-adressen 5.6.7.8:
 
 ```azurecli
-az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -254,7 +254,7 @@ Observera att detta gäller endast NS-postuppsättning på zonens apex. Andra NS
 I följande exempel visas hur du lägger till en ytterligare namnserver NS-postuppsättning på zonens apex:
 
 ```azurecli
-az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Att ändra TTL-värde på en befintlig postuppsättning

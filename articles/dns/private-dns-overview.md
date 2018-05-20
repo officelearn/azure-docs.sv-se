@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Med hjälp av Azure DNS för privata domäner
 Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) ett tjänstnamn till dess IP-adress. Azure DNS är värdtjänsten för DNS-domäner är att tillhandahålla namnmatchning med hjälp av Microsoft Azure-infrastrukturen.  Förutom mot internet DNS-domäner stöder Azure DNS nu också privata DNS-domäner som en förhandsversion av funktionen.  
@@ -54,7 +54,7 @@ Azure DNS är en tillförlitlig, säker DNS-tjänst för att hantera och lösa d
 
 ## <a name="limitations"></a>Begränsningar
 * 1 registrering virtuella nätverk per privata zon
-* Matchning av upp till 10 virtuella nätverk per privata zon
+* Upp till 10 upplösning virtuella nätverk per privata zon
 * Ett givet virtuellt nätverk kan bara kopplas till en privat zon som ett virtuellt nätverk för registrering
 * Ett givet virtuellt nätverk kan länkas till upp till 10 privata zoner som ett virtuellt nätverk upplösning
 * Om ett virtuellt nätverk för registrering har angetts DNS-posterna för de virtuella datorerna från det virtuella nätverket som är registrerade i zonen för privat kommer inte att visas eller hämtas från Powershell/CLI/API: erna, men VM-poster registreras verkligen och löser har

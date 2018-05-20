@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -79,9 +79,9 @@ Om du har program i ditt privata nätverk som ska användas av användare och en
 | Artikel Guide |  |
 |:---:| --- |
 | Översikt över Azure AD Application Proxy och hur det fungerar |[Att tillhandahålla säker fjärråtkomst till lokala program](manage-apps/application-proxy.md) |
-| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](manage-apps/application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](manage-apps/application-proxy-configure-custom-domain.md) |
-| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
-| Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](active-directory-application-proxy-native-client.md)<br /><br />[Ge stöd för anspråksmedvetna program](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](active-directory-application-proxy-connectors-azure-portal.md) |
+| Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](manage-apps/application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Hur du publicerar program med App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](manage-apps/application-proxy-configure-custom-domain.md) |
+| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Ge stöd för anspråksmedvetna program](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](manage-apps/application-proxy-connector-groups.md) |
 | Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
 
 Application Proxy är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för obegränsade program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), sedan kan du [använda grupper för att bevilja åtkomst till program](#managing-access-to-applications).
@@ -108,7 +108,7 @@ När du ställer in enkel inloggning till dina appar och resurser som kan du sed
 | Artikel Guide |  |
 |:---:| --- |
 | En introduktion till funktionerna som villkorlig åtkomst som erbjuds i Azure AD och Office 365 och Intune |[Hantera risker med villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) |
-| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program som publicerats via Azure AD App-Proxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program som publicerats via Azure AD App-Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst |[Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windowsenheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Hur du använder Microsoft Authenticator-appen för tvåstegsverifiering | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |

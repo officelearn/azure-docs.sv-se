@@ -2,69 +2,68 @@
 title: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen | Microsoft Docs
 description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurera indata och utdata samt definiera en fråga.
 services: stream-analytics
-keywords: Stream Analytics, molnjobb, Azure-portalen, jobbindata, jobbutdata, omvandling av jobb
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
-Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser exempelsensordata och filtrerar rader där medeltemperaturen är större än 100 för var 30:e sekund. I den här artikeln läser du data från bloblagring, omvandlar data och skriver dessa data tillbaka till en annan behållare i samma bloblagring.
+Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser exempelsensordata och filtrerar rader där medeltemperaturen är större än 100 för var 30:e sekund. I den här artikeln läser du data från bloblagringen, omvandlar data och skriver dessa data tillbaka till en annan behållare i samma bloblagring. Indata-filen som används i denna Snabbstart innehåller statiska data som endast är för illustration. I ett verkligt scenario använder du strömningsindata för en Stream Analytics-jobb.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
-Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har konfigurerats som indata för jobbet. Kör följande steg för att förbereda de inkommande data som krävs för jobbet:
+Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har konfigurerats som indata för jobbet. Förbered de indata som krävs för jobbet genom att köra följande steg:
 
-1. Ladda ned [exempelsensordata](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) från GitHub. Exempeldata innehåller sensorinformation i följande JSON-format:  
+1. Ladda ned [exempelsensordata](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) från GitHub. Exempeldata innehåller sensorinformation i följande JSON-format:  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. Logga in på Azure Portal  
+2. Logga in på Azure Portal.  
 
-3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i bladet för Storage-kontojobb och ange ”myasastorageaccount” för **Namn**, ”West US 2” för **Plats**, ”MyRG” för **Resursgrupp** (värdlagringskonto i samma resursgrupp som Streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
+3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i sidan för Storage-kontojobb och ange ”myasastorageaccount” för **Namn**, ”West US 2” för **Plats**, ”MyRG” för **Resursgrupp** (värdlagringskonto i samma resursgrupp som Streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
    ![Skapa lagringskonto](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. Från bladet **Alla resurser** letar du rätt på lagringskontot som du skapade i föregående steg. Öppna bladet **Översikt** och öppna sedan panelen **Blobbar**.  
+4. Från sidan **Alla resurser** letar du rätt på lagringskontot som du skapade i föregående steg. Öppna sidan **Översikt** och öppna sedan panelen **Blobar**.  
 
-5. Från bladet **Blob-tjänst** väljer du **Behållare**, anger ett **Namn** för behållaren, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Blob (anonym läsbehörighet endast för blobbar) > välj **OK**.  
+5. Från sidan **Blob-tjänst** väljer du **Behållare**, anger ett **Namn** för behållaren, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Blob (anonym läsbehörighet endast för blobar) > välj **OK**.  
 
    ![Skapa en behållare](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Gå till den behållare som du skapade i föregående steg, välj **Ladda upp** och ladda upp de sensordata som du fick i steg 1.  
+6. Gå till behållaren du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
 
    ![Ladda upp exempeldata till blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. Logga in på Azure Portal  
+1. Logga in på Azure Portal.
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.  
 
 3. Välj **Data + analys** > **Stream Analytics-jobb** i resultatlistan.  
 
-4. Fyll i bladet för Stream Analytics-jobbet med följande information:
+4. Fyll i sidan för Stream Analytics-jobbet med följande information:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
 2. Välj **Indata** > **Lägga till Stream-indata** > **Blob-lagring**.  
 
-3. Fyll i följande värden på bladet **Blob-lagring**:
+3. Fyll i följande värden på sidan **Blob Storage**:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
 2. Välj **Utdata > Lägg till > Blob-lagring**.  
 
-3. Fyll i följande värden på bladet **Blob-lagring**:
+3. Fyll i följande värden på sidan **Blob Storage**:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,9 +147,9 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-1. Återgå till jobböversiktsbladet och välj **Starta**  
+1. Återgå till jobböversiktssidan och välj **Starta**.
 
-2. Under **Starta jobb** väljer du **Anpassad** för fältet **Starttid**. Välj en dag innan den dag då du överförde filen till blob-lagring eftersom den tid då filen laddades upp är tidigare än aktuell tidpunkt. När du är klar väljer du **Starta**.  
+2. Under **Starta jobb** väljer du **Anpassad** för fältet **Starttid**. Välj `2018-01-24` som startdatum, men ändra inte tiden. Det här startdatumet är valt eftersom det kommer före tidsstämpeln för händelsen från exempeldata. När du är klar väljer du **Starta**.
 
    ![Starta jobbet](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
@@ -171,5 +170,5 @@ Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de in
 I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb. Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
-> [Stream Analytics-scenario: upptäck bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md)
+> [Identifiering av bedrägerier i realtid med hjälp av Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 

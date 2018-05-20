@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01a49ec47b406b7b916ecad5ef9ccc3af295fac1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelsehanterare i rutnätet för Azure-händelse
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller länkar till innehåll för varje händelsehantera
 
 Använd Azure Automation för att bearbeta händelser med automatisk runbooks.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 |[Integrera Azure Automation med händelsen rutnätet och Microsoft team](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som taggar den virtuella datorn och utlöser ett meddelande som skickas till en Microsoft-Teams-kanal. |
 
@@ -32,7 +32,7 @@ Använd Azure Automation för att bearbeta händelser med automatisk runbooks.
 
 Använd Azure Functions för serverlösa svar på händelser.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Händelseutlösare rutnät för Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Översikt över användning av händelse rutnätet utlösaren i funktioner. |
 | [Automatisera storleksändring av överförda bilder med Event Grid](resize-images-on-storage-blob-upload-event.md) | Användare ladda upp bilder via webbapp till storage-konto. När en lagringsblob skapas skickar rutnätet händelse en händelse till funktionsapp som ändrar storlek på den överförda avbildningen. |
@@ -43,7 +43,7 @@ Använd Azure Functions för serverlösa svar på händelser.
 
 Använd Azure Relay Hybridanslutningar för att skicka händelser till program som finns inom ett företagsnätverk och inte har en offentligt tillgänglig slutpunkt.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Skicka händelser hybridanslutning](custom-event-to-hybrid-connection.md) | Skickar en anpassad händelse till en befintlig hybridanslutning för bearbetning av ett lyssnarprogram för. |
 
@@ -51,7 +51,7 @@ Använd Azure Relay Hybridanslutningar för att skicka händelser till program s
 
 Använd Logic Apps automatisera affärsprocesser för att svara på händelser.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En logikapp övervakar ändringar till en virtuell dator och skickar e-postmeddelanden om dessa ändringar. |
 | [Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång en enhet har lagts till i din IoT-hubb. |
@@ -61,7 +61,7 @@ Använd Logic Apps automatisera affärsprocesser för att svara på händelser.
 
 Använda Queue storage för att ta emot händelser som behöver ska hämtas.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Vidarebefordra anpassade händelser till Azure Queue storage med Azure CLI och händelsen rutnätet](custom-event-to-queue-storage.md) | Beskriver hur du skickar anpassade händelser till en Queue storage. |
 
@@ -69,7 +69,7 @@ Använda Queue storage för att ta emot händelser som behöver ska hämtas.
 
 Använd webhooks för anpassningsbara slutpunkter som svara på händelser.
 
-|Namn  |Beskrivning  |
+|Titel  |Beskrivning  |
 |---------|---------|
 | [Ta emot händelser till en HTTP-slutpunkt](receive-events.md) | Beskriver hur du verifierar en HTTP-slutpunkt för att ta emot händelser från en händelse-prenumeration och ta emot och deserialisera händelser. |
 

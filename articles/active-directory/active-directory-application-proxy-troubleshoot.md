@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsökning av problem med Application Proxy och felmeddelanden
 Om fel uppstår i att komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD Application Proxy fungerar:
@@ -27,7 +27,7 @@ Om fel uppstår i att komma åt ett publicerat program eller publicera program k
 * Öppna konsolen Windows-tjänster och kontrollera att den **Microsoft AAD Application Proxy Connector** tjänsten är aktiverad och körs. Du kanske också vill titta på egenskapssidan för Application Proxy-tjänst som visas i följande bild:  
   ![Egenskaper för Microsoft AAD Application Proxy Connector skärmbild](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Öppna Loggboken och leta efter Application Proxy connector-händelser i **program- och tjänstloggar** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* Om det behövs mer detaljerade loggar är tillgängliga som [aktivera Application Proxy connector-sessionsloggar](application-proxy-understand-connectors.md#under-the-hood).
+* Om det behövs mer detaljerade loggar är tillgängliga som [aktivera Application Proxy connector-sessionsloggar](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 Mer information om verktyget Azure AD-felsökning finns [felsökningsverktyget för att verifiera anslutningen nätverk krav](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
@@ -90,7 +90,7 @@ Om det uppstår ett fel eller problem med Azure AD Application Proxy som inte fi
 * [Aktivera Application Proxy för Azure Active Directory](manage-apps/application-proxy-enable.md)
 * [Publicera program med Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)
 * [Aktivera enkel inloggning](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Aktivera villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
+* [Aktivera villkorlig åtkomst](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

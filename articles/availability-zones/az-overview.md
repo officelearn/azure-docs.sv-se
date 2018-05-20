@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure tillgänglighet zoner | Microsoft Docs
-description: Den här artikeln innehåller en översikt över hur du använder tillgänglighet zoner för att skapa hög tillgänglighet och flexibel program i Azure
+title: Vad är Azure tillgänglighet zoner? | Microsoft Docs
+description: Om du vill skapa hög tillgänglighet och flexibel program i Azure ger tillgänglighet zoner fysiskt separata platser som du kan använda för att köra dina resurser.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Översikt över tillgänglighet zoner i Azure
+# <a name="what-are-availability-zones-in-azure"></a>Vad är tillgänglighet zoner i Azure?
 Tillgänglighet zoner är en hög tillgänglighet erbjudande som skyddar program och data från fel datacenter. Tillgänglighet zoner är unika fysiska platser i en Azure-region. Varje zon består av en eller flera datacenter med oberoende ström, kylning och nätverk. För att säkerställa återhämtning, finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av tillgänglighet zoner inom en region skyddar program och data från fel datacenter. Zonredundant services replikeras dina program och data tillgänglighet zoner för att skydda från enkel punkter av fel. Azure erbjuder branschen bästa 99,99% VM drifttid SLA med tillgänglighet zoner. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
 Skapa hög tillgänglighet i din programarkitektur genom att samordna resurserna bearbetning, lagring, nätverk och data inom en zon och replikerar i andra zoner. Azure-tjänster som stöder tillgänglighet zoner är indelade i två kategorier:
@@ -37,7 +37,7 @@ Skapa din programarkitektur med Azure-region par kombinationen av tillgänglighe
 ## <a name="regions-that-support-availability-zones"></a>Regioner som har stöd för tillgänglighet zoner
 
 - Centrala USA
-- Centrala Frankrike
+- Frankrike, centrala
 - Östra USA 2 (förhandsgranskning)
 - Västra Europa (förhandsgranskning)
 - Sydostasien (förhandsgranskning)
@@ -48,9 +48,9 @@ Azure-tjänster som stöder tillgänglighet zoner är:
 
 - Virtuella Linux-datorer
 - Virtuella Windows-datorer
-- Skaluppsättningar för virtuell dator
+- Virtual Machine Scale Sets
 - Managed Disks
-- Belastningsutjämnare
+- Load Balancer
 - Offentlig IP-adress
 - Zonredundant lagring
 - SQL Database

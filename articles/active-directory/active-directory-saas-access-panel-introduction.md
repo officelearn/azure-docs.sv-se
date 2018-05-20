@@ -15,11 +15,11 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -60,7 +60,7 @@ Om du vill nå åtkomstpanelen, måste du autentiseras via ett arbets- eller sko
 
 Om du har en prenumeration på Azure eller Office 365 och du har använt Azure-portalen eller ett Office 365-program, kan du visa listan med program utan att logga in igen. Om du inte har autentiserats, uppmanas du att logga in med användarnamnet och lösenordet för ditt konto i Azure AD. Om din organisation har konfigurerat federation, räcker att ange användarnamnet.
 
-Du kan interagera med de program som administratören har integrerat med katalogen när du är autentiserad. Information om hur du integrerar program med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
+Du kan interagera med de program som administratören har integrerat med katalogen när du är autentiserad. Information om hur du integrerar program med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="web-browser-requirements"></a>Webbläsarkrav
 
@@ -215,7 +215,7 @@ Om ett program har konfigurerats för att autentisera användare med hjälp av A
  
 - Information om hur du integrerar en SaaS-app med Azure AD finns i [lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md).
  
-- Mer information om hur du hanterar appar med Azure AD finns i [introduktion till enkel inloggning och hantera appåtkomst med Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+- Mer information om hur du hanterar appar med Azure AD finns i [introduktion till enkel inloggning och hantera appåtkomst med Azure Active Directory](active-directory-appssoaccess-whatis.md).
  
 - Läs mer om användaretablering i [automatisera användaretablering och avetablering för SaaS-program](active-directory-saas-app-provisioning.md).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/15/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: 89e94e922a8a361abf52909583c22d731c38bba8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -37,7 +37,7 @@ Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771
 
 ## <a name="118190"></a>1.1.819.0
 
-2018-5/4: publicerat för automatisk uppgradering och nedladdning.
+2018-5/4: publicerat för automatisk uppgradering kommer snart att vara tillgänglig för hämtning.
 
 
 
@@ -62,16 +62,14 @@ Nya funktioner och förbättringar
 
 ### <a name="fixed-issues"></a>Fast problem 
 
-- Den här versionen uppdaterar SQL Server Express-installationen till SQL Server 2012 SP4, som bland annat innehåller korrigeringar för flera säkerhetsproblem.  Se [här](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) mer information om SQL Server 2012 SP4.
+
 - Synkronisera regeln bearbetning: utgående anslutning till sync-regler med inga ansluta villkor bör vara Frigör tillämpade om överordnade syncrule gäller inte längre
-- Flera hjälpmedel korrigeringar har tillämpats på Synchronization Service Manager-UI och redigeraren för regler för synkronisering
 - Azure AD Connect-guiden: Fel vid skapande av AD-koppling konto när Azure AD Connect finns i en arbetsgrupp
 - Azure AD Connect-guiden: På den Azure AD-inloggningssida visas kryssrutan verifiering när det finns en matchning av datatyp i AD-domäner och Azure AD-verifierad domäner
 - Uppgradera automatiskt PowerShell åtgärda ska ställas in automatiskt uppgraderingstillståndet korrekt i vissa fall när det gjordes ett försök att uppgradera automatiskt.
 - Azure AD Connect-guiden: Uppdatera telemetri för att samla in information som tidigare saknas
-- Azure AD Connect-guiden: Följande ändringar har gjorts när du använder den **ändra användarens inloggning** aktiviteten för att växla från AD FS till direkt-autentisering:
-    - Direkt-autentisering-agenten är installerad på Azure AD Connect-servern och funktionen direkt-autentisering är aktiverat innan vi konverterar domäner från federerad som hanteras.
-    - Användarna konverteras inte längre från federerad som hanteras. Endast domäner konverteras.
+- Azure AD Connect-guiden: Installera Tereftalsyra agenten innan du konverterar en domän som hanteras
+- Azure AD Connect-guiden: Det går inte att konvertera användare till hanterad (konvertera endast domän) för Tereftalsyra
 - Azure AD Connect-guiden: AD FS flera domän Regex är inte korrekt när användare UPN har ' specialtecken Regex uppdatering som stöder specialtecken
 - Azure AD Connect-guiden: Ta bort falska ”konfigurera ankare källattribut” visas när ingen ändring 
 - Azure AD Connect-guiden: AD FS stöd för dubbel Federationsscenario

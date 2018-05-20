@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b92cbf0df971afd3bea981327975ed792ce942d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -156,6 +156,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Virtuella datorer (klassisk) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Skaluppsättningar för virtuell dator - finns [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella nätverk - finns [begränsningar för virtuella nätverk](#virtual-networks-limitations)
+* Visual Studio Team Services - VSTS konton med icke-Microsoft-tillägg inköp måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot för alla prenumerationer.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Tjänster som inte kan flyttas
@@ -170,10 +171,10 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Azure Migrate
 * BizTalk Services
 * Certifikat - Apptjänstcertifikat kan flyttas, men överförda certifikat har [begränsningar](#app-service-limitations).
-* Kubernetes Service
 * DevTest Labs - flyttar till en ny resursgrupp i samma prenumeration har aktiverats men flytta mellan prenumeration har inte aktiverats.
 * Dynamics LCS
 * Express Route
+* Kubernetes Service
 * Belastningsutjämnare - Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Managed Applications
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)

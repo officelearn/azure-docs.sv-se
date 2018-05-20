@@ -1,10 +1,10 @@
 ---
-title: Jämför produktfunktioner i Azure Content Delivery Network (CDN) | Microsoft Docs
+title: Azure Content Delivery Network-produktfunktioner (CDN) | Microsoft Docs
 description: Läs mer om de funktioner som varje Azure Content Delivery Network-produkt (CDN) stöder.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: cfowler
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,22 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/09/2018
+ms.date: 04/25/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="compare-azure-cdn-product-features"></a>Jämföra Azure CDN-produktfunktioner
+# <a name="azure-cdn-product-features"></a>Azure CDN-produktfunktioner
 
-Azure Content Delivery Network (CDN) innehåller fyra produkter: **Azure CDN Standard från Microsoft** (i förhandsversion), **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon**. 
+Azure Content Delivery Network (CDN) innehåller fyra produkter: **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon**. I följande tabell jämförs de funktioner som är tillgängliga med respektive produkt.
 
-I följande tabell jämförs de funktioner som är tillgängliga med respektive produkt.
-
-| **Prestanda och optimering** | **Standard Microsoft (förhandsversion)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
+| **Prestanda och optimering** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
 | [Acceleration av dynamisk webbplats](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Acceleration av dynamisk webbplats – adaptiv bildkomprimering](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -63,7 +61,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 | [Realtidsaviseringar](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Användarvänlighet** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
-| Enkel integrering med Azure-tjänster, bland annat [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](app-service-web-tutorial-content-delivery-network.md) och [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Enkel integrering med Azure-tjänster som [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) och [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Hantering via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) eller [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Anpassningsbar, regelbaserad motor för innehållsleverans](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | Omdirigering/omarbetning för URL (med hjälp av [regelmotor](cdn-rules-engine.md))  |  | | |**&#x2713;** |

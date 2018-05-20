@@ -17,13 +17,11 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: Förstå rolldefinitioner
-      href: role-definitions.md
     - name: Inbyggda roller
       href: built-in-roles.md
     - name: Anpassade roller
       href: custom-roles.md
-    - name: Hantera rolltilldelningar för externa användare
+    - name: Tilldela anpassade roller för interna och externa användare
       href: role-assignments-external-users.md
     - name: Aktivitetsloggar
       href: change-history-report.md

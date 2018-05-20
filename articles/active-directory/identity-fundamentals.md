@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 3603a1e91bc6bcf8a472b41bb0d0a276bf231d7c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azure Identitetshantering
 
@@ -30,7 +30,7 @@ Azure AD Premium är en molnbaserad identitets- och lösning med avancerade funk
 Titta på den här korta videon för en snabb översikt över Azure AD identity hanteringen och skyddet:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
-Microsoft ger inte bara en identitet som tar dig överallt, men också en uppsättning verktyg för att automatisera, att skydda och hantera IT inom din organisation. Även efter ankomsten av molntjänster har fortfarande begäran för att hantera och styra IT-uppgifter som supportavdelningen anrop till återställning av lösenord, hantering av användare och programförfrågningar. Vilket komplicerar saker ytterligare tar anställda nu med sina personliga enheter till arbetet och använder tillgängliga SaaS-program. Det gör att underhålla kontroll över sina program över företagets datacenter och offentliga molnplattformar svårigheter.
+Microsoft ger inte bara en identitet som tar dig överallt, men också en uppsättning verktyg för att automatisera, att skydda och hantera IT inom din organisation. Även efter ankomsten av molntjänster har fortfarande begäran för att hantera och styra IT-uppgifter som supportavdelningen anrop till återställning av lösenord, hantering av användare och programförfrågningar. Vilket komplicerar saker ytterligare nu anställda använder sina personliga enheter till jobbet och använder tillgängliga SaaS-program, vilket gör att underhålla kontroll över sina program över företagets datacenter och offentliga molnplattformar en betydande utmaning.
 
 [!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
@@ -40,7 +40,7 @@ Organisationer som har gjort stora investeringar i lokala Active Directory kan u
 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) är det enda verktyg du behöver integrationen klar. Azure AD Connect innehåller funktioner för att stödja dina behov för synkronisering av identitet och ersätter äldre versioner av identitetsintegrationsverktyg som DirSync och Azure AD Sync. Med Azure AD Connect har aktiverats för Identitetshantering och synkronisering mellan lokala och Azure AD via:
 
 - Synkronisering – Den här komponenten är ansvarig för att skapa användare, grupper och andra objekt. Den är också ansvarig för att se till att identitetsinformationen för dina lokala användare och grupper matchar molnet. Tillbakaskrivning av lösenord kan också aktiveras för att synkronisera lokala kataloger när användaren uppdaterar sina lösenord i Azure AD.
-- AD FS - Federation är en valfri funktion som tillhandahålls av Azure AD Connect som kan användas för att konfigurera en hybridmiljö med hjälp av en lokal AD FS-infrastruktur. Federation kan användas av organisationer i adress komplexa distributioner, till exempel enkel inloggning vid tillämpning av AD-inloggning princip och smartkort eller tredje parts MFA.
+- AD FS - Federation är en valfri funktion som tillhandahålls av Azure AD Connect som kan användas för att konfigurera en hybridmiljö med hjälp av en lokal AD FS-infrastruktur. Federation kan användas av organisationer i adress komplexa distributioner, till exempel smartkort eller tredje parts MFA.
 - Hälsoövervakning – [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) kan tillhandahålla robust övervakning och ger en central plats i Azure portal för att visa den här aktiviteten.
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>Öka produktiviteten och minska supportkostnaderna med självbetjäning och enkel inloggning

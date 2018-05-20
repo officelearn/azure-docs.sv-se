@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 10055b75000e5affdcdef5841a8d45db8b41ef05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 883da7d1487922f5cd986a67d7a7bded78ea3759
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-behållarregister i Azure
 
@@ -54,13 +54,10 @@ Konfigurera [ACR Build](#azure-container-registry-build)-skaparaktiviteter för 
 
 [Azure Container Registry Build](container-registry-build-overview.md) (ACR Build) är en uppsättning funktioner i Azure Container Registry som tillhandahåller strömlinjeformade och effektiva avbildningsversioner för Docker-behållaren i Azure. Använd ACR Build för att utöka din utvecklings inre-loop till molnet genom att avlasta `docker build`-åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverksbehållare och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
 
-> [!NOTE]
-> ACR Build finns just nu i en förhandsversion som endast stöds av Azure-behållarregister i regionerna **USA, östra** (eastus) och **Europa, västra** (westeurope). Förhandsversioner blir tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett behållarregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett behållarregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
 * [Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-build-overview.md) (förhandsversion)
-
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

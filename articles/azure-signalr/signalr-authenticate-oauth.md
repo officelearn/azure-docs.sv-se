@@ -14,19 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Självstudie: Azure SignalR Service-autentisering
 
-Tjänsten Microsoft Azure SignalR är för närvarande tillgänglig som en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Den här självstudien bygger på chattrumsprogrammet som introducerades i snabbstarten. Om du inte har slutfört [Skapa ett chattrum med SignalR Service](signalr-quickstart-dotnet-core.md) gör du det först. 
 
-I den här självstudien får du lära dig att implementera din egen autentisering och integrera den med Microsoft Azure SignalR Service. 
+I den här självstudien får du lära dig att implementera din egen autentisering och integrera den med Azure SignalR Service. 
 
 Autentiseringen som användes initialt i snabbstartens chattrumsprogram är för enkel för verkliga scenarier. Med programmet kan varje klient göra anspråk på vem den är, och servern accepterar det enkelt. Metoden är inte särskilt användbar i verkliga program där en obehörig användare kan personifiera andra för att få åtkomst till känslig information. 
 
@@ -34,7 +32,7 @@ Autentiseringen som användes initialt i snabbstartens chattrumsprogram är för
 
 Mer information om API:er för OAuth-autentisering som tillhandahålls via GitHub finns i [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/) (Grunderna om autentisering).
 
-Du kan använda alla kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+Du kan använda alla kodredigeringsprogram för att slutföra stegen i den här snabbstarten. Men [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
 
 Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub-lagringsplatsen AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
@@ -584,10 +582,10 @@ Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adres
 
 Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du har skapat i den här självstudien och använda dem igen i nästa självstudie.
 
-Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
+Om du är klar med exempelprogramsnabbstarten kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 > 
 > 
 
@@ -605,7 +603,9 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till autentisering med OAuth för at erbjuda en bättre metod för autentisering med Azure SignalR Service. Om du vill veta mer om att använda Azure SignalR Server fortsätter du till Azure CLI-exemplen för SignalR Service.
+I den här självstudien har du lagt till autentisering med OAuth för at erbjuda en bättre metod för autentisering med Azure SignalR Service. Om du vill veta mer om Azure SignalR Server fortsätter du till nästa självstudie som visar integrering med Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR CLI-exempel](./signalr-cli-samples.md)
+> [Integrera Azure Functions med Azure SignalR-tjänsten](./signalr-integrate-functions.md)
+
+

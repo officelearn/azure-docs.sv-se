@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: e035b49d9e386287baf67bba756f7b58a764acc5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com) och klickar på **Skapa en resurs** > **Databaser** > **Redis Cache**.
 
@@ -24,7 +24,7 @@ I **Nytt Redis-cache**, konfigurerar du inställningarna för ditt nya cacheminn
 | ------------ |  ------- | -------------------------------------------------- |
 | **DNS-namn** | Globalt unikt namn | Cachenamnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Cachenamnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.  | 
 | **Prenumeration** | Din prenumeration | Prenumerationen där det här nya Azure Redis-cacheminnet har skapats. | 
-| **Resursgrupp** |  *TestResources* | Namnet på den nya resursgrupp där du vill skapa ditt cacheminne. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. | 
+| **Resursgrupp** |  *TestResourceGroup* | Namnet på den nya resursgrupp där du vill skapa ditt cacheminne. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. | 
 | **Plats** | Östra USA | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som använder ditt cacheminne. |
 | **[Prisnivå](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Redis Cache](../articles/redis-cache/cache-overview.md). |
 | **Fäst vid instrumentpanelen** |  Vald | Klicka på fäst nytt cacheminne på din instrumentpanel för att göra det enkelt att hitta det. |

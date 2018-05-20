@@ -3,17 +3,17 @@ title: Tjänstens huvudnamn för Azure Kubernetes-kluster
 description: Skapa och hantera en tjänsts huvudnamn för Azure Active Directory för ett Kubernetes-kluster i AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ffcc3a1a40973a4cf3b096ed82d35e21c9b20a44
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5e6e24d132598e3f79e4fe76c13ee0ae6a82424d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 

@@ -1,39 +1,39 @@
 ---
-title: include file
-description: include file
+title: ta med fil
+description: ta med fil
 services: virtual-machines-windows
 author: dlepow
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/16/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 689e45f96ed5e7aaea3aecd1193e9cd58f10e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9b36a8e90c20c8f0d08ca241e48e9306fb5b10f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/17/2018
 ---
-## <a name="supported-operating-systems-and-drivers"></a>Supported operating systems and drivers
+## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-cuda-drivers"></a>NC, NCv2, NCv3 and ND-series - NVIDIA Tesla (CUDA) drivers
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-tesla-cuda-drivers"></a>NC, NCv2, NCv3 och ND-serien - drivrutiner för NVIDIA Tesla (CUDA)
 
-Driver download links in the following table are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+Länkar för hämtning av drivrutiner i följande tabell är aktuella vid tiden för publikationen. De senaste drivrutinerna finns på [NVIDIA:s](http://www.nvidia.com/) webbplats.
 
 > [!TIP]
-> As an alternative to manual CUDA driver installation on a Windows Server VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Windows Server 2016 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
+> Du kan distribuera en Azure som ett alternativ till manuell installation av CUDA på en Windows Server-VM [datavetenskap virtuella](../articles/machine-learning/data-science-virtual-machine/overview.md) bild. DSVM-versioner för Windows Server 2016 förinstallation NVIDIA CUDA drivrutiner, nätverksbibliotek CUDA djupa Neurala och andra verktyg.
 
 
-| OS | Driver |
+| Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows Server 2016 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2016-international.exe) (.exe) |
-| Windows Server 2012 R2 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
+| Windows Server 2016 | [391.29](http://us.download.nvidia.com/Windows/Quadro_Certified/391.29/391.29-tesla-desktop-winserver2016-international.exe) (.exe) |
+| Windows Server 2012 R2 | [391.29](http://us.download.nvidia.com/Windows/Quadro_Certified/391.29/391.29-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
-### <a name="nv-series---nvidia-grid-drivers"></a>NV-series - NVIDIA GRID drivers
+### <a name="nv-series---nvidia-grid-drivers"></a>NV-serien - NVIDIA RUTNÄTET drivrutiner
 
-Microsoft redistributes NVIDIA GRID driver installers for NV VMs. Install only these GRID drivers on Azure NV VMs. These drivers include licensing for GRID Virtual GPU Software in Azure.
+Microsoft distribuerar NVIDIA RUTNÄTET drivrutinen installationsprogram för NV virtuella datorer. Installera endast drivrutinerna RUTNÄTET på NV virtuella Azure-datorer. De här drivrutinerna inkluderar licensiering för RUTNÄTET virtuella GPU-programvara i Azure.
 
-| OS | Driver |
+| Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [GRID 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [RUTNÄTET 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [RUTNÄTET 6.0 (391.03)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |

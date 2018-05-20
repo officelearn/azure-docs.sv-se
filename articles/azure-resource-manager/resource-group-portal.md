@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 2c76e56d9b30ef11fe4f3b7863a1a1357fca291c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe4666f053c7f3bd582ae51dd1694a425bea35dd
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Hantera Azure-resurser via portalen
 
 Den här artikeln visar hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) hantera Azure-resurser. Läs om hur du distribuerar resurser via portalen i [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="manage-resource-groups"></a>Hantera resursgrupper
 

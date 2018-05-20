@@ -13,7 +13,7 @@
 - name: Självstudier
   items:
     - name: Lägga till Azure CDN till en webbapp
-      href: cdn-add-to-web-app.md
+      href: app-service-web-tutorial-content-delivery-network.md
     - name: Lägga till en anpassad domän
       href: cdn-map-content-to-custom-domain.md
     - name: Konfigurera HTTPS på en anpassad domän
@@ -28,8 +28,6 @@
   items:
     - name: Så här fungerar cachelagring
       href: cdn-how-caching-works.md
-    - name: 'Innehållsleverans, Kina'
-      href: cdn-china-delivery.md
 - name: Instruktionsguider
   items:
     - name: Integrera

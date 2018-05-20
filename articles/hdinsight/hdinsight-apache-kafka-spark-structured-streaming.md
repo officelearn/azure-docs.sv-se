@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Kafka på HDInsight
 
@@ -147,8 +147,8 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
     | Prenumeration | Din Azure-prenumeration |
     | Resursgrupp | Resursgruppen som innehåller resurserna. |
     | Plats | Azure-regionen som resurserna skapas i. |
-    | Apache Spark-klusternamn | Namnet på Apache Spark-klustret. |
-    | Kafka-klusternamn | Namnet på Kafka-klustret. |
+    | Apache Spark-klusternamn | Namnet på Apache Spark-klustret. De första sex tecknen får inte vara samma som Kafka-klusternamnet. |
+    | Kafka-klusternamn | Namnet på Kafka-klustret. De första sex tecknen får inte vara samma som Spark-klusternamnet. |
     | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |
     | Lösenord för klusterinloggning | Ett administratörslösenord för klustren. |
     | SSH-användarnamn | SSH-användare som ska skapas för klustren. |

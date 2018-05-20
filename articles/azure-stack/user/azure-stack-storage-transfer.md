@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.openlocfilehash: 3fb18a001c7cfb30b642c8bfaaeef656f96a4900
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Använd verktyg för överföring av data för Azure-stacken Storage
 
@@ -217,9 +217,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell kända problem
 
-Den aktuella kompatibla Azure PowerShell-modulen versionen för Azure-stacken är 1.3.0. Den skiljer sig från den senaste versionen av Azure PowerShell. Denna skillnad påverkar Lagringsåtgärden tjänster:
+Den aktuella kompatibla Azure PowerShell-modulen versionen för Azure-stacken är 1.2.12. Den skiljer sig från den senaste versionen av Azure PowerShell. Denna skillnad påverkar Lagringsåtgärden tjänster:
 
-* Returvärdet format `Get-AzureRmStorageAccountKey` i version 1.3.0 har två egenskaper: `Key1` och `Key2`, medan den aktuella versionen av Azure returnerar en matris som innehåller alla nycklar för kontot.
+* Returvärdet format `Get-AzureRmStorageAccountKey` i version 1.2.12 har två egenskaper: `Key1` och `Key2`, medan den aktuella versionen av Azure returnerar en matris som innehåller alla nycklar för kontot.
 
    ```
    # This command gets a specific key for a Storage account, 

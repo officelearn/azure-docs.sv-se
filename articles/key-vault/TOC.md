@@ -68,7 +68,6 @@
 ### [Metoder för att skapa certifikat](create-certificate.md)
 ### [Övervaka och hantera processen för att skapa certifikat](create-certificate-scenarios.md)
 ## [Autentisering, begäranden och svar](authentication-requests-and-responses.md)
-## [Kunddatafunktioner](key-vault-customer-data.md)
 ## [Vanliga parametrar och sidhuvuden](common-parameters-and-headers.md)
 ## [Key Vault-versioner](key-vault-versions.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)

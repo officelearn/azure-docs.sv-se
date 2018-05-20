@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 86eae6813d6181b1c42e8316d159c8bbe523330b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.openlocfilehash: 9d09fb60722865a75ea0825f5ca54f792642980a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken
 
@@ -33,7 +33,7 @@ Den här artikeln ger detaljerade anvisningar för att installera PowerShell. Om
 
 PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Om du vill registrera PSGallery databasen, öppna en upphöjd PowerShell-session från development kit eller från en extern klient för Windows-baserade om du är ansluten via VPN-anslutning och kör följande kommando:
 
-```PowerShell  
+```powershell
 Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
@@ -45,7 +45,7 @@ Kontrollera att avinstallera några befintliga Azure PowerShell-moduler innan du
 
 * Om du vill avinstallera de befintliga PowerShell-modulerna inloggningen i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Stäng alla aktiva sessioner i PowerShell och kör följande kommando:
 
-   ```PowerShell  
+   ```powershell
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
@@ -57,7 +57,7 @@ I följande avsnitt beskrivs de steg som krävs för att installera PowerShell f
 
 Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azure-stacken kräver den **2017-03-09-profil** API-version profil som är tillgänglig genom att installera modulen AzureRM.Bootstrapper. Mer information om API-version profiler och de cmdlets som tillhandahålls av dem, referera till den [hantera profiler för API-version](azure-stack-version-profiles-powershell.md). Förutom AzureRM-moduler, bör du också installera Azure Stack-specifika PowerShell-moduler. Kör följande PowerShell-skript för att installera dessa moduler på utvecklingsdatorn:
 
-  ```PowerShell  
+  ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
   Install-Module `
     -Name AzureRm.BootStrapper
@@ -73,7 +73,7 @@ Azure Stack kompatibel AzureRM moduler installeras via API-version profiler. Azu
 
 Om du vill bekräfta installationen genom att köra följande kommando:
 
-  ```PowerShell  
+  ```powershell
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
@@ -84,27 +84,27 @@ Om du vill bekräfta installationen genom att köra följande kommando:
 
 I ett scenario med frånkopplade eller anslutna delvis måste du först hämta PowerShell-moduler för en dator som är ansluten till internet och överför dem till Azure-stacken Development Kit för installation.
 
-1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:  
+1. Logga in på en dator där du har Internetanslutning och använda följande skript för att hämta AzureRM och AzureStack paket på den lokala datorn:
 
-    ```PowerShell  
-    $Path = "<Path that is used to save the packages>"
+   ```powershell
+   $Path = "<Path that is used to save the packages>"
 
-    Save-Package `
-      -ProviderName NuGet `
-      -Source https://www.powershellgallery.com/api/v2 `
-      -Name AzureRM `
-      -Path $Path `
-      -Force `
-      -RequiredVersion 1.2.11
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.11
 
-    Save-Package `
-      -ProviderName NuGet `
-      -Source https://www.powershellgallery.com/api/v2 `
-      -Name AzureStack `
-      -Path $Path `
-      -Force `
-      -RequiredVersion 1.2.11
-    ```
+   Save-Package `
+     -ProviderName NuGet `
+     -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack `
+     -Path $Path `
+     -Force `
+     -RequiredVersion 1.2.11
+   ```
 
 2. Kopiera de hämta paketen över till en USB-enhet.
 
@@ -112,22 +112,22 @@ I ett scenario med frånkopplade eller anslutna delvis måste du först hämta P
 
 4. Nu måste du registrera den här platsen som standard lagringsplatsen och installera modulerna AzureRM och AzureStack från den här lagringsplatsen:
 
-    ```PowerShell  
-    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-    $RepoName = "MyNuGetSource"
+   ```powershell
+   $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+   $RepoName = "MyNuGetSource"
 
-    Register-PSRepository `
-      -Name $RepoName `
-      -SourceLocation $SourceLocation `
-      -InstallationPolicy Trusted
+   Register-PSRepository `
+     -Name $RepoName `
+     -SourceLocation $SourceLocation `
+     -InstallationPolicy Trusted
 
-    ```PowerShell  
-    Install-Module AzureRM `
-      -Repository $RepoName
+   ```powershell
+   Install-Module AzureRM `
+     -Repository $RepoName
 
-    Install-Module AzureStack `
-      -Repository $RepoName
-    ```
+   Install-Module AzureStack `
+     -Repository $RepoName
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

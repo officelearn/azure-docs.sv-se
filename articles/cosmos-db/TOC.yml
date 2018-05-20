@@ -80,8 +80,6 @@ items:
         href: unique-keys.md
       - name: Databas utan server
         href: serverless-computing-database.md
-      - name: Översikt över BulkExecutor
-        href: bulk-executor-overview.md
       - name: Säkerhet
         href: database-security.md
         items:
@@ -467,10 +465,14 @@ items:
         href: regional-failover.md
       - name: Diagnostikloggning
         href: logging.md
+      - name: Översikt över BulkExecutor
+        href: bulk-executor-overview.md
       - name: Kostnadseffektiva läsningar och skrivningar
         href: key-value-store-cost.md
       - name: Få data att upphöra att gälla automatiskt
         href: time-to-live.md
+      - name: Hantera med hjälp av PowerShell
+        href: manage-account-with-powershell.md
       - name: Hantera Storage Explorer
         href: storage-explorer.md
   - name: Resurser

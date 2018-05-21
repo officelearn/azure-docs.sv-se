@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Fjärransluta till klusternod för virtuell dator
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: Uppgradera/migrera SKU för VMSS
+              href: service-fabric-update-vmss-sku.md
         - name: Fristående kluster
           items:
             - name: Skapa

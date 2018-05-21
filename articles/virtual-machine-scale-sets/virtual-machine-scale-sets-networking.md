@@ -1,11 +1,11 @@
 ---
-title: "Nätverk för skalningsuppsättningar för virtuella Azure-datorer | Microsoft Docs"
-description: "Konfigurationsnätverksegenskaper för skalningsuppsättningar för virtuella Azure-datorer."
+title: Nätverk för skalningsuppsättningar för virtuella Azure-datorer | Microsoft Docs
+description: Konfigurationsnätverksegenskaper för skalningsuppsättningar för virtuella Azure-datorer.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -55,9 +55,28 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
+Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> Observera att programgatewayen måste finnas i samma virtuella nätverk som skalningsuppsättningen, men i ett annat undernät än skaluppsättningen.
+
+
 ## <a name="configurable-dns-settings"></a>Konfigurera DNS-inställningar
 Som standard tar skalningsuppsättningar över specifika DNS-inställningar från de VNET och undernät som de skapades i. Du kan dock konfigurera DNS-inställningar för en skalningsuppsättning direkt.
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Skapa en skalningsuppsättning med konfigurerbara DNS-servrar
 Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av CLI 2.0 lägger du till argumentet --**dns-servers** till kommandot **vmss create** följt av ip-adresser som avgränsas av ett blanksteg. Till exempel:
 ```bash
@@ -145,7 +164,7 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 
 Fråga de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av [Azure Resource Explorer](https://resources.azure.com) eller Azure REST-API version **2017-03-30** eller högre.
 
-Om du vill se de offentliga IP-adresserna för en skalningsuppsättning med Resource Explorer tittar du på avsnittet **publicipaddresses** under din skalningsuppsättning. Till exempel: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+Om du vill se de offentliga IP-adresserna för en skalningsuppsättning med Resource Explorer tittar du på avsnittet **publicipaddresses** under din skalningsuppsättning. Till exempel: https://resources.azure.com/subscriptions/_ditt_undernäts-ID_/resourceGroups/_din_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_din_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

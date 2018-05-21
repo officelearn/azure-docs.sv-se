@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -88,8 +88,8 @@ Information om hur du konfigurerar en säkerhetsprincip finns [ställa in säker
 ### <a name="what-is-a-security-recommendation"></a>Vad är en säkerhetsrekommendation?
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras skapas rekommendationer. Rekommendationerna som leder dig genom processen att konfigurera nödvändig kontroll. Exempel är:
 
-* Etablering av program mot skadlig kod för att identifiera och ta bort skadlig programvara
-* Konfigurera [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) och regler för trafiken till virtuella datorer
+* Etablering av skadlig kod för att identifiera och ta bort skadlig programvara
+* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) och regler för trafiken till virtuella datorer
 * Etablering av en brandvägg för webbaserade program skydda mot attacker målobjekt för webbaserade program
 * genomföra alla systemuppdateringar som fattas
 * se till att operativsystemen är konfigurerade enligt rekommenderade baslinjer

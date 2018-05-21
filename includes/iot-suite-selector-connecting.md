@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
-> * [C i Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [C i Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (generisk)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Node.js på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [C på Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C i Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (generisk)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js på Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [C på Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
 I kursen får du implementerar en **kylaggregat** enhet som skickar följande telemetri för fjärråtkomst övervakning [lösningsaccelerator](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 

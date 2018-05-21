@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-an-app-service-environment"></a>Använd en Apptjänst-miljö #
 
@@ -107,7 +107,7 @@ Det här antalet frontwebbservrarna bör vara mer än tillräckligt för de fles
 
 Frontend resurser är HTTP/HTTPS-slutpunkt för ASE. Minnesanvändningen per klientdelen är konsekvent cirka 60 procent med frontend standardkonfigurationen. Kundens arbetsbelastningar körs inte på en klientdel. Avgörande för en klientdel vad gäller skala är CPU, som styrs i första hand av HTTPS-trafik.
 
-## <a name="app-access"></a>Åtkomst till appen ##
+## <a name="app-access"></a>Appåtkomst ##
 
 I en extern ASE skiljer den domän som används när du skapar appar sig från multitenant Apptjänst. Den innehåller namnet på ASE. Läs mer om hur du skapar en extern ASE [skapa en Apptjänst-miljö][MakeExternalASE]. Domännamnet i en extern ASE ser ut som *.&lt; asename&gt;. p.azurewebsites.net*. Om din ASE heter exempelvis _externa ase_ och du är värd för en app som kallas _contoso_ i att ASE, du når den på följande webbadresser:
 
@@ -177,7 +177,7 @@ Ta bort en ASE:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml

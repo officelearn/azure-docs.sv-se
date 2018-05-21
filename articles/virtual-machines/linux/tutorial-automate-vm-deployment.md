@@ -1,13 +1,13 @@
 ---
-title: "Anpassa en virtuell Linux-dator vid första start i Azure | Microsoft Docs"
-description: "Lär dig att använda cloud-init och Key Vault för att anpassa virtuell Linux-datorer första gången de startas i Azure"
+title: Självstudiekurs – Anpassa en virtuell Linux-dator med cloud-init i Azure | Microsoft Docs
+description: I den här kursen lär du dig att använda cloud-init och Key Vault för att anpassa virtuell Linux-datorer första gången de startas i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e3c1c0552b379ff99f27053d8f0ca8a76766a016
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Anpassa en virtuell Linux-dator vid första start
+# <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
+
 I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -32,12 +33,9 @@ I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dat
 > * Använda Key Vault för att förvara certifikat säkert
 > * Automatisera säker distribution av NGINX med cloud-init
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
-
-
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.

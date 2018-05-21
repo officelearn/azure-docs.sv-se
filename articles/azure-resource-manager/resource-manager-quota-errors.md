@@ -1,29 +1,29 @@
 ---
 title: Azure kvoten fel | Microsoft Docs
-description: "Beskriver hur du löser resurs qouta fel."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+description: Beskriver hur du löser resurs qouta fel.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
 Den här artikeln beskriver kvoten fel som kan uppstå när du distribuerar resurser.
 
-## <a name="symptom"></a>Symptom
+## <a name="symptom"></a>Symtom
 
 Om du distribuerar en mall som skapar resurser som överskrider Azure-kvoter får du ett distribueringsfel som ser ut som:
 
@@ -114,7 +114,7 @@ Gå till portalen för att begära en ökad kvot och filen ett supportproblem. I
 
 4. I det övre högra hörnet väljer **begära**.
 
-   ![Begära](./media/resource-manager-quota-errors/request-increase.png)
+   ![Begär ökning](./media/resource-manager-quota-errors/request-increase.png)
 
 5. Fyll i formulär för typ av du behöva öka kvoten.
 

@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/20/2018
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plattform som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager
 I den här artikeln beskriver vi hur vi är att aktivera migrering av infrastruktur som en tjänst (IaaS)-resurser från klassiskt till Resource Manager distributionsmodellerna. Du kan läsa mer om [Azure Resource Manager-funktioner och fördelar](../articles/azure-resource-manager/resource-group-overview.md). Vi i detalj hur du ansluter resurser från de två distributionsmodeller som finns tillgängliga i din prenumeration med hjälp av virtuellt nätverk plats-till-plats-gatewayer.
 
@@ -93,7 +109,7 @@ Följande konfigurationer stöds inte för närvarande.
 | Compute | Molntjänster som innehåller web/worker-roller | Detta stöds för närvarande inte. |
 | Compute | Ange molntjänster som innehåller mer än en tillgänglighet eller flera tillgänglighetsuppsättningar. |Detta stöds för närvarande inte. Flytta de virtuella datorerna till samma tillgänglighetsuppsättning innan du migrerar. |
 | Compute | Virtuell dator med Azure Security Center-tillägg | Azure Security Center installeras automatiskt tillägg på dina virtuella datorer för att övervaka deras säkerhet och generera aviseringar. Dessa tillägg installeras vanligtvis automatiskt om Azure Security Center-principen är aktiverad för prenumerationen. Om du vill migrera de virtuella datorerna, inaktivera center säkerhetsprincipen på den prenumeration som tar bort Säkerhetscenter övervakning tillägg från de virtuella datorerna. |
-| Compute | Virtuell dator med säkerhetskopieringen eller ögonblicksbilden tillägg | Dessa tillägg är installerade på en virtuell dator konfigureras med Azure Backup-tjänsten. Om du vill migrera de virtuella datorerna följer du anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Compute | Virtuell dator med säkerhetskopieringen eller ögonblicksbilden tillägg | Dessa tillägg är installerade på en virtuell dator konfigureras med Azure Backup-tjänsten. När migreringen av dessa virtuella datorer inte stöds, följer du anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) att hålla säkerhetskopior som gjorts före migreringen.  |
 | Nätverk |Virtuella nätverk som innehåller virtuella datorer och web/worker-roller |Detta stöds för närvarande inte. Flytta Web/Worker-roller till sina egna virtuella nätverk innan du migrerar. När det klassiska virtuella nätverk migreras, kan den migrerade Azure Resource Manager-nätverk att peerkoppla med klassiska virtuella nätverket för att få liknande konfiguration som tidigare.|
 | Nätverk | Klassiska Express Route-kretsar |Detta stöds för närvarande inte. Dessa kretsar måste migreras till Azure Resource Manager innan du påbörjar migreringen IaaS. Mer information om detta finns [flytta ExpressRoute-kretsar från klassiskt till Resource Manager-distributionsmodellen](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtuella nätverk som innehåller apptjänstmiljöer |Detta stöds för närvarande inte. |

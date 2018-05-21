@@ -1,24 +1,24 @@
 ---
 title: Distribuera Azure-mall med SAS-token och PowerShell | Microsoft Docs
-description: "Använd Azure Resource Manager och Azure PowerShell för att distribuera resurser till Azure från en mall som är skyddat med SAS-token."
+description: Använd Azure Resource Manager och Azure PowerShell för att distribuera resurser till Azure från en mall som är skyddat med SAS-token.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e3cea027b599e2b1af1ced0fdf14e2cc8a0db82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2dbf7f9ac5a735ec0c70f4daefa721509212a84b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Distribuera privata Resource Manager-mall med SAS-token och Azure PowerShell
 

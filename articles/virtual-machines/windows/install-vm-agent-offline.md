@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 
@@ -106,12 +106,11 @@ Använd följande steg för att installera den Virtuella Datoragenten i offline-
 
 13.  Åtkomst till den virtuella datorn. Observera att RdAgent körs och loggar som genereras.
 
-Om du har skapat den virtuella datorn med hjälp av den klassiska distributionsmodellen är du klar.
-
+Om du har skapat den virtuella datorn med hjälp av Resource Manager distribution distributionsmodell är du klar.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Använd egenskapen ProvisionGuestAgent för virtuella datorer som skapats med Azure Resource Manager
 
-Om du har skapat den virtuella datorn med hjälp av Resource Manager-distributionsmodellen använder du Azure PowerShell-modulen för att uppdatera den **ProvisionGuestAgent** egenskapen. Egenskapen informerar Azure att den virtuella datorn VM-agenten har installerats.
+Om du har skapat den virtuella datorn med hjälp av den klassiska modellen, använder du Azure PowerShell-modulen för att uppdatera den **ProvisionGuestAgent** egenskapen. Egenskapen informerar Azure att den virtuella datorn VM-agenten har installerats.
 
 Ange den **ProvisionGuestAgent** egenskap, kör följande kommandon i Azure PowerShell:
 

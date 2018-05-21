@@ -1,6 +1,6 @@
 ---
-title: Azure övervakning och uppdatering och Windows-datorer | Microsoft Docs
-description: Självstudiekurs – övervaka och uppdatera en virtuell dator i Windows med Azure PowerShell
+title: Självstudier – Övervaka och uppdatera virtuella Windows-datorer i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du övervakar startdiagnostik och prestandamått och hur du hanterar paketuppdateringar på en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,65 +10,83 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Övervaka och uppdatera en virtuell Windows-dator med Azure PowerShell
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
-Azure övervakning använder agenter för att samla in start-och prestandadata från Azure virtuella datorer, lagra dessa data i Azure-lagring och göra det tillgängligt via portalen, Azure PowerShell-modulen och Azure CLI. Uppdateringshantering kan du hantera uppdateringar och korrigeringsfiler för virtuella datorerna i Windows Azure.
+Övervakningsfunktionerna i Azure använder agenter för att samla in start- och prestandadata från virtuella Azure-datorer. Dessa data lagras sedan i Azure Storage och görs tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Med uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Aktivera startdiagnostikinställningar på en virtuell dator
+> * Aktivera startdiagnostik på en virtuell dator
 > * Visa startdiagnostik
-> * Visa VM värden mått
-> * Installera tillägget diagnostik
+> * Visa statistik för en virtuell värddator
+> * Installera diagnostiktillägget
 > * Visa VM-mått
 > * Skapa en avisering
 > * Hantera Windows-uppdateringar
-> * Övervaka ändringar och lager
+> * Övervaka ändringar och inventering
 > * Konfigurera avancerad övervakning
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
-Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i självstudien. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md). När du arbetar med kursen, Ersätt resursgrupp, namn och plats där det behövs.
+## <a name="create-virtual-machine"></a>Skapa en virtuell dator
+
+För att konfigurera övervaknings- och uppdateringshantering i Azure i den här självstudiekursen behöver du en virtuell Windows-dator i Azure. Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Resursgruppen *myResourceGroupMonitorMonitor* och ytterligare nätverksresurser som behövs skapas om de inte redan finns:
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Credential $cred
+```
+
+Det tar några minuter att skapa resurserna och den virtuella datorn.
 
 ## <a name="view-boot-diagnostics"></a>Visa startdiagnostik
 
-Eftersom Windows-datorer starta avbildar Start diagnostikagenten utdata som kan användas för felsökning. Den här funktionen är aktiverad som standard. Fångade skärmdumpar lagras i Azure storage-konto som skapas också som standard.
+När virtuella Windows-datorer startar samlar startdiagnostikagenten in skärmutdata som kan användas i felsökningssyfte. Den här funktionen är aktiverad som standard. De insamlade skärmdumparna lagras på ett Azure-lagringskonto, som också skapas som standard.
 
-Du kan hämta Start diagnostikdata med den [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) kommando. I följande exempel hämtas startdiagnostikinställningar till roten av den * c:\* enhet.
+Du kan hämta startdiagnostikdata med kommandot [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata). I följande exempel laddas startdiagnostik ned till roten på enhet *c:\*.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Visa värdmått
 
-En virtuell Windows-dator har en dedikerad värd eller virtuell dator i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas i Azure-portalen.
+En virtuell Windows-dator har en dedikerad virtuell värddator i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas på Azure Portal.
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
-2. Klicka på **mått** på VM-bladet och välj sedan någon av mätvärdena som är värd under **tillgängliga mått** att se hur den Virtuella värden utförs.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+2. Om du vill visa den virtuella värddatorns status klickar du på **Mått** på bladet Virtuell dator och väljer något av värdmåtten under **Tillgängliga mått**.
 
     ![Visa värdmått](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Installera diagnostiktillägget
 
-De grundläggande värden är tillgänglig, men att se mer detaljerad och VM-specifika statistik, och du behöver installera Azure-diagnostik-tillägget på den virtuella datorn. Med Azure-diagnostiktillägget kan du få ut mer övervaknings- och diagnostikdata från den virtuella datorn. Du kan visa dessa prestandamått och skapa aviseringar baserat på hur det går för den virtuella datorn. Diagnostiktillägget installeras via Azure Portal på följande sätt:
+Grundläggande värdmått är tillgängliga, men om du vill se mer detaljerade och VM-specifika mått måste du installera Azure-diagnostiktillägget på den virtuella datorn. Med Azure-diagnostiktillägget kan du få ut mer övervaknings- och diagnostikdata från den virtuella datorn. Du kan visa dessa prestandamått och skapa aviseringar baserat på hur det går för den virtuella datorn. Diagnostiktillägget installeras via Azure Portal på följande sätt:
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 2. Klicka på **Diagnosinställningar**. I listan kan du se att *Startdiagnostik* redan har aktiverats i föregående avsnitt. Markera kryssrutan för *Basmått*.
-3. Klicka på den **aktivera övervakning av gästnivå** knappen.
+3. Klicka på **Aktivera övervakning på gästnivå**.
 
     ![Visa diagnostikmått](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -76,7 +94,7 @@ De grundläggande värden är tillgänglig, men att se mer detaljerad och VM-spe
 
 Du kan visa VM-mått på samma sätt som du visade VM-värdmått:
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 2. Om du vill se hur det går för den virtuella datorn klickar du på **Mått** på bladet för den virtuella datorn och sedan på något av diagnostikmåtten under **Tillgängliga mått**.
 
     ![Visa VM-mått](./media/tutorial-monitoring/monitor-vm-metrics.png)
@@ -87,7 +105,7 @@ Du kan skapa aviseringar baserat på specifika prestandamått. Aviseringar kan t
 
 I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
+1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 2. Klicka på **Aviseringsregler** på bladet för den virtuella datorn och klicka sedan på **Lägg till metrisk varning** längst upp på aviseringsbladet.
 3. Ange ett **namn** för aviseringen, till exempel *myAlertRule*
 4. Om du vill utlösa en avisering när CPU-procenten har varit högre än 1,0 i fem minuter lämnar du alla andra standardinställningar valda.
@@ -96,14 +114,14 @@ I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
 ## <a name="manage-windows-updates"></a>Hantera Windows-uppdateringar
 
-Uppdateringshantering kan du hantera uppdateringar och korrigeringsfiler för virtuella datorerna i Windows Azure.
+Med uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer.
 Du kan snabbt se status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn, direkt från den virtuella datorn.
 
 Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management"></a>Aktivera uppdateringshantering
 
-Aktivera uppdateringshantering för den virtuella datorn:
+Så här aktiverar du uppdateringshantering för dina virtuella datorer:
 
 1. Välj **Virtuella datorer** till vänster på skärmen.
 2. Välj en virtuell dator i listan.
@@ -135,7 +153,7 @@ Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte 
 
 ### <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppdateringar**. Efter utvärdering av uppdateringar är klar kan du visa en lista med uppdateringar som saknas på den **saknar uppdateringar** fliken.
+När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppdateringar**. När utvärderingen av uppdateringarna är klar ser du en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
 
  ![Visa uppdateringsstatus](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
@@ -167,7 +185,7 @@ När du har konfigurerat schemat klickar du på **Skapa**. Därmed återgår du 
 Observera att tabellen **Schemalagt** visar det distributionsschema som du skapade.
 
 > [!WARNING]
-> Den virtuella datorn startas automatiskt efter uppdateringar som kräver en omstart.
+> Om en uppdatering kräver omstart startas den virtuella datorn om automatiskt.
 
 ### <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 
@@ -191,38 +209,38 @@ Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som a
 
 Klicka på **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
 
-## <a name="monitor-changes-and-inventory"></a>Övervaka ändringar och lager
+## <a name="monitor-changes-and-inventory"></a>Övervaka ändringar och inventering
 
 Du kan samla in och visa inventeringar för program, filer, Linux-daemons, Windows-tjänster och Windows-registernycklar på dina datorer. Om du spårar konfigurationerna för dina datorer kan du identifiera driftproblem i miljön och bättre förstå datorernas tillstånd.
 
-### <a name="enable-change-and-inventory-management"></a>Aktivera ändrings-och Programvaruinventering
+### <a name="enable-change-and-inventory-management"></a>Aktivera ändringsspårning och inventering
 
-Aktivera ändrings- och lager hantering för den virtuella datorn:
+Så här aktiverar du ändringsspårning och inventering för din virtuella dator:
 
 1. Välj **Virtuella datorer** till vänster på skärmen.
 2. Välj en virtuell dator i listan.
-3. På skärmen VM i den **Operations** klickar du på **inventering** eller **ändringsspårning**. Den **Aktivera spårning av ändringar och inventering** skärmen öppnas.
+3. Gå till avsnittet **Åtgärder** och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Eventhough lösningarna är separat på menyn, de är samma lösning. Aktiverar en kan både för den virtuella datorn.
+Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Även om lösningarna är uppdelade på menyn, ingår de i samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
-![Aktivera ändrings- och spåra lager](./media/tutorial-monitoring/manage-inventory-enable.png)
+![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-När lösningen har aktiverats kan det ta en stund medan inventering som samlas in på den virtuella datorn innan data visas.
+När lösningen har aktiverats kan det ta en stund medan lagerdata samlas in på den virtuella datorn innan data visas.
 
 ### <a name="track-changes"></a>Spåra ändringar
 
-På VM-Välj **ändringsspårning** under **OPERATIONS**. Klicka på **redigera inställningar för**, **ändringsspårning** visas. Välj typ av inställning du vill spåra och klicka sedan på **+ Lägg till** att konfigurera inställningarna. Tillgängliga alternativ för Windows är:
+Välj **Ändringsspårning** under **ÅTGÄRDER** på den virtuella datorn. Klicka på **Redigera inställningar**. Sidan **Ändringsspårning** visas. Välj typ av inställning som du vill spåra och klicka sedan på **+ Lägg till** för att konfigurera inställningarna. De tillgängliga alternativen för Windows är:
 
 * Windows-registret
 * Windows-filer
 
-Detaljerad information om spårning av ändringar finns [felsöka ändringar på en virtuell dator](../../automation/automation-tutorial-troubleshoot-changes.md)
+Mer information om ändringsspårning finns i [Felsöka ändringar på en virtuell dator](../../automation/automation-tutorial-troubleshoot-changes.md)
 
-### <a name="view-inventory"></a>Visa lager
+### <a name="view-inventory"></a>Visa inventering
 
-På VM-Välj **inventering** under **OPERATIONS**. På fliken **Programvara** finns det en tabell som anger programvaran som har hittats. Utförlig information för varje programpost visas i tabellen. Dessa uppgifter inkluderar programvarunamn, version, utgivare, uppdateras senast.
+Välj **Inventering** under **ÅTGÄRDER** på den virtuella datorn. På fliken **Programvara** finns det en tabell som anger programvaran som har hittats. Utförlig information för varje programpost visas i tabellen. Uppgifterna omfattar bland annat programvarunamn, version, utgivare och datum för senaste uppdatering.
 
-![Visa lager](./media/tutorial-monitoring/inventory-view-results.png)
+![Visa inventering](./media/tutorial-monitoring/inventory-view-results.png)
 
 ### <a name="monitor-activity-logs-and-changes"></a>Övervaka aktivitetsloggar och ändringar
 
@@ -230,55 +248,55 @@ Från sidan **Ändringsspårning** på din virtuella dator väljer du **Hantera 
 
 När den här inställningen är aktiverad går du till sidan **Översikt** för din virtuella dator och väljer **Stoppa** för att stoppa din virtuella dator. När du uppmanas väljer du **Ja** för att stoppa den virtuella datorn. När den har frigjorts väljer du **Starta** för att starta om din virtuella dator.
 
-När en virtuell dator stoppas och startas loggar den virtuella datorn en händelse i aktivitetsloggen. Gå tillbaka till sidan **Ändringsspårning**. Välj fliken **Händelser** längst ned på sidan. Efter ett tag visas händelserna i diagrammet och tabellen. Varje händelse kan väljas för att visa detaljerad information om händelsen.
+När en virtuell dator stoppas och startas loggar den virtuella datorn en händelse i aktivitetsloggen. Gå tillbaka till sidan **Ändringsspårning**. Välj fliken **Händelser** längst ned på sidan. Efter ett tag visas händelserna i diagrammet och tabellen. Du kan välja varje händelse för att visa detaljerad information om händelsen.
 
-![Visa ändringar i aktivitetsloggen](./media/tutorial-monitoring/manage-activitylog-view-results.png)
+![Visa händelser i aktivitetsloggen](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 
 Diagrammet visar ändringar som har skett över tid. När du har lagt till en aktivitetslogganslutning visar linjediagrammet högst upp händelser i Azure-aktivitetsloggen. Varje rad med stapeldiagram representerar en annan spårningsbar ändringstyp. Typerna är Linux-daemons, filer, Windows-registernycklar, programvara och Windows-tjänster. På fliken Ändra visas information för de ändringar som visas i visualiseringen i fallande tidsordning för när ändringen skedde (senaste först).
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Du kan göra mer avancerad övervakning av den virtuella datorn med hjälp av lösningar som uppdateringshantering och ändra och inventering som tillhandahålls av [Azure Automation](../../automation/automation-intro.md).
+Du kan använda mer avancerad övervakning av den virtuella datorn med lösningar som uppdateringshantering, ändringsspårning och inventering som tillhandahålls av [Azure Automation](../../automation/automation-intro.md).
 
-När du har åtkomst till logganalys-arbetsytan hittar du den arbetsyta och arbetsytan identifierare på genom att välja **avancerade inställningar** under **inställningar**. Använd den [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) kommando för att lägga till tillägg för Microsoft Monitoring agent till den virtuella datorn. Uppdatera variabelvärden i den nedan exempel för att återspegla du nyckeln för logganalys-arbetsyta och arbetsytan Id.
+När du har åtkomst till Log Analytics-arbetsytan hittar du nyckel och identifierare för arbetsytan genom att välja **Avancerade inställningar** under **INSTÄLLNINGAR**. Lägg till tillägget för Microsoft-övervakningsagenten genom att köra kommandot [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension). Uppdatera variabelvärdena i exemplet nedan så att de återspeglar din Log Analytics-arbetsyta och arbetsytans ID.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myVM `
+  -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
   -Settings @{"workspaceId" = $workspaceId} `
   -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location eastus
+  -Location "East US"
 ```
 
-Du bör se den nya virtuella datorn i arbetsytan loggen Anaytics efter några minuter.
+Du bör se den nya virtuella datorn på Log Analytics-arbetsytan efter några minuter.
 
 ![OMS-bladet](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du konfigurerade och granskas virtuella datorer med Azure Security Center. Du har lärt dig att:
+I den här självstudiekursen konfigurerade du och granskade virtuella datorer med Azure Security Center. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk
-> * Skapa en resursgrupp och en virtuell dator
+> * Skapa en resursgrupp och virtuell dator
 > * Aktivera startdiagnostik på den virtuella datorn
 > * Visa startdiagnostik
 > * Visa värdmått
-> * Installera tillägget diagnostik
+> * Installera diagnostiktillägget
 > * Visa VM-mått
 > * Skapa en avisering
 > * Hantera Windows-uppdateringar
-> * Övervaka ändringar och lager
+> * Övervaka ändringar och inventering
 > * Konfigurera avancerad övervakning
 
-Gå vidare till nästa kurs vill veta mer om Azure security center.
+Gå vidare till nästa kurs om du vill veta mer om Azure Security Center.
 
 > [!div class="nextstepaction"]
 > [Hantera säkerheten för virtuella datorer](./tutorial-azure-security.md)

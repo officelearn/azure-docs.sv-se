@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5da8c747fb8f89ff627cad74bacf0753bb3484ad
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="powershell"></a>PowerShell
 
-Exemplen i den här artikeln kräver version 3.0 eller senare av Azure PowerShell. Om du inte har version 3.0 eller senare, [uppdatera din version](/powershell/azureps-cmdlets-docs/) med hjälp av PowerShell-galleriet eller installationsprogram för webbplattform.
+Exemplen i den här artikeln kräver version 6.0 eller senare av Azure PowerShell. Om du inte har version 6.0 eller senare, [uppdatera din version](/powershell/azure/install-azurerm-ps).
 
 Om du vill visa de befintliga taggarna för en *resursgrupp* använder du:
 
@@ -48,7 +48,7 @@ Environment                    Test
 Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
 
 ```powershell
-(Get-AzureRmResource -ResourceId {resource-id}).Tags
+(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Och om du vill visa de befintliga taggarna för en *resurs som har ett angivet namn och en angiven resursgrupp* använder du:
@@ -60,13 +60,19 @@ Och om du vill visa de befintliga taggarna för en *resurs som har ett angivet n
 Om du vill hämta *resursgrupper som har en specifik tagg* använder du:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Om du vill hämta *resurser som har en specifik tagg* använder du:
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```
+
+Att hämta *resurser som har namnet på en specifik tagg*, Använd:
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Varje gång du tillämpar taggar på en resurs eller resursgrupp skriver du över resursens eller resursgruppens befintliga taggar. Därför måste du använda ett annat tillvägagångssätt beroende på om resursen eller resursgruppen har befintliga taggar.
@@ -81,7 +87,7 @@ Om du vill lägga till taggar till en *resursgrupp som har befintliga taggar* h�
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -96,7 +102,7 @@ Om du vill lägga till taggar till en *resurs som har befintliga taggar* använd
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved") 
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -106,7 +112,7 @@ Om du vill tillämpa alla taggar från en resursgrupp på dess resurser *utan at
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -115,16 +121,21 @@ Om du vill tillämpa alla taggar från en resursgrupp på dess resurser och *beh
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
@@ -134,7 +145,6 @@ Om du vill ta bort alla taggar skickar du en tom hash-tabell:
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -257,7 +267,7 @@ När du hämtar användning CSV för tjänster som stöder taggar med fakturerin
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du kan tillämpa begränsningar och konventioner över din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser som har ett värde för en viss tagg. Mer information finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md).
+* Du kan tillämpa begränsningar och konventioner över din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser som har ett värde för en viss tagg. Mer information finns i [vad är Azure principen?](../azure-policy/azure-policy-introduction.md)
 * En introduktion till med hjälp av Azure PowerShell när du distribuerar resurser, se [med hjälp av Azure PowerShell med Azure Resource Manager](powershell-azure-resource-manager.md).
 * En introduktion till med hjälp av Azure CLI när du distribuerar resurser, se [med hjälp av Azure CLI för Mac, Linux och Windows med Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * En introduktion till med hjälp av portalen finns [hantera Azure-resurser med hjälp av Azure portal](resource-group-portal.md).  

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -28,7 +28,7 @@ Azure Storage är Microsofts molntjänstlagringslösning för moderna datalagrin
 
 I Azure Storage finns dessa datatjänster: 
 
-- [Azure Blobs](../blobs/storage-blobs-introduction.md): En mycket skalbar objektlagring för text och binär dag.
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): En mycket skalbar objektlagring för textdata och binära data.
 - [Azure Files](../files/storage-files-introduction.md): Hanterade filresurser för distributioner i molnet eller lokalt.
 - [Azure Queues](../queues/storage-queues-introduction.md): Ett meddelandearkiv för tillförlitliga meddelandefunktioner mellan programkomponenter. 
 - [Azure Tables](../../cosmos-db/table-storage-overview.md): En NoSQL-lagring av schemalös lagring av strukturerade data.
@@ -179,7 +179,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [REST-API för Storage Services](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage-klientbibliotek för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Storage-klientbibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Storage-klientbibliotek för Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Storage-klientbibliotek för Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Storage-klientbibliotek för Python](https://github.com/Azure/azure-storage-python)
 * [Storage-klientbibliotek för PHP](https://github.com/Azure/azure-storage-php)
 * [Storage-klientbibliotek för Ruby](https://github.com/Azure/azure-storage-ruby)

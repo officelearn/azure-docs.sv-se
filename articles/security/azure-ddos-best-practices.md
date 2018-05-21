@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS-skydd: Metodtips och referera till arkitekturer
 
@@ -86,8 +86,8 @@ För [Azure App Service](../app-service/app-service-value-prop-what-is.md), Väl
 
 Tanken bakom skydd på djupet är att hantera risker med hjälp av olika defensiva strategier. Skikta säkerhetsskyddet i ett program minskar risken för ett angrepp. Vi rekommenderar att du implementera säker Designer för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.
 
-Till exempel risken för angrepp ökar med storleken (*yta området*) för programmet. Du kan minska risken genom för att stänga ned exponerade IP-adressutrymmet vitlistning och lyssningsportar som inte behövs på belastningsutjämnare ([Azure belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Programgateway](../application-gateway/application-gateway-create-probe-portal.md)). [Nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/virtual-networks-nsg.md) är ett annat sätt att minska risken för angrepp.
-Du kan använda [tjänsten taggar](/virtual-network/security-overview.md) och [programmet säkerhetsgrupper](/virtual-network/security-overview.md) att minimera komplexitet för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett program.
+Till exempel risken för angrepp ökar med storleken (*yta området*) för programmet. Du kan minska risken genom för att stänga ned exponerade IP-adressutrymmet vitlistning och lyssningsportar som inte behövs på belastningsutjämnare ([Azure belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Programgateway](../application-gateway/application-gateway-create-probe-portal.md)). [Nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/security-overview.md) är ett annat sätt att minska risken för angrepp.
+Du kan använda [tjänsten taggar](/virtual-network/security-overview.md#service-tags) och [programmet säkerhetsgrupper](/virtual-network/security-overview.md#application-security-groups) att minimera komplexitet för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett program.
 
 Du bör distribuera Azure-tjänster i en [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) när det är möjligt. Detta gör tjänsten resurser för att kommunicera via privata IP-adresser. Azure-tjänstens trafik från ett virtuellt nätverk använder offentliga IP-adresser som käll-IP-adresser som standard. Med hjälp av [tjänstens slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) växlar trafik från tjänsten om du vill använda virtuella privata nätverksadresser som käll-IP-adresser när de försöker komma åt Azure-tjänsten från ett virtuellt nätverk.
 

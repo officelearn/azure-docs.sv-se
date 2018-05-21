@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b0689f9e3bf63e8ff842bb440d8a68d84a77aa5b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1fc89f2181a5b9fb6b6c5a26d974b016fa1926a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Spark MLlib att skapa machine learning-program och analysera en datamängd
 
@@ -53,7 +53,7 @@ I stegen nedan kan du utveckla en modell för att se vad som krävs för att lyc
 
 ## <a name="create-a-spark-mllib-machine-learning-app"></a>Skapa en Spark MLlib machine learning-app
 
-1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i avsnittet [skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
 2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SHIRT + RETUR**.
 
@@ -125,7 +125,7 @@ Eftersom rådata är i ett CSV-format måste du använda Spark-kontext och hämt
     StructField("results", StringType(), False),
     StructField("violations", StringType(), True)])
     
-    df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+    df = spark.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
     df.registerTempTable('CountResults')
     ```
 
@@ -222,7 +222,7 @@ Låt oss börja få en uppfattning om datamängden innehåller.
         - Skicka med villkor
     - Misslyckades
         - Misslyckades
-    - Kasta bort
+    - Ta bort
         - Företag som inte finns
         - Out-of-Business
 
@@ -281,7 +281,7 @@ Du kan använda den modell som du skapade tidigare till *förutsäga* vad result
     testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-    testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+    testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
     predictionsDf = model.transform(testDf)
     predictionsDf.registerTempTable('Predictions')
     predictionsDf.columns
@@ -345,13 +345,19 @@ Du kan nu skapa en slutlig visualisering för att du skäl om resultatet av det 
     ```PySpark
     %%sql -q -o true_positive
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
+    ```
 
+    ```PySpark
     %%sql -q -o false_positive
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    ```
 
+    ```PySpark
     %%sql -q -o true_negative
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
+    ```
 
+    ```PySpark
     %%sql -q -o false_negative
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
     ```

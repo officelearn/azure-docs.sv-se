@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Ordna resurser med hanteringsgrupper
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Spara pengar med reserverade VM-instanser
+    - name: Spara med Azure Reserved Instances
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Förskottsbetala för Virtual Machines med Reserved Instances
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Hantera Reserved Instances
+          href: billing-manage-reserved-vm-instance.md
+        - name: Förstå tillämpningen av rabatter för Reserved Instances
+          href: billing-understand-vm-reservation-charges.md
+        - name: Förstå användningen av reserverade instanser för Betala per användning
+          href: billing-understand-reserved-instance-usage.md
+        - name: Förstå användningen av reserverade instanser för Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Windows-kostnader för Reserved Instances
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Begränsningar och kvoter
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Gör så här för att
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Förstå den kostnadsfria tjänsten för mätningsmappning
           href: billing-understand-free-service-meter-mapping.md
-        - name: 'Reservera VM-instanser, Windows kostnader'
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Förstå tillämpningen av rabatter för reserverade VM-instanser
-          href: billing-understand-vm-reservation-charges.md
         - name: Förstå utgiftsgränser
           href: billing-spending-limit.md
         - name: Ställa in faktureringsvarningar
           href: billing-set-up-alerts.md
         - name: Lös passerat betalningsdatum
           href: billing-azure-subscription-past-due-balance.md
-        - name: Förstå användningen av reserverade instanser för Betala per användning
-          href: billing-understand-reserved-instance-usage.md
-        - name: Förstå användningen av reserverade instanser för Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Hantera prenumerationer
       items:
         - name: Hitta prenumeration eller hanteringsgrupp
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Visa faktureringskonton
           href: billing-view-all-accounts.md
-    - name: Hantera reserverade VM-instanser
-      href: billing-manage-reserved-vm-instance.md
     - name: Felsöka
       items:
         - name: Registreringsproblem

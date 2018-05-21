@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 51307e1bdb31d902636787790d1c4f1248f3886b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Anslut HDInsight till lokalt nätverk
 
@@ -182,7 +182,7 @@ Så här skapar du en Linux VM som använder den [binda](https://www.isc.org/dow
 
         dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Spara det här värdet eftersom det används senare.
+    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
 
 5. Konfigurera Bind att matcha DNS-namn för resurser i det virtuella nätverket med följande text som innehållet i den `/etc/bind/named.conf.local` filen:
 
@@ -336,6 +336,6 @@ Om du vill ansluta direkt till HDInsight till det virtuella nätverket, Använd 
 
 * Mer information om virtuella Azure-nätverk finns i [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Mer information om nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+* Mer information om nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
 * Mer information om användardefinierade vägar finns [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

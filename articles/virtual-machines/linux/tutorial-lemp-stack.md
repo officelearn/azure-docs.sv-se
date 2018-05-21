@@ -1,6 +1,6 @@
 ---
-title: Distribuera LEMP på en virtuell Linux-dator i Azure | Microsoft Docs
-description: 'Självstudier: Installera LEMP-stacken på en virtuell Linux-dator i Azure'
+title: Självstudier – Distribuera LEMP på en virtuell Linux-dator i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du installerar LEMP-stacken på en virtuell Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1f4c74ab96fc9494d1b3c7dd626265516533330b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installera en LEMP-webbserver på en virtuell Azure-dator
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LEMP-webbserver på en virtuell Linux-dator i Azure
+
 I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL och PHP (LEMP-stacken) på en virtuell Ubuntu-dator i Azure. LEMP-stacken är ett alternativ till den populära [LAMP-stacken](tutorial-lamp-stack.md) som du också kan installera i Azure. Om du vill se LEMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL 
 > * Verifiera installation och konfiguration
 > * Installera WordPress på LEMP-servern
 
-
 Den här installationen är avsedd för snabbtester och konceptbevis.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

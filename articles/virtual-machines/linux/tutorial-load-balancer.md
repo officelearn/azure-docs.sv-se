@@ -1,6 +1,6 @@
 ---
-title: Belastningsutjämna virtuella Linux-datorer i Azure | Microsoft Docs
-description: Lär dig hur du använder Azure Load Balancer för att skapa hög tillgänglighet och säkerhet för program över tre virtuella Linux-datorer
+title: Självstudier – Belastningsutjämna virtuella Linux-datorer i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa en belastningsutjämnare för ett säkert program med hög tillgänglighet på tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: baae0ee72056d2f7437a865b11f738ef0a2e6934
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>Självstudier: Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI 2.0
+
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
 
 > [!div class="checklist"]
@@ -34,10 +35,9 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 > * visa en belastningsutjämnare i praktiken
 > * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Översikt över Azure Load Balancer
 En Azure-belastningsutjämnare är en Layer-4-belastningsutjämnare (TCP, UDP) som ger hög tillgänglighet genom att distribuera inkommande trafik till felfria virtuella datorer. Belastningsutjämnaren har en hälsoavsökningsfunktion som övervakar en given port på varje virtuell dator och ser till att trafik endast distribueras till virtuella datorer som fungerar.

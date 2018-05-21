@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Kom igång med Microsoft Azure-säkerhet
 
@@ -136,7 +136,7 @@ Du kan placera de virtuella datorerna till [virtuella Azure-nätverk](https://az
 
 Du kan använda följande tekniker för Azure Virtual Network till att skydda kommunikationen i ditt virtuella nätverk:
 
-* [**Nätverkssäkerhetsgrupper (NSG: er)**](../virtual-network/virtual-networks-nsg.md). Du kan använda en NSG för trafiken till en eller flera instanser av virtuell dator i ditt virtuella nätverk. En NSG innehåller åtkomstkontrollregler som tillåter eller nekar trafik baserat på trafikriktningen, protokollet, källadressen och -porten, samt måladressen och -porten.
+* [**Nätverkssäkerhetsgrupper (NSG: er)**](../virtual-network/security-overview.md). Du kan använda en NSG för trafiken till en eller flera instanser av virtuell dator i ditt virtuella nätverk. En NSG innehåller åtkomstkontrollregler som tillåter eller nekar trafik baserat på trafikriktningen, protokollet, källadressen och -porten, samt måladressen och -porten.
 * [**Användardefinierade routning**](../virtual-network/virtual-networks-udr-overview.md). Du kan styra routning av paket via en virtuell installation genom att skapa användardefinierade vägar som anger next hop för paket som flödar till ett specifikt undernät att gå till en virtuell nätverksenhet säkerhet.
 * [**IP-vidarebefordran**](../virtual-network/virtual-networks-udr-overview.md). En virtuell nätverkssäkerhetsinstallation måste kunna ta emot inkommande trafik som inte är adresserad till installationen i fråga. Om du vill att en virtuell dator tar emot trafik adresserad till andra mål, aktivera IP-vidarebefordring för den virtuella datorn.
 * [**Tvingad tunneltrafik**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Tvingad tunneltrafik kan du omdirigera eller ”force” alla Internet-bunden trafik som genereras av virtuella datorer i ett virtuellt nätverk tillbaka till din lokala plats via en plats-till-plats VPN-tunnel för kontroll och granskning

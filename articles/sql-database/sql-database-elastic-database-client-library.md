@@ -2,18 +2,18 @@
 title: Skapa skalbara molnresurser databaser | Microsoft Docs
 description: Skapa skalbara .NET databasen appar med klientbibliotek för elastisk databas
 services: sql-database
-manager: jhubbard
+manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 6000b06950ddd442b76838e5632196808f893ef9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. I synnerhet kan du använda den **klientbibliotek för elastisk databas** att skapa och hantera databaser som skalats ut. Den här funktionen kan du enkelt utvecklar delat program med hundratals, eller till och med tusentals – för Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att underlätta hanteringen av dessa databaser.
@@ -23,7 +23,8 @@ Så här hämtar:
 * .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Dokumentation
-1. [Kom igång med elastiska databasverktyg](sql-database-elastic-scale-get-started.md)
+1. 
+  [Kom igång med Elastic Database-verktyg](sql-database-elastic-scale-get-started.md)
 2. [Elastiska databasfunktioner](sql-database-elastic-scale-introduction.md)
 3. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
 4. [Migrera befintliga databaser ska skalas ut](sql-database-elastic-convert-to-use-elastic-tools.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomst kontroll säkerhetsmetoder
 
@@ -64,7 +64,7 @@ Mer information om Azure AD-synkronisering finns i artikeln [integrera dina loka
 
 När du har flera kataloger för att hantera detta blir ett administrativa problem inte bara för IT-avdelningen, utan även för användare som behöver komma ihåg flera lösenord. Med hjälp av [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) du ger användarna möjligheten för använder samma uppsättning autentiseringsuppgifter för att logga in och komma åt de resurser som de behöver, oavsett om den här resursen finnas lokalt eller i molnet.
 
-Använda SSO för att ge användare åtkomst till sina [SaaS-program](../active-directory/active-directory-appssoaccess-whatis.md) baserat på deras organisationens konto i Azure AD. Detta gäller inte bara för Microsoft SaaS-appar, men även andra appar som [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) och [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Programmet kan konfigureras för att använda Azure AD som en [SAML-baserade identitet](../active-directory/fundamentals-identity.md) provider. Azure AD utfärdar inte en token så att de kan logga in på programmet, om de har beviljats åtkomst med hjälp av Azure AD som en säkerhetskontroll. Du kan bevilja åtkomst direkt eller via en grupp att de är medlem i.
+Använda SSO för att ge användare åtkomst till sina [SaaS-program](../active-directory/manage-apps/what-is-single-sign-on.md) baserat på deras organisationens konto i Azure AD. Detta gäller inte bara för Microsoft SaaS-appar, men även andra appar som [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) och [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Programmet kan konfigureras för att använda Azure AD som en [SAML-baserade identitet](../active-directory/fundamentals-identity.md) provider. Azure AD utfärdar inte en token så att de kan logga in på programmet, om de har beviljats åtkomst med hjälp av Azure AD som en säkerhetskontroll. Du kan bevilja åtkomst direkt eller via en grupp att de är medlem i.
 
 > [!NOTE]
 > beslutet att använda enkel inloggning påverkar hur du integrerar din lokala katalog med din molnkatalog. Om du vill SSO, behöver du använda federation, eftersom katalogsynkronisering ger endast [samma inloggning](../active-directory/active-directory-aadconnect.md).

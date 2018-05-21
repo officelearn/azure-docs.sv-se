@@ -11,20 +11,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: language-reference
-ms.openlocfilehash: d47b14342caf0312e052584d20f1a9c86ca29cad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 595502ecf0a78491c73800e8077de65707c7a486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-indexer-azure-search-service-rest-api-version2017-11-11-preview"></a>Skapa indexerare (Azure Search-tjänsten REST api-version = 2017-11-11-Preview)
 
-Den här API-referensen är en preview-specifik version av dokumentation, som omfattar kognitiva Sök förbättringar av indexering.
-
-Med den [allmänt tillgänglig](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, kan du skapa en ny indexerare i en Azure Search-tjänst med en HTTP POST-begäran. 
+Den här API-referensen är en preview-specifik version av i dokumentationen för att lägga till [kognitiva Sök](cognitive-search-concept-intro.md) element för att skapa indexeraren API. Med den [allmänt tillgänglig](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, kan du skapa en ny indexerare i en Azure Search-tjänst med en HTTP POST-begäran. 
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json  
     api-key: [admin key]  
 ```  
@@ -35,17 +33,30 @@ Du kan också använda PUT och ange namnet på datakällan på URI: N. Om datak�
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]  
 ```  
-Den **api-versionen** krävs. Den aktuella versionen är `2016-09-01`. Se [API-versioner i Azure Search](search-api-versions.md) mer information.
+Den **api-versionen** krävs. Aktuellt tillgängliga versionen är oftast `api-version=2017-11-11`, men du behöver förhandsversionen för kognitiva sökning: `api-version=2017-11-11-Preview`.  Se [API-versioner i Azure Search](search-api-versions.md) mer information.
 
 Data-plattformsspecifika vägledning om hur du skapar indexerare som börjar med [indexerare översikt](search-indexer-overview.md), som innehåller en fullständig lista över [relaterade artiklar](search-indexer-overview.md#next-steps).
 
 > [!NOTE]  
->  Det maximala antalet tillåtna indexerare varierar beroende på prisnivå. Tjänsten gratis kan upp till 3 indexerare. Standard-tjänsten tillåter 50 indexerare. Se [Tjänstbegränsningarna](search-limits-quotas-capacity.md) mer information.    
+>  Det maximala antalet tillåtna indexerare varierar beroende på prisnivå. Tjänsten gratis kan upp till 3 indexerare. Standard-tjänsten tillåter 50 indexerare. HD standardtjänster stöder inte indexerare alls. Se [Tjänstbegränsningarna](search-limits-quotas-capacity.md) mer information.    
 
 ## <a name="request"></a>Förfrågan  
- Brödtexten i begäran innehåller en definition av indexerare som anger datakällan och mål-index för indexering, samt valfritt indexeringsschema och parametrar.  
 
- Syntaxen för att strukturera nyttolasten i begäran är som följer. Ett exempel på begäran finns senare i det här avsnittet.  
+En [datakällan](https://docs.microsoft.com/rest/api/searchservice/create-data-source), [index](https://docs.microsoft.com/rest/api/searchservice/create-index), och [kunskaper](ref-create-skillset.md) är en del av en [indexeraren](search-indexer-overview.md) definition, men varje är en oberoende komponent som kan användas i olika kombinationer. Du kan till exempel använda samma datakälla med flera indexerare eller samma index med flera indexerare eller flera indexerare skrivning till ett index.
+
+ Brödtexten i begäran innehåller en definition av indexerare, med följande delar.
+
++ [dataSourceName](#dataSourceName)
++ [targetIndexName](#targetIndexName)
++ [skillsetName](#skillset)
++ [schedule](#indexer-schedule)
++ [parameters](#indexer-parameters)
++ [fieldMappings](#field-mappings)
++ [outputFieldMappings](#output-fieldmappings)
+
+## <a name="request-syntax"></a>Syntax för begäran
+
+Syntax för att strukturera nyttolasten i begäran är som följer. Ett exempel på begäran tillhandahålls nedan.  
 
 ```json
 {   
@@ -53,38 +64,99 @@ Data-plattformsspecifika vägledning om hur du skapar indexerare som börjar med
     "description" : "Optional. Anything you want, or null",  
     "dataSourceName" : "Required. The name of an existing data source",  
     "targetIndexName" : "Required. The name of an existing index",  
-    "schedule" : { Optional. See Indexing Schedule below. },  
+    "skillsetName" : "Required for cognitive search enrichment",
+    "schedule" : { Optional, but immediately runs once if unspecified. See Indexing Schedule below. },  
     "parameters" : { Optional. See Indexing Parameters below. },  
     "fieldMappings" : { Optional. See fieldMappings below. },
     "outputFieldMappings" : { Required for enrichment pipelines. See outputFieldMappings below. },
     "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.
 }  
 ```
+<a name="dataSourceName"></a>
 
-### <a name="indexer-schedule"></a>Indexerschemat  
-En indexerare kan du ange ett schema. Om det finns ett schema körs indexeraren med jämna mellanrum enligt schemat. Schemaläggaren är inbyggd; Du kan inte använda en extern Schemaläggaren. **Schemat** har följande attribut: 
+### <a name="datasourcename"></a>”dataSourceName”
 
--   **intervallet**: krävs. Duration-värde som anger ett intervall eller tid för indexeraren körs. Minsta tillåtna intervall är 5 minuter. den längsta är en dag. Den måste formateras som ett XSD ”daytimeduration” XSD-värde (en begränsad delmängd av ett [ISO 8601 varaktighet](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värdet). Mönstret för detta är: `"P[nD][T[nH][nM]]".` exempel: `PT15M` för varje kvart `PT2H` för varannan timme.  
+En [datakällan definition](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ofta innehåller egenskaper som en indexerare kan använda för att utnyttja källa plattform egenskaper. Därför anger datakällan som du skickar till indexeraren tillgängligheten för vissa egenskaper och parametrar, sådana content-type för Azure SQL Database-filtrering i Azure BLOB eller timeout för fråga. 
+
+<a name="targetIndexName"></a>
+
+### <a name="targetindexname"></a>”targetIndexName”
+
+En [indexeringsschema](https://docs.microsoft.com/rest/api/searchservice/create-index) definierar fältsamlingen som innehåller sökbara, filtrera, hämta och andra uppgift som bestämmer hur fältet används. Under indexering, indexeraren crawlar datakällan, eventuellt sprickor dokument och hämtar information, Serialiserar resultatet till JSON och indexerar nyttolasten baserat på det schema som definierats för ditt index.
+
+<a name="skillset"></a>
+
+### <a name="skillsetname"></a>”skillsetName”
+
+[Kognitiva search (förhandsgranskning)](cognitive-search-concept-intro.md) refererar till naturligt språk och image bearbetning av funktionerna i Azure Search tillämpas under datapåfyllning att extrahera entiteter, viktiga fraser, språk, information från avbildningar och så vidare. Transformationer som används för innehåll som är via *kunskaper*, vilket du kombinera i en enda [ *kunskaper*](ref-create-skillset.md), en per indexeraren. En kunskaper är en oberoende komponent som du ansluter till en indexerare som datakällor och index. Du kan återanvända en kunskaper med andra indexerare, men varje indexerare kan bara använda en kunskaper i taget.
+ 
+<a name="indexer-schedule"></a>
+
+### <a name="schedule"></a>”schema”  
+En indexerare kan du ange ett schema. Utan ett schema indexeraren körs omedelbart när du skickar begäran: ansluter till crawlning och indexera datakällan. För vissa scenarier inklusive tidskrävande indexering jobb, scheman används för att [utöka fönstret bearbetning](search-howto-reindex.md#scale-out-indexing) överskrider maximala för 24 timmar. Om det finns ett schema körs indexeraren med jämna mellanrum enligt schemat. Schemaläggaren är inbyggd i; Du kan inte använda en extern Schemaläggaren. En **schema** har följande attribut: 
+
+-   **intervallet**: krävs. Duration-värde som anger ett intervall eller tid för indexeraren körs. Minsta tillåtna intervall är fem minuter. den längsta är en dag. Den måste formateras som ett XSD ”daytimeduration” XSD-värde (en begränsad delmängd av ett [ISO 8601 varaktighet](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värdet). Mönstret för detta är: `"P[nD][T[nH][nM]]".` exempel: `PT15M` för varje kvart `PT2H` för varannan timme.  
 
 -   **startTime**: valfria. UTC datetime när indexeraren ska börja köra.  
 
-### <a name="indexer-parameters"></a>Indexerare parametrar  
- En indexerare kan du ange flera parametrar som påverkar dess beteende. Alla nedanstående parametrar är valfria.  
+<a name="indexer-parameters"></a>
 
--   **maxFailedItems**: antalet objekt som kan misslyckas med att indexera innan en indexerare som kör anses vara fel. Standardvärdet är 0. Information om misslyckade artiklarna returneras av den [Erhåll Status för indexeraren &#40;Azure Söktjänsts-REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) igen.  
+### <a name="parameters"></a>”parametrar”
 
--   **maxFailedItemsPerBatch**: antalet objekt som kan misslyckas med att indexera i varje batch innan en indexerare som kör anses vara fel. Standardvärdet är 0.  
+En indexerare kan eventuellt ta konfigurationsparametrar som ändrar runtime beteenden. Konfigurationsparametrar är avgränsade med kommatecken på indexeraren-begäran. 
 
--   **batchSize:** anger antalet objekt som läses från datakällan och indexeras som en enskild batch för att förbättra prestanda. Standardvärdet beror på typen av datakälla: det är 1000 för Azure SQL och Azure Cosmos DB och 10 för Azure Blob Storage.
+```json
+    {
+      "name" : "my-blob-indexer-for-cognitive-search",
+      ... other indexer properties
+      "parameters" : { "maxFailedItems" : "15", "batchSize" : "100", "configuration" : { "parsingMode" : "json", "indexedFileNameExtensions" : ".json, .jpg, .png", "imageAction" : "generateNormalizedImages", "dataToExtract" : "contentAndMetadata" } }
+    }
+```
 
-### <a name="field-mapping-parameters"></a>Fältmappning parametrar
+#### <a name="general-parameters-for-all-indexers"></a>Allmänna parametrar för alla indexerare
+
+| Parameter | Typ och tillåtna värden   | Användning  |
+|-----------|------------|--------------------------|--------|
+| `"batchSize"` | Integer<br/>Standardvärdet är specifik (1000 för Azure SQL Database och Azure Cosmos DB, 10 för Azure Blob Storage) | Anger antalet objekt som läses från datakällan och indexeras som en enskild batch för att förbättra prestanda. |
+| `"maxFailedItems"` | Integer<br/>Standardvärdet är 0 | Antalet fel klarar innan du kör en indexerare anses vara fel. Värdet -1 om du inte vill att eventuella fel att stoppa indexering processen. Du kan hämta information om misslyckade artiklarna med [Erhåll Status för indexeraren](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).  |
+| `"maxFailedItemsPerBatch"` | Integer<br/>Standardvärdet är 0 | Antalet fel som klarar i varje batch innan du kör en indexerare anses vara fel. Värdet -1 om du inte vill att eventuella fel att stoppa indexering processen. |
+
+#### <a name="blob-configuration-parameters"></a>Parametrar för BLOB-konfiguration
+
+Flera parametrar är exklusiv för en viss indexerare som [Azure blob-indexering](search-howto-indexing-azure-blob-storage.md).
+
+| Parameter | Typ och tillåtna värden   | Användning  |
+|-----------|---------------------------|--------|
+| `"parsingMode"` | Sträng<br/>`"text"`<br/>`"delimitedText"`<br/>`"json"`<br/>`"jsonArray"`  | För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md), ange värdet `text` att förbättra prestandan för fulltextindexering på filer med oformaterad text i blob storage. <br/>För [CSV blobbar](search-howto-index-csv-blobs.md), ange värdet `delimitedText` när blobbar är vanlig CSV-filer. <br/>För [JSON-blobbar](search-howto-index-json-blobs.md), ange värdet `json` att extrahera strukturerad innehåll eller till `jsonArray` (förhandsgranskning) att extrahera enskilda element i en matris som separata dokument i Azure Search. |
+| `"excludedFileNameExtensions"` | Sträng<br/>kommaavgränsad lista | För [Azure BLOB-objekt](search-howto-indexing-azure-blob-storage.md), Ignorera alla filtyper i listan. Du kan till exempel utesluta ”.png, PNG, .mp4” att hoppa över filerna under indexeringen. | 
+| `"indexedFileNameExtensions"` | Sträng<br/>kommaavgränsad lista | För [Azure BLOB-objekt](search-howto-indexing-azure-blob-storage.md), markerar blobbar om filnamnstillägget är i listan. Du kan till exempel fokusera indexering på specifika program filer ”.docx, pptx, .msg” att specifikt inkludera dessa filtyper. | 
+| `"failOnUnsupportedContentType"` | true <br/>FALSKT (standard) | För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md), ange värdet `false` om du vill fortsätta indexeringen när en innehållstyp som inte stöds har påträffats, men du vet inte alla innehållstyper (filnamnstillägg) i förväg. |
+| `"failOnUnprocessableDocument"` | true <br/>FALSKT (standard)| För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md), ange värdet `false` om du vill fortsätta indexeringen om ett dokument inte indexering. |
+| `"indexStorageMetadataOnlyForOversizedDocuments"` | true <br/>FALSKT (standard)| För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md), den här egenskapen `true` fortfarande indexera lagring metadata för blobinnehåll som är för stort för att bearbeta.  Stora blobbar behandlas som fel som standard. Gränserna för blobbstorleken finns [Tjänstbegränsningarna](search-limits-quotas-capacity.md). |
+| `"delimitedTextHeaders"` | Sträng<br/>kommaavgränsad lista| För [CSV blobbar (förhandsgranskning)](search-howto-index-csv-blobs.md), anger en kommaavgränsad lista med kolumnrubriker, användbart för mappning av källan till målet fält i ett index. |
+| `"delimitedTextDelimiter"` | Sträng<br/>Användardefinierad | För [CSV blobbar (förhandsgranskning)](search-howto-index-csv-blobs.md), anger slutet av raden avgränsaren för CSV-filer där varje rad startar ett nytt dokument (till exempel ””|"`).  |
+| `"firstLineContainsHeaders"` | SANT (standard) <br/>false | För [CSV blobbar (förhandsgranskning)](search-howto-index-csv-blobs.md), visar att den första raden (icke-tomma) för varje blobb innehåller huvuden.|
+| `"documentRoot"`  | Sträng<br/>Användardefinierad | För [JSON-matriser (förhandsgranskning)](search-howto-index-json-blobs.md#nested-json-arrays), givet ett strukturerat eller halvstrukturerade dokument, du kan ange en sökväg till matrisen via den här egenskapen. |
+| `"dataToExtract"` | Sträng<br/>`"storageMetadata"`<br/>`"allMetadata"`<br/>`"contentAndMetadata"` (standard) | För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md):<br/>Ange till `"storageMetadata"` till index bara den [standard blob-egenskaper och användardefinierade metadata](../storage/blobs/storage-properties-metadata.md). <br/>Ange till `"allMetadata"` att extrahera metadata som tillhandahålls av undersystemet Azure blob storage och [innehållstypen specifika metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (till exempel metadata unika för bara PNG-filer) indexeras. <br/>Ange till `"contentAndMetadata"` att extrahera alla metadata och textinnehåll från varje blob. <br/><br/>För [avbildningen analys i kognitiva sökningen (förhandsgranskning)](cognitive-search-concept-image-scenarios.md)när `"imageAction"` är inställd på `"generateNormalizedImages"`, `"dataToExtract"` inställningen instruerar indexeraren vilka data som ska extraheras från innehållet i operativsystemsavbildningen. Gäller för inbäddad bild innehåll i en. PDF- eller andra program eller bildfiler som JPG och PNG i Azure BLOB.  |
+| `"imageAction"` |  Sträng<br/>`"none"`<br/>`"generateNormalizedImages"` | För [Azure-blobbar](search-howto-indexing-azure-blob-storage.md), ange värdet`"none"` att ignorera inbäddade bilder eller bildfiler i datauppsättningen. Detta är standardinställningen. <br/><br/>För [avbildningen analys i kognitiva sökningen](cognitive-search-concept-image-scenarios.md), ange värdet`"generateNormalizedImages"` att extrahera text från avbildningar (till exempel word ”Avbryt” från trafik sluta logga) och bädda in den som en del av fältet innehåll. Indexeraren vid analys av avbildningen, skapar en matris med normaliserade avbildningar som en del av dokumentet knäcka och bäddar in den genererade informationen i fältet content. Den här åtgärden kräver att `"dataToExtract"` är inställd på `"contentAndMetadata"`. En normaliserade avbildning refererar till ytterligare bearbetning, vilket ger enhetlig bild utdata, storlek och roteras befordra konsekvent återgivning när du inkludera bilder i visual sökresultat (till exempel samma storlek fotografier i ett diagram som styr som visas i [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). Den här informationen genereras för varje avbildning när du använder |
+
+
+#### <a name="other-configuration-parameters"></a>Andra konfigurationsparametrar
+
+Följande parametrar är specifika för Azure SQL Database.
+
+| Parameter | Typ och tillåtna värden   | Användning  |
+|-----------|---------------------------|--------|
+| `"queryTimeout"` | Sträng<br/>”: mm: ss”<br/>”00: 05:00”| För [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), ange den här parametern om du vill öka tidsgränsen bortom standardvärdet 5 minuter.|
+
+<a name="field-mappings"></a>
+
+### <a name="fieldmappings"></a>”fieldMappings”
 
 Indexerare definitioner innehålla fältet kopplingar för att mappa ett fält i datakällan till ett målfält i ett Azure Search-index. Det finns två typer av kopplingar beroende på om innehållsöverföringen följer en direkt eller utökade sökväg:
 
 + **fieldMappings** är valfria, tillämpas när inte matchar källan målet fältnamn eller när du vill ange en funktion.
 + **outputFieldMappings** krävs om du skapar [en berikande pipeline](cognitive-search-concept-intro.md). Fältet utdata är en konstruktion som definierats under processen berikande i en berikande pipeline. Fältet utdata kanske till exempel en sammansatt struktur som skapats under berikande från två olika fält i dokumentet källa. 
-
-#### <a name="fieldmappings"></a>fieldMappings
 
 Överväg en källtabell med ett fält i följande exempel `_id`. Azure Search kan inte namnet på ett fält som börjar med ett understreck, så du måste byta namn på fältet. Detta kan göras med hjälp av den `fieldMappings` egenskapen indexeraren på följande sätt:
 
@@ -105,9 +177,11 @@ Både käll- och fältnamn är inte skiftlägeskänsliga.
 
 Läs om scenarier där fältmappningar är användbara i [Sök indexeraren fältmappningar](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).
 
-#### <a name="outputfieldmappings"></a>outputFieldMappings
+<a name="output-fieldmappings"></a>
 
-I kognitiva Sök scenarier där en kunskaper är bunden till en indexerare, måste du lägga till `outputFieldMappings` vill associera några utdata från ett berikande steg som ger innehåll till ett sökbara fält i indexet.
+### <a name="outputfieldmappings"></a>”outputFieldMappings”
+
+I [kognitiva Sök](cognitive-search-concept-intro.md) scenarier där en kunskaper är bunden till en indexerare, måste du lägga till `outputFieldMappings` vill associera några utdata från ett berikande steg som ger innehåll till ett sökbara fält i indexet.
 
 ```json
   "outputFieldMappings" : [
@@ -129,14 +203,14 @@ I kognitiva Sök scenarier där en kunskaper är bunden till en indexerare, mås
 
 <a name="FieldMappingFunctions"></a>
 
-#### <a name="field-mapping-functions"></a>Fältet mappning funktioner
+### <a name="field-mapping-functions"></a>Fältet mappning funktioner
 
 Fältmappningar kan också användas för att omvandla källa fältvärden med *fältet mappning funktioner*. Till exempel en godtycklig strängvärdet kan vara base64-kodad så att den kan användas för att fylla i ett nyckelfält för dokumentet.
 
 Mer information om när och hur du använder fältet mappning funktioner finns [fältet mappning fungerar](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions).
 
-### <a name="request-body-examples"></a>Begäran body-exempel  
- I följande exempel skapas en indexerare som kopierar data från tabellen som refereras av den `ordersds` datakällan till den `orders` index enligt ett schema som börjar på 1 januari 2015 UTC och körs varje timme. Varje anrop av indexerare kommer att lyckas om mer än 5 objekt misslyckas med att indexera i varje batch och högst 10 objekt misslyckas med att indexera totalt.  
+## <a name="request-examples"></a>Exempel på begäran  
+ Det första exemplet skapar en indexerare som kopierar data från tabellen som refereras av den `ordersds` datakällan till den `orders` index enligt ett schema som börjar på 1 januari 2015 UTC och körs varje timme. Varje anrop av indexerare kommer att lyckas om mer än 5 objekt misslyckas med att indexera i varje batch och högst 10 objekt misslyckas med att indexera totalt.  
 
 ```json
 {
@@ -144,8 +218,41 @@ Mer information om när och hur du använder fältet mappning funktioner finns [
     "description" : "a cool indexer",  
     "dataSourceName" : "ordersds",  
     "targetIndexName" : "orders",  
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" },  
+    "schedule" : { "interval" : "PT1H", "startTime" : "2018-01-01T00:00:00Z" },  
     "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5 }  
+}
+```
+
+Det andra exemplet visar en kognitiva Sökåtgärd anges med referens till en kunskaper och [outputFieldMappings](#output-fieldmappings). [Kunskaper](ref-create-skillset.md) övergripande resurser som definierats separat. Det här exemplet är en förkortning av indexerare definitionen i den [kognitiva Sök kursen](cognitive-search-tutorial-blob.md).
+
+```json
+{
+  "name":"demoindexer", 
+  "dataSourceName" : "demodata",
+  "targetIndexName" : "demoindex",
+  "skillsetName" : "demoskillset",
+  "fieldMappings" : [
+    {
+        "sourceFieldName" : "content",
+        "targetFieldName" : "content"
+    }
+   ],
+  "outputFieldMappings" : 
+  [
+    {
+        "sourceFieldName" : "/document/organizations", 
+        "targetFieldName" : "organizations"
+    },
+  ],
+  "parameters":
+  {
+    "maxFailedItems":-1,
+    "configuration": 
+    {
+    "dataToExtract": "contentAndMetadata",
+    "imageAction": "generateNormalizedImages"
+    }
+  }
 }
 ```
 
@@ -154,6 +261,7 @@ Mer information om när och hur du använder fältet mappning funktioner finns [
 
 ## <a name="see-also"></a>Se också
 
++ [Översikt över indexeraren](search-indexer-overview.md)
 + [Översikt över kognitiva sökning](cognitive-search-concept-intro.md)
 + [Snabbstart: Försök kognitiva sökning](cognitive-search-quickstart-blob.md)
 + [Mappning](cognitive-search-output-field-mapping.md)

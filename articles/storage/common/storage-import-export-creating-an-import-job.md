@@ -1,11 +1,11 @@
 ---
-title: "Skapa ett importjobb för Azure Import/Export | Microsoft Docs"
-description: "Lär dig hur du skapar en import för tjänsten Microsoft Azure Import/Export."
+title: Skapa ett importjobb för Azure Import/Export | Microsoft Docs
+description: Lär dig hur du skapar en import för tjänsten Microsoft Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
@@ -62,7 +62,7 @@ Förbereda enheten omfattar:
 
 ## <a name="obtaining-your-shipping-location"></a>Hämta din leverans plats
 
-Innan du skapar ett importjobb, måste du skaffa ett leverans platsnamn och adress genom att anropa den [listan platser](/rest/api/storageimportexport/listlocations) igen. `List Locations`Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från listan över returnerade och leverera din hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att direkt hämta leveransadress för en viss plats.
+Innan du skapar ett importjobb, måste du skaffa ett leverans platsnamn och adress genom att anropa den [listan platser](/rest/api/storageimportexport/listlocations) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från listan över returnerade och leverera din hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att direkt hämta leveransadress för en viss plats.
 
  Följ stegen nedan för att hämta leveransplatsen för:
 
@@ -103,6 +103,8 @@ Du måste skicka dina enheter till den adress som du fick från föregående ste
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Uppdaterar importjobbet med din leveransinformation
 När du har Spårningsnumret till din kan anropa den [uppdatera jobbegenskaper](/api/storageimportexport/jobs#Jobs_Update) uppdateringen leverans operatör namn, Spårningsnumret för projektet och kontonummer operatör för returnerade leverans. Alternativt kan du ange antalet enheter och den leverans.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

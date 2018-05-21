@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 53d34f373dc31befe75072733976b2e4126ff2b0
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: acd69b6ea4d7a1d5c13cd0172f15b93eac96058e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
@@ -111,7 +111,7 @@ Vi har massor av bra resurser online för att du lär dig allt om Azure AD. Här
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Komma igång med Azure AD Reporting](active-directory-reporting-getting-started.md)
 * [Hantera lösenord från valfri plats](active-directory-passwords-update-your-own-password.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Hur du ger säker fjärråtkomst till lokala program](manage-apps/application-proxy.md)
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)

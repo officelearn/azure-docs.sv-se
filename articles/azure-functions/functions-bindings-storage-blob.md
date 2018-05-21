@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1d1cdee7373b949456032aff3c808cc233aaa1cc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -773,7 +773,7 @@ I C# och C#-skript kan binda du till följande typer att skriva BLOB:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> kräver ”i” bindning `direction` i *function.json* eller `FileAccess.Read` i en C#-klassbiblioteket.
+<sup>1</sup> kräver ”i” bindning `direction` i *function.json* eller `FileAccess.Read` i en C#-klassbiblioteket. Du kan dock använda behållarobjekt som körningsmiljön tillhandahåller för att skrivåtgärder, till exempel överföra blobbar i behållaren.
 
 <sup>2</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
 För att utöka din tillgängliga lagring, stöder Azure [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/) virtuella datorinstanser med anslutna datadiskar. Du kan koppla in datadiskar när skalningsuppsättningen skapas eller till en befintlig skalningsuppsättning.
@@ -91,21 +91,12 @@ Förbered datadiskarna i ett Linux-kluster automatiskt genom att lägga till fö
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Lägga till fyllda datadiskar i en befintlig skalningsuppsättning 
-> När du lägger till diskar i en befintlig skalningsuppsättningsmodell skapas disken avsiktligt alltid tom. Det här scenariot omfattar också nya instanser som skapats av skalningsuppsättningen. Det beror på att skalningsuppsättningsdefinitionen har en tom datadisk. Om du vill skapa fyllda dataenheter för en befintlig skalningsuppsättningsmodell kan du välja något av följande två alternativ:
-
-* Kopiera data från instansen 0 VM till datadiskarna i de andra virtuella datorerna genom att köra ett anpassat skript.
-* Skapa en hanterad avbildning med OS-disken plus datadisk (med nödvändiga data) och skapa en ny skalningsuppsättning med avbildningen. På så sätt har alla nya virtuella datorer som skapas en datadisk som finns med i definitionen av skalningsuppsättningen. Eftersom den här definitionen avser en avbildning med en datadisk som innehåller anpassade data har alla virtuella datorer på skalningsuppsättningen dessa ändringar.
-
-> Sättet att skapa en anpassad avbildning finns här: [Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](/azure/virtual-machines/windows/capture-image-resource/) 
-
-> Användaren måste avbilda instansen 0 VM som innehåller nödvändiga data och sedan använda den virtuella hårddisken för avbildningsdefinitionen.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Lägga till redan fyllda datadiskar i en befintlig skalningsuppsättning
+Datadiskar som definieras i skalningsuppsättningsmodellen är alltid tomma. Du kan dock ansluta en befintlig datadisk till en specifik virtuell dator i en skalningsuppsättning. Den här funktionen finns för närvarande som en förhandsvisningsversion, med exempel på [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Om du vill distribuera data på alla virtuella datorer i skalningsuppsättningen kan du duplicera datadisken och ansluta den till var och en av de virtuella datorerna i skalningsuppsättningen. Du kan sedan skapa en anpassad avbildning som innehåller alla data och etablera skalningsuppsättningen från den anpassade avbildningen, eller så kan du använda Azure Files eller en liknande datalagringsprodukt.
 
 
 ## <a name="additional-notes"></a>Ytterligare information
 Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättningar finns i [_förhandversionen 2016-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) av Microsoft.Compute-API:t eller senare versioner.
-
-I den första implementeringen av stöd för anslutna diskar för skalningsuppsättningar går det inte att ansluta eller koppla från datadiskar till/från enskilda virtuella datorer i en skalningsuppsättning.
 
 Azure Portal-stöd för anslutna datadiskar i skalningsuppsättningar är begränsat i början. Beroende på dina behov kan du använda Azure-mallar, CLI, PowerShell, SDK:er och REST API för att hantera anslutna diskar.
 

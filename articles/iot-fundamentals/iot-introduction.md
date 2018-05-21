@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
 layout: LandingPage
-ms.openlocfilehash: 183925324c404b412b5d12c3a9bff93ccd842535
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 568680d2e1eb8c09fa124a5302bb7170ba4af352
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Introduktion till Azure och Sakernas Internet
 
@@ -83,17 +83,6 @@ I ett förutsägande underhållsscenario lagrar till exempel molnserverdelen his
 
 Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presentations- och företagsanslutningsskikt. I det här skiktet kan användare se och analysera data som samlats in från deras enheter. Vyerna kan bestå av instrumentpaneler eller BI-rapporter som kan visa både historiska data eller nästan realtidsdata. En operatör kan exempelvis kontrollera statusen för en viss pumpstation och se alla varningar som har utlösts i systemet. Här kan även IoT-lösningens serverdel integreras med befintliga branschspecifika program för att knytas samman med företagets verksamhetsprocesser eller arbetsflöden. En förutsägande underhållslösning kan till exempel integreras med ett system för schemaläggning som bokar in en ingenjör att besöka en pumpstation när en pump är i behov av underhåll.
 
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
-
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-
-
 ## <a name="why-azure-iot"></a>Varför Azure IoT?
 
 Azure IoT förenklar IoT-projekt och löser problem till exempel med säkerhet, inkompatibilitet mellan infrastrukturer och skalning av IoT-lösningen. Här är hur:
@@ -141,7 +130,7 @@ Läs mer om följande tekniker och lösningar, eller bekanta dig med listan öve
                 <div class="card">
                     <div class="cardText">
                         <h3>Lösningar</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">IoT-lösningsacceleratorer</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -179,14 +168,22 @@ Läs mer om följande tekniker och lösningar, eller bekanta dig med listan öve
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
+[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
+[img-dashboard]: ./media/iot-introduction/iot-suite.png
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
 [lnk-iot-dps-land]: /azure/iot-dps/index.yml
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/azure-maps/index.yml
-[lnk-iot-suite-land]: /azure/iot-suite/index.md
+[lnk-iot-maps-land]: /azure/maps/index.yml
+[lnk-iot-sa-land]: /azure/iot-suite/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+
+[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
+[lnk-iot-sa]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 

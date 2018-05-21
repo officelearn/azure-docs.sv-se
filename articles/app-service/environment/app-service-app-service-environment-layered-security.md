@@ -1,11 +1,11 @@
 ---
-title: "Överlappande säkerhetsarkitekturen med Apptjänstmiljöer"
-description: "Implementera en skiktad säkerhetsarkitekturen med Apptjänstmiljöer."
+title: Överlappande säkerhetsarkitekturen med Apptjänstmiljöer
+description: Implementera en skiktad säkerhetsarkitekturen med Apptjänstmiljöer.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 6c1f62b5e10a625911feea17ae6835e027709790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementera en skiktad säkerhetsarkitekturen med Apptjänstmiljöer
 ## <a name="overview"></a>Översikt
@@ -32,15 +32,15 @@ Diagrammet nedan illustrerar ett exempel arkitekturen med en WebAPI baserat app 
 
 Grönt plustecken indikera att nätverkssäkerhetsgruppen i undernät som innehåller ”apiase” tillåter inkommande anrop från de överordnade webbprogram som korrekt anrop från sig själv.  Men samma nätverkssäkerhetsgruppen nekar uttryckligen åtkomst till allmän inkommande trafik från Internet. 
 
-Resten av det här avsnittet innehåller stegvisa instruktioner för att konfigurera nätverkssäkerhetsgruppen för undernätet som innehåller ”apiase”.
+Resten av den här artikeln innehåller stegvisa instruktioner för att konfigurera nätverkssäkerhetsgruppen för undernätet som innehåller ”apiase”.
 
 ## <a name="determining-the-network-behavior"></a>Bestämma nätverksbeteendet
 För att kunna veta vilka Nätverkssäkerhetsregler krävs, måste du bestämma vilka nätverksklienter ska kunna nå Apptjänst-miljön som innehåller API-appen och vilka klienter kommer att blockeras.
 
 Eftersom [nätverkssäkerhetsgrupper (NSG: er)] [ NetworkSecurityGroups] tillämpas på undernät, och Apptjänstmiljöer har distribuerats till undernät gäller reglerna i en NSG för **alla** appar som körs på en Apptjänst-miljö.  Med hjälp av exempel arkitekturen för den här artikeln när en nätverkssäkerhetsgrupp tillämpas på undernät som innehåller ”apiase”, kommer alla appar som körs på ”apiase” Apptjänstmiljö att skyddas av samma uppsättning säkerhetsregler. 
 
-* **Fastställa utgående IP-adressen för överordnade anropare:** vad är IP-adressen eller adresserna för de överordnade anropare?  Dessa adresser måste du uttryckligen tillåts åtkomst i NSG: N.  Eftersom anrop mellan Apptjänstmiljöer betraktas som ”Internet” anrop, innebär det utgående IP-adress tilldelas varje tre överordnade Apptjänstmiljöer måste ha behörighet i NSG för undernätet ”apiase”.   Mer information om hur du fastställer utgående IP-adressen för appar som körs i en Apptjänst-miljö finns i [nätverksarkitektur] [ NetworkArchitecture] översiktsartikel.
-* **Backend-API-app måste anropa sig själv?**  En ibland förbises och diskret punkt är ett scenario där backend-programmet behöver anropa sig själv.  Om en backend-API-program på en Apptjänst-miljö måste anropa sig själv, detta också behandlas som ett anrop för ”Internet”.  I exemplet arkitekturen kräver detta att tillåta åtkomst från det ”apiase” Apptjänstmiljö samt utgående IP-adress.
+* **Fastställa utgående IP-adressen för överordnade anropare:** vad är IP-adressen eller adresserna för de överordnade anropare?  Dessa adresser måste du uttryckligen tillåts åtkomst i NSG: N.  Eftersom anrop mellan Apptjänstmiljöer betraktas som ”Internet” anrop, tilldelas utgående IP-adress varje tre överordnade Apptjänstmiljöer måste ha behörighet i NSG för undernätet ”apiase”.   Mer information om hur du fastställer utgående IP-adressen för appar som körs i en Apptjänst-miljö finns i [nätverksarkitektur] [ NetworkArchitecture] översiktsartikel.
+* **Backend-API-app måste anropa sig själv?**  En ibland förbises och diskret punkt är ett scenario där backend-programmet behöver anropa sig själv.  Om en backend-API-program på en Apptjänst-miljö måste anropa sig själv, även behandlas som ett anrop för ”Internet”.  I exempelarkitektur kräver detta att tillåta åtkomst från det ”apiase” Apptjänstmiljö samt utgående IP-adress.
 
 ## <a name="setting-up-the-network-security-group"></a>Konfigurera Nätverkssäkerhetsgruppen
 När en uppsättning utgående IP-adresser är kända, är nästa steg att skapa en nätverkssäkerhetsgrupp.  Du kan skapa nätverkssäkerhetsgrupper för båda Resource Manager-baserade virtuella nätverk, samt klassiska virtuella nätverk.  Exemplen nedan visar hur du skapar och konfigurerar en NSG på ett klassiskt virtuellt nätverk med hjälp av Powershell.
@@ -76,13 +76,13 @@ Till sist ska bevilja åtkomst till backend-API Apptjänstmiljö utgående IP-ad
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Inga andra Nätverkssäkerhetsregler måste konfigureras eftersom varje NSG innehåller en uppsättning standardregler som blockerar inkommande åtkomst från Internet som standard.
+Inga andra Nätverkssäkerhetsregler krävs, eftersom varje NSG innehåller en uppsättning standardregler som blockerar inkommande åtkomst från Internet, som standard.
 
-En fullständig lista över regler i nätverkssäkerhetsgruppen visas nedan.  Observera hur den sista regeln är markerat blockerar inkommande åtkomst från anropare än de som uttryckligen getts åtkomst.
+En fullständig lista över regler i nätverkssäkerhetsgruppen visas nedan.  Observera hur den sista regeln är markerat blockerar inkommande åtkomst från alla anropare än anropare som uttryckligen getts åtkomst.
 
 ![NSG-konfiguration][NSGConfiguration] 
 
-Det sista steget är att tillämpa NSG: N på det undernät som innehåller ”apiase” Apptjänst-miljö.  
+Det sista steget är att tillämpa NSG: N på det undernät som innehåller ”apiase” Apptjänst-miljö.
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
@@ -90,7 +90,7 @@ Det sista steget är att tillämpa NSG: N på det undernät som innehåller ”a
 Med NSG tillämpad på undernätet, tillåts endast de tre överordnade Apptjänstmiljöer och Apptjänst-miljön som innehåller API serverdel att anropa ”apiase”-miljö.
 
 ## <a name="additional-links-and-information"></a>Information och ytterligare länkar
-Information om [nätverkssäkerhetsgrupper](../../virtual-network/virtual-networks-nsg.md). 
+Information om [nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md).
 
 Förstå [utgående IP-adresser] [ NetworkArchitecture] och Apptjänstmiljöer.
 

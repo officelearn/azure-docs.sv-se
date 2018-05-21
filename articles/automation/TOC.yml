@@ -159,6 +159,8 @@
       items:
         - name: Runbook-galleri
           href: automation-runbook-gallery.md
+        - name: Övervaka runbook-flöden med aktivitetsloggar
+          href: automation-alert-activity-log.md
         - name: Starta ett runbook-flöde med Azure-aviseringar
           href: automation-create-alert-triggered-runbook.md
         - name: Skapa virtuella Amazon Web Service-datorer

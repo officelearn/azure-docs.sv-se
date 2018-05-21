@@ -1,32 +1,31 @@
 ---
-title: "Distributionsåtgärder med Azure Resource Manager | Microsoft Docs"
-description: "Beskriver hur du visar Azure Resource Manager distributionsåtgärder med portalen, PowerShell, Azure CLI och REST-API."
+title: Distributionsåtgärder med Azure Resource Manager | Microsoft Docs
+description: Beskriver hur du visar Azure Resource Manager distributionsåtgärder med portalen, PowerShell, Azure CLI och REST-API.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visa distributionsåtgärder med Azure Resource Manager
 
-
 Du kan visa åtgärderna för en distribution via Azure-portalen. Du kanske är mest intresserad Visa åtgärder när du har tagit emot ett fel under distributionen så att den här artikeln fokuserar på Visa åtgärder som har misslyckats. Portalen tillhandahåller ett gränssnitt som gör att du lätt hitta felen och fastställa eventuella korrigeringar.
 
-Du kan felsöka distributionen genom att titta på granskningsloggarna eller distributionsåtgärder. Det här avsnittet beskrivs båda metoderna. Hjälp med att lösa viss distributionsfel finns [Lös vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Du kan felsöka distributionen genom att titta på granskningsloggarna eller distributionsåtgärder. Den här artikeln visar båda metoderna. Hjälp med att lösa viss distributionsfel finns [Lös vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portalen
 Distributionsåtgärder, Använd följande steg:
@@ -136,21 +135,19 @@ Distributionsåtgärder, Använd följande steg:
 1. Hämta övergripande status för en distribution med den **azure-grupp distribution visa** kommando.
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  En av de returnerade värdena är den **correlationId**. Det här värdet används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
+1. En av de returnerade värdena är den **correlationId**. Det här värdet används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Åtgärder för en distribution, Använd:
+1. Åtgärder för en distribution, Använd:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

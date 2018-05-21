@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,9 +41,13 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt observerade klientens svarstid. Det finns två viktiga konfigurationsinställningar för att konfigurera klienten anslutningsprincip – anslutningen *läge* och [anslutning *protokollet*](#connection-protocol).  De två lägena finns:
 
    1. Gateway-läge (standard)
+      
+      Gateway-läge stöds på alla SDK-plattformar och är konfigurerad som standard. Om programmet körs i ett företagsnätverk med strikt brandväggsbegränsningar, är Gateway-läge det bästa valet eftersom den använder standardporten för HTTPS och en enda slutpunkt. Förhållandet prestanda är dock att Gateway-läge innebär ett hopp ytterligare nätverk varje gång data har lästs eller skrivits till Azure Cosmos DB. Därmed ger direkt läge bättre prestanda på grund av färre nätverkshopp.
+
    2. Direkt-läge
 
-      Gateway-läge stöds på alla SDK-plattformar och är konfigurerad som standard.  Om programmet körs i ett företagsnätverk med strikt brandväggsbegränsningar, är Gateway-läge det bästa valet eftersom den använder standardporten för HTTPS och en enda slutpunkt. Förhållandet prestanda är dock att Gateway-läge innebär ett hopp ytterligare nätverk varje gång data har lästs eller skrivits till Azure Cosmos DB. Därmed ger direkt läge bättre prestanda på grund av färre nätverkshopp.
+     Direkt läge stöder anslutningar via TCP- och HTTPS-protokoll. För närvarande stöds direkt i .NET Standard 2.0 för Windows-plattformen.
+      
 <a id="use-tcp"></a>
 2. **Anslutningsprincip: använda TCP-protokollet**
 

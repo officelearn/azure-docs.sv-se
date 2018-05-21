@@ -1,29 +1,29 @@
 ---
 title: Registrering av Azure-resurs Providerfel | Microsoft Docs
-description: "Beskriver hur du löser registreringsfel i Azure-resurs-providern."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+description: Beskriver hur du löser registreringsfel i Azure-resurs-providern.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registrering av resursprovider
 
 Den här artikeln beskriver de fel som kan uppstå när du använder en resursleverantör som du tidigare inte har använt i din prenumeration.
 
-## <a name="symptom"></a>Symptom
+## <a name="symptom"></a>Symtom
 
 När du distribuerar resurs visas följande felkod och meddelande:
 
@@ -50,7 +50,7 @@ Felen visas i någon av tre orsaker:
 1. API-versionen stöds inte för resurstypen
 1. Plats stöds inte för resurstypen
 
-## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
+## <a name="solution-1---powershell"></a>Lösning 1 - PowerShell
 
 PowerShell, Använd **Get-AzureRmResourceProvider** att se registreringsstatus för din.
 

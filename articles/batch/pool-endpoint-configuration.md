@@ -1,6 +1,6 @@
 ---
 title: Konfigurera noden slutpunkter i Azure Batch-pool | Microsoft Docs
-description: "Hur du konfigurerar eller inaktivera åtkomst till SSH eller RDP-portar på compute-noder i en Azure Batch-pool."
+description: Hur du konfigurerar eller inaktivera åtkomst till SSH eller RDP-portar på compute-noder i en Azure Batch-pool.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurera eller inaktivera compute-noder i en Azure Batch-pool med fjärråtkomst
 
@@ -23,7 +23,7 @@ Du kan behöva begränsa eller inaktivera dessa standardinställningar för exte
 ## <a name="about-the-pool-endpoint-configuration"></a>Om slutpunktskonfiguration pool
 Slutpunktskonfigurationen består av en eller flera [network address translation (NAT) pooler](/rest/api/batchservice/pool/add#inboundnatpool) frontend-portar. (Blanda inte ihop NAT-pool med Batch-pool med beräkningsnoder.) Du kan ställa in varje NAT-pool för att åsidosätta standardinställningarna för anslutningar på poolens beräkningsnoder. 
 
-Varje konfiguration av NAT-pool som innehåller ett eller flera [nätverk regler för nätverkssäkerhetsgrupper (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Varje NSG-regel som tillåter eller nekar viss nätverkstrafik till slutpunkten. Du kan välja att tillåta eller neka all trafik, trafik som identifieras av en [standardtagg](../virtual-network/virtual-networks-nsg.md#default-tags) (till exempel ”Internet”) eller trafik från särskilda IP-adresser eller undernät.
+Varje konfiguration av NAT-pool som innehåller ett eller flera [nätverk regler för nätverkssäkerhetsgrupper (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Varje NSG-regel som tillåter eller nekar viss nätverkstrafik till slutpunkten. Du kan välja att tillåta eller neka all trafik, trafik som identifieras av en [tjänsten taggen](../virtual-network/security-overview.md#service-tags) (till exempel ”Internet”) eller trafik från särskilda IP-adresser eller undernät.
 
 ### <a name="considerations"></a>Överväganden
 * Slutpunktskonfigurationen poolen är en del av poolens [nätverkskonfigurationen](/rest/api/batchservice/pool/add#NetworkConfiguration). Nätverkskonfigurationen kan du också inkludera inställningar för att ansluta till poolen till en [virtuella Azure-nätverket](batch-virtual-network.md). Om du ställer in pool i ett virtuellt nätverk kan du skapa NSG-regler som använder adressinställningarna i det virtuella nätverket.
@@ -124,7 +124,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om NSG-regler i Azure finns [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+- Mer information om NSG-regler i Azure finns [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
 - En detaljerad översikt över Batch finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md).
 

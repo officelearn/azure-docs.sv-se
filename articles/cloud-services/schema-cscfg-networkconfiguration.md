@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services NetworkConfiguration schemat | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
-caps.latest.revision: "28"
+caps.latest.revision: 28
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 2438876e210363e9918e700397d4181990a3983f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebe81b2e4dea347eb22b173ff1e9baf1ee6bb75d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services Config NetworkConfiguration Schema
 
@@ -68,7 +68,7 @@ I följande tabell beskrivs underordnade element i `NetworkConfiguration` elemen
 | Element       | Beskrivning |
 | ------------- | ----------- |
 | AccessControl | Valfri. Anger regler för åtkomst till slutpunkter i en tjänst i molnet. Kontrollnamnet åtkomst definieras av en sträng för `name` attribut. Den `AccessControl` elementet innehåller ett eller flera `Rule` element. Mer än en `AccessControl` element kan definieras.|
-| Regel | Valfri. Anger den åtgärd som ska vidtas för ett intervall med IP-adresser för angivna undernätet. Ordningen på regeln definieras av ett strängvärde för den `order` attribut. Regeln nummer Ju lägre nummer desto högre prioritet. Regler kan till exempel anges med ordernummer 100, 200 och 300. Regeln med ordern antalet 100 företräde framför en regel med en order 200.<br /><br /> Åtgärden för regeln definieras av en sträng för den `action` attribut. Möjliga värden:<br /><br /> -   `permit`– Anger att endast paket från det angivna undernät intervallet kan kommunicera med slutpunkten.<br />-   `deny`– Anger att åtkomst nekas till slutpunkterna i det angivna undernät intervallet.<br /><br /> Undernät intervallet av IP-adresser som påverkas av regeln definieras av en sträng för den `remoteSubnet` attribut. Beskrivning av regeln definieras av en sträng för den `description` attribut.|
+| Regel | Valfri. Anger den åtgärd som ska vidtas för ett intervall med IP-adresser för angivna undernätet. Ordningen på regeln definieras av ett strängvärde för den `order` attribut. Regeln nummer Ju lägre nummer desto högre prioritet. Regler kan till exempel anges med ordernummer 100, 200 och 300. Regeln med ordern antalet 100 företräde framför en regel med en order 200.<br /><br /> Åtgärden för regeln definieras av en sträng för den `action` attribut. Möjliga värden:<br /><br /> -   `permit` – Anger att endast paket från det angivna undernät intervallet kan kommunicera med slutpunkten.<br />-   `deny` – Anger att åtkomst nekas till slutpunkterna i det angivna undernät intervallet.<br /><br /> Undernät intervallet av IP-adresser som påverkas av regeln definieras av en sträng för den `remoteSubnet` attribut. Beskrivning av regeln definieras av en sträng för den `description` attribut.|
 | EndpointAcl | Valfri. Anger tilldelning av regler för åtkomstkontroll till en slutpunkt. Namnet på rollen som innehåller slutpunkten definieras av en sträng för den `role` attribut. Namnet på slutpunkten definieras av en sträng för den `endpoint` attribut. Namnet på uppsättningen `AccessControl` regler som ska kopplas till slutpunkten har definierats i en sträng för den `accessControl` attribut. Mer än en `EndpointAcl` element kan definieras.|
 | DnsServer | Valfri. Anger inställningar för en DNS-server. Du kan ange inställningar för DNS-servrar utan ett virtuellt nätverk. Namnet på DNS-servern har definierats som en sträng för den `name` attribut. IP-adressen för DNS-server har definierats som en sträng för den `IPAddress` attribut. IP-adressen måste vara en giltig IPv4-adress.|
 | VirtualNetworkSite | Valfri. Anger namnet på den virtuella nätverksplatsen där du vill distribuera din tjänst i molnet. Den här inställningen kan inte skapa en virtuell nätverksplats. Den refererar till en plats som tidigare har definierats i nätverksfilen för det virtuella nätverket. En molnbaserad tjänst kan bara vara medlem i ett virtuellt nätverk. Om du inte anger den här inställningen distribueras Molntjänsten inte till ett virtuellt nätverk. Namnet på den virtuella nätverksplatsen definieras av en sträng för den `name` attribut.|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduktion till molntjänster och Microsoft Azure
 
@@ -509,7 +509,7 @@ På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk
 
-Du kan hjälpa säker virtuella Azure-nätverk med hjälp av en nätverkssäkerhetsgrupp. NSG: er innehåller en lista över åtkomstkontrollistan (ACL) regler för åtkomstkontroll som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. Du kan koppla NSG: er till undernät eller individuella VM-instanser inom det undernätet. När du kopplar en NSG till ett undernät gäller ACL-regler för alla VM-instanser i det undernätet. Du kan dessutom ytterligare begränsa trafik till en enskild VM genom att koppla en NSG direkt med den virtuella datorn. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/virtual-networks-nsg.md).
+Du kan hjälpa säker virtuella Azure-nätverk med hjälp av en nätverkssäkerhetsgrupp. NSG: er innehåller en lista över åtkomstkontrollistan (ACL) regler för åtkomstkontroll som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. Du kan koppla NSG: er till undernät eller individuella VM-instanser inom det undernätet. När du kopplar en NSG till ett undernät gäller ACL-regler för alla VM-instanser i det undernätet. Du kan dessutom ytterligare begränsa trafik till en enskild VM genom att koppla en NSG direkt med den virtuella datorn. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

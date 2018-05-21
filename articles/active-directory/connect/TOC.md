@@ -29,7 +29,11 @@
 ## [Hantera Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Förnya certifikat för O365 och Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Uppdatera SSL-certifikatet för en AD FS-servergrupp (Active Directory Federation Services)](active-directory-aadconnectfed-ssl-update.md)
-### [Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Enhetsalternativ](active-directory-azure-ad-connect-device-options.md)
+#### [Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md)
+#### [Hybrid Azure AD-anslutningsaktiviteter efter konfiguration](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Alternativ för användarinloggning](active-directory-aadconnect-user-signin.md)
 #### [Smidig enkel inloggning](active-directory-aadconnect-sso.md)
 ##### [Snabbstart](active-directory-aadconnect-sso-quick-start.md)

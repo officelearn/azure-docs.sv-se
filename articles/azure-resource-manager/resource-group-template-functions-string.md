@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager Mallfunktioner - sträng | Microsoft Docs"
-description: "Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med strängar."
+title: Azure Resource Manager Mallfunktioner - sträng | Microsoft Docs
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med strängar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
@@ -28,7 +28,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [innehåller](#contains)
+* [Innehåller](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
 * [tom](#empty)
@@ -38,20 +38,20 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 * [indexOf](#indexof)
 * [senaste](#last)
 * [lastIndexOf](#lastindexof)
-* [längd](#length)
+* [Längd](#length)
 * [padLeft](#padleft)
 * [Ersätt](#replace)
-* [Hoppa över](#skip)
+* [skip](#skip)
 * [split](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
-* [sträng](#string)
+* [StartsWith](resource-group-template-functions-string.md#startswith)
+* [Sträng](#string)
 * [delsträngen](#substring)
 * [ta](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [trim](#trim)
+* [Rensa](#trim)
 * [uniqueString](#uniquestring)
-* [URI: n](#uri)
+* [URI: N](#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
@@ -66,7 +66,7 @@ Returnerar base64-representation av Indatasträngen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |Sträng |Värdet som returneras som en base64-representation. |
+| inputString |Ja |sträng |Värdet som returneras som en base64-representation. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -144,7 +144,7 @@ Konverterar en base64-representation till ett JSON-objekt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |Sträng |Base64-representation att konvertera till ett JSON-objekt. |
+| base64Value |Ja |sträng |Base64-representation att konvertera till ett JSON-objekt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -222,7 +222,7 @@ Konverterar en base64-representation till en sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |Sträng |Base64-representation att konvertera till en sträng. |
+| base64Value |Ja |sträng |Base64-representation att konvertera till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -301,7 +301,7 @@ Kombinerar flera strängvärden och returnerar en sammanfogad sträng eller komb
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |sträng eller matris |Det första värdet för sammanslagning. |
-| ytterligare argument |Nej |Sträng |Ytterligare värden i tur och ordning för sammanslagning. |
+| ytterligare argument |Nej |sträng |Ytterligare värden i tur och ordning för sammanslagning. |
 
 ### <a name="return-value"></a>Returvärde
 En sträng eller en matris med sammanfogade värdena.
@@ -403,7 +403,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
-## <a name="contains"></a>Innehåller
+## <a name="contains"></a>innehåller
 `contains (container, itemToFind)`
 
 Kontrollerar om en matris som innehåller ett värde, ett objekt som innehåller en nyckel eller en sträng som innehåller understrängen.
@@ -412,7 +412,7 @@ Kontrollerar om en matris som innehåller ett värde, ett objekt som innehåller
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Behållaren |Ja |matris, objekt eller sträng |Det värde som innehåller ett värde att söka efter. |
+| container |Ja |matris, objekt eller sträng |Det värde som innehåller ett värde att söka efter. |
 | itemToFind |Ja |sträng eller ett heltal |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
@@ -506,7 +506,7 @@ Konverterar ett värde till en data-URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |Sträng |Värdet som ska konverteras till en data-URI. |
+| stringToConvert |Ja |sträng |Värdet som ska konverteras till en data-URI. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -574,7 +574,7 @@ Konverterar ett data-URI formaterade värdet till en sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Ja |Sträng |URI-värdet för att konvertera data. |
+| dataUriToConvert |Ja |sträng |URI-värdet för att konvertera data. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -720,8 +720,8 @@ Anger om en sträng som slutar med ett värde. Jämförelse är skiftlägeskäns
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Sträng |Det värde som innehåller objektet du vill söka efter. |
-| stringToFind |Ja |Sträng |Värde att söka efter. |
+| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill söka efter. |
+| stringToFind |Ja |sträng |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -863,8 +863,8 @@ Skapar ett värde i formatet av en globalt unik identifierare baserat på de vä
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |Sträng |Det värde som används i hash-funktionen för att skapa GUID. |
-| ytterligare parametrar som krävs |Nej |Sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
+| baseString |Ja |sträng |Det värde som används i hash-funktionen för att skapa GUID. |
+| ytterligare parametrar som krävs |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -947,8 +947,8 @@ Returnerar den första positionen för ett värde inom en sträng. Jämförelse 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Sträng |Det värde som innehåller objektet du vill söka efter. |
-| stringToFind |Ja |Sträng |Värde att söka efter. |
+| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill söka efter. |
+| stringToFind |Ja |sträng |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -992,11 +992,11 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -1086,8 +1086,8 @@ Returnerar den sista positionen för ett värde inom en sträng. Jämförelse ä
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Sträng |Det värde som innehåller objektet du vill söka efter. |
-| stringToFind |Ja |Sträng |Värde att söka efter. |
+| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill söka efter. |
+| stringToFind |Ja |sträng |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1131,11 +1131,11 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -1206,8 +1206,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -1295,9 +1295,9 @@ Returnerar en ny sträng med alla instanser av en sträng som har ersatts av en 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |Sträng |Det värde som har alla instanser av en sträng som har ersatts av en annan sträng. |
-| oldString |Ja |Sträng |Strängen som ska tas bort från den ursprungliga strängen. |
-| newString |Ja |Sträng |Strängen som ska lägga till i stället för borttagna strängen. |
+| originalString |Ja |sträng |Det värde som har alla instanser av en sträng som har ersatts av en annan sträng. |
+| oldString |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
+| newString |Ja |sträng |Strängen som ska lägga till i stället för borttagna strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1442,7 +1442,7 @@ Returnerar en matris med strängar som innehåller delsträngar av Indatasträng
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |Sträng |Strängen som ska dela. |
+| inputString |Ja |sträng |Strängen som ska dela. |
 | Avgränsare |Ja |sträng eller strängmatris |Avgränsaren som ska användas för att dela upp strängen. |
 
 ### <a name="return-value"></a>Returvärde
@@ -1514,8 +1514,8 @@ Anger om en sträng som börjar med ett värde. Jämförelse är skiftlägeskän
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Sträng |Det värde som innehåller objektet du vill söka efter. |
-| stringToFind |Ja |Sträng |Värde att söka efter. |
+| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill söka efter. |
+| stringToFind |Ja |sträng |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1584,7 +1584,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>Sträng
+## <a name="string"></a>sträng
 `string(valueToConvert)`
 
 Konverterar det angivna värdet till en sträng.
@@ -1677,7 +1677,7 @@ Returnerar en understräng som börjar vid angiven position och innehåller det 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |Sträng |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
+| stringToParse |Ja |sträng |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
 | startIndex |Nej |int |Nollbaserade tecken startposition delsträngen. |
 | Längd |Nej |int |Antal tecken för delsträngen. Måste referera till en plats inom strängen. |
 
@@ -1832,7 +1832,7 @@ Konverterar den angivna strängen till gemener.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |Sträng |Värdet som ska konverteras till gemener. |
+| stringToChange |Ja |sträng |Värdet som ska konverteras till gemener. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1896,7 +1896,7 @@ Konverterar den angivna strängen till versaler.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |Sträng |Värdet som ska konverteras till versaler. |
+| stringToChange |Ja |sträng |Värdet som ska konverteras till versaler. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1960,7 +1960,7 @@ Tar bort alla inledande och avslutande blanksteg från den angivna strängen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |Sträng |Värdet för att ta bort. |
+| stringToTrim |Ja |sträng |Värdet för att ta bort. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2019,8 +2019,8 @@ Skapar en deterministisk hash-sträng baserat på de värden som anges som param
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |Sträng |Det värde som används i hash-funktionen för att skapa en unik sträng. |
-| ytterligare parametrar som krävs |Nej |Sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
+| baseString |Ja |sträng |Det värde som används i hash-funktionen för att skapa en unik sträng. |
+| ytterligare parametrar som krävs |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -2099,7 +2099,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uri" />
 
-## <a name="uri"></a>URI: N
+## <a name="uri"></a>URI
 `uri (baseUri, relativeUri)`
 
 Skapar en absolut URI genom att kombinera baseUri och relativeUri-sträng.
@@ -2108,8 +2108,8 @@ Skapar en absolut URI genom att kombinera baseUri och relativeUri-sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |Sträng |Bas-uri-strängen. |
-| relativeUri |Ja |Sträng |Relativa uri-strängen ska läggas till bas-uri-strängen. |
+| baseUri |Ja |sträng |Bas-uri-strängen. |
+| relativeUri |Ja |sträng |Relativa uri-strängen ska läggas till bas-uri-strängen. |
 
 Värdet för den **baseUri** parameter kan innehålla en viss fil, men endast bassökväg används vid URI: N. Till exempel skicka `http://contoso.com/resources/azuredeploy.json` som baseUri parametern resultat i en bas-URI för `http://contoso.com/resources/`.
 
@@ -2158,9 +2158,9 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -2185,7 +2185,7 @@ Kodar en URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |Sträng |Värdet för kodning. |
+| stringToEncode |Ja |sträng |Värdet för kodning. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2226,9 +2226,9 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -2253,7 +2253,7 @@ Returnerar en sträng med en URI-kodade värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |Sträng |URI: N kodad värdet som ska konverteras till en sträng. |
+| uriEncodedString |Ja |sträng |URI: N kodad värdet som ska konverteras till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2294,9 +2294,9 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern Apptjänst-miljö #
 
@@ -170,7 +170,7 @@ Om du skapar en ASE fristående har ingenting i den. En tom ASE ådrar fortfaran
 
 5. Välj din VNet och plats. Du kan skapa ett nytt virtuellt nätverk eller välj ett befintligt virtuellt nätverk: 
 
-    * Om du väljer ett nytt virtuellt nätverk kan du ange ett namn och plats. Om du vill vara värd för Linux-appar på den här ASE endast regionerna 6 stöds för tillfället: **västra USA, östra USA, västra Europa, Norra Europa, östra, Sydostasien.** 
+    * Om du väljer ett nytt virtuellt nätverk, kan du ange ett namn och en plats. För tillfället stöds endast 6 regioner för värdbaserade Linux-appar på ASE: **USA, västra; USA, östra; Europa, västra; Europa, norra; Australien, östra; Asien, sydöstra.** 
     
     * Det nya VNet har adressintervallet 192.168.250.0/23 och ett undernät med namnet standard. Undernätet är definierad som 192.168.250.0/24. Du kan bara välja en Resource Manager-VNet. Den **VIP typen** val avgör om din ASE kan nås direkt från internet (externa) eller om den använder en ILB. Mer information om dessa alternativ finns [skapa och använda en intern belastningsutjämnare med en Apptjänst-miljö][MakeILBASE]. 
 
@@ -207,7 +207,7 @@ Läs mer om ASEv1 i [introduktion till Apptjänstmiljö v1][ASEv1Intro]. Mer inf
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

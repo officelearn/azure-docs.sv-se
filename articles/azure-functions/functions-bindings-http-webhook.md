@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 422563f6a4e85884f4512d797d666e470835e2d2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -43,7 +43,7 @@ HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](http://www
 
 HTTP-utlösare kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att skapa serverlösa API: er och svara på webhooks. 
 
-Som standard svarar ett HTTP-utlösaren på begäran med ett 200 OK HTTP-statuskoden och en brödtext. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#http-output-binding).
+Som standard ett HTTP-utlösaren returnerar HTTP 200 OK med en tom brödtexten i funktion 1.x eller HTTP 204 Nej innehåll med en tom brödtexten i funktion 2.x. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#http-output-binding).
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 
@@ -56,7 +56,7 @@ Finns i det språkspecifika:
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran. Observera att det returnera värdet används för bindning utdata, men krävs inte ett attribut i returvärde.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -87,15 +87,29 @@ public static async Task<HttpResponseMessage> Run(
 
 I följande exempel visas en utlösare-bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
 
-Här är de bindande data den *function.json* fil:
+Här är den *function.json* fil:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -147,15 +161,25 @@ public class CustomObject {
 
 I följande exempel visas en utlösare-bindning i en *function.json* fil och en [F # funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
 
-Här är de bindande data den *function.json* fil:
+Här är den *function.json* fil:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -203,15 +227,25 @@ Du behöver en `project.json` fil som använder NuGet för att referera till den
 
 I följande exempel visas en utlösare-bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
 
-Här är de bindande data den *function.json* fil:
+Här är den *function.json* fil:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -224,7 +258,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -263,15 +297,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 I följande exempel visas en webhook-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar GitHub problemet kommentarer.
 
-Här är de bindande data den *function.json* fil:
+Här är den *function.json* fil:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -303,15 +347,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 I följande exempel visas en webhook-utlösare bindning i en *function.json* fil och en [F # funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar GitHub problemet kommentarer.
 
-Här är de bindande data den *function.json* fil:
+Här är den *function.json* fil:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -347,11 +401,21 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
@@ -386,7 +450,6 @@ En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 ## <a name="trigger---configuration"></a>Utlösaren - konfiguration
 
 I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `HttpTrigger` attribut.
-
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
@@ -472,13 +535,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -549,35 +612,24 @@ Den [host.json](functions-host-json.md) filen innehåller inställningar som sty
 
 ## <a name="output"></a>Resultat
 
-Använd HTTP-utdata bindning svarar på http-begäran avsändaren. Den här bindningen kräver en HTTP-utlösare och kan du anpassa svaret som är associerade med utlösarens begäran. Om en HTTP-utdatabindning anges inte är en HTTP-utlösare returnerar HTTP 200 OK utan en brödtext. 
+Använd HTTP-utdata bindning svarar på http-begäran avsändaren. Den här bindningen kräver en HTTP-utlösare och kan du anpassa svaret som är associerade med utlösarens begäran. Om en HTTP-utdatabindning anges inte är en HTTP-utlösare returnerar HTTP 200 OK med en tom brödtexten i funktion 1.x eller HTTP 204 Nej innehåll med en tom brödtexten i funktion 2.x.
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
-C#-klassbibliotek finns det inga egenskaper för konfiguration av utdata-specifik bindning. Om du vill skicka ett HTTP-svar, kontrollera funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`.
-
-För andra språk, en HTTP-utdatabindning har definierats som ett JSON-objekt i den `bindings` matris med function.json som visas i följande exempel:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil.
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil. För klass C# bibliotek det finns inga attributegenskaper som motsvarar dessa *function.json* egenskaper. 
 
 |Egenskap   |Beskrivning  |
 |---------|---------|
 | **typ** |måste anges till `http`. |
 | **riktning** | måste anges till `out`. |
-|**Namn** | Variabelnamnet som används i Funktionskoden för svaret. |
+|**Namn** | Variabelnamnet som används i Funktionskoden för svar, eller `$return` att använda det returnera värdet. |
 
 ## <a name="output---usage"></a>Utdata - användning
 
-Du kan använda output-parameter svarar på http- eller webhook anroparen. Du kan också använda de språk som standard svar-mönster. Till exempel svar kan se den [utlösaren exempel](#trigger---example) och [webhook exempel](#trigger---webhook-example).
+Använd de språk som standard svar mönster om du vill skicka ett HTTP-svar. Kontrollera funktionen returtyp i C# eller C# skript, `HttpResponseMessage` eller `Task<HttpResponseMessage>`. I C#, krävs inte ett attribut i returvärde.
+
+Till exempel svar kan se den [utlösaren exempel](#trigger---example) och [webhook exempel](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+[Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

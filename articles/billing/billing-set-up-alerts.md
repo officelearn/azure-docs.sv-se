@@ -17,16 +17,18 @@ ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Ställ in fakturerings- eller varningar för Microsoft Azure-prenumerationer
 Om du är kontoadministratören för en Azure-prenumeration kan du använda fakturering aviseringstjänsten Azure för att skapa anpassade fakturaaviseringar som hjälper dig övervaka och hantera fakturerings-aktivitet för Azure-konton.
 
 Tjänsten är i förhandsvisning, så du måste aktivera det på sidan funktioner för förhandsgranskning.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Ange signalmottagare tröskelvärde och e-post
 1. Besök [sidan förhandsgranskningsfunktioner](https://account.windowsazure.com/PreviewFeatures) och aktivera **fakturering aviseringstjänsten**.

@@ -1,11 +1,11 @@
 ---
-title: "Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** begränsa åtkomst via Internetuppkopplad slutpunkt **."
+title: Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center **begränsa åtkomst via Internetuppkopplad slutpunkt**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center
 Azure Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slutpunkter om någon av dina Nätverkssäkerhetsgrupper (NSG: er) har en eller flera regler för inkommande trafik som tillåter åtkomst från ”alla” källans IP-adress. Öppna åtkomst till ”” kan du aktivera angripare att få åtkomst till dina resurser. Security Center rekommenderar att du redigera dessa regler för inkommande trafik för att begränsa åtkomsten till källans IP-adresser som verkligen behöver åtkomst.
@@ -44,18 +44,18 @@ Denna rekommendation genereras för alla icke-web-portar som innehåller ”någ
 
    ![Inkommande säkerhetsregler][4]
 
-   Observera att du kan också välja **standard regler** att se en uppsättning standardregler som finns i alla NSG: er. Standardreglerna kan inte tas bort, men eftersom de har tilldelats en lägre prioritet, kan de överskridas av de regler som du skapar. Lär dig mer om [standard regler](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Observera att du kan också välja **standard regler** att se en uppsättning standardregler som finns i alla NSG: er. Standardreglerna kan inte tas bort, men eftersom de har tilldelats en lägre prioritet, kan de överskridas av de regler som du skapar. Lär dig mer om [standard regler](../virtual-network/security-overview.md#default-security-rules).
 
    ![Standardregler][5]
-5. På den **AllowWeb** bladet redigera egenskaper för regel för inkommande trafik så att den **källa** är ett IP-adress eller ett block av IP-adresser. Mer information om egenskaperna för den inkommande regeln finns [NSG-regler](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. På den **AllowWeb** bladet redigera egenskaper för regel för inkommande trafik så att den **källa** är ett IP-adress eller ett block av IP-adresser. Mer information om egenskaperna för den inkommande regeln finns [NSG-regler](../virtual-network/security-overview.md#security-rules).
 
    ![Redigera regel för inkommande trafik][6]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”begränsa åtkomst via internetuppkopplad slutpunkt”. Mer information om hur du aktiverar regler och NSG: er finns i följande avsnitt:
 
-* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [Hantera NSG: er med hjälp av Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
+* [Hantera en nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md)
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

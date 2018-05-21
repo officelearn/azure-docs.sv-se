@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkrona Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -55,6 +55,18 @@ SQL API asynkrona Java SDK skiljer sig från SQL API Java SDK genom att tillhand
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Stöd har lagts till för unikt Index principen.
+* Stöd för att begränsa fortsättning token svarsstorlek i feed alternativ har lagts till.
+* Stöd har lagts till för partitionen delning i mellan Partitionsfrågan.
+* Fast ett programfel i Json-serialisering tidsstämpel ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Fast ett programfel i Json-serialisering för uppräkning.
+* Fast ett programfel i Hantera dokument 2MB storlek ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Beroende com.fasterxml.jackson.core:jackson-databind uppgraderas till 2.9.5 på grund av ett programfel ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Beroende på rxjava tillägg uppgraderas till 0.8.0.17 på grund av ett programfel ([rxjava-tillägg: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Metadatabeskrivning i pom filen har uppdaterats infogad resten av dokumentationen.
+* Syntaxen improvement ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Ytterligare belastning stöd lagts till i frågan.
 * Stöd har lagts till för partitions-id viktiga intervallet i frågan.
@@ -79,6 +91,7 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 maj 2018|--- |
 | [1.0.1](#1.0.1) |20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari 2018|--- |
 

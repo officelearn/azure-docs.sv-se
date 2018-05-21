@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -28,9 +28,9 @@ En VPN-gateway är en viss typ av virtuell nätverksgateway som används till at
 
 ## <a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
-En virtuell nätverksgateway består av två eller flera virtuella datorer som distribuerats till ett specifikt undernät som kallas för *gatewayundernätet*. De virtuella datorerna i gatewayundernätet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan inte konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt, och du bör aldrig distribuera ytterligare resurser till gatewayundernätet.
+En virtuell nätverksgateway består av två eller flera virtuella datorer som distribuerats till ett specifikt undernät som du skapar, kallat *gatewayundernätet*. De virtuella datorerna i gatewayundernätet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan inte konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt, och du bör aldrig distribuera ytterligare resurser till gatewayundernätet.
 
-Det kan ta upp till 45 minuter att skapa en VPN-gateway. När du skapar en VPN-gateway distribueras de virtuella gatewaydatorerna till gatewayundernätet, och de konfigureras med de inställningar du anger. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en VPN-anslutning från en punkt till en plats (VPN över IKEv2 eller SSTP). Då kan du fjärransluta till ditt virtuella nätverk, till exempel från en konferens eller från hemmakontoret.
+Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. En av inställningarna som du konfigurerar är gatewaytypen. Gatewaytypen ”vpn” anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en VPN-anslutning från en punkt till en plats (VPN över IKEv2 eller SSTP). Då kan du fjärransluta till ditt virtuella nätverk, till exempel från en konferens eller från hemmakontoret.
 
 ## <a name="configuring"></a>Konfigurera en VPN gateway
 

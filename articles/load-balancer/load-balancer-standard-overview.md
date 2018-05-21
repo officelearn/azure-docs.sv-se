@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 648d96bbb18186524cfad4d3df1f61e98062fcb4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -119,7 +119,7 @@ Granska [detaljerad beskrivning av hög tillgänglighet portar](load-balancer-ha
 
 Standard belastningsutjämnare är helt publicerats så att det virtuella nätverket.  Det virtuella nätverket är ett privat, stängd nätverk.  Eftersom belastningsutjämnare som Standard och offentliga IP-adresser har utformats för att det här virtuella nätverket som kan nås från utanför det virtuella nätverket, resurserna nu som standard om du öppnar dem. Detta innebär Nätverkssäkerhetsgrupper (NSG: er) används nu för att tillåta explicit och godkända tillåts trafik.  Du kan skapa hela virtuella datacentret och bestäm via NSG vad och när den ska vara tillgänglig.  Om du inte har en NSG till ett undernät eller nätverkskort på den virtuella datorresursen tillåter vi inte trafik till den här resursen.
 
-Mer information om NSG: er och hur de ska användas för ditt scenario finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+Mer information om NSG: er och hur de ska användas för ditt scenario finns [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Utgående anslutningar
 
@@ -237,7 +237,7 @@ Standard belastningsutjämnare är en produkt som debiteras baserat på antalet 
 - Lär dig mer om [Standard belastningsutjämnare med hög tillgänglighet portar regler för belastningsutjämning](load-balancer-ha-ports-overview.md)
 - Lär dig mer om hur du använder [belastningsutjämnaren med flera Frontends](load-balancer-multivip-overview.md)
 - Lär dig mer om [virtuella nätverk](../virtual-network/virtual-networks-overview.md).
-- Lär dig mer om [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+- Lär dig mer om [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 - Lär dig mer om [VNet-tjänstens slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Lär dig mer om den andra nyckeln [nätverk](../networking/networking-overview.md) i Azure.
 - Lär dig mer om [belastningsutjämnaren](load-balancer-overview.md).

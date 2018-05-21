@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Skydda din Azure SQL-databas
 
@@ -106,7 +106,7 @@ För att kunna säkerställa en säker och krypterad anslutning mellan ett klien
 - begära en krypterad anslutning, och
 - inte lita på servercertifikatet. 
 
-Då upprättas en anslutning med TLS (Transport Layer Security) och risken för MITM-attacker (man-in-the-middle) minskar. Du kan hämta korrekt konfigurerade anslutningssträngar för SQL Database för klientdrivrutiner som stöds från Azure-portalen enligt den här skärmbilden för ADO.net.
+Då upprättas en anslutning med TLS (Transport Layer Security) och risken för MITM-attacker (man-in-the-middle) minskar. Du kan hämta korrekt konfigurerade anslutningssträngar för SQL Database för klientdrivrutiner som stöds från Azure-portalen enligt den här skärmbilden för ADO.net. Information om TLS och anslutningar finns i avsnittet om [TLS-specifika överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**.
 

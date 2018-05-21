@@ -1,24 +1,24 @@
 ---
-title: "Distribuera en enhet i StorSimple 8000-serien på Azure Portal | Microsoft Docs"
-description: "Beskriver stegen och bästa praxis för att distribuera en enhet i StorSimple 8000-serien som kör Update 3 och senare, och StorSimple Device Manager-tjänsten."
+title: Distribuera en enhet i StorSimple 8000-serien på Azure Portal | Microsoft Docs
+description: Beskriver stegen och bästa praxis för att distribuera en enhet i StorSimple 8000-serien som kör Update 3 och senare, och StorSimple Device Manager-tjänsten.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
@@ -33,7 +33,7 @@ Informationen i dessa självstudiekurser förutsätter att du har granskat säke
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
 
 > [!NOTE]
-> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheterna i 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
+> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter i 7000-serien finns på: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Distributionssteg
@@ -71,7 +71,7 @@ Innan du distribuerar enheten måste du samla in information för att konfigurer
 I följande avsnitt beskrivs konfigurationskraven för StorSimple Device Manager-tjänsten och StorSimple-enheten.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har ditt Microsoft-konto med autentiseringsuppgifter.
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -195,6 +195,19 @@ Utför stegen nedan för att få det kvalificerade iSCSI-namnet (IQN) för en Wi
 Skapa en manuell säkerhetskopiering på begäran för en enskild volym på StorSimple-enheten genom att utföra stegen nedan på Azure Portal.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Visa pinout-diagrammet för seriell kabel för StorSimple
+Följande pinout-diagram kan användas för den seriella StorSimple-kabeln.
+
+Här är DB9-honkontakten P1 och 3,5 mm-kontakten P2.
+
+![Pinout-diagram 1 för seriell StorSimple-konsolkabel](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+Toppen av stereouttaget anses vara PIN 3 RX, mitten är PIN 2 TX och basen är PIN 1 GND, enligt följande diagram.
+
+![Pinout-diagram 2 för seriell StorSimple-konsolkabel](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).

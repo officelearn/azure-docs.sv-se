@@ -1,11 +1,11 @@
 ---
-title: "Felsöka Azure Application Gateway felaktiga Gateway (502) | Microsoft Docs"
-description: "Lär dig att felsöka program Gateway 502"
+title: Felsöka Azure Application Gateway felaktiga Gateway (502) | Microsoft Docs
+description: Lär dig att felsöka program Gateway 502
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka Felaktig gateway-fel i Programgateway
 
@@ -92,7 +92,7 @@ Se till att DNS-servern kan matcha backend poolmedlem FQDN korrekt om den finns.
 * Anropet till http://127.0.0.1:port ska returnera ett HTTP-Resultatkod 200. Detta ska returneras inom tidsgränsen 30 sekunder.
 * Se till att konfigurerade porten är öppen och att det inte finns några brandväggsregler Azure Nätverkssäkerhetsgrupperna, som blockerar inkommande eller utgående trafik på den konfigurerade porten.
 * Om klassiska virtuella Azure-datorer eller tjänst i molnet används med FQDN eller offentlig IP-adress, se till att motsvarande [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) öppnas.
-* Om den virtuella datorn är konfigurerad via Azure Resource Manager och ligger utanför VNet där Application Gateway har distribuerats, [Nätverkssäkerhetsgruppen](../virtual-network/virtual-networks-nsg.md) måste konfigureras för att tillåta åtkomst på önskad port.
+* Om den virtuella datorn är konfigurerad via Azure Resource Manager och ligger utanför VNet där Application Gateway har distribuerats, [Nätverkssäkerhetsgruppen](../virtual-network/security-overview.md) måste konfigureras för att tillåta åtkomst på önskad port.
 
 ## <a name="problems-with-custom-health-probe"></a>Problem med anpassade hälsoavsökningen
 

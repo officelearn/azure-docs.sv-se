@@ -1,6 +1,6 @@
 ---
-title: Skapa en MEAN-stack på en virtuell Linux-dator i Azure | Microsoft Docs
-description: Lär dig hur man skapar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure.
+title: Självstudier – Skapa en MEAN-stack på en virtuell Linux-dator i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du skapar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
-Den här självstudiekursen visar dig hur man implementerar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure. MEAN-stacken som du skapar gör det möjligt att lägga till, ta bort och lista böcker i en databas. Lär dig att:
+Den här självstudiekursen beskriver hur du implementerar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure. MEAN-stacken som du skapar gör det möjligt att lägga till, ta bort och lista böcker i en databas. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Linux-dator
@@ -36,7 +36,7 @@ Den här självstudiekursen visar dig hur man implementerar en stack för MongoD
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Exempel: *http://13.72.77.9:3300*. Du bör se något som liknar följande sida:
+2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Till exempel *http://13.72.77.9:3300*. Du bör se något som liknar följande sida:
 
     ![Bokpost](media/tutorial-mean/meanstack-init.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Metodtips för Virtuella Azure-säkerhet
 
@@ -68,7 +68,7 @@ Om den virtuella datorn kör kritiska program som behöver ha hög tillgängligh
 
 [Azure belastningsutjämnare](../load-balancer/load-balancer-overview.md) kräver också att Utjämning av nätverksbelastning virtuella datorer som tillhör samma tillgänglighetsuppsättning. Om dessa virtuella datorer måste kunna nås från Internet, måste du konfigurera en [Internetriktade belastningsutjämnare](../load-balancer/load-balancer-internet-overview.md).
 
-När virtuella datorer är exponerad mot Internet, är det viktigt att du [styr flödet i nätverkstrafiken med nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/virtual-networks-nsg.md). Eftersom NSG: er kan tillämpas på undernät, kan du minimera antalet NSG: er genom att gruppera dina resurser efter undernät och tillämpa NSG: er i undernät. Avsikten är att skapa ett lager för isolering av nätverk, vilket du kan göra genom att konfigurera den [nätverkssäkerhet](../best-practices-network-security.md) funktioner i Azure.
+När virtuella datorer är exponerad mot Internet, är det viktigt att du [styr flödet i nätverkstrafiken med nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/security-overview.md). Eftersom NSG: er kan tillämpas på undernät, kan du minimera antalet NSG: er genom att gruppera dina resurser efter undernät och tillämpa NSG: er i undernät. Avsikten är att skapa ett lager för isolering av nätverk, vilket du kan göra genom att konfigurera den [nätverkssäkerhet](../best-practices-network-security.md) funktioner i Azure.
 
 Du kan också använda just-in-time (JIT) VM-funktionen från Azure Security Center för att styra vem som har fjärråtkomst till en specifik virtuell dator, och hur lång tid.
 
@@ -124,6 +124,6 @@ Missbruk av resursen kan vara ett problem när VM processer använder mer resurs
 
 Genom att analysera [Azure diagnostikloggfiler](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), kan du övervaka dina VM-resurser och identifiera potentiella problem som kan påverka datorns prestanda och tillgänglighet. Azure Diagnostics tillägget innehåller övervakning och diagnostikfunktionerna för Windows-baserade virtuella datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Du kan också använda [Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) insyn i din resurs hälsa.
+Du kan också använda [Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) insyn i dina resursers hälsa.
 
 Organisationer som inte övervakar prestanda för virtuell dator kan inte avgöra om vissa ändringar i prestandamönster normal eller onormal. Om den virtuella datorn förbrukar mer resurser än normalt kan dessa avvikelser tyda på potentiella från en extern resurs eller en komprometterad process som körs på den virtuella datorn.

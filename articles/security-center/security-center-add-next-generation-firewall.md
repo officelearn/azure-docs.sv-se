@@ -1,11 +1,11 @@
 ---
-title: "Lägg till nästa generations brandvägg i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna ** lägga till en nästa generations brandvägg ** och ** väg traffice via nästa generations Brandvägg endast **."
+title: Lägg till nästa generations brandvägg i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna **lägger du till nästa generations brandvägg** och **väg traffice via nästa generations Brandvägg endast**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Lägg till nästa generations brandvägg i Azure Security Center
 Azure Security Center kan rekommenderar att du lägger till nästa generations brandvägg (nästa generations Brandvägg) från en Microsoft-partner att öka din säkerhetsskydd. Det här dokumentet vägleder dig genom ett exempel på hur du gör detta.
@@ -42,18 +42,18 @@ Azure Security Center kan rekommenderar att du lägger till nästa generations b
 6. Den **Skapa virtuell dator** blad öppnas. Här kan du ange informationen som krävs för att få igång en virtuell dator (VM) som körs i nästa generations Brandvägg. Följ anvisningarna och ange nästa generations Brandvägg information som krävs. Välj OK om du vill använda.
    ![Skapa virtuell dator för att köra nästa generations Brandvägg][6]
 
-## <a name="route-traffic-through-ngfw-only"></a>Vidarebefordra trafik enbart via NGFW
+## <a name="route-traffic-through-ngfw-only"></a>Dirigera trafiken endast via NGFW
 Gå tillbaka till den **rekommendationer** bladet. En ny post skapades när du har lagt till en nästa generations Brandvägg via Security Center, som kallas **dirigera trafik via nästa generations Brandvägg endast**. Denna rekommendation skapas bara om du har installerat din nästa generations Brandvägg via Security Center. Om du har mot Internet slutpunkter rekommenderar Security Center att du konfigurerar Network Security Group regler som tvingar inkommande trafik till den virtuella datorn via din nästa generations Brandvägg.
 
 1. I den **rekommendationer bladet**väljer **dirigera trafik via nästa generations Brandvägg endast**.
    ![Dirigera trafiken endast via NGFW][7]
 2. Gör det öppnas bladet **dirigera trafik via nästa generations Brandvägg endast**, som visar en lista över virtuella datorer som du kan vidarebefordra trafiken till. Välj en virtuell dator i listan.
    ![Välj en virtuell dator][8]
-3. Öppnas ett blad för den valda virtuella datorn, med relaterade regler för inkommande trafik. En beskrivning får du mer information om möjliga nästa steg. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel. Förväntningen är att **källa** inte har angetts till **alla** för mot Internet-slutpunkter som är kopplad till nästa generations Brandvägg. Mer information om egenskaperna för den inkommande regeln finns [NSG-regler](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. Öppnas ett blad för den valda virtuella datorn, med relaterade regler för inkommande trafik. En beskrivning får du mer information om möjliga nästa steg. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel. Förväntningen är att **källa** inte har angetts till **alla** för mot Internet-slutpunkter som är kopplad till nästa generations Brandvägg. Mer information om egenskaperna för den inkommande regeln finns [säkerhetsregler](../virtual-network/security-overview.md#security-rules).
    ![Konfigurera regler för att begränsa åtkomst][9]
    ![Redigera inkommande regel][10]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Det här dokumentet visar dig hur du implementerar Security Center-rekommendationen ”Lägg till nästa generations brandvägg”. Mer information om NGFWs och Partnerlösningen Check Point finns i:
 
 * [Nästa generations brandvägg](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

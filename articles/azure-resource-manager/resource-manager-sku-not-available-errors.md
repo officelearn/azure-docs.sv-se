@@ -1,29 +1,29 @@
 ---
-title: "Azure SKU inte tillgänglig fel | Microsoft Docs"
-description: "Beskriver hur du felsöker SKU: N inte tillgängliga fel under distributionen."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+title: Azure SKU inte tillgänglig fel | Microsoft Docs
+description: 'Beskriver hur du felsöker SKU: N inte tillgängliga fel under distributionen.'
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU är inte tillgänglig
 
 Den här artikeln beskriver hur du löser den **SkuNotAvailable** fel.
 
-## <a name="symptom"></a>Symptom
+## <a name="symptom"></a>Symtom
 
 När du distribuerar en resurs (vanligtvis en virtuell dator), visas följande felkod och felmeddelande:
 
@@ -37,7 +37,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-storlek) inte är tillgänglig för den plats som du har valt.
 
-## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
+## <a name="solution-1---powershell"></a>Lösning 1 - PowerShell
 
 Om du vill avgöra vilka SKU: er är tillgängliga i en region, Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) kommando. Filtrera resultatet av platsen. Du måste ha den senaste versionen av PowerShell för det här kommandot.
 

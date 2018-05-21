@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska acceleration via Azure CDN
 
 Med nedbrytning av sociala medier, elektronisk handel och web hyper personliga skapas snabbt ökade procent av det innehåll som visas för slutanvändare i realtid. Användarna förväntar sig en snabb, tillförlitlig och anpassade webbupplevelse, oberoende av deras webbläsare, plats, enhet eller nätverk. Mycket innovationer som gör att dessa erfarenheter så att också långsamma sidan hämtningar och kvaliteten på användarfunktioner medföra risker. 
 
-Standard content delivery network (CDN) kapaciteten inkluderar möjligheten att cachelagra filer närmare till slutanvändare påskynda överföringen av statiska filer. Men med dynamiska webbprogram cachelagring innehållet i platser är inte möjligt eftersom servern genererar innehållet som svar på användarnas beteende. Påskynda överföringen av innehållet är mer komplexa än traditionella edge cachelagring och kräver en slutpunkt till slutpunkt-lösning som finjusterar varje element längs hela sökvägen från Start till leverans. Med Azure CDN dynamiska acceleration (DSA) optimering bättre prestanda för webbsidor som innehåller dynamiskt innehåll mätbart.
+Standard content delivery network (CDN) kapaciteten inkluderar möjligheten att cachelagra filer närmare till slutanvändare påskynda överföringen av statiska filer. Men med dynamiska webbprogram cachelagring innehållet i platser är inte möjligt eftersom servern genererar innehållet som svar på användarnas beteende. Påskynda överföringen av innehållet är mer komplexa än traditionella edge cachelagring och kräver en slutpunkt till slutpunkt-lösning som finjusterar varje element längs hela sökvägen från Start till leverans. Med Azure CDN dynamiska acceleration (DSA) optimering bättre prestanda för web ålder med dynamiskt innehåll mätbart.
 
 **Azure CDN från Akamai** och **Azure CDN från Verizon** båda har DSA optimering via den **optimerade för** menyn under skapande av slutpunkten.
 
@@ -33,7 +33,7 @@ Standard content delivery network (CDN) kapaciteten inkluderar möjligheten att 
 >   
 > För **Azure CDN från Verizon** profiler kan du inte ändra optimering av CDN-slutpunkten när den har skapats.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Konfigurera CDN-slutpunkten för att påskynda överföringen av dynamiska filer
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>CDN-slutpunktskonfiguration att påskynda överföringen av dynamiska filer
 
 Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska filer kan du antingen använda Azure-portalen, REST-API: er eller något av klient-SDK: er för att göra det via programmering. 
 

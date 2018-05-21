@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuera Azure Stream Analytics som en gräns för IoT-modul - förhandsgranskning
 
@@ -29,14 +29,14 @@ Kursen visar två moduler:
 * En simulerad temperatursensor modul (tempSensor) som genererar temperatur data från 20 till 120 grader, ökar med 1 5 sekunder. 
 * En Stream Analytics-modul som återställer tempSensor när 30 sekunder medelvärdet når 70. Du kan använda den här funktionen att stänga av en dator eller vidta förebyggande åtgärder när temperaturen når farliga nivåer i en produktionsmiljö. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Stream Analytics-jobb för bearbetning av data på gränsen.
 > * Anslut det nya Azure Stream Analytics-jobbet med andra IoT kant-moduler.
 > * Distribuera Azure Stream Analytics-jobbet till en IoT-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En IoT-hubb. 
 * Den enhet som du skapat och konfigurerat i Snabbstart eller i artiklar om hur du distribuerar Azure IoT kanten på en simulerad enhet i [Windows] [ lnk-tutorial1-win] eller i [Linux] [ lnk-tutorial1-lin]. Du behöver veta anslutningsnyckel enhet och enheten-ID. 
@@ -57,7 +57,7 @@ Ett Azure Storage-konto krävs för att tillhandahålla en slutpunkt som ska anv
 
 1. I Azure-portalen går du till **skapar du en resurs**, ange **lagringskonto** i sökrutan och väljer sedan **lagringskonto - blob, fil, tabell, kö**.
 
-2. I den **skapa lagringskonto** rutan Ange ett namn för ditt lagringskonto, Välj samma plats där din IoT-hubb lagras och välj sedan **skapa**. Notera namnet för senare användning.
+2. I den **skapa lagringskonto** rutan Ange ett namn för ditt lagringskonto, Välj den plats där din IoT-hubb lagras, väljer du samma resursgrupp som din IoT-hubb och välj sedan **skapa**. Notera namnet för senare användning.
 
     ![skapar ett lagringskonto][1]
 
@@ -65,7 +65,7 @@ Ett Azure Storage-konto krävs för att tillhandahålla en slutpunkt som ska anv
 
 4. Skapa en ny behållare för Azure Stream Analytics-modulen att lagra data genom att ange åtkomst till **behållare**, och välj sedan **OK**.
 
-    ![inställningar för lagring][10]
+    ![Lagringsinställningar][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
@@ -84,32 +84,25 @@ Ett Azure Storage-konto krävs för att tillhandahålla en slutpunkt som ska anv
 
 3. Välj **Skapa**.
 
-4. Jobb som skapats under **jobbet topologi**väljer **indata**, och välj sedan **Lägg till**.
-
-5. I den **nya indata** rutan gör du följande:
-
-    a. I den **indata alias** ange **temperatur**.
-    
-    b. I den **källtypen** väljer **dataströmmen**.
-    
-    c. Använd standardvärdena i de återstående fälten.
+4. Jobb som skapats under **jobbet topologi**öppnar **indata**.
 
    ![Azure Stream Analytics-indata](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Välj **Skapa**.
+5. Välj **lägga till strömindata**och välj **kant hubb**.
 
-7. Under **jobbet topologi**väljer **utdata**, och välj sedan **Lägg till**.
+5. I den **nya indata** rutan Ange **temperatur** som inkommande alias. 
 
-8. I den **nya utdata** rutan gör du följande:
+6. Välj **Spara**.
 
-    a. I den **utdataalias** skriver **avisering**.
-    
-    b. Använd standardvärdena i de återstående fälten. 
-    
-    c. Välj **Skapa**.
+7. Under **jobbet topologi**öppnar **utdata**.
 
    ![Azure Stream Analytics-utdata](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Välj **Lägg till**och välj **kant hubb**.
+
+8. I den **nya utdata** rutan Ange **avisering** som utdataalias. 
+
+9. Välj **Skapa**.
 
 9. Under **jobbet topologi**väljer **frågan**, och ersätt standardtexten med följande fråga:
 
@@ -135,7 +128,7 @@ Du är nu redo att distribuera Azure Stream Analytics-jobbet på enheten IoT kan
 2. Välj **Ange moduler**.  
     Om du tidigare har distribuerat modulen tempSensor på den här enheten kan autopopulate. Om det inte att lägga till modulen genom att göra följande:
 
-   a. Välj **lägga till IoT kant modul**.
+   a. Välj **Lägg till IoT Edge-modul**.
 
    b. Namnet på, skriver **tempSensor**.
     

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -93,7 +93,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
         Mer information finns i [felsöka nätverkssäkerhetsgrupper](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) dokumentet.
 
         > [!IMPORTANT]
-        > Regler för nätverkssäkerhetsgrupper tillämpas i ordning baserat på prioritet för regeln. Den första regeln som matchar trafikmönstret används och inga andra tillämpas efter den trafiken. Ordning regler från mest Tillåtande till minst Tillåtande. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) dokumentet.
+        > Regler för nätverkssäkerhetsgrupper tillämpas i ordning baserat på prioritet för regeln. Den första regeln som matchar trafikmönstret används och inga andra tillämpas efter den trafiken. Ordning regler från mest Tillåtande till minst Tillåtande. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
     * Användardefinierade vägar
 
@@ -214,7 +214,7 @@ Använd följande steg för att ansluta till Ambari och andra webbsidor via det 
 
 Nätverkstrafik i en virtuell Azure-nätverk kan kontrolleras med hjälp av följande metoder:
 
-* **Nätverkssäkerhetsgrupper** (NSG) kan du filtrera inkommande och utgående trafik i nätverket. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) dokumentet.
+* **Nätverkssäkerhetsgrupper** (NSG) kan du filtrera inkommande och utgående trafik i nätverket. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
     > [!WARNING]
     > HDInsight stöder inte begränsa utgående trafik.
@@ -242,7 +242,7 @@ Om du tänker använda **nätverkssäkerhetsgrupper** eller **användardefiniera
 
 Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar finns följande dokumentation:
 
-* [Nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md)
+* [Nätverkssäkerhetsgrupp](../virtual-network/security-overview.md)
 
 * [Användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -666,6 +666,6 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 * Konfigurera HBase geo-replikering finns i [konfigurera HBase-kluster-replikering i Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Mer information om nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+* Mer information om nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
 * Mer information om användardefinierade vägar finns [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

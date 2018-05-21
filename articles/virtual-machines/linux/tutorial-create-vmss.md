@@ -1,13 +1,13 @@
 ---
-title: "Skapa en VM-skalningsuppsättning för Linux i Azure | Microsoft Docs"
-description: "Skapa och distribuera ett program med hög tillgänglighet på virtuella Linux-datorer med hjälp av en VM-skalningsuppsättning"
+title: Självstudier – Skapa en VM-skalningsuppsättning för Linux i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa och distribuera ett program med hög tillgänglighet på virtuella Linux-datorer med hjälp av en skalningsuppsättning för virtuella datorer
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: azure-resource-manager
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,13 +15,15 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: mvc
+ms.openlocfilehash: 741cabd37a5a508257f0307dfec25b5bb2d25153
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Skapa en VM-skalningsuppsättning och distribuera ett program med hög tillgänglighet på Linux
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Självstudier: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI 2.0
+
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure. Lär dig att:
 
 > [!div class="checklist"]
@@ -32,10 +34,9 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 > * Visa anslutningsinformation för skalningsuppsättningsinstanser
 > * Använda datadiskar i en skalningsuppsättning
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Översikt över skalningsuppsättning
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Virtuella datorer i en skalningsuppsättning är distribuerade över logiska fel- och uppdateringsdomäner i en eller flera *placeringsgrupper*. Detta är grupper med virtuella datorer som har en liknande konfiguration, vilket liknar [tillgänglighetsuppsättningar](tutorial-availability-sets.md).
@@ -115,7 +116,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Det kan ta några minuter innan du kan öppna programmet.
+Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen.
 
 
 ## <a name="allow-web-traffic"></a>Tillåt webbtrafik

@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse i PowerShell
 
@@ -55,19 +55,19 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
-3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
+2. Klicka på **SQL-informationslager** till vänster på Azure Portal.
+3. Välj **mySampleDataWarehouse** på sidan **SQL-informationslager**. Informationslagret öppnas.
 
     ![Servernamn och resursgrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Anteckna namnet på informationslagret. Detta ska användas som databasnamn. Kom ihåg att ett informationslager är en typ av databas. Anteckna även servernamnet och resursgruppen. Du ska använda dem i kommandona för att pausa och återuppta.
-5. Om din server är foo.database.windows.net använder du bara den första delen som servernamn i dina PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver-20171113.database.windows.net. Vi använder **newserver-20171113** som servernamn i PowerShell-cmdleten.
+5. Om din server är foo.database.windows.net använder du bara den första delen som servernamn i dina PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver-20171113.database.windows.net. Vi använder **newserver-20180430** som servernamn i PowerShell-cmdleten.
 
 ## <a name="scale-compute"></a>Skala beräkning
 
 I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
-Du kan ändra informationslagerenheter med PowerShell-cmdleten [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). I följande exempel anges informationslagerenheterna till DW300 för databasen **mySampleDataWarehouse** som finns i resursgruppen **myResourceGroup** på servern **mynewserver-20171113**.
+Du kan ändra informationslagerenheter med PowerShell-cmdleten [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). I följande exempel anges informationslagerenheterna till DW300 för databasen **mySampleDataWarehouse** som finns i resursgruppen **myResourceGroup** på servern **mynewserver-20180430**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
 
-Om du vill se det aktuella tillståndet för informationslagret kan du använda PowerShell-cmdleten [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Då hämtas tillståndet för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** och servern **mynewserver-20171113.database.windows.net**.
+Om du vill se det aktuella tillståndet för informationslagret kan du använda PowerShell-cmdleten [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

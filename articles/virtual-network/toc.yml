@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Instruktionsguider
   items:
-    - name: Planera och designa
+    - name: Planera
       items:
         - name: Virtuella nätverk
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Nätverkssäkerhetsgrupper
-          href: virtual-networks-nsg.md
     - name: Distribuera
       items:
         - name: Nätverkssäkerhetsgrupper

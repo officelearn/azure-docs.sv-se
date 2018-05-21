@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -54,6 +54,22 @@ SQL API Java SDK har stöd för synkrona åtgärder. Asynkron support använder 
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Stöd har lagts till för unikt Index.
+* Stöd för att begränsa fortsättning nyckelstorleken i feeden alternativ har lagts till.
+* Fast ett programfel i Json-serialisering (tidsstämpel).
+* Fast ett programfel i Json-serialisering (uppräkning).
+* Beroende på com.fasterxml.jackson.core:jackson databind uppgraderas till 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Förbättrad anslutningspooler för direkt läge.
+* Bättre Prefetch förbättring för orderby mellan partitionsfrågan.
+* Förbättrad UUID generation.
+* Förbättrad sessionen konsekvens logik.
+* Stöd för multipolygon har lagts till.
+* Stöd har lagts till för Partitionsstatistik nyckel intervallet för samlingen.
+* Fast ett programfel i flera regioner support.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Förbättrad prestanda för Json-serialisering.
@@ -184,6 +200,8 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 maj 2018 |--- |
+| [1.16.0](#1.16.0) |Den 15 mars 2018 |--- |
 | [1.15.0](#1.15.0) |14 nov 2017 |--- |
 | [1.14.0](#1.14.0) |28 dessa 2017 |--- |
 | [1.13.0](#1.13.0) |25 augusti 2017 |--- |

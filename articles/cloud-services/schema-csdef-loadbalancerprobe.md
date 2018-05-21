@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services Def. LoadBalancerProbe schemat | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
 Belastningsutjämnaravsökningen är en kund definierade hälsa avsökning av UDP-slutpunkter och slutpunkter i rollinstanser. Den `LoadBalancerProbe` är inte ett fristående element; den kombineras med rollen webb eller arbetare i definitionsfilen för tjänsten. En `LoadBalancerProbe` kan användas av fler än en roll.
@@ -50,10 +50,10 @@ Den `LoadBalancerProbes` element i tjänstdefinitionsfilen innehåller följande
 - [LoadBalancerProbes Element](#LoadBalancerProbes)
 - [LoadBalancerProbe Element](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a>LoadBalancerProbes Element
+##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes Element
 Den `LoadBalancerProbes` element beskriver insamling av belastningen belastningsutjämnaren avsökningar. Det här elementet har det överordnade elementet för den [LoadBalancerProbe elementet](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a>LoadBalancerProbe Element
+##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe Element
 Den `LoadBalancerProbe` elementet definierar hälsoavsökningen för en modell. Du kan definiera flera load balancer avsökningar. 
 
 I följande tabell beskrivs attributen för den `LoadBalancerProbe` element:
@@ -62,7 +62,7 @@ I följande tabell beskrivs attributen för den `LoadBalancerProbe` element:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Krävs. Namnet på belastningsutjämnaravsökningen. Namnet måste vara unikt.|
 | `protocol`          | `string` | Krävs. Anger vilket protokoll för slutpunkten. Möjliga värden är `http` eller `tcp`. Om `tcp` anges mottagna ACK måste anges för avsökning ska lyckas. Om `http` anges 200 OK svar från angiven URI måste anges för avsökning ska lyckas.|
-| `path`              | `string` | Den URI som används för att begära hälsostatus från den virtuella datorn. `path`krävs om `protocol` är inställd på `http`. I annat fall tillåtet det inte.<br /><br /> Det finns inget standardvärde.|
+| `path`              | `string` | Den URI som används för att begära hälsostatus från den virtuella datorn. `path` krävs om `protocol` är inställd på `http`. I annat fall tillåtet det inte.<br /><br /> Det finns inget standardvärde.|
 | `port`              | `integer` | Valfri. Porten för kommunikation avsökningen. Det här är valfritt för valfri slutpunkt som samma port används sedan för avsökningen. Du kan konfigurera en annan port för sina sökning, samt. Möjliga värden mellan 1 och 65535, inklusive.<br /><br /> Standardvärdet anges av slutpunkten.|
 | `intervalInSeconds` | `integer` | Valfri. Intervall i sekunder för hur ofta avsökning slutpunkten för hälsostatus. Intervallet är vanligtvis något mindre än en halv allokerade tidsgränsen (i sekunder) som gör att två fullständiga avsökningar innan du tar instansen utanför rotation.<br /><br /> Standardvärdet är 15, det lägsta värdet är 5.|
 | `timeoutInSeconds`  | `integer` | Valfri. Tidsgränsen i sekunder, tillämpas på avsökningen där inget svar resulterar i ytterligare stoppar trafik från skickas till slutpunkten. Detta värde kan slutpunkter som ska vidtas utanför rotation snabbare eller långsammare än vanlig gånger används i Azure (som standard).<br /><br /> Standardvärdet är 31 är det minsta värdet 11.|

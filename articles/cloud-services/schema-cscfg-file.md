@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services Definition Schema (.cscfg-fil) | Microsoft Docs
-ms.custom: 
+services: cloud-services
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
-caps.latest.revision: "35"
+caps.latest.revision: 35
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: bba02688e443d4b5bde89691ca0b74b3597b453a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services Config Schema (.cscfg-fil)
 Tjänstkonfigurationsfilen anger antalet rollinstanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurationsinställningar och tumavtryck för certifikat som är kopplade till en roll. Om tjänsten är en del av ett virtuellt nätverk, måste konfigurationsinformation för nätverket anges i tjänstkonfigurationsfilen, såväl som virtuella nätverk konfigurationsfilen. Standardfilnamnstillägget för tjänstkonfigurationsfilen är .cscfg.
@@ -54,7 +54,7 @@ I följande avsnitt beskrivs schemat för den `ServiceConfiguration` element:
 ## <a name="service-configuration-namespace"></a>Service Configuration Namespace
 XML-namnområdet för tjänstkonfigurationsfilen är: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a>ServiceConfiguration Element
+##  <a name="ServiceConfiguration"></a> ServiceConfiguration Element
 Den `ServiceConfiguration` elementet är det översta elementet i tjänstekonfigurationsfilen.
 
 I följande tabell beskrivs attributen för den `ServiceConfiguration` element. Alla värdena attribut strängtyper.

@@ -1,24 +1,24 @@
 ---
 title: Azure Resource Manager Mallfunktioner - numeriska | Microsoft Docs
-description: "Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med siffror."
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med siffror.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager-mallar
 
@@ -29,7 +29,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 * [div](#div)
 * [flyttal](#float)
 * [int](#int)
-* [Max](#max)
+* [max](#max)
 * [Min](#min)
 * [MOD](#mod)
 * [mul](#mul)
@@ -37,7 +37,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 
 <a id="add" />
 
-## <a name="add"></a>Lägg till
+## <a name="add"></a>lägg till
 `add(operand1, operand2)`
 
 Returnerar summan av de två angivna heltal.
@@ -92,7 +92,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| addResult | int | 8 |
+| addResult | Int | 8 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -117,7 +117,7 @@ Returnerar index för en upprepning loop.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | Nej | Sträng | Namnet på slingan för att hämta upprepning. |
+| loopName | Nej | sträng | Namnet på slingan för att hämta upprepning. |
 | förskjutning |Nej |int |Siffra och lägger till värdet nollbaserade iteration. |
 
 ### <a name="remarks"></a>Kommentarer
@@ -209,7 +209,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| divResult | int | 2 |
+| divResult | Int | 2 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="float" />
 
-## <a name="float"></a>flyttal
+## <a name="float"></a>flyt
 `float(arg1)`
 
 Konverterar värdet till ett flyttal peka nummer. Du kan bara använda den här funktionen vid sändning av anpassade parametrar till ett program, till exempel en Logikapp.
@@ -303,7 +303,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | Int | 4 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -319,7 +319,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="max" />
 
-## <a name="max"></a>Max
+## <a name="max"></a>max
 `max (arg1)`
 
 Returnerar det största värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
@@ -366,8 +366,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -430,8 +430,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -501,7 +501,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| modResult | int | 1 |
+| modResult | Int | 1 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -572,7 +572,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| mulResult | int | 15 |
+| mulResult | Int | 15 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -642,7 +642,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | Int | 4 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 

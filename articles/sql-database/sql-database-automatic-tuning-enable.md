@@ -2,34 +2,34 @@
 title: Aktivera automatisk justering för Azure SQL Database | Microsoft Docs
 description: Du kan aktivera automatisk justering på Azure SQL Database enkelt.
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 
 Azure SQL Database är en automatiskt hanterade datatjänst som ständigt övervakar dina frågor och anger vilka åtgärder som du kan utföra för att förbättra prestandan för din arbetsbelastning. Du kan granska rekommendationer och manuellt koppla dem, eller låta Azure SQL Database automatiskt tillämpa korrigerande åtgärder – den här funktionen kallas **automatiskt prestandajustering läge**. Automatisk justering kan aktiveras på servern eller databasnivå.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Aktivera automatisk justering på servern
-Du kan välja att ärva automatisk justering konfiguration från ”Azure standard” eller inte ärva konfigurationen på servernivå. Azure standardvärdena är FORCE_LAST_GOOD_PLAN aktiverad, CREATE_INDEX aktiverat och inaktiverat DROP_INDEX.
-
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera automatisk justering e-postmeddelanden
-
-Se [automatisk justering e-postaviseringar](sql-database-automatic-tuning-email-notifications.md)
+Du kan välja att ärva automatisk justering konfiguration från ”Azure standard” eller inte ärva konfigurationen på servernivå. Azure standardvärdena är FORCE_LAST_GOOD_PLAN är aktiverad, CREATE_INDEX är aktiverad och DROP_INDEX är inaktiverad.
 
 ### <a name="azure-portal"></a>Azure Portal
-Om du vill aktivera automatisk justering på Azure SQL Database-server, gå till servern i Azure-portalen och välj **automatisk justering** på menyn. Välj Automatisk justering alternativ som du vill aktivera och välja **Verkställ**:
+Aktivera automatisk justering på Azure SQL Database **server**, navigera till servern i Azure-portalen och väljer sedan **automatisk justering** på menyn. Välj Automatisk justering alternativ som du vill aktivera och välja **tillämpa**.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Observera att **DROP_INDEX** alternativet just nu är inkompatibel med program med hjälp av partition växlar och index-tips och bör inte vara aktiverat i dessa fall.
+>
 
 Alternativ för automatisk justering på servern som tillämpas på alla databaser på servern. Som standard alla databaser ärver konfigurationen från sina överordnade servern, men detta kan åsidosättas och anges separat för varje databas.
 
@@ -46,13 +46,15 @@ Azure SQL-databasen kan du ange automatisk justering konfiguration individuellt 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera automatisk inställning på en enskild databas, gå till databasen i Azure-portalen och sedan väljer **automatisk justering**. Du kan konfigurera en enskild databas om du vill ärva inställningar från servern genom att välja alternativet eller ange konfigurationen för en databas individuellt.
+Aktivera automatisk inställning på en **enskild databas**, navigera till databasen i Azure-portalen och sedan väljer **automatisk justering**. Du kan konfigurera en enskild databas om du vill ärva inställningar från servern genom att välja alternativet eller ange konfigurationen för en databas individuellt.
 
 ![Databas](./media/sql-database-automatic-tuning-enable/database.png)
 
 När du har valt rätt konfiguration, klickar du på **tillämpa**.
 
-### <a name="rest-api"></a>REST-API
+Observera att alternativet DROP_INDEX just nu är inte kompatibel med program med hjälp av partition växlar och index-tips och bör inte vara aktiverat i dessa fall.
+
+### <a name="rest-api"></a>REST API
 [Klicka här om du vill läsa mer om hur du aktiverar automatisk inställning på en enskild databas via REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
 
 ### <a name="t-sql"></a>T-SQL
@@ -75,6 +77,10 @@ Ange alternativet för enskilda prestandajustering on, åsidosätter inställnin
 
 ## <a name="disabled-by-the-system"></a>Är inaktiverad av systemet
 Automatisk justering övervakar de åtgärder som utförs på databasen och i vissa fall kan bestämma att automatisk justering inte fungerar korrekt på databasen. I den här situationen inaktiveras inställningsalternativ av systemet. I de flesta fall inträffar detta eftersom Query Store inte har aktiverats eller så är i skrivskyddat läge på en viss databas.
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera automatisk justering e-postmeddelanden
+
+Se [automatisk justering e-postaviseringar](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs den [automatisk justering artikel](sql-database-automatic-tuning.md) lära dig mer om automatisk justering och hur det kan hjälpa dig att förbättra prestandan.

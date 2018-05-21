@@ -1,11 +1,11 @@
 ---
-title: "Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet vägleder dig igenom hur i Azure Security Center hjälper dig att skydda dina Azure-resurser och vara kompatibla med säkerhetsprinciper."
+title: Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Docs
+description: Det här dokumentet vägleder dig igenom hur i Azure Security Center hjälper dig att skydda dina Azure-resurser och vara kompatibla med säkerhetsprinciper.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig igenom hur du använder rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -39,7 +39,7 @@ I [ställa in säkerhetsprinciper i Azure Security Center](security-center-polic
 * Aktivera insamling av data.
 * Välj vilka rekommendationer för att se som en del av din säkerhetsprincip.
 
-Aktuella rekommendationer principcenter runt systemuppdateringar, baslinjeregler, program mot skadlig kod, [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) på undernät och nätverksgränssnitt, SQL database auditing, SQL database transparent datakryptering och webbprogrammet brandväggar.  [Ställa in säkerhetsprinciper](security-center-policies.md) innehåller en beskrivning av varje rekommendation alternativ.
+Aktuella rekommendationer principcenter runt systemuppdateringar, baslinjeregler, program mot skadlig kod, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database auditing, SQL database transparent datakryptering och webbprogrammet brandväggar.  [Ställa in säkerhetsprinciper](security-center-policies.md) innehåller en beskrivning av varje rekommendation alternativ.
 
 ### <a name="monitor-recommendations"></a>Övervakaren rekommendationer
 När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för resurserna i Azure i Security Center för upptäckt av eventuella säkerhetsrisker. Den **rekommendationer** panelen **översikt** bedömer det totala antalet rekommendationer som identifieras av Security Center.
@@ -75,7 +75,7 @@ Använd tabellen nedan som referens för att hjälpa dig att förstå rekommenda
 | [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella Azure-datorer (VM) och Azure-datorer. |
 | [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera OS-konfigurationer med de rekommenderade konfigurationen säkerhetsreglerna, till exempel, tillåter inte lösenord ska sparas. |
 | [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar saknas system säkerhetsuppdateringar och viktiga uppdateringar till Windows och Linux virtuella datorer och datorer. |
-| [Tillämpa Just-In-Time nätverk åtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du installerar just-in-time VM-åtkomst. Den bara i tiden funktionen är i förhandsvisning och finns på standardnivån av Security Center. Se [priser](security-center-pricing.md) att lära dig mer om Security Center prisnivåer. |
+| [Tillämpa Just-In-Time nätverk åtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du installerar just-in-time VM-åtkomst. Den bara i tiden funktionen är i förhandsvisning och finns på standardnivån av Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
 | [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
 | [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (Brandvägg) för web-slutpunkter. En Brandvägg rekommendation visas för alla offentliga Internetriktade IP-adresser (instans nivå IP eller Load belastningsutjämnade IP) som har en nätverkssäkerhetsgrupp med öppna webbplats för inkommande portar (80,443). </br>Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker målobjekt för webbaserade program på virtuella datorer samt på Apptjänst-miljö. En App Service miljö (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan alternativet för Azure App Service som tillhandahåller en helt isolerad och dedikerad miljö för Azure App Service-program som körs på ett säkert sätt. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).</br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga Brandvägg-distributioner. |
 | [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en Brandvägg måste trafik dirigeras till Brandvägg-enhet. Efter den här rekommendationen är klar nödvändiga ändringar. |

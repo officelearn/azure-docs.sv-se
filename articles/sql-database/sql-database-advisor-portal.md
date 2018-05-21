@@ -3,17 +3,17 @@ title: Tillämpa rekommendationer - Azure SQL Database | Microsoft Docs
 description: Använd Azure-portalen för att hitta rekommendationer som kan optimera prestanda för din Azure SQL-databas.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa rekommendationer
 
@@ -95,10 +95,14 @@ Du kan ställa in Azure SQL-databasen för att implementera rekommendationer aut
 
 1. På den **rekommendationer** klickar du på **automatisera**:
    
-    ![Advisor-inställningar](./media/sql-database-advisor-portal/settings.png)
+    ![Inställningar för klassificering](./media/sql-database-advisor-portal/settings.png)
 2. Välj åtgärder för att automatisera:
    
-    ![Rekommenderat index](./media/sql-database-advisor-portal/automation.png)
+    ![Rekommenderat index](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Observera att **DROP_INDEX** alternativet just nu är inkompatibel med program med hjälp av partition växlar och index-tips och bör inte vara aktiverat i dessa fall.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Manuellt köra rekommenderade T-SQL-skript
 Markera varje rekommendation och klicka på **Visa skript**. Köra detta skript mot databasen för att använda rekommendationen manuellt.
@@ -118,7 +122,7 @@ Tillämpa en rekommendation kanske inte omedelbart sker. Portalen innehåller in
 |:--- |:--- |
 | Väntande åtgärder |Tillämpa rekommendation kommandot har tagits emot och har schemalagts för körning. |
 | Kör |Rekommendationen som används. |
-| Verifiera |Rekommendation har tillämpats och tjänsten mäter fördelarna. |
+| Verifierar |Rekommendation har tillämpats och tjänsten mäter fördelarna. |
 | Lyckades |Rekommendation har tillämpats och fördelar har tagits mäts. |
 | Fel |Det uppstod ett fel i samband med tillämpandet av rekommendationen. Detta kan vara ett övergående problem eller eventuellt ett schema ändra i tabellen och skriptet är inte längre giltig. |
 | Återkallande |Rekommendationen tillämpades, men har bedömts vara icke-performant och återställs automatiskt. |

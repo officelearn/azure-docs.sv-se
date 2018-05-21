@@ -1,34 +1,34 @@
 ---
 title: Azure Resource Manager Mallfunktioner - logiska | Microsoft Docs
-description: "Beskriver funktionerna du använder i en Azure Resource Manager-mall för att fastställa logiska värden."
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att fastställa logiska värden.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
-* [och](#and)
+* [Och](#and)
 * [bool](#bool)
 * [Om](#if)
 * [inte](#not)
-* [eller](#or)
+* [Eller](#or)
 
 ## <a name="and"></a>och
 `and(arg1, arg2)`
@@ -39,8 +39,8 @@ Kontrollerar om båda parametervärden är true.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Booleskt värde |Det första värdet för att kontrollera om är true. |
-| arg2 |Ja |Booleskt värde |Det andra värdet för att kontrollera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är true. |
+| arg2 |Ja |boolesk |Det andra värdet för att kontrollera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -166,7 +166,7 @@ Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Villkor |Ja |Booleskt värde |Värdet för att kontrollera om det är true. |
+| tillstånd |Ja |boolesk |Värdet för att kontrollera om det är true. |
 | trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
 | falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
 
@@ -271,7 +271,7 @@ Konverterar booleskt värde till motsatt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Booleskt värde |Värdet som ska konverteras. |
+| arg1 |Ja |boolesk |Värdet som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -366,8 +366,8 @@ Kontrollerar om antingen parametervärdet är true.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Booleskt värde |Det första värdet för att kontrollera om är true. |
-| arg2 |Ja |Booleskt värde |Det andra värdet för att kontrollera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är true. |
+| arg2 |Ja |boolesk |Det andra värdet för att kontrollera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 

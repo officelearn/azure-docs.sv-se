@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ab5a0913922e4664c867d54d9ec07e3611345dd8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa Fjärrövervaknings solution accelerator
 
@@ -462,7 +462,7 @@ Om du vill ändra presentationen och visualiseringar lagret i Fjärrövervakning
 
 I den här artikeln har du lärt dig om resurserna som är tillgängliga för att anpassa webbgränssnittet Fjärrövervaknings solution accelerator.
 
-Mer information om Fjärrövervaknings solution accelerator finns [Fjärrövervaknings arkitektur](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+Mer information om Fjärrövervaknings solution accelerator finns [Fjärrövervaknings arkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar Fjärrövervaknings-lösningen finns [anpassa och distribuera om ett mikrotjänster](../iot-suite/iot-suite-microservices-example.md)
+Mer information om hur du anpassar Fjärrövervaknings-lösningen finns [anpassa och distribuera om ett mikrotjänster](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

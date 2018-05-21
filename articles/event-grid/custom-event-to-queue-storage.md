@@ -5,14 +5,14 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/30/2018
-ms.topic: hero-article
+ms.date: 05/09/2018
+ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 6b408dd8c8f0bfd7f7180b10cc9a4882d6950981
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 49349967abb59967b8c7d33bf9537d1e2df30925
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Dirigera anpassade händelser till Azure Queue Storage med Azure CLI och Event Grid
 
@@ -20,11 +20,7 @@ Azure Event Grid är en händelsetjänst för molnet. Azure Queue Storage är en
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI:t lokalt måste du köra den senaste versionen av Azure CLI (2.0.24 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
-
-Om du inte använder Cloud Shell måste du först logga in med `az login`.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -43,6 +39,10 @@ az group create --name gridResourceGroup --location westus2
 Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
@@ -60,7 +60,7 @@ az storage queue create --name $queuename --account-name $storagename
 
 ## <a name="subscribe-to-a-topic"></a>Prenumerera på ett ämne
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det ämne du just skapat, och resurs-ID:t för Queue Storage skickas som slutpunkt. Queue Storage-ID:t är i formatet:
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det ämne du just skapat, och resurs-ID:t för Queue Storage skickas som slutpunkt. Med Azure CLI skickar du Queue Storage-ID:t som slutpunkten. Slutpunkten är i formatet:
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
@@ -76,6 +76,18 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
   --endpoint $queueid
+```
+
+Om du använder REST API:et för att skapa prenumerationen skickar du ID:t för lagringskontot och namnet på kön som en separat parameter.
+
+```json
+"destination": {
+  "endpointType": "storagequeue",
+  "properties": {
+    "queueName":"eventqueue",
+    "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>"
+  }
+  ...
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne

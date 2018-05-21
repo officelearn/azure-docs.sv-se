@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Parametrarna-avsnittet i Azure Resource Manager-mallar
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurserna. Dessa värden kan du anpassa distributionen med värden som är anpassade för en viss miljö (t.ex dev, test- och). Du behöver inte ange parametrarna i mallen, men utan parametrar mallen skulle distribuera alltid samma resurser med samma namn, platser och egenskaper.
@@ -85,13 +85,13 @@ Föregående exempel visade endast några av de egenskaper som du kan använda i
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | parameterName |Ja |Parameterns namn. Måste vara en giltig JavaScript-identifierare. |
-| typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **secureString**, **int**, **bool**, **objektet**, **secureObject**, och **matris**. |
+| typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **securestring**, **int**, **bool**, **objektet**, **secureObject**, och **matris**. |
 | Standardvärde |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att kontrollera att rätt värde har angetts. |
-| minValue |Nej |Det lägsta värdet för int typparametrar det här värdet är inklusiva. |
-| maxValue |Nej |Det maximala värdet för int typparametrar det här värdet är inklusiva. |
-| minLength |Nej |Den minsta längden för string, secureString och array typparametrar detta värde är inklusiva. |
-| maxLength |Nej |Den maximala längden för string, secureString och array typparametrar detta värde är inklusiva. |
+| MinValue |Nej |Det lägsta värdet för int typparametrar det här värdet är inklusiva. |
+| MaxValue |Nej |Det maximala värdet för int typparametrar det här värdet är inklusiva. |
+| minLength |Nej |Den minsta längden för string, securestring och array typparametrar detta värde är inklusiva. |
+| maxLength |Nej |Den maximala längden för string, securestring och array typparametrar detta värde är inklusiva. |
 | description |Nej |Beskrivning av den parameter som visas för användarna via portalen. |
 
 ## <a name="template-functions-with-parameters"></a>Mallfunktioner med parametrar
@@ -225,7 +225,7 @@ Följande information kan vara användbart när du arbetar med parametrar:
    }
    ```
 
-* Använd **SecureString** för alla lösenord och hemligheter. Om du skickar känsliga data i en JSON-objekt använder du den **secureObject** typen. Mallparametrar med secureString eller secureObject typer går inte att läsa efter resurs distributionen. 
+* Använd **securestring** för alla lösenord och hemligheter. Om du skickar känsliga data i en JSON-objekt använder du den **secureObject** typen. Mallparametrar med securestring eller secureObject typer går inte att läsa efter resurs distributionen. 
    
    ```json
    "parameters": {
@@ -262,7 +262,7 @@ Mallarna exempel visar några scenarier för att använda parametrar. Distribuer
 |Mall  |Beskrivning  |
 |---------|---------|
 |[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder Mallfunktioner när du definierar standardvärden för parametrar. Mallen distribuerar inte några resurser. Den skapar parametervärden och returnerar dessa värden. |
-|[parameter-objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar med hjälp av ett objekt för en parameter. Mallen distribuerar inte några resurser. Den skapar parametervärden och returnerar dessa värden. |
+|[Parameter-objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar med hjälp av ett objekt för en parameter. Mallen distribuerar inte några resurser. Den skapar parametervärden och returnerar dessa värden. |
 
 ## <a name="next-steps"></a>Nästa steg
 

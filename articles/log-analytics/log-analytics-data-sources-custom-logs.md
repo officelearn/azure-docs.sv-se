@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -29,7 +29,7 @@ Loggfilerna ska hämtas måste matcha följande kriterier.
 
 - Loggen måste antingen ha en enda post per rad eller använda en tidsstämpel som matchar ett av följande format i början av varje post.
 
-    ÅÅÅÅ-MM-DD: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS TID <br>MON DD, YYYY: mm: ss
+    ÅÅÅÅ-MM-DD: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS TID<br>MON DD, YYYY: mm: ss<br />ååmmdd: mm: ss<br />ddMMyy: mm: ss<br />MMM d: mm: ss<br />dd/MMM/yyyy:HH:mm:ss zzz<br />åååå-MM-ddTHH:mm:ssK
 
 - Loggfilen får inte tillåta cirkulär loggning eller loggrotationen, där filen skrivs över med nya poster.
 - Loggfilen måste använda ASCII- eller UTF-8-kodning.  Andra format, till exempel UTF-16 stöds inte.
@@ -63,7 +63,7 @@ Om en avgränsare för en tidsstämpel används fylls egenskapen TimeGenerated f
 4. Ändra avgränsare som används för att identifiera en ny post och avgränsare som bäst identifierar poster i loggfilen.
 5. Klicka på **Nästa**.
 
-### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till loggsamling
+### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till sökvägar till loggsamling
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta anpassad logg.  Du kan antingen ange en specifik sökväg och ett namn på loggfilen eller du kan ange en sökväg med jokertecken för namnet.  Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek.  Du kan också ange flera sökvägar för en enda loggfil.
 
 Till exempel kan ett program skapa en loggfil skapas varje dag med det datumet i namn som log20100316.txt. Ett mönster för sådana loggen kan vara *loggen\*.txt* som gäller för alla loggfilen efter programmet naming schemat.
@@ -118,11 +118,11 @@ Hela innehållet i loggposten skrivs till en enda egenskap som kallas **\data**.
 ## <a name="custom-log-record-properties"></a>Egenskaper för anpassad logg-post
 Anpassade loggposter har en typ med namnet på loggen som du anger och egenskaper i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | TimeGenerated |Datum och tid då posten samlades in av logganalys.  Om loggen använder en avgränsare för en baseras på tidpunkt är den tid som samlas in från posten. |
 | SourceSystem |Typ av agenten posten samlats in från. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller System Center Operations Manager <br> Linux – alla Linux-agenter |
-| RawData |Fullständig text i posten som samlas in. |
+| \Data |Fullständig text i posten som samlas in. |
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations hantera agenter.  För andra agenter är AOI -\<arbetsyte-ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Loggen sökningar med anpassade loggposter
@@ -133,7 +133,7 @@ Följande tabell innehåller olika exempel på loggen sökningar som hämtar pos
 | Fråga | Beskrivning |
 |:--- |:--- |
 | MyApp_CL |Alla händelser från en anpassad logga namngiven MyApp_CL. |
-| MyApp_CL &#124; where Severity_CF=="error" |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
+| MyApp_CL &#124; där Severity_CF == ”error” |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel genomgången för att lägga till en anpassad logg
@@ -150,7 +150,7 @@ Vi tillhandahåller någon loggfilerna och kan se de händelser som kommer samla
 
 ![Överföra och parsa en exempellogg](media/log-analytics-data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Lägg till loggsamling
+### <a name="add-log-collection-paths"></a>Lägg till sökvägar till loggsamling
 Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datum i mönstret *appYYYYMMDD.log*.  Ett tillräckligt mönster för den här loggfilen skulle vara *C:\MyApp\Logs\\\*.log*.
 
 ![Loggsökvägen för samlingen](media/log-analytics-data-sources-custom-logs/collection-path.png)

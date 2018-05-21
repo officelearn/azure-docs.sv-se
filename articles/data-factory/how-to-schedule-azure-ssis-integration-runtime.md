@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
 Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Här följer de övergripande stegen som beskrivs i den här artikeln:
@@ -70,9 +70,6 @@ Om du inte har ett Azure Automation-konto kan du skapa en genom att följa anvis
 ### <a name="import-data-factory-modules"></a>Importera Data Factory-moduler
 
 1. Välj **moduler** i den **delade resurser** på den vänstra menyn, och kontrollera om du har **AzureRM.Profile** och **AzureRM.DataFactoryV2** i listan över moduler.
-
-    > [!IMPORTANT]
-    > För närvarande kan du bara använda **AzureRM.DataFactoryV2 0.5.2** och **AzureRM.Profile 4.5.0** moduler.
 
     ![Kontrollera modulerna som krävs](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 

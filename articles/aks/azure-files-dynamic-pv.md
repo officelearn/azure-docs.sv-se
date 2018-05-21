@@ -6,24 +6,24 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/17/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Beständiga volymer med Azure-filer
 
-En beständig volym representerar en typ av lagring som har etablerats för användning i ett Kubernetes kluster. En beständig volym kan användas av en eller flera skida och kan etableras statiskt eller dynamiskt. Det här dokumentet beskriver dynamisk etablering av en Azure-filresurs som Kubernetes beständiga volymer i ett AKS kluster.
+En beständig volym är en typ av lagring som har skapats för användning i ett Kubernetes kluster. En beständig volym kan användas av en eller flera skida och kan skapas dynamiskt eller statiskt. Det här dokumentet beskriver **skapas dynamiskt** av en Azure-filresurs som en beständig volym.
 
-Mer information om Kubernetes beständiga volymer finns [Kubernetes beständiga volymer][kubernetes-volumes].
+Mer information om Kubernetes beständiga volymer, inklusive statiska skapa finns [Kubernetes beständiga volymer][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-När dynamiskt etablerar en Azure-filresurs som en Kubernetes volym, kan storage-konto användas som den finns i samma resursgrupp som klustret AKS. Om det behövs kan du skapa ett lagringskonto i samma resursgrupp som klustret AKS.
+När du skapar en Azure-filresurs som en Kubernetes volym dynamiskt, kan storage-konto användas som den är i samma resursgrupp som klustret AKS. Om det behövs kan du skapa ett lagringskonto i samma resursgrupp som klustret AKS.
 
 Använd för att identifiera rätt resursgruppen den [az grupplistan] [ az-group-list] kommando.
 
@@ -31,7 +31,7 @@ Använd för att identifiera rätt resursgruppen den [az grupplistan] [ az-group
 az group list --output table
 ```
 
-Du söker efter en resursgrupp med ett namn som liknar `MC_clustername_clustername_locaton`, där klusternamn är namnet på klustret AKS och platsen är Azure-regionen där klustret har distribuerats.
+Leta efter en resursgrupp med ett namn som liknar `MC_clustername_clustername_locaton`.
 
 ```
 Name                                 Location    Status
@@ -76,9 +76,9 @@ kubectl apply -f azure-file-sc.yaml
 
 Beständiga volym-anspråk (PVC) använder klassen lagringsobjektet att dynamiskt etablera ett Azure-filresursen.
 
-Följande Manifestet kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteOnce` åtkomst.
+Följande YAML kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteOnce` åtkomst. Mer information om åtkomstlägen finns i [Kubernetes beständiga volym] [ access-modes] dokumentation.
 
-Skapa en fil med namnet `azure-file-pvc.yaml` och kopiera följande manifestet. Se till att den `storageClassName` matchar klassen lagring som skapats i det sista steget.
+Skapa en fil med namnet `azure-file-pvc.yaml` och kopiera följande YAML. Se till att den `storageClassName` matchar klassen lagring som skapats i det sista steget.
 
 ```yaml
 apiVersion: v1
@@ -104,9 +104,9 @@ När slutförts, skapas filresursen. En Kubernetes hemlighet skapas också som i
 
 ## <a name="using-the-persistent-volume"></a>Med hjälp av beständiga volymens
 
-Följande manifestet skapar en baljor som använder beständiga volym anspråket `azurefile` att montera den Azure-filresursen på den `/mnt/azure` sökväg.
+Följande YAML skapar en baljor som använder beständiga volym anspråket `azurefile` att montera den Azure-filresursen på den `/mnt/azure` sökväg.
 
-Skapa en fil med namnet `azure-pvc-files.yaml`, och kopiera följande manifestet. Se till att den `claimName` matchar PVC som skapats i det sista steget.
+Skapa en fil med namnet `azure-pvc-files.yaml`, och kopiera följande YAML. Se till att den `claimName` matchar PVC som skapats i det sista steget.
 
 ```yaml
 kind: Pod
@@ -146,7 +146,7 @@ Standardvärden för fileMode och dirMode skiljer sig åt mellan Kubernetes vers
 | V1.9.0 | 0700 |
 | V1.9.1 eller senare | 0755 |
 
-Om du använder ett kluster av version 1.8.5 eller högre, monteringspunkter som alternativ kan anges för klass lagringsobjektet. Följande exempel anger `0777`.
+Om du använder ett kluster av version 1.8.5 eller högre och dynamiskt skapa persistant volymen med en lagringsklass, monteringsalternativ kan anges för klass lagringsobjektet. Följande exempel anger `0777`.
 
 ```yaml
 kind: StorageClass
@@ -163,6 +163,29 @@ parameters:
   skuName: Standard_LRS
 ```
 
+Om du använder ett kluster av version 1.8.5 eller högre och statiskt skapar objektet persistant volym, monteringsalternativ måste anges på den `PersistentVolume` objekt. Mer information om hur du skapar en persistant volym statiskt finns [Statiska beständiga volymer][pv-static].
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  ```
+
 Om du använder ett kluster av version 1.8.0 - 1.8.4, en säkerhetskontext kan anges med den `runAsUser` värdet `0`. Mer information om baljor säkerhetskontext finns [konfigurera en säkerhetskontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Nästa steg
@@ -173,7 +196,7 @@ Läs mer om Kubernetes beständiga volymer med Azure-filer.
 > [Kubernetes plugin-program för Azure-filer][kubernetes-files]
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
@@ -181,6 +204,7 @@ Läs mer om Kubernetes beständiga volymer med Azure-filer.
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create

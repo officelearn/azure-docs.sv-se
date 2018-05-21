@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb0e2181c518db541504f0eea77ce9fde7edf8f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation Runbook- och stänga
 Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn istället för att skapa egna runbooks och moduler i Azure Automation.  Du kan antingen använda de här scenarierna utan ändringar eller använda dem som en startpunkt och redigera dem för dina specifika krav.
@@ -90,6 +90,9 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
 9. På den **importera** klickar du på **OK** att importera modulen. Medan Azure Automation importerar en modul till ditt konto, extraherar metadata om modulen och cmdletar. Det kan ta ett par minuter eftersom varje aktivitet måste ska extraheras.
 10. Får du ett första meddelande som modulen distribueras och ytterligare ett meddelande när den har slutförts.
 11. När modulen har importerats kan du se tillgängliga aktiviteter och du kan använda sina resurser i runbooks och Desired State Configuration.
+
+> [!NOTE]
+> Moduler som har endast stöd för PowerShell core stöds inte i Azure Automation och kan inte importeras i Azure-portalen eller distribueras direkt från PowerShell-galleriet.
 
 ## <a name="requesting-a-runbook-or-module"></a>Begär en runbook eller en modul
 Du kan skicka förfrågningar till [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Om du behöver hjälp skriver du en runbook eller har en fråga om PowerShell kan du skicka en fråga till vår [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

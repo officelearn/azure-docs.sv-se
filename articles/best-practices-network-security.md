@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft cloud services och nätverkssäkerhet
 Microsoft-molntjänster leverera storskaliga tjänster och infrastruktur, funktioner i företagsklass och många alternativ för hybridanslutning. Kunder kan välja att använda dessa tjänster via Internet eller med Azure ExpressRoute som tillhandahåller anslutningar privata nätverk. Microsoft Azure-plattformen gör att kunder vill sömlöst utöka sin infrastruktur till molnet och skapa flera nivåer arkitekturer. Tredje part kan dessutom aktivera förbättrade funktioner genom att erbjuda tjänster och virtuella installationer. Den här rapporten innehåller en översikt över arkitekturen problem som kunder bör tänka på när du använder Microsoft-molntjänster som nås via ExpressRoute och säkerhet. Den omfattar också skapa säkrare tjänster i virtuella Azure-nätverk.
@@ -77,7 +77,7 @@ Innan Internettrafik får åtkomst till de virtuella Azure-nätverk, finns två 
 
 1.    **DDoS-skydd**: DDoS-skydd är ett lager för det Azure fysiska nätverk som skyddar Azure-plattformen sig själv från storskaliga Internet-baserade attacker. Angreppen använder flera ”bot” noder i ett försök för att överbelasta en Internet-tjänst. Azure har en robust DDoS-skydd nät alla inkommande, utgående och över flera Azure-region-anslutning. Det här lagret för DDoS-skydd har inga konfigurerbara användarattribut och är inte tillgänglig för kunden. DDoS-skyddslager skyddar Azure som en plattform från storskaliga attacker, övervakar även ut bunden trafik och trafik över flera Azure-region. Med virtuella nätverksenheter på VNet, kan ytterligare lager av återhämtning konfigureras av kunden mot en mindre skala angrepp som inte utlösas skyddet på nätverksnivå plattform. Ett exempel på DDoS i åtgärden. Om en IP-adress för internetuppkopplad angripna av en storskalig DDoS-attack skulle Azure identifiera datakällor för attacker och Skrubba felaktiga trafiken innan den har nått sin destination. I nästan alla fall påverkas inte angripna slutpunkten av angrepp. I sällsynta fall att en slutpunkt påverkas påverkas ingen trafik till andra slutpunkter angripna slutpunkten. Därmed visas andra kunder och tjänster utan att påverka från den attacker. Det är viktigt att Observera att Azure DDoS endast söker efter storskaliga attacker. Det är möjligt att en specifik tjänst kan vara för många innan plattform skydd på nätverksnivå tröskelvärden överskrids. Till exempel kan en webbplats på en enskild A0 IIS-server vara offline av en DDoS-attack innan Azure-plattformsnivå DDoS-skydd registrerat ett hot.
 
-2.  **Offentliga IP-adresser**: offentlig IP adresser (aktiverat via slutpunkter för offentliga IP-adresser, Programgateway och andra Azure-funktioner som presenterar en offentlig IP-adress till internet vidarebefordras till resursen) tillåta cloud services eller resurs grupper har offentliga Internet IP-adresser och portar som visas. Slutpunkten använder NAT (Network Address Translation) för att dirigera trafik till den interna adressen och porten på virtuella Azure-nätverket. Den här sökvägen är det vanligaste sättet för externa trafik för att skicka till det virtuella nätverket. Offentliga IP-adresser kan konfigureras för att avgöra vilken trafik som skickas och hur och var den översätts till det virtuella nätverket.
+2.  **Offentliga IP-adresser**: offentliga IP-adresser (aktiverat via slutpunkter för offentliga IP-adresser, Programgateway och andra Azure-funktioner som presenterar en offentlig IP-adress till internet vidarebefordras till resursen) låter molntjänster eller resurs grupper om du vill ha offentliga Internet IP-adresser och portar som visas. Slutpunkten använder NAT (Network Address Translation) för att dirigera trafik till den interna adressen och porten på virtuella Azure-nätverket. Den här sökvägen är det vanligaste sättet för externa trafik för att skicka till det virtuella nätverket. Offentliga IP-adresser kan konfigureras för att avgöra vilken trafik som skickas och hur och var den översätts till det virtuella nätverket.
 
 När trafiken når det virtuella nätverket, finns det många funktioner som kommer till användning. Virtuella Azure-nätverk är grunden för kunder att ansluta sina arbetsbelastningar och där grundläggande behörighet gäller. Det är ett privat nätverk (ett virtuellt nätverk överlägg) i Azure för kunder med följande funktioner och egenskaper:
 
@@ -230,7 +230,7 @@ Med de här reglerna bunden till varje undernät, om en HTTP-begäran var inkomm
 
 Det finns en utgående Standardregeln som tillåter trafik ut till Internet. I det här exemplet vi att tillåta utgående trafik och inte ändra de utgående reglerna. Om du vill låsa i båda riktningarna användardefinierade routning krävs (se exempel 3).
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 Det här exemplet är ett relativt enkla och enkelt sätt att isolera backend-undernät från inkommande trafik. Mer information finns i [detaljerade instruktioner build][Example1]. De här anvisningarna inkluderar:
 
 * Hur du skapar den här perimeternätverk med klassiska PowerShell-skript.
@@ -283,7 +283,7 @@ I brandväggen ska vidarebefordran av regler skapas. Eftersom det här exemplet 
 
 Vidarebefordringsregel för godkänner alla inkommande källadress som träffar i brandväggen som försöker komma åt HTTP (port 80 eller 443 för HTTPS). Det har skickas utanför i brandväggen lokala gränssnittet och omdirigeras till webbservern med IP-adressen för 10.0.1.5.
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 Det här exemplet är ett relativt enkelt sätt att skydda ditt program med en brandvägg och isolera backend-undernät från inkommande trafik. Mer information finns i [detaljerade instruktioner build][Example2]. De här anvisningarna inkluderar:
 
 * Hur du skapar den här perimeternätverk med klassiska PowerShell-skript.
@@ -406,7 +406,7 @@ I det här exemplet behöver vi sju typer av regler:
 
 När tidigare regler skapas, är det viktigt att granska prioriteten för varje regel för att se till att trafik tillåts eller nekas efter behov. I det här exemplet är reglerna i prioritetsordning.
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 Det här exemplet är en mer komplex men slutföra sätt att skydda och isolering av nätverk än i föregående exempel. (Exempel 2 skyddar bara programmet och exempel 1 isolerar bara undernät). Den här designen kan för övervakning i båda riktningarna och skyddar inte bara inkommande programservern men tillämpar nätverkets säkerhetsprincip för alla servrar på nätverket. Även, beroende på den enhet som används för fullständig trafik gransknings- och medvetenhet kan uppnås. Mer information finns i [detaljerade instruktioner build][Example3]. De här anvisningarna inkluderar:
 
 * Hur du skapar det här exemplet perimeternätverk med klassiska PowerShell-skript.
@@ -443,7 +443,7 @@ Logiskt att en NVA nätverket ser ut som fyra separata ”säkerhetszoner” med
 
 ![13]
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 För att lägga till en plats-till-plats VPN-hybrid nätverksanslutning till Azure-nätverk kan utöka det lokala nätverket till Azure på ett säkert sätt. Med en VPN-anslutning trafiken krypteras och skickar via Internet. En NVA i det här exemplet innehåller en central plats för att tillämpa och hantera säkerhetsprincipen. Mer information finns i anvisningarna detaljerad build (kommande). De här anvisningarna inkluderar:
 
 * Hur du skapar det här exemplet perimeternätverk med PowerShell-skript.
@@ -473,7 +473,7 @@ Med hjälp av inbyggda i exempel 1 miljön och sedan lägga till en plats-till-p
 
 [![15]][15]
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 För att lägga till en plats-till-plats VPN-hybrid nätverksanslutning till Azure-nätverk kan utöka det lokala nätverket till Azure på ett säkert sätt. Med inbyggda Azure VPN-gatewayen kan trafiken är IPSec-krypterad och dirigerar via Internet. Dessutom kan använder Azure VPN-gatewayen ge en lägre kostnad alternativet (inga ytterligare licenser kostnad som NVAs från tredje part). Det här alternativet är mest ekonomiska i exempel 1, där ingen NVA används. Mer information finns i anvisningarna detaljerad build (kommande). De här anvisningarna inkluderar:
 
 * Hur du skapar det här exemplet perimeternätverk med PowerShell-skript.
@@ -503,7 +503,7 @@ Med hjälp av inbyggda i exempel 1 miljön och sedan lägga till en ExpressRoute
 
 [![17]][17]
 
-#### <a name="conclusion"></a>Slutsats
+#### <a name="conclusion"></a>Sammanfattning
 Lägga till en privat ExpressRoute-Peering-nätverksanslutning utöka lokala nätverk till Azure i en säker, lägre latens, högre utför sätt. Med hjälp av inbyggda Azure Gateway, som i följande exempel tillhandahåller också en lägre kostnad alternativet (ingen ytterligare licensiering som NVAs från tredje part). Mer information finns i anvisningarna detaljerad build (kommande). De här anvisningarna inkluderar:
 
 * Hur du skapar det här exemplet perimeternätverk med PowerShell-skript.
@@ -515,7 +515,7 @@ Lägga till en privat ExpressRoute-Peering-nätverksanslutning utöka lokala nä
 * Åtkomst till Azure med Azure Resource Manager:
 * Åtkomst till Azure med PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Virtuella nätverk dokumentation: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Network security group-dokumentationen: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
+* Network security group-dokumentationen: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
 * Användardefinierade routning dokumentation: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Azure virtuella gateways: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * Plats-till-plats-VPN: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)

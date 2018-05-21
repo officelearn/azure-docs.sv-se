@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -235,9 +235,9 @@ Du kan skicka en DNS-fråga för namnet myip.opendns.com till OpenDNS matcharen 
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Förhindrar en utgående anslutning
-Ibland kan det vara önskvärt en virtuell dator för att kunna skapa ett utgående flöde. Det kan finnas ett krav för att hantera vilka destinationer kan nås med utgående flöden eller vilka destinationer kan börja inkommande flöden. I det här fallet kan du använda [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) att hantera mål som den virtuella datorn kan nå. Du kan också använda NSG: er för att hantera vilka offentliga mål kan initiera inkommande flöden. 
+Ibland kan det vara önskvärt en virtuell dator för att kunna skapa ett utgående flöde. Det kan finnas ett krav för att hantera vilka destinationer kan nås med utgående flöden eller vilka destinationer kan börja inkommande flöden. I det här fallet kan du använda [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) att hantera mål som den virtuella datorn kan nå. Du kan också använda NSG: er för att hantera vilka offentliga mål kan initiera inkommande flöden.
 
-När du kopplar en NSG till en belastningsutjämnad VM ta hänsyn till den [standard taggar](../virtual-network/virtual-networks-nsg.md#default-tags) och [standard regler](../virtual-network/virtual-networks-nsg.md#default-rules). Du måste se till att den virtuella datorn kan ta emot hälsa avsökningen begäranden från Azure-belastningsutjämnaren. 
+När du kopplar en NSG till en belastningsutjämnad VM ta hänsyn till den [tjänsten taggar](../virtual-network/security-overview.md#service-tags) och [standard säkerhetsregler](../virtual-network/security-overview.md#default-security-rules). Du måste se till att den virtuella datorn kan ta emot hälsa avsökningen begäranden från Azure-belastningsutjämnaren. 
 
 Om en NSG blockerar hälsa avsökningen begäranden från Standardetiketten AZURE_LOADBALANCER, din VM hälsoavsökningen misslyckas och den virtuella datorn markeras. Belastningsutjämnaren slutar att skicka nya flödar till den virtuella datorn.
 
@@ -249,5 +249,5 @@ Om en NSG blockerar hälsa avsökningen begäranden från Standardetiketten AZUR
 
 - Lär dig mer om [belastningsutjämnaren](load-balancer-overview.md).
 - Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
-- Lär dig mer om [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
+- Lär dig mer om [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 - Lär dig mer om den andra nyckeln [nätverk](../networking/networking-overview.md) i Azure.

@@ -10,11 +10,11 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 96a749c0cb59759e9294f52bd4f631d7fdc2275f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 404e238e51b7ac8b799f413965560a8d42ccc5df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 Så länge har du kört din programkod som om du bara utvecklare som arbetar på appen. I det här avsnittet lär du dig hur Azure Dev blanksteg förenklar utveckling i grupp:
 * Aktivera ett team för utvecklare att arbeta i samma utvecklingsmiljö.
@@ -50,7 +50,7 @@ Låt oss ta en närmare titt på var tjänsterna som körs. Kör den `azds list`
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------------------
 mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     https://webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
+webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 Kolumnen utrymme visar att båda tjänsterna körs i ett utrymme med namnet `default`. Alla som öppnar offentlig URL och navigerar till webbprogrammet ska anropa kodsökvägen nämnt tidigare som körs via båda tjänsterna. Nu anta att du vill fortsätta utveckla `mywebapi`. Hur kan du göra kodändringar och testa dem och inte avbryter andra utvecklare som använder dev-miljö? För att göra det, ska du ställa in din egen sida.

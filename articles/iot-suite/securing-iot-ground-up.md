@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 991a668bbebf09c7394552b1dc5928e5dbe58841
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5c8a72ab9a32c67c61a9d7c71fe9ca9ea2bae73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
@@ -34,13 +34,13 @@ Mer information om hur du skyddar IoT-lösningen finns:
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-Du kan även utforska några av de andra funktionerna och funktioner i IoT solution Accelerator:
+Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
 * [Förutsägande Underhåll solution accelerator: översikt][lnk-predictive-overview]
-* [Vanliga frågor om IoT solution Accelerator][lnk-faq]
+* [Vanliga frågor och svar om IoT-lösningsacceleratorer][lnk-faq]
 
 Du kan läsa om IoT-hubb säkerhet i [styra åtkomsten till IoT-hubb] [ lnk-devguide-security] i utvecklarhandboken för IoT-hubb.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

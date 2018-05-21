@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c14d2082854fe88df9d1139c619b061699e443aa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 995759cf4831deedc642c0850603947b22ee1222
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -42,13 +42,13 @@ IoT solution Accelerator stöder följande krypteringssviter i den här ordninge
 | TLS\_RSA\_WITH\_3DES\_Nederländerna\_CBC\_SHA (0xa) |112 |
 
 ## <a name="see-also"></a>Se också
-Du kan även utforska några av de andra funktionerna och funktioner i IoT solution Accelerator:
+Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
 * [Förutsägande Underhåll solution accelerator: översikt][lnk-predictive-overview]
-* [Vanliga frågor om IoT solution Accelerator][lnk-faq]
+* [Vanliga frågor och svar om IoT-lösningsacceleratorer][lnk-faq]
 
 Du kan läsa om IoT-hubb säkerhet i [styra åtkomsten till IoT-hubb] [ lnk-devguide-security] i utvecklarhandboken för IoT-hubb.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

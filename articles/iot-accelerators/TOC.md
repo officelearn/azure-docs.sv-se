@@ -47,48 +47,48 @@
 ### [Genomgång av lösningsacceleratorn förutsägande underhåll](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Ansluten fabrik
-### [Vad är en ansluten fabrik?](../iot-suite/iot-suite-connected-factory-features.md)
-### [Översikt över ansluten fabrikslösning](../iot-suite/iot-suite-connected-factory-overview.md)
-### [Genomgång av ansluten fabrikslösning](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [Vad är en ansluten fabrik?](iot-accelerators-connected-factory-features.md)
+### [Översikt över ansluten fabrikslösning](iot-accelerators-connected-factory-overview.md)
+### [Genomgång av ansluten fabrikslösning](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Enhetssimulering
-### [Distribuera enhetssimulering](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Utforska enhetssimulering](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Distribuera enhetssimulering](iot-accelerators-device-simulation-deploy.md)
+### [Utforska enhetssimulering](iot-accelerators-device-simulation-explore.md)
 
 # Instruktionsguider
 ## Fjärrövervakning
-### [Utföra avancerad övervakning](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Utföra avancerad övervakning](iot-accelerators-remote-monitoring-monitor.md)
 ### [Använda regler för att identifiera problem](iot-accelerators-remote-monitoring-automate.md)
-### [Integrera SIM-data](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Hantera dina enheter](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Felsöka enhetsproblem](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Förstå schemat för enhetsmodellen](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [Förstå beteendet för enhetsmodellen](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Skapa en ny simulerad enhet](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [Visualisera med Power BI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [Integrera SIM-data](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Hantera dina enheter](iot-accelerators-remote-monitoring-manage.md)
+### [Felsöka enhetsproblem](iot-accelerators-remote-monitoring-maintain.md)
+### [Förstå schemat för enhetsmodellen](iot-accelerators-remote-monitoring-device-schema.md)
+### [Förstå beteendet för enhetsmodellen](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Skapa en ny simulerad enhet](iot-accelerators-remote-monitoring-test.md)
+### [Visualisera med Power BI](iot-accelerators-integrate-data-powerbi.md)
 ### [Anpassa lösningens användargränssnitt](iot-accelerators-remote-monitoring-customize.md)
-### [Anpassa och distribuera om en mikrotjänst](../iot-suite/iot-suite-microservices-example.md)
+### [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
 ### [Distribuera användningen av CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Distribuera lokalt](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Visualisera data med Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
-### [Integrera med Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Integrera med Data Lake](iot-accelerators-integrate-data-lake.md)
 ### Ansluta en fysisk enhet
-#### [C i Windows](../iot-suite/iot-suite-connecting-devices.md)
-#### [C i Linux](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (generisk)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Node.js på Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [C på Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [C i Windows](iot-accelerators-connecting-devices.md)
+#### [C i Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (generisk)](iot-accelerators-connecting-devices-node.md)
+#### [Node.js på Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [C på Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Begrepp
-#### [Information om implementering av fjärrövervakning](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Information om implementering av fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [Arkitekturval för fjärrövervakning](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Ansluten fabrik
-### [Distribuera en gateway för ansluten fabrik](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [Anpassa ansluten fabrik](../iot-suite/iot-suite-connected-factory-customize.md)
+### [Distribuera en gateway för ansluten fabrik](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Anpassa ansluten fabrik](iot-accelerators-connected-factory-customize.md)
 ### [Använda OPC-utgivaren för ansluten fabrik](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Konfigurera ansluten fabrik](../iot-suite/iot-suite-connected-factory-configure.md)
+### [Konfigurera ansluten fabrik](iot-accelerators-connected-factory-configure.md)
 ## [Behörigheter på azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Referens
@@ -118,8 +118,8 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
-## [Vanliga frågor och svar](../iot-suite/iot-suite-faq.md)
-## [Vanliga frågor och svar om fjärrövervakning](../iot-suite/iot-suite-faq-rm-v2.md)
-## [Vanliga frågor och svar om ansluten fabrik](../iot-suite/iot-suite-faq-cf.md)
+## [Vanliga frågor och svar](iot-accelerators-faq.md)
+## [Vanliga frågor och svar om fjärrövervakning](iot-accelerators-faq-rm-v2.md)
+## [Vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Utbildningsväg för IoT-lösningsacceleratorer](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

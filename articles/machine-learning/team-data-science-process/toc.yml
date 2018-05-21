@@ -56,6 +56,9 @@
         - name: Biomedicinsk enhetsidentifiering
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
+        - name: Klassificering av hudcancerfoto
+          href: isic-image-classification.md
+          maintainContext: true
     - name: Spark med PySpark och Scala
       href: walkthroughs-spark.md
       items:

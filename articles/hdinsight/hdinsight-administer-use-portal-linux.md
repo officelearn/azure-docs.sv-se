@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: cd61aa4a69a5bed8de9874eebad059b54118ab63
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -125,7 +125,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
    * **Standarddatakälla**: standardfilsystem för klustret.
    * **Worker noder storlek**: valda VM-storlek för arbetsnoderna.
    * **Gå nodstorlek**: valda VM-storlek för huvudnoderna.
-   * **Virtuellt nätverk**: namnet på det virtuella nätverk och undernät som klustret distribueras, om en har valts vid tidpunkten för distribution.
+   * **Virtuellt nätverk**: namnet på det virtuella nätverket som klustret distribueras om en har valts vid tidpunkten för distribution.
 
 ## <a name="delete-clusters"></a>Ta bort kluster
 Tar bort ett kluster tar inte bort standardkontot för lagring eller eventuella länkade lagringskonton. Du kan återskapa klustret med hjälp av samma lagringskonton och samma metastores. Vi rekommenderar att du använder en ny standardbehållaren när du skapar klustret igen.

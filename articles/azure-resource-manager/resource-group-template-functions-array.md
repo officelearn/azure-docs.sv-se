@@ -1,24 +1,24 @@
 ---
 title: Azure Resource Manager-mall fungerar - matriser och -objekt | Microsoft Docs
-description: "Beskriver funktionerna som ska användas i en Azure Resource Manager-mall för att arbeta med matriser och -objekt."
+description: Beskriver funktionerna som ska användas i en Azure Resource Manager-mall för att arbeta med matriser och -objekt.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Array- och funktioner för Azure Resource Manager-mallar 
 
@@ -27,18 +27,18 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser och -
 * [matris](#array)
 * [Slå samman](#coalesce)
 * [concat](#concat)
-* [innehåller](#contains)
+* [Innehåller](#contains)
 * [createArray](#createarray)
 * [tom](#empty)
 * [första](#first)
 * [skärningspunkten](#intersection)
 * [JSON](#json)
 * [senaste](#last)
-* [längd](#length)
-* [Max](#max)
+* [Längd](#length)
+* [max](#max)
 * [Min](#min)
 * [intervallet](#range)
-* [Hoppa över](#skip)
+* [skip](#skip)
 * [ta](#take)
 * [Union](#union)
 
@@ -192,8 +192,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | Standard |
-| intOutput | int | 1 |
+| stringOutput | Sträng | standard |
+| intOutput | Int | 1 |
 | objectOutput | Objekt | {”första”: ”default”} |
 | arrayOutput | Matris | [1] |
 | emptyOutput | bool | True |
@@ -326,7 +326,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
-## <a name="contains"></a>Innehåller
+## <a name="contains"></a>innehåller
 `contains(container, itemToFind)`
 
 Kontrollerar om en matris som innehåller ett värde, ett objekt som innehåller en nyckel eller en sträng som innehåller understrängen.
@@ -335,7 +335,7 @@ Kontrollerar om en matris som innehåller ett värde, ett objekt som innehåller
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Behållaren |Ja |matris, objekt eller sträng |Det värde som innehåller ett värde att söka efter. |
+| container |Ja |matris, objekt eller sträng |Det värde som innehåller ett värde att söka efter. |
 | itemToFind |Ja |sträng eller ett heltal |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
@@ -730,7 +730,7 @@ Returnerar ett JSON-objekt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Sträng |Värdet som ska konverteras till JSON. |
+| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. |
 
 
 ### <a name="return-value"></a>Returvärde
@@ -765,7 +765,7 @@ Utdata från det föregående exemplet med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | jsonOutput | Objekt | {”a”: ”b”} |
-| nullOutput | Booleskt värde | True |
+| nullOutput | Boolesk | True |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -901,8 +901,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -929,7 +929,7 @@ Mer information om hur du använder den här funktionen med en matris finns [ska
 
 <a id="max" />
 
-## <a name="max"></a>Max
+## <a name="max"></a>max
 `max(arg1)`
 
 Returnerar det största värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
@@ -976,8 +976,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 
@@ -1040,8 +1040,8 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 

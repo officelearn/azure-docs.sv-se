@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatisera NSG granskning med vyn för Watcher nätverkssäkerhet för Azure-grupp
 
 Kunder är ofta inför utmaningen i att verifiera säkerhetstillståndet av infrastrukturen. Denna utmaning skiljer sig inte för sina virtuella datorer i Azure. Det är viktigt att ha en liknande säkerhetsprofil baserat på Nätverkssäkerhetsgrupp (NSG)-regler tillämpas. I vyn säkerhet grupp kan nu du få listan över regler som tillämpas på en virtuell dator inom en NSG. Du kan definiera en gyllene NSG säkerhetsprofil och initiera Gruppvy för säkerhet i varje vecka takt och jämför utdata till gyllene profilen och skapa en rapport. Det här sättet kan du identifiera med alla de virtuella datorer som inte överensstämmer med den föreskrivna säkerhetsprofilen.
 
-Om du är bekant med Nätverkssäkerhetsgrupper [översikt över säkerheten i nätverket](../virtual-network/virtual-networks-nsg.md)
+Om du inte känner till Nätverkssäkerhetsgrupper [översikt över säkerheten i nätverket](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

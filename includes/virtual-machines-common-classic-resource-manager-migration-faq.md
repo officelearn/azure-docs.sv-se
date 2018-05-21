@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/20/2018
+---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
@@ -32,14 +48,24 @@ Nej. Vi har nyligen gjort det möjligt att [flytta ExpressRoute-kretsar från kl
 
 Under migreringen omformas resurserna från klassiskt läge till Resource Manager-läge. Vi rekommenderar att du planerar de RBAC-principuppdateringar som behövs efter migreringen.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett säkerhetskopieringsvalv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierats Mina klassiska virtuella datorer i ett valv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
 
-<a name="vault">Klassiska</a> VM återställningspunkter i ett säkerhetskopieringsvalv inte automatiskt migrera till ett Recovery Services-valv när du flyttar den virtuella datorn från klassisk till Resource Manager-läget. Överför dina VM-säkerhetskopior genom att följa dessa anvisningar:
+<a name="vault">När</a> du flyttar en virtuell dator från classic till Resource Manager-läget, säkerhetskopior som har gjorts före migreringen kommer inte att migrera till migrerade Resource Manager-VM. Men om du vill behålla dina säkerhetskopieringar klassiska virtuella instruktionerna innan migreringen. 
 
-1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
-2. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
-3. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
-4. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Detaljerad information om hur du säkerhetskopierar en virtuell dator till ett Recovery Services-valv finns i artikeln [Skydda virtuella datorer i Azure med ett Recovery Services-valv](../articles/backup/backup-azure-vms-first-look-arm.md).
+1. Gå till Recovery Services-valvet i **skyddade objekt** fliken och markera den virtuella datorn. 
+2. Klicka på [Stoppa skydd](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
+
+> [!NOTE]
+> Du kommer att debiteras säkerhetskopiering instans kostnaden tills du behålla data. Säkerhetskopior rensas baserat Kvarhållningsintervall. Senaste säkerhetskopia sparas dock alltid tills du uttryckligen tar bort säkerhetskopierade data. Det är bäst att kontrollera din Kvarhållningsintervall på den virtuella datorn och utlösaren ”ta bort säkerhetskopierade Data” för det skyddade objektet i valvet när kvarhållningsintervallet är över. 
+>
+>
+
+Att migrera den virtuella datorn till Resource Manager-läge 
+
+1. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
+2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
+
+Dessutom, om du vill säkerhetskopiera den migrerade virtuella datorn, gå till bladet för hantering av virtuell dator till [Aktivera säkerhetskopiering](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Kan jag verifiera prenumeration eller resurser för att se om de kan migreras? 
 

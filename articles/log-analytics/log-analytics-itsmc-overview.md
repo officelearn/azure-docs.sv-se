@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 48fe35006ca9ca5ac48e6b2d2a207576426e814d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure ITSM verktyg med IT Service Management-anslutningstjänsten
 
@@ -229,7 +229,7 @@ ServiceDeskWorkItemType_s="Incident"
 **Fält**
 
 - ServiceDeskConnectionName
-- ID för skrivbord
+- Service Desk-ID
 - Status
 - Angelägenhetsgrad
 - Påverkan
@@ -241,7 +241,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Källa
 - Tilldelat till
 - Kategori
-- Namn
+- Titel
 - Beskrivning
 - Skapad
 - Stängningsdatum
@@ -256,12 +256,12 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 
 **Fält**
 - ServiceDeskConnectionName
-- ID för skrivbord
+- Service Desk-ID
 - Skapad av
 - Stängts av
 - Källa
 - Tilldelat till
-- Namn
+- Titel
 - Typ
 - Kategori
 - Status
@@ -333,10 +333,10 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM anslutningar
 1.  Om anslutningen misslyckas från anslutna datakällan gränssnitt med en **fel spara anslutningen** visas, gör du följande:
-- För ServiceNow, Cherwell och Provance-anslutningar  
+ - För ServiceNow, Cherwell och Provance-anslutningar  
     - Se till att du korrekt angav användarnamn, lösenord, klient-ID och klienthemlighet för anslutning.  
     - Kontrollera att du har tillräckliga privilegier i motsvarande ITSM produkten för att ansluta.  
-- För Service Manager-anslutningar  
+ - För Service Manager-anslutningar  
     - Kontrollera att webbappen har distribuerats och hybridanslutningen har skapats. För att verifiera anslutningen upprättas har med Service Manager-datorn lokalt, gå Webbappens URL som anges i dokumentationen för att göra den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instansen inte är i viloläge. ServiceNow Dev instanser försättas ibland i viloläge vid inaktivitet under lång tid. Annars rapportera problemet.

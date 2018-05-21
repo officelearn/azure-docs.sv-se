@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e518799fb4144093e5c3caf0524254a098e4b9cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning modellen Management konto API-referens
 
@@ -77,7 +77,7 @@ Registreringssteget modellen registrerar din modell för Machine Learning med Az
 Registrerar en modell.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -103,7 +103,7 @@ Registrerar en modell.
 Frågar i listan över modeller på ett konto. Du kan filtrera resultatlistan av taggen och namn. Om inget filter skickas anges i fråga alla modeller i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -132,7 +132,7 @@ Frågar i listan över modeller på ett konto. Du kan filtrera resultatlistan av
 Hämtar en modell med ID: t.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -158,7 +158,7 @@ Hämtar en modell med ID: t.
 Registrerar ett manifest med registrerad modell och dess beroenden.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -184,7 +184,7 @@ Registrerar ett manifest med registrerad modell och dess beroenden.
 Söka i manifesten i ett konto. Du kan filtrera resultatlistan av modell-ID och manifest namn. Om inget filter skickas visar frågan i manifesten i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -213,7 +213,7 @@ Söka i manifesten i ett konto. Du kan filtrera resultatlistan av modell-ID och 
 Hämtar manifestet efter-ID.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -239,7 +239,7 @@ Hämtar manifestet efter-ID.
 Skapar en avbildning som en Docker-avbildning i Azure Container registret.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -265,7 +265,7 @@ Skapar en avbildning som en Docker-avbildning i Azure Container registret.
 Frågar listan över bilder i ett konto. Du kan filtrera resultatlistan av manifestet ID och namn. Om inget filter skickas visar frågan alla bilder i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -294,7 +294,7 @@ Frågar listan över bilder i ett konto. Du kan filtrera resultatlistan av manif
 Hämtar en avbildning med ID: t.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -321,7 +321,7 @@ Hämtar en avbildning med ID: t.
 Skapar en tjänst från en avbildning.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -348,7 +348,7 @@ Skapar en tjänst från en avbildning.
 Frågar listan över tjänster på ett konto. Du kan filtrera resultatet av modellen namn/ID, manifestet namn-ID, avbildnings-ID, namn eller Machine Learning beräkning resurs-ID. Om inget filter skickas visar frågan alla tjänster i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -382,7 +382,7 @@ Frågar listan över tjänster på ett konto. Du kan filtrera resultatet av mode
 Hämtar en tjänst med ID: t.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -402,13 +402,13 @@ Hämtar en tjänst med ID: t.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| PLACERA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| PUT |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beskrivning
 Uppdaterar en befintlig tjänst.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -430,13 +430,13 @@ Uppdaterar en befintlig tjänst.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| TA BORT |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| DELETE |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beskrivning
 Tar bort en tjänst.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -463,7 +463,7 @@ Tar bort en tjänst.
 Hämtar för tjänsten.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -483,13 +483,13 @@ Hämtar för tjänsten.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / nycklar | 
+| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / regenerateKeys | 
 
 ### <a name="description"></a>Beskrivning
 Återskapar för tjänsten och returnerar dem.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -516,7 +516,7 @@ Hämtar för tjänsten.
 Frågar i listan över distributioner på ett konto. Du kan filtrera resultatlistan av tjänst-ID som returneras av distributioner som har skapats för tjänsten. Om inget filter skickas visar frågan alla distributioner i kontot.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -542,7 +542,7 @@ Frågar i listan över distributioner på ett konto. Du kan filtrera resultatlis
 Hämtar för distributionen med ID: t.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
@@ -568,7 +568,7 @@ Hämtar för distributionen med ID: t.
 Hämtar Åtgärdsstatus asynkrona efter åtgärden-ID.
 
 ### <a name="parameters"></a>Parametrar
-| Namn | Finns i | Beskrivning | Krävs | Schema
+| Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
 | resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |

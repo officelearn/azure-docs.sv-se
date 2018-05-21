@@ -1,11 +1,11 @@
 ---
-title: "Aktivera Nätverkssäkerhetsgrupper i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** aktivera Network Security grupper **."
+title: Aktivera Nätverkssäkerhetsgrupper i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center **aktivera Nätverkssäkerhetsgrupper**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Aktivera Nätverkssäkerhetsgrupper i Azure Security Center
-Azure Security Center rekommenderar att du aktiverar en nätverkssäkerhetsgrupp (NSG) om en inte redan är aktiverad. NSG: er innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn. Läs mer finns [vad är en Nätverkssäkerhetsgrupp (NSG)?](../virtual-network/virtual-networks-nsg.md)
+Azure Security Center rekommenderar att du aktiverar en nätverkssäkerhetsgrupp (NSG) om en inte redan är aktiverad. NSG: er innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn. Läs mer finns [vad är en Nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
 
 Om du inte har NSG: er aktiverat två rekommendationer för dig visas i Security Center: aktivera Nätverkssäkerhetsgrupper i undernät och aktivera Nätverkssäkerhetsgrupper på virtuella datorer. Du kan välja vilka nivå, undernät eller virtuella datorn, för att tillämpa NSG: er.
 
@@ -44,11 +44,11 @@ Om du inte har NSG: er aktiverat två rekommendationer för dig visas i Security
 
 Om du skapar en NSG, följer du stegen i [hantera NSG: er med hjälp av Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) att skapa en NSG och säkerhetsregler.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Den här artikeln visades hur du implementerar Security Center-rekommendationen ”aktivera Nätverkssäkerhetsgrupper” för undernät eller virtuella datorer. Mer information om hur du aktiverar NSG: er finns i följande avsnitt:
 
-* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [Hantera NSG: er med hjälp av Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Vad är en nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
+* [Hantera en nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md)
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

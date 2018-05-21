@@ -11,11 +11,11 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: f1d54d71979c3a39b2b40a41b1ba1ab03aa75395
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d4bb27ddc4ff9385fd46fc7554af2af16ef40558
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Skapa en enskild Azure SQL-databas med Azure CLI
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.4 eller senare för att du ska kunna följa anvisningarna i den här artikeln. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Definiera variabler
 
@@ -78,7 +78,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Skapa en databas på servern med exempeldata
 
-Skapa en databas med en [S0-prestandanivå](sql-database-service-tiers.md) på servern med kommandot [az sql db create](/cli/azure/sql/db#az_sql_db_create). Följande exempel skapar en databas med namnet `mySampleDatabase` och läser in AdventureWorksLT-exempeldata till den här databasen. Ersätt de fördefinierade värdena efter behov (andra snabbstarter i den här samlingen bygger på värdena i den här snabbstarten).
+Skapa en databas med en [S0-prestandanivå](sql-database-service-tiers-dtu.md) på servern med kommandot [az sql db create](/cli/azure/sql/db#az_sql_db_create). Följande exempel skapar en databas med namnet `mySampleDatabase` och läser in AdventureWorksLT-exempeldata till den här databasen. Ersätt de fördefinierade värdena efter behov (andra snabbstarter i den här samlingen bygger på värdena i den här snabbstarten).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \

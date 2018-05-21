@@ -1,109 +1,109 @@
 ---
-title: Aktivera Azure-prenumerationer och konton | Microsoft Docs
-description: 'Aktivera åtkomst med hjälp av Azure Resource Manager API: erna för nya och befintliga konton och lösa vanliga problem med kontot.'
+title: Aktivera Azure-prenumerationer och -konton | Microsoft Docs
+description: Aktivera åtkomst med Azure Resource Manager-API:er för nya och befintliga konton och lös vanliga kontoproblem.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och konton med Azure kostnaden Management
+# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och -konton med Azure Cost Management
 
-Lägger till eller uppdaterar Azure Resource Manager-autentiseringsuppgifter tillåts Azure kostnaden för identifiering av konton och prenumerationer i Azure-klient. Om du har även Azure Diagnostics tillägget aktiverat på virtuella datorer, samla Azure kostnaden Management utökad mått som processor och minne. Den här artikeln beskriver hur du aktiverar åtkomst med hjälp av Azure Resource Manager API: erna för nya och befintliga konton. Det beskriver också hur du löser vanliga problem med kontot.
+Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Azure Cost Management identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azure Diagnostics-tillägget aktiverat på dina virtuella datorer kan Azure Cost Management samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
 
-Hantering av Azure kostnaden kan inte komma åt de flesta av dina Azure-prenumerationsdata när prenumerationen är _inaktiverade_. Du måste redigera _inaktiverade_ så att Azure kostnaden Management kan komma åt dem-konton.
+Azure Cost Management kan inte komma åt de mesta av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Azure Cost Management kan komma åt dem.
 
-## <a name="required-azure-permissions"></a>Behörigheter som krävs för Azure
+## <a name="required-azure-permissions"></a>Azure-behörigheter som krävs
 
-Specifika behörigheter som krävs för att slutföra procedurerna i den här artikeln. Du eller din Innehavaradministratör måste ha båda av följande behörigheter:
+Specifika behörigheter krävs för att slutföra procedurerna i den här artikeln. Du eller din klientadministratör måste ha båda av följande behörigheter:
 
-- Behörighet att registrera CloudynCollector program med Azure AD-klienten.
-- Möjligheten att tilldela program till en roll i Azure-prenumerationer.
+- Behörighet att registrera CloudynCollector-programmet i Azure AD-klientorganisationen.
+- Möjligheten att tilldela programmet till en roll i Azure-prenumerationer.
 
-I din Azure-prenumerationer, dina konton måste ha `Microsoft.Authorization/*/Write` åtkomst till tilldela CloudynCollector program. Den här åtgärden beviljas genom den [ägare](../role-based-access-control/built-in-roles.md#owner) roll eller [administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) roll.
+I dina Azure-prenumerationer måste dina konton ha behörigheten `Microsoft.Authorization/*/Write` för att tilldela CloudynCollector-programmet. Den här åtgärden beviljas genom rollen [Ägare](../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-Om ditt konto har tilldelats den **deltagare** roll, du har inte tillräcklig behörighet för att tilldela programmet. Du får ett fel vid försök att tilldela CloudynCollector program till din Azure-prenumeration.
+Om ditt konto har tilldelats rollen **Deltagare** har du inte tillräcklig behörighet för att tilldela programmet. Du får ett felmeddelande vid försök att tilldela CloudynCollector-programmet till din Azure-prenumeration.
 
-### <a name="check-azure-active-directory-permissions"></a>Kontrollera behörigheter för Azure Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Kontrollera Azure Active Directory-behörigheter
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com).
-2. Välj i Azure-portalen **Azure Active Directory**.
-3. Välj i Azure Active Directory, **användarinställningar**.
-4. Kontrollera den **App registreringar** alternativet.
-    - Om den är inställd på **Ja**, och andra användare kan registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klient kan registrera en app. Du kan fortsätta att behörigheter som krävs för Azure-prenumeration.  
-    ![App-registreringar](./media/activate-subs-accounts/app-register.png)
-    - Om den **App registreringar** alternativet är inställt på **nr**, och sedan endast klient administrativa användare kan registrera Azure Active Directory-appar. Klient-administratören måste registrera CloudynCollector program.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj **Azure Active Directory** i Azure Portal.
+3. Välj **Användarinställningar** i Azure Active Directory.
+4. Kontrollera alternativet **Appregistreringar**.
+    - Om det är inställt på **Ja** kan användare som inte är administratörer registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app. Du kan fortsätta till Behörigheter som krävs för Azure-prenumeration.  
+    ![Appregistreringar](./media/activate-subs-accounts/app-register.png)
+    - Om alternativet **Appregistreringar** är inställt på **Nej** kan bara administratörsanvändare i klientorganisationen registrera Azure Active Directory-appar. Klientadministratören måste registrera CloudynCollector-programmet.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Lägg till ett konto eller uppdatera en prenumeration
 
-När du lägger till en uppdatering av en prenumeration kan bevilja du Azure kostnaden Management åtkomst till dina Azure data.
+När du lägger till en uppdatering av en prenumeration beviljar du åtkomst för Azure Cost Management till dina Azure-data.
 
-### <a name="add-a-new-account-subscription"></a>Lägg till ett nytt konto (prenumeration)
+### <a name="add-a-new-account-subscription"></a>Lägga till ett nytt konto (prenumeration)
 
-1. Klicka på symbolen växel i övre högra i hanteringsportalen för Azure kostnad och välj **moln konton**.
-2. Klicka på **Lägg till nytt konto** och **Lägg till nytt konto** visas. Ange informationen som krävs.  
-    ![Lägga till nya kontot i rutan](./media/activate-subs-accounts//add-new-account.png)
+1. I Azure Cost Management klickar du på kugghjulsikonen uppe till höger och väljer **Molnkonton**.
+2. Klicka på **Lägg till nytt konto** så visas rutan **Lägg till nytt konto**. Ange informationen som krävs.  
+    ![Rutan Lägg till nytt konto](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Uppdatera en prenumeration
 
-1. Om du vill uppdatera en _inaktiverade_ prenumeration som redan finns i Azure kostnaden Management i hantering av konton, klicka på Redigera penna symbolen till höger om överordnat _klient GUID_. Prenumerationer är grupperade under en överordnad klient, så undvika att aktivera prenumerationer individuellt.
-    ![Identifiera prenumerationer](./media/activate-subs-accounts/existing-sub.png)
-2. Ange om det behövs, klient-ID. Om du inte vet klient-ID, använder du följande steg för att hitta den:
-    1. Logga in på den [Azure-portalen](https://portal.azure.com).
-    2. Välj i Azure-portalen **Azure Active Directory**.
+1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Azure Cost Management går du till Kontohantering, klickar på pennsymbolen för redigering till höger om överordnad _klient-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
+    ![Identifiera prenumerationer igen](./media/activate-subs-accounts/existing-sub.png)
+2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
+    1. Logga in på [Azure Portal](https://portal.azure.com).
+    2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
-    4. Kopiera katalog-ID-GUID. Det här värdet är ditt klientorganisations-ID.
-    Mer information finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-3. Om det behövs Välj hastighet-ID. Om du inte vet hastighet-ID, använder du följande steg för att hitta den.
-    1. I det övre högra på Azure-portalen klickar du på din användarinformation och klicka sedan på **Visa min faktura**.
-    2. Under **faktureringskonto**, klickar du på **prenumerationer**.
-    3. Under **Mina prenumerationer**, Välj prenumerationen.
-    4. Vilken takt dina ID visas under **erbjuder ID**. Kopiera erbjuder-ID för prenumerationen.
-4. Lägg till nytt konto (eller redigera prenumeration) klickar du på **spara** (eller **nästa**). Du ska omdirigeras till Azure-portalen.
-5. Logga in på portalen. Klicka på **acceptera** Azure kostnaden Management insamlaren för att auktorisera åtkomst till ditt Azure-konto.
+    4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
+    Mer information finns i [Hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+3. Välj pris-ID om det behövs. Om du inte vet pris-ID kan du söka efter det genom att göra följande.
+    1. Uppe till höger i Azure Portal klickar du på din användarinformation och klickar sedan på **Visa min faktura**.
+    2. Under **Faktureringskonto** klickar du på **Prenumerationer**.
+    3. Under **Mina prenumerationer** väljer du prenumerationen.
+    4. Ditt pris-ID visas under **ID för erbjudande**. Kopiera ID för erbjudande för prenumerationen.
+4. I rutan Lägg till nytt konto (eller Redigera prenumeration) klickar du på **Spara** (eller **Nästa**). Du omdirigeras till Azure Portal.
+5. Logga in på portalen. Klicka på **Acceptera** för att ge Azure Cost Management Collector åtkomst till ditt Azure-konto.
 
-    Du ska omdirigeras till sidan för hantering av Hanteringskonton kostnaden för Azure och din prenumeration uppdateras med **active** kontostatus. Den ska visa en grön bock symbol under kolumnen Resource Manager.
+    Du omdirigeras till sidan Kontohantering i Azure Cost Management och din prenumeration uppdateras med **aktiv** kontostatus. En grön bockmarkering bör visas under Resource Manager-kolumnen.
 
-    Om du inte ser en grön bockmarkering symbol för en eller flera av prenumerationerna, innebär det att du inte har behörighet att skapa reader-appen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa den här processen.
+    Om du inte ser en grön bock för en eller flera av prenumerationerna betyder det att du inte har behörighet att skapa läsarappen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa den här processen.
 
-Titta på den [ansluter till Azure Resource Manager med Azure kostnaden Management](https://youtu.be/oCIwvfBB6kk) video som går igenom processen.
+Titta på videon [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Ansluta till Azure Resource Manager med Azure Cost Management), som går igenom processen.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Lösa vanliga problem med installation indirekt enterprise
+## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Lösa vanliga indirekta Enterprise-konfigurationsproblem
 
-När du börjar använda hanteringsportalen för Azure kostnad, kan du se följande meddelanden om du använder en Enterprise-avtal eller Cloud Solution Providers (CSP):
+När du först använder Azure Cost Management-portalen kan du se följande meddelanden, om du har ett Enterprise-avtal eller en användare av molnlösningsleverantör:
 
-- *Den angivna API-nyckeln är inte en nyckel för övre nivå registrering* visas i den **ställa in Azure kostnaden Management** guiden.
-- *Direktregistrering – inte* visas i portalen Enterprise-avtal.
-- *Inga användningsdata hittades för de senaste 30 dagarna. Kontakta din återförsäljare att försäkra markup har aktiverats för ditt Azure-konto* visas i hanteringsportalen för Azure kostnaden.
+- *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Azure Cost Management**.
+- *Direct Enrollment – No* (Direktregistrering – nej) visas i Enterprise-avtalsportalen.
+- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Inga användningsdata hittades för de senaste 30 dagarna. Kontakta återförsäljaren för att kontrollera om pålägg har aktiverats för ditt Azure-konto) visas i Azure Cost Management-portalen.
 
-Föregående meddelanden tyda på att du har köpt en Azure-Företagsavtal genom en återförsäljare eller CSP. Återförsäljaren eller CSP måste aktivera _markup_ för din Azure-konto så att du kan visa dina data i Azure kostnaden Management.
+Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto så att du kan visa dina data i Azure Cost Management.
 
-Här är hur du löser problem:
+Så här löser du problemen:
 
-1. Din återförsäljare måste aktivera _markup_ för ditt konto. Mer information finns i [indirekt Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Du genererar nyckeln Azure Enterprise-avtal för användning med Azure kostnaden Management. Instruktioner finns i [registrera en Azure Enterprise-avtal och visa data](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+2. Du genererar Azure Enterprise-avtalsnyckeln för användning med Azure Cost Management. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Endast en Azure-tjänst-administratör kan aktivera hantering av kostnaden. Behörigheter som medadministratör är otillräcklig.
+Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör.
 
-Innan du kan generera Azure Enterprise-avtal API-nyckeln som ställa in hantering av Azure kostnad, måste du aktivera Azure Billing API genom att följa anvisningarna på:
+Innan du kan generera API-nyckeln för Azure Enterprise-avtal för att konfigurera Azure Cost Management måste du aktivera fakturerings-API:et för Azure genom att följa instruktionerna i:
 
-- [Översikt över Reporting API: er för Enterprise-kunder](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **aktivera dataåtkomst till API: et**
+- [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md) (Översikt över rapporterings-API:er för Enterprise-kunder)
+- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) (Rapporterings-API för Microsoft Azure Enterprise Portal) under **Enabling data access to the API** (Aktivera dataåtkomst till API:et)
 
-Kan du behöva ge avdelning administratörer, kontot ägare och enterprise administratörer behörighet till _visa debiteringar_ med fakturerings-API.
+Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterprise-administratörer behörigheter att _visa debiteringar_ med fakturerings-API:et.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutförts första självstudierna för hantering av kostnader, läsa den på [granska användning och kostnader](tutorial-review-usage.md).
+- Om du inte redan har slutfört den första kursen för Cost Management kan du läsa den i [Granska användning och kostnader](tutorial-review-usage.md).

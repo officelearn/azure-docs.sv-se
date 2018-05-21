@@ -1,6 +1,6 @@
 ---
-title: Självstudie i tillgänglighetsuppsättningar för virtuella Linux-datorer i Azure | Microsoft Docs
-description: Läs mer om tillgänglighetsuppsättningar för virtuella Linux-datorer i Azure.
+title: Självstudiekurs – Tillgänglighetsuppsättningar för virtuella Linux-datorer i Azure | Microsoft Docs
+description: I kursen får du lära dig hur du använder Azure CLI 2.0 för att distribuera virtuella datorer med hög tillgänglighet i tillgänglighetsuppsättningar
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,13 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d317ec8136ad7a36381239593c3a53c40f897845
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Använda tillgänglighetsuppsättningar
-
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Självstudiekurs: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI 2.0
 
 I den här självstudien får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”Tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarukluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar.
 
@@ -34,10 +33,9 @@ I den här guiden får du lära dig att:
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
 > * Kontrollera tillgängliga VM-storlekar
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Översikt över tillgänglighetsuppsättning
 
@@ -50,16 +48,13 @@ Använd tillgänglighetsuppsättningar när du vill distribuera tillförlitliga 
 
 ## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Du kan skapa en tillgänglighetsuppsättning med [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). I det här exemplet anger vi antalet för både uppdaterings- och feldomäner till *2* för tillgänglighetsuppsättningen med namnet *myAvailabilitySet* i resursgruppen *myResourceGroupAvailability*.
+Du kan skapa en tillgänglighetsuppsättning med [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). I det här exemplet är antalet uppdaterings- och feldomäner satt till *2* för tillgänglighetsuppsättningen med namnet *myAvailabilitySet* i resursgruppen *myResourceGroupAvailability*.
 
-Skapa en resursgrupp.
+Börja med att skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create) och skapa sedan tillgänglighetsuppsättningen:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
-```
 
-
-```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -67,44 +62,44 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Med tillgänglighetsuppsättningar kan du isolera resurser över feldomäner och uppdateringsdomäner. En **feldomän** representerar en isolerad resurssamling med server + nätverk + lagring. I föregående exempel anger vi att vår tillgänglighetsuppsättning ska distribueras över minst två feldomäner när våra virtuella datorer distribueras. Vi anger också att vår tillgänglighetsuppsättning ska distribueras över två **uppdateringsdomäner**.  Med två uppdateringsdomäner kommer Azures programuppdateringar till våra VM-resurser isoleras, vilket förhindrar att alla program som körs under vår VM uppdateras samtidigt.
+Med tillgänglighetsuppsättningar kan du isolera resurser över feldomäner och uppdateringsdomäner. En **feldomän** representerar en isolerad resurssamling med server + nätverk + lagring. I föregående exempel fördelas tillgänglighetsuppsättningen över minst två feldomäner när de virtuella datorerna har distribuerats. Tillgänglighetsuppsättningen distribueras också mellan två **uppdateringsdomäner**. Med två uppdateringsdomäner kommer Azures programuppdateringar till VM-resurserna isoleras, vilket förhindrar att alla program som körs på den virtuella datorn uppdateras samtidigt.
 
 
 ## <a name="create-vms-inside-an-availability-set"></a>Skapa virtuella datorer i en tillgänglighetsuppsättning
 
-De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras i maskinvaran. Du kan inte lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning efter att den har skapats. 
+De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras i maskinvaran. En befintlig virtuell dator kan inte läggas till i en tillgänglighetsuppsättning när den har skapats.
 
-När du skapar en virtuell dator med hjälp av [az vm create](/cli/azure/vm#az_vm_create) anger du tillgänglighetsuppsättning med hjälp av parametern `--availability-set` som anger namnet på tillgänglighetsuppsättningen.
+När en virtuell dator skapas med [az vm create](/cli/azure/vm#az_vm_create) använder du parametern `--availability-set` för att ange namnet på tillgänglighetsuppsättningen.
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+     --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait
-done 
+done
 ```
 
-Nu har vi två virtuella datorer i vår nya tillgänglighetsuppsättning. Eftersom de finns i samma tillgänglighetsuppsättning säkerställer Azure att de virtuella datorerna och deras resurser (inklusive datadiskar) distribueras över isolerad fysisk maskinvara. Den här distributionen garanterar mycket högre tillgänglighet för vår övergripande VM-lösning.
+Det finns nu två virtuella datorer i tillgänglighetsuppsättningen. Eftersom de finns i samma tillgänglighetsuppsättning säkerställer Azure att de virtuella datorerna och deras resurser (inklusive datadiskar) distribueras över isolerad fysisk maskinvara. Den här distributionen garanterar mycket högre tillgänglighet för den övergripande VM-lösningen.
 
-Om du tittar på tillgänglighetsuppsättningen i portalen (genom att gå till Resursgrupper > myResourceGroupAvailability > myAvailabilitySet), ser du hur de virtuella datorerna är distribuerade över två feldomäner och uppdateringsdomäner.
+Distributionen av tillgänglighetsuppsättningen kan visas i portalen genom att gå till Resursgrupper > myResourceGroupAvailability > myAvailabilitySet. Virtuella datorer distribueras via två fel- och uppdateringsdomäner, enligt följande exempel:
 
 ![Tillgänglighetsuppsättning i portalen](./media/tutorial-availability-sets/fd-ud.png)
 
-## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar 
+## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar
 
-Du kan lägga till fler virtuella datorer i tillgänglighetsuppsättningen senare, men du måste veta vilka VM-storlekar som är tillgängliga för maskinvaran.  Använd [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) för att visa en lista över alla tillgängliga storlekar i maskinvaruklustret för tillgänglighetsuppsättningen.
+Ytterligare virtuella datorer kan läggas till i tillgänglighetsuppsättningen senare, där VM-storlekar är tillgängliga i maskinvaran. Använd [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) för att visa en lista över alla tillgängliga storlekar i maskinvaruklustret för tillgänglighetsuppsättningen:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-     --output table  
+     --output table
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -120,4 +115,3 @@ Gå vidare till nästa självstudie om du vill veta mer om VM-skalningsuppsättn
 
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)
-

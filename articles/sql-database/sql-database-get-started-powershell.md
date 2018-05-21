@@ -11,11 +11,11 @@ ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5daead37e77bb798e8c870ea3c071823e4d03dce
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 91c92de4d7c94cceec69b19647b1fe0bf31915c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Skapa en enskild Azure SQL-databas med PowerShell
 
@@ -88,7 +88,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Skapa en databas på servern med exempeldata
 
-Skapa en databas med en [S0-prestandanivå](sql-database-service-tiers.md) i servern med kommandot [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). Följande exempel skapar en databas med namnet `mySampleDatabase` och läser in AdventureWorksLT-exempeldata till den här databasen. Ersätt de fördefinierade värdena efter behov (andra snabbstarter i den här samlingen bygger på värdena i den här snabbstarten).
+Skapa en databas med en [S0-prestandanivå](sql-database-service-tiers-dtu.md) i servern med kommandot [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). Följande exempel skapar en databas med namnet `mySampleDatabase` och läser in AdventureWorksLT-exempeldata till den här databasen. Ersätt de fördefinierade värdena efter behov (andra snabbstarter i den här samlingen bygger på värdena i den här snabbstarten).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -100,10 +100,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra snabbstarterna i den här samlingen bygger på den här snabbstarten.
+Andra snabbstarter i den här samlingen bygger på den här snabbstarten.
 
 > [!TIP]
-> Om du planerar att fortsätta att arbeta med efterföljande snabbstarter, ska du inte rensa upp resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.
+> Ta inte bort resurserna som du skapar i den här snabbstarten om du planerar att fortsätta med efterföljande snabbstarter. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.
 >
 
 ```powershell

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -64,7 +64,7 @@ När virtuella nätverk har peer-kopplats i samma region kan du också konfigure
 
 ![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayöverföring stöds inte i peering-förhållandet mellan virtuella nätverk som har skapats via olika distributionsmodeller eller i olika regioner. Båda de virtuella nätverken i peering-relationen måste ha skapats via Resource Manager och måste vara i samma region för att en gatewayöverföring ska fungera.
+Gatewayöverföring stöds inte i peer-relationer mellan virtuella nätverk som skapats i olika regioner. Båda virtuella nätverk i peer-relationen måste finnas i samma region för att gatewayöverföringen ska fungera. Gatewayöverföring mellan virtuella nätverk som skapats med olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 

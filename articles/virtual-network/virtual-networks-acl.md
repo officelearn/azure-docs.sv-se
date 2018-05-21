@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Vad är en slutpunkt för åtkomstkontrollista?
 
 > [!IMPORTANT]
 > Azure har två olika [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-distributionsmodellen. 
 
-En slutpunkt åtkomstkontrollista (ACL) är en säkerhetsförbättring av för din Azure-distribution. En ACL ger möjlighet att tillåta eller neka trafik för en virtuell dator-slutpunkten. Funktionen paket filtrering ger ett ytterligare lager av säkerhet. Du kan ange nätverk ACL: er för endast slutpunkter. Du kan inte ange en ACL för ett virtuellt nätverk eller ett specifikt undernät som ingår i ett virtuellt nätverk. Det rekommenderas att använda nätverkssäkerhetsgrupper (NSG: er) i stället för ACL: er när det är möjligt. Läs mer om NSG: er i [nätverk Säkerhetsöversikt grupp](virtual-networks-nsg.md)
+En slutpunkt åtkomstkontrollista (ACL) är en säkerhetsförbättring av för din Azure-distribution. En ACL ger möjlighet att tillåta eller neka trafik för en virtuell dator-slutpunkten. Funktionen paket filtrering ger ett ytterligare lager av säkerhet. Du kan ange nätverk ACL: er för endast slutpunkter. Du kan inte ange en ACL för ett virtuellt nätverk eller ett specifikt undernät som ingår i ett virtuellt nätverk. Det rekommenderas att använda nätverkssäkerhetsgrupper (NSG: er) i stället för ACL: er när det är möjligt. Läs mer om NSG: er i [nätverk Säkerhetsöversikt grupp](security-overview.md)
 
 ACL: er kan konfigureras med hjälp av PowerShell eller Azure-portalen. Om du vill konfigurera ett ACL-nätverk med hjälp av PowerShell Se [hantera åtkomstkontrollistor för slutpunkter med hjälp av PowerShell](virtual-networks-acl-powershell.md). Om du vill konfigurera ett ACL-nätverk med hjälp av Azure portal finns [hur du ställer in slutpunkter till en virtuell dator](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexering JSON-blobbar med Azure Search blob indexeraren
 Den här artikeln visar hur du konfigurerar en indexerare med Azure Search blob för att extrahera strukturerade innehåll från JSON-blobbar i Azure Blob storage.
@@ -23,7 +23,7 @@ JSON-blobbar i Azure Blob storage är vanligtvis ett enskilt JSON-dokument eller
 | JSON-dokumentet | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
 | En per blob | `json` | Parsar JSON-blobbar som ett enda segment av text. Varje JSON-blob blir ett enda Azure Search-dokument. | Allmänt tillgänglig i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API: er. |
-| Flera per blob | `jsonArray` | Parsar en JSON-matris i blob där varje element i matrisen blir ett separat Azure Search-dokument.  | I Förhandsgranska i [REST api-version =`2016-09-01-Preview` ](search-api-2016-09-01-preview.md) och [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Flera per blob | `jsonArray` | Parsar en JSON-matris i blob där varje element i matrisen blir ett separat Azure Search-dokument.  | I Förhandsgranska i [REST api-version =`2017-11-11-Preview` ](search-api-2017-11-11-preview.md) och [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > API: er för förhandsversionen är avsedd för testning och utvärdering och ska inte användas i produktionsmiljöer.
@@ -116,7 +116,7 @@ Du kan också välja förhandsgranskningsfunktion för JSON-matris. Den här fun
 
 För en JSON-matris indexeraren begäran använder förhandsversionen API och `jsonArray` parsern. Detta är de bara två matris-specifika krav för indexering JSON-blobbar.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ För en JSON-matris indexeraren begäran använder förhandsversionen API och `j
     }
 
 Igen och Observera att fältmappningar inte krävs. Givet ett index med fälten ”id” och ”text”, härleda blob indexeraren korrekt mappning utan en mappning Fältlista.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Kapslade JSON-matriser
 Vad händer om du inte vill att indexera en matris av JSON-objekt, men att matris är kapslat någonstans i dokumentet? Du kan välja vilken egenskap innehåller en matris med hjälp av den `documentRoot` konfigurationsegenskapen. Om exempelvis dina blobbar se ut så här:

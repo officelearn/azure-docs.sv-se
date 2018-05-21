@@ -1,12 +1,12 @@
 ---
 title: Hantera logikappar med Visual Studio - Azure Logic Apps | Microsoft Docs
-description: "Hantera logikappar och andra Azure tillgångar med Visual Studio Cloud Explorer"
+description: Hantera logikappar och andra Azure tillgångar med Visual Studio Cloud Explorer
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logikappar med Visual Studio
 
@@ -32,24 +32,24 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt Azure-konto</a>.
+* Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
-* Hämta och installera dessa verktyg, om du inte redan har dem: 
+* Hämta och installera följande verktyg, om du inte redan har dem: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 eller Visual Studio 2015 - Community edition eller större</a>. 
-  Denna Snabbstart använder Visual Studio Community 2017 som är ledigt.
+  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 eller Visual Studio 2015 – Community Edition eller senare</a>. 
+  I denna snabbstart används Visual Studio Community 2017 som är tillgängligt utan kostnad.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 eller senare)</a> och <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps-verktyg för Visual Studio-2017</a> eller <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">version av Visual Studio 2015</a> 
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools för Visual Studio 2017</a> eller för <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a> 
   
-    Du kan hämta och installera Azure Logic Apps verktyg direkt från Visual Studio Marketplace, eller Läs <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">hur du installerar det här tillägget från i Visual Studio</a>. 
-    Kontrollera att du startar om Visual Studio när installationen är klar.
+    Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">hur du installerar tillägget från Visual Studio</a>. 
+    Se till att starta om Visual Studio när installationen är klar.
 
-* Tillgång till Internet när du använder den inbäddade logik App Designer
+* Tillgång till Internet när du använder inbäddade Logic Apps Designer
 
-  Designern kräver en Internetanslutning för att skapa resurser i Azure och läsa egenskaper och data från kopplingar i din logikapp. 
-  Om du använder Dynamics CRM Online-anslutningen kontrollerar designern CRM-instansen för tillgänglig och anpassade egenskaper.
+  Designer kräver en Internetanslutning för att kunna skapa resurser i Azure och läsa in egenskaper och data från anslutningarna i din logikapp. 
+  Om du t.ex. använder Dynamics CRM Online-anslutningen kontrollerar Designer om CRM-instansen har några standardegenskaper och anpassade egenskaper.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -84,7 +84,7 @@ I Visual Studio kan du öppna logikappar tidigare skapas och distribueras direkt
 
   ![Öppna distribuerade logikapp från Azure-portalen](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   När logikappen öppnas i logik App Designer längst ned i Designer väljer du **kodvy** så att du kan granska den underliggande strukturen av logik app-definition. 
+   När logikappen öppnas i Logic Apps Designer längst ned i Designer väljer du **kodvy** så att du kan granska den underliggande strukturen av logik app-definition. 
    Lär dig mer om du vill skapa en Distributionsmall för logikappen [hur du hämtar en Azure Resource Manager-mall](#download-logic-app) för logikappen. Lär dig mer om [Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>

@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services rollen schemat | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: c25e7d139c7b7fd7c5da6bde8cfb9050eec8a88e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services, Schema för Config-roll
 
@@ -25,7 +25,7 @@ Den `Role` element i konfigurationsfilen anger antalet rollinstanser som ska dis
 
 Läs mer om Azure Service Konfigurationsschemat [molntjänst (klassisk) Konfigurationsschemat](schema-cscfg-file.md). Läs mer om Azure Service Definition schemat [molntjänst (klassisk) Definition schemat](schema-csdef-file.md).
 
-##  <a name="Role"></a>Rollen Element
+##  <a name="Role"></a> Rollen Element
 I följande exempel visas den `Role` elementet och dess underordnade element.
 
 ```xml 

@@ -1,12 +1,12 @@
 ---
-title: "Detaljerad felsökning av SSH för en virtuell dator i Azure | Microsoft Docs"
-description: "Mer detaljerad SSH felsökningssteg för problem som ansluter till en virtuell Azure-dator"
+title: Detaljerad felsökning av SSH för en virtuell dator i Azure | Microsoft Docs
+description: Mer detaljerad SSH felsökningssteg för problem som ansluter till en virtuell Azure-dator
 keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutning misslyckades
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem som ansluter till en Linux-VM i Azure
 Det finns många möjliga orsaker till att SSH-klienten inte kanske kan nå SSH-tjänsten på den virtuella datorn. Om du har följt via mer [allmänna SSH felsökningssteg](troubleshoot-ssh-connection.md), du behöver ytterligare felsöka problemet. Den här artikeln hjälper dig att detaljerade felsökningssteg för att fastställa om SSH-anslutningen inte fungerar och hur man löser problemet.
@@ -39,7 +39,7 @@ Följande steg hjälper dig identifiera orsaken till felet och lösningar eller 
 
 2. Välj **inställningar** att undersöka slutpunkter, IP-adresser, nätverkssäkerhetsgrupper och andra inställningar.
 
-   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgruppen](../../virtual-network/virtual-networks-nsg.md)**. Slutpunkter i virtuella datorer som har skapats med hjälp av hanteraren för filserverresurser lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna som har tillämpats för nätverkssäkerhetsgruppen och refereras till i undernätet.
+   Den virtuella datorn ska ha en slutpunkt som definierats för SSH-trafik som du kan visa i **slutpunkter** eller  **[nätverkssäkerhetsgruppen](../../virtual-network/security-overview.md)**. Slutpunkter i virtuella datorer som har skapats med hjälp av hanteraren för filserverresurser lagras i en nätverkssäkerhetsgrupp. Kontrollera att reglerna som har tillämpats för nätverkssäkerhetsgruppen och refereras till i undernätet.
 
 Om du vill kontrollera nätverksanslutningen konfigurerade slutpunkter och se om du kan ansluta till den virtuella datorn med ett annat protokoll, till exempel http- eller en annan tjänst.
 
@@ -71,7 +71,7 @@ Om något av dessa villkor gäller tillfälligt inaktivera programmen och en SSH
 Om du använder certifikatautentisering kan du kontrollera att du har följande behörigheter till .ssh-mappen i din hemkatalog:
 
 * Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/\*.pub
+* Chmod 644 ~/.ssh/\*pub
 * Chmod 600 ~/.ssh/id_rsa (eller andra filer som har dina privata nycklar lagras i dem)
 * Chmod 644 ~/.ssh/known_hosts (innehåller värdar som du har anslutit till via SSH)
 
@@ -111,7 +111,7 @@ Ta bort den aktuella slutpunkten för att ta bort slutpunkten som orsaken till p
 
 ## <a name="source-4-network-security-groups"></a>Datakällan 4: Nätverkssäkerhetsgrupper
 Nätverkssäkerhetsgrupper kan du ha mer detaljerad kontroll över tillåtna inkommande och utgående trafik. Du kan skapa regler som sträcker sig över undernät och molntjänster i Azure-nätverk. Kontrollera dina regler för nätverkssäkerhetsgrupper för att se till att SSH-trafik till och från Internet tillåts.
-Mer information finns i [om nätverkssäkerhetsgrupper](../../virtual-network/virtual-networks-nsg.md).
+Mer information finns i [om nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md).
 
 Du kan också använda IP-Kontrollera för att validera NSG-konfigurationen. Mer information finns i [Azure nätverksövervakning översikt](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 

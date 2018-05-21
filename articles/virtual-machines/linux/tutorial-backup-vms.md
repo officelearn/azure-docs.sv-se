@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiera virtuella Linux-datorer i Azure | Microsoft Docs
-description: Skydda dina virtuella Linux-datorer genom att säkerhetskopiera dem med Azure Backup.
+title: Självstudier – Säkerhetskopiera virtuella Linux-datorer på Azure Portal | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure Portal för att skydda dina virtuella Linux-datorer med Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Säkerhetskopiera virtuella Linux-datorer i Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
-Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller bara specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här självstudiekursen får du lära du dig att:
+Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en säkerhetskopia av en virtuell dator
 > * Schemalägga en daglig säkerhetskopiering
 > * Återställa en fil från en säkerhetskopia
-
-
 
 ## <a name="backup-overview"></a>Översikt över Backup
 
@@ -43,7 +41,7 @@ När dataöverföringen har slutförts tas ögonblicksbilden bort och en återst
 
 
 ## <a name="create-a-backup"></a>Skapa en säkerhetskopia
-Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-valv. 
+Skapa en schemalagd daglig säkerhetskopiering till ett Recovery Services-valv:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Virtuella datorer** på menyn till vänster. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Felsöka Nätverkssäkerhetsgrupper med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/14/2018
 
 Om du konfigurerade Nätverkssäkerhetsgrupper (NSG: er) på den virtuella datorn (VM) och har problem med anslutningen VM, innehåller den här artikeln en översikt över diagnostikfunktionerna för NSG: er för att fortsätta felsökningen.
 
-NSG: er kan du styra vilka typer av trafik som flöde till och från virtuella datorer (VM). NSG: er kan tillämpas på undernät i ett Azure Virtual Network (VNet), nätverksgränssnitt (NIC) eller båda. Effektiva reglerna som gäller för ett nätverkskort är en sammanställning av regler som finns i NSG: er som tillämpas på ett nätverkskort och undernät som den är ansluten till. Regler för dessa NSG: er kan ibland står i konflikt med varandra och påverka nätverksanslutning för en virtuell dator.  
+NSG: er kan du styra vilka typer av trafik som flöde till och från virtuella datorer (VM). NSG: er kan tillämpas på undernät i ett Azure Virtual Network (VNet), nätverksgränssnitt (NIC) eller båda. Effektiva reglerna som gäller för ett nätverkskort är en sammanställning av regler som finns i NSG: er som tillämpas på ett nätverkskort och undernät som den är ansluten till. Regler för dessa NSG: er kan ibland står i konflikt med varandra och påverka nätverksanslutning för en virtuell dator.
 
-Du kan visa alla effektiva säkerhetsregler från dina NSG: er som tillämpas på den Virtuella datorns nätverkskort. Den här artikeln visar hur du felsöker problem med nätverksanslutningen VM med hjälp av reglerna i Azure Resource Manager-distributionsmodellen. Om du inte är bekant med principerna för VNet och NSG läsa den [för virtuella nätverk](virtual-networks-overview.md) och [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md) översikt artiklar.
+Du kan visa alla effektiva säkerhetsregler från dina NSG: er som tillämpas på den Virtuella datorns nätverkskort. Den här artikeln visar hur du felsöker problem med nätverksanslutningen VM med hjälp av reglerna i Azure Resource Manager-distributionsmodellen. Om du inte känner till VNet och NSG-begrepp finns [översikt över virtuella nätverk](virtual-networks-overview.md) och [nätverk Säkerhetsöversikt för gruppen](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Använda effektiva säkerhetsregler för att felsöka VM trafikflöde
 Det scenario som följer är ett exempel på ett vanligt anslutningsproblem:
@@ -159,8 +159,7 @@ Utför följande steg för att felsöka NSG: er för en virtuell dator:
    
    * Det finns två **NetworkSecurityGroup** avsnitt: en är associerad med ett undernät (*Undernät1*) och ett är kopplat till ett nätverkskort (*VM1 NIC1*). I det här exemplet har en NSG tillämpats för varje.
    * **Associationen** visar resurs (undernät eller NIC) angivna NSG är associerad med. Om NSG-resurs är flyttas/koppla bort omedelbart innan du kör det här kommandot kan behöva du vänta några sekunder innan ändringen så att den återger kommandots utdata. 
-   * De namn som inleds med *defaultSecurityRules*: när en NSG skapas, skapas flera standardregler för säkerhet i den. Standardreglerna kan inte tas bort, men de kan åsidosättas med högre Prioritetsregler.
-     Läs den [NSG översikt](virtual-networks-nsg.md#default-rules) artikeln om du vill lära dig mer om NSG standard säkerhetsregler.
+   * De namn som inleds med *defaultSecurityRules*: när en NSG skapas, skapas flera standardregler för säkerhet i den. Standardreglerna kan inte tas bort, men de kan åsidosättas med högre Prioritetsregler. Läs mer om [standardsäkerhetsregler](security-overview.md#default-security-rules).
    * **ExpandedAddressPrefix** expanderar adressprefix för NSG standardtaggar. Taggar representerar flera adressprefix. Utökningen av taggar kan vara användbart när du felsöker VM anslutning till eller från specifika adressprefix. Till exempel med VNET-peering utökas VIRTUAL_NETWORK taggen visas peerkoppla VNet-prefix i föregående utdata.
      
      > [!NOTE]

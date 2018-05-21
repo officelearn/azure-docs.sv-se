@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en indexerare för Azure Search till SQL Server på en Azure VM
 Enligt beskrivningen i [ansluter Azure SQL Database på Azure Sök med hjälp av indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), skapa indexerare mot **SQL Server på Azure Virtual Machines** (eller **SQL Azure Virtual Machines** för kort) stöds av Azure Search men det finns några säkerhetsrelaterade förutsättningar för att ta hand om först. 
@@ -52,14 +52,14 @@ Läs särskilt avsnittet i varje artikel för ”som ansluter via internet”.
 ## <a name="configure-the-network-security-group-nsg"></a>Konfigurera Nätverkssäkerhetsgrupp (NSG)
 Det är inte ovanligt att konfigurera NSG och motsvarande Azure endpoint eller åtkomstkontrollista (ACL) för att göra din Azure VM tillgängliga för andra parter. Risken är att du har gjort detta innan så att dina egna programlogiken till att ansluta till din SQL Azure VM. Det är inte annorlunda för ett Azure Search-anslutning till din SQL Azure VM. 
 
-Med länkarna nedan ger instruktioner för NSG-konfiguration för distribueringar av Virtuella datorer. Följ dessa instruktioner åtkomstkontrollistan en slutpunkt för Azure SEarch baserat på dess IP-adress.
+Med länkarna nedan ger instruktioner för NSG-konfiguration för distribueringar av Virtuella datorer. Följ dessa instruktioner åtkomstkontrollistan en slutpunkt för Azure Search baserat på dess IP-adress.
 
 > [!NOTE]
-> Bakgrund, se [vad är en Nätverkssäkerhetsgrupp?](../virtual-network/virtual-networks-nsg.md)
+> Bakgrund, se [vad är en Nätverkssäkerhetsgrupp?](../virtual-network/security-overview.md)
 > 
 > 
 
-* För en **Resource Manager** VM, se [hur du skapar NSG: er för ARM-distributioner](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* För en **Resource Manager** VM, se [hur du skapar NSG: er för ARM-distributioner](../virtual-network/tutorial-filter-network-traffic.md). 
 * För en **klassiska** VM, se [hur du skapar NSG: er för klassiska distributioner](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 IP-adresser kan utgöra några utmaningar som enkelt kan lösa om du är medveten om problemet och möjliga lösningar. De återstående avsnitten ger rekommendationer för att hantera problem relaterade till IP-adresser i Åtkomstkontrollistan.

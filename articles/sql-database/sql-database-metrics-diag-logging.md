@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
 * **Azure Storage**: används för arkivering av stora mängder telemetri för små pris.
 * **Händelsehubbar i Azure**: används för att integrera SQL Database telemetri med anpassade övervakningslösning eller varm pipelines.
-* **Azure logganalys**: används för en out box övervakningslösning med reporting, varningar och minimera funktioner. Det här är en funktion i den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Azure logganalys**: används för en out box övervakningslösning med reporting, varningar och minimera funktioner. Det här är en funktion i [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -38,8 +38,8 @@ Mätvärden och diagnostikfunktionerna loggning är inte aktiverad som standard.
 Du måste ange Azure-resurs där valda data samlas in när du aktiverar mått och diagnostikloggning. Alternativen är:
 
 - Log Analytics
-- Händelsehubbar
-- Lagring 
+- Event Hubs
+- Storage 
 
 Du kan etablera en ny resurs i Azure eller välj en befintlig resurs. Du måste ange vilka data som ska samlas in när du har valt storage-resursen. Alternativen är:
 
@@ -155,7 +155,7 @@ Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata
 
 ### <a name="rest-api"></a>REST-API
 
-Läs mer om hur du [ändra diagnostikinställningarna med hjälp av REST API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Läs mer om hur du [ändra diagnostikinställningarna med hjälp av REST API för Azure-Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
@@ -267,7 +267,7 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 
 ### <a name="query-store-runtime-statistics"></a>Query Store körningsstatistik
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -275,7 +275,7 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics|
-|OperationName|Namnet på åtgärden. Alltid: QueryStoreRuntimeStatisticsEvent|
+|OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent|
 |Resurs|Namnet på resursen.|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
@@ -318,7 +318,7 @@ Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.c
 
 ### <a name="query-store-wait-statistics"></a>Query Store vänta statistik
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -326,8 +326,8 @@ Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.c
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics|
-|OperationName|Namnet på åtgärden. Alltid: QueryStoreWaitStatisticsEvent|
-|Resurs|Namnet på resursen|
+|OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -356,7 +356,7 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sq
 
 ### <a name="errors-dataset"></a>Fel dataset
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -364,8 +364,8 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sq
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: fel|
-|OperationName|Namnet på åtgärden. Alltid: ErrorEvent|
-|Resurs|Namnet på resursen|
+|OperationName|Åtgärdens namn. Alltid: ErrorEvent|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -376,7 +376,7 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sq
 |Meddelande|Felmeddelande i oformaterad text.|
 |user_defined_b|Är fel användardefinierade bitar.|
 |error_number_d|Felkod.|
-|Allvarsgrad|Allvarlighetsgraden för felet.|
+|Severity|Allvarlighetsgraden för felet.|
 |state_d|Status för felet.|
 |query_hash_s|Frågan hash för misslyckade frågan, om det är tillgängligt.|
 |query_plan_hash_s|Frågan plan hash för misslyckade frågan, om det är tillgängligt.|
@@ -385,7 +385,7 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/library
 
 ### <a name="database-wait-statistics-dataset"></a>Databasen vänta statistik dataset
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -393,8 +393,8 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/library
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics|
-|OperationName|Namnet på åtgärden. Alltid: DatabaseWaitStatisticsEvent|
-|Resurs|Namnet på resursen|
+|OperationName|Åtgärdens namn. Alltid: DatabaseWaitStatisticsEvent|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -414,7 +414,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 
 ### <a name="time-outs-dataset"></a>Timeout dataset
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -422,8 +422,8 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: timeout|
-|OperationName|Namnet på åtgärden. Alltid: TimeoutEvent|
-|Resurs|Namnet på resursen|
+|OperationName|Åtgärdens namn. Alltid: TimeoutEvent|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -437,7 +437,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 
 ### <a name="blockings-dataset"></a>Blockings dataset
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |Klient-ID|Klient-ID.|
 |SourceSystem|Alltid: Azure|
@@ -445,8 +445,8 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/rela
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: block|
-|OperationName|Namnet på åtgärden. Alltid: BlockEvent|
-|Resurs|Namnet på resursen|
+|OperationName|Åtgärdens namn. Alltid: BlockEvent|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|

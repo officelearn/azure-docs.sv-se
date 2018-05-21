@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
 Företaget Contoso överväger att migrera till Azure och de vill göra en teknisk och ekonomisk utvärdering för att ta reda på om deras lokala arbetsbelastningar lämpar sig för migrering till molnet. De vill främst utvärdera om datorn och databasen är kompatibla för migrering och beräkna kapaciteten och kostnaderna för att köra resurser i Azure.
 
-För att komma igång och få bättre kunskaper om de inblandade teknikerna utvärderar och migrerar de en liten lokal reseapp. Det är en app på två nivåer, med en webbapp som körs på en virtuell dator och en SQL Server-databas som körs på den andra virtuella datorn. Programmet distribueras i VMware och miljön hanteras av en vCenter Server. De utför utvärderingen med hjälp av DMA (Data migrering Assistant) och tjänsten Azure Migrate.
+För att komma igång och få bättre kunskaper om de inblandade teknikerna utvärderar och migrerar de en liten lokal reseapp. Det är en app på två nivåer, med en webbapp som körs på en virtuell dator och en SQL Server-databas som körs på den andra virtuella datorn. Programmet distribueras i VMware och miljön hanteras av en vCenter Server. De utför utvärderingen med hjälp av DMA (Data migrering Assistant) och tjänsten Azure Migrate. Om du vill testa scenariot med hjälp av det här illustrativa reseprogrammet kan du ladda ned det från [github](https://github.com/Microsoft/SmartHotel360).
 
 **Teknik** | **Beskrivning** | **Kostnad**
 --- | --- | ---
@@ -33,11 +33,11 @@ I det här scenariot hämtar vi och kör DMA för att utvärdera den lokala SQL 
 
 ## <a name="architecture"></a>Arkitektur
 
-I det här scenariot ska vi konfigurera 
 
- ![Arkitektur för migreringsutvärdering](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Arkitektur för migreringsutvärdering](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 I det här scenariot:
+- Contoso är ett fiktivt namn som representerar en typisk företagsorganisation. Contoso vill utvärdera och migrera sin lokala reseapp som finns på två nivåer.
 - Contoso har ett lokalt datacenter (**contoso-datacenter**) med en lokal domänkontrollant ( **contosodc1**).
 - Den interna reseappen är nivåindelad över två virtuella datorer, **WEBVM** och **SQLVM**, och finns på VMware ESXi-värden **contosohost1.contoso.com**.
 - VMware-miljön hanteras av vCenter Server (**vcenter.contoso.com**) som körs på en virtuell dator.
@@ -489,7 +489,7 @@ I det här scenariot har vi:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu går vi vidare till nästa scenario och gör en Lift and Shift-migrering av de lokala virtuella datorerna till Azure.
+Nu ska vi gå vidare till nästa scenario och gör en [Lift and Shift-migrering](migrate-scenarios-lift-and-shift.md) av de lokala virtuella datorerna och databasen till Azure.
 
 
 

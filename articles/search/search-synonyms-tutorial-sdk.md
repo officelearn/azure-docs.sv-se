@@ -1,27 +1,27 @@
 ---
-title: Självstudie i förhandsgranskning av synonymer i Azure Search | Microsoft Docs
-description: Lägg till funktionen för förhandsgranskning av synonymer i ett index i Azure Search.
+title: Självstudiekurs om Synonymer i Azure Search | Microsoft Docs
+description: Lägg till funktionen Synonymer till ett index i Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Förhandsgranska synonymer – en självstudie i C# för Azure Search
+# <a name="synonym-c-tutorial-for-azure-search"></a>Självstudiekurs om Synonymer för C# i Azure Search
 
 Med synonymer kan du utöka en fråga genom att matcha mot termer som anses betyda samma sak som den angivna söktermen. Du kanske vill att söktermen ”bil” även ska matcha dokument som innehåller termen ”fordon”.
 
 I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregler* som associerar ekvivalenta termer. Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstnivå tillgänglig för alla index och sedan referera till den mappning som ska användas på fältnivå. När en fråga körs kommer Azure Search då att söka i den synonymmappning som anges för fälten som används i frågan förutom att söka i indexet.
 
 > [!NOTE]
-> Synonymfunktionen finns för närvarande bara i en förhandsversion och ingår bara i de senaste API- och SDK-förhandsversionerna (api-version=2016-09-01-Preview, SDK version 4.x-preview). Funktionen stöds för närvarande inte på Azure Portal. För förhandsversioner av API:er gäller inget SLA och de här funktionerna kan ändras, så du bör inte använda dem i produktionsmiljöer.
+> Funktionen Synonymer stöds i de senaste API- och SDK-versionerna (API version 2017-11-11, SDK version 5.0.0). Funktionen stöds för närvarande inte på Azure Portal. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -29,7 +29,7 @@ I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search-tjänsten](search-create-service-portal.md)
-* [Förhandsversionen av .NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk-preview)
+* [.NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) (Så använder du Azure Search från .NET-program)
 
 ## <a name="overview"></a>Översikt

@@ -1,6 +1,6 @@
 ---
-title: Azure snabbstart – skapa virtuell dator med CLI | Microsoft Docs
-description: Lär dig att skapa en virtuell dator med Azure CLI.
+title: Snabbstart–-Skapa en virtuell Linux-dator med Azure CLI 2.0 | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du använder Azure CLI 2.0 för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -9,42 +9,40 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/13/2017
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 15dc70e8d60901b71ba7d1d9333b13d8266d18c6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1c45f8f010d69337d21fce327933990a573988a4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med Azure CLI
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI 2.0
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur man använder Azure CLI för att distribuera en virtuell dator som kör Ubuntu Server. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
+Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI 2.0 för att distribuera en virtuell dator (VM) för Linux i Azure som kör Ubuntu. Om du vil se hur den virtuella datorn fungerar i praktiken använder du SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
-
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create).
 
 Följande exempel skapar en virtuell dator med namnet *myVM*, lägger till ett användarkonto med namnet *azureuser* och genererar SSH-nycklar om de inte redan finns på standardplatsen för nycklar (*~/.ssh*). Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`:
 
@@ -57,12 +55,12 @@ az vm create \
   --generate-ssh-keys
 ```
 
-När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.
+Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdataresultatet i följande exempel anger att den virtuella datorn har skapats.
 
-```azurecli-interactive 
+```azurecli-interactive
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -72,52 +70,55 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 }
 ```
 
-## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
+Skriv ned din egen `publicIpAddress` i utdataresultatet från din virtuella dator. Den här adressen används för att ansluta till den virtuella datorn i nästa steg.
 
-Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distribuerade i Azure. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm#az_vm_open_port) för att öppna önskad port.  
- 
- ```azurecli-interactive 
+## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
+
+Som standard öppnas SSH-anslutningar när du skapar en virtuell Linux-dator i Azure. Använd [az vm open-port](/cli/azure/vm#az_vm_open_port) för att öppna TCP port 80 för användning med NGINX-webbservern:
+
+```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
+## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt **publicIpAddress** med den korrekta offentliga IP-adressen för den virtuella datorn.  I vårt exempel ovan var vår IP-adress *40.68.254.142*.
+SSH till den virtuella datorn som normalt. Ersätt **publicIpAddress** med offentliga IP-adressen för den virtuella datorn enligt beskrivningen i föregående utdata från den virtuella datorn:
 
-```bash 
-ssh publicIpAddress
+```bash
+ssh azureuser@publicIpAddress
 ```
 
-## <a name="install-nginx"></a>Installera NGINX
+## <a name="install-web-server"></a>Installera webbservern
 
-Använd följande kommandon för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
+Om du vill se hur den virtuella datorn fungerar i praktiken installerar du NGINX-webbservern. Om du vill uppdatera paketkällorna och installera det senaste NGINX-paketet kör du följande kommandon från SSH-sessionen:
 
-```bash 
-# update package source
+```bash
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
+När du är klar avslutar du SSH-sessionen med `exit`.
 
-Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Se till att använda den *publicIpAddress* som du har dokumenterat ovan för att besöka standardsidan. 
+## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 
-![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
+När NGINX har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för NGINX. Använd den offentliga IP-adressen för din virtuella dator som du hämtade i ett tidigare steg. Följande exempel visar NGINX-standardwebbplatsen:
 
+![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-sessionen till den virtuella datorn och ta sedan bort resurserna enligt följande:
+När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Se till att du har avslutat SSH-session till den virtuella datorn och ta sedan bort resurserna på följande sätt:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat en virtuell dator och en regel för nätverkssäkerhetsgrupp samt installerat en webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
+I den här snabbstarten distribuerade du en enkel virtuell dator, öppnade en nätverksport för webbtrafik och installerade en enkel webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
 
 
 > [!div class="nextstepaction"]

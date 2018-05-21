@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
 
@@ -33,7 +33,7 @@ Precis i tid virtuell dator (VM) kan åtkomst användas för att låsa inkommand
 
 Brute force-attacker ofta målportar för hantering som ett sätt att få åtkomst till en virtuell dator. Om det lyckas, kan en angripare ta kontroll över den virtuella datorn och upprätta en fot i din miljö.
 
-Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa den tid som en port är öppen. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När precis i tid är aktiverat, Security Center använder [Nätverkssäkerhetsgruppen](../virtual-network/virtual-networks-nsg.md) (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
+Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa den tid som en port är öppen. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När precis i tid är aktiverat, Security Center använder [nätverkssäkerhetsgruppen](../virtual-network/security-overview.md#security-rules) (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
 
 ![Precis i tid scenario][1]
 

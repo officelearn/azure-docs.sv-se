@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Säkerhetsmetoder för Azure-nätverk
 Microsoft Azure kan du ansluta virtuella datorer och enheter till andra nätverksenheter genom att placera dem på Azure-nätverk. Ett virtuellt Azure-nätverk är en konstruktion som gör det möjligt att ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserade kommunikation mellan nätverksenheter som aktiveras. Azure virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter på samma Azure virtuella nätverk, olika virtuella Azure-nätverk, på Internet eller även på din egen lokala nätverk.
@@ -56,7 +56,7 @@ Liknar vad du gör lokalt, bör du segmentera större adressutrymme i undernät.
 
 Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Standardinställningen är dock att det finns inga nätverk åtkomstkontroller mellan undernät som du skapar i Azure Virtual Network. För att skapa nätverk åtkomstkontroller mellan undernät, måste du placera något mellan undernäten.
 
-En av de saker som du kan använda för att utföra den här uppgiften är en [Nätverkssäkerhetsgruppen](../virtual-network/virtual-networks-nsg.md) (NSG). NSG: er är enkla tillståndskänslig paket inspektion enheter som använder 5-tuppeln (den käll-IP, källport, mål-IP, målport och protokoll i Internetskiktet 4) metod för att skapa Tillåt/neka regler för nätverkstrafik. Du kan tillåta eller neka trafik till och från en enda IP-adress till och från flera IP-adresser eller till och från hela undernät.
+En av de saker som du kan använda för att utföra den här uppgiften är en [Nätverkssäkerhetsgruppen](../virtual-network/security-overview.md) (NSG). NSG: er är enkla tillståndskänslig paket inspektion enheter som använder 5-tuppeln (den käll-IP, källport, mål-IP, målport och protokoll i Internetskiktet 4) metod för att skapa Tillåt/neka regler för nätverkstrafik. Du kan tillåta eller neka trafik till och från en enda IP-adress till och från flera IP-adresser eller till och från hela undernät.
 
 Med NSG: er för network access control mellan undernät kan du placera resurser som tillhör samma säkerhetszon eller roll i deras egna undernät. Tänk till exempel på en enkel 3-nivåprogram som har en webbnivå, ett program logik-nivå och en databasnivå. Du kan placera virtuella datorer som tillhör vart och ett av dessa nivåer i sina egna undernät. Sedan kan du använda NSG: er för att styra trafik mellan undernäten:
 
@@ -64,7 +64,7 @@ Med NSG: er för network access control mellan undernät kan du placera resurser
 * Programmet logik virtuella datorer bara kan upprätta anslutningar med databasnivå och kan bara godkänna anslutningar från webbnivån
 * Databasen nivå virtuella datorer kan inte upprätta anslutning med något utanför sin egen undernät och kan bara godkänna anslutningar från programmet logik nivån
 
-Läs mer om Nätverkssäkerhetsgrupper och hur du kan använda dem för att logiskt segmentera dina virtuella Azure-nätverk i [vad är en Nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) (NSG).
+Läs mer om Nätverkssäkerhetsgrupper och hur du kan använda dem för att logiskt segmentera dina virtuella Azure-nätverk i [vad är en Nätverkssäkerhetsgrupp](../virtual-network/security-overview.md) (NSG).
 
 ## <a name="control-routing-behavior"></a>Styra dirigeringsbeteendet
 När du placerar en virtuell dator på ett Azure Virtual Network, märker du att den virtuella datorn kan ansluta till någon annan virtuell dator i samma Azure virtuella nätverk, även om de virtuella datorerna är i olika undernät. Detta är möjligt eftersom det är en uppsättning systemvägar som är aktiverad som standard som gör att den här typen av kommunikation. Dessa standardvägar att virtuella datorer i Azure samma virtuella nätverk ska initiera anslutningarna med varandra och med Internet (för utgående kommunikation till endast Internet).

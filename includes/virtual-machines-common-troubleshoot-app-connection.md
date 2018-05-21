@@ -1,3 +1,19 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/20/2018
+---
 Det finns flera orsaker när du inte får inledas eller ansluta till ett program som körs på en Azure-dator (VM). Orsaker kan vara det program som inte körs eller lyssnar på förväntade portar lyssningsport blockeras eller nätverk regler inte korrekt skicka trafik till programmet. Den här artikeln beskriver en metodisk metod för att hitta och åtgärda problemet.
 
 Om du har problem med anslutningen till den virtuella datorn med hjälp av RDP eller SSH finns i följande artiklar först:
@@ -99,7 +115,7 @@ Om du inte kan komma åt programmet, kontrollerar du följande inställningar:
   
   * Kontrollera att inkommande NAT-regel-konfigurationen för den virtuella datorn tillåter inkommande trafik, särskilt protokoll (TCP och UDP) och de offentliga och privata portnummer.
   * Kontrollera att Nätverkssäkerhetsgrupper tillåter inkommande begäran och för utgående svarstrafik.
-  * Mer information finns i [Vad är en nätverkssäkerhetsgrupp?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Mer information finns i [vad är en nätverkssäkerhetsgrupp?](../articles/virtual-network/security-overview.md)
 
 Om den virtuella datorn eller slutpunkt är medlem i en belastningsutjämnad uppsättning:
 

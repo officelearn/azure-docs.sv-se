@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 
@@ -46,7 +46,7 @@ När du skapar en virtuell dator med SQL Server med en avbildning av galleriet, 
 
 För bästa säkerhet mest restriktiva välja för ditt scenario. Till exempel om du kör ett program som har åtkomst till SQL Server på samma VM sedan **lokala** är säkrast. Om du kör ett Azure-program som kräver åtkomst till SQL Server, sedan **privata** skyddar kommunikation till SQL Server inom den angivna [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentliga** (internet) åtkomst till SQL Server-VM ska du se till att följa övriga rekommendationer i det här avsnittet för att minska din angreppsytan.
 
-De valda alternativen i portalen använder inkommande säkerhetsregler på de virtuella datorerna [Nätverkssäkerhetsgruppen](../../../virtual-network/virtual-networks-nsg.md) (NSG) för att tillåta eller neka trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server-porten (standard 1433). Du kan också ange specifika IP-adresser som ska kunna kommunicera via den här porten.
+De valda alternativen i portalen använder inkommande säkerhetsregler på den virtuella datorn [nätverkssäkerhetsgruppen](../../../virtual-network/security-overview.md) (NSG) för att tillåta eller neka trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server-porten (standard 1433). Du kan också ange specifika IP-adresser som ska kunna kommunicera via den här porten.
 
 ![Regler för nätverkssäkerhetsgrupp](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

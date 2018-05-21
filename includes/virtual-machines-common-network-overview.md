@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett VNet o
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-En [Nätverkssäkerhetsgrupp (NSG)](../articles/virtual-network/virtual-networks-nsg.md) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till undernät, NICs eller både och. NSG:er kan antingen associeras med undernät eller individuella NICs anslutna till ett undernät. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla virtuella datorer i det undernätet. Dessutom kan trafik till en enskild NIC begränsas genom att koppla en NSG direkt till en NIC.
+En [Nätverkssäkerhetsgrupp (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till undernät, NICs eller både och. NSG:er kan antingen associeras med undernät eller individuella NICs anslutna till ett undernät. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla virtuella datorer i det undernätet. Dessutom kan trafik till en enskild NIC begränsas genom att koppla en NSG direkt till en NIC.
 
 NSG:er innehåller två regeluppsättningar: inkommande och utgående. En regels prioritet måste vara unik inom varje uppsättning. Varje regel har egenskaperna för protokoll, källa och målportintervall, adressprefix, trafikriktning, prioritet och behörighetstyp. 
 
@@ -103,7 +103,7 @@ Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bo
 
 När du kopplar en NSG till ett nätverkskort, tillämpas nätverksåtkomstreglerna för den NSG:n bara på det nätverkskortet. Om en NSG används för ett enda NIC på en virtuell multi-NIC-dator påverkas inte trafiken till andra NICs. Du kan koppla olika NSG:er till ett NIC (eller virtuell dator, beroende på distributionsmodell) och de undernät som ett NIC eller en virtuell dator är bunden till. Prioritering beror på trafikriktningen.
 
-Se till att [planera](../articles/virtual-network/virtual-networks-nsg.md#planning) dina NSGs när du planerar din virtuella datorer och VNet.
+Se till att [planera](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) dina NSGs när du planerar din virtuella datorer och VNet.
 
 Den här tabellen anger de metoder som du kan använda för att skapa en nätverkssäkerhetsgrupp.
 

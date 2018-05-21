@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0deda4324a4287e7aa25cb686acb5b6152443735
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 Datafabriken är en tjänst med flera klienter som har följande standardgränser för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna som kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
@@ -28,7 +28,7 @@ Datafabriken är en tjänst med flera klienter som har följande standardgränse
 | Integration körningar inom en datafabrik <sup>4</sup> | 2500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Totalt antal processorkärnor för Azure-SSIS-integrering Runtime(s) under en prenumeration | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Samtidiga pipeline körs per pipeline | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Högsta antal aktiviteter per pipeline | 20 | 30 |
+| Högsta antal aktiviteter per pipeline | 20 | 40 |
 | Maximalt antal parametrar per pipeline | 20 | 30 |
 | Byte per objekt för pipeline-objekt <sup>1</sup> | 200 KB | 200 KB |
 | Byte per objekt för datauppsättningen och länkade tjänstobjekt <sup>1</sup> | 100 KB | 2000 KB |

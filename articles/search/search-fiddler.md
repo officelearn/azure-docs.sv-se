@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Utforska REST-API:er för Azure Search med hjälp av Fiddler eller Postman
 
@@ -48,14 +48,14 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 Varje verktyg håller kvar begärandehuvuden för sessionen, vilket innebär att du bara behöver ange URL-slutpunkt, API-version, API-nyckel och innehållstyp en enda gång.
 
-Den fullständiga webbadressen ska se ut som i exemplet nedan, men i din adress bör du ha en giltig ersättning för platshållarens namn **`my-app`**:`https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+Den fullständiga webbadressen ska se ut som i exemplet nedan, men i din adress bör du ha en giltig ersättning för platshållaren **`my-app`**:`https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 Webbadressen för tjänsten består av följande element:
 
 + HTTPS-prefix.
 + Tjänstens webbadress, hämtad från portalen.
 + Resursen, en åtgärd som skapar ett objekt i tjänsten. I det här steget är det ett index med namnet hotels (hotell).
-+ API-versionen, en obligatorisk sträng skriven med gemener. I den här versionen står det ”?api-version=2016-09-01”. [API-versionerna](search-api-versions.md) uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
++ api-version, en obligatorisk sträng i gemener anges som ”?api-version=2017-11-11” för den aktuella versionen. [API-versionerna](search-api-versions.md) uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
 Begärandehuvudet består av två element, den innehållstyp och den API-nyckel som beskrevs i föregående avsnitt:
 
@@ -124,7 +124,7 @@ Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden n
 Att skapa ett index och att fylla det, är två separata steg. I Azure Search innehåller indexet alla sökbara data som kan användas som JSON-dokument. Om du vill granska API:t kan du läsa mer i [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Lägg till, uppdatera eller ta bort dokument (REST)).
 
 + Byt till verbet **POST** enbart för detta steg.
-+ Ändra slutpunkten så att den inkluderar `/docs/index`. En fullständig webbadress bör se ut ungefär så här: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01`
++ Ändra slutpunkten så att den inkluderar `/docs/index`. En fullständig webbadress bör se ut ungefär så här: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 + Behåll begärandehuvuden i befintligt skick. 
 
 Begärandetexten innehåller fyra dokument som ska läggas till i hotellindexet.
@@ -213,7 +213,7 @@ Byt till verbet **POST**. Ändra webbadressen så att den även inkluderar `/doc
 Nu när ett index och dokument har lästs in kan du skicka frågor mot dem. Mer information om det här API:t finns i [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Sök igenom dokument (REST)).  
 
 + Byt till verbet **GET** enbart för detta steg.
-+ Ändra slutpunkten och lägg till frågeparametrar, inklusive söksträngar. En fråge-URL kan se ut så här: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01`.
++ Ändra slutpunkten och lägg till frågeparametrar, inklusive söksträngar. En fråge-URL kan se ut så här: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
 + Behåll begärandehuvuden i befintligt skick.
 
 Den här frågan söker på termen ”motel” (motell) och returnerar antalet dokument i sökresultaten. Begäran och svar borde se ut som skärmbilden från Postman nedan efter att du klickat på **Send** (Skicka). Statuskoden ska vara 200.
@@ -222,18 +222,18 @@ Den här frågan söker på termen ”motel” (motell) och returnerar antalet d
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Tips för att köra exempelfrågor i Fiddler
 
-Följande exempelfråga kommer från artikeln om [sökindexåtgärder (Azure Search-API)](http://msdn.microsoft.com/library/dn798927.aspx). Många av exempelfrågorna i den här artikeln innehåller blanksteg, som inte är tillåtna i Fiddler. Ersätt varje blanksteg med ett plustecken (+) innan du klistrar in frågesträngen innan du försöker köra frågan i Fiddler.
+Följande exempelfråga kommer från artikeln om [sökindexåtgärder (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Många av exempelfrågorna i den här artikeln innehåller blanksteg, som inte är tillåtna i Fiddler. Ersätt varje blanksteg med ett plustecken (+) innan du klistrar in frågesträngen innan du försöker köra frågan i Fiddler.
 
 **Innan blankstegen ersätts (i lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **Efter att blankstegen har ersatts med + (i lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="query-index-properties"></a>Egenskaper för frågeindex
-Du kan också avfråga systeminformationen för att visa antalet dokument och lagringsanvändningen: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`
+Du kan också avfråga systeminformationen för att visa antalet dokument och lagringsanvändningen: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
 

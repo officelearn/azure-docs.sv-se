@@ -1,254 +1,115 @@
 ---
-title: Azure Virtual Network (VNet) planerings- och designguide | Microsoft Docs
-description: Lär dig hur du planerar och utformar virtuella nätverk i Azure baserat på dina krav för isolering, anslutning och plats.
+title: Planera virtuella Azure-nätverk | Microsoft Docs
+description: Lär dig hur du planerar för virtuella nätverk som baseras på isolering-, anslutnings- och platskrav.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: tysonn
+editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2016
+ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="plan-and-design-azure-virtual-networks"></a>Planera och utforma Azure-nätverk
-Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering och design, kommer du att kunna distribuera Vnet och ansluta de resurser du behöver mer effektivt. Om du inte är bekant med VNets rekommenderar vi som du [Lär dig mer om Vnet](virtual-networks-overview.md) och [hur du distribuerar](quick-create-portal.md) något innan du fortsätter.
+# <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
-## <a name="plan"></a>Planera
-Det är viktigt för lyckad goda kunskaper om Azure-prenumerationer, regioner och nätverksresurser. Du kan använda listan med överväganden nedan som utgångspunkt. När du förstår de överväganden kan definiera du kraven för utformningen av din nätverk.
+Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering kommer du att kunna distribuera virtuella nätverk och ansluta de resurser du behöver mer effektivt. Informationen i den här artikeln är mest användbart om du redan är bekant med virtuella nätverk och har viss erfarenhet av att arbeta med dem. Om du inte är bekant med virtuella nätverk, bör du läsa [översikt över virtuella nätverk](virtual-networks-overview.md).
 
-### <a name="considerations"></a>Överväganden
-Innan du svara på den planering frågor nedan, Tänk på följande:
+## <a name="naming"></a>Namngivning
 
-* Allt som du skapar i Azure består av en eller flera resurser. En virtuell dator (VM) är en resurs, nätverkskortet (NIC) som används av en virtuell dator är en resurs, offentliga IP-adressen används av ett nätverkskort är en resurs är VNet som nätverkskortet är anslutet till en resurs.
-* Du skapar resurser inom en [Azure-region](https://azure.microsoft.com/regions/#services) och prenumeration. Resurser kan bara vara ansluten till ett virtuellt nätverk som finns i samma region och prenumeration resursen är i.
-* Du kan ansluta virtuella nätverk till varandra med hjälp av:
-    * **[Virtuellt nätverk peering](virtual-network-peering-overview.md)**: virtuella nätverk måste finnas i samma Azure-region. Bandbredden mellan resurser i peerkoppla virtuella nätverk är samma som om resurserna som är anslutna till samma virtuella nätverk.
-    * **En Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: virtuella nätverk kan finnas i samma eller olika Azure regioner. Bandbredden mellan resurser i virtuella nätverk som är anslutna via en VPN-Gateway begränsas av bandbredden för VPN-Gateway.
-* Du kan ansluta Vnet till ditt lokala nätverk med hjälp av en av de [anslutningsalternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) tillgängliga i Azure.
-* Olika resurser kan grupperas i [resursgrupper](../azure-resource-manager/resource-group-overview.md#resource-groups), vilket gör det enklare att hantera resurser som en enhet. En resursgrupp kan innehålla resurser från flera områden, så länge resurserna som tillhör samma prenumeration.
+Alla Azure-resurser ha ett namn. Namnet måste vara unika inom ett område som kan variera för varje resurstyp av. Till exempel namnet på ett virtuellt nätverk måste vara unika inom en [resursgruppen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan flera gånger i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure [region](https://azure.microsoft.com/regions/#services). Definiera en namngivningskonvention som du kan använda konsekvent när naming resurser är användbart när du hanterar flera nätverksresurser över tid. Förslag finns [namngivningskonventioner](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="define-requirements"></a>Definiera krav
-Använd frågorna nedan som utgångspunkt för utformningen av din Azure-nätverk.    
+## <a name="regions"></a>Regioner
 
-1. Vilka Azure platser ska du använda värden Vnet?
-2. Behöver du ange kommunikation mellan dessa Azure platser?
-3. Behöver du ange kommunikation mellan din Azure-VNet(s) och din lokala datacenter(s)?
-4. Hur många infrastruktur som en tjänst (IaaS) virtuella datorer, cloud services-roller och web apps gör du behöver för din lösning?
-5. Behöver du isolera trafik baserat på grupper med virtuella datorer (d.v.s. frontend-webbservrar och backend-databasservrar)?
-6. Behöver du kontrollera trafikflödet använder virtuella installationer?
-7. Användarna måste ha olika uppsättningar av behörigheter till olika Azure-resurser?
+Alla Azure-resurser skapas i en Azure-region och prenumeration. En resurs kan bara skapas i ett virtuellt nätverk som finns i samma region och prenumerationen som resursen. Däremot kan du ansluta virtuella nätverk som finns i olika prenumerationer och regioner. Mer information finns i [anslutning](#connectivity). När du bestämmer vilka regioner att distribuera resurser i övervägas där konsumenter av resurser befinner sig fysiskt:
 
-### <a name="understand-vnet-and-subnet-properties"></a>Förstå VNet och undernät egenskaper
-VNet och undernät resurser hjälpa dig att definiera en säkerhetsgräns för arbetsbelastningar som körs i Azure. Ett virtuellt nätverk kännetecknas av en samling adressutrymmen, definierad som CIDR-block.
+- Konsumenter av resurser vill förmodligen den lägsta Nätverksfördröjningen till sina resurser. Information om relativa fördröjningar mellan en angiven plats och Azure-regioner finns [visa relativa svarstiderna](../network-watcher/view-relative-latencies.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Har du kraven för land, suveränitet, kompatibilitet eller återhämtning? I så fall, är det viktigt att välja den region som överensstämmer med kraven. Mer information finns i [Azure geografiska områden](https://azure.microsoft.com/global-infrastructure/geographies/).
+- Du behöver återhämtning över Azure tillgänglighet zoner inom samma Azure-region för de resurser som du distribuerar? Du kan distribuera resurser, till exempel virtuella datorer (VM) till olika tillgänglighet zoner inom samma virtuella nätverk. Inte alla Azure-regioner stöder dock tillgänglighet zoner. Mer information om tillgänglighet zoner och regioner som stöds finns [tillgänglighet zoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-> [!NOTE]
-> Nätverksadministratörer är bekanta med CIDR-notering. Om du inte är bekant med CIDR, [mer information om den](http://whatismyipaddress.com/cidr).
->
->
+## <a name="subscriptions"></a>Prenumerationer
 
-Vnet innehåller följande egenskaper.
+Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration upp till den [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumeration styrning](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
 
-| Egenskap | Beskrivning | Villkor |
-| --- | --- | --- |
-| **Namn** |Namn på virtuella nätverk |Sträng på upp till 80 tecken. Kan innehålla bokstäver, siffror, understreck, punkter eller bindestreck. Måste börja med en bokstav eller en siffra. Måste sluta med en bokstav, en siffra eller understreck. Kan innehåller gemener och versaler. |
-| **Plats** |Azure-plats (kallas även region). |Måste vara ett giltigt Azure-platser. |
-| **addressSpace** |Samling av adressprefix som utgör VNet i CIDR-notation. |Måste vara en matris med giltig CIDR-Adressblock, inklusive offentliga IP-adressintervall. |
-| **Undernät** |Samling av undernät som utgör VNet |Se undernät egenskaper tabellen nedan. |
-| **dhcpOptions** |Objekt som innehåller en obligatorisk egenskap med namnet **dnsServers**. | |
-| **dnsServers** |Matris för DNS-servrar som används av VNet. Om ingen server har angetts används intern namnmatchning för Azure. |Måste vara en matris med upp till 10 DNS-servrar efter IP-adress. |
+## <a name="segmentation"></a>Segmentering
 
-Ett undernät är en underordnad resurs i ett VNet och hjälper dig att definiera segmenten i adressutrymmen i CIDR-block med IP-adressprefix. Nätverkskorten kan läggas till i undernät och anslutna till virtuella datorer kan man har anslutning för olika arbetsbelastningar.
+Du kan skapa flera virtuella nätverk per prenumeration och region. Du kan skapa flera undernät i varje virtuellt nätverk. Överväganden som följer hjälpa dig att avgöra hur många virtuella nätverk och undernät som du behöver:
 
-Undernät innehåller följande egenskaper.
+### <a name="virtual-networks"></a>Virtuella nätverk
 
-| Egenskap | Beskrivning | Villkor |
-| --- | --- | --- |
-| **Namn** |Namn på undernät |Sträng på upp till 80 tecken. Kan innehålla bokstäver, siffror, understreck, punkter eller bindestreck. Måste börja med en bokstav eller en siffra. Måste sluta med en bokstav, en siffra eller understreck. Kan innehåller gemener och versaler. |
-| **Plats** |Azure-plats (kallas även region). |Måste vara ett giltigt Azure-platser. |
-| **addressPrefix** |Enkel adressprefixet som utgör undernät i CIDR-notation |Måste vara ett enda CIDR-block som är en del av en av de VNet-adressutrymmen. |
-| **networkSecurityGroup** |NSG tillämpas för undernätet | |
-| **Migreringstillståndet** |Routningstabellen tillämpad på undernätet | |
-| **ipConfigurations** |Samling av IP-konfigurationsobjekt som används av nätverkskort som är anslutna till undernätet | |
+Ett virtuellt nätverk är en virtuell, isolerade del av det offentliga Azure-nätverket. Varje virtuellt nätverk är dedikerad till din prenumeration. Saker att tänka på när du bestämmer dig att skapa ett virtuellt nätverk eller flera virtuella nätverk på en prenumeration:
+
+- Alla organisationens säkerhetskrav finns för att isolera trafiken i separata virtuella nätverk? Du kan välja att ansluta virtuella nätverk eller inte. Om du ansluter virtuella nätverk, kan du implementera en virtuell nätverksenhet, till exempel en brandvägg för att kontrollera trafikflödet mellan virtuella nätverk. Mer information finns i [säkerhet](#security) och [anslutning](#connectivity).
+- Gör eventuella organisatoriska krav som finns för att isolera virtuella nätverk i separata [prenumerationer](#subscriptions) eller [regioner](#regions)?
+- En [nätverksgränssnittet](virtual-network-network-interface.md) gör att en virtuell dator att kommunicera med andra resurser. Varje nätverksgränssnitt har en eller flera privata IP-adresser kopplade till den. Hur många nätverksgränssnitt och [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) behöver du i ett virtuellt nätverk? Det finns [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) antalet nätverksgränssnitt och privata IP-adresser som du kan ha ett virtuellt nätverk.
+- Vill du ansluta virtuella nätverk till ett annat virtuellt nätverk eller lokala nätverk? Du kan välja att ansluta vissa virtuella nätverk till varandra eller lokala nätverk, men inte andra. Mer information finns i [anslutning](#connectivity). Varje virtuellt nätverk som du ansluter till ett annat virtuellt nätverk eller lokala nätverk måste ha ett unikt adressutrymme. Varje virtuellt nätverk har en eller flera offentliga eller privata adressintervall tilldelats dess adressutrymme. Ett adressintervall anges i classless internet domän routning (CIDR) format, till exempel 10.0.0.0/16. Lär dig mer om [-adressintervall](manage-virtual-network.md#add-or-remove-an-address-range) för virtuella nätverk.
+- Har du alla organisationens administration krav för resurser i olika virtuella nätverk? Om så är fallet bör du kan dela resurser i separat virtuellt nätverk för att förenkla [behörighetstilldelningen](#permissions) till personer i din organisation eller för att tilldela olika [principer](#policies) till olika virtuella nätverk.
+- När du distribuerar några resurser i Azure-tjänst till ett virtuellt nätverk kan skapa de sina egna virtuella nätverk. För att avgöra om en Azure-tjänst skapar egna virtuella nätverk finns information för varje [Azure-tjänst som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
+
+### <a name="subnets"></a>Undernät
+
+Ett virtuellt nätverk kan segmenterat till ett eller flera undernät upp till den [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Saker att tänka på när du bestämmer dig att skapa ett undernät eller flera virtuella nätverk på en prenumeration:
+
+- Varje undernät måste ha ett unikt adressintervall som anges i CIDR-format, inom adressutrymmet för det virtuella nätverket. Adressintervallet får inte överlappa med andra undernät i det virtuella nätverket.
+- Om du planerar att distribuera resurser i Azure-tjänsten till ett virtuellt nätverk, kan de kräver, eller skapa egna undernät, det måste vara tillräckligt mycket ledigt utrymme att göra det. För att avgöra om en Azure-tjänst skapas sitt eget undernät, visas information för varje [Azure-tjänst som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Om du ansluter ett virtuellt nätverk till ett lokalt nätverk med hjälp av en Azure VPN-Gateway, måste det virtuella nätverket har en dedikerad undernät för gatewayen. Lär dig mer om [gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
+- Azure skickar nätverkstrafik mellan alla undernät i ett virtuellt nätverk som standard. Du kan åsidosätta Azures standard routning att hindra Azure routning mellan undernät eller vidarebefordra trafik mellan undernät via en virtuell nätverksenhet, t.ex. Om du behöver trafiken mellan resurser i samma flöde för virtuellt nätverk via en virtuell nätverksenhet (NVA) kan du distribuera resurserna till olika undernät. Läs mer i [säkerhet](#security).
+- Du kan begränsa åtkomst till Azure-resurser, till exempel ett Azure storage-konto eller Azure SQL database till specifika undernät med en tjänstslutpunkt för virtuellt nätverk. Dessutom kan du neka åtkomst till resurser från internet. Du kan skapa flera undernät och aktivera en tjänstslutpunkt för vissa undernät, men inte andra. Lär dig mer om [tjänstens slutpunkter](virtual-network-service-endpoints-overview.md), och Azure-resurser du kan aktivera dem för.
+- Du kan associera noll eller en säkerhetsgrupp för nätverk för varje undernät i ett virtuellt nätverk. Du kan associera samma eller en annan, nätverk säkerhetsgrupp för varje undernät. Varje säkerhetsgrupp för nätverk innehåller regler som tillåter eller nekar trafik till och från källor och mål. Lär dig mer om [nätverkssäkerhetsgrupper](#traffic-filtering).
+
+## <a name="security"></a>Säkerhet
+
+Du kan filtrera nätverkstrafik till och från resurser i ett virtuellt nätverk med nätverkssäkerhetsgrupper och virtuella nätverksenheter. Du kan styra hur Azure dirigerar trafik från undernät. Du kan också begränsa vem i din organisation kan arbeta med resurserna i virtuella nätverk.
+
+### <a name="traffic-filtering"></a>Trafikfiltrering
+
+- Du kan filtrera nätverkstrafiken mellan resurser i ett virtuellt nätverk med en nätverkssäkerhetsgrupp, en NVA som filtrerar trafik eller båda. För att distribuera en NVA, till exempel en brandvägg för att filtrera nätverkstrafik, finns det [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?subcategories=appliances&page=1). När du använder en NVA kan skapa du också anpassade vägar för att dirigera trafik från undernät till en NVA. Lär dig mer om [trafikroutning](#traffic-routing).
+- En nätverkssäkerhetsgrupp innehåller flera säkerhet standardregler som tillåter eller nekar trafik till eller från resurser. En nätverkssäkerhetsgrupp kan vara kopplad till ett nätverksgränssnitt, nätverksgränssnittet är i undernätet eller båda. Om du vill förenkla hanteringen av säkerhetsregler rekommenderar vi att du kopplar en nätverkssäkerhetsgrupp till enskilda undernät i stället för enskilda nätverksgränssnitt i undernätet, när det är möjligt.
+- Om olika regler olika virtuella datorer i ett undernät måste associera du nätverksgränssnitt på den virtuella datorn till en eller flera säkerhetsgrupper för programmet. En säkerhetsregel kan ange en säkerhetsgrupp för programmet i källan, mål- eller båda. Regeln endast gäller för nätverksgränssnitt som är medlemmar i säkerhetsgruppen program. Lär dig mer om [nätverkssäkerhetsgrupper](security-overview.md) och [programmet säkerhetsgrupper](security-overview.md#application-security-groups).
+- Azure skapar flera standard säkerhetsregler inom varje nätverkssäkerhetsgruppen. En standardregel kan alla trafik mellan alla resurser i ett virtuellt nätverk. Åsidosätta detta genom att använda nätverkssäkerhet grupper, anpassad routning för att dirigera trafik till en NVA eller båda. Vi rekommenderar att du bekanta dig med alla Azures [standard säkerhetsregler](security-overview.md#default-security-rules) och förstå hur reglerna för nätverkssäkerhetsgrupper tillämpas på en resurs.
+
+Du kan visa exempel Designer för att implementera en DMZ mellan Azure och internet med en [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) eller [nätverkssäkerhetsgrupper](virtual-networks-dmz-nsg.md).
+
+### <a name="traffic-routing"></a>Routning av nätverkstrafik
+
+Azure skapar flera standardvägar för utgående trafik från ett undernät. Du kan åsidosätta Azures standard routning genom att skapa en routingtabell och koppla det till ett undernät. Vanliga orsaker för åsidosättning av Azures standard routning är:
+- Eftersom du vill att trafik mellan undernät att strömma genom en NVA. Mer information om hur du [konfigurera routningstabeller för att tvinga trafik genom en NVA](tutorial-create-route-table-portal.md)
+- Eftersom du vill tvinga alla internet-bunden trafik genom en NVA eller lokalt, via en Azure VPN-gateway. Att tvinga internet-trafik lokalt för granskning och loggning kallas ofta Tvingad tunneltrafik. Mer information om hur du konfigurerar [Tvingad tunneltrafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+
+Om du behöver implementera anpassad routning bör du bekanta dig med [routning i Azure](virtual-networks-udr-overview.md).
+
+## <a name="connectivity"></a>Anslutning
+
+Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk som använder virtuella nätverk peering eller till ditt lokala nätverk med en Azure VPN-gateway.
+
+### <a name="peering"></a>Peering
+
+När du använder [virtuellt nätverk peering](virtual-network-peering-overview.md), virtuella nätverk kan vara i samma eller olika, Azure-regioner som stöds. Virtuella nätverk kan vara i de samma eller olika Azure-prenumerationerna, förutsatt att båda prenumerationer har tilldelats samma Azure Active Directory-klienten. Innan du skapar en peering, bör du bekanta dig med alla peering [kraven och begränsningarna](virtual-network-manage-peering.md#requirements-and-constraints). Bandbredden mellan resurser i peerkoppla virtuella nätverk är densamma som om resurserna som fanns i samma virtuella nätverk.
+
+### <a name="vpn-gateway"></a>VPN gateway
+
+Du kan använda en Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att ansluta ett virtuellt nätverk till ditt lokala nätverk med hjälp av en [plats-till-plats VPN](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), eller att använda en dedikerad anslutning med Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Du kan kombinera peering och en VPN-gateway för att skapa [NAV och ekrar nätverk](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)där ekrar virtuella nätverk ansluter du till ett virtuellt nätverk med nav och navet ansluter till ett lokalt nätverk, till exempel.
 
 ### <a name="name-resolution"></a>Namnmatchning
-Som standard används ditt VNet [Azure-tillhandahållna namnmatchning](virtual-networks-name-resolution-for-vms-and-role-instances.md) att matcha namn i det virtuella nätverket och på Internet. Men om du ansluter din Vnet till ditt lokala datacenter, måste du ange [DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md) att matcha namn mellan ditt nätverk.  
 
-### <a name="limits"></a>Begränsningar
-Granska de nätverk gränserna i den [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) att tillse att din design inte krockar med någon av gränserna. Vissa begränsningar kan utökas genom att öppna ett supportärende.
+Resurser i ett virtuellt nätverk går inte att matcha namnen på de resurser i peered virtuella nätverk med Azures [inbyggda DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Att matcha namn i ett peered virtuellt nätverk [Distribuera DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), eller använda Azure DNS [privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Matcha namn mellan resurser i ett virtuellt nätverk och lokala nätverk måste du även distribuera DNS-servern.
 
-### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda [Azure RBAC](../role-based-access-control/built-in-roles.md) att styra åtkomstnivån som olika användare behöva olika resurser i Azure. På så sätt kan du särskilja arbetet som utförs av ditt team utifrån deras behov.
+## <a name="permissions"></a>Behörigheter
 
-När det gäller de virtuella nätverken är berörda användare i den **Network-deltagare** roll har full kontroll över Azure Resource Manager nätverksresurser på virtuella datorer. På liknande sätt kan användare i den **klassiska Network-deltagare** roll har full kontroll över klassiska virtuella nätverksresurser.
+Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) till resurser. Behörigheter som har tilldelats en [omfång](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) i följande hierarki: prenumeration, hanteringsgruppen, resursgruppen och enskild resurs. Mer information om hierarkin finns [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla deras relaterade funktioner, till exempel peering, nätverkssäkerhetsgrupper, slutpunkter och vägtabeller, kan du tilldela medlemmar i din organisation inbyggt [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), eller [Network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roller och sedan tilldela rollen till en lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktionerna för virtuellt nätverk, skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldela särskilda behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [ undernät och Tjänsteslutpunkter](virtual-network-manage-subnet.md#permissions), [nätverksgränssnitt](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md#permissions), [nätverks- och säkerhetsgrupper](manage-network-security-group.md#permissions), eller [routningstabeller](manage-route-table.md#permissions) till rollen.
 
-> [!NOTE]
-> Du kan också [skapa egna roller](../role-based-access-control/role-assignments-portal.md) avgränsa administrativa behov.
->
->
+## <a name="policy"></a>Princip
 
-## <a name="design"></a>Design
-När du väl vet svaren på frågorna i den [planera](#Plan) avsnittet kan du granska följande innan du definierar ditt Vnet.
+Azure princip kan du skapa, tilldela och hantera principdefinitioner. Principdefinitioner tillämpa olika regler och effekter över dina resurser, så att resurserna som uppfyller organisationens normer och servicenivåavtal. Azure princip körs en utvärdering av dina resurser, söka efter resurser som inte är kompatibla med principdefinitioner som du har. Du kan till exempel har en princip som tillåter generering av virtuella nätverk i en viss resursgrupp. En annan princip kan kräva att alla undernät har en nätverkssäkerhetsgrupp som är kopplade till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
 
-### <a name="number-of-subscriptions-and-vnets"></a>Antalet prenumerationer och Vnet
-Du bör överväga att skapa flera Vnet i följande scenarier:
-
-* **Virtuella datorer som måste placeras på olika platser i Azure**. Vnet i Azure är regionala. De kan sträcka sig över platser. Därför behöver du minst ett virtuellt nätverk för varje Azure-plats som du vill värden virtuella datorer i.
-* **Arbetsbelastningar som måste vara helt isolerade från varandra**. Du kan skapa separata Vnet som även använder samma IP-adressutrymmen för att isolera olika arbetsbelastningar från varandra.
-
-Tänk på att de gränser som du ser ovan är per region per prenumeration. Det innebär att du kan använda flera prenumerationer för att öka gränsen för resurser som du kan upprätthålla i Azure. Du kan använda en plats-till-plats-VPN eller ExpressRoute-krets för att ansluta Vnet för olika prenumerationer.
-
-### <a name="subscription-and-vnet-design-patterns"></a>Prenumerationen och designmönster för virtuella nätverk
-I tabellen nedan visas några vanliga designmönster för prenumerationer och Vnet.
-
-| Scenario | Diagram | Tekniker | Nackdelar |
-| --- | --- | --- | --- |
-| En prenumeration, två Vnet per program |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Endast en prenumeration för att hantera. |Maximalt antal Vnet per Azure-region. Du behöver flera prenumerationer efter. Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
-| En prenumeration per app, två Vnet per program |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Använder bara två Vnet per prenumeration. |Svårare att hantera när det finns för många appar. |
-| En prenumeration per affärsenhet, två Vnet per program. |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Maximalt antal Vnet per affärsenhet (prenumeration). Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
-| En prenumeration per affärsenhet, två Vnet per grupp av appar. |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Appar måste separat med hjälp av undernät och NSG: er. |
-
-### <a name="number-of-subnets"></a>Antalet undernät
-Du bör flera undernät i ett VNet i följande scenarier:
-
-* **Det finns inte tillräckligt med privata IP-adresser för alla nätverkskort i ett undernät**. Om din undernätsadressutrymmet inte innehåller tillräckligt med IP-adresser för antalet nätverkskort i undernät, måste du skapa flera undernät. Tänk på att Azure reserverar 5 privata IP-adresser från varje undernät som inte kan användas: första och sista adresser adressutrymme (för undernätsadress och multicast) och 3 adresser som ska användas internt (som DHCP och DNS).
-* **Säkerhet**. Du kan använda undernät till olika grupper med virtuella datorer från varandra för arbetsbelastningar som har ett flera lager struktur och tillämpa olika [nätverkssäkerhetsgrupper (NSG: er)](virtual-networks-nsg.md#subnets) för dessa undernät.
-* **Hybridanslutning**. Du kan använda VPN-gateway och ExpressRoute-kretsar till [ansluta](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) ditt Vnet till varandra och till din lokala data center(s). VPN-gatewayer och ExpressRoute-kretsar kräver ett undernät sina egna ska skapas.
-* **Virtuella installationer**. Du kan använda en virtuell installation, till exempel en brandvägg, WAN accelerator eller VPN-gateway i ett Azure VNet. När du gör detta behöver du [dirigera trafik](virtual-networks-udr-overview.md) de enheterna och isolera dem i sina egna undernät.
-
-### <a name="subnet-and-nsg-design-patterns"></a>Designmönster för undernät och NSG
-I tabellen nedan visas några vanliga designmönster för att använda undernät.
-
-| Scenario | Diagram | Tekniker | Nackdelar |
-| --- | --- | --- | --- |
-| Enskilt undernät, NSG: er per programnivå per program |![Enskilt undernät](./media/virtual-network-vnet-plan-design-arm/figure5.png) |Endast ett undernät för att hantera. |Flera NSG: er krävs för att isolera varje program. |
-| Ett undernät per app, NSG: er per program lager |![Undernät per program](./media/virtual-network-vnet-plan-design-arm/figure6.png) |Färre NSG: er att hantera. |Flera undernät för att hantera. |
-| Ett undernät per programnivå NSG: er per app. |![Undernät per lager](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Balansera mellan antalet undernät och NSG: er. |Maximalt antal NSG: er per prenumeration. Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
-| Ett undernät per programnivå per app, NSG: er per undernät |![Undernät per lager per program](./media/virtual-network-vnet-plan-design-arm/figure8.png) |Eventuellt mindre antal NSG: er. |Flera undernät för att hantera. |
-
-## <a name="sample-design"></a>Exempel design
-Studera följande scenario för att illustrera tillämpningen av informationen i den här artikeln.
-
-Du arbetar för ett företag som har 2 datacenter i Nordamerika och två Datacenter Europa. Du har identifierat 6 olika Internetriktade program från kunden underhålls av 2 olika affärsenheter som du vill migrera till Azure som en pilot. Grundläggande arkitektur för programmen är följande:
-
-* App1, App2, App3 och App4 är webbprogram på Linux-servrar som kör Ubuntu. Varje program som ansluter till en separat programserver som är värd för RESTful-tjänster på Linux-servrar. RESTful-tjänster ansluta till en serverdel MySQL-databas.
-* App5 och App6 är webbprogram som finns på Windows-servrar som kör Windows Server 2012 R2. Varje program som ansluter till en serverdel SQL Server-databas.
-* Alla appar som för närvarande finns på en av företagets datacenter i Nordamerika.
-* Lokalt Datacenter använder 10.0.0.0/8 adressutrymme.
-
-Du måste skapa ett virtuellt nätverk-lösning som uppfyller följande krav:
-
-* Varje affärsenhet bör inte påverkas av resurser som används för andra enheter.
-* Du bör minimera Vnet och undernät för att underlätta hanteringen.
-* Varje affärsenhet ska ha en enda test/utveckling VNet som används för alla program.
-* Varje program finns i 2 olika Azure-Datacenter per kontinent (Nordamerika och Europa).
-* Varje program är helt isolerade från varandra.
-* Varje program kan användas av kunder via Internet med HTTP.
-* Varje program kan användas av användare som är anslutna till de lokala datacenter med hjälp av en krypterad tunnel.
-* Anslutning till lokalt Datacenter ska använda den befintliga VPN-enheter.
-* Företagets nätverk gruppen ska ha fullständig kontroll över konfigurationen av virtuellt nätverk.
-* Utvecklare i varje affärsenhet ska endast kunna distribuera virtuella datorer till befintliga undernät.
-* Att kommer migreras alla program som de är till Azure (lift och SKIFT).
-* Databaserna i varje plats ska replikeras till andra Azure platser en gång om dagen.
-* Varje program bör använda 5 frontend-webbservrar, 2 programservrar (om det behövs) och 2-databasservrar.
-
-### <a name="plan"></a>Planera
-Bör du börja planera genom att besvara frågan i designen i [definiera krav](#Define-requirements) enligt nedan.
-
-1. Vilka Azure platser ska du använda värden Vnet?
-
-    2 platser i Nordamerika och Europa 2 platser. Du bör välja de baserade på den fysiska platsen för din befintliga lokala datacenter. På så sätt anslutningen från din fysiska platser till Azure har en bättre svarstid.
-2. Behöver du ange kommunikation mellan dessa Azure platser?
-
-    Ja. Eftersom databaserna måste replikeras till alla platser.
-3. Behöver du ange kommunikation mellan din Azure-VNet(s) och dina lokala data center(s)?
-
-    Ja. Eftersom användare som är anslutna till måste lokala Datacenter kunna komma åt program via en krypterad tunnel.
-4. Hur många virtuella IaaS-datorer behöver för din lösning?
-
-    200 IaaS-VM. App1, App2, App3 och App4 kräver 5 webbservrar som varje, 2 programservrarna som varje och 2-databasservrar. Det är totalt 9 virtuella IaaS-datorer per program eller 36 IaaS-VM. App5 och App6 kräver 5 webbservrar och 2-databasservrar. Det är totalt 7 virtuella IaaS-datorer per program eller 14 IaaS-VM. Du måste därför 50 IaaS-VM för alla program i varje Azure-region. Eftersom vi behöver använda 4 regioner kan finnas det 200 IaaS-VM.
-
-    Du måste också ange DNS-servrar i varje virtuellt nätverk eller i ditt lokala Datacenter för att matcha namn mellan Azure IaaS-VM och ditt lokala nätverk.
-5. Behöver du isolera trafik baserat på grupper med virtuella datorer (d.v.s. frontend-webbservrar och backend-databasservrar)?
-
-    Ja. Varje program bör vara helt isolerade från varandra och varje program lager ska också isoleras.
-6. Behöver du kontrollera trafikflödet använder virtuella installationer?
-
-    Nej. Virtuella installationer kan användas för att ge mer kontroll över trafikflödet, inklusive mer detaljerad loggning av data plan.
-7. Användarna måste ha olika uppsättningar av behörigheter till olika Azure-resurser?
-
-    Ja. Nätverk gruppen behöver fullständig behörighet för de virtuella nätverksinställningarna när utvecklare bara ska kunna distribuera sina virtuella datorer till befintlig undernät.
-
-### <a name="design"></a>Design
-Du bör följa designen anger prenumerationer, Vnet, undernät och NSG: er. Diskuteras NSG: er här, men du får lära dig mer om [NSG: er](virtual-networks-nsg.md) innan du avslutar din design.
-
-**Antalet prenumerationer och Vnet**
-
-Följande krav är relaterade till prenumerationer och Vnet:
-
-* Varje affärsenhet bör inte påverkas av resurser som används för andra enheter.
-* Du bör minimera Vnet och undernät.
-* Varje affärsenhet ska ha en enda test/utveckling VNet som används för alla program.
-* Varje program finns i 2 olika Azure-Datacenter per kontinent (Nordamerika och Europa).
-
-Baserat på dessa krav, behöver du en prenumeration för varje affärsenhet. På så sätt kan förbrukningen av resurser från en affärsenhet inte räknas som en gränserna för andra enheter. Och eftersom du vill minimera antalet Vnet, bör du använda den **en prenumeration per affärsenhet, två Vnet per grupp appar** mönstret som du ser nedan.
-
-![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure9.png)
-
-Du måste också ange adressutrymmet för varje virtuellt nätverk. Eftersom du behöver anslutningen mellan lokala data datacenter och Azure-regioner adressutrymmet som används för Azure Vnet kan inte vara i konflikt med det lokala nätverket och det adressutrymme som används av varje virtuellt nätverk får inte vara i konflikt med andra befintliga Vnet. Du kan använda adressutrymmen i tabellen nedan för att uppfylla kraven.  
-
-| **Prenumeration** | **Virtuella nätverk** | **Azure-region** | **Adressutrymme** |
-| --- | --- | --- | --- |
-| BU1 |ProdBU1US1 |Västra USA |172.16.0.0/16 |
-| BU1 |ProdBU1US2 |Östra USA |172.17.0.0/16 |
-| BU1 |ProdBU1EU1 |Norra Europa |172.18.0.0/16 |
-| BU1 |ProdBU1EU2 |Västra Europa |172.19.0.0/16 |
-| BU1 |TestDevBU1 |Västra USA |172.20.0.0/16 |
-| BU2 |TestDevBU2 |Västra USA |172.21.0.0/16 |
-| BU2 |ProdBU2US1 |Västra USA |172.22.0.0/16 |
-| BU2 |ProdBU2US2 |Östra USA |172.23.0.0/16 |
-| BU2 |ProdBU2EU1 |Norra Europa |172.24.0.0/16 |
-| BU2 |ProdBU2EU2 |Västra Europa |172.25.0.0/16 |
-
-**Antalet undernät och NSG: er**
-
-Följande krav är relaterade till undernät och NSG: er:
-
-* Du bör minimera Vnet och undernät.
-* Varje program är helt isolerade från varandra.
-* Varje program kan användas av kunder via Internet med HTTP.
-* Varje program kan användas av användare som är anslutna till de lokala datacenter med hjälp av en krypterad tunnel.
-* Anslutning till lokalt Datacenter ska använda den befintliga VPN-enheter.
-* Databaserna i varje plats ska replikeras till andra Azure platser en gång om dagen.
-
-Baserat på dessa krav, kan du använda ett undernät per programnivå och använder NSG: er att filtrera trafik per program. På så sätt kan du bara ha 3 undernät i varje virtuellt nätverk (klientdel programnivå och dataskiktet) och en NSG per program per undernät. I det här fallet bör du använda den **ett undernät per programnivå NSG: er per app** designmönstret. Bilden nedan visar användningen av design mönster representerar den **ProdBU1US1** VNet.
-
-![Ett undernät per lager, en NSG per program per lager](./media/virtual-network-vnet-plan-design-arm/figure11.png)
-
-Du också behöva skapa en extra undernät för VPN-anslutningen mellan Vnet och ditt lokala datacenter. Och du måste ange adressutrymmet för varje undernät. Bilden nedan visar ett exempel lösning för **ProdBU1US1** VNet. Du kan replikera det här scenariot för varje virtuellt nätverk. Varje färg motsvarar ett annat program.
-
-![Exempel VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
-
-**Åtkomstkontroll**
-
-Följande krav är relaterade till åtkomstkontroll:
-
-* Företagets nätverk gruppen ska ha fullständig kontroll över konfigurationen av virtuellt nätverk.
-* Utvecklare i varje affärsenhet ska endast kunna distribuera virtuella datorer till befintliga undernät.
-
-Baserat på dessa krav, kan du lägga till användare från nätverk teamet till inbyggt **Network-deltagare** roll i varje prenumeration, och skapa en anpassad roll för programutvecklare i varje prenumeration som ger dem behörighet att lägga till virtuella datorer till befintliga undernät.
-
-## <a name="next-steps"></a>Nästa steg
-* [Distribuera ett virtuellt nätverk](quick-create-portal.md).
-* Förstå hur du [belastningsutjämna](../load-balancer/load-balancer-overview.md) IaaS-VM och [hantera routning över flera Azure-regioner](../traffic-manager/traffic-manager-overview.md).
-* Lär dig mer om [nätverkssäkerhetsgrupper](security-overview.md) en NSG-lösning.
-* Lär dig mer om din [mellan platser och VNet anslutningsalternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
+Principer tillämpas på följande hierarki: prenumeration, hanteringsgrupp och resursgruppen. Lär dig mer om [Azure princip](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera ett virtuellt nätverk [Principmall](policy-samples.md) prover.

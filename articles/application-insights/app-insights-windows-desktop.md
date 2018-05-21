@@ -1,6 +1,6 @@
 ---
-title: "Övervaka användning och prestanda för Windows-appar"
-description: "Analysera användning och prestanda för Windows-program med HockeyApp och Application Insights."
+title: Övervaka användning och prestanda för Windows-appar
+description: Analysera användning och prestanda för Windows-program med Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Övervaka användning och prestanda för Windows-appar
 
-
-Med [Azure Application Insights](app-insights-overview.md) och [HockeyApp](https://hockeyapp.net) kan du övervaka dina distribuerade program för användning och prestanda.
-
-> [!IMPORTANT]
-> Vi rekommenderar [HockeyApp](https://hockeyapp.net) för att distribuera och övervaka appar för dator eller mobila enheter. Med HockeyApp kan du hantera distribution, livetestning och användarfeedback samt övervaka användning och krascher. Du kan också [exportera och fråga din telemetri med Analytics](app-insights-hockeyapp-bridge-app.md).
-> 
-> Även om telemetri kan skickas till Application Insights från ett program, är detta huvudsakligen användbart för felsökning och utveckling.
-> 
-> 
+Även om telemetri kan skickas till Application Insights från ett program, är detta huvudsakligen användbatr för felsökning och utveckling.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Skicka telemetri till Application Insights från ett Windows-program
 1. [Skapa en Application Insights-resurs](app-insights-create-new-resource.md) på [Azure Portal](https://portal.azure.com). Välj ASP.NET-app för programtyp.

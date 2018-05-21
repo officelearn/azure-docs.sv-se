@@ -1,29 +1,29 @@
 ---
-title: "Azure princip-json exempel – framtvinga matchningsmönster | Microsoft Docs"
-description: "Den här principen för json-exemplet kräver att resurser uppfyller matchningsmönster för namnkonventioner."
+title: Azure Policy-json-exempel – framtvinga matchningsmönster | Microsoft Docs
+description: Den här json-exempelprincipen kräver att resurser uppfyller matchningsmönster för namngivningskonventioner.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: ecef7ab6eee9f40915804df06c0e0de55b63438e
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 1b8955cfd0df134d572a41fe1d4dfd857c5beb19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>Framtvinga matchningsmönster för namngivningskonventioner
 
-Kräv resursnamn uppfyller ett like mönster för namnkonventioner. Ange tillåtna matchar mönstret som en parameter.
+Kräv resursnamn uppfyller ett like-mönster för namngivningskonventioner. Ange det tillåtna matchningsmönstret som en parameter.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Kräv resursnamn uppfyller ett like mönster för namnkonventioner. Ange tillåt
 
 [!code-json[main](../../../policy-templates/samples/TextPatterns/enforce-match-pattern/azurepolicy.json "enforce match pattern")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -68,7 +68,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 ### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

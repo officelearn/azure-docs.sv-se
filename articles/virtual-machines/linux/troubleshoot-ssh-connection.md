@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsökning av SSH-anslutningar till en Azure Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel på SSH (Secure Shell), SSH anslutningsfel eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och åtgärda problemen. Du kan använda Azure-portalen, Azure CLI eller tillägg för virtuell dator åtkomst för Linux för att felsöka och lösa anslutningsproblem med.
@@ -34,7 +34,7 @@ Försök ansluta till den virtuella datorn efter varje steg i felsökningen.
 
 1. Återställ SSH-konfigurationen.
 2. Återställa autentiseringsuppgifterna för användaren.
-3. Kontrollera den [Nätverkssäkerhetsgruppen](../../virtual-network/virtual-networks-nsg.md) regler att SSH-trafik.
+3. Kontrollera den [nätverkssäkerhetsgruppen](../../virtual-network/security-overview.md) regler att SSH-trafik.
    * Se till att det finns en regel för Nätverkssäkerhetsgruppen så att SSH-trafik (som standard, TCP-port 22).
    * Du kan inte använda omdirigering av portar / mappning utan att använda en Azure belastningsutjämnare.
 4. Kontrollera den [VM resurshälsa](../../resource-health/resource-health-overview.md). 

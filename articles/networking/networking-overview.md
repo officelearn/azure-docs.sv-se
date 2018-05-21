@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -120,7 +120,7 @@ Följande bild visar ett Internet-riktade flera nivåer program som använder b�
 
 Du kan filtrera trafik till och från Azure-resurser med hjälp av följande alternativ:
 
-- **Nätverk:** du kan implementera Azure nätverkssäkerhetsgrupper (NSG: er) för att filtrera inkommande och utgående trafik till Azure-resurser. Varje NSG innehåller en eller flera regler för inkommande och utgående. Varje regel anger käll-IP-adresser, mål-IP-adresser, port och protokoll som trafik filtreras med. NSG: er kan tillämpas på enskilda undernät och enskilda virtuella datorer. Mer information om NSG: er i [Network security groups översikt](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- **Nätverk:** du kan implementera Azure nätverkssäkerhetsgrupper (NSG: er) för att filtrera inkommande och utgående trafik till Azure-resurser. Varje NSG innehåller en eller flera regler för inkommande och utgående. Varje regel anger käll-IP-adresser, mål-IP-adresser, port och protokoll som trafik filtreras med. NSG: er kan tillämpas på enskilda undernät och enskilda virtuella datorer. Mer information om NSG: er i [Network security groups översikt](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Program:** med hjälp av en Programgateway med Brandvägg för webbaserade program kan du skydda webbprogrammen från säkerhetsrisker och trojaner. Vanliga exempel är SQL injection attacker, över flera webbplatser och felaktig huvuden. Programgateway filtrerar ut den här trafiken och stoppas från att nå webbservrar. Du kan konfigurera vilka regler som du vill aktiverad. Möjligheten att konfigurera principer för SSL-förhandling tillhandahålls så att vissa principer är inaktiverad. Mer information om Brandvägg för webbaserade program i [Brandvägg för webbaserade program](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 
 Om du behöver nätverkskapacitet Azure inte ge eller vill använda nätverksprogram som du använder lokalt kan du implementera produkterna i virtuella datorer och Anslut dem till ditt VNet. Den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) innehåller flera olika virtuella datorer förkonfigurerade med nätverksprogram som du kan använda. Dessa förkonfigurerade virtuella datorer kallas vanligtvis virtuella nätverksinstallationer (NVA). NVAs finns tillgängliga för program som brandvägg och WAN-optimering.

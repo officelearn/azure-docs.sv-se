@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 1d80d199e21222be973fa6f5a06e6e80a505f164
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -61,13 +61,13 @@ En översikt över hur automatisk justering fungerar och vanliga Användningssce
 ## <a name="automatic-tuning-options"></a>Alternativ för automatisk justering
 
 Automatisk justering alternativ i Azure SQL Database är:
- 1. **CREATE INDEX** som identifierar de index som kan förbättra prestandan för din arbetsbelastning, skapar index och verifierar de förbättra prestanda för frågor.
- 2. **DROP INDEX** som identifierar redundant och dubbla index och index som inte använts under en längre tidsperiod.
- 3. **SENASTE bra PLAN för TVINGAD** som identifierar SQL-frågor som använder åtgärdsplan som är långsammare än tidigare bra plan och använder den senaste kända bra planen i stället för regressed planen.
+ 1. **CREATE INDEX** -identifierar index som kan förbättra prestandan för din arbetsbelastning, skapar index och automatiskt verifierar att prestanda för frågor har förbättrats. Standardinställningen Azure för det här alternativet är aktiverat.
+ 2. **DROP INDEX** -identifierar redundant och dubbla index och index som inte har använts under en mycket lång tid. Observera att alternativet just nu är inte kompatibel med program med hjälp av partition växlar och index-tips. Standardinställningen Azure för det här alternativet är inaktiverat.
+ 3. **SENASTE bra PLAN för TVINGAD** -identifierar SQL-frågor med åtgärdsplan som är lägre än tidigare bra plan och frågor med senaste kända planen i stället för regressed planen. Standardinställningen Azure för det här alternativet är aktiverat.
 
 Azure SQL-databas identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databas och visar dem i Azure-portalen. Mer information om identifiering av index som ska ändras på [hitta index-rekommendationer i Azure-portalen](sql-database-advisor-portal.md). Du kan antingen tillämpa rekommendationer med hjälp av portalen manuellt eller du kan låta Azure SQL Database för att automatiskt tillämpa rekommendationer övervaka arbetsbelastning när ändringen och verifiera att rekommendationen bättre prestanda för din arbetsbelastning.
 
-Automatisk justering alternativ kan vara oberoende aktiverat eller inaktiverat per databas eller de kan konfigureras på logisk server och tillämpas på alla databaser som ärver inställningarna från servern. Konfigurera automatisk justering alternativ på servern och arv inställningar på databaserna på servern är rekommenderad metod för att konfigurera automatisk justering eftersom det förenklar hanteringen av alternativ för automatisk justering på ett stort antal databaser.
+Automatisk justering alternativ kan vara oberoende aktiverat eller inaktiverat per databas eller de kan konfigureras på logisk server och tillämpas på alla databaser som ärver inställningarna från servern. Logiska servrar kan ärva Azure standardinställningar för inställningar för automatisk justering. Konfigurera automatisk justering alternativ på servern och arv inställningar på databaserna på servern är rekommenderad metod för att konfigurera automatisk justering eftersom det förenklar hanteringen av alternativ för automatisk justering på ett stort antal databaser.
 
 ## <a name="next-steps"></a>Nästa steg
 

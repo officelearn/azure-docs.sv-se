@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database säkerhetskopieringar för upp till 10 år
 
@@ -34,15 +34,15 @@ Exempel:
 
    3 fullständig säkerhetskopiering varje år sparas i 5 år.
 
-- W=0, M=3, Y=0
+- W = 0, M = 3, Y = 0
 
    En första fullständig säkerhetskopiering varje månad sparas i tre månader.
 
-- W=12, M=0, Y=0
+- W = 12, M = 0, Y = 0
 
    Varje fullständig säkerhetskopiering varje vecka sparas för 12 veckor.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W = 6, M = 12, Y = 10 WeekOfYear = 16
 
    Varje fullständig säkerhetskopiering varje vecka sparas för 6 veckor. Förutom första fullständig säkerhetskopiering varje månad, som sparas för 12 månader. Förutom den fullständiga säkerhetskopior som gjorts på 16 veckan på året, som sparas för 10 år. 
 
@@ -54,8 +54,13 @@ W = 12 veckor (84 dagar), M = 12 månader (365 dagar), Y = 10 år (3650 dagar), 
 
 
  
-Om du skulle ändra ovan principen och uppsättning B = 0 (ingen veckovisa säkerhetskopior) i takt med säkerhetskopior skulle ändra som visas i tabellen ovan efter de markerade datum. Det lagringsutrymme som krävs för att hålla dessa säkerhetskopior skulle minska därefter. Obs: LTR kopior skapas med Azure storage-tjänst så att kopieringen inte påverkar prestanda på den befintliga databasen.
-Om du vill återställa en databas från LTR lagring, kan du välja en specifik säkerhetskopia baserat på dess tidsstämpel.   Databasen kan återställas till en befintlig server under samma prenumeration som den ursprungliga databasen. 
+Om du skulle ändra ovan principen och uppsättning B = 0 (ingen veckovisa säkerhetskopior) i takt med säkerhetskopior skulle ändra som visas i tabellen ovan efter de markerade datum. Det lagringsutrymme som krävs för att hålla dessa säkerhetskopior skulle minska därefter. 
+
+> [!NOTE]
+1. LTR kopior skapas med Azure storage-tjänst så att kopieringen inte påverkar prestanda på den befintliga databasen.
+2. Principen gäller för framtida säkerhetskopieringar. T.ex. Om den angivna WeekOfYear har varit när principen har konfigurerats, skapas den första säkerhetskopieringen LTR nästa år. 
+3. Om du vill återställa en databas från LTR lagring, kan du välja en specifik säkerhetskopia baserat på dess tidsstämpel.   Databasen kan återställas till en befintlig server under samma prenumeration som den ursprungliga databasen. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior
 

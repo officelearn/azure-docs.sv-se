@@ -5,14 +5,14 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 99766ca4cc9d77927030f81cff6bb9c009874f89
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/05/2018
 | [Lagringskonton](../articles/storage/common/storage-create-storage-account.md) per region per prenumeration<sup>2</sup> |200 |250 |
 | [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |20 |200 |
 | [Lokala nätverk](http://msdn.microsoft.com/library/jj157100.aspx) per prenumeration |10 |500 |
-| SQL Database-servrar per prenumeration |6 |150 |
+| SQL Database-servrar per prenumeration |6 |200 |
 | DNS-servrar per prenumeration |9 |100 |
 | Reserverade IP-adresser per prenumeration |20 |100 |
 | Värdtjänsten certifikat per prenumeration |199 |199 |

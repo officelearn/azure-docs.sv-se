@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 843ff1adddcb4c1165ead3f484ad74a503410852
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: fbd589aedb955ee4bd61dc0ec754d8713a98179a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-overview"></a>Översikt över säkerheten i Azure-nätverk
 Azure innehåller en stabil nätverksinfrastruktur för att stödja dina program och tjänsten anslutningskrav. Nätverksanslutningen är möjlig mellan resurser i Azure, mellan lokala och Azure värdbaserade resurser, och till och från internet och Azure.
@@ -57,7 +57,7 @@ Om du behöver grundläggande nivån nätverksåtkomstkontroll (baserat på IP-a
 
 Läs mer:
 
-* [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md)
+* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Dirigera kontroll och Tvingad tunneltrafik
 Möjlighet att styra dirigeringsbeteendet på dina virtuella nätverk är viktigt. Om routning är felaktigt konfigurerad, kan program och tjänster som finns på den virtuella datorn ansluta till obehöriga enheter, inklusive system ägs och drivs av potentiella angripare.

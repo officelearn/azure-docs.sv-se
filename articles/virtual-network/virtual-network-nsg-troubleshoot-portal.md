@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Felsöka Nätverkssäkerhetsgrupper i Azure Portal
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/14/2018
 
 Om du konfigurerade Nätverkssäkerhetsgrupper (NSG: er) på den virtuella datorn (VM) och har problem med anslutningen VM, innehåller den här artikeln en översikt över diagnostikfunktionerna för NSG: er för att fortsätta felsökningen.
 
-NSG: er kan du styra vilka typer av trafik som flöde till och från virtuella datorer (VM). NSG: er kan tillämpas på undernät i ett Azure Virtual Network (VNet), nätverksgränssnitt (NIC) eller båda. Effektiva reglerna som gäller för ett nätverkskort är en sammanställning av regler som finns i NSG: er som tillämpas på ett nätverkskort och undernät som den är ansluten till. Regler för dessa NSG: er kan ibland står i konflikt med varandra och påverka nätverksanslutning för en virtuell dator.  
+NSG: er kan du styra vilka typer av trafik som flöde till och från virtuella datorer (VM). NSG: er kan tillämpas på undernät i ett Azure Virtual Network (VNet), nätverksgränssnitt (NIC) eller båda. Effektiva reglerna som gäller för ett nätverkskort är en sammanställning av regler som finns i NSG: er som tillämpas på ett nätverkskort och undernät som den är ansluten till. Regler för dessa NSG: er kan ibland står i konflikt med varandra och påverka nätverksanslutning för en virtuell dator.
 
-Du kan visa alla effektiva säkerhetsregler från dina NSG: er som tillämpas på den Virtuella datorns nätverkskort. Den här artikeln visar hur du felsöker problem med nätverksanslutningen VM med hjälp av reglerna i Azure Resource Manager-distributionsmodellen. Om du inte är bekant med principerna för VNet och NSG läsa den [för virtuella nätverk](virtual-networks-overview.md) och [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md) översikt artiklar.
+Du kan visa alla effektiva säkerhetsregler från dina NSG: er som tillämpas på den Virtuella datorns nätverkskort. Den här artikeln visar hur du felsöker problem med nätverksanslutningen VM med hjälp av reglerna i Azure Resource Manager-distributionsmodellen. Om du inte känner till VNet och NSG-begrepp finns [översikt över virtuella nätverk](virtual-networks-overview.md) och [nätverk Säkerhetsöversikt för gruppen](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Använda effektiva säkerhetsregler för att felsöka VM trafikflöde
 Det scenario som följer är ett exempel på ett vanligt anslutningsproblem:
@@ -66,7 +66,7 @@ Du kan visa en fullständig lista över giltiga säkerhetsregler på ett nätver
    * **Omfattning:** inställd på *VM1*, den virtuella datorn valde i steg 3.
    * **Nätverksgränssnitt:** *VM1 NIC1* är markerad. En virtuell dator kan ha flera nätverksgränssnitt (NIC). Varje nätverkskort kan ha unika effektiva säkerhetsregler. När du felsöker kan behöva du visa effektiva säkerhetsregler för varje nätverkskort.
    * **Associerade NSG: er:** NSG: er kan tillämpas på både NIC och nätverkskortet är anslutet till undernätet. I bilden är har en NSG tillämpats både nätverkskortet och den är ansluten till undernätet. Du kan klicka på NSG namn att direkt ändra regler i de NSG: er.
-   * **Fliken VM1 nsg:** listan över regler som visas i bilden är för NSG tillämpas på nätverkskortet. Flera standardregler skapas av Azure när en NSG skapas. Du kan inte ta bort standardreglerna, men du kan åsidosätta dem med regler med högre prioritet. Mer information om standardregler den [NSG översikt](virtual-networks-nsg.md#default-rules) artikel.
+   * **Fliken VM1 nsg:** listan över regler som visas i bilden är för NSG tillämpas på nätverkskortet. Flera standardregler skapas av Azure när en NSG skapas. Du kan inte ta bort standardreglerna, men du kan åsidosätta dem med regler med högre prioritet. Läs mer om [standardsäkerhetsregler](security-overview.md#default-security-rules).
    * **Målkolumnen:** några av reglerna som har texten i kolumnen, medan andra har adressprefix. Texten är namnet på standardtaggar som tillämpas på säkerhetsregeln när den skapades. Taggarna är systemdefinierade identifierare som representerar flera prefix. Att markera en regel med en tagg som *AllowInternetOutBound*, visar en lista över prefix i den **-adressprefix** bladet.
    * **Hämta:** listan över regler som kan vara lång. Du kan hämta en CSV-fil av reglerna för offlineanalys genom att klicka på **hämta** och spara filen.
    * **AllowRDP** inkommande regel: den här regeln kan RDP-anslutningar till den virtuella datorn.

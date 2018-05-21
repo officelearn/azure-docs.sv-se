@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -50,7 +50,7 @@ Parametrar är skiftlägeskänsliga.
 ## <a name="skill-outputs"></a>Kunskaper utdata
 | Namnet på målet     | Beskrivning                   |
 |---------------|-------------------------------|
-| Text          | Klartext extraheras från avbildningen.   |
+| text          | Klartext extraheras från avbildningen.   |
 | layoutText    | Komplex typ som beskriver den extraherade texten samt den plats där texten hittades.|
 
 
@@ -185,16 +185,14 @@ Följande exempel kunskaper skapar en *merged_text* fältet ska innehålla texti
 Kunskaper i exemplet ovan förutsätter att det finns ett normaliserat bilder fält. Om du vill generera det här fältet anger den *imageAction* konfigurationen i indexeraren-definitionen så att *generateNormalizedImages* enligt nedan:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -202,3 +200,4 @@ Kunskaper i exemplet ovan förutsätter att det finns ett normaliserat bilder f�
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
 + [TextMerger kunskaper](cognitive-search-skill-textmerger.md)
 + [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
++ [Skapa indexerare (REST)](ref-create-indexer.md)

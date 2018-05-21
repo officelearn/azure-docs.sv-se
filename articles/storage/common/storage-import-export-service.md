@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -266,7 +266,7 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 | Mottagning | När alla enheter har tagits emot på Datacenter anges jobbets status till mottagen. |
 | Överförs | När minst en enhet har startat bearbetning visas anges jobbets status till överföra. Se avsnittet enhet tillstånd under detaljerad information. |
 | Packas | När alla enheter har bearbetat kommer jobbet att placeras i tillståndet paketering tills enheterna som har levererats till dig. |
-| Slutförd | När alla enheter har levererats till kunden, om jobbet har slutförts utan fel, kommer jobbet anges till slutfört tillstånd. Jobbet tas automatiskt bort efter 90 dagar i slutfört tillstånd. |
+| Slutfört | När alla enheter har levererats till kunden, om jobbet har slutförts utan fel, kommer jobbet anges till slutfört tillstånd. Jobbet tas automatiskt bort efter 90 dagar i slutfört tillstånd. |
 | Stängd | När alla enheter har levererats till kunden, om det fanns några fel under bearbetning av jobbet, kommer jobbet anges till tillståndet Closed. Jobbet tas automatiskt bort efter 90 dagar i tillståndet Closed. |
 
 I tabellen nedan beskrivs livscykeln för en enskild enhet som den övergår till ett jobb som importeras eller exporteras. Det aktuella tillståndet för varje enhet i ett jobb visas nu i Azure Portal.
@@ -278,7 +278,7 @@ I följande tabell beskrivs varje tillstånd varje enhet i ett jobb kan passera.
 | Mottagning | Enheten övergår till tillståndet Received när operatorn Import/Export service har bearbetat de enheter som har tagits emot från företaget leverans för importen. Tillstånd för första enhet är ett exportjobb tillståndet Received. |
 | NeverReceived | Enheten flyttas till tillståndet NeverReceived när paketet för ett jobb kommer, men paketet innehåller inte enheten. En enhet kan också flytta detta tillstånd om det har två veckor eftersom tjänsten har tagit emot leveransinformation, men paketet har inte kommit på datacenter. |
 | Överförs | En enhet flyttas till överföra tillstånd när tjänsten startar att överföra data från enheten till Windows Azure Storage. |
-| Slutförd | En enhet flyttas till slutfört tillstånd när tjänsten har överförts alla data utan fel.
+| Slutfört | En enhet flyttas till slutfört tillstånd när tjänsten har överförts alla data utan fel.
 | CompletedMoreInfo | En enhet flyttas till CompletedMoreInfo tillstånd när tjänsten några problem uppstod vid kopiering av data från eller till enheten. Informationen kan omfatta fel, varningar och informationsmeddelanden om överskrivning blobbar.
 | ShippedBack | Enheten flyttas till ShippedBack tillstånd när den har levererats från data center tillbaka avsändaradressen. |
 
@@ -569,6 +569,9 @@ Om du använder [WAImportExport verktyget](http://download.microsoft.com/downloa
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)

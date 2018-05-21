@@ -1,8 +1,8 @@
 ---
-title: "Application Insights för Azure Cloud Services | Microsoft Docs"
-description: "Övervaka webb- och arbetsroller effektivt med Application Insights"
+title: Application Insights för Azure Cloud Services | Microsoft Docs
+description: Övervaka webb- och arbetsroller effektivt med Application Insights
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -223,7 +223,7 @@ Du kan få en överblick över systemet genom att placera alla de viktigaste öv
 
 Om systemet använder andra Azure-tjänster, till exempel Stream Analytics, kan du även lägga till övervakningsdiagrammen för dem. 
 
-Om du har en mobilapp för klientsidan infogar du kod för att skicka anpassade händelser vid viktiga användaråtgärder och skapar en [HockeyApp-brygga](app-insights-hockeyapp-bridge-app.md). Skapa frågor i [Analytics](app-insights-analytics.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
+Om du har en klientmobilapp använder du [App Center](app-insights-mobile-center-quickstart.md). Skapa frågor i [Analytics](app-insights-analytics.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
 
 ## <a name="example"></a>Exempel
 [Exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.

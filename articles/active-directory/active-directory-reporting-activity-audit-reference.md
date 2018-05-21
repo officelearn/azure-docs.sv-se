@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -107,7 +107,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Resurs|Ta bort tjänstens huvudnamn|
 
 
-## <a name="automated-password-rollover"></a>Automatiserad förnyelse av lösenord
+## <a name="automated-password-rollover"></a>Automatiserad lösenordsförnyelse
 
 |Granskningskategori|Aktivitet|
 |---|---|
@@ -343,7 +343,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Resurs|Utfärda ett id_token för programmet|
 
 
-## <a name="core-directory"></a>Kärnkatalog
+## <a name="core-directory"></a>Grundläggande katalog
 
 |Granskningskategori|Aktivitet|
 |---|---|
@@ -477,7 +477,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Tilldela|
 
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Identitetsskydd
 
 |Granskningskategori|Aktivitet|
 |---|---|
@@ -562,7 +562,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Grupphantering|Administratören skapar ett tillfälligt lösenord|
 
 
-## <a name="self-service-password-management"></a>Hantering av lösenord för självbetjäning
+## <a name="self-service-password-management"></a>Lösenordshantering via självbetjäning
 
 |Granskningskategori|Aktivitet|
 |---|---|

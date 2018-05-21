@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
 Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
@@ -34,7 +34,7 @@ När du vet åtgärdstyperna i förväg kan du optimera tabellernas design.
 
 ## <a name="data-migration"></a>Datamigrering
 
-Läs först in dina data till [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i SQL Data Warehouse i en mellanlagringstabell. Använd följande konfiguration:
+Läs först in dina data till [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i SQL Data Warehouse i en mellanlagringstabell. Använd följande konfiguration:
 
 | Design | Rekommendation |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Läs först in dina data till [Azure Data Lake Store](https://docs.microsoft.com
 | Partitionering | Ingen |
 | Resursklass | largerc eller xlargerc |
 
-Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load, and Transform)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load, and Transform)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Distribuerade eller replikerade tabeller
 
@@ -78,7 +78,7 @@ Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsät
 **Tips:**
 * Förutom ett grupperat index kanske du vill lägga till ett icke-grupperat index till en kolumn som används ofta för filtrering. 
 * Var försiktig med hur du hanterar minnet i en tabell med CCI. När du läser in data ska användaren (eller frågan) dra nytta av en stor resursklass. Undvik att trimma och skapa många små komprimerade radgrupper.
-* Nivån Optimerad för beräkning fungerar bra med CCI.
+* På Gen2 cachelagras CCI-tabeller lokalt på datornoderna för att maximera prestanda.
 * För CCI kan dåliga prestanda uppstå på grund av dålig komprimering av dina radgrupper. Om det sker ska du återskapa eller ordna om din CCI. Du bör ha minst 100 000 rader per komprimerad radgrupp. Det bästa är 1 miljon rader i en radgrupp.
 * Baserat på den stegvisa frekvensen och storleken vill du automatisera när du ordnar om eller återskapar dina index. En vårstädning är aldrig fel.
 * Var strategisk när du vill trimma en radgrupp. Hur stora är öppna radgrupper? Hur mycket data förväntar du dig att läsa in under de kommande dagarna?
@@ -111,7 +111,7 @@ SQL Data Warehouse använder resursgrupper som ett sätt att allokera minne till
 
 Om du märker att frågor tar för lång tid kan du kontrollera att dina användare inte körs i stora resursklasser. Stora resursklasser förbrukar många samtidighetsfack. De kan orsaka att andra frågor placeras i kö.
 
-Genom att använda nivån Optimerad databehandling får slutligen varje resursklass 2,5 gånger mer minne än på nivån för elastisk optimering.
+När Gen2 används för SQL Data Warehouse får varje resursklass 2,5 gånger så mycket minne som Gen1.
 
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet].
 

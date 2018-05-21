@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -106,7 +106,7 @@ Utan extra kostnad är associerad med användningen av DevTest Labs. Skapandet a
 
 Värd för labs eller produktionssystem i Azure innebär att dina system måste vara tillgänglig från Internet. Som standard en ny Windows virtuell dator har RDP-porten tillgänglig från Internet och en virtuell Linux-dator har öppna SSH-porten. Vidtar åtgärder för att begränsa exponeras slutpunkter är nödvändiga för att minska risken för obehörig åtkomst.
 
-Med hjälp av tekniker i Azure kan du begränsa åtkomsten till dessa administrativa slutpunkter. Du kan använda i Azure, [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) (NSG: er). När du använder Azure Resource Manager för distribution av NSG: er att begränsa åtkomst från alla nätverk till bara hanteringsslutpunkter (RDP eller SSH). När du funderar NSG: er tror router ACL: er. Du kan använda dem för att begränsa nätverkskommunikationen mellan olika segment av dina Azure-nätverk. Detta liknar skapa nätverk i perimeternätverk eller andra isolerade nätverk. De inspektera inte trafik, men de att med nätverkssegmentering.
+Med hjälp av tekniker i Azure kan du begränsa åtkomsten till dessa administrativa slutpunkter. Du kan använda i Azure, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) (NSG: er). När du använder Azure Resource Manager för distribution av NSG: er att begränsa åtkomst från alla nätverk till bara hanteringsslutpunkter (RDP eller SSH). När du funderar NSG: er tror router ACL: er. Du kan använda dem för att begränsa nätverkskommunikationen mellan olika segment av dina Azure-nätverk. Detta liknar skapa nätverk i perimeternätverk eller andra isolerade nätverk. De inspektera inte trafik, men de att med nätverkssegmentering.
 
 
 I Azure, kan du konfigurera en [plats-till-plats VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) från ditt lokala nätverk. En plats-till-plats-VPN utökar ditt lokala nätverk till molnet. Detta ger dig en annan möjlighet att använda NSG: er, eftersom du kan också ändra NSG: er för att inte tillåta åtkomst varifrån som helst annat än det lokala nätverket. Sedan kan du kräva att administration görs genom att först ansluta till Azure-nätverk via VPN.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Skapa ett virtuellt nätverk (klassiskt) med flera undernät
 
@@ -162,7 +162,6 @@ Du kan skapa ett virtuellt nätverk (klassiskt) med hjälp av den [Azure-portale
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om alla virtuella nätverk och undernätsinställningar, se [hantera virtuella nätverk](manage-virtual-network.md) och [hantera virtuella undernät](virtual-network-manage-subnet.md). Har du olika alternativ för att använda virtuella nätverk och undernät i en produktionsmiljö för att uppfylla olika krav.
-- Filtrera inkommande och utgående trafik, skapa och använda [nätverkssäkerhetsgrupper](virtual-networks-nsg.md) till undernät.
 - Skapa en [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuella datorn och ansluter sedan till ett befintligt virtuellt nätverk.
 - För att ansluta två virtuella nätverk i samma Azure-plats, skapa en [virtuellt nätverk peering](create-peering-different-deployment-models.md) mellan virtuella nätverk. Du kan peer (Resource Manager) för ett virtuellt nätverk till ett virtuellt nätverk (klassiskt), men du kan inte skapa en peering mellan två virtuella nätverk (klassiskt).
 - Anslut det virtuella nätverket till ett lokalt nätverk med hjälp av en [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) krets.

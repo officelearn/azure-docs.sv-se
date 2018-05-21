@@ -1,6 +1,6 @@
 ---
-title: Styr virtuella Azure-datorer med Azure PowerShell | Microsoft Docs
-description: Självstudiekurs – hantera virtuella Azure-datorer genom att använda RBAC, principer, lås och taggar med Azure PowerShell
+title: Självstudier – Hantera virtuella datorer i Azure med Azure PowerShell | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att hantera virtuella Azure-datorer med hjälp av RBAC, principer, lås och taggar
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,28 +10,29 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>Virtual machine-styrning med Azure PowerShell
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Linux-datorer med Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. Om lokala installationer måste du också [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) att skapa en ny Azure Active Directory-grupp.
+Om du väljer att installera och använda PowerShell lokalt läser du [Installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. För lokala installationer måste du även [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) för att skapa en ny Azure Active Directory-grupp.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-I den här kursen gäller du alla inställningar till en resursgrupp så du kan enkelt ta bort dessa inställningar när du är klar.
+I den här självstudiekursen tillämpar du alla hanteringsinställningar på en resursgrupp, så att du enkelt kan ta bort inställningarna när du är klar.
 
 Nu ska vi skapa resursgruppen.
 
@@ -39,23 +40,23 @@ Nu ska vi skapa resursgruppen.
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Resursgruppen är för närvarande är tom.
+Resursgruppen är tom för närvarande.
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Du vill kontrollera att användare i din organisation har rätt nivå av åtkomst till dessa resurser. Du vill inte bevilja obegränsad åtkomst till användare, men du måste också kontrollera att de kan utföra sitt arbete. [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) kan du hantera vilka användare som har behörighet att utföra specifika åtgärder på ett scope.
+Du vill kontrollera att användarna i din organisation har rätt åtkomstnivå till dessa resurser. Du vill inte bevilja obegränsad åtkomst till användare, men du måste också försäkra dig om att de kan utföra sitt arbete. Med [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) kan du hantera vilka användare som har behörighet att utföra specifika åtgärder i ett omfång.
 
-Om du vill skapa och ta bort rolltilldelningar, måste användarna ha `Microsoft.Authorization/roleAssignments/*` åtkomst. Den här komma åt via rollerna ägare eller administratör för användaråtkomst.
+För att kunna skapa och ta bort rolltilldelningar måste användare ha `Microsoft.Authorization/roleAssignments/*`-åtkomst. Den här åtkomsten beviljas via rollerna Ägare eller Administratör för användaråtkomst.
 
-Det finns tre resursspecifika roller som ger vanligtvis behövs åtkomst för att hantera virtuella lösningar:
+För hanteringen av VM-lösningar finns det tre resursspecifika roller som beviljar åtkomst på lämplig nivå:
 
-* [Virtual Machine-deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Virtuell datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Nätverksdeltagare](../../role-based-access-control/built-in-roles.md#network-contributor)
-* [Storage-konto deltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Lagringskontodeltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare, är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver vidta liknande åtgärder. Tilldela sedan den gruppen till rätt roll. För att förenkla den här artikeln kan skapa du en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen till en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
 
-I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med ett smeknamn för e-post för *vmDemoGroup*. Smeknamn för e-post fungerar som ett alias för gruppen.
+I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med smeknamnet *vmDemoGroup* för e-post. Smeknamnet för e-post fungerar som ett alias för gruppen.
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -64,7 +65,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -SecurityEnabled $true
 ```
 
-Det tar en stund när Kommandotolken returnerar för gruppen att spridas i Azure Active Directory. Vänta 20 eller 30 sekunder, Använd den [ny AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) kommando för att tilldela den nya Azure Active Directory-gruppen till den virtuella datorn deltagarrollen för resursgruppen.  Om du kör följande kommando innan den har spridits, du får ett felmeddelande om **huvudsakliga <guid> finns inte i katalogen**. Försök köra kommandot igen.
+När du har kört kommandot tar det en stund för gruppen att distribueras i Azure Active Directory. När du har väntat 20–30 sekunder kör du kommandot [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) för att tilldela den nya Azure Active Directory-gruppen till rollen Virtuell datordeltagare för resursgruppen.  Om du kör följande kommando innan gruppen har distribuerats får du ett felmeddelande som anger att **huvudkontot<guid> inte finns i katalogen**. Prova att köra kommandot igen.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
@@ -72,27 +73,27 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Normalt du upprepa processen för *Network-deltagare* och *Storage-konto deltagare* Kontrollera användare tilldelas Hantera distribuerade resurser. Du kan hoppa över de här stegen i den här artikeln.
+Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
-## <a name="azure-policies"></a>Principer för Azure
+## <a name="azure-policies"></a>Azure-principer
 
 [!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Tillämpa principer
 
-Din prenumeration redan har flera principdefinitioner av. Tillgängliga principdefinitioner, Använd den [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) kommando:
+Din prenumeration har redan flera principdefinitioner. Du kan visa de tillgängliga principdefinitionerna genom att köra kommandot [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition):
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Du kan visa befintliga principdefinitioner. Typ av princip är antingen **BuiltIn** eller **anpassad**. Titta igenom definitionerna för de som beskriver ett villkor som du vill tilldela. I den här artikeln får tilldela du principer som:
+De befintliga principdefinitionerna visas. Principtypen är antingen **BuiltIn** eller **Custom**. Titta igenom definitionerna och leta efter sådana som beskriver ett tillstånd som du vill tilldela. I den här artikeln tilldelar du principer som:
 
-* Begränsa platserna för alla resurser.
-* Begränsa SKU: er för virtuella datorer.
-* Granska virtuella datorer som inte använder hanterade diskar.
+* Begränsar platserna för alla resurser.
+* Begränsa SKU:erna för virtuella datorer.
+* Granskar virtuella datorer som inte använder hanterade diskar.
 
-I exemplet nedan kan du hämta tre principdefinitioner baserat på namn. Du använder den [ny AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) kommando för att tilldela dessa definitioner till resursgruppen. För vissa principer kan ange du parametervärden för att ange de tillåtna värdena.
+I exemplet nedan hämtar du tre principdefinitioner baserat på visningsnamn. Du använder kommandot [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) för att tilldela dessa definitioner till resursgruppen. För vissa principer anger du parametervärden för att ange de tillåtna värdena.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -127,7 +128,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>Distribuera den virtuella datorn
 
-Du har tilldelat roller och principer, så att du är redo att distribuera lösningar. Standardstorleken är Standard_DS1_v2 som är en av dina tillåtna SKU: er. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
+Nu när du har tilldelat roller och principer är det dags att distribuera lösningen. Standardstorleken är Standard_DS1_v2, som är en av dina tillåtna SKU:er. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -140,13 +141,13 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -OpenPorts 80,3389
 ```
 
-När distributionen är klar kan tillämpa du inställningar för flera till lösningen.
+När distributionen är klar kan du lägga till fler hanteringsinställningar för lösningen.
 
 ## <a name="lock-resources"></a>Lås resurser
 
-[Resurslås](../../azure-resource-manager/resource-group-lock-resources.md) förhindra användare i din organisation av misstag tas bort eller ändra viktiga resurser. Till skillnad från rollbaserad åtkomstkontroll gäller resurslås en begränsning för alla användare och roller. Du kan ange låset för *CanNotDelete* eller *ReadOnly*.
+[Resurslås](../../azure-resource-manager/resource-group-lock-resources.md) förhindrar att användare i din organisation tar bort eller ändrar viktiga resurser av misstag. Till skillnad från rollbaserad åtkomstkontroll tillämpar resurslås en begränsning för alla användare och roller. Du kan ange låssnivån till *CanNotDelete* eller *ReadOnly*.
 
-Om du vill låsa den virtuella datorn och en säkerhetsgrupp för nätverk använder den [ny AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) kommando:
+Om du vill låsa den virtuella datorn och nätverkssäkerhetsgruppen använder du kommandot [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock):
 
 ```azurepowershell-interactive
 # Add CanNotDelete lock to the VM
@@ -164,21 +165,21 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
   -ResourceGroupName myResourceGroup
 ```
 
-Om du vill testa Lås försök att köra följande kommando:
+Om du vill testa låsen provar du att köra följande kommando:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Du ser ett felmeddelande om att ta borttagningsåtgärden inte kan utföras på grund av ett lås. Resursgruppen kan bara tas bort om du uttryckligen ta bort lås. Steget visas i [Rensa resurser](#clean-up-resources).
+Ett felmeddelande visas som anger att borttagningsåtgärden inte kan utföras på grund av ett lås. Resursgruppen kan bara tas bort om du tar bort låsen. Det steget beskrivs i [Rensa resurser](#clean-up-resources).
 
-## <a name="tag-resources"></a>Taggen resurser
+## <a name="tag-resources"></a>Tagga resurser
 
-Du använder [taggar](../../azure-resource-manager/resource-group-using-tags.md) till Azure-resurser och organisera dem logiskt efter kategorier. Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du kan ordna Azure-resurser i kategorier genom att lägga till [taggar](../../azure-resource-manager/resource-group-using-tags.md). Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-Om du vill lägga till taggar för en virtuell dator, Använd den [Set AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) kommando:
+Om du vill lägga till taggar för en virtuell dator använder du kommandot [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource):
 
 ```azurepowershell-interactive
 # Get the virtual machine
@@ -192,25 +193,25 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Hitta resurser efter tagg
 
-Hitta resurser med taggnamn och värde i [hitta AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) kommando:
+Om du vill söka efter resurser med ett taggnamn och taggvärde använder du kommandot [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
 
 ```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Du kan använda de returnerade värdena för hanteringsuppgifter som stoppas alla virtuella datorer med ett taggvärde.
+Du kan använda de returnerade värdena för olika hanteringsuppgifter, t.ex. för att stoppa alla virtuella datorer med ett visst taggvärde.
 
 ```azurepowershell-interactive
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-### <a name="view-costs-by-tag-values"></a>Visa kostnader av taggvärden
+### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Låst nätverkssäkerhetsgruppen kan inte tas bort förrän låset tas bort. Ta bort låset med den [ta bort AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) kommando:
+Den låsta nätverkssäkerhetsgruppen kan inte tas bort förrän låset tagits bort. Om du vill ta bort låset använder du kommandot [Remove-AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock):
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
@@ -234,12 +235,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Tilldela användare till en roll
+> * Tilldela användare en roll
 > * Tillämpa principer som verkställer standarder
 > * Skydda viktiga resurser med lås
 > * Tagga resurser för fakturering och hantering
 
-Gå vidare till nästa kurs att lära dig hur högtillgängliga virtuella datorer.
+Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med hög tillgänglighet.
 
 > [!div class="nextstepaction"]
 > [Övervaka virtuella datorer](tutorial-monitoring.md)

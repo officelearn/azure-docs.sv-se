@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du extrahera informationen från bilder i kognitiva Sök scenarier
 
@@ -38,6 +38,8 @@ Du kan inte inaktivera avbildningen normalisering. Kunskaper som itererar över 
 
 > [!NOTE]
 > Om du ställer in den *imageAction* -egenskapen till något annat än ”none” du kommer inte att ange den *parsingMode* egenskapen till något annat än ”standard”.  Du kan bara ange en av de här två egenskaperna till ett standardvärde i indexeraren konfigurationen.
+
+Ange den **parsingMode** parameter till `json` (att indexera varje blob som ett enskilt dokument) eller `jsonArray` (om dina blobbar innehåller JSON-matriser och du måste varje element i en matris ska behandlas som ett separat dokument).
 
 2000 bildpunkter normaliserade bilder maximala bredd och höjd Standardvärdet baseras på de maximala storlekar som stöds av den [OCR kunskaper](cognitive-search-skill-ocr.md) och [bild analys kunskaper](cognitive-search-skill-image-analysis.md). Om du ökar de maximala gränserna, misslyckas bearbetning på stora bilder.
 

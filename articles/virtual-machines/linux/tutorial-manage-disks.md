@@ -1,12 +1,12 @@
 ---
-title: Hantera Azure-diskar med Azure CLI | Microsoft Docs
-description: Självstudiekurs – hantera Azure-diskar med Azure CLI
+title: Självstudier – Hantera Azure-diskar med Azure CLI | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa och hantera Azure-diskar för virtuella datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dff6af6a68dcc454877532c3d6f06cb86e6fe897
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-disks-with-the-azure-cli"></a>Hantera Azure-diskar med Azure CLI
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Självstudier – Hantera Azure-diskar med Azure CLI 2.0
 
 Azure Virtual Machines använder diskar för att lagra de virtuella datorernas operativsystem, program och data. När du skapar en virtuell dator är det viktigt att du väljer en diskstorlek och konfiguration som motsvarar den förväntade arbetsbelastningen. Den här kursen visar hur du distribuerar och hanterar VM-diskar. Du får lära dig om:
 
@@ -35,10 +35,9 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 > * Ändrar storlek på diskar
 > * Ögonblicksbilder
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
 

@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Skapa, fråga och filtrera ett Azure Search-index i portalen
 
@@ -110,7 +110,7 @@ Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren*
 
    ![Index- och API-kommandon][6]
 
-3. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Förhandsversions-API:er ger dig tillgång till nya funktioner som inte är släppta till allmänheten ännu. Använd den allmänt tillgängliga versionen (2016-09-01) för frågorna nedan om inget annat anges. 
+3. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Förhandsversions-API:er ger dig tillgång till nya funktioner som inte är släppta till allmänheten ännu. Använd den allmänt tillgängliga versionen (2017-11-11) för frågorna nedan om inget annat anges. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [.NET-biblioteket](search-howto-dotnet-sdk.md#core-scenarios) är fullständigt likvärdiga, men **Sökutforskaren** kan endast hantera REST-anrop. Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).

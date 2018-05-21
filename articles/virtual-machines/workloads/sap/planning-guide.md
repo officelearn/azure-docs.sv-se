@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b01c2a0bfacb4e7e121cdb06ad8be4ab17d53a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer planering och implementering för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -298,7 +298,7 @@ ms.lasthandoff: 05/10/2018
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -661,7 +661,7 @@ Microsoft Azure tillhandahåller nätverksinfrastruktur, vilket gör att mappnin
 * Anslutning mellan en kund lokala nätverk och Azure-nätverk
 * Mellan Azure-Region eller data center anslutning mellan Azure platser
 
-Mer information hittar du här: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Mer information finns här: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Det finns många olika möjligheter att konfigurera namn och IP-lösning i Azure. I detta dokument, endast molnbaserad scenarier som förlitar sig på standardvärdet med hjälp av Azure DNS (i stället för att definiera en egen DNS-tjänst). Det finns också en ny Azure DNS-tjänst som kan användas i stället för att ställa in DNS-servern. Mer information finns i [i den här artikeln] [ virtual-networks-manage-dns-in-vnet] på [den här sidan](https://azure.microsoft.com/services/dns/).
 

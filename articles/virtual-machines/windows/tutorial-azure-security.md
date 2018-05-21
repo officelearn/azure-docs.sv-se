@@ -1,36 +1,36 @@
 ---
-title: Azure Security Center och Windows-datorer i Azure | Microsoft Docs
-description: Läs mer om säkerheten för din Windows Azure-dator med Azure Security Center.
+title: Självstudiekurs – Använda Azure Security Center för virtuella Windows-datorer i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig mer om funktionerna i Azure Security Center, som hjälper dig att skydda dina virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudiekurs: Övervaka virtuella Windows-datorer i Azure Security Center
 
 Med Azure Security Center kan du få bättre överblick över säkerhetsåtgärderna för Azure-resurserna. Security Center tillhandahåller integrerad säkerhetsövervakning. Här kan du upptäcka hot som annars kan förbli oupptäckta. I den här självstudiekursen får du lära dig mer om Azure Security Center och hur du gör följande:
- 
+
 > [!div class="checklist"]
 > * Konfigurera datainsamling
 > * Konfigurera säkerhetsprinciper
 > * Visa och åtgärda problem med konfigurationshälsan
-> * Granska identifierade hot  
+> * Granska identifierade hot
 
 ## <a name="security-center-overview"></a>Översikt över Security Center
 
@@ -144,7 +144,7 @@ I den här självstudiekursen har du konfigurerat Azure Security Center och gran
 > * Visa och åtgärda problem med konfigurationshälsan
 > * Granska identifierade hot
 
-Gå vidare till nästa kurs att lära dig hur du skapar en CI/CD-pipeline med Visual Studio Team Services och en Windows virtuell dator som kör IIS.
+Gå vidare till nästa kurs om du vill lära dig hur du skapar en CI/CD-pipeline med Visual Studio Team Services och en virtuell Windows-dator som kör IIS.
 
 > [!div class="nextstepaction"]
 > [Visual Studio Team Services CI/CD-pipeline](./tutorial-vsts-iis-cicd.md)

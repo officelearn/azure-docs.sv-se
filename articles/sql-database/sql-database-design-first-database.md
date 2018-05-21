@@ -1,5 +1,5 @@
 ---
-title: Skapa din första Azure SQL-databas med SSMS | Microsoft Docs
+title: 'Självstudier: Skapa din första Azure SQL-databas med SSMS | Microsoft Docs'
 description: Läs hur du skapar din första Azure SQL-databas med SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,30 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>Skapa din första Azure SQL-databas med SSMS
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Självstudier: Skapa din första Azure SQL-databas med SSMS
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att: 
 
 > [!div class="checklist"]
-> * Skapa en databas på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapa en databas på Azure Portal*
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till databasen med SSMS
 > * Skapa tabeller med SSMS
 > * Massinläsa data med BCP
 > * Fråga efter dessa data med SSMS
-> * Återställa databasen till en tidigare [tidpunkt för återställning](sql-database-recovery-using-backups.md#point-in-time-restore) på Azure-portalen
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+
+   >[!NOTE]
+   > I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen (förhandsversion)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -42,13 +44,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 
-Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](sql-database-features.md). 
+Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](sql-database-features.md). 
 
 Följ de här stegen om du vill skapa en tom SQL-databas. 
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
+2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 
 5. Klicka på **Välj**.
 
-6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Undersök alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå. 
+6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Undersök alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå. I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen (förhandsversion)](sql-database-service-tiers-vcore.md). 
 
 7. I de här självstudierna väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
 
@@ -83,10 +85,9 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 8. Godkänn förhandsgranskningsvillkoren för att använda alternativet **Lägg till mer lagringsutrymme**. 
 
    > [!IMPORTANT]
-   > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >-  På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
@@ -108,7 +109,7 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 
 1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver-20170824.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
-2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser i efterföljande snabbstarter. 
+2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser i efterföljande självstudier och snabbstartsguider. 
 
    ![servernamn](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +148,7 @@ Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Servertyp | Databasmotor | Det här värdet är obligatoriskt. |
+   | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Namnet bör se ut ungefär så här: **mynewserver20170824.database.windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
@@ -297,26 +298,6 @@ Kör följande frågor för att hämta information från databastabellerna. I [S
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Återställa en databas till en tidigare tidpunkt
-
-Anta att du av misstag har tagit bort en tabell. Det kan du lätt åtgärda genom återställning. Med Azure SQL Database kan du gå tillbaka till valfri tidpunkt under de senaste 35 dagarna och återställa till den tidpunkten i en ny databas. Du kan använda den här databasen för att återställa dina borttagna data. Följande steg återställer exempeldatabasen till en tidpunkt innan tabellerna lades till.
-
-1. På SQL Database-sidan för din databas klickar du på **Återställ** i verktygsfältet. Sidan **Återställ** öppnas.
-
-   ![återställ](./media/sql-database-design-first-database/restore.png)
-
-2. Fyll i formuläret **Återställ** med den information som behövs:
-    * Databasnamn: Ange ett databasnamn 
-    * Tidpunkt: Klicka på fliken **Tidpunkt** i formuläret Återställning 
-    * Återställningspunkt: Välj en tidpunkt innan databasen ändrades
-    * Målserver: Du kan inte ändra det här värdet när du återställer en databas 
-    * Elastisk databaspool: Välj **Ingen**  
-    * Prisnivå: Välj **20 DTU:er** och **40** GB lagring.
-
-   ![återställningspunkt](./media/sql-database-design-first-database/restore-point.png)
-
-3. Klicka på **OK** för att [återställa till en tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) innan tabellerna lades till. När du återställer en databas till en annan tidpunkt skapas en dubblettdatabas på samma server som den ursprungliga databasen från den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [tjänstnivå](sql-database-service-tiers.md).
-
 ## <a name="next-steps"></a>Nästa steg 
 I de här självstudierna har du lärt dig grundläggande databasuppgifter, till exempel att skapa en databas och tabeller, läsa in och fråga efter data, samt återställa databasen till en tidigare tidpunkt. Du har lärt dig att:
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ I de här självstudierna har du lärt dig grundläggande databasuppgifter, till
 > * Skapa tabeller
 > * Massinläsa data
 > * Fråga efter dessa data
-> * Återställa databasen till en tidigare tidpunkt med hjälp av funktioner för [Återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) i SQL Database
 
 Gå vidare till fler självstudier för att lära dig att utforma en databas med Visual Studio och C#.
 

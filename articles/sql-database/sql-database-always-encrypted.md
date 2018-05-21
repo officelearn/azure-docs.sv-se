@@ -4,17 +4,17 @@ description: Den här artikeln visar hur du skyddar känsliga data i en SQL-data
 keywords: kryptera data, sql-kryptering, databaskryptering, känsliga data krypteras alltid
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 38c4a724cc963370e60ae796729476c3bbc0342a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9fd4618b7edffe2b23c9b7bb4472ed7da5f0aa43
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Skydda känsliga data i SQL-databasen och lagra krypteringsnycklar i Windows certifikatarkiv
 

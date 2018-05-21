@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center och virtuella Linux-datorer i Azure | Microsoft Docs
-description: Lär dig mer om säkerhetsåtgärder för dina virtuella Linux-datorer i Azure med Azure Security Center.
+title: Självstudier – Använda Azure Security Center för virtuella Linux-datorer i Azure | Microsoft Docs
+description: I den här självstudiekursen lär du dig mer om funktionerna i Azure Security Center, som hjälper dig att skydda dina virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Övervaka säkerheten för virtuella datorer med hjälp av Azure Security Center
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
 Med Azure Security Center kan du få bättre överblick över säkerhetsåtgärderna för Azure-resurserna. Security Center tillhandahåller integrerad säkerhetsövervakning. Här kan du upptäcka hot som annars kan förbli oupptäckta. I den här självstudiekursen får du lära dig mer om Azure Security Center och hur du gör följande:
  
@@ -30,7 +30,7 @@ Med Azure Security Center kan du få bättre överblick över säkerhetsåtgärd
 > * Konfigurera datainsamling
 > * Konfigurera säkerhetsprinciper
 > * Visa och åtgärda problem med konfigurationshälsan
-> * Granska identifierade hot  
+> * Granska identifierade hot
 
 ## <a name="security-center-overview"></a>Översikt över Security Center
 

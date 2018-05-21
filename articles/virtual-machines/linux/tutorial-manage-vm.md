@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera virtuella Linux-datorer med Azure CLI | Microsoft Docs
-description: Självstudier – Skapa och hantera virtuella Linux-datorer med Azure CLI
+title: Självstudier – Skapa och hantera virtuella Linux-datorer med Azure CLI | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa och hantera virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Skapa och hantera virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Självstudier – Skapa och hantera virtuella Linux-datorer med Azure CLI 2.0
 
 Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs den grundläggande distributionen av virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
@@ -33,10 +33,9 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
@@ -85,7 +84,7 @@ Det kan ta några minuter att skapa den virtuella datorn. När den virtuella dat
 Du kan nu ansluta till den virtuella datorn via SSH i Azure Cloud Shell eller från den lokala datorn. Byt ut IP-adressen i exemplet mot den `publicIpAddress` du skrev upp i föregående steg.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 När du loggat in i den virtuella datorn kan du installera och konfigurera program. När du är klar stänger du SSH-sessionen på vanligt sätt:

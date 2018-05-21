@@ -1,31 +1,31 @@
 ---
 title: Uppdatera Azure App Service Azure stacken | Microsoft Docs
-description: "Detaljerad vägledning för att uppdatera Azure App Service på Azure-stacken"
+description: Detaljerad vägledning för att uppdatera Azure App Service på Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service på Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 > [!IMPORTANT]
-> Uppdateringen är 1802 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
+> Uppdateringen är 1804 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.2.
 >
 >
 
@@ -44,7 +44,7 @@ Under den här processen kommer uppgraderingen:
 * Förbereda alla uppdateringspaket och nya versioner av alla OSS bibliotek som ska distribueras
 * Överföra till lagring
 * Uppgradera alla roller för App Service (domänkontrollanter, hantering, frontend, utgivare och Worker roller)
-* Uppdatera definitioner för Apptjänst scale set
+* Uppdatera definitioner för App Service-skalningsuppsättning
 * Uppdatera Providermanifestet för Apptjänst-resurs
 
 > [!IMPORTANT]
@@ -54,11 +54,11 @@ Under den här processen kommer uppgraderingen:
 
 Följ dessa steg för att uppgradera din distribution av App Service på Azure Stack:
 
-1. Hämta den [Apptjänst Installer](https://aka.ms/appsvcupdate1installer)
+1. Hämta den [Apptjänst Installer](https://aka.ms/appsvcupdate2installer)
 
 2. Köra appservice.exe som administratör
 
-    ![App Service Installer][1]
+    ![Installationsprogrammet för App Service][1]
 
 3. Klicka på **distribuerar Apptjänst eller uppgradera till den senaste versionen.**
 
@@ -74,8 +74,8 @@ Följ dessa steg för att uppgradera din distribution av App Service på Azure S
 
    1. Klicka på den **Anslut** knappen bredvid den **Azure Stack-prenumerationer** rutan.
         * Om du använder Azure Active Directory (Azure AD), anger du Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
-        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel  *cloudadmin@azurestack.local* . Ange ditt lösenord och klicka på **logga In**.
-   2. I den **Azure Stack-prenumerationer** väljer din prenumeration.
+        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel *cloudadmin@azurestack.local*. Ange ditt lösenord och klicka på **logga In**.
+   2. I den **Azure Stack-prenumerationer** markerar den **standard prenumeration på leverantör**.
    3. I den **Azure Stack platser** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure-stacken Development Kit.
    4. Om en befintlig App Service-distribution har identifierats vara sedan resurs grupp och lagring kontot fylls och nedtonat.
    5. Klicka på **nästa** att granska sammanfattningen av uppgraderingen.
@@ -93,7 +93,7 @@ Följ dessa steg för att uppgradera din distribution av App Service på Azure S
     1. Spåra uppgradering pågår. Varaktighet för uppgradering av Apptjänst i Azure-stacken varierar beroende på antalet rollinstanser som distribuerats.
     2. När uppgraderingen har slutförts klickar du på **avsluta**.
 
-        ![App Service Upgrade Progress][5]
+        ![Apptjänst Uppgraderingsförlopp][5]
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-update/app-service-exe.png

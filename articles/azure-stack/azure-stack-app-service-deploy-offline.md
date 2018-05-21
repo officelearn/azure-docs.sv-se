@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägg till en Apptjänst-resursprovidern i en frånkopplad miljö för Azure-stacken skyddas av AD FS
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 > [!IMPORTANT]
-> Uppdateringen är 1802 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
+> Uppdateringen är 1804 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.2.
 >
 >
 
@@ -80,7 +80,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 7. På nästa sida:
     1. Klicka på den **Anslut** knappen bredvid den **Azure Stack-prenumerationer** rutan.
         - Ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och klicka på **logga In**.
-    2. I den **Azure Stack-prenumerationer** väljer din prenumeration.
+    2. I den **Azure Stack-prenumerationer** markerar den **standard prenumeration på leverantör**.
     3. I den **Azure Stack platser** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure-stacken Development Kit.
     4. Klicka på **Nästa**.
 
@@ -126,7 +126,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
     ![Installationsprogrammet för App Service][11]
 
-12. Ange SQL Server-information för server-instansen som används för att Apptjänst resource provider-databaser, och klicka sedan på **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning.
+12. Ange SQL Server-information för server-instansen som används för att Apptjänst resource provider-databaser, och klicka sedan på **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning. Du **måste** Ange intern IP-adress eller fullständigt domännamn för SQL Server-namn.
 
 > [!NOTE]
 > Installationsprogrammet försöker att testa anslutningen till SQl Server innan du fortsätter.  Om du vill distribuera i ett befintligt virtuellt nätverk, kan installationsprogrammet kanske inte kan ansluta till SQL Server och visar en varning som frågar om du vill fortsätta  Kontrollera SQL Server-information och fortsätta om de är korrekta.

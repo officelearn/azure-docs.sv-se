@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovidern
 Du kan använda SQL-instanser på virtuella datorer i i din [Azure Stack](azure-stack-poc.md), eller en instans utanför din Azure Stack-miljö tillhandahålls resursprovidern kan ansluta till den. Allmänna krav är:
@@ -96,25 +96,21 @@ Konfigurera SQL Always On instanser kräver ytterligare åtgärder och omfattar 
 > [!NOTE]
 > SQL-kortet RP _endast_ stöder SQL 2016 SP1 Enterprise eller senare instanser för alltid på, eftersom den kräver nya SQL-funktioner som automatisk seeding. Utöver föregående vanliga lista över kraven:
 
-* Du måste ange en filserver förutom SQL Always On-datorer. Det finns en [Azure Stack Quickstart mallen](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) som kan skapa den här miljön för dig. Det kan också användas som en guide för att skapa din egen instans.
+Du måste specifikt aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server:
 
-* Du måste konfigurera SQL-servrar. Du måste specifikt aktivera [automatisk Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) på varje tillgänglighetsgrupp för varje instans av SQL Server.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+Använd följande SQL-kommandon på sekundär instanser:
 
-På sekundära instanser
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 Så här lägger du till SQL alltid på värdservrar:
 
@@ -124,14 +120,16 @@ Så här lägger du till SQL alltid på värdservrar:
 
     Den **värd för SQL-servrar** bladet är där du kan ansluta Resource Provider för SQL Server till faktiska instanser av SQL Server som fungerar som den resursprovidern backend.
 
-
-3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen, som till att använda FQDN eller IPv4-adress för alltid på lyssnare (och valfritt portnummer). Ange kontoinformationen för det konto som du har konfigurerat med systemadministratörsprivilegier.
+3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen, som till att använda FQDN-adressen för alltid på lyssnare (och valfritt portnummer). Ange kontoinformationen för det konto som du har konfigurerat med systemadministratörsprivilegier.
 
 4. Den här kryssrutan om du vill aktivera stöd för instanser av SQL Always On-Tillgänglighetsgruppen.
 
     ![Värdservrar](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Lägga till en SQL Always On-instans till en SKU. Du kan blanda fristående servrar med Always On-instanser i samma SKU: N. Som bestäms när du lägger till den första värdservern. Försök att blanda typer efteråt resulterar i ett fel.
+5. Lägga till en SQL Always On-instans till en SKU. 
+
+> [!IMPORTANT]
+> Du kan blanda fristående servrar med Always On-instanser i samma SKU: N. Ett försök görs att blanda typer när du lägger till de första värd servern resulterar i ett fel.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>Göra SQL-databaser som är tillgängliga för användare

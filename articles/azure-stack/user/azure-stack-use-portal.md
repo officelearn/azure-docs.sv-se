@@ -5,26 +5,25 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Med hjälp av Azure Stack-portalen
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Du kan använda Azure Stack-portalen för att prenumerera på offentliga erbjudanden och använda de tjänster som dessa erbjudanden tillhandahåller som en konsument Azure Stack-tjänster. Om du har använt Azure-portalen innan är du redan bekant med användargränssnittet.
+Du kan använda Azure Stack-portalen för att prenumerera på offentliga erbjudanden och använder de tjänster som dessa erbjudanden tillhandahåller. Om du har använt den globala Azure-portalen kan är du redan bekant med hur webbplatsen fungerar.
 
 ## <a name="access-the-portal"></a>Åtkomst till portalen
 
@@ -60,13 +59,13 @@ Om du behöver vägledning för hur du använder tillgängliga tjänster kan fin
     I synnerhet föreslår vi att du läser igenom följande artiklar för att komma igång:
 
     - [Nyckeln överväganden: använda tjänster eller utveckla appar för Azure-Stack](azure-stack-considerations.md)
-    - I avsnittet ”använda services” i dokumentationen finns en ”överväganden” artikel för varje tjänst. Sidan ”överväganden” beskrivs skillnaderna mellan tjänsten erbjuds i Azure och samma tjänst som erbjuds i Azure-stacken. Ett exempel finns [VM överväganden](azure-stack-vm-considerations.md). Det kan finnas andra informationen i avsnittet ”använda services” som är unik för Azure-stacken.
+    - I den **använder tjänster** avsnittet av dokumentationen är en artikel i överväganden för varje tjänst. Sidan överväganden beskrivs skillnaderna mellan tjänsten erbjuds i Azure och samma tjänst som erbjuds i Azure-stacken. Ett exempel finns [VM överväganden](azure-stack-vm-considerations.md). Det kan finnas andra uppgifter i den **använder tjänster** avsnitt som är unik för Azure-stacken.
      
       Du kan använda i Azure-dokumentationen som allmän referens för en tjänst, men du måste vara medveten om dessa skillnader. Förstå att dokumentationen länkar på den **Quickstart självstudier** panelen pekar på Azure-dokumentationen.
 
 ## <a name="get-support"></a>Få support
 
-Om du behöver ytterligare hjälp kan du kontakta din organisation eller service-leverantör för hjälp.
+Om du behöver support kontaktar du din organisation eller service provider för att få hjälp.
 
 Om du använder Azure Stack Development Kit den [Azure Stack-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) är den enda källan för support.
 

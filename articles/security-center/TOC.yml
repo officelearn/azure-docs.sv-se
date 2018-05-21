@@ -109,6 +109,8 @@
           href: security-center-just-in-time.md
         - name: Anpassningsbara programkontroller
           href: security-center-adaptive-application.md
+        - name: Övervakning av filintegritet
+          href: security-center-file-integrity-monitoring.md
     - name: Hantera säkerhetslösningar
       href: security-center-partner-integration.md
       items:

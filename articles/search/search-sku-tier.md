@@ -9,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 5454e659d488c84de32a15de65226bc3e1b07dfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -67,9 +67,9 @@ Flytta fokus till vanliga standard nivåer, **S1 S3** är en utvecklingen av ök
 | Partitionsstorlek|  25 GB | 100 GB | 250 GB |  |  |  |  |
 | index och indexeraren gränser| 50 | 200 | 200 |  |  |  |  |
 
-**S1** är ett vanligt val när dedicerade resurser blir nödvändigt. Med 25 GB partitioner för upp till 12 partitioner, begränsa per-tjänsten på **S1** är 300 GB total om du maximerar partitioner över repliker (se [allokera partitioner och repliker](search-capacity-planning.md#chart) mer realistiska och belastningsutjämnade sammansättningar.)
+**S1** är ett vanligt val när det blir nödvändigt dedicerade resurser och flera partitioner. Med 25 GB partitioner för upp till 12 partitioner, begränsa per-tjänsten på **S1** är 300 GB total om du maximerar partitioner över repliker (se [allokera partitioner och repliker](search-capacity-planning.md#chart) för fler belastningsutjämnade sammansättningar.)
 
-Utöver lagring och gränser är andra aspekter av kapaciteten för tjänsten enhetliga mellan nivåerna. Repliker som är instanser av sökmotorn (hantering av indexering och fråga operations), inte varierar beroende på nivå: en **S1** repliken är samma som en **S3** repliken. På liknande sätt nyttolaster för förfrågan och svar, genomflödet av frågor per sekund och maximal körningstid också inte varierar beroende på nivån.
+Portalen och prisnivå sidor aktivera partitionsstorlek och lagring, men för varje nivå alla compute-funktioner (diskkapacitet, hastighet, processorer) växer linjärt med pris. En **S2** repliken är snabbare än **S1**, och **S3** är snabbare än **S2**. **S3** nivåer Bryt vanligtvis linjär beräknings-priser mönster med oproportionerligt snabbare i/o. Om du tror att i/o som flaskhals, en **S3** ger dig mycket mer IOPS än lägre nivåer.
 
 **S3** och **S3 HD** backas upp av identiska hög kapacitet infrastruktur, men var och en når sin övre gräns på olika sätt. **S3** riktar sig till ett mindre antal mycket stora index. Därför dess maxgränsen är bundet till en resurs (2,4 TB för varje tjänst). **S3 HD** riktar sig till ett stort antal mycket små index. På 1 000 index **S3 HD** når gränsen i form av indexet begränsningar. Om du är en **S3 HD** kund som kräver mer än 1 000 index, kontakta Microsofts Support för information om hur du fortsätter.
 

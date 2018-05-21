@@ -4,12 +4,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
 ms.topic: conceptual
-ms.service: iot-dps
-ms.openlocfilehash: a9115ee9c49ea069999393a6430b010addf672de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.service: iot-hub
+ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kunden datafunktioner för begäran
 
@@ -42,7 +42,7 @@ Innehavaradministratörer kan använda kopiera och klistra in i bladet IoT-enhet
 Det är också möjligt att utföra exportåtgärder för enheter med hjälp av REST API: er. Mer information finns i [Device Api - hämta enheten](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice).
 
 > [!NOTE]
-> När du använder Microsoft enterprise services genererar Microsoft viss information kallas systemgenererade loggar. Vissa Azure IoT Hub enheten etablering systemgenererade tjänstloggar är inte tillgänglig eller exportera av innehavaradministratörer. Dessa loggar utgöra faktiska åtgärder i tjänsten och diagnostikdata som rör enskilda enheter.
+> När du använder Microsoft enterprise services genererar Microsoft viss information kallas systemgenererade loggar. Vissa Azure IoT Hub systemgenererade loggar är inte tillgänglig eller exportera av innehavaradministratörer. Dessa loggar utgöra faktiska åtgärder i tjänsten och diagnostikdata som rör enskilda enheter.
 
 ## <a name="links-to-additional-documentation"></a>Länkar till ytterligare dokumentation
 

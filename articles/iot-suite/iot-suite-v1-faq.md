@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite vanliga frågor och svar | Microsoft Docs"
-description: "Vanliga frågor och svar om IoT Suite"
-services: 
+title: Azure IoT Suite vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor och svar om IoT Suite
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4c8ecdae8d84028986b4b3fba94486ce8eb7f1bc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Vanliga frågor och svar om IoT Suite
 
-Se även anslutna factory specifika [vanliga frågor och svar](iot-suite-faq-cf.md).
+Se även anslutna factory specifika [vanliga frågor och svar](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Var hittar källkoden för de förkonfigurerade lösningarna?
 
@@ -34,7 +34,7 @@ Källkoden lagras i följande GitHub-databaser:
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Hur uppdatera till den senaste versionen av fjärråtkomst övervakning förkonfigurerade lösning som använder hanteringsfunktionerna för IoT Hub-enheter?
 
-* Om du distribuerar en förkonfigurerade lösning från webbplatsen https://www.azureiotsuite.com/ distribuerar alltid en ny instans av den senaste versionen av lösningen.
+* Om du distribuerar en förkonfigurerade lösningar från den https://www.azureiotsuite.com/ plats, den alltid distribuerar en ny instans av den senaste versionen av lösningen.
 * Om du distribuerar en förkonfigurerade lösning med hjälp av kommandoraden, kan du uppdatera en befintlig distribution med ny kod. Se [Cloud deployment] [ lnk-cloud-deployment] i GitHub [databasen][lnk-remote-monitoring-github].
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Hur kan jag lägga till stöd för en ny enhet metod fjärråtkomst övervakning förkonfigurerade lösningen?
@@ -104,7 +104,7 @@ Finns i blogginlägget Eric Golpe [genomgång av du tar bort en Azure AD-klient]
 Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
 
 * [Förutsägande Underhåll förkonfigurerade lösning: översikt][lnk-predictive-overview]
-* [Anslutna factory förkonfigurerade lösning: översikt](iot-suite-connected-factory-overview.md)
+* [Anslutna factory förkonfigurerade lösning: översikt](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT-säkerhet från grunden][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md

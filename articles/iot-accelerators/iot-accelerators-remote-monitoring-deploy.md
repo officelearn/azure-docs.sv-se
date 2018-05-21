@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 30d0b0b0250563cf09a50e8165ad9fb1047fd570
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Distribuera fjärråtkomst övervakning solution accelerator
 
@@ -87,6 +87,6 @@ I den här självstudiekursen lärde du dig att:
 > * Distribuera solution accelerator
 > * Logga in på solution accelerator
 
-Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](./../iot-suite/iot-suite-remote-monitoring-explore.md).
+Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](iot-accelerators-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: e91e27da5ef80236768d19c5870ac96f19f6b074
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -27,14 +27,12 @@ Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat ad
 
 Den här funktionen är tillgänglig för följande Azure-tjänster och regioner:
 
-- **Azure Storage**: – Allmänt tillgänglig. Alla regioner i det offentliga Azure-molnet och Azure Government.
-- **Azure SQL Database**: Generellt tillgänglig i alla Azure-regioner. 
-- **Azure SQL Data Warehouse**: Förhandsversion. Alla regioner i det offentliga Azure-molnet.
+- **Azure Storage**: Allmänt tillgänglig i alla Azure-regioner
+- **Azure SQL Database**: Allmänt tillgänglig i alla Azure-regioner
+- **Azure Cosmos DB**: Allmänt tillgängligt i alla Azure-regioner 
+- **Azure SQL Data Warehouse**: Förhandsversioni alla offentliga Azure-molnregioner
 
-De mest uppdaterade meddelandena om förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
-
->[!NOTE]
-> Som förhandsversion kanske funktionen inte har samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -50,7 +48,7 @@ Tjänstslutpunkter har följande fördelar:
 
 - Funktionen är bara tillgänglig för virtuella nätverk som distribuerats med Azure Resource Manager-distributionsmodellen.
 - Slutpunkter aktiveras i undernät som konfigurerats i virtuella Azure-nätverk. Slutpunkter kan inte användas för trafik från ditt lokala nätverk till Azure-tjänster. Mer information finns i [Skydda Azure-tjänståtkomst från lokala nätverk](#securing-azure-services-to-virtual-networks).
-- En tjänstslutpunkt gäller bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. I syfte att ge stöd för RA-GRS- och GRS-trafik för Azure Storage så utökas slutpunkter även med de hopparade regioner där det virtuella nätverket är distribuerat. Lär dig mer om [parade Azure-regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- För Azure SQL gäller en tjänstslutpunkt bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. I syfte att ge stöd för RA-GRS- och GRS-trafik för Azure Storage så utökas slutpunkter även med de hopparade regioner där det virtuella nätverket är distribuerat. Lär dig mer om [parade Azure-regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Skydda Azure-tjänster i virtuella nätverk
 
@@ -68,7 +66,7 @@ Tjänstslutpunkter har följande fördelar:
 
 - Tjänstslutpunkter konfigureras i ett undernät i ett virtuellt nätverk. Slutpunkter fungerar med valfri typ av beräkningsinstans som körs inom det undernätet.
 - Du kan konfigurera flera tjänstslutpunkter för alla Azure-tjänster som stöds (till exempel Azure Storage eller Azure SQL Database) i ett undernät.
-- Virtuella nätverk måste finnas i samma region som Azure-tjänstresursen. Om du använder GRS- och RA-GRS-konton för Azure Storage måste det primära kontot finnas i samma region som det virtuella nätverket.
+- För Azure SQL måste virtuella nätverk finnas i samma region som Azure-tjänstresursen. Om du använder GRS- och RA-GRS-konton för Azure Storage måste det primära kontot finnas i samma region som det virtuella nätverket. För alla andra tjänster kan Azure-serviceresurser säkras mot virtuella nätverk i en region. 
 - Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#Provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
@@ -112,7 +110,7 @@ Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika pren
 
 ## <a name="pricing-and-limits"></a>Priser och begränsningar
 
-Det tillkommer inga extra avgifter för att använda tjänstslutpunkter. Dagens aktuella prismodell för Azure-tjänster (Azure Storage, Azure SQL Database) gäller.
+Det tillkommer inga extra avgifter för att använda tjänstslutpunkter. Dagens aktuella prismodell för Azure-tjänster (Azure Storage, Azure SQL Database med mera) gäller.
 
 Det finns ingen begränsning av det totala antalet tjänstslutpunkter i ett virtuellt nätverk.
 
@@ -124,5 +122,5 @@ För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finna
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
--  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra Azure Storage-kontot till det undernätet.
+-  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra Azure Storage-kontot till det undernätet.
 

@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: ''
-ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Vad är Azure IoT Edge – förhandsversion
 
 Azure IoT Edge flyttar molnbaserade analyser och anpassad affärslogik så att din organisation kan fokusera på affärsinsikter istället för datahantering. Gör det möjligt för lösningen att leva upp till kraven på skalning genom att konfigurera din IoT-programvara, distribuera den till enheten via standardbehållare och övervaka alltihop från molnet.
 
 >[!NOTE]
->Azure IoT Edge är endast tillgängligt på standardnivån för IoT Hub. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../iot-hub/iot-hub-scaling.md).
+>Azure IoT Edge finns tillgängligt på kostnadsfri och standardnivå för IoT Hub. Den kostnadsfria nivån är endast för testning och utvärdering. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../iot-hub/iot-hub-scaling.md).
 
 Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om du vill att enheten ska reagera så snabbt som möjligt vid nödfall kan du utföra avvikelseidentifiering på själva enheten. Om du vill minska bandbreddskostnaderna och undvika att överföra terabyte med rådata kan du på samma sätt utföra datarensning och sammanställning lokalt. Skicka sedan insikterna till molnet. 
 

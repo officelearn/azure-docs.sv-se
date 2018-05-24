@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen | Microsoft Docs
-description: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
+title: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell | Microsoft Docs
+description: I den här självstudien lär du dig hur du använder Azure PowerShell för att skapa och hantera virtuella Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cce3fd003888c76490cb402b658f5c3aa76ab11e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eeba3b38e4a78bc33b995ee06f76116601c4d12
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudie: skapa och hantera virtuella Windows-datorer med Azure PowerShell
 
 Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs den grundläggande distributionen av virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
@@ -33,10 +33,9 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
-
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
@@ -94,11 +93,11 @@ I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **anv
 
 ## <a name="understand-vm-images"></a>Förstå VM-avbildningar
 
-På Azures marknadsplats finns många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016-Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Den här processen består av att hitta utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen. 
+På Azures marknadsplats finns många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016 Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Den här processen består av att hitta utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen. 
 
 Använd kommandot [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) till att returnera en lista med avbildningsutgivare:
 
-```powersehll
+```powershell
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -157,7 +156,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att PowerShell-kommandotolkarna återgår till dig. Du kan visa information om bakgrundsjobb med cmdleten `Job`.
+Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att PowerShell-kommandotolkarna återgår till dig. Du kan visa information om bakgrundsjobb med cmdleten `Get-Job`.
 
 
 ## <a name="understand-vm-sizes"></a>Förstå VM-storlekar

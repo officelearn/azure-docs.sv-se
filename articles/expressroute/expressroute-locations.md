@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2018
+ms.date: 05/11/2018
 ms.author: pareshmu
-ms.openlocfilehash: 87fc79a525ec61f3ce15a60ee2d07efd178fb4d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f448f1d7d669aa2c006169c53d8a239360fd16b8
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -46,7 +46,8 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Europa** |Frankrike (centrala), Frankrike (södra), Europa (norra), Europa (västra), Storbritannien (västra), Storbritannien (södra) |Amsterdam, Dublin, London, Newport (Wales), Paris |
 | **Asien** |Östra Asien, Sydostasien |Hongkong SAR, Singapore, Singapore2 |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
-| **Australien** |Australien, sydöstra; Australien, östra; Australien centrala; Australien centrala 2 |Melbourne, Sydney |
+| **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
+| **Australiensiska myndigheter** | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 | 
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
 | **Sydkorea** |Centrala Korea, Sydkorea |Busan, Söul |
 
@@ -77,6 +78,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Stöds |Stöds |Montreal, Toronto, Quebec City |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Stöds |Stöds |Amsterdam, Hong Kong SAR, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://c3ntro.com/)** |Kommer snart |Kommer snart |Miami |
+| **CDC** | Stöds | Stöds | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Stöds |Stöds |New York, San Antonio, Tokyo, Toronto |
 | **China Telecom Global** |Stöds |Stöds inte |Hongkong SAR |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal, Toronto |
@@ -94,11 +96,11 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **Internet Solutions - Cloud Connect** |Stöds |Stöds |Amsterdam, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Dublin, London, Paris |
-| **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Stöds |Stöds |Toronto
+| **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Stöds |Stöds | Silicon Valley, Toronto |
 | **Jisc** |Stöds |Stöds |London |
 | **KINX** |Stöds |Stöds |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Stöds | Stöds | Amsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas, London, Newport, Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Newport, Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Stöds |Stöds |Busan, Söul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Denver, Dublin, Hong Kong, Las Vegas, London, Los Angeles, Melbourne, Miami, New York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
 | **MTN** |Stöds |Stöds |London |
@@ -120,8 +122,9 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Stöds |Stöds |Amsterdam, Dublin, London |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Stöds |Stöds |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Stöds |Stöds |London |
-| **Telmex Uninet**| Kommer snart | Kommer snart | Dallas+ |
 | **Telenor** |Stöds |Stöds |Amsterdam, London |
+| **Telia-operatör** | Stöds | Stöds |London, Washington DC |
+| **Telmex Uninet**| Kommer snart | Kommer snart | Dallas+ |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Stöds |Stöds |Montreal, Toronto |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Stöds |Stöds |Sao Paulo |
@@ -171,6 +174,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
   * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
+  * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Låt anslutningsleverantören utöka ditt nätverk till den valda peeringplatsen.
   * Se till att anslutningsleverantören utökar anslutningen med hög tillgänglighet så att det inte finns några enskilda problempunkter.
@@ -201,6 +205,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
 | **[Gtt Communications Inc](https://www.gtt.net/wp-content/uploads/2017/04/EtherCloud-Data-Sheet.pdf)** |Equinix | Washington DC |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
+| **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
 | **LGA Telecom** |Equinix |Singapore|
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix | Chicago, New York, Washington DC |
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hongkong |

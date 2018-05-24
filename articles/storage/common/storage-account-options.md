@@ -2,18 +2,18 @@
 title: Alternativ för Azure Storage-konton | Microsoft Docs
 description: Information om alternativ för Azure Storage.
 services: storage
-author: jirwin
+author: hux
 manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2018
-ms.author: jirwin
-ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 05/02/2018
+ms.author: hux
+ms.openlocfilehash: 69da15b98e6c519a3a8352cc7ca7212286cb4e52
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
@@ -33,7 +33,7 @@ Varje typ av konto beskrivs mer detaljerat i avsnittet nedan:
 
 GPv2-konton (General-purpose v2) är lagringskonton som stöder alla de senaste funktionerna för blobar, filer, köer och tabeller. GPv2-konton stöder alla API: er och funktioner som stöds av GPv1- och Blob Storage-konton. De har också stöd för samma hållbarhets-, tillgänglighets-, skalbarhets- och prestandafunktioner i dessa kontotyper. Prisstrukturen för GPv2-konton har utformats med låga gigabytepriser och konkurrenskraftiga transaktionspriser.
 
-Du kan uppgradera ditt GPv1-konto till ett GPv2-konto med PowerShell eller Azure CLI. 
+Du kan uppgradera ditt GPv1-konto till ett GPv2-konto med Azure Portal, PowerShell eller Azure CLI. 
 
 För blockblobar i ett GPv2-lagringskonto kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. 
 
@@ -73,8 +73,6 @@ GPv1-lagringskonton (General Purpose v1) är den äldsta typen av lagringskonto,
 ### <a name="blob-storage-accounts"></a>Blob Storage-konton
 
 Blob Storage-konton stöder samma funktioner för blockblobar som GPv2, men stödet är begränsat till blockblobar. Prisstrukturen liknar den som används för GPv2-konton. Alla kunder bör granska prisskillnaderna mellan Blob Storage- och GPv2-konton, och överväga att uppgradera till GPv2. Uppgraderingen kan inte ångras.
-
-Möjlighet att uppgradera Blob Storage-konton till GPv2 kommer snart.
 
 > [!NOTE]
 > Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar.
@@ -116,9 +114,10 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 
 I det här avsnittet visas följande scenarier på Azure Portal:
 
-* Skapa ett GPv2-lagringskonto.
-* Konvertera ett GPv1- eller Blob Storage-konto till ett GPv2-lagringskonto.
-* Ange lagringsnivåer på konto- och blobnivå för ett GPv2-lagringskonto.
+* [Skapa ett GPv2-lagringskonto.](#create-a-gpv2-storage-account-using-the-azure-portal)
+* [Konvertera ett GPv1- eller Blob Storage-konto till ett GPv2-lagringskonto.](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
+* [Ange konto i ett GPv2-lagringskonto.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [Ange blobnivå i ett Blob Storage- eller GPv2-lagringskonto.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här inställningen gäller för hela lagringskontot. Arkiv kan bara anges för en specifik blob.
 
@@ -142,7 +141,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 6. Välj replikeringsalternativ för lagringskontot: **LRS**, **ZRS**, **GRS** eller **RA-GRS**. Standardinställningen är **RA-GRS**.
 
-    LRS = lokalt redundant lagring. GRS = geo-redundant lagring (två regioner). RA-GRS är skrivskyddad geo-redundant lagring (två regioner med läsbehörighet till den andra).
+    LRS = lokalt redundant lagring. GRS = geo-redundant lagring (två regioner). RA-GRS = skrivskyddad geo-redundant lagring (två regioner med läsbehörighet till den andra).
 
     Mer information om replikeringsalternativen för Azure Storage finns i [Azure Storage-replikering](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -156,7 +155,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 11. Skapa lagringskontot genom att klicka på **Skapa**.
 
-### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Konvertera ett GPv1-konto till ett GPv2-lagringskonto med Azure Portal
+### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Konvertera ett GPv1- eller Blob Storage-konto till ett GPv2-lagringskonto med Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -316,7 +315,7 @@ Eftersom du inte kan nedgradera från GPv2 bör du fundera över vad detta har f
 
 **Kan jag uppgradera mitt befintliga lagringskonto till ett GPv2-lagringskonto?**
 
-Ja. GPv1-konton kan enkelt uppgraderas till GPv2 i Portal, eller med PowerShell eller CLI. Blob Storage-konton kan uppgraderas till GPv2 med PowerShell eller CLI. Möjlighet att uppgradera ett Blob Storage-konto till GPv2 i Portal kommer snart.
+Ja. GPv1-lagringskonton eller Blob Storage-konton kan enkelt uppgraderas till GPv2 i Portal, eller med PowerShell eller CLI. 
 
 Eftersom du inte kan nedgradera från GPv2 bör du fundera över vad detta har för påverkan på kostnaderna innan du uppgraderar dina konton till GPv2.
 

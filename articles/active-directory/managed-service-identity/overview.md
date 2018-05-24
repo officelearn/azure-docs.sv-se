@@ -1,6 +1,6 @@
 ---
-title: Hanterade tjänstidentiteten (MSI) för Azure Active Directory
-description: En översikt över hanterade tjänstidentiteten för Azure-resurser.
+title: Beskrivning av Hanterad tjänstidentitet (MSI) för Azure-resurser
+description: En översikt över Hanterad tjänstidentitet för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -8,107 +8,116 @@ manager: mtillman
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
-ms.openlocfilehash: 6b62baf1fdad6e08535b13f2ca461b00156a7f14
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.topic: overview
+ms.custom: mvc
+ms.date: 03/28/2018
+ms.author: daveba
+ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="managed-service-identity-msi-for-azure-resources"></a>Hanterad Service identitet (MSI) för Azure-resurser
+#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Vad är Hanterad tjänstidentitet (MSI) för Azure-resurser?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En gemensam utmaning när skapa molnprogram är hur du hanterar autentiseringsuppgifterna som måste vara i koden för att autentisera till molntjänster. Skydda autentiseringsuppgifterna är en viktig uppgift. Vi rekommenderar de aldrig visas på arbetsstationer eller checkas till källkontroll. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter och andra nycklar och hemligheter, men din kod måste autentisera till Key Vault de. Hanterad Service identitet (MSI) gör att lösa problemet enklare genom att ge en automatiskt hanterade identitet i Azure-tjänster i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault utan några autentiseringsuppgifter i koden.
+En vanligt utmaning när man skapar molnprogram är hur man hanterar de autentiseringsuppgifter som måste finnas i koden för att kunna autentisera till molntjänster. Att skydda dessa autentiseringsuppgifter är en viktig uppgift. Vi rekommenderar att de aldrig visas på utvecklarnas arbetsstationer eller att de checkas in i källkodskontrollen. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-När du aktiverar hanterade tjänstidentiteten på en Azure-tjänst skapas en identitet för tjänstinstansen automatiskt i Azure AD-klient som används av din Azure-prenumeration i Azure.  Under försättsbladen etablerar Azure autentiseringsuppgifterna för identiteten på tjänstinstansen.  Din kod kan göra en lokal begäran om att få åtkomst-token för tjänster som stöder Azure AD-autentisering.  Azure hand tar om att de autentiseringsuppgifter som används av tjänstinstansen.  Om tjänstinstansen tas bort rensas Azure automatiskt autentiseringsuppgifterna och identitet i Azure AD.
+Det finns två typer av hanterade tjänstidentiteter: **Systemtilldelade** och **Användartilldelade**.
 
-Här är ett exempel på hur hanterade tjänstidentiteten fungerar med Azure Virtual Machines.
+- En **Systemtilldelad identitet** aktiveras direkt på en instans av Azure-tjänsten. När den är aktiverad skapar Azure en identitet för tjänstinstansen i Azure AD-klientorganisationen, som är betrodd av prenumerationen för tjänstinstansen. När identiteten har skapats etableras autentiseringsuppgifterna på tjänstinstansen. Livscykeln för en systemtilldelad identitet är direkt knuten till den tjänstinstans i Azure som den är aktiverad på. Om tjänstinstansen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
+- En **Användartilldelad identitet** (offentlig granskning) skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den har tilldelats till.
 
-![Virtual Machine MSI-exempel](../media/msi-vm-imds-example.png)
+Koden kan därför antingen använda en systemtilldelad eller användartilldelad identitet, och begära åtkomsttokens för tjänster som stöder Azure AD-autentisering. Samtidigt tar Azure hand om de autentiseringsuppgifter som används av tjänstinstansen.
 
-1. Azure Resource Manager får ett meddelande om att aktivera den hanterade tjänsten identitet (MSI) på en virtuell dator.
-2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD för att representera identiteten för den virtuella datorn. Tjänstens huvudnamn har skapats i Azure AD-klient som är betrodd av den här prenumerationen.
-3. Azure Resource Manager konfigurerar information för tjänstens huvudnamn för den virtuella datorn i tjänsten Azure instans Metadata för den virtuella datorn. Det här steget omfattar konfigurering av klient-ID och certifikat som används för att få åtkomst-token från Azure AD. *Obs: MSI IMDS slutpunkten ersätter den aktuella MSI VM-tillägg-slutpunkten. Mer information om den här ändringen finns vanliga frågor och kända problem sida*
-4. Nu när tjänstens huvudnamn identiteten för den virtuella datorn är känt, kan det beviljas åtkomst till Azure-resurser. Exempelvis om din kod måste anropa Azure Resource Manager, vill du tilldela tjänstens huvudnamn för den virtuella datorn sedan rätt roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD.  Om din kod måste anropa Nyckelvalvet, skulle du ge din kodåtkomst till specifika secret eller nyckeln i Nyckelvalvet.
-5. Din kod som körs på den virtuella datorn begär en token från slutpunkten MSI Azure instans Metadata Service (IMDS), som endast är tillgänglig från den virtuella datorn: http://169.254.169.254/metadata/identity/oauth2/token. Resursparametern anger vilken tjänst som token som skickas. Till exempel om du vill att din kod för att autentisera till Azure Resource Manager du skulle använda resursen =https://management.azure.com/.
-6. Azure-instans metadatabegäranden en åtkomst-token från Azure AD, med hjälp av klient-ID och certifikat för den virtuella datorn. Azure AD returnerar en åtkomsttoken för JSON-Webbtoken (JWT).
+Här är ett exempel på hur systemtilldelade identiteter fungerar i Azure Virtual Machines:
+
+![MSI-exempel för virtuell dator](overview/msi-vm-vmextension-imds-example.png)
+
+1. Azure Resource Manager tar emot en begäran om att aktivera den systemtilldelade identiteten på en virtuell dator.
+2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar identiteten för den virtuella datorn. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
+3. Azure Resource Manager konfigurerar identiteten på den virtuella datorn:
+    - Azure Instance Metadata Service-identitetens slutpunkt uppdateras med klient-ID och certifikat för tjänstens huvudnamn.
+    - MSI VM-tillägget etableras och klient-ID och certifikat läggs till för tjänstens huvudnamn. (kommer att bli inaktuell)
+4. Nu när den virtuella datorn har en identitet, använder vi informationen om tjänstens huvudnamn för ge åtkomst till Azure-resursernas virtuella dator. Om din kod exempelvis måste anropa Azure Resource Manager, tilldelar du tjänstens huvudnamn för den virtuella datorn lämplig roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD. Om din kod måste anropa Key Vault, ger du din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault.
+5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
+
+    - Azure Instance Metadata Service (IMDS) identitetsslutpunkt: http://169.254.169.254/metadata/identity/oauth2/token (rekommenderas)
+        - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
+        - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
+    - Slutpunkt för MSI VM-tillägget: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
+        - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
+
+6. Anrop görs till Azure AD och begär en åtkomsttoken enligt steg 5 med det klient-ID och certifikat som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 
-Varje Azure-tjänst som stöder hanterade tjänstidentiteten har sin egen metod för din kod att hämta en åtkomst-token. Gå igenom självstudierna för varje tjänst och ta reda på den specifika metoden att hämta en token.
+Med hjälp av samma diagram är här ett exempel på hur en användartilldelad MSI fungerar med Azure Virtual Machines.
 
-## <a name="try-managed-service-identity"></a>Försök hanterade tjänstidentiteten
+1. Azure Resource Manager tar emot en begäran om att skapa en användartilldelad identitet.
+2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar den användartilldelade identiteten. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
+3. Azure Resource Manager tar emot en begäran om att konfigurera den användartilldelade identiteten på en virtuell dator:
+    - Azure Instance Metadata Service-identitetens slutpunkt uppdateras med klient-ID och certifikat för tjänstens huvudnamn i den användartilldelade identiteten.
+    - MSI VM-tillägget etableras och klient-ID och certifikat för tjänstens huvudnamn i den användartilldelade identiteten läggs till (kommer att bli inaktuell).
+4. Nu när den användartilldelade identiteten har skapats, använder vi informationen om tjänstens huvudnamn för ge åtkomst till Azure-resurser. Om din kod exempelvis måste anropa Azure Resource Manager, tilldelar du tjänstens huvudnamn för den användartilldelade identiteten lämplig roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD. Om din kod måste anropa Key Vault, ger du din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault. Obs: Även det här steget kan utföras innan steg 3.
+5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
 
-Försök hanterade tjänstidentiteten självstudiekursen Läs slutpunkt till slutpunkt-scenarier för att komma åt olika Azure-resurser:
+    - Azure Instance Metadata Service (IMDS) identitetsslutpunkt: http://169.254.169.254/metadata/identity/oauth2/token (rekommenderas)
+        - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
+        - Klient-ID:ts parameter anger den identitet som token har begärt. Detta krävs för att undvika konflikter när mer än en tilldelad användaridentitet finns på en enda virtuell dator.
+        - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
+
+    - Slutpunkt för MSI VM-tillägget: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
+        - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
+        - Klient-ID:ts parameter anger den identitet som token har begärt. Detta krävs för att undvika konflikter när mer än en tilldelad användaridentitet finns på en enda virtuell dator.
+6. Anrop görs till Azure AD och begär en åtkomsttoken enligt steg 5 med det klient-ID och certifikat som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
+7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
+     
+## <a name="try-managed-service-identity"></a>Testa Hanterad tjänstidentitet
+
+Testa självstudien Hanterad tjänstidentitet för att lära dig scenarier från slutpunkt till slutpunkt där du får åtkomst till olika Azure-resurser:
 <br><br>
-| Från MSI-aktiverade resurs | Lär dig att |
+| Från en MSI-aktiverad resurs | Lär dig att |
 | ------- | -------- |
-| Azure VM (Windows) | [Åtkomst till Azure Data Lake Store med Windows VM hanterade tjänstidentiteten](tutorial-windows-vm-access-datalake.md) |
-|                    | [Åtkomst till Azure Resource Manager med en Windows VM hanterade tjänstidentiteten](tutorial-windows-vm-access-arm.md) |
-|                    | [Åtkomst till Azure SQL med Windows VM hanterade tjänstidentiteten](tutorial-windows-vm-access-sql.md) |
-|                    | [Åtkomst till Azure Storage via åtkomstnyckel med en Windows VM hanteras tjänstidentitet](tutorial-windows-vm-access-storage.md) |
-|                    | [Åtkomst till Azure Storage via SAS med en Windows VM hanterade tjänstidentiteten](tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Åtkomst till en Azure-AD resurs med en Windows VM hanterade tjänstidentiteten och Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [Åtkomst till Azure Data Lake Store med en virtuell Linux-dator hanterade tjänstidentiteten](tutorial-linux-vm-access-datalake.md) |
-|                    | [Åtkomst till Azure Resource Manager med en virtuell Linux-dator hanterade tjänstidentiteten](tutorial-linux-vm-access-arm.md) |
-|                    | [Åtkomst till Azure Storage via åtkomstnyckel med hanterade tjänstidentiteten en Linux VM](tutorial-linux-vm-access-storage.md) |
-|                    | [Åtkomst till Azure Storage via SAS med en virtuell Linux-dator hanterade tjänstidentiteten](tutorial-linux-vm-access-storage-sas.md) |
-|                    | [Åtkomst till en Azure-AD resurs med en hanterade tjänstidentiteten i Linux VM och Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
-| Azure App Service  | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Functions    | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Service Bus  | [Använda hanterade tjänstidentiteten med Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
-| Azure Event Hubs   | [Använda hanterade tjänstidentiteten med Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure VM (Windows) | [Åtkomst till Azure Data Lake Store med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-datalake.md) |
+|                    | [Åtkomst till Azure Resource Manager med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-arm.md) |
+|                    | [Åtkomst till Azure SQL med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-sql.md) |
+|                    | [Åtkomst till Azure Storage via en åtkomstnyckel med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-storage.md) |
+|                    | [Åtkomst till Azure Storage via SAS med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Åtkomst till en resurs som inte finns i Azure AD med en hanterad tjänstidentitet i en virtuell Windows-dator och Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [Åtkomst till Azure Data Lake Store med en hanterad tjänstidentitet i en virtuell Linux-dator](tutorial-linux-vm-access-datalake.md) |
+|                    | [Åtkomst till Azure Resource Manager med en hanterad tjänstidentitet i en virtuell Linux-dator](tutorial-linux-vm-access-arm.md) |
+|                    | [Åtkomst till Azure Storage via en åtkomstnyckel med en hanterad tjänstidentitet i en virtuell Linux-dator](tutorial-linux-vm-access-storage.md) |
+|                    | [Åtkomst till Azure Storage via SAS med en hanterad tjänstidentitet i en virtuell Linux-dator](tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Åtkomst till en resurs som inte finns i Azure AD med hanterad tjänstidentitet i en virtuell Linux-dator och Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Använda hanterad tjänstidentitet med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Functions    | [Använda hanterad tjänstidentitet med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Använda hanterad tjänstidentitet med Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Använda hanterad tjänstidentitet med Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
 
-## <a name="which-azure-services-support-managed-service-identity"></a>Hanterade tjänstidentiteten stöd för vilka Azure-tjänster?
+## <a name="which-azure-services-support-managed-service-identity"></a>Vilka tjänster stöder Hanterad tjänstidentitet?
 
-Azure-tjänster som stöder hanterade tjänstidentiteten kan använda MSI för att autentisera tjänster som stöder Azure AD-autentisering.  Vi håller på att integrera MSI och Azure AD authentication i Azure.  Kontrollera tillbaka ofta för uppdateringar.
+Hanterade identiteter kan användas för att autentisera till tjänster som stöder Azure AD-autentisering. En lista med Azure-tjänster som stöder hanterad tjänstidentitet finns i följande artikel:
+- [Tjänster som stöder Hanterad tjänstidentitet (MSI)](services-support-msi.md)
 
-### <a name="azure-services-that-support-managed-service-identity"></a>Azure-tjänster som stöder hanterade tjänstidentiteten
+## <a name="how-much-does-managed-service-identity-cost"></a>Hur mycket kostar Hanterad tjänstidentitet?
 
-Hanterade tjänstidentiteten stöd för följande Azure-tjänster.
-
-| Tjänst | Status | Date | Konfigurera | Hämta en token |
-| ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Förhandsversion | September 2017 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-mallar](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Förhandsversion | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions<sup>1</sup> | Förhandsversion | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-mall](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Förhandsversion | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-<sup>1</sup> stöd för azure Functions kan användarkod för att använda en identitet men kan fortfarande kräva anslutningssträngar utlösare och bindningar.
-
-### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
-
-Följande tjänster stöder Azure AD-autentisering och har testats med klienttjänster som använder hanterade tjänstidentiteten.
-
-| Tjänst | Resurs-ID | Status | Date | Tilldela åtkomst |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Tillgänglig | September 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Tillgänglig | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Tillgänglig | September 2017 | |
-| Azure SQL | https://database.windows.net | Tillgänglig | Oktober 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net | Tillgänglig | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net | Tillgänglig | December 2017 | |
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Hur mycket kostar hanterade tjänstidentiteten?
-
-Hanterade tjänstidentiteten som levereras med Azure Active Directory ledigt, vilket är standard för Azure-prenumerationer.  Det finns utan extra kostnad för hanterade tjänstidentiteten.
+Hanterad tjänstidentitet levereras med Azure Active Directory Free, vilket är standard för Azure-prenumerationer. Det finns ingen ytterligare kostnad för Hanterad tjänstidentitet.
 
 ## <a name="support-and-feedback"></a>Support och feedback
 
-Vi vill gärna höra av dig!
+Vi vill gärna höra vad du har att säga!
 
-* Ställ frågor på Stack Overflow med taggen [azure msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Se funktion begäranden eller ge feedback på den [Azure AD Feedbackforum för utvecklare](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
+* Ställ frågor i Stack Overflow med taggen [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
+* Efterfråga funktioner eller ge feedback på [Azure AD:s feedbackforum för utvecklare](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
+## <a name="next-steps"></a>Nästa steg
 
+Kom igång med Hanterad tjänstidentitet i Azure med följande snabbstarter:
 
-
-
-
+* [Använda Hanterad tjänstidentitet (MSI) i en virtuell Windows-dator för att få åtkomst till Azure Resource Manager – Virtuell Windows-dator](tutorial-windows-vm-access-arm.md)
+* [Använda Hanterad tjänstidentitet (MSI) i en virtuell Linux-dator för att få åtkomst till Azure Resource Manager – Virtuell Linux-dator](tutorial-linux-vm-access-arm.md)

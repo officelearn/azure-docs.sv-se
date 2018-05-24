@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -67,14 +67,21 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50058|Det gick inte att hitta information om användarens identitet finns bland angivna autentiseringsuppgifter eller användaren i klienten eller En tyst inloggningsbegäran har skickats men ingen användare är inloggad eller det gick inte att autentisera användaren.|
 |50072|Användaren måste registrera sig för tvåfaktorsautentisering (interaktiv)|
 |50074|Användaren godkändes inte av MFA-kontrollen.|
+|50076|Användaren godkändes inte av MFA-kontrollen (inte interaktiv)|
 |50079|Användaren måste registrera sig för tvåfaktorsautentisering.|
 |50089|Verifiering av flödestoken misslyckades på grund av att flödestoken upphörde att gälla.|
 |50097|Enheten är inte autentiserad.|
 |50105|Den inloggade användaren har inte tilldelats en roll för det här programmet.|
+|50125|Inloggningen avbröts på grund av en lösenordsåterställning eller en lösenordsregistrering|
 |50126|Ogiltigt användarnamn eller lösenord eller ogiltigt lokalt användarnamn eller lösenord.|
+|50127|Användaren måste installera en asynkron meddelandekö för att få åtkomst till det här innehållet.|
+|50129|Enheten är inte arbetsplatsansluten – arbetsplatsanslutning krävs för registrering av enheten.|
 |50131|Används i olika fel för villkorlig åtkomst. T.ex felaktigt Windows-enhettillstånd, begäran som blockerats på grund av misstänkt aktivitet, åtkomstprincip och säkerhetsprincipbeslut.|
 |50133|Sessionen är ogiltig på grund av förfallotid eller lösenordsändring.|
+|50140|Användaren tillfrågas om tillstånd att hållas inloggad på enheten|
 |50144|Användarens Active Directory-lösenord har upphört att gälla.|
+|53000|För en princip för villkorsstyrd åtkomst krävs en kompatibel enhet, och enheten är inte kompatibel.|
+|53003|Åtkomsten har blockerats på grund av principer för villkorsstyrd åtkomst.|
 |65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en auktoriseringsbegäran till din klientadministratör som gäller i appens ställe: Y för resursen: Z.|
 |65005|Programmet som krävs resursåtkomstlistan innehåller inte program som kan upptäckas av resursen eller Klientprogrammet har begärt åtkomst till resurs som inte har angetts i listan över resurser som med åtkomst eller Diagramtjänsten returnerade ogiltig begäran eller resursen hittades inte.|
 |70001|Programmet X hittades inte i klienten Y. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare på klienten. Du kanske har skickat din begäran om autentisering till fel klient.|
@@ -98,8 +105,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |81013|Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett.|
 |90014|Används i olika fall när ett förväntat fält inte finns i autentiseringsuppgifterna.|
 |90093|Diagram som returneras med otillåten felkod för begäran.|
-
-
+|90094|En administratör måste godkänna.|
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i [inloggningsaktivitetsrapporter i Azure Active Directory-portalen](active-directory-reporting-activity-sign-ins.md).

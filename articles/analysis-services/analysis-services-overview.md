@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Översikt över Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services innehåller modeller med företagsklassdata i molnet. Det här är en fullständigt hanterad plattform som en tjänst (PaaS), integrerad med Azure-dataplattformstjänsterna. 
 
-Med Analysis Services kan du blanda och kombinera data från flera källor, definiera mätvärden och skydda dina data i en enda tillförlitlig semantisk datamodell. Datamodellen gör det enkelt för användarna att snabbt söka igenom stora mängder data med klientprogram som Power BI, Excel, Reporting Services, program från tredjepart och anpassade appar.
+Med Analysis Services kan du blanda och kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig semantisk datamodell. Datamodellen gör det enkelt för användarna att snabbt söka igenom stora mängder data med klientprogram som Power BI, Excel, Reporting Services, program från tredjepart och anpassade appar.
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -57,7 +57,7 @@ Azure Analysis Services-servrar kan skapas i följande [Azure-regioner](https://
 
 | Nord- och Sydamerika | Europa | Asien och stillahavsområdet |
 |----------|--------|--------------|
-|  Södra Brasilien<br> Centrala Kanada<br> Östra USA 2<br> Norra centrala USA<br> Södra centrala USA<br> Västra centrala USA<br> Västra USA | Norra Europa<br> Storbritannien, södra<br> Västra Europa |   Sydöstra Australien<br> Östra Japan<br> Sydostasien<br> Indien, västra  |
+|  Södra Brasilien<br> Centrala Kanada<br> Östra USA<br> Östra USA 2<br> Norra centrala USA<br> Centrala USA<br> Södra centrala USA<br> Västra centrala USA<br> Västra USA<br> USA, västra 2 | Norra Europa<br> Storbritannien, södra<br> Västra Europa |   Sydöstra Australien<br> Östra Japan<br> Sydostasien<br> Indien, västra  |
 
 Nya områden läggs till hela tiden, så den här listan kan vara ofullständig. Du kan välja en plats när du skapar en server i Azure Portal eller med hjälp av Azure Resource Manager-mallar. Välj en plats närmast din största användarbas för att få bästa möjliga prestanda. Garantera [hög tillgänglighet](analysis-services-bcdr.md) genom att distribuera modellerna på redundanta servrar i flera områden.
 
@@ -134,4 +134,5 @@ Har du förslag eller saknar du någon funktion? Lämna dina kommentarer på [Az
 Har du förslag angående dokumentationen? Du kan lägga till kommentarer med hjälp av Livefyre längst ned i varje artikel.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet mer om Azure Analysis Services är det dags att komma igång. Lär dig [att skapa en server](analysis-services-create-server.md) i Azure. När servern är klar går du igenom [Adventure Work-självstudiekursen](tutorials/aas-adventure-works-tutorial.md) som visar hur du skapar en fullt fungerande tabellmodell och distribuerar den till servern.
+Lär dig [att skapa en server](analysis-services-create-server.md) i Azure.   
+När du har skapat en server [lägger du till en exempelmodell](analysis-services-create-sample-model.md).   

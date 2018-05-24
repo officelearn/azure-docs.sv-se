@@ -1,11 +1,11 @@
 ---
-title: "Arbeta med stora skalningsuppsättningar för virtuella Azure-datorer | Microsoft Docs"
-description: "Vad du behöver veta för att använda stora skalningsuppsättningar för virtuella Azure-datorer"
+title: Arbeta med stora skalningsuppsättningar för virtuella Azure-datorer | Microsoft Docs
+description: Vad du behöver veta för att använda stora skalningsuppsättningar för virtuella Azure-datorer
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: negat
-ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -77,7 +77,7 @@ Kontrollera att mallen skapar en skalningsuppsättning som baseras på Azure Man
       "mode": "Automatic"
     }
 ```
-Ett fullständigt exempel på en mall för en stor skalningsuppsättning finns i [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+För ett fullständigt exempel på en mall i stor skala, se [ https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json ](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Konvertera en befintlig skalningsuppsättning som sträcker sig över flera placeringsgrupper
 Om du vill göra det möjligt för en befintlig skalningsuppsättning för virtuella datorer att skalas till mer än 100 virtuella datorer så måste du ändra egenskapen _singplePlacementGroup_ till _falskt_ i skalningsuppsättningsmodellen. Du kan ändra den här egenskapen med [Resursutforskaren i Azure](https://resources.azure.com/). Hitta en befintlig skalningsuppsättning, välj _Redigera_ och ändra egenskapen _singlePlacementGroup_. Om du inte ser den här egenskapen kanske du tittar på en skalningsuppsättning med en äldre version av Microsoft.Compute-API.

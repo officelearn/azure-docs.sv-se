@@ -658,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema för tjänstmodell
       href: service-fabric-service-model-schema.md
+      items:
+        - name: Element
+          href: service-fabric-service-model-schema-elements.md
+        - name: Komplexa typer
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: Attributgrupper
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: Enkla typer
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: Elementgrupper
+          href: service-fabric-service-model-schema-element-groups.md
     - name: Miljövariabler
       href: service-fabric-environment-variables-reference.md
 - name: Resurser

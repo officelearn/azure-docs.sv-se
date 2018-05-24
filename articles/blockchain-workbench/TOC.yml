@@ -1,7 +1,6 @@
 - name: Azure Blockchain Workbench (offentlig förhadsversion)
   href: index.yml
 - name: Översikt
-  expanded: true
   items:
     - name: Om Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -12,7 +11,6 @@
     - name: Integreringsmönster
       href: blockchain-workbench-integration-patterns.md
 - name: Instruktionsguider
-  expanded: true
   items:
     - name: Distribuera Workbench
       href: blockchain-workbench-deploy.md

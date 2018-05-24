@@ -1,29 +1,29 @@
 ---
-title: "Exempel för Azure princip-json - Använd godkända virtuella nätverk för Virtuella nätverkskort | Microsoft Docs"
-description: "Den här principen för json-exemplet kräver att nätverksgränssnitt använder ett virtuellt nätverk som är godkända."
+title: Json-exempel i Azure Policy – Använda godkänt vNet för VM-nätverksgränssnitt | Microsoft Docs
+description: Den här json-exempelprincipen kräver att nätverksgränssnitt använder ett godkänt virtuellt nätverk.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 72514ea0259c066e7a8ca79b373f720843ecda04
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 34b849a8df6fc1a7d16dd28890402ea748b9407d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="use-approved-vnet-for-vm-network-interfaces"></a>Använd godkända virtuella nätverk för Virtuella nätverkskort
+# <a name="use-approved-vnet-for-vm-network-interfaces"></a>Använda godkända vNet för VM-nätverksgränssnitt
 
-Den här principen kräver att nätverksgränssnitt använder ett virtuellt nätverk som är godkända. Du kan ange ID för det virtuella nätverket som är godkända.
+Den här principen kräver att nätverksgränssnitt använder ett godkänt virtuellt nätverk. Du anger ID för det godkända virtuella nätverket.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Den här principen kräver att nätverksgränssnitt använder ett virtuellt nät
 
 [!code-json[main](../../../policy-templates/samples/Network/vm-creation-in-approved-vnet/azurepolicy.json "Use approved vNet for VM network interfaces")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'vm-creation-in-approved-vnet' --display-name
 az policy assignment create --name <assignmentname> --scope <scope> --policy "vm-creation-in-approved-vnet"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
+### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distributionen
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

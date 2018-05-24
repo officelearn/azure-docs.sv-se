@@ -1,21 +1,21 @@
 ---
-title: "Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen | Microsoft Docs"
-description: "Använd Azure-portalen och skapa en instans av Azure Database Migration Service"
+title: Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen | Microsoft Docs
+description: Använd Azure-portalen och skapa en instans av Azure Database Migration Service
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
 I den här snabbstarten använder du Azure-portalen för att skapa en instans av Azure Database Migration Service.  När du har skapat tjänsten kan du använda den för att migrera data från en lokal SQL Server till en Azure SQL-databas.
@@ -39,9 +39,9 @@ Registrera resursprovidern Microsoft.DataMigration innan du skapar din första i
 ![Registrera resursprovider](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Skapar en instans av tjänsten
-1. Klicka på **+ Skapa en resurs** om du vill skapa en instans av Azure Database Migration Service, som för närvarande finns som förhandsversion.
+1. Klicka på **+ Skapa en resurs** om du vill skapa en instans av Azure Database Migration Service.
 
-2. Sök i Marketplace efter ”migration” och välj **Azure Database Migration Service**. Klicka sedan, på skärmen **Azure Database Migration Service (förhandsversion)**, på **Skapa**.
+2. Sök efter ”migration” på Marketplace och välj **Azure Database Migration Service**. På skärmen **Azure Database Migration Service** klickar du sedan på **Skapa**.
 
 3. På skärmen **Database Migration Service**: 
 

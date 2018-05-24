@@ -1,72 +1,167 @@
 ---
-title: Övervaka nätverksanslutningar med Nätverksbevakaren Azure - Azure-portalen | Microsoft Docs
-description: Lär dig att övervaka nätverksanslutningen med Nätverksbevakaren i Azure med Azure-portalen.
+title: Övervaka nätverkskommunikation – självstudie – Azure Portal | Microsoft Docs
+description: Lär dig hur du övervakar nätverkskommunikationen mellan två virtuella datorer med funktionen för anslutningsövervakning i Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 04/27/2018
 ms.author: jdial
-ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Övervaka nätverksanslutningar med Nätverksbevakaren i Azure med Azure-portalen
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
-Lär dig hur du använder Övervakaren anslutning för att övervaka nätverksanslutningen mellan Azure virtuell dator (VM) och en IP-adress. Övervakaren anslutning innehåller övervakning mellan käll- och IP-adress och port. Övervakaren anslutning möjliggör scenarier som övervakning anslutningen från en virtuell dator i ett virtuellt nätverk till en virtuell dator kör SQLServer i samma eller olika virtuella nätverk, via port 1433. Övervakaren anslutning innehåller anslutningens svarstid som ett Azure-Monitor-mått registreras var 60: e sekund. Dessutom ger dig en hopp som nexthop-topologi, och identifierar konfigurationsproblem som påverkar anslutningen.
+Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!div class="checklist"]
+> * Skapa två virtuella datorer
+> * Övervaka kommunikationen mellan virtuella datorer med funktionen för anslutningsövervakning i Network Watcher
+> * Diagnostisera ett kommunikationsproblem mellan två virtuella datorer och lär dig hur du kan lösa det
 
-Du måste uppfylla följande krav innan du slutför stegen i den här artikeln:
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* En instans av Nätverksbevakaren i den region som du vill övervaka en anslutning för. Om du inte redan har ett kan du skapa en genom att slutföra stegen i [skapa en instans av Azure Nätverksbevakaren](network-watcher-create.md).
-* En virtuell dator och övervaka. Om du vill veta hur du skapar en virtuell dator, se Skapa en [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
-* Har den `AzureNetworkWatcherExtension` installerad på den virtuella datorn som du vill övervaka en anslutning från. Om du vill installera tillägget i en Windows VM [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och installera tillägget i en Linux VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkt som du vill övervaka.
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure 
+Logga in på [Azure Portal](https://portal.azure.com).
 
-Logga in på [Azure-portalen](http://portal.azure.com).
+## <a name="create-vms"></a>Skapa VM:ar
 
-## <a name="create-a-connection-monitor"></a>Skapa en anslutning
+Skapa två virtuella datorer.
 
-Följande steg aktivera övervakning av anslutning till ett mål VM via portarna 80 och 1433:
+### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-1. På vänster sida av portalen väljer **alla tjänster**.
-2. Börja skriva *nätverksbevakaren* i den **Filter** rutan. När **Nätverksbevakaren** visas i sökresultaten väljer den.
-3. Under **övervakning**väljer **övervakaren anslutning**.
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. Välj **Compute** och sedan ett operativsystem. I den här självstudien används **Windows Server 2016 Datacenter**.
+3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+
+    |Inställning|Värde|
+    |---|---|
+    |Namn|myVm1|
+    |Användarnamn| Ange ett valfritt användarnamn.|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Prenumeration| Välj din prenumeration.|
+    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
+    |Plats| Välj **USA, östra**|
+
+4. Välj en storlek för den virtuella datorn och sedan **Välj**.
+5. Under **Inställningar** väljer du **Tillägg**. Välj **Lägg till tillägg** och välj **Network Watcher Agent for Windows**, så som visas i följande bild:
+
+    ![Network Watcher-agenttillägget](./media/connection-monitor/nw-agent-extension.png)
+
+6. Under **Network Watcher Agent for Windows** väljer du **Skapa**, under **Installera tillägg** väljer du **OK** och under **Tillägg** väljer du **OK**.
+7. Behåll standardinställningarna för återstående **inställningar** och välj **OK**.
+8. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
+
+### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
+
+Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen med följande ändringar:
+
+|Steg|Inställning|Värde|
+|---|---|---|
+| 1 | Välj **Ubuntu Server 17.10 VM** |                                                                         |
+| 3 | Namn                              | myVm2                                                                   |
+| 3 | Autentiseringstyp               | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
+| 3 | Resursgrupp                    | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
+| 6 | Tillägg                        | **Network Agent for Linux**                                             |
+
+Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
+
+## <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare
+
+Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-port 22 från *myVm1* till *myVm2*.
+
+1. Välj **Alla tjänster** till vänster i portalen.
+2. Börja skriva *network watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
+3. Under **ÖVERVAKNING** väljer du **Anslutningsövervakare**.
 4. Välj **+ Lägg till**.
-5. Ange eller välj information för anslutningen du vill övervaka och välj sedan **Lägg till**. I exemplet som visas i följande bild, är anslutningen övervakas från den *MultiTierApp0* så att den *Database0* VM via port 80:
+5. Ange eller välj information för anslutningen du vill övervaka och välj sedan **Lägg till**. I exemplet som visas i följande bild övervakas anslutningen från den virtuella datorn *myVm1* till den virtuella datorn *myVm2* VM via port 22:
 
-    ![Lägg till övervakaren anslutning](./media/connection-monitor/add-connection-monitor.png)
+    | Inställning                  | Värde               |
+    | ---------                | ---------           |
+    | Namn                     | myVm1-myVm2(22)     |
+    | Källa                   |                     |
+    | Virtuell dator          | myVm1               |
+    | Mål              |                     |
+    | Välj en virtuell dator |                     |
+    | Virtuell dator          | myVm2               |
+    | Port                     | 22                  |
 
-    Övervaka börjar. Övervakaren anslutning avsökningar var 60: e sekund.
-6. Slutför steg 5 igen, ange samma käll- och virtuella datorer och följande värden:
-    
-    |Inställning  |Värde          |
-    |---------|---------      |
-    |Namn     | AppToDB(1433) |
-    |Port     | 1433          |
+    ![Lägg till anslutningsövervakare](./media/connection-monitor/add-connection-monitor.png)
 
-## <a name="view-connection-monitoring"></a>Visa anslutning övervakning
+## <a name="view-a-connection-monitor"></a>Visa en anslutningsövervakare
 
-1. Slutför steg 1-3 i [skapa en anslutning Övervakare](#create-a-connection-monitor) att visa anslutning övervakning.
-2. Följande bild visar information om den *AppToDB(80)* anslutning. Den **Status** kan nås. Den **kurva visa** visar den **serveranrop genomsnittstiden** och **% avsökningar misslyckades**. Diagrammet innehåller hopp av hopp information och visar att några problem som påverkar mål reachability.
+1. Utför steg 1–3 i [Skapa en anslutningsövervakare](#create-a-connection-monitor) om du vill visa en anslutningsövervakare. Du kan se en lista med befintliga anslutningsövervakare, så som visas i följande bild:
 
-    ![Diagramvy](./media/connection-monitor/view-graph.png)
+    ![Anslutningsövervakare](./media/connection-monitor/connection-monitors.png)
 
-3. Visa den *AppToDB(1433)* anslutning som visas i följande bild ser att för samma käll- och virtuella datorer, status kan inte nås via port 1433. Den **rutnätsvy** i det här scenariot ger hopp av hopp information och problem som påverkar reachability. I det här fallet blockerar en NSG regel all trafik på port 1433 på ett andra hopp.
+2. Välj övervakaren med namnet **myVm1-myVm2(22)** om du vill visa information om den, så som visas i föregående bild:
 
-    ![Rutnätsvy](./media/connection-monitor/view-grid.png)
+    ![Information om övervakare](./media/connection-monitor/vm-monitor.png)
+
+    Notera följande information:
+
+    | Objekt                     | Värde                      | Information                                                     |
+    | ---------                | ---------                  |--------                                                     |
+    | Status                   | Nåbar                  | Visar om slutpunkten kan nås eller inte.|
+    | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
+    | Hopp                     | Anslutningsövervakaren visar hoppen mellan de två slutpunkterna. I det här exemplet ligger anslutningen mellan de två virtuella datorerna i samma virtuella nätverk, så det sker bara ett hopp till IP-adressen 10.0.0.5. Om något befintligt system eller en egen väg dirigerar trafiken mellan de två virtuella datorerna via en VPN-gateway eller en virtuell nätverksenhet visas fler hopp.                                                                                                                         |
+    | STATUS                   | En grön bockmarkering vid respektive slutpunkt anger att tillståndet är felfritt.    ||
+
+## <a name="view-a-problem"></a>Visa ett problem
+
+Som standard tillåter Azure kommunikation via alla portar mellan virtuella datorer i samma virtuella nätverk. Senare kanske du eller någon annan i organisationen åsidosätter standardreglerna i Azure och därmed orsakar ett kommunikationsfel. Gör så här för att skapa ett kommunikationsproblem och visa sedan anslutningsövervakaren igen:
+
+1. Skriv *myResourceGroup* i sökrutan högst upp i portalen. När du ser **myResourceGroup** bland sökresultaten markerar du posten.
+2. Välj nätverkssäkerhetsgruppen **myVm2-nsg**.
+3. Välj **Ingående säkerhetsregler** och sedan **Lägg till**, så som visas i följande bild:
+
+    ![Ingående säkerhetsregler](./media/connection-monitor/inbound-security-rules.png)
+
+4. Standardregeln som tillåter kommunikation mellan alla virtuella datorer i ett virtuellt nätverk heter **AllowVnetInBound**. Skapa en regel med högre prioritet (lägre nummer) än regeln **AllowVnetInBound** som nekar inkommande kommunikation via port 22. Välj eller ange följande information, acceptera standardvärdena för resten av inställningarna och välj sedan **Lägg till**:
+
+    | Inställning                 | Värde          |
+    | ---                     | ---            |
+    | Målportintervall | 22             |
+    | Åtgärd                  | Neka           |
+    | Prioritet                | 100            |
+    | Namn                    | DenySshInbound |
+
+5. Eftersom anslutningsövervakaren gör avsökningar var 60:e sekund ska du vänta några minuter. Välj **Network Watcher** och **Anslutningsövervakare** till vänster i portalen, och välj sedan övervakaren  **myVm1-myVm2(22)** igen. Nu blir resultatet ett annat, så som visas i följande bild:
+
+    ![Övervakare detaljer fel](./media/connection-monitor/vm-monitor-fault.png)
+
+    Du ser ett rött utropstecken i statuskolumnen för nätverksgränssnittet **myvm2529**.
+
+6. Välj 10.0.0.5 om du vill se varför statusen har ändrats. Anslutningsövervakaren anger att orsaken till kommunikationsfelet är: *Traffic blocked due to the following network security group rule: UserRule_DenySshInbound* (Trafiken blockeras på grund av följande regel för nätverkssäkerhetsgruppen).
+
+    Om du inte hade vetat att någon implementerat den säkerhetsregel du skapade i steg 4 så skulle du se att det är den här regeln som orsakar kommunikationsproblemet i anslutningsövervakaren. Då kan du ändra, åsidosätta eller ta bort regeln för att återställa kommunikationen mellan de virtuella datorerna.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
+
+1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+2. Välj **Ta bort resursgrupp**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att automatisera paket insamlingar med VM-aviseringar efter [skapar en avisering utlöses paketinsamling](network-watcher-alert-triggered-packet-capture.md).
-- Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn med hjälp av [IP-flöde Kontrollera](diagnose-vm-network-traffic-filtering-problem.md).
+I den här självstudien har du lärt dig hur du övervakar en anslutning mellan två virtuella datorer. Du har sett att en regel för en nätverkssäkerhetsgrupp förhindrade kommunikationen till en virtuell dator. Om du vill se alla möjliga svar som en anslutningsövervakare kan returnera kan du läsa om [svarstyper](network-watcher-connectivity-overview.md#response). Du kan också övervaka en anslutning mellan en virtuell dator, ett fullständigt kvalificerat domännamn, en URI eller en IP-adress.
+
+Någon gång kanske du ser att resurser i ett virtuellt nätverk inte kan kommunicera med resurser i andra nätverk som är anslutna via en virtuell nätverksgateway i Azure. I nästa självstudiekurs får du lära dig mer om att diagnostisera problem med en virtuell nätverksgateway.
+
+> [!div class="nextstepaction"]
+> [Diagnostisera kommunikationsproblem mellan nätverk](diagnose-communication-problem-between-networks.md)

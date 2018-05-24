@@ -1,29 +1,29 @@
 ---
-title: "Exempel för Azure princip-json - tillåtna peeringplatsen för Express Route | Microsoft Docs"
-description: "Den här principen kräver att Express vägar Använd angetts peering platser."
+title: Json-exempel i Azure Policy – Tillåten peeringplats för ExpressRoute | Microsoft Docs
+description: Den här principen kräver att ExpressRoutes använder angivna peeringplatser.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 218d06d7595a8a2d937afa36682f67baf1995bd5
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 634e959396eca37078c7a2eedcb7fafdc7f41fd3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="allowed-peering-location-for-express-route"></a>Tillåtna peeringplatsen för Express Route
+# <a name="allowed-peering-location-for-express-route"></a>Tillåten peeringplats för ExpressRoute
 
-Den här principen kräver att Express vägar Använd angetts peering platser. Du anger en matris med tillåtna peering platser.
+Den här principen kräver att ExpressRoutes använder angivna peeringplatser. Du anger en matris med tillåtna peeringplatser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Den här principen kräver att Express vägar Använd angetts peering platser. D
 
 [!code-json[main](../../../policy-templates/samples/Network/express-route-peeringLocation/azurepolicy.json "Allowed Peering Location for Express Route")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'express-route-peeringLocation' --display-nam
 az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-peeringLocation"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
+### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distributionen
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

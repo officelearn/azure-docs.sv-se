@@ -1,29 +1,29 @@
 ---
-title: "Azure princip-json sample - använda taggen och standardvärdet | Microsoft Docs"
-description: "Den här principen för json-exemplet lägger till angivna taggnamn och värde, om som taggen inte har angetts."
+title: Json-exempel i Azure Policy – Använda tagg och dess standardvärde | Microsoft Docs
+description: Den här json-exempelprincipen lägger till ett angivet taggnamn och värde, om den taggen inte tillhandahålls.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 63243c4c0874aac66166202168cd376151300ca7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 66219a12b3ee9bf03de047785e14796bbca13d84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="apply-tag-and-its-default-value"></a>Tillämpa taggen och ett standardvärde
+# <a name="apply-tag-and-its-default-value"></a>Använd taggen och dess standardvärde
 
-Den här principen lägger till angivna taggnamn och värde, om taggen inte har angetts. Du kan ange taggnamnet och värdet ska gälla.
+Den här principen lägger till ett angivet taggnamn och värde, om den taggen inte tillhandahålls. Du anger taggnamn och värde som ska gälla.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Den här principen lägger till angivna taggnamn och värde, om taggen inte har 
 
 [!code-json[main](../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.json "Apply tag and its default value")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -67,9 +67,9 @@ az policy definition create --name 'apply-default-tag-value' --display-name 'App
 az policy assignment create --name <assignmentname> --scope <scope> --policy "apply-default-tag-value"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
+### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distributionen
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -77,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

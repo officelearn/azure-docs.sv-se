@@ -2,35 +2,29 @@
 title: Azure AD SSPR från Windows 10-inloggningsskärmen | Microsoft Docs
 description: Konfigurera inloggningsskärmen i Windows 10, Azure AD-lösenordsåterställning och Jag har glömt min PIN-kod
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-lösenordsåterställning från inloggningsskärmen
 
 Du redan har distribuerat Azure AD-lösenordsåterställning via självbetjäning (SSPR) men dina användare kan fortfarande ringa supportavdelningen när de glömmer lösenordet. De ringer supportavdelningen eftersom de inte kan komma till en webbläsare för att komma åt SSPR.
 
-Med nya Windows 10 Fall Creators Update kan användare med Azure AD-kopplade enheter se länken ”Återställ lösenord” på sin inloggningsskärm. När de klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
+Med nya April 2018-uppdateringen för Windows 10 kan användare med **Azure AD-anslutna** eller **Hybrid Azure AD-anslutna** enheter se och använda länken ”Återställ lösenord” på sin inloggningsskärm. När de klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
 
 För att användare ska kunna återställa sitt Azure AD-lösenord från Windows 10-inloggningsskärmen måste följande krav vara uppfyllda:
 
-* Windows 10, version 1709, eller senare klient som är [kopplad till Azure AD](../device-management-azure-portal.md).
+* April 2018-uppdatering för Windows 10 eller en nyare klient som är [Azure AD-ansluten](../device-management-azure-portal.md) eller [Hybrid Azure AD-ansluten](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
 * Konfigurera och distribuera inställningen för att aktivera länken för återställning av lösenord via någon av följande metoder:
    * [Konfigurationsprofil för Intune-enhet](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ För att användare ska kunna återställa sitt Azure AD-lösenord från Windows
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på **Azure Active Directory**.
 2. Gå till **Användare och grupper** > **Alla grupper** > **Ny grupp**
-3. Ange ett namn på gruppen. Under **Medlemstyp** väljer du **Tilldelad** 
+3. Ange ett namn på gruppen. Under **Medlemstyp** väljer du **Tilldelad**
    * Under **Medlemmar** väljer du de Azure AD-kopplade Windows 10-enheter du vill tillämpa principen på.
    * Klicka på **Välj**
 4. Klicka på **Skapa**
@@ -117,6 +111,7 @@ När du testar funktionen med Fjärrskrivbord visas inte länken ”Återställ 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
 * [Hur gör jag för att distribuera SSPR?](howto-sspr-deployment.md)

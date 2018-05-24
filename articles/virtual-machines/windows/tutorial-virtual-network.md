@@ -1,6 +1,6 @@
 ---
-title: Virtuella Azure-nätverk och virtuella Windows-datorer | Microsoft Docs
-description: Självstudiekurs – hantera virtuella Azure-nätverk och virtuella Windows-datorer med Azure PowerShell
+title: Självstudie – skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer | Microsoft Docs
+description: I den här självstudien får du lära dig hur du använder Azure PowerShell för att skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,21 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feaef679a3090491b64c69ac69bf22153c281d31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Hantera virtuella Azure-nätverk och virtuella Windows-datorer med Azure PowerShell
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer med Azure PowerShell
 
-Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig hur man:
+Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och ett undernät
@@ -33,9 +33,9 @@ Azures virtuella datorer använder Azure-nätverk för intern och extern nätver
 > * Skydda nätverkstrafiken
 > * Skapa en virtuell dator för serverdelen
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-Den här självstudien kräver AzureRM.Compute-modul version 4.3.1 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="vm-networking-overview"></a>Nätverksöversikt för VM
 
@@ -53,22 +53,22 @@ När du slutför den här självstudien kommer du att se att följande resurser 
 - *myBackendNSG* – Nätverkssäkerhetsgruppen som styr kommunikationen mellan *myFrontendVM* och *myBackendVM*.
 - *myBackendSubnet* – Det undernät som är associerat med *myBackendNSG* och används av serverdelsresurserna.
 - *myBackendNic* – Nätverksgränssnittet som används av *myBackendVM* till att kommunicera med *myFrontendVM*.
-- *myBackendVM* -den virtuella datorns som använder port 1433 för att kommunicera med *myFrontendVM*.
+- *myBackendVM* – Den virtuella dator som använder port 1433 för att kommunicera med *myFrontendVM*.
 
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
 I den här självstudien skapas ett enda virtuellt nätverk med två undernät. Ett klientdelsundernät som är värd för ett webbprogram och ett serverdelsundernät som är värd för en databasserver.
 
-Innan du kan skapa ett virtuellt nätverk, skapa en resurs med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myRGNetwork* i den *EastUS* plats:
+Innan du kan skapa ett virtuellt nätverk, skapar du en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Följande exempel skapar en resursgrupp med namnet *myRGNetwork* på platsen *EastUS*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-### <a name="create-subnet-configurations"></a>Skapa undernät
+### <a name="create-subnet-configurations"></a>Skapa undernätskonfigurationer
 
-Skapa en konfiguration av undernät med namnet *myFrontendSubnet* med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+Skapa en undernätskonfiguration med namnet *myFrontendSubnet* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -76,7 +76,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Skapa en konfiguration av undernät med namnet *myBackendSubnet*:
+Och skapa en undernätskonfiguration med namnet *myBackendSubnet*:
 
 ```azurepowershell-interactive
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -105,7 +105,7 @@ Med en offentlig IP-adress blir Azure-resurser tillgängliga på Internet. Allok
 
 Allokeringsmetoden kan anges som statisk, vilket garanterar att IP-adressen förblir tilldelad till en virtuell dator, även när den frigjorts. Det går inte att ange IP-adressen när du använder en statiskt tilldelad IP-adress. I stället allokeras den från en pool med tillgängliga adresser.
 
-Skapa en offentlig IP-adress med namnet *myPublicIPAddress* med [ny AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+Skapar en offentlig IP-adress med namnet *myPublicIPAddress* med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
@@ -115,11 +115,11 @@ $pip = New-AzureRmPublicIpAddress `
   -Name myPublicIPAddress
 ```
 
-Du kan ändra parametern - AllocationMethod att `Static` att tilldela en statisk offentlig IP-adress.
+Du kan ändra parametern -AllocationMethod för `Static` för att tilldela en statisk offentlig IP-adress.
 
 ## <a name="create-a-front-end-vm"></a>Skapa en virtuell dator för klientdelen
 
-En virtuell dator, för att kommunicera på ett virtuellt nätverk måste den ha ett virtuellt nätverksgränssnitt (NIC). Skapa ett nätverkskort med [ny AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
+För att en virtuell dator ska kommunicera i ett virtuellt nätverk, behöver den ett virtuellt nätverksgränssnitt (NIC). Skapa ett nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 ```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
@@ -130,13 +130,13 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med hjälp av [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Du kan använda dessa autentiseringsuppgifter för att ansluta till den virtuella datorn i ytterligare åtgärder:
+Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Du använder autentiseringsuppgifterna för att ansluta till den virtuella datorn i ytterligare steg:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa de virtuella datorerna med hjälp av [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
 New-AzureRmVM `
@@ -166,7 +166,7 @@ Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bo
 
 ### <a name="create-network-security-groups"></a>Skapa nätverkssäkerhetsgrupper
 
-Skapa en regel med namnet *myFrontendNSGRule* så att inkommande webbtrafik på *myFrontendVM* med [ny AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+Skapa en inkommande regel med namnet *myFrontendNSGRule* för att tillåta inkommande webbtrafik på *myFrontendVM* med [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -181,7 +181,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Du kan begränsa intern trafik till *myBackendVM* från endast *myFrontendVM* genom att skapa en NSG för backend-undernät. I följande exempel skapas en NSG regeln med namnet *myBackendNSGRule*:
+Du kan begränsa intern trafik till *myBackendVM* från endast *myFrontendVM* genom att skapa en NSG för serverdelsundernätet. Följande exempel skapar en NSG-regel med namnet *myLoadBalancerNSGRule*:
 
 ```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -196,7 +196,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Lägg till en nätverkssäkerhetsgrupp med namnet *myFrontendNSG* med [ny AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Lägg till en nätverkssäkerhetsgrupp med namnet *myFrontendNSG* med [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
@@ -206,7 +206,7 @@ $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgFrontendRule
 ```
 
-Lägg till en nätverkssäkerhetsgrupp med namnet *myBackendNSG* med ny AzureRmNetworkSecurityGroup:
+Lägg nu till en nätverkssäkerhetsgrupp med namnet *myBackendNSG* med New-AzureRmNetworkSecurityGroup:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -216,7 +216,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgBackendRule
 ```
 
-Lägg till nätverkssäkerhetsgrupper i undernät:
+Lägg till nätverkssäkerhetsgrupper till undernäten:
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -239,7 +239,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## <a name="create-a-back-end-vm"></a>Skapa en virtuell dator för serverdelen
 
-Det enklaste sättet att skapa backend-VM för den här kursen är med hjälp av en SQL Server-avbildning. Den här kursen kan du bara skapar den virtuella datorn med databasservern, men ger inte information om åtkomst till databasen.
+Det enklaste sättet att skapa den virtuella serverdelsdatorn för den här självstudien är med en SQL Server-avbildning. Den här självstudien skapar bara den virtuella datorn med databasservern, men ger inte information om åtkomst till databasen.
 
 Skapa *myBackendNic*:
 
@@ -266,11 +266,11 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "EastUS" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 
-Den bild som används för SQL Server är installerad men används inte i den här kursen. Den ingår för att visa hur du kan konfigurera en virtuell dator för att hantera webbtrafik och en virtuell dator för att hantera databasen.
+Den avbildning som används har SQL Server installerad men det används inte i den här självstudien. Det ingår för att visa hur du kan konfigurera en virtuell dator för att hantera webbtrafik och en virtuell dator för att hantera databashantering.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -283,7 +283,7 @@ I den här självstudien har du skapat och skyddat Azure-nätverk som är relate
 > * Skydda nätverkstrafiken
 > * Skapa en virtuell dator för serverdelen
 
-Gå vidare till nästa kurs vill veta mer om övervakning för att skydda data på virtuella datorer med hjälp av Azure-säkerhetskopiering.
+Gå vidare till nästa självstudie för att lära dig om att övervaka och skydda data på virtuella datorer med Azure Backup.
 
 > [!div class="nextstepaction"]
-> [Säkerhetskopiera Windows-datorer i Azure](./tutorial-backup-vms.md)
+> [Säkerhetskopiera virtuella Windows-datorer i Azure](./tutorial-backup-vms.md)

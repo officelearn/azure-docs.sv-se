@@ -1,30 +1,30 @@
 ---
-title: "Översikt över prisnivåer för Azure Service Bus Premium- och Standard-meddelanden | Microsoft Docs"
-description: "Service Bus Premium- och Standard-meddelandenivåer"
+title: Översikt över prisnivåer för Azure Service Bus Premium- och Standard-meddelanden | Microsoft Docs
+description: Service Bus Premium- och Standard-meddelandenivåer
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
 
 Service Bus-meddelanden, inklusive entiteter som köer och ämnen, kombinerar meddelandefunktioner för företag med utförlig publicerings-/prenumerationssemantik i molnskala. Service Bus-meddelanden används som kommunikationsryggrad i flera avancerade molnlösningar.
 
-*Premium*-nivån av Service Bus-meddelanden är ett svar på vanliga kundönskemål gällande skala, prestanda och tillgänglighet för verksamhetskritiska program. Även om funktionsuppsättningarna är snudd på identiska är dessa två nivåer av Service Bus-meddelanden utformade för att passa olika användningsfall.
+*Premium*-nivån av Service Bus-meddelanden är ett svar på vanliga kundönskemål gällande skala, prestanda och tillgänglighet för verksamhetskritiska program. Premium-nivån rekommenderas för användning i produktionsmiljö. Även om funktionsuppsättningarna är snudd på identiska är dessa två nivåer av Service Bus-meddelanden utformade för att passa olika användningsfall.
 
 En del övergripande skillnader visas i tabellen nedan.
 
@@ -46,11 +46,7 @@ I följande avsnitt diskuteras några skillnader mellan Premium- och Standard-me
 
 ### <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
-Partitionerade köer och ämnen stöds i Premium – meddelandefunktion. Entiteterna är faktiskt alltid partitionerade (och går inte att inaktivera). Men Premium-partitionerade köer och ämnen fungerar inte på samma sätt som på Standard-nivån av Service Bus-meddelanden. Premium-meddelanden använder inte SQL som ett datalager och har inte längre den konkurrens om resurser som förknippas med en delad plattform. Därför är partitionering inte nödvändigt för att förbättra prestanda. Dessutom har antalet partitioner ändrats från 16 partitioner i Standard-meddelanden till 2 partitioner i Premium. Med två partitioner garanteras tillgänglighet och är ett mer passande antal för Premium-körningsmiljön. 
-
-Med premiumfunktioner för meddelandehantering kan du ange storleken på en entitet med [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), där storleken delas lika mellan de två partitionerna, till skillnad från [standardpartitionerade entiteter](service-bus-partitioning.md#standard), där den totala storleken är 16 gånger den angivna storleken. 
-
-Mer information om partitionering finns i [Partitionerade köer och ämnen](service-bus-partitioning.md).
+Det finns inget stöd för partitionerade köer och ämnen i Premium Messaging. Mer information om partitionering finns i [Partitionerade köer och ämnen](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Expressenheter
 
@@ -64,7 +60,7 @@ Det är enkelt att komma igång med Premium-meddelandetjänster och processen li
 
 ![create-premium-namespace][create-premium-namespace]
 
-Du kan också skapa [Premium-namnområden med hjälp av Azure Resource Manager-mallar](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Du kan också skapa [Premium-namnområden med hjälp av Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Nästa steg
 

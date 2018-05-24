@@ -1,11 +1,11 @@
 ---
-title: "Översikt över URL-baserad innehållsroutning | Microsoft Docs"
-description: "Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln."
+title: Översikt över URL-baserad innehållsroutning | Microsoft Docs
+description: Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
-ms.author: davidmu
-ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -30,7 +30,7 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Begäranden för http://contoso.com/video/* dirigeras till VideoServerPool och http://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Förfrågningar om http://contoso.com/video/* dirigeras till VideoServerPool och förfrågningar om http://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.

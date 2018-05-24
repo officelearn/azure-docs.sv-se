@@ -3,7 +3,7 @@ title: Integrera säkerhetslösningar i Azure Security Center | Microsoft Docs
 description: Läs hur Azure Security Center integrerar med partners för att förbättra den övergripande säkerheten för dina Azure-resurser.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
-ms.author: yurid
-ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 05/04/2018
+ms.author: terrylan
+ms.openlocfilehash: ac1e49400f32194ada319f23b5233cc81de02a02
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -32,7 +32,7 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 
 Integrerade säkerhetslösningar omfattar för närvarande följande:
 
-- Slutpunktsskydd ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender, och System Center Endpoint Protection (SCEP))
+- Slutpunktsskydd ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Windows Defender, och System Center Endpoint Protection (SCEP))
 - Brandvägg för webbaserade program ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) och [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
@@ -44,8 +44,8 @@ Slutpunktsskyddsintegreringen kan variera beroende på lösning. Följande tabel
 | Windows Defender (Microsoft-programvara mot skadlig kod)                  | Windows Server 2016                   | Nej, inbyggd i OS           | Ja                       |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 | Via tillägg                | Ja                       |
 | Trend Micro – Alla versioner         | Windows Server-familjen                 | Via tillägg                | Ja                       |
-| Symantec v12.1.1100+                     | Windows Server-familjen                 | Nej                           | Ja                        |
-| MacAfee                           | Windows Server-familjen                 | Nej                           | Nej                        |
+| Symantec v12.1.1100+              | Windows Server-familjen                 | Nej                           | Ja                       |
+| McAfee v10 +                       | Windows Server-familjen                 | Nej                           | Ja                       |
 | Kaspersky                         | Windows Server-familjen                 | Nej                           | Nej                        |
 | Sophos                            | Windows Server-familjen                 | Nej                           | Nej                        |
 
@@ -86,7 +86,7 @@ Mer information finns i [Hantera anslutna partnerlösningar](security-center-par
 Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men som inte är anslutna till Security Center. Lösningarna visas i avsnittet **Identifierade lösningar**. Detta omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) samt partnerlösningar.
 
 > [!NOTE]
-> Funktionen Identifierade lösningar finns tillgänglig på nivån Standard för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. Mer information om prisalternativen för Security finns i [Priser](security-center-pricing.md).
 >
 >
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -72,11 +72,9 @@ Ange följande i fönstret **Grundläggande inställningar**:
 
 ## <a name="choose-virtual-machine-size"></a>Välj den virtuella datorns storlek
 
-I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret **Välj en storlek**. I fönstret visas först rekommenderade datorstorlekar baserat på den avbildning som du har valt. 
+1. I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret **Välj en storlek**.
 
-1. Klicka på **Visa alla** för att se alla tillgängliga datorstorlekar.
-
-1. För den här snabbstarten väljer du **D2S_V3**. Portalen visar den beräknade månadskostnaden för kontinuerlig användning av datorerna (licensieringskostnader för SQL Server omfattas inte). Observera att Developer Edition inte omfattas av några extra licensieringskostnader för SQL Server. Mer specifik prisinformation finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   För den här snabbstarten väljer du **D2S_V3**. Portalen visar den beräknade månadskostnaden för kontinuerlig användning av datorerna (licensieringskostnader för SQL Server omfattas inte). Observera att Developer Edition inte omfattas av några extra licensieringskostnader för SQL Server. Mer specifik prisinformation finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > Med datorstorleken **D2S_V3** sparar du pengar under testning. Men för produktionsarbetsbelastningar hittar du rekommendationer om datorstorlek och konfiguration i [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Prestandametodtips för SQL Server i Azure Virtual Machines).
@@ -85,7 +83,14 @@ I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret
 
 ## <a name="configure-optional-features"></a>Konfigurera valfria funktioner
 
-Klicka på **OK** för att välja standardvärdena i fönstret **Inställningar**.
+1. I fönstret **Inställningar** väljer du **RDP (3389)**-porten i listan **Välj offentlig ingående portar** om du vill fjärrstyra skrivbordet till den virtuella datorn.
+
+   ![Ingående portar](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Du kan välja porten **MS SQL (1433)** för att komma åt SQL Servern via fjärranslutning. Detta är dock inte nödvändigt, eftersom steget för **SQL Server-inställningar** även ger det här alternativet. Om du väljer port 1433 i det här steget, öppnas den oberoende av dina val i steget för **SQL Server-inställningar**.
+
+1. Spara ändringarna genom att klicka på **OK** och fortsätt.
 
 ## <a name="sql-server-settings"></a>SQL Server-inställningar
 

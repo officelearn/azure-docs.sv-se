@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7b604f9a26fc4c9a2c76a28ca01d066fe1640718
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Komma igång med Microsoft Power BI Embedded
 
@@ -48,7 +48,7 @@ Vi har några exempel som hjälper dig att komma igång. En genomgång av exempl
 Skapa kapacitet för Power BI Embedded i Microsoft Azure för att flytta programmet till produktion. Information om hur du skapar kapacitet finns i [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Skapa Power BI Embedded-kapacitet på Azure Portal).
 
 > [!IMPORTANT]
-> Eftersom inbäddade token enbart är avsedda för utvecklingstestning är antalet inbäddade token som ett Power BI-huvudkonto kan generera begränsat. En [kapacitet måste köpas](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) för produktionens inbäddningsscenarier. Det finns ingen gräns för att bädda in tokengenerering när en kapacitet har köpts.
+> Eftersom inbäddade token enbart är avsedda för utvecklingstestning är antalet inbäddade token som ett Power BI-huvudkonto kan generera begränsat. En [kapacitet måste köpas](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) för produktionens inbäddningsscenarier. Det finns ingen gräns för att bädda in tokengenerering när en kapacitet har köpts. Gå till [Hämta tillgängliga funktioner](https://msdn.microsoft.com/en-us/library/mt846473.aspx) och kontrollera den aktuella procentandelen inbäddad användning just nu.
 
 Hantera kapaciteten i administrationsportalen för Power BI. Utse en tilldelare för arbetsyta som hjälper dig med appens arbetsytor. Mer information finns i [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Hantera kapacitet i Power BI Premium och Power BI Embedded).
 

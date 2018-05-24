@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Relay-hybridanslutningar i .NET | Microsoft Docs"
-description: "Skriv ett C#-konsolprogram för Azure Relay-hybridanslutningar."
+title: Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET | Microsoft Docs
+description: Skriv ett C#-konsolprogram för Azure Relay-hybridanslutningar med Websockets.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Kom igång med Relay hybridanslutningar
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 Den här självstudien innehåller en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections). Lär dig hur du skapar ett klientprogram med .NET som skickar meddelanden till ett motsvarande lyssnarprogram. 

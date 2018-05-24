@@ -1,26 +1,27 @@
 ---
-title: "Så här använder du Azure Redis Cache med Python| Microsoft Docs"
-description: "Kom igång med Azure Redis Cache med Python"
+title: Snabbstart för att skapa en Python-app som använder Azure Redis Cache | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du skapar en Python-app som använder Redis Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 17a22dc7a18931e368c7f2e61c563e0d99c3a7ac
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.custom: mvc
+ms.openlocfilehash: b66df55043e4fd29f352c6e9ec3b8674800bc4be
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="how-to-use-azure-redis-cache-with-python"></a>Så här använder du Azure Redis Cache med Python
+# <a name="quickstart-use-azure-redis-cache-with-python"></a>Snabbstart: Så här använder du Azure Redis Cache med Python
 > [!div class="op_single_selector"]
 > * [NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,33 +31,109 @@ ms.lasthandoff: 01/19/2018
 > 
 > 
 
-Det här avsnittet visar hur du kommer igång med Azure Redis Cache med Python.
+## <a name="introduction"></a>Introduktion
+
+Den här snabbstarten visar hur du ansluter en Azure Redis Cache med Python för att läsa och skriva cache. 
+
+![Python-testet slutfördes](./media/cache-python-get-started/cache-python-completed.png)
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Installera [redis-py](https://github.com/andymccurdy/redis-py).
+
+* [Python 2 eller 3 för Python-miljön](https://www.python.org/downloads/) installeras med [pip](https://pypi.org/project/pip/). 
 
 ## <a name="create-a-redis-cache-on-azure"></a>Skapa en Redis-cache på Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>Hämta värdnamn och åtkomstnycklar
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-non-ssl-endpoint"></a>Aktivera icke-SSL-slutpunkten
-Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten inaktiverad för nya Azure Redis Cache-instanser](cache-configure.md#access-ports). När detta skrivs stöder [redis-py](https://github.com/andymccurdy/redis-py)-klienten inte SSL. 
+## <a name="install-redis-py"></a>Installera redis-py
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+[Redis-kopiera](https://github.com/andymccurdy/redis-py) är ett Python-gränssnitt för Redis Cache. Använd Python-verktygspaketet *pip* för att installera redis-py-paketet. 
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Lägg till något i cachen och hämta det
-    >>> import redis
-    >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
-          port=6380, db=0, password='<key>', ssl=True)
-    >>> r.set('foo', 'bar')
-    True
-    >>> r.get('foo')
-    b'bar'
+I följande exempel används *pip3* för Python3 för att installera redis-py-paketet på Windows 10 med utvecklarkommandotolken för Visual Studio 2017 med förhöjd administratörsbehörighet.
+
+    pip3 install redis
+
+![Installera redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
-Ersätt `<name>` med ditt cachenamn och `key` med din åtkomstnyckel.
+## <a name="read-and-write-to-the-cache"></a>Läsa och skriva till cachen
+
+Kör Python och testa med hjälp av cachen från kommandoraden. Ersätt `<Your Host Name>` och `<Your Access Key>` med värden för din Redis Cache. 
+
+```python
+>>> import redis
+>>> r = redis.StrictRedis(host='<Your Host Name>.redis.cache.windows.net',
+        port=6380, db=0, password='<Your Access Key>', ssl=True)
+>>> r.set('foo', 'bar')
+True
+>>> r.get('foo')
+b'bar'
+```
+
+## <a name="create-a-python-script"></a>Skapa ett Python-skript
+
+Skapa en ny textfil i skriptet med namnet *PythonApplication1.py*.
+
+Lägg till följande skript till *PythonApplication1.py* och spara filen. Det här skriptet kommer att testa cacheåtkomst. Ersätt `<Your Host Name>` och `<Your Access Key>` med värden för din Redis Cache. 
+
+```python
+import redis
+
+myHostname = "<Your Host Name>.redis.cache.windows.net"
+myPassword = "<Your Access Key>"
+
+r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+
+result = r.ping()
+print("Ping returned : " + str(result))
+
+result = r.set("Message", "Hello!, The cache is working with Python!")
+print("SET Message returned : " + str(result))
+
+result = r.get("Message")
+print("GET Message returned : " + result.decode("utf-8"))
+
+result = r.client_list()
+print("CLIENT LIST returned : ") 
+for c in result:
+    print("id : " + c['id'] + ", addr : " + c['addr'])
+```
+
+Kör skriptet med Python.
+
+![Python-testet slutfördes](./media/cache-python-get-started/cache-python-completed.png)
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du har skapat i den här självstudien och använda dem igen.
+
+Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
+
+> [!IMPORTANT]
+> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+>
+
+Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+
+![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
+
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
+
+Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Skapa ett enkelt ASP.NET-webbprogram som använder Azure Redis Cache.](./cache-web-app-howto.md)
+
+
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

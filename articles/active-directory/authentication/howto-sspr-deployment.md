@@ -2,35 +2,31 @@
 title: Distributionsguide för återställning av lösenord för självbetjäning – Azure Active Directory
 description: Tips för en lyckad distribution av Azure AD:s självbetjäningsfunktion för återställning av lösenord
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
 De flesta kunder genomför följande steg för att säkerställa en smidig distribution av funktionen med självbetjäning för återställning av lösenord (SSPR) i Azure Active directory (Azure AD):
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Aktivera lösenordsåterställning i katalogen](quickstart-sspr.md).
 2. [Konfigurera lokala Active Directory-behörigheter för tillbakaskrivning av lösenord](howto-sspr-writeback.md#active-directory-permissions).
 3. [Konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md#configure-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog.
 4. [Tilldela och verifiera nödvändiga licenser](concept-sspr-licensing.md).
-5. Avgör om du vill genomföra en stegvis distribution. Om du vill distribuera SSPR gradvis kan du begränsa åtkomsten till en grupp användare så att du först kan testa programmet med en viss grupp. Om du vill distribuera till en specifik grupp ställer du in **Återställning av lösenord via självbetjäning har aktiverats** på **Valt** och väljer den säkerhetsgrupp som du vill ska kunna använda lösenordsåterställningen. 
+5. Avgör om du vill genomföra en stegvis distribution. Om du vill distribuera SSPR gradvis kan du begränsa åtkomsten till en grupp användare så att du först kan testa programmet med en viss grupp. Om du vill distribuera till en specifik grupp ställer du in **Återställning av lösenord via självbetjäning har aktiverats** på **Valt** och väljer den säkerhetsgrupp som du vill ska kunna använda lösenordsåterställningen.  Kapsling av säkerhetsgrupper stöds här.
 6. Fyll i [autentiseringsdata](howto-sspr-authenticationdata.md) som krävs för att användarna ska kunna registreras, till exempel deras arbetstelefon, mobiltelefon och alternativa e-postadress.
 7. [Anpassa Azure AD-inloggningen för att inkludera din företagsanpassning](concept-sspr-customization.md).
 8. Lär användarna hur de använder SSPR. Skicka anvisningar till dem om hur de ska registrera sig och återställa sina lösenord.
@@ -66,6 +62,10 @@ Många kunder väljer att själva agera värd för webbsidan och skapa en DNS-ro
 * Annan information som är specifik för organisationen
 
 De kan då skicka ut e-post eller flygblad med en egen URL som är lätt att komma ihåg, och dit användarna kan vända sig när de behöver använda tjänsterna. Vi har skapat en [exempelsida för lösenordsåterställning](https://github.com/ajamess/password-reset-page) som du kan använda och anpassa efter din organisations behov.
+
+## <a name="step-by-step-deployment-plan"></a>Distributionsplan steg för steg
+
+Azure Active Directory-produktgruppen har skapat en [stegvis distributionsplan](https://aka.ms/SSPRDeploymentPlan) som kan användas parallellt med dokumentationen på den här webbplatsen, för att organisationen ska kunna skapa en affärsstudie och planera för distribution av självåterställning av lösenord.
 
 ## <a name="use-enforced-registration"></a>Använd tvingande registrering
 

@@ -1,27 +1,29 @@
 ---
-title: Skapa en standardbelastningsutjämnare – Azure Portal | Microsoft Docs
-description: Lär dig hur du skapar en standardbelastningsutjämnare med Azure Portal.
+title: 'Snabbstart: Skapa en standardbelastningsutjämnare – Azure Portal | Microsoft Docs'
+description: I den här snabbstarten visas hur du skapar en offentlig standardbelastningsutjämnare med Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
-ms.openlocfilehash: f67da7dc84878ca7418eb644daec1a9681e2f6f2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Skapa en standardbelastningsutjämnare som belastningsutjämnar virtuella datorer med Azure Portal
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en standardbelastningsutjämnare som belastningsutjämnar virtuella datorer med Azure Portal
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en belastningsutjämnare som belastningsutjämnar virtuella datorer (VM). Den här snabbstartsguiden visar hur du belastningsutjämnar virtuella datorer med en standardbelastningsutjämnare.
 

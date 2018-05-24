@@ -1,11 +1,11 @@
 ---
-title: Redigera ett API med Azure-portalen | Microsoft Docs
-description: "Den här kursen visar hur du använder API Management (APIM) för att redigera en API."
+title: Redigera ett API med Azure Portal | Microsoft Docs
+description: Den här självstudien visar hur du använder API Management (APIM) för att redigera ett API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 362c36181da706e3fe0a27cc5ab262271c2a1e57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="edit-an-api"></a>Redigera en API
+# <a name="edit-an-api"></a>Redigera ett API
 
-Stegen i den här kursen visar hur du använder API Management (APIM) för att redigera en API. 
+Stegen i den här självstudien visar hur du använder API Management (APIM) för att redigera ett API. 
 
-+ Du kan göra det genom att lägga till, ta bort, byta namn på åtgärder i APIM-instans. 
-+ Du kan redigera din API swagger.
++ Du kan göra det genom att lägga till, ta bort, byta namn på åtgärderna i APIM-instansen. 
++ Du kan redigera din API:s swagger.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ [Skapa en instans av Azure API Management](get-started-create-service-instance.md)
-+ [Importera och publicera din första API](import-and-publish.md)
++ [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
++ [Importera och publicera ditt första API](import-and-publish.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="edit-an-api-in-apim"></a>Redigera en API i APIM
+## <a name="edit-an-api-in-apim"></a>Redigera ett API i APIM
 
-![Redigera en api](./media/edit-api/edit-api001.png)
+![Redigera ett API](./media/edit-api/edit-api001.png)
 
-1. Klicka på den **API: er** fliken.
-2. Välj en av de API: er som du tidigare har importerats.
-3. Välj den **Design** fliken.
+1. Klicka på fliken **API:er**.
+2. Välj ett av de API:er som du tidigare har importerat.
+3. Välj fliken **Design**.
 4. Välj en åtgärd som du vill redigera.
-5. Byt namn på åtgärden genom att markera en **penna** i den **klientdel** fönster.
+5. Byt namn på åtgärden genom att markera en **penna** i **klientdel**-fönstret.
 
 ## <a name="update-the-swagger"></a>Uppdatera swagger
 
-Du kan uppdatera din backbend API från Azure portal genom att följa dessa steg:
+Du kan uppdatera ditt serverdels-API från Azure Portal genom att följa dessa steg:
 
-1. Välj **alla åtgärder**
-2. Klicka på penna i den **klientdel** fönster.
+1. Välj **Alla åtgärder**
+2. Klicka på penna i **klientdel**-fönstret.
 
-    ![Redigera en api](./media/edit-api/edit-api002.png)
+    ![Redigera ett API](./media/edit-api/edit-api002.png)
 
-    Din API swagger visas.
+    Ditt API:s swagger visas.
 
-    ![Redigera en api](./media/edit-api/edit-api003.png)
+    ![Redigera ett API](./media/edit-api/edit-api003.png)
 
 3. Uppdatera swagger.
-4. Tryck på **spara**.
+4. Tryck på **Spara**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [APIM princip prover](policy-samples.md)
-> [transformera och skydda publicerade API](transform-api.md)
+> [APIM-principexempel](policy-samples.md)
+> [Omvandla och skydda ett publicerat API](transform-api.md)

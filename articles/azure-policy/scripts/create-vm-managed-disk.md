@@ -1,29 +1,29 @@
 ---
-title: "Azure princip json-exemplet - Audit VM som inte använder hanterade diskar | Microsoft Docs"
-description: "Det här exemplet json granskningar när en virtuell dator skapas som inte använder hanterade diskar."
+title: Json-exempel i Azure Policy – Granska VM som inte använder hanterad disk | Microsoft Docs
+description: Den här json-exempelprincipen granskar när en virtuell dator skapas som inte använder hanterade diskar.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: a849c1bdbaf75cda25caca22f8ceaeb5fe23c211
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 84f359b073689648917a3853e60afb136bd005d7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>Granska när VM inte använder hanterade disk
+# <a name="audit-when-vm-does-not-use-managed-disk"></a>Granska när VM inte använder hanterad disk
 
-Granskningar när en virtuell dator skapas som inte använder hanterade diskar.
+Granskar när en virtuell dator skapas som inte använder hanterade diskar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Granskningar när en virtuell dator skapas som inte använder hanterade diskar.
 
 [!code-json[main](../../../policy-templates/samples/compute/audit-non-managed-disk-vm/azurepolicy.json "Create VM using Managed Disk")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'audit-non-managed-disk-vm' --display-name 'C
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-non-managed-disk-vm"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
+### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distributionen
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

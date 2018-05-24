@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
 
@@ -21,7 +21,7 @@ Azure Container Instances gör det enkelt att skapa och hantera Docker-behållar
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][qs-powershell-01]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,7 +81,7 @@ När behållaren **ProvisioningState** flyttas till `Succeeded` navigerar du til
 
 ![IIS som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
-## <a name="delete-the-container"></a>Ta bort behållaren
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med behållaren kan du ta bort den med cmdleten [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du startat en färdig Windows-behållare i Azure Container Instances. Om du vill försöka skapa en behållare på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-behållarinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

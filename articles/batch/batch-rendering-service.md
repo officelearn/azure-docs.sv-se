@@ -1,22 +1,22 @@
 ---
-title: "Azure Batch-renderingstjänst – rendering i molnskala | Microsoft Docs"
-description: "Rendera jobb på virtuella datorer i Azure direkt från Maya med betalning per användning."
+title: Azure Batch-renderingstjänst – rendering i molnskala | Microsoft Docs
+description: Rendera jobb på virtuella datorer i Azure direkt från Maya med betalning per användning.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Komma igång med tjänsten Batch Rendering
 
-Tjänsten Azure Batch Rendering erbjuder renderingsfunktioner i molnskala med betalning per användning. Tjänsten Batch Rendering hanterar jobbschemaläggning och jobbköer, med funktioner för felhantering, omförsök och automatisk skalning för renderingsjobb. Batch-tjänsten för återgivning stöder [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) och [V-Ray](https://www.chaosgroup.com/vray/maya). Med Batch-plugin-programmet för Maya 2017 kan du enkelt starta ett renderingsjobb i Azure direkt från skrivbordet.
+Tjänsten Azure Batch Rendering erbjuder renderingsfunktioner i molnskala med betalning per användning. Tjänsten Batch Rendering hanterar jobbschemaläggning och jobbköer, med funktioner för felhantering, omförsök och automatisk skalning för renderingsjobb. Tjänsten Batch Rendering stöder renderingsappar som [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) och [V-Ray](https://www.chaosgroup.com/vray/maya). Med Batch-plugin-programmet för Maya 2017 kan du enkelt starta ett renderingsjobb i Azure direkt från skrivbordet.
 
 Med Maya och 3ds Max kan du köra jobb med datorprogrammet [BatchLabs](https://github.com/Azure/BatchLabs) eller [CLI för Batch-mallar](batch-cli-templates.md). Med Azure Batch CLI kan du köra Batch-jobb utan att skriva kod. Istället kan du använda mallfilerna för att skapa Batch-pooler, -jobb och -uppgifter. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring](batch-cli-templates.md).
 
@@ -25,16 +25,35 @@ Med Maya och 3ds Max kan du köra jobb med datorprogrammet [BatchLabs](https://g
 
 För närvarande har tjänsten Batch Rendering stöd för följande program:
 
-•   Autodesk Maya I/O 2017 Update 4 (version 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (version 20.1.0.238) •   Autodesk Arnold for Maya (version 5.0.1.1) •   Autodesk Arnold for 3ds Max (version 1.0.836) •   Chaos Group V-Ray for Maya (version 3.52.03) •   Chaos Group V-Ray for 3ds Max (version 3.60.02)
+På CentOS 7 återgivningsnoder:
+- Autodesk Maya I/O 2017 uppdatering 5 (version 201708032230)
+- Autodesk Maya I/O 2018 uppdatering 2 version 201711281015
+- Autodesk Arnold för Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold för Maya 2018 (Arnold version 5.0.1.4) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray för Maya 2017 (version 3.60.04) 
+- Chaos Group V-Ray för Maya 2018 (version 3.60.04) 
+- Blender (2.68)
+
+På Windows Server 2016 återgivningsnoder:
+- Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459) 
+- Autodesk Maya I/O 2018 uppdatering 2 (version 18.2.0.6476) 
+- Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254) 
+- Autodesk Arnold för Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold för Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
+- Autodesk Arnold för 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926) 
+- Chaos Group V-Ray för Maya (version 3.52.03) 
+- Chaos Group V-Ray för 3ds Max (version 3.60.02)
+- Blender (2.79)
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att använda tjänsten Batch Rendering behöver du:
 
-- Ett [Azure-konto](https://azure.microsoft.com/free/).
-- **Ett Azure Batch-konto.** Anvisningar för hur du skapar ett Batch-konto på Azure-portalen finns i [Skapa ett Batch-konto med Azure-portalen](batch-account-create-portal.md).
-- **Ett Azure Storage-konto.** De resurser som används för dina renderingsjobb lagras i Azure Storage. Du kan skapa ett lagringskonto automatiskt när du skapar ditt Batch-konto. Du kan också använda ett befintligt lagringskonto. Mer information om lagringskonton finns i [Skapa, hantera eller ta bort ett lagringskonto på Azure-portalen](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- [Azure-konto](https://azure.microsoft.com/free/).
+- **Azure Batch-konto.** Anvisningar för hur du skapar ett Batch-konto på Azure-portalen finns i [Skapa ett Batch-konto med Azure-portalen](batch-account-create-portal.md).
+- **Azure Storage-konto.** De resurser som används för dina återgivningsjobb lagras vanligtvis i Azure Storage. Du kan skapa ett lagringskonto automatiskt när du skapar ditt Batch-konto. Du kan också använda ett befintligt lagringskonto. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
+- **Miljövariabler.** Om din lösning ändrar miljövariabler kontrollerar du att värdena för `AZ_BATCH_ACCOUNT_URL` och `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` hålls intakta och tillgängliga när något av ovanstående licensierade program anropas. Annars är det troligt att det uppstår aktiveringsproblem med programvaran.
 - **BatchLabs** (valfritt). [BatchLabs](https://azure.github.io/BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Även om det inte krävs för att använda renderingstjänsten så är det användbart för att utveckla och felsöka dina Batch-lösningar.
 
 För att använda Batch-plugin-programmet för Maya behöver du:
@@ -72,18 +91,11 @@ I Azure Portal och i BatchLabs kan du installera någon av VM-avbildningarna med
 
 ![Välj avbildningstyp för Batch-kontot](./media/batch-rendering-service/add-pool.png)
 
-Bläddra ned och klicka på **Grafik och återgivningslicenser** för att öppna bladet **Välj licenser** och markera en eller flera av programlicenserna:
+Bläddra nedåt och under **Licensiering grafik och återgivning** klickar du på **Välj program och prissättning**. Välj en eller flera av programvarulicenserna:
 
 ![Välj grafik- och renderingslicens för poolen](./media/batch-rendering-service/graphics-licensing.png)
 
-De specifika licensversionerna som tillhandahålls är följande:
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold för Maya 5.0.1.1
-- Arnold för 3ds Max 1.0.836
-- V-Ray för Maya 3.52.03
-- V-Ray för 3ds Max 3.60.01
+Specifika licensversioner som tillhandahålls med versionerna i avsnittet ”Program som stöds” ovan.
 
 ### <a name="custom-images"></a>Anpassade avbildningar
 
@@ -175,12 +187,12 @@ Du kan ange vilken typ av operativsystemsavbildning som du vill använda för at
 
 |Operativsystem  |Bild  |
 |---------|---------|
-|Linux     |Batch CentOS Preview |
-|Windows     |Batch Windows Preview |
+|Linux     |Batch CentOS |
+|Windows     |Batch Windows |
 
 #### <a name="choose-a-vm-size"></a>Välja storlek för virtuella datorer
 
-Du kan ange storleken för virtuella datorer på fliken **Env** (Miljö). Mer information om tillgängliga storlekar för virtuella datorer finns i [Linux VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) (Storlekar för virtuella Linux-datorer i Azure) och [Windows VM sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) (Storlekar för virtuella Windows-datorer i Azure). 
+Du kan ange storleken för virtuella datorer på fliken **Env** (Miljö). Mer information om tillgängliga storlekar för virtuella datorer finns i [Linux VM sizes in Azure](../virtual-machines/linux/sizes.md) (Storlekar för virtuella Linux-datorer i Azure) och [Windows VM sizes in Azure](../virtual-machines/windows/sizes.md) (Storlekar för virtuella Windows-datorer i Azure). 
 
 ![Ange operativsystemsavbildning och storlek för virtuella datorer på fliken Env (Miljö)](./media/batch-rendering-service/environment.png)
 

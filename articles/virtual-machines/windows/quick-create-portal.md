@@ -1,6 +1,6 @@
 ---
-title: Azure snabbstart – skapa virtuell Windows-dator med Portal | Microsoft Docs
-description: Azure snabbstart – skapa virtuell Windows-dator med Portal
+title: Snabbstart – Skapa en Windows-VM i Azure Portal | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du skapar en virtuell Windows-dator med hjälp av Azure Portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,21 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2017
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 42e17e2eb4ef64f8d0e80713041d22e6fe182538
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Windows-dator med Azure Portal
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
 
-Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. I den här snabbstarten beskrivs hur du skapar en virtuell dator och installerar en webbserver på den.
+Det går att skapa virtuella datorer (VM) via Azure Portal. Med den här metoden får du ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. Den här snabbstarten beskriver hur du använder Azure Portal för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2016. För att sedan se hur den fungerar i praktiken ansluter du till den virtuella datorn med RDP och installerar IIS-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,75 +34,74 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
 
-2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
+2. I sökrutan ovanför listan över resurser i Azure Marketplace, söker di efter och väljer **Windows Server 2016 Datacenter** och därefter **Dkapa**.
 
-3. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). När du är klar klickar du på **OK**.
+3. Ange ett namn, t.ex *myVM*, lämna disktypen som *SSD* och ange ett användarnamn, t.ex *azureuser*. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
+    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-4. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
+5. Välja att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din önskade **Plats** och välj **OK**.
 
-    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
+4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. Ett förslag på storlek på en virtuell dator är *D2s_v3*.
 
-5. Under **Inställningar** behåller du standardvärdena och klickar på **OK**. 
+    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
+5. Lämna standardinställningarna under **Inställningar** och välj **OK**.
+
+6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
 
 7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
 
-
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Skapa en fjärrskrivbordsanslutning till den virtuella datorn.
+Skapa en fjärrskrivbordsanslutning till den virtuella datorn. Dessa instruktioner förklarar hur du ansluter till den virtuella datorn från en Windows-dator. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) från Mac App Store.
 
-1. Klicka på knappen **Anslut** på den virtuella datorns egenskaper. En protokollfil för fjärrskrivbord (.rdp-fil) skapas och hämtas.
+1. Klicka på knappen **Anslut** på den virtuella datorns egenskapssida. 
 
-    ![Portal 9](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png) 
+    ![Ansluta till en virtuell Azure-dator från portalen](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    
+2. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med DNS-namn via port 3389 och klickar på **Hämta RDP-filen**.
 
-2. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Om du uppmanas till detta klickar du på **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) från Mac App Store.
+2. Öppna den hämtade RDP-filen och klicka på **Anslut** när du tillfrågas. 
 
-3. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn och klicka sedan på **Ok**.
+3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange *vmname*\* som användarnamn* och det lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
 4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
+## <a name="install-web-server"></a>Installera webbservern
 
-## <a name="install-iis-using-powershell"></a>Installera IIS med PowerShell
-
-Starta en PowerShell-session och kör följande kommando för att installera IIS på den virtuella datorn.
+Installera IIS-webbservern för att se hur den virtuella datorn fungerar i praktiken. Öppna en PowerShell-kommandotolk på den virtuella datorn och kör följande kommando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-När det är klart avslutar du RDP-sessionen och återgår till VM-egenskaperna i Azure Portal.
+När kommandot har körts stänger du RDP-anslutningen till den virtuella datorn.
 
-## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
+## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
 
 En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När en VM skapas från Azure Portal skapas en regel för inkommande trafik på port 3389 för RDP-anslutningar. Eftersom denna VM är värd för en webbserver måste du skapa en NSG-regel för port 80.
 
-1. Klicka på namnet på den virtuella datorns **resursgrupp**.
-2. Välj **nätverkssäkerhetsgruppen**. Du kan identifiera NSG med kolumnen **Typ**. 
-3. På menyn till vänster under inställningarna klickar du på **Ingående säkerhetsregel**.
-4. Klicka på **Lägg till**.
-5. Skriv **http** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. 
-6. Klicka på **OK**.
-
+1. Välj **Nätverk** på översiktssidan för den virtuella datorn.
+2. Listan med befintliga regler för inkommande och utgående visas. Välj att **Lägg till regel för inkommande portar**.
+3. Välj alternativet **Grundläggande** överst och välj sedan *HTTP* från listan över tillgängliga tjänster. Du tilldelas port 80, en prioritet och ett namn.
+4. Välj **Lägg till** för att skapa regeln.
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-När IIS är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns under *Virtuella datorer* i Azure Portal.
+När IIS har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för IIS. Använd den virtuella datorns offentliga IP-adress, som du hämtade i ett tidigare steg. I följande exempel visas standardwebbplatsen för IIS:
 
-![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png) 
+![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för den virtuella datorn och klicka på **Ta bort**.
+Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen för den virtuella datorn. Välj sedan **Ta bort** och kontrollera namnet på resursgruppen som du vill ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat en virtuell dator och en regel för nätverkssäkerhetsgrupp samt installerat en webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Windows-datorer.
+I den här snabbstarten distribuerade du en enkel virtuell dator, öppnade en nätverksport för webbtrafik och installerade en enkel webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Windows-datorer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Windows-datorer](./tutorial-manage-vm.md)

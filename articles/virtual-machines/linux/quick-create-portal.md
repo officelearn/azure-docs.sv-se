@@ -1,6 +1,6 @@
 ---
-title: Azure snabbstart – skapa virtuell dator med Portal | Microsoft Docs
-description: Azure snabbstart – skapa virtuell dator med Portal
+title: Snabbstart – Skapa en virtuell Linux-dator i Azure Portal | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du använder Azure Portal för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/11/2017
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6585f28e2b70aee6efbfa99bf2ec4320d6d15382
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Linux-dator med Azure Portal
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
-Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. I den här snabbstarten beskrivs hur du skapar en virtuell dator och installerar en webbserver på den.
+Det går att skapa virtuella Azure-datorer via Azure Portal. Den här metoden ger dig ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. Den här snabbstarten visar hur du använder Azure Portal för att distribuera en virtuell Linux-dator (VM) i Azure som kör Ubuntu. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,95 +32,94 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du har ett befintligt SSH-nyckelpar kan du hoppa över det här steget.
 
-Kör det här kommandot från ett Bash-kommandogränssnitt och följ instruktionerna på skärmen. Kommandoutdata innehåller filnamnet för den offentliga nyckeln. Kopiera innehållet i en fil för offentlig nyckel (`cat ~/.ssh/id_rsa.pub`) till Urklipp. Om du använder Windows-undersystemet för Linux ser du till att du inte kopierar radbrytningstecken från utdata. Notera filnamnet på den privata nyckelfilen för senare användning.
+Skapa ett SSH-nyckelpar och logga in på den virtuella Linux-datorn genom att köra följande kommando från ett Bash-gränssnitt och följa instruktionerna på skärmen. Du kan till exempel använda [Azure Cloud Shell](../../cloud-shell/overview.md) eller [Windows delsystemet för Linux](/windows/wsl/install-win10). Kommandoutdata innehåller filnamnet för den offentliga nyckeln. Kopiera innehållet i den offentliga nyckelfilen (`cat ~/.ssh/id_rsa.pub`) till urklipp:
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Du hittar mer detaljerad information om den här processen [här](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+Mer detaljerad information om hur du skapar SSH-nyckelpar, inklusive användning av PuTTy, finns i [Använd SSH-nycklar med Windows](ssh-from-windows.md).
 
-## <a name="log-in-to-azure"></a>Logga in på Azure 
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på http://portal.azure.com
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**. 
+2. I sökrutan ovanför listan över Azure Marketplace-resurser, söker du efter och väljer **Ubuntu Server 16.04 LTS** av Canonical och väljer sedan **Skapa**.
 
-3. Ange informationen för den virtuella datorn. Välj **Offentlig SSH-nyckel** som **Autentiseringstyp**. När du klistrar in den offentliga SSH-nyckeln ska du tänka på att ta bort eventuella inledande eller avslutande blanksteg. När du är klar klickar du på **OK**.
+3. Ange ett namn på den virtuella datorn, till exempel *myVM*, lämna disktypen som *SSD* och ange sedan ett användarnamn, som *azureuser*.
+
+4. . Som **autentiseringstyp** väljer du **offentlig SSH-nyckel** och klistrar in den offentliga nyckeln i textrutan. Var noga med att ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
+5. Välj att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din önskade **Plats** och välj **OK**.
 
-    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
+4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. En föreslagen virtuell datorstorlek är *D2s_v3*.
 
-5. Under **Inställningar** behåller du standardvärdena och klickar på **OK**.
+    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
+5. Lämna standardinställningarna under **Inställningar** och välj **OK**.
+
+6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
 
 7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
-
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
 Skapa en SSH-anslutning med den virtuella datorn.
 
-1. Klicka på knappen **Anslut** på den virtuella datorns egenskaper. Anslutningsknappen visar en SSH-anslutningssträng som kan användas för att ansluta till den virtuella datorn.
+1. Välj **Anslut**-knappen på översiktssidan för din virtuella dator. 
 
-    ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
+    ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Kör följande kommando för att skapa en SSH-session. Ersätt anslutningssträngen med den som du kopierade från Azure Portal.
+2. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med DNS-namn via port 22. I **Logga in med lokalt virtuellt datorkonto** visas ett anslutningskommando. Klicka på knappen för att kopiera kommandot. Följande exempel visar hur SSH-anslutningskommandot ser ut:
 
-```bash 
-ssh azureuser@40.112.21.50
-```
+    ```bash
+    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ```
 
-## <a name="install-nginx"></a>Installera NGINX
+3. Klistra in SSH-anslutningskommandot i ett gränssnitt, till exempel Azure Cloud Shell eller Bash på Ubuntu i Windows för att skapa anslutningen. 
 
-Använd följande bash-skript för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
+## <a name="install-web-server"></a>Installera webbservern
 
-```bash 
-#!/bin/bash
+Om du vill se hur den virtuella datorn fungerar i praktiken installerar du NGINX-webbservern. Om du vill uppdatera paketkällorna och installera det senaste NGINX-paketet kör du följande kommandon från SSH-sessionen:
 
-# update package source
+```bash
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-När det är klart avslutar du SSH-sessionen och återgår till VM-egenskaperna i Azure Portal.
+När det är klart, `exit` du SSH-sessionen och återgår till egenskaperna för den virtuella datorn i Azure Portal.
 
+## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
 
-## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
+En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När en VM skapas från Azure Portal skapas en regel för inkommande trafik på port 22 för SSH-anslutningar. Eftersom den här virtuella datorn är värd för en webbserver, måste du skapa en NSG-regel för port 80.
 
-En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När en VM skapas från Azure Portal skapas en regel för inkommande trafik på port 22 för SSH-anslutningar. Eftersom denna VM är värd för en webbserver måste du skapa en NSG-regel för port 80.
+1. Välj **Nätverk** på översiktssidan för den virtuella datorn.
+2. Listan med befintliga regler för inkommande och utgående visas. Välj att **Lägga till regel för inkommande portar**.
+3. Välj alternativet **Grundläggande** överst och välj sedan *HTTP* från listan över tillgängliga tjänster. Du tilldelas port 80, en prioritet och ett namn.
+4. Välj **Lägg till** för att skapa regeln.
 
-1. Klicka på namnet på den virtuella datorns **resursgrupp**.
-2. Välj **nätverkssäkerhetsgruppen**. Du kan identifiera NSG med kolumnen **Typ**. 
-3. På menyn till vänster under inställningarna klickar du på **Ingående säkerhetsregel**.
-4. Klicka på **Lägg till**.
-5. Skriv **http** i fältet **Namn**. Kontrollera att **Källportsintervall** är inställt på `*`, **Målportsintervall** är inställt på *80* och **Åtgärd** är inställt på *Tillåt*. 
-6. Klicka på **OK**.
+## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 
+När NGINX är installerat och port 80 är öppen för den virtuella datorn kan webbservern nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns på översiktssidan för den virtuella datorn eller längst upp i *Nätverk*-sidan där du lägger till en regel för inkommande portar.
 
-## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
-
-När NGINX är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns bland VM-egenskaperna i Azure Portal.
-
-![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
+![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen för den virtuella datorn och klickar på **Ta bort**.
+Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen för den virtuella datorn. Välj sedan **Ta bort** och kontrollera namnet på resursgruppen som du vill ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat en virtuell dator och en regel för nätverkssäkerhetsgrupp samt installerat en webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
+I den här snabbstarten distribuerade du en enkel virtuell dator, skapade en nätverkssäkerhetsgrupp och en regel och installerade en enkel webbserver. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Linux-datorer](./tutorial-manage-vm.md)

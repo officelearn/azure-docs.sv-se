@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366655"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -111,7 +112,7 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 * Konfigurera en [auktoriseringsprincip för klientanslutning](http://technet.microsoft.com/library/cc753324.aspx) så att RD Gateway kan verifiera att klientdatorns namn är giltigt (domänanslutet) och har tillgång till Azure Portal.
 * Skydda hanteringstrafiken ytterligare från tjuvlyssnande och token-stöld med IPsec för [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/). Du kan även överväga en isolerad Internet-anslutning via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Aktivera multifaktorautentisering (via [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) eller smartkortsautentisering för administratörer som loggar in via RD Gateway.
-* Minimera antalet tillåtna hanteringsslutpunkter genom att konfigurera [begränsningar för IP-adress](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) eller [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) i Azure.
+* Minimera antalet tillåtna hanteringsslutpunkter genom att konfigurera [begränsningar för IP-adress](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) eller [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) i Azure.
 
 ## <a name="security-guidelines"></a>Riktlinjer för säkerhet
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.

@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/07/2018
-ms.author: ryanwi,mikhegn
-ms.openlocfilehash: 20600eda935d15b0554f6184b41caa45ee42fd14
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: ryanwi
+ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207493"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-behållare till Azure Service Fabric
 
@@ -27,7 +28,7 @@ I den här självstudiekursen lär du dig hur du skapar en behållare för ett b
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en behållare för ett befintligt program med hjälp av Visual Studio
+> * Använda en behållare med ett befintligt program med hjälp av Visual Studio
 > * Skapa en Azure SQL Database
 > * Skapa ett Azure-behållarregister
 > * Distribuera ett Service Fabric-program till Azure
@@ -157,7 +158,7 @@ När du skapar klustret väljer du en SKU som stöder körning av behållare (ti
     3. Välj fliken **Certifikat**. På den här fliken skriver du ett lösenord som ska skydda certifikatet i klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
     4. Välj fliken med **information om den virtuella datorn**. Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
     5. På fliken **Avancerat** visar du programporten som ska öppnas i belastningsutjämnaren när klustret distribueras. Öppna FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml i Solution Explorer.  Porten för webbklientdelen visas i **Slutpunkt**.  Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
-    6. När du har ändrat inställningarna klickar du på knappen **Skapa**. 
+    6. När du är klar med ändringen av inställningarna väljer du knappen **Skapa**. 
 5. Åtgärden tar flera minuter. Utdatafönstret visar när klustret har skapats.
     
 

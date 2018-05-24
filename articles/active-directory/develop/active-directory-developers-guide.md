@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257557"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
 
@@ -55,7 +56,6 @@ Guiderna nedan vägleder dig igenom några av de vanligaste uppgifterna i Azure 
 |[Programregistrering](active-directory-integrating-applications.md)           | Så här registrerar du ett program i Azure AD. |
 |[Program för flera innehavare](active-directory-devhowto-multi-tenant-overview.md)    | Så här loggar du in med valfritt Microsoft-arbetskonto. |
 |[OAuth och OpenID Connect-protokoll](active-directory-protocols-openid-connect-code.md)| Så här loggar du in användare och anropar webb-API:er med Microsofts autentiseringsprotokoll. |
-|[Ytterligare vägledningar](active-directory-developers-guide-index.md#guides)        |  En lista över vägledningar som är tillgängliga för Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Referensämnen
@@ -66,7 +66,6 @@ Följande artiklar innehåller detaljerad information om API:er, protokollmeddel
 | [Autentiseringsbibliotek (ADAL)](active-directory-authentication-libraries.md)   | En översikt över de bibliotek och SDK:er som tillhandahålls av Azure AD. |
 | [Kodexempel](active-directory-code-samples.md)                                  | En lista över alla Azure AD-kodexempel. |
 | [Ordlista](active-directory-dev-glossary.md)                                      | Termer och definitioner av ord som används i den här dokumentationen. |
-| [Ytterligare referensämnen](active-directory-developers-guide-index.md#reference)| En lista över referensämnen som är tillgängliga för Azure AD. |
 |  |  |
 
 

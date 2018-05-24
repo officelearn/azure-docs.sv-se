@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358667"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall med hjälp av Visual Studio Code-tillägget
 Den här artikeln beskriver fördelarna med att installera och använda tillägget Azure Resource Manager Tools i Visual Studio Code. Du kan skapa Resource Manager-mallar i VS Code utan tillägget. Tillägget innehåller dock alternativ för automatisk komplettering som gör det enklare att skapa mallar. Tillägget föreslår mallfunktioner, parametrar och variabler som är tillgängliga i mallen.

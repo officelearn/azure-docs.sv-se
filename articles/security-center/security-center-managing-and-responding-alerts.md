@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: 4b8b8dba357db38424b86399672f4143c8c56a5f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365394"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
@@ -80,7 +81,7 @@ I det här fallet utlöstes aviseringarna på grund av misstänkt Remote Desktop
 
 I fältet **Beskrivning** finns mer information om den här händelsen. Här kan du se vad det var som utlöste säkerhetsaviseringen, vilken resurs som är angripen, eventuell IP-adress som angreppet kommer ifrån och rekommendationer om hur du kan åtgärda problemet.  I vissa fall finns ingen IP-adress till källan eftersom IP-adresser inte ingår i alla säkerhetshändelseloggar i Windows.
 
-Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering. I vissa fall måste du kanske använda andra funktioner i Azure för att utföra de rekommenderade åtgärderna. Den rekommenderade åtgärden för det här angreppet är till exempel att svartlista IP-adressen som angreppet kommer ifrån genom regler för [nätverks-ACL](../virtual-network/virtual-networks-acl.md) eller en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md). Mer information om olika typer av aviseringar finns i [Typ med säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md).
+Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering. I vissa fall måste du kanske använda andra funktioner i Azure för att utföra de rekommenderade åtgärderna. Den rekommenderade åtgärden för det här angreppet är till exempel att svartlista IP-adressen som angreppet kommer ifrån genom regler för [nätverks-ACL](../virtual-network/virtual-networks-acl.md) eller en [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md#security-rules). Mer information om olika typer av aviseringar finns i [Typ med säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md).
 
 > [!NOTE]
 > Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.

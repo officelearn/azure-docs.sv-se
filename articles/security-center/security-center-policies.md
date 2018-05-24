@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: a993338e5a16514e855d771e25aac3e451faab45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364394"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
 Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Center.
@@ -55,7 +56,7 @@ Använd följande tabell som referens för att förstå de principdefinitioner s
 | Säkerhetskonfigurationer |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
 | Slutpunktsskydd |Rekommendationer om att slutpunktsskydd ska installeras på alla virtuella datorer (VM) med Windows så att virus, spionprogram och annan skadlig programvara kan identifieras och tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
-| Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |
+| Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |
 | Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program konfigureras på virtuella datorer när något av följande stämmer: <ul><li>En [Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</li><li>En belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. Mer information finns i [Azure Resource Manager-stöd för belastningsutjämnare](../load-balancer/load-balancer-arm.md).</li> |
 | Nästa generations brandvägg |Nätverksskyddet utökas utöver nätverkssäkerhetsgrupperna, som är inbyggda i Azure. Security Center identifierar distributioner som nästa generations brandvägg rekommenderas för och du kan sedan göra en virtuell installation. |
 | SQL-granskning och hotidentifiering |Rekommenderar att granskning av åtkomst till SQL-databasen aktiveras för både lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |

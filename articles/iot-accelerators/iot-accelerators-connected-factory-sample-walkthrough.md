@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 68ed75a9ef2faee408e65c0991182b7d95bb17a8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2144747fdaa0c596397cc93d8509ca006b67c592
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303512"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366213"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Ansluten fabrik
 
 [Lösningsacceleratorn][lnk-preconfigured-solutions] Ansluten fabrik är en implementering av en branschlösning från slutpunkt till slutpunkt som:
 
-* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar om Ansluten fabrik](iot-suite-faq-cf.md).
+* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar om Ansluten fabrik](iot-accelerators-faq-cf.md).
 * Visar KPI:er och OEE:er för drift för enheterna och produktionsraderna.
 * Visar hur ett molnbaserat program kan användas för att interagera med OPC UA-serversystem.
 * Gör att du kan ansluta dina egna OPC UA-serverenheter.
@@ -41,7 +41,7 @@ Den här artikeln beskriver några av de viktigaste elementen i lösningen Anslu
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
-Mer information finns i [Vanliga frågor och svar om Ansluten fabrik](iot-suite-faq-cf.md).
+Mer information finns i [Vanliga frågor och svar om Ansluten fabrik](iot-accelerators-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
@@ -127,7 +127,7 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
 
 ## <a name="telemetry-data-flow"></a>Telemetridataflöde
 
-![Telemetridataflöde](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+![Telemetridataflöde](./media/iot-accelerators-connected-factory-sample-walkthrough/telemetry_dataflow.png)
 
 ### <a name="flow-steps"></a>Steg i flödet
 
@@ -179,7 +179,7 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
 
 ## <a name="browsing-data-flow"></a>Dataflöde för webbläsaren
 
-![Dataflöde för webbläsaren](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+![Dataflöde för webbläsaren](./media/iot-accelerators-connected-factory-sample-walkthrough/browsing_dataflow.png)
 
 ### <a name="flow-steps"></a>Steg i flödet
 
@@ -233,15 +233,15 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
 Läs följande artiklar om du vill fortsätta och lära dig mer om lösningsacceleratorer i IoT:
 
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
-* [Distribuera en gateway på Windows eller Linux för lösningsacceleratorn Ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
+* [Distribuera en gateway på Windows eller Linux för lösningsacceleratorn Ansluten fabrik](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Referensimplementering för OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
-[connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
+[connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]:../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
+[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md

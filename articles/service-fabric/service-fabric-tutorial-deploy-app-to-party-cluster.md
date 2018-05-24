@@ -3,8 +3,8 @@ title: Distribuera ett Azure Service Fabric-program till ett kluster | Microsoft
 description: Läs mer om hur du distribuerar ett program till ett kluster från Visual Studio.
 services: service-fabric
 documentationcenter: .net
--author: rwike77
--manager: msfussell
+author: rwike77
+manager: msfussell
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208887"
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera ett program till ett Service Fabric-kluster i Azure
 Den här självstudien är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett nytt kluster i Azure direkt från Visual Studio.
@@ -86,7 +87,7 @@ Välj listrutan för **Slutpunkt för anslutningen** och välj alternativet **<C
 1. Ange namnet på klustret i fältet **Klusternamn**, samt den prenumeration och plats som du vill använda.
 2. Valfritt: Du kan ändra antalet noder. Som standard har du tre noder, vilket är det som krävs för att testa scenarier i Service Fabric.
 3. Välj fliken **Certifikat**. På den här fliken skriver du ett lösenord som ska skydda certifikatet i klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
-4. Välj fliken **VM Detail** (Information om virtuell dator). Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
+4. Välj fliken med **information om den virtuella datorn**. Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
 5. På fliken **Avancerat** kan du ändra listan med de portar som du vill ska vara öppna i Azure-belastningsutjämnaren som skapades tillsammans med klustret.  Lägg till tjänsteslutpunkten för VotingWeb som du identifierade i föregående steg. Du kan också lägga till en befintlig Application Insights-nyckel för att dirigera programmets loggfiler.
 6. När du är klar med ändringen av inställningarna väljer du knappen **Skapa**. Detta tar några minuter att slutföra och utdatafönstret visar när klustret är färdigt.
 

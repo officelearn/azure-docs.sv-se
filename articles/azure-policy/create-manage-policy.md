@@ -2,18 +2,19 @@
 title: Använda Azure Policy för att skapa och hantera principer för organisationsefterlevnad
 description: Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194877"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -40,7 +41,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
    ![Tilldela en principdefinition](media/create-manage-policy/select-assign-policy.png)
 
-4. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och välja en prenumeration (krävs) och en resursgrupp (valfritt). En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på.  Klicka på **Välj** längst ned på sidan **Omfång**.
+4. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och välja en prenumeration (krävs) och en resursgrupp (valfritt). En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på.  Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
    I det här exemplet används **Contoso-prenumerationen**. Din prenumeration skiljer sig.
 

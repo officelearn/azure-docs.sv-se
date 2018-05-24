@@ -1,11 +1,11 @@
 ---
-title: "Skapa ett Azure Service Fabric tillförlitliga aktörer Java-program på Linux | Microsoft Docs"
-description: "Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter."
+title: Skapa ett Azure Service Fabric tillförlitliga aktörer Java-program på Linux | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter.
 services: service-fabric
 documentationcenter: java
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 01f085a7ec69780fe3558c6892e254ed3a7e2fb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205696"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
@@ -215,7 +216,7 @@ Distributionen går till på samma sätt som för andra Service Fabric-program. 
 
 Du hittar parametrarna till de här kommandona i de genererade manifesten i programpaketet.
 
-När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på adressen [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling

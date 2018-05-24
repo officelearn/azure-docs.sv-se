@@ -11,15 +11,16 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0d38a41a33632e2c6427b75e365db468940d025d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300976"
 ---
 # <a name="compare-azure-iot-options"></a>Jämför Azure IoT-alternativ
 
-Artikeln [Azure och Sakernas Internet](iot-suite-what-is-azure-iot.md) beskriver en typisk IoT-lösningsarkitektur med följande nivåer:
+Artikeln [Azure och Sakernas Internet](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) beskriver en typisk IoT-lösningsarkitektur med följande nivåer:
 
 * Enhetsanslutning och hantering
 * Databearbetning och analys
@@ -27,7 +28,7 @@ Artikeln [Azure och Sakernas Internet](iot-suite-what-is-azure-iot.md) beskriver
 
 För att implementera den här arkitekturen erbjuder Azure IoT flera olika alternativ. Varje alternativ är lämpligt för olika uppsättningar av kundbehov:
 
-* [Azure IoT-lösningsacceleratorer](index.md) är en samling [lösningsacceleratorer](iot-suite-what-are-solution-accelerators.md) i företagsklass som bygger på Azure PaaS (Platform as a Service), som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
+* [Azure IoT-lösningsacceleratorer](index.md) är en samling [lösningsacceleratorer](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) i företagsklass som bygger på Azure PaaS (Platform as a Service), som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) är en SaaS-lösning (programvara som en tjänst) som använder en modellbaserad metod. Med Azure IoT Central kan du skapa IoT-lösningar i företagsklass utan expertkunskaper inom utveckling av molnlösningar.
 
@@ -63,6 +64,6 @@ Beslutet vilken produkt som ska användas för att skapa IoT-lösningen bestäms
 
 Baserat på den valda produkten och metoden är nästa föreslagna steg:
 
-* **Azure IoT-lösningsacceleratorer**: [Vad är Azure IoT-lösningsacceleratorer för något?](iot-suite-what-are-solution-accelerators.md)
+* **Azure IoT-lösningsacceleratorer**: [Vad är Azure IoT-lösningsacceleratorer för något?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Översikt över tjänsten Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md).

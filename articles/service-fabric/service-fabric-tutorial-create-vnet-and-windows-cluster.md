@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b85c3030984758a0c425fb526a32fcd8eff974c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0f07bb9a245b9f38fd734c97fe9a3dca836c28d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367240"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudiekurs: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
-Den här självstudien ingår i en serie. Du får lära dig att distribuera ett Windows Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) och en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) med PowerShell och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till.  Om du vill skapa ett Linux-kluster med Azure CLI kan du läsa [Skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Den här självstudien ingår i en serie. Du får lära dig att distribuera ett Windows Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) och en [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md) med PowerShell och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till.  Om du vill skapa ett Linux-kluster med Azure CLI kan du läsa [Skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 I den här självstudien beskrivs ett produktionsscenario.  Om du snabbt vill skapa ett mindre kluster för testning kan du läsa [Skapa ett testkluster med tre noder](./scripts/service-fabric-powershell-create-test-cluster.md).
 

@@ -2,18 +2,19 @@
 title: Snabbstart – Använda PowerShell för att skapa en principtilldelning som identifierar icke-kompatibla resurser i Azure-miljön
 description: I den här snabbstarten använder du PowerShell för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f24dc2a28acfbd3fd80578fed17c6d57275366f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 770b3b1b52953f6fd3bd1874c28b2de45251ed17
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195649"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Snabbstart: Skapa en principtilldelning som identifierar icke-kompatibla resurser med i Azure RM PowerShell-modulen
 

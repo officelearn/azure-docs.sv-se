@@ -15,6 +15,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363680"
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Java
 

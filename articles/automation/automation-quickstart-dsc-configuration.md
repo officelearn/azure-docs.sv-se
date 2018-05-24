@@ -1,7 +1,9 @@
 ---
-title: "Azure snabbstart – Konfigurera en virtuell dator med DSC | Microsoft Docs"
-description: "Konfigurera en LAMP-stack på en virtuell Linux-dator med DSC (Desired State Configuration)"
+title: Azure snabbstart – Konfigurera en virtuell dator med DSC | Microsoft Docs
+description: Konfigurera en LAMP-stack på en virtuell Linux-dator med DSC (Desired State Configuration)
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
@@ -9,11 +11,11 @@ ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
@@ -28,7 +30,7 @@ Följande krävs för att slutföra den här snabbstarten:
 * En virtuell Azure Resource Manager-dator (inte klassisk) med Red Hat Enterprise Linux, CentOS eller Oracle Linux. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure på https://portal.azure.com
+Logga in till Azure på https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Registrera en virtuell dator
 Det finns många olika metoder för att registrera en dator och aktivera DSC. I den här snabbstarten beskrivs registrering via ett Automation-konto. Du kan läsa mer om olika metoder för att registrera datorerna med DSC genom att läsa artikeln om [registrering](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

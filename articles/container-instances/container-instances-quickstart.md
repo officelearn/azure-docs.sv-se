@@ -3,17 +3,17 @@ title: Snabbstart – Skapa din första Azure Container Instances-behållare | A
 description: I den här snabbstarten använder du kommandogränssnittet i Azure för att distribuera en behållare i Azure Container Instances
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-När behållaren övergår i status **Lyckades** kan du nå den via webbläsaren genom att gå till dess FQDN:
+När behållaren övergår i status **Lyckades** går du till dess FQDN i din webbläsare:
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-behållaren][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Hämta behållarloggarna
 
-Du kan hämta loggar för den behållare du skapade med hjälp av kommandot [az container logs][az-container-logs]:
+Att visa loggar för en behållarinstans är användbart när du felsöker problem med din behållare eller det program som den kör.
+
+Hämta behållarens loggar med kommandot [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Du bör se utdata som liknar följande:
+Utdatan visar loggarna för behållaren och bör även visa de HTTP GET-förfrågningar som genererades när du granskade programmet i webbläsaren.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,7 +115,7 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>Ta bort behållaren
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med behållaren kan du ta bort den med kommandot [az container delete][az-container-delete]:
 
@@ -131,19 +133,19 @@ Behållaren **MinBehållare** ska inte visas i kommandots utdata. Om du inte har
 
 ## <a name="next-steps"></a>Nästa steg
 
-All kod för behållaren som används i den här snabbstartsguiden finns [på GitHub][app-github-repo] tillsammans med dess Dockerfile. Om du vill försöka skapa den på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudierna för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-behållarinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances-självstudier](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)
 
-Om du vill testa alternativ för att köra behållare i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Container Service (AKS)][container-service].
+Om du vill testa alternativ för att köra behållare i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

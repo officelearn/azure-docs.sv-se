@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 636f7be10850ff6a65aa6a2680bea148cb5ebd3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -56,7 +56,10 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 |Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
 |Åtgärd     | Tillåt eller neka        |
 
-Säkerhetsregler är tillståndskänsliga. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten. Mer information om begränsningar när du skapar säkerhetsregler finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+NSG säkerhetsregler utvärderas utifrån prioritet baserat på 5 tuppel information (källa, källport, mål, målport och protokoll) för att tillåta eller neka trafik. En flödespost skapas för befintliga anslutningar, kommunikation tillåts eller nekas baserat på anslutningsstatusen för flödets poster, vilket låter NSG vara tillståndskänsligt. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten.
+Befintliga anslutningar får inte avbrytas när du tar bort en säkerhetsregel som aktiverade flödet. Trafikflöden avbryts när anslutningar har stoppats och ingen trafik passerar i vardera riktning på minst ett par minuter.
+
+Mer information om begränsningar när du skapar säkerhetsregler finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
 
@@ -120,8 +123,13 @@ Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skap
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en [IP-adress för Azure-datacentret](https://www.microsoft.com/download/details.aspx?id=41653) som Azures hälsoavsökning kommer från. Du kan åsidosätta den här regeln om du inte använder Azures belastningsutjämnare.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-avsökning i Azure Traffic Manager. Mer information om adresser för IP-avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs).
-* **Storage** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel bara vill tillåta åtkomst till Azure Storage i regionen östra USA kan du ange *Storage.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto.
-* **SQL** (endast Resource Manager): Den här taggen anger adressprefix för tjänsterna Azure SQL Database och Azure SQL Data Warehouse. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till Sql i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel vill tillåta åtkomst endast till Azure SQL Database i regionen östra USA anger du *Sql.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server.
+* **Storage** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel bara vill tillåta åtkomst till Azure Storage i regionen östra USA kan du ange *Storage.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Alla adressprefix som representeras av den här taggen är också representerade av taggen **Internet**.
+* **SQL** (endast Resource Manager): Den här taggen anger adressprefix för tjänsterna Azure SQL Database och Azure SQL Data Warehouse. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till Sql i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel vill tillåta åtkomst endast till Azure SQL Database i regionen östra USA anger du *Sql.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. Alla adressprefix som representeras av den här taggen är också representerade av taggen **Internet**.
+* **Azure Cosmos DB** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Cosmos Database. Om du anger *Azure Cosmos DB* som värde tillåts eller nekas trafik till Azure Cosmos DB. Om du bara vill ge åtkomst till AzureCosmosDB i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureCosmosDB. [ regionsnamnet].
+* **AzureKeyVault** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureKeyVault. Om du anger *AzureKeyVault* som värde tillåts eller nekas trafik till AzureKeyVault. Om du bara vill ge åtkomst till AzureKeyVault i en specifik [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format: AzureKeyVault. [ regionsnamnet].
+
+> [!NOTE]
+> Servicetaggar för azure-tjänster anger adressprefix från det specifika molnet som används. Regionala servicetaggar stöds inte på nationella moln i globala format, t.ex. Storage, Sql.
 
 > [!NOTE]
 > Om du implementerar en [tjänstslutpunkt för ett virtuellt nätverk](virtual-network-service-endpoints-overview.md) för en viss tjänst, till exempel Azure Storage eller Azure SQL Database, lägger Azure till en väg till ett undernät för virtuellt nätverk för tjänsten. Vägens adressprefix är samma adressprefix, eller CIDR-intervall, som motsvarande tjänsttagg.
@@ -143,7 +151,7 @@ Mer information om begränsningar när du skapar programsäkerhetsgrupper och hu
 
 Programmet säkerhetsgrupper har följande begränsningar:
 
--   Alla nätverksgränssnitt i en säkerhetsgrupp för programmet måste finnas i samma virtuella nätverk. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program. Det virtuella nätverket som det första nätverksgränssnittet som tilldelats programsäkerhetsgruppen är i, definierar det virtuella nätverket som alla efterföljande nätverksgränssnitt måste finnas i.
+-   Alla nätverksgränssnitt som har tilldelats till en programsäkerhetsgrupp måste finnas i samma virtuella nätverk som det första nätverksgränssnittet som programsäkerhetsgruppen finns i. Om exempelvis det första nätverksgränssnittet som tilldelats till en säkerhetsgrupp för program som heter *ASG1* finns i det virtuella nätverket med namnet *VNet1* måste alla efterföljande nätverksgränssnitt som tilldelats *ASG1* vara i *VNet1*. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program.
 - Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1.
 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden

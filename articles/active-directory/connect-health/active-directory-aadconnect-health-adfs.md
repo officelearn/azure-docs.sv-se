@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -116,7 +116,7 @@ Rapporten innehåller följande information:
 >
 >
 
-## <a name="risky-ip-report"></a>Riskfylld IP-rapport 
+## <a name="risky-ip-report-public-preview"></a>Rapport för riskfyllda IP-adresser (förhandsversion)
 AD FS-kunder kan göra slutpunkter tillgängliga för lösenordsautentisering på Internet för att tillhandahålla autentiseringstjänster till slutanvändare som ska få åtkomst till SaaS-program, till exempel Office 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
 Dessutom är det möjligt att en enskild IP-adress kan försöka utföra flera inloggningar mot flera användare. I dessa fall kan antalet försök per användare ligga under tröskelvärdet för kontots utelåsningsskydd i AD FS. Azure AD Connect Health innehåller nu en ”rapport för riskfyllda IP-adresser” som identifierar det här tillståndet och meddelar administratörer om detta inträffar. Följande är viktiga fördelar med den här rapporten: 
 - Identifiering av IP-adresser som överskrider ett tröskelvärde för misslyckade lösenordsbaserade inloggningar
@@ -152,10 +152,12 @@ Nedanstående rapportobjekt innebär från kl. 18:00 till 19:00 den 28/2 2018, i
 > - Aviseringsrapporten visar inte Exchange IP-adresser eller privata IP-adresser. De ingår dock fortfarande i exportlistan. 
 >
 
-
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Ladda ner rapport för riskfyllda IP-adresser
+### <a name="load-balancer-ip-addresses-in-the-list"></a>IP-adresser för belastningsutjämnare i listan
+Sammanställning av belastningsutjämnarens misslyckade inloggningar aktiviteter och uppnått tröskelvärde. Om du ser IP-adresser för belastningsutjämnare är det mycket troligt att en extern belastningsutjämnare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn. Konfigurera belastningsutjämnaren korrekt för att vidarebefordra klientens IP-adress. 
+
+### <a name="download-risky-ip-report"></a>Ladda ner rapport för riskfyllda IP-adresser 
 Med hjälp av funktionen **Ladda ned** kan listan med riskfyllda IP-adresser under de senaste 30 dagarna exporteras från Connect Health-portalen. Exportresultatet inkluderar alla misslyckade AD FS-inloggningar i varje tidsfönster, så du kan anpassa filtreringen efter exporten. Förutom markerade sammanställningar i portalen visar exportresultatet också mer information om misslyckade inloggningar per IP-adress:
 
 |  Rapportobjekt  |  Beskrivning  | 
@@ -196,12 +198,14 @@ Om du ser IP-adresser för belastningsutjämnare är det mycket troligt att en e
 
 3. Hur gör jag för att blockera IP-adressen?  <br />
 Du bör lägga till identifierade skadliga IP-adresser i brandväggen eller blockera dem i Exchange.   <br />
-I AD FS 2016 + 1803.C+ QFE kan du blockera IP-adressen direkt i AD FS. 
 
 4. Varför visas inte några objekt i rapporten? <br />
    - De misslyckade inloggningsaktiviteterna överskrider inte tröskelinställningarna. 
    - Kontrollera att det inte finns någon aktiv varning om att ”Hälsotjänsten är inte uppdaterad” i din AD FS-serverlista.  Läs mer om [felsökning av den här aviseringen](active-directory-aadconnect-health-data-freshness.md).
    - Granskningar är inte aktiverade i AD FS-servergrupperna.
+ 
+5. Varför ser jag ingen åtkomst till rapporten?  <br />
+Du måste ha behörighet som global administratör eller [säkerhetsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Kontakta en global administratör för att få åtkomst.
 
 
 ## <a name="related-links"></a>Relaterade länkar

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Överväganden för nätverk för en Apptjänstmiljö #
 
@@ -47,7 +47,7 @@ Om du har en ILB ASE är IP-adressen för ILB slutpunkten för HTTP/S, FTP-/ S, 
 
 Åtkomstportar normal app är:
 
-| Använda | Från | Till |
+| Användning | Från | Till |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kan konfigureras av användaren |  80, 443 |
 |  FTP/FTPS    | Kan konfigureras av användaren |  21, 990, 10001-10020 |
@@ -66,7 +66,7 @@ Storleken på det undernät som används som värd för en ASE kan inte ändras 
 
 En ASE inkommande åtkomst beroende är:
 
-| Använda | Från | Till |
+| Användning | Från | Till |
 |-----|------|----|
 | Hantering | App Service management-adresser | ASE undernät: 454, 455 |
 |  ASE intern kommunikation | ASE undernät: alla portar | ASE undernät: alla portar
@@ -83,12 +83,12 @@ Om du använder app tilldelade IP-adresser som du vill tillåta trafik från IP-
 
 En ASE beror på flera externa system för utgående åtkomst. Dessa beroenden system definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. ASE kräver därför utgående åtkomst från undernätet som ASE till alla externa IP-adresser i olika portar. En ASE har följande utgående beroenden:
 
-| Använda | Från | Till |
+| Användning | Från | Till |
 |-----|------|----|
-| Azure-lagring | ASE undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
+| Azure Storage | ASE undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
 | Azure SQL Database | ASE undernät | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Mer information finns i [SQL Database V12 portar används](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
 | Azure-hantering | ASE undernät | management.core.windows.net, management.azure.com: 443 
-| SSL-certifikatverifiering |  ASE undernät            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| SSL-certifikatverifiering |  ASE undernät            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ASE undernät            |  Internet: 443
 | App Service-hantering        | ASE undernät            |  Internet: 443
 | Azure DNS                     | ASE undernät            |  Internet: 53
@@ -109,12 +109,12 @@ Om det virtuella nätverket konfigureras med en kund DNS på andra sidan av en V
 Förutom funktionella beroenden ASE finns några extra artiklar som rör portal upplevelsen. Några av funktionerna i Azure-portalen är beroende av direkt åtkomst till _SCM plats_. Det finns två URL: er för varje app i Azure App Service. Den första Webbadressen är att komma åt din app. URL som andra är att komma åt webbplatsen SCM, som också kallas den _Kudu konsolen_. Funktioner som använder webbplatsen SCM inkluderar:
 
 -   Webjobs.
--   Funktioner
+-   Functions
 -   Loggströmning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
--   Konsol
+-   Konsolen
 
 När du använder en ILB ASE den SCM platsen inte är tillgänglig utanför det virtuella nätverket internet. När din app finns i en ASE ILB, fungerar inte vissa funktioner från portalen.  
 
@@ -224,7 +224,7 @@ När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-in
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -118,12 +118,12 @@ Namnet som visas och refereras för nästa hopptyper är olika för Azure-portal
 
 En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i Azure med BGP (Border Gateway Protocol). Användningen av BGP med en virtuell nätverksgateway i Azure beror på den typ du valde när du skapade gatewayen. Om den typ du valt var:
 
-- **ExpressRoute**: Du måste använda BGP för att annonsera lokala vägar till Microsoft Edge-routern. Du kan inte skapa användardefinierade vägar för att tvinga trafik till den virtuella ExpressRoute-nätverksgatewayen om du distribuerar en virtuell nätverksgateway som distribueras som typen: ExpressRoute. Du kan använda användardefinierade vägar för att tvinga trafik från Express Route till exempelvis en virtuell nätverksinstallation. 
+- **ExpressRoute**: Du måste använda BGP för att annonsera lokala vägar till Microsoft Edge-routern. Du kan inte skapa användardefinierade vägar för att tvinga trafik till den virtuella ExpressRoute-nätverksgatewayen om du distribuerar en virtuell nätverksgateway som distribueras som typen: ExpressRoute. Du kan använda användardefinierade vägar för att tvinga trafik från Express Route till exempelvis en virtuell nätverksinstallation.
 - **VPN**: Du kan eventuellt använda BGP. Mer information finns i [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (BGP med plats-till-plats-VPN-anslutningar).
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
 
-Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN fås med hjälp av anpassade vägar](#custom-routes) där nästa hopp har typen VPN. Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](/manage-route-table#create-a-route-table.md).
+Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN fås med hjälp av anpassade vägar](#custom-routes) där nästa hopp har typen VPN. Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 
@@ -248,7 +248,7 @@ Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 |Standard |Active |0.0.0.0/0           |Internet                  |                   |
 |Standard |Active |10.0.0.0/8          |Ingen                      |                   |
 |Standard |Active |100.64.0.0/10       |Ingen                      |                   |
-|Standard |Active |172.16.0.0/12       |Inget                      |                   |
+|Standard |Active |172.16.0.0/12       |Ingen                      |                   |
 |Standard |Active |192.168.0.0/16      |Ingen                      |                   |
 
 Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar och den valfria VNet-peeringen och de valfria vägarna för virtuell nätverksgateway. Azure la till de valfria vägarna till alla undernät i det virtuella nätverket när gatewayen och peeringen lades till i det virtuella nätverket. Azure tog bort vägarna för adressprefixen 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 och 100.64.0.0/10 från routningstabellen för *Subnet1* när den användardefinierade vägen för adressprefixet 0.0.0.0/0 lades till i *Subnet1*.  
@@ -260,4 +260,4 @@ Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar o
   [Konfigurera BGP för Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Använda BGP med ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Visa alla vägar för ett undernät](virtual-network-routes-troubleshoot-portal.md). En användardefinierad routningstabell visar bara de användardefinierade vägarna och inte standardvägarna och BGP-vägarna för ett undernät. Om du visar alla vägar ser du standardvägarna, GBP- och de användardefinierade vägarna för undernätet som ett nätverksgränssnitt finns i.
-- [Bestäm nästa hopptyp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mellan en virtuell dator och en mål-IP-adress. Nästa hopp-funktionen Azure Network Watcher gör att du kan bestämma om trafik som lämnar ett undernät dirigeras dit du önskar.
+- [Bestäm nästa hopptyp](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mellan en virtuell dator och en mål-IP-adress. Nästa hopp-funktionen Azure Network Watcher gör att du kan bestämma om trafik som lämnar ett undernät dirigeras dit du önskar.

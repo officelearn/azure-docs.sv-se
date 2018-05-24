@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -45,13 +45,14 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 ### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](active-directory-aadconnect-user-signin.md).
 
-![Användarinloggning](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Användarinloggning](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Alternativ för enkel inloggning | Beskrivning |
 | --- | --- |
 | Hash-synkronisering av lösenord |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk. Användarnas lösenord synkroniseras med Azure AD som lösenordshasher och autentiseringen sker i molnet. Mer information finns i [Hash-synkronisering av lösenord](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Direktautentisering|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-domänkontrollanten för verifiering.
 | Federation med AD FS |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala AD FS-instans för att logga in och autentiseringen sker lokalt. |
+| Federation med PingFederate|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala PingFederate-instans för att logga in och autentiseringen sker lokalt. |
 | Konfigurera inte |Ingen användarinloggningsfunktion installeras eller konfigureras. Välj det här alternativet om du redan har en federationsserver från en annan tillverkare eller en annan befintlig lösning på plats. |
 |Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordssynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket. Mer information finns i avsnittet om [enkel inloggning](active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>
 
@@ -301,6 +302,39 @@ När du väljer domänen som ska vara federerad får du nödvändig information 
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>Konfigurera federation med PingFederate
+Du kan konfigurera PingFederate med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.  Dock krävs följande villkor.
+- PingFederate 8.4 eller högre.  Mer information finns i [PingFederate-integrering med Azure Active Directory och Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- Ett SSL-certifikat för federationstjänstnamnet som du tänker använda (t.ex. sts.contoso.com)
+
+### <a name="verify-the-domain"></a>Verifiera domänen
+När du har valt Federation med PingFederate, blir du ombedd att verifiera den domän du vill federera.  Välj domän i listrutan.
+
+![Verifiera domän](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>Exportera PingFederate-inställningar
+
+
+PingFederate måste konfigureras som federationsserver för varje federerad Azure-domän.  Klicka på knappen Exportera inställningar och dela information med din PingFederate-administratör.  Administratören för federationsservern uppdaterar konfigurationen, anger webbadressen för PingFederate och därefter portnumret så att Azure AD Connect kan kontrollera inställningarna för metadata.  
+
+![Verifiera domän](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Kontakta PingFederate-administratören för att lösa eventuella verifieringsproblem.  Följande är ett exempel på en PingFederate-server som inte har en giltig förtroenderelation med Azure:
+
+![Förtroende](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Verifiera federationsanslutning
+Azure AD Connect försöker verifiera autentiseringsslutpunkter som hämtats från PingFederate-metadata i föregående steg.  Azure AD Connect försöker först lösa slutpunkterna med dina lokala DNS-servrar.  Därefter kommer den att försöka att lösa slutpunkterna med en extern DNS-leverantör.  Kontakta PingFederate-administratören för att lösa eventuella verifieringsproblem.  
+
+![Verifiera anslutningen](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Verifiera inloggningen för federation
+Slutligen kan du kontrollera det nyligen konfigurerade federerade inloggningsflödet genom att logga in på den federerade domänen. Om detta lyckas konfigurerats federation med PingFederate.
+![Verifiera inloggningen](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Konfigurera och verifiera sidor
 Konfigurationen sker på den här sidan.
 
@@ -308,6 +342,7 @@ Konfigurationen sker på den här sidan.
 > Innan du fortsätter installationen, och om du har konfigurerat federation, kontrollerar du att du har konfigurerat [namnmatchning för federationsservrar](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 >
 >
+
 
 ![Klart att konfigurera](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ Azure AD Connect verifierar DNS-inställningarna åt dig när du klickar på kna
 
 ![Verifiera](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Utför även följande verifieringssteg:
+För att kontrollera att autentiseringen från slutpunkt till slutpunkt lyckades bör du utföra ett eller flera av följande test manuellt:
 
+* När synkroniseringen har slutförts använder du åtgärden Validera federerad inloggning i Azure AD Connect för att verifiera autentiseringen för ett lokalt användarkonto som du har valt.
 * Kontrollera att du kan logga in från en webbläsare från en domänansluten dator i intranätet: Anslut till https://myapps.microsoft.com och kontrollera inloggningen med ditt inloggade konto. Det inbyggda AD DS-administratörskontot synkroniseras inte och kan inte användas för verifiering.
 * Kontrollera att du kan logga in från en enhet från extranätet. Anslut till https://myapps.microsoft.com och ange dina autentiseringsuppgifter på en hemdator eller mobil enhet.
 * Verifiera inloggningen på en rich-klient. Anslut till https://testconnectivity.microsoft.com, välj fliken **Office 365** och sedan **Test av enkel inloggning i Office 365**.

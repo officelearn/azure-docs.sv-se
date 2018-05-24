@@ -1,145 +1,101 @@
 ---
-title: Introduktion till Azure Nätverksbevakaren | Microsoft Docs
-description: Den här sidan innehåller en översikt över tjänsten Nätverksbevakaren för övervakning och visualisering av nätverk anslutet resurser i Azure
+title: Azure Network Watcher | Microsoft Docs
+description: Läs mer om Azure Network Watchers övervakning, diagnostik, mått och loggning av resurser i ett virtuellt nätverk.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 04/24/2018
 ms.author: jdial
-ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="azure-network-monitoring-overview"></a>Azure-nätverk övervakning-översikt
+# <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
-Kunder kan du skapa ett nätverk i Azure genom att samordna och skapa olika enskilda nätverksresurser, till exempel virtuella nätverk, ExpressRoute, Programgateway, belastningsutjämnare och flera. Övervakning är tillgänglig på alla nätverksresurser. Vi refererar till den här övervakning som nivån Resursövervakning.
+I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk.
 
-Slutpunkt till slutpunkt-nätverket kan ha komplexa konfigurationer och samverkan mellan resurser, skapa komplicerade scenarier som behöver scenariobaserade övervakning via Nätverksbevakaren.
+## <a name="monitoring"></a>Övervakning
 
-Den här artikeln beskriver scenariot och nivå Resursövervakning. Nätverksövervakning i Azure är omfattande och omfattar två kategorier:
+### <a name = "connection-monitor"></a>Övervaka kommunikation mellan en virtuell dator och en slutpunkt
 
-* [**Nätverk Watcher** ](#network-watcher) -scenariot-baserad övervakning tillhandahålls med funktionerna i Nätverksbevakaren. Den här tjänsten innehåller paketinsamling, nästa hopp, IP-flöde Kontrollera NSG flödet loggar i gruppvyn säkerhet. Scenariot nivån övervakning innehåller en heltäckande vy av nätverksresurser i stället för enskilda resurs nätverksövervakning.
-* [**Resursövervakning** ](#network-resource-level-monitoring) -nivå Resursövervakning består av fyra funktioner, diagnostiska loggar, mått, felsökning och resurshälsa. Alla dessa funktioner är byggda på resursen nätverksnivån.
+Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännamn (FQDN), en URI (Uniform Resource Identifier) eller en IPv4-adress. *Anslutningsövervakaren*  övervakar regelbundet kommunikationen och informerar dig om tillgänglighet, svarstid och ändringar i nätverkstopologin mellan den virtuella datorn och slutpunkten. Du kan till exempel ha en virtuell webbserverdator som kommunicerar med en virtuell databasserverdator. Någon i organisationen kan, utan att du känner till det, tillämpa en anpassad väg eller nätverkssäkerhetsregel på den virtuella webbserverdatorn, den virtuella databasserverdatorn eller undernätet.
 
-## <a name="network-watcher"></a>Network Watcher
+Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
 
-Nätverksbevakaren är en regionala tjänst som gör att du kan övervaka och diagnostisera villkor på nätverket scenariot nivå, till och från Azure. Diagnostiska nätverks- och visualiseringsverktyg som finns tillgängliga med Nätverksbevakaren hjälpa dig att förstå, diagnostisera och få insyn i nätverket i Azure.
+Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure- regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
 
-Nätverksbevakaren har för närvarande följande funktioner:
+### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visa resurser i ett virtuellt nätverk och deras relationer
 
-* **[Topologi](network-watcher-topology-overview.md)**  -nätverket nivån visa visar de olika anslutningarna och associationer mellan nätverksresurser i en resursgrupp.
-* **[Variabeln paketinsamling](network-watcher-packet-capture-overview.md)**  -samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och finjustera kontroller, till exempel att kunna ange tid och storlek begränsningar ger flexibilitet. Paketdata kan lagras i en blobstore eller på den lokala disken i CAP-format.
-* **[Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md)**  -kontrollerar om ett paket tillåts eller nekas baserat på flödet information 5-tuppel paket parametrar (mål-IP, käll-IP, målport, källport och Protocol). Om paketet nekas av en säkerhetsgrupp, returneras regeln och grupp som nekas paketet.
-* **[Nästa hopp](network-watcher-next-hop-overview.md)**  -avgör nästa hopp för paket som vidarebefordras i Azure-nätverksinfrastruktur, vilket gör det lättare att diagnostisera eventuella felkonfigurerat användardefinierade vägar.
-* **[Säkerhet gruppvyn](network-watcher-security-group-view-overview.md)**  -hämtar effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
-* **[NSG flöda loggning](network-watcher-nsg-flow-logging-overview.md)**  -flöde Nätverkssäkerhetsgrupper loggarna gör det möjligt att samla in loggar som rör trafik som tillåts eller nekas av säkerhetsregler i gruppen. Flödet definieras av en 5-tuppel information – käll-IP, mål-IP, källport, mål Port och protokoll.
-* **[Virtuella Nätverksgatewayen och anslutningen felsökning](network-watcher-troubleshoot-manage-rest.md)**  -ger dig möjlighet att felsöka virtuella Nätverksgatewayer och anslutningar.
-* **[Nätverk prenumerationsbegränsningar](#network-subscription-limits)**  -kan du visa nätverksresursanvändning mot gränser.
-* **[Konfigurera diagnostik loggen](#diagnostic-logs)**  – innehåller en om du vill aktivera eller inaktivera diagnostik loggar för nätverksresurser i en resursgrupp.
-* **[Felsöka anslutning](network-watcher-connectivity-overview.md)**  -verifierar möjligheten att upprätta en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt utökat med Azure kontext.
-* **[Övervakaren anslutning](connection-monitor.md)**  -övervaka problem svarstid och konfiguration mellan en virtuell Azure-dator och en IP-adress med hjälp av käll- och IP-adress och port.
+När resurser läggs till i ett virtuellt nätverk, kan det vara svårt att se vad som är resurser i det virtuella nätverket och hur de är relaterade till varandra. Med funktionen *Topologi* kan du skapa ett visuellt diagram av resurserna i ett virtuellt nätverk och relationerna mellan dessa resurser. Följande bild visar ett exempel på ett topologidiagram för ett virtuellt nätverk som har tre undernät, två virtuella datorer, nätverksgränssnitt, offentliga IP-adresser, nätverkssäkerhetsgrupper och routningstabeller, samt relationerna mellan dessa resurser:
 
-### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rollbaserad åtkomstkontroll (RBAC) i Nätverksbevakaren
+![Topologivy](./media/network-watcher-monitoring-overview/topology.png)
 
-Watcher nätverket i [rollbaserad åtkomstkontroll (RBAC) modellen](../role-based-access-control/overview.md). Följande behörigheter krävs av Nätverksbevakaren. Det är viktigt att se till att den roll som används för att initiera nätverket Watcher API: er eller använda Nätverksbevakaren från portalen har tillräcklig behörighet.
+Du kan ladda ned en redigerbar version av bilden i svg-format. Läs mer om [topologivyn](view-network-topology.md).
 
-|Resurs| Behörighet|
-|---|---| 
-|Microsoft.Storage/ |Läsa|
-|Microsoft.Authorization/| Läsa| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Läsa|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Åtgärd|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Åtgärd|
-|Microsoft.Storage/storageAccounts/listKeys/ | Åtgärd|
-|Microsoft.Compute/virtualMachines/ |Läsa|
-|Microsoft.Compute/virtualMachines/ |Skriva|
-|Microsoft.Compute/virtualMachineScaleSets/ |Läsa|
-|Microsoft.Compute/virtualMachineScaleSets/ |Skriva|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Läsa|
-|Microsoft.Network/networkWatchers/packetCaptures/| Skriva|
-|Microsoft.Network/networkWatchers/packetCaptures/| Ta bort|
-|Microsoft.Network/networkWatchers/ |Skriva |
-|Microsoft.Network/networkWatchers/| Läsa |
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/ | *|
+## <a name="diagnostics"></a>Diagnostik
 
-### <a name="network-subscription-limits"></a>Nätverket prenumerationsbegränsningar
+### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnostisera problem med filtrering av nätverkstrafik till eller från en virtuell dator
 
-Nätverket prenumerationsbegränsningar ger dig information om användning av varje nätverksresurs i en prenumeration i en region mot det maximala antalet tillgängliga resurser.
+När du distribuerar en virtuell dator tillämpar Azure flera standardsäkerhetsregler på den virtuella datorn som tillåter eller nekar trafik till eller från den virtuella datorn. Du kan åsidosätta Azures standardregler eller skapa fler regler. Ibland kan en virtuell dator sluta kommunicera med andra resurser på grund av en säkerhetsregel. Med funktionen *Kontrollera IP-flöde* kan du ange käll- och måladress för IPv4, port, protokoll (TCP eller UDP) och trafikriktning (inkommande eller utgående). Kontrollen av IP-flödet testar sedan kommunikationen och informerar dig om anslutningen lyckas eller misslyckas. Om anslutningen misslyckas visar Kontrollera IP-flöde vilken säkerhetsregel som tillät eller nekade kommunikationen, så att du kan lösa problemet. Läs mer om [Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md).
 
-![prenumerationsgränsen för nätverk][nsl]
+### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnostisera problem med nätverksroutning från en virtuell dator
 
-## <a name="network-resource-level-monitoring"></a>Resursen nivån nätverksövervakning
+När du skapar ett virtuellt nätverk skapar Azure flera utgående standardvägar för nätverkstrafiken. Utgående trafik från alla resurser, till exempel virtuella datorer som distribueras i ett virtuellt nätverk, dirigeras enligt Azures standardvägar. Du kan åsidosätta Azures standardvägar eller skapa fler vägar. Du upptäcker kanske att en virtuell dator inte längre kan kommunicera med andra resurser på grund av en specifik väg. Med funktionen *Nästa hopp* kan du ange en käll- och måladress för IPv4. Nästa hopp testar kommunikationen och informerar dig om vilken typ av nästa hopp som används för att dirigera trafiken. Du kan sedan ta bort, ändra eller lägga till en väg för att lösa routningsproblemet. Läs mer om funktionen [Nästa hopp](network-watcher-next-hop-overview.md?).
 
-Följande funktioner är tillgängliga för nivån Resursövervakning:
+### <a name="connection-troubleshoot"></a>Diagnostisera utgående anslutningar från en virtuell dator
 
-### <a name="audit-log"></a>Granskningslogg
+Med funktionen *Anslutningsfelsökning* kan du testa en anslutning mellan en virtuell dator och en annan virtuell dator, ett fullständigt domännamn, en URI eller en IPv4-adress. Testet returnerar liknande information som returneras när du använder funktionen [Anslutningsövervakaren](#connection-monitor), men testar anslutningen vid en viss tidpunkt i stället för att övervaka den över tid som anslutningsövervakaren gör. Läs mer om hur du felsöker anslutningar med hjälp av [Anslutningsfelsökning](network-watcher-connectivity-overview.md).
 
-Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggar är tillgängliga via portalen, PowerShell, CLI och Rest-API. Mer information om granskningsloggarna finns [granskningsåtgärder med Resource Manager](../resource-group-audit.md)
+### <a name="capture-packets-to-and-from-a-vm"></a>Avbilda paket till och från en virtuell dator
 
-Granskningsloggar är tillgängliga för åtgärder som utförs på alla nätverksresurser.
+Avancerade alternativ för filtrering och finjusterade kontroller, till exempel möjligheten att ange tid- och storleksbegränsningar, ger flexibilitet. Avbildningen kan lagras i Azure Storage, på den virtuella datorns disk, eller båda. Du kan sedan analysera avbildningsfilen med flera standardanalysverktyg för nätverksavbildning. Läs mer om [paketavbildning](network-watcher-packet-capture-overview.md).
 
-### <a name="metrics"></a>Mått
+### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnostisera problem med en virtuell nätverksgateway från Azure och anslutningar
 
-Mått är prestandamått och prestandaräknare som samlats in under en viss tidsperiod. Mått är tillgängliga för Programgateway. Mått kan användas för att utlösa varningar baserat på tröskelvärdet. Se [Gateway Programdiagnostik](../application-gateway/application-gateway-diagnostics.md) att visa hur mått kan användas för att skapa aviseringar.
+Virtuella nätverksgatewayer ansluter lokala resurser och virtuella Azure-nätverk. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Med funktionen *VPN-diagnostik* kan du diagnostisera gatewayer och anslutningar. VPN-diagnostiken diagnostiserar hälsotillståndet för gatewayen eller gateway-anslutningen och informerar dig när en gateway och gateway-anslutning är tillgänglig. Om gatewayen eller anslutningen inte är tillgänglig, visar VPN-diagnostiken varför, så att du kan lösa problemet. Läs mer om [VPN-diagnostik](network-watcher-troubleshoot-overview.md).
 
-![Visa mått][metrics]
+### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Fastställa relativa svarstider mellan Azure-regioner och Internet-leverantörer
 
-### <a name="diagnostic-logs"></a>Diagnostikloggar
+Du kan fråga Network Watcher om svarstidsinformation mellan Azure-regioner och hos Internet-leverantörer. När du känner till svarstiderna mellan Azure-regioner och hos Internet-leverantörer, kan du distribuera dina Azure-resurser för att optimera svarstiden i nätverket. Läs mer om [relativa svarstider](view-relative-latencies.md).
 
-Periodiska och eget initiativ händelser skapas av nätverksresurser och inloggad storage-konton, skickas till en Händelsehubb eller logganalys. Dessa loggar ger insikter om hälsotillståndet för en resurs. Dessa loggar kan visas i verktyg som Power BI och logganalys. Ta reda på hur du visar diagnostikloggar [logganalys](../log-analytics/log-analytics-azure-networking-analytics.md).
+### <a name="view-security-rules-for-a-network-interface"></a>Visa säkerhetsregler för ett nätverksgränssnitt
 
-Diagnostikloggar är tillgängliga för [belastningsutjämnaren](../load-balancer/load-balancer-monitor-log.md), [Nätverkssäkerhetsgrupper](../virtual-network/virtual-network-nsg-manage-log.md), vägar och [Programgateway](../application-gateway/application-gateway-diagnostics.md).
+De säkerhetsregler som gäller för ett nätverksgränssnitt är en kombination av alla säkerhetsregler som används för nätverksgränssnittet och det undernät som nätverksgränssnittet finns i.  Med funktionen *Säkerhetsgruppvy* ser du alla säkerhetsregler som är tillämpade på nätverksgränssnittet, det undernät som nätverksgränssnittet finns i och de båda tillsammans. När du förstår vilka regler som tillämpas på ett nätverksgränssnitt kan du lägga till, ta bort eller ändra reglerna, om de tillåter eller nekar trafik som du vill ändra. Läs mer om [säkerhetsgruppvyn](network-watcher-security-group-view-overview.md).
 
-Nätverksbevakaren ger diagnostikloggar vyn. Den här vyn innehåller alla nätverksresurser som stöder diagnostikloggning. I den här vyn kan du aktivera och inaktivera nätverksresurser lätt och snabbt.
+## <a name="metrics"></a>Mått
 
-![loggar][logs]
+Det finns [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
 
-### <a name="troubleshooting"></a>Felsökning
+![Prenumerationsgränser](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
-Bladet felsökning en upplevelse i portalen finns på nätverksresurser idag att felsöka vanliga problem som är associerade med en enskild resurs. Det här upplevelsen är tillgängligt för följande nätverksresurser - ExpressRoute, VPN-Gateway, Programgateway, säkerhetsloggar i nätverket, vägar, DNS, belastningsutjämnare och Traffic Manager. Mer information om resurs nivån felsökning finns [diagnostisera och lösa problem med Azure-felsökning](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+Informationen är användbar när du planerar kommande resursdistributioner.
 
-![felsökningsinformation][TS]
+## <a name="logs"></a>Logs
 
-### <a name="resource-health"></a>Resurshälsa
+### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analysera trafiken till eller från en nätverkssäkerhetsgrupp
 
-Hälsotillståndet för en nätverksresurs tillhandahålls på regelbunden basis. Dessa resurser inkluderar VPN-Gateway och VPN-tunnel. Resurshälsotillståndet är tillgänglig på Azure-portalen. Läs mer om resurshälsa [Resource Health översikt](../resource-health/resource-health-overview.md)
+Nätverkssäkerhetsgrupper (NSG) tillåter eller nekar inkommande eller utgående trafik till ett nätverksgränssnitt på en virtuell dator. Med funktionen *NSG-flödeslogg* kan du logga källans och målets IP-adress, port, protokoll, samt om trafik tillåts eller nekas av en NSG. Du kan analysera loggar med en mängd olika verktyg, till exempel PowerBI och *trafikanalys*. Trafikanalysen ger omfattande visualiseringar av data som skrivs till loggarna för NSG-flödet. Följande bild visar en del av den information och de visualiseringar som trafikanalysen visar från loggdatan för NSG-flödet:
+
+![Trafikanalys](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+
+Läs mer om [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md) och [trafikanalys](traffic-analytics.md).
+
+### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
+
+Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, belastningsutjämnare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du lära dig mer om Nätverksbevakaren dig du att:
-
-Gör en paketinsamling på den virtuella datorn genom att besöka [variabeln paketinsamling i Azure-portalen](network-watcher-packet-capture-manage-portal.md)
-
-Utföra Proaktiv övervakning och diagnostik använder [aviseringen utlöses paketinsamling](network-watcher-alert-triggered-packet-capture.md).
-
-Identifiera säkerhetsproblem med [analysera paketinsamling med Wireshark](network-watcher-deep-packet-inspection.md), med hjälp av verktyg för öppen källkod.
-
-Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
-
-<!--Image references-->
-[TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
-[logs]: ./media/network-watcher-monitoring-overview/logs.png
-[metrics]: ./media/network-watcher-monitoring-overview/metrics.png
-[nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
-
-
-
-
-
-
-
-
-
-
+Nu vet du mer om Azure Network Watcher. Om du vill komma igång med Network Watcher och diagnostisera ett vanligt kommunikationsproblem till och från en virtuell dator kan du använda funktionen Kontrollera IP-flöde. Läs mer i snabbstarten [Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer](diagnose-vm-network-traffic-filtering-problem.md).

@@ -33,8 +33,8 @@ Hantera meddelanden nav stöds inte direkt av de cmdletar som ingår i Azure Pow
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Azure är en plattform som baseras på prenumerationer. Mer information om hur du skaffar en prenumeration finns [köpalternativ], [Medlemserbjudanden], eller [kostnadsfri utvärderingsversion].
-* En dator med Azure PowerShell. Instruktioner finns i [installera och konfigurera Azure PowerShell].
+* En Azure-prenumeration. Azure är en plattform som baseras på prenumerationer. Mer information om hur du skaffar en prenumeration finns [Köpalternativ], [Medlemmen erbjudanden], eller [Kostnadsfri utvärderingsversion].
+* En dator med Azure PowerShell. Instruktioner finns i [Installera och konfigurera Azure PowerShell].
 * En förståelse av PowerShell-skript, NuGet-paket och .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inklusive en referens till .NET-sammansättning för Service Bus
@@ -153,10 +153,10 @@ Vissa färdiga skript är också tillgängliga för hämtning:
 
 * [Service Bus PowerShell-skript](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[köpalternativ]: http://azure.microsoft.com/pricing/purchase-options/
-[Medlemserbjudanden]: http://azure.microsoft.com/pricing/member-offers/
-[kostnadsfri utvärderingsversion]: http://azure.microsoft.com/pricing/free-trial/
-Installera och konfigurera [installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Köpalternativ]: http://azure.microsoft.com/pricing/purchase-options/
+[Medlemmen erbjudanden]: http://azure.microsoft.com/pricing/member-offers/
+[Kostnadsfri utvärderingsversion]: http://azure.microsoft.com/pricing/free-trial/
+[Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET-API för Meddelandehubbar]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
@@ -55,7 +55,7 @@ Som vi nämnt ovan kan du antingen skapa två undernät i ett enda virtuellt nä
 ![Skapa det virtuella nätverket](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 Välj alternativet för virtuella nätverk på Azure-portalen så kan du distribuera det virtuella nätverket och ett undernät direkt med ett enkelt klick. INT-undernätet definieras också och är nu redo att ta emot virtuella datorer.
-Nu ska du lägga till ett till undernät i nätverket, dvs. undernätet till perimeternätverket. Så här skapar du undernätet till perimeternätverket:
+Nu ska du lägga till ett till undernät i nätverket, dvs. DMZ-undernätet. Så här skapar du DMZ-undernätet:
 
 * Välj det nya nätverket.
 * Välj Undernät i egenskaperna.
@@ -77,7 +77,7 @@ När nätverkssäkerhetsgruppen skapas finns det inga regler för inkommande ell
 
 ![Initiera nätverkssäkerhetsgruppen](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-När nätverkssäkerhetsgrupperna har skapats associerar du NSG_INT med INT-undernätet och NSG_DMZ med undernätet till perimeternätverket. Här är ett skärmbildsexempel:
+När nätverkssäkerhetsgrupperna har skapats associerar du NSG_INT med INT-undernätet och NSG_DMZ med DMZ-undernätet. Här är ett skärmbildsexempel:
 
 ![Konfigurera nätverkssäkerhetsgruppen](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 
@@ -214,7 +214,7 @@ Säkerställ att WAP-servrarna kan nå AD FS-servarna bakom den interna belastni
 
 **7.2. Installera WAP-rollen**
 
-När du har kontrollerat att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren kan du gå vidare och installera WAP-servrarna. WAP-servarna ska inte anslutas till domänen. Installera WAP-rollerna på två WAP-servrar genom att välja fjärråtkomstrollen. Serverhanteraren vägleder dig genom WAP-installationen.
+När du har kontrollerat att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren kan du gå vidare och installera WAP-servrarna. Web Application Proxy-servarna ska inte anslutas till domänen. Installera WAP-rollerna på två WAP-servrar genom att välja fjärråtkomstrollen. Serverhanteraren vägleder dig genom WAP-installationen.
 Mer information om hur du distribuerar WAP finns i [Installera och konfigurera WAP (webbprogramproxyserver)](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
@@ -303,7 +303,7 @@ Det enklaste sättet är att testa AD FS med hjälp av sidan IdpInitiatedSignon.
 
 1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Gå till https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx från valfri extern dator.  
+2. Från alla externa datoråtkomster https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. Du bör se en AD FS-sida som den här:
 
 ![Testa inloggningssidan](./media/active-directory-aadconnect-azure-adfs/test1.png)

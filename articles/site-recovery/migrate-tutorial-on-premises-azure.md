@@ -1,6 +1,6 @@
 ---
 title: Migrera lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln beskriver hur du migrerar lokala datorer till Azure med Azure Site Recovery"
+description: Den här artikeln beskriver hur du migrerar lokala datorer till Azure med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av lokala datorer till Azure.
 
 
-Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Välj ett replikeringsmål
@@ -32,7 +32,7 @@ Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servr
 Detta är den tredje självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna:
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. Förbered lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)- eller Hyper-V-servrar.
+2. Förbereda lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)- eller [Hyper-V]-servrar (hyper-v-prepare-on-premises-tutorial.md).
 
 Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)- eller [Hyper-V](hyper-v-azure-architecture.md)-arkitekturen för haveriberedskap.
 
@@ -42,7 +42,7 @@ Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)-
 Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
 2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.

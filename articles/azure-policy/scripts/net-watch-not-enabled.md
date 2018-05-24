@@ -1,29 +1,29 @@
 ---
-title: "Azure princip json-exemplet - Audit om Nätverksbevakaren inte har aktiverats för region | Microsoft Docs"
-description: "Den här principen för json-exemplet granskningar om nätverksbevakaren inte har aktiverats för ett visst område"
+title: Json-exempel i Azure Policy – Granska om Network Watcher inte är aktiverat för regionen | Microsoft Docs
+description: Den här json-exempelprincipen granskar om Network Watcher inte är aktiverat för en angiven region
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 31864142af2e986ed9294771f12fba1ea2bdce60
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 25d896a4f460ba7d19b3537516b59980164b87fe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="audit-if-network-watcher-is-not-enabled-for-region"></a>Granska om Nätverksbevakaren inte har aktiverats för region
+# <a name="audit-if-network-watcher-is-not-enabled-for-region"></a>Granska om Network Watcher inte är aktiverat för regionen
 
-Den här principen granskningar om Nätverksbevakaren inte har aktiverats för ett visst område. Du kan ange namnet på regionen som ska kontrollera om Nätverksbevakaren har aktiverats.
+Den här principen granskar om Network Watcher inte är aktiverat för en angiven region. Du anger namnet på regionen för att kontrollera att Network Watcher är aktiverat.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Den här principen granskningar om Nätverksbevakaren inte har aktiverats för e
 
 [!code-json[main](../../../policy-templates/samples/Network/audit-network-watcher-existence/azurepolicy.json "Audit if Network Watcher is not enabled for region")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med den [Azure CLI](#deploy-with-azure-cli).
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -50,7 +50,7 @@ $assignment
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'audit-network-watcher-existence' --display-n
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-network-watcher-existence"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distribution
+### <a name="clean-up-azure-cli-deployment"></a>Rensa Azure CLI-distributionen
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

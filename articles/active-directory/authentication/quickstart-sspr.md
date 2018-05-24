@@ -2,25 +2,19 @@
 title: Snabbstart för återställning av lösenord för självbetjäning – Azure Active Directory
 description: Distribuera återställning av lösenord för självbetjäning i Azure AD snabbt
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snabb distribution av återställning av lösenord för självbetjäning i Azure AD
 
@@ -33,11 +27,13 @@ I den här handboken förutsätts att du redan har en aktiv utvärderingsversion
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Aktivera SSPR för din Azure AD-klientorganisation
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. På **Azure Portal** väljer du **Återställning av lösenord** under **Azure Active Directory** från din befintliga Azure AD-klient.
 
 2. Välj något av följande på sidan **Egenskaper** under alternativet **Återställning av lösenord via självbetjäning har aktiverats**:
    * **Ingen**: Ingen kan använda funktionen SSPR.
-   * **Valda**: Endast medlemmar av en viss Azure AD-grupp som du utser kan använda SSPR-funktionen. Vi rekommenderar att du definierar en grupp användare och använder den här inställningen när du distribuerar funktionen för ett ”proof of concept” (POC).
+   * **Valda**: Endast medlemmar av en viss Azure AD-grupp som du utser kan använda SSPR-funktionen. Vi rekommenderar att du definierar en grupp användare och använder den här inställningen när du distribuerar funktionen för ett ”proof of concept” (POC). Kapsling av säkerhetsgrupper stöds här.
    * **Alla**: Alla användare med konton i din Azure AD-klient kan använda SSPR-funktionen. Vi rekommenderar att du använder den här inställningen när du är redo att distribuera den här funktionen till hela din klientorganisation när du har slutfört ett ”proof of concept” (POC).
 
    > [!IMPORTANT]

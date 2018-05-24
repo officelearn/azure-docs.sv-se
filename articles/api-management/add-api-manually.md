@@ -1,11 +1,11 @@
 ---
-title: "Lägg till en API som manuellt med hjälp av Azure portal | Microsoft Docs"
-description: "Den här kursen visar hur du använder API Management (APIM) för att lägga till en API manuellt."
+title: Lägg till ett API manuellt med Azure Portal | Microsoft Docs
+description: Den här självstudien visar hur du använder API Management (APIM) för att lägga till ett API manuellt.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,95 +13,95 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="add-an-api-manually"></a>Lägga till en API manuellt 
+# <a name="add-an-api-manually"></a>Lägga till ett API manuellt 
 
-Stegen i den här artikeln visar hur du använder Azure-portalen för att lägga till en API manuellt till API Management (APIM)-instans. Ett vanligt scenario när du vill skapa ett tomt API och definiera den manuellt är när du vill mock API: et. Mer information om mocking API finns [Mock API-svar](mock-api-responses.md).
+Stegen i den här artikeln visar hur du använder Azure Portal för att lägga till ett API manuellt till API Management (APIM)-instansen. Ett vanligt scenario när du vill skapa ett tomt API och definiera det manuellt är när du vill testa API:et. Mer information om att testa API:er finns i [Testa API-svar](mock-api-responses.md).
 
-Om du vill importera en befintlig API Se [Närliggande](#related-topics) avsnitt.
+Om du vill importera ett befintligt API, se avsnittet [relaterade ämnen](#related-topics).
 
-I den här artikeln vi skapa ett tomt API och ange [httpbin.org](http://httpbin.org) (en offentlig tester service) som en backend-API.
+I den här artikeln, skapar vi ett tomt API och anger [httpbin.org](http://httpbin.org) (en offentlig testtjänst) som serverdels-API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md)
+Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-an-api"></a>Skapa ett API
 
-1. Välj **API: er** från under **API MANAGEMENT**.
-2. I den vänstra menyn, Välj **+ Lägg till API**.
-3. Välj **tomt API** från listan.
+1. Välj **API: er** under **API-HANTERING**.
+2. Välj **+ Lägg till API** på den vänstra menyn.
+3. Välj **Tomt API** i listan.
 
     ![Tomt API](media/add-api-manually/blank-api.png)
-4. Ange inställningar för API: et.
+4. Ange inställningarna för API:et.
 
     ![Inställningar](media/add-api-manually/settings.png)
 
     |**Namn**|**Värde**|**Beskrivning**|
     |---|---|---|
-    |**Visningsnamn**|”*Tomma API*” |Det här namnet visas i Developer-portalen.|
-    |**Webbtjänstens URL** (valfritt)| ”*http://httpbin.org*”| Om du vill mock en API kan du inte ange något. <br/>I detta fall kan vi ange [http://httpbin.org](http://httpbin.org). Detta är en offentlig tester. <br/>Om du vill importera en API som är mappad till en serverdel automatiskt finns i något av avsnitten i den [Närliggande](#related-topics) avsnitt.|
-    |**URL-schema**|”*HTTPS*”|I det här fallet, även om serverdelen har icke-säker HTTP-åtkomst, ange vi en säker HTTPS APIM åtkomst till serverdelen. <br/>Den här typen av scenario (HTTPS till HTTP) kallas HTTPS-avslutning. Du kan göra det om din API finns inom ett virtuellt nätverk (där du vet att åtkomsten är säkra, även om inte används för HTTPS). <br/>Du kanske vill använda ”HTTPS-avslutning” att spara på vissa CPU-cykler.|
-    |**URL-suffix**|”*hbin*”| Suffixet är ett namn som identifierar den här specifika API: et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.|
-    |**Produkter**|”*Obegränsade*” |Publicera API: et genom att associera API: et med en produkt. Om du vill för API som publiceras och vara tillgänglig att utvecklare kan lägga till en produkt. Du kan göra det under skapande av API eller Ställ in den senare.<br/><br/>Produkter är kopplingar till en eller flera API: er. Du kan innehålla ett antal API: er och erbjuda utvecklare via developer-portalen. <br/>Utvecklare måste först prenumerera på en produkt kan få åtkomst till API: et. När man prenumererar få de en prenumeration nyckel som är bra för API: er i produkten. Om du har skapat APIM instans är du administratör redan, så du prenumererar på varje produkt som standard.<br/><br/> Som standard varje API Management-instans som levereras med två exempel produkter: **Starter** och **obegränsad**.| 
+    |**Visningsnamn**|"*Tomt API*" |Det här namnet visas i Developer-portalen.|
+    |**Webbtjänst-URL** (valfritt)| "*http://httpbin.org*"| Om du vill testa ett API, kanske du inte skriver in något. <br/>I så fall kan vi ange [http://httpbin.org](http://httpbin.org). Detta är en offentlig testtjänst. <br/>Om du vill importera ett API som mappas till en serverdel automatiskt, se något av ämnena i avsnittet [relaterade ämnen](#related-topics).|
+    |**URL-schema**|*HTTPS*|I det här fallet anger vi en säker HTTPS APIM-åtkomst till serverdelen även om serverdelen har icke-säker HTTP-åtkomst. <br/>Den här typen av scenario (HTTPS till HTTP) kallas HTTPS-avslutning. Du kan göra det om ditt API finns inom ett virtuellt nätverk (där du vet att åtkomsten är säker, även om inte HTTPS används). <br/>Du kanske vilja använda HTTPS-avslutning för att spara på CPU-cykler.|
+    |**URL-suffix**|*hbin*| Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.|
+    |**Produkter**|"*Obegränsat*" |Du kan publicera API:et genom att associera det med en produkt. Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.<br/><br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/>Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/><br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**.| 
 5. Välj **Skapa**.
 
-Nu har du inga åtgärder i APIM som mappar till åtgärder i backend-API. Om du anropar en åtgärd som exponeras via serverdelen men inte via APIM, får du en **404**. 
+För tillfället har du inga åtgärder i APIM som mappar till åtgärderna i ditt serverdels-API. Om du anropar en åtgärd som exponeras via serverdelen men inte via APIM, får du en **404**. 
 
 >[!NOTE] 
-> Som standard när du lägger till en API, även om den är ansluten till en backend-tjänst APIM inte visar några åtgärder förrän du godkända dem. Skapa en APIM åtgärd som mappar till backend-åtgärden till godkända en åtgärd i backend-tjänst.
+> Som standard när du lägger till en API, även om den är ansluten till en serverdelstjänst, kommer inte APIM att exponera några åtgärder förrän du vitlistat dem. Om du vill vitlista en åtgärd i din serverdelstjänst, skapar du en APIM-åtgärd som mappar till serverdelsåtgärden.
 >
 
-## <a name="add-and-test-an-operation"></a>Lägga till och testa en åtgärd
+## <a name="add-and-test-an-operation"></a>Lägg till och testa en åtgärd
 
-Det här avsnittet visar hur du lägger till en ”/ hämta”-åtgärd för att mappa till serverdelen ”http://httpbin.org/get” igen.
+Det här avsnittet visar hur du lägger till en /get-åtgärd för att mappa den till serverdelens http://httpbin.org/get-åtgärd.
 
-### <a name="add-the-operation"></a>Lägga till åtgärden
+### <a name="add-the-operation"></a>Lägg till åtgärden
 
-1. Välj API som du skapade i föregående steg.
-2. Klicka på **+ Lägg till åtgärden**.
-3. I den **URL**väljer **hämta** och ange ”*/get*” i resursen.
-4. Ange ”*FetchData*” för **visningsnamn**.
+1. Välj det API som du skapade i föregående steg.
+2. Klicka på **+ Lägg till åtgärd**.
+3. I **URL**, väljer du **GET** och anger */get* i resursen.
+4. Ange *FetchData* som **Visningsnamn**.
 5. Välj **Spara**.
 
 ### <a name="test-the-operation"></a>Testa åtgärden
 
-Testa åtgärden i Azure-portalen. Du kan också testa den i den **utvecklarportalen**.
+Testa åtgärden i Azure Portal. Du kan också testa den i **Utvecklarportalen**.
 
-1. Välj den **Test** fliken.
+1. Välj fliken **Test**.
 2. Välj **FetchData**.
-3. Tryck på **skicka**.
+3. Tryck på **Skicka**.
 
-Svaret som genererar åtgärden ”http://httpbin.org/get” visas. Om du vill omvandla din verksamhet finns [transformera och skydda din API](transform-api.md).
+Svaret som http://httpbin.org/get-åtgärden genererar visas. Om du vill omvandla dina åtgärder, se [Omvandla och skydda ditt API](transform-api.md).
 
-## <a name="add-and-test-a-parameterized-operation"></a>Lägga till och testa en åtgärd med parametrar
+## <a name="add-and-test-a-parameterized-operation"></a>Lägg till och testa en parameteriserad åtgärd
 
-Det här avsnittet visar hur du lägger till en åtgärd som tar en parameter. I det här fallet mappa vi åtgärden ”http://httpbin.org/status/200”.
+Det här avsnittet visar hur du lägger till en åtgärd som tar en parameter. I det här fallet mappar vi åtgärden till http://httpbin.org/status/200.
 
-### <a name="add-the-operation"></a>Lägga till åtgärden
+### <a name="add-the-operation"></a>Lägg till åtgärden
 
-1. Välj API som du skapade i föregående steg.
-2. Klicka på **+ Lägg till åtgärden**.
-3. I den **URL**väljer **hämta** och ange ”*/status/ {code}*” i resursen. Du kan också kan du ange information som är associerade med den här parametern. Ange till exempel ”*nummer*” för **typen**”,*200*” (standard) för **värden**.
-4. Ange ”GetStatus” för **visningsnamn**.
+1. Välj det API som du skapade i föregående steg.
+2. Klicka på **+ Lägg till åtgärd**.
+3. I **URL**, väljer du **GET** och anger */status/{code}* i resursen. Du kan också kan du ange information som är associerad med den här parametern. Ange till exempel *Nummer* för **Typ**, *200* (standard) för **Värden**.
+4. Ange GetStatus som **Visningsnamn**.
 5. Välj **Spara**.
 
 ### <a name="test-the-operation"></a>Testa åtgärden 
 
-Testa åtgärden i Azure-portalen.  Du kan också testa den i den **utvecklarportalen**.
+Testa åtgärden i Azure Portal.  Du kan också testa den i **Utvecklarportalen**.
 
-1. Välj den **Test** fliken.
-2. Välj **GetStatus**. Värdet för koden är som standard ”*200*”. Du kan ändra det om du vill testa andra värden. Skriv till exempel ”*418*”.
-3. Tryck på **skicka**.
+1. Välj fliken **Test**.
+2. Välj **GetStatus**. Som standard är kodvärdet satt till *200*. Du kan ändra det för att testa andra värden. Ange till exempel *418*.
+3. Tryck på **Skicka**.
 
-    Svaret som genererar åtgärden ”http://httpbin.org/status/200” visas. Om du vill omvandla din verksamhet finns [transformera och skydda din API](transform-api.md).
+    Svaret som http://httpbin.org/status/200-åtgärden genererar visas. Om du vill omvandla dina åtgärder, se [Omvandla och skydda ditt API](transform-api.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
@@ -110,4 +110,4 @@ Testa åtgärden i Azure-portalen.  Du kan också testa den i den **utvecklarpor
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Transformera och skydda publicerade API](transform-api.md)
+> [Omvandla och skydda ett publicerat API](transform-api.md)

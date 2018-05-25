@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5fa5c6708f3b0b0319bd669be7f9c897f095b6e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du betrakta dem--som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med än installation av en agent krävs ingen konfiguration.
 
 Den här artikeln innehåller information om konfigurera Tjänstkarta och onboarding-agenter. Information om hur du använder Tjänstkarta finns [använda Tjänstkarta lösningen i Azure]( monitoring-service-map.md).
 
-## <a name="dependency-agent-downloads"></a>Hämtar Beroendeagent
+## <a name="dependency-agent-downloads"></a>Nedladdningar av beroendeagent
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Anslutna källor
-Tjänstkarta hämtar data från Microsoft Beroendeagent. Agenten beroende beror på OMS-Agent för sina anslutningar till logganalys. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan beroende agenten kan installeras. I följande tabell beskrivs anslutna källor som har stöd för Tjänstkarta-lösning.
+Tjänstkarta hämtar data från Microsoft Beroendeagent. Beroendeagenten använder OMS-agenten för sina anslutningar till Log Analytics. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan beroende agenten kan installeras. I följande tabell beskrivs anslutna källor som har stöd för Tjänstkarta-lösning.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer med Windows-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
-| Linux-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer för Linux-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
-| System Center Operations Manager-hanteringsgrupp | Ja | Tjänstkarta analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](../log-analytics/log-analytics-om-agents.md). <br><br>Det krävs en direkt anslutning från System Center Operations Manager-agentdatorn till logganalys. Data skickas från hanteringsgruppen till logganalys-arbetsytan.|
+| Windows-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer med Windows-agenten. <br><br>Förutom [OMS-agenten](../log-analytics/log-analytics-windows-agent.md) kräver Windows-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer för Linux-agenten. <br><br>Förutom [OMS-agenten](../log-analytics/log-analytics-linux-agents.md) kräver Linux-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| System Center Operations Manager-hanteringsgrupp | Ja | Tjänstkarta analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](../log-analytics/log-analytics-om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. Data skickas från hanteringsgruppen till logganalys-arbetsytan.|
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från det att samla in från Azure Storage. |
 
 Tjänstkarta stöder endast 64-bitars plattformar.
 
-I Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och logganalys att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-Agent, OMS-Agent, Log Analytics Agent, MMA eller direkt Agent, beroende på kontext.) System Center Operations Manager och Log Analytics ger olika out av the box-versioner av MMA. Dessa versioner kan varje rapport till System Center Operations Manager till logganalys eller båda.  
+I Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och logganalys att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-Agent, OMS-Agent, Log Analytics Agent, MMA eller direkt Agent, beroende på kontext.) System Center Operations Manager och Log Analytics ger olika out av the box-versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.  
 
 På Linux, OMS-Agent för Linux samlar in och skickar övervakningsdata till logganalys. Du kan använda Tjänstkarta på servrar med OMS direkt agenter eller servrar som är kopplade till logganalys via System Center Operations Manager-hanteringsgrupper.  
 
-I den här artikeln ska vi refererar till alla agenter--om Linux- eller Windows, om ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics--som ”OMS-agenten”. Vi använder distributionsnamnet på agenten endast om det behövs för kontext.
+I den här artikeln ska vi refererar till alla agenter--om Linux- eller Windows, om ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics--som ”OMS-agenten”. Vi använder endast det specifika distributionsnamnet på agenten om det behövs för sammanhanget.
 
 Tjänstkarta agenten överföra inte alla data och kräver inte ändringar brandväggar och portar. Data i Tjänstkartan överförs alltid av OMS-Agent till logganalys, antingen direkt eller via OMS-Gateway.
 
@@ -62,45 +62,45 @@ Om du är en System Center Operations Manager-kund med en hanteringsgrupp som ä
 Om du använder direkt OMS-agenten måste du konfigurera OMS själva agenten att ansluta till logganalys eller till din OMS-Gateway. OMS-Gateway kan hämtas från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Hanteringspaket
-När Tjänstkarta är aktiverat i logganalys-arbetsytan, skickas ett 300 KB hanteringspaket till alla Windows-servrar på arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. Om agenter är anslutna direkt levererar Log Analytics management pack.
+När Tjänstkarta är aktiverat i logganalys-arbetsytan, skickas ett 300 KB hanteringspaket till alla Windows-servrar på arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. Om agenterna är direktanslutna levererar Log Analytics hanteringspaketet.
 
-Management pack heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. De skrivs till %Programfiles%\Microsoft övervakning Agent\Agent\Health Service State\Management Packs\. Datakällan som används av management pack är % Program files%\Microsoft övervakning Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Hanteringspaketet heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. De skrivs till %Programfiles%\Microsoft övervakning Agent\Agent\Health Service State\Management Packs\. Datakällan som används av management pack är % Program files%\Microsoft övervakning Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Installation
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Installera agenten beroende på Microsoft Windows
 Administratörsbehörighet krävs för att installera eller avinstallera agenten.
 
-Beroende-agenten är installerad på Windows-datorer via InstallDependencyAgent Windows.exe. Om du kör den här körbara filen utan alternativ startas en guide som du kan följa om du vill installera interaktivt.  
+Beroende-agenten är installerad på Windows-datorer via InstallDependencyAgent Windows.exe. Om du kör den här körbara filen utan alternativ, startas en guide som du kan följa om du vill installera interaktivt.  
 
 Använd följande steg för att installera agenten beroende på varje Windows-dator:
 
 1.  Installera OMS-agenten med hjälp av anvisningarna i [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agent.md).
 2.  Ladda ned Windows agent och kör den med hjälp av följande kommando: <br>`InstallDependencyAgent-Windows.exe`
 3.  Följ guiden för att installera agenten.
-4.  Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. På Windows-agenter är loggkatalogen %Programfiles%\Microsoft beroende Agent\logs. 
+4.  Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. På Windows-agenter är loggkatalogen %Programfiles%\Microsoft beroende Agent\logs. 
 
-#### <a name="windows-command-line"></a>Windows-kommandoraden
-Använd alternativen i följande tabell för att installera från en kommandorad. Om du vill se en lista över flaggor för installation, kör installationsprogrammet med hjälp av den /? Flagga på följande sätt.
+#### <a name="windows-command-line"></a>Windows-kommandorad
+Använd alternativen i följande tabell för att installera från en kommandorad. Om du vill se en lista med installationsflaggor kör du installationsprogrammet med hjälp av /? flagga enligt nedan.
 
     InstallDependencyAgent-Windows.exe /?
 
 | Flaggan | Beskrivning |
 |:--|:--|
-| /? | Hämta en lista över kommandoradsalternativ. |
-| / S | Utföra en tyst installation utan uppmaningar för användaren. |
+| /? | Hämta en lista med kommandoradsalternativ. |
+| / S | Utför en tyst installation utan någon användarprompter. |
 
-Filer för Windows Beroendeagent placeras i C:\Program Files\Microsoft beroende agenten som standard.
+Filer för Windows beroendeagent placeras i C:\Program Files\Microsoft Dependency Agent som standard.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Installera agenten beroende på Linux
-Rotåtkomst krävs för att installera eller konfigurera agenten.
+### <a name="install-the-dependency-agent-on-linux"></a>Installera beroendeagenten i Linux
+Du måste ha rotbehörighet för att kunna installera eller konfigurera agenten.
 
-Beroende-agenten är installerad på Linux-datorer via InstallDependencyAgent-Linux64.bin, ett kommandoskript med en självextraherande binär. Du kan köra filen med hjälp av del eller lägga till körbehörighet till själva filen.
+Beroendeagenten installeras på Linux-datorer med InstallDependencyAgent-Linux64.bin, ett kommandoskript med en självextraherande binär fil. Du kan köra filen med hjälp av del eller lägga till körbehörighet till själva filen.
  
-Använd följande steg för att installera agenten beroende på varje Linux-dator:
+Använd följande steg för att installera beroendeagenten på varje dator som kör Linux:
 
 1.  Installera OMS-agenten med hjälp av anvisningarna i [samla in och hantera data från Linux-datorer](https://technet.microsoft.com/library/mt622052.aspx).
 2.  Installera beroende på Linux-agenten som rot med hjälp av följande kommando:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.  Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. Loggkatalogen är /var/opt/microsoft/dependency-agent/log på Linux-agenter.
+3.  Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. Loggkatalogen är /var/opt/microsoft/dependency-agent/log på Linux-agenter.
 
 För att se en lista över flaggor för installation, kör installationen av programmet med - hjälp flaggan på följande sätt.
 
@@ -108,31 +108,31 @@ För att se en lista över flaggor för installation, kör installationen av pro
 
 | Flaggan | Beskrivning |
 |:--|:--|
-| -hjälp | Hämta en lista över kommandoradsalternativ. |
-| -s | Utföra en tyst installation utan uppmaningar för användaren. |
-| – Kontrollera | Kontrollera behörigheter och operativsystemet, men inte installera agenten. |
+| -hjälp | Hämta en lista med kommandoradsalternativ. |
+| -s | Utför en tyst installation utan någon användarprompter. |
+| – Kontrollera | Kontrollera behörigheter och operativsystemet, men installera inte agenten. |
 
-Filer för Beroendeagent placeras i följande kataloger:
+Filer för beroendeagenten placeras i följande kataloger:
 
 | Filer | Plats |
 |:--|:--|
-| -Filer | /OPT/Microsoft/Dependency-Agent |
-| Loggfiler | /var/OPT/Microsoft/Dependency-Agent/log |
-| Config-filer | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Tjänsten körbara filer | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| Binära filer | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Kärnfiler | /opt/microsoft/dependency-agent |
+| Loggfiler | /var/opt/microsoft/dependency-agent/log |
+| Konfigurationsfiler | /etc/opt/microsoft/dependency-agent/config |
+| Körbara tjänstfiler | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binära lagringsfiler | /var/opt/microsoft/dependency-agent/storage |
 
-## <a name="installation-script-examples"></a>Exempel på skript för installation
-För att enkelt distribuera agenten beroende på flera servrar samtidigt, hjälper det för att använda ett skript. Du kan använda i följande skriptexempel att ladda ned och installera agenten beroende på Windows- eller Linux.
+## <a name="installation-script-examples"></a>Exempel på installationsskript
+Det är enklare att distribuera beroendeagenten på flera servrar samtidigt med ett skript. Du kan använda följande skriptexempel till att ladda ned och installera beroendeagenten på antingen Windows eller Linux.
 
-### <a name="powershell-script-for-windows"></a>Windows PowerShell-skript
+### <a name="powershell-script-for-windows"></a>PowerShell-skript för Windows
 ```PowerShell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 ```
 
-### <a name="shell-script-for-linux"></a>Shell-skript för Linux
+### <a name="shell-script-for-linux"></a>Kommandoskript för Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sudo sh InstallDependencyAgent-Linux64.bin -s
@@ -188,7 +188,7 @@ Ett enklare sätt att kontrollera agenten beroende på var och en av dina virtue
 
 
 ## <a name="desired-state-configuration"></a>Önskad tillståndskonfiguration
-Om du vill distribuera Beroendeagent via Desired State Configuration, kan du använda modulen xPSDesiredStateConfiguration och lite kod som liknar följande:
+Om du vill distribuera beroendeagenten via Desired State Configuration, kan du använda modulen xPSDesiredStateConfiguration och en bit kod som liknar följande:
 ```
 configuration ServiceMap {
 
@@ -222,12 +222,12 @@ Node localhost
 ```
 
 ## <a name="uninstallation"></a>Avinstallation
-### <a name="uninstall-the-dependency-agent-on-windows"></a>Avinstallera agenten beroende på Windows
-En administratör kan avinstallera beroende agenten för Windows via Kontrollpanelen.
+### <a name="uninstall-the-dependency-agent-on-windows"></a>Avinstallera beroendeagenten i Windows
+En administratör kan avinstallera beroendeagenten för Windows via Kontrollpanelen.
 
-En administratör kan också köra %Programfiles%\Microsoft beroende Agent\Uninstall.exe avinstallera agenten beroende.
+Administratören kan också köra %Programfiles%\Microsoft Dependency Agent\Uninstall.exe för att avinstallera beroendeagenten.
 
-### <a name="uninstall-the-dependency-agent-on-linux"></a>Avinstallera agenten beroende på Linux
+### <a name="uninstall-the-dependency-agent-on-linux"></a>Avinstallera beroendeagenten i Linux
 Du kan avinstallera beroende agenten från Linux med följande kommando.
 <br>RHEL, CentOs eller Oracle:
 ```
@@ -292,7 +292,7 @@ Tjänstkarta är tillgängliga i de följande Azure-regionerna:
 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjänstkarta stöder inte 32-bitars arkitekturer för alla operativsystem.
+I följande avsnitt visas vilka operativsystem som stöds för beroendeagenten. Tjänstkarta stöder inte 32-bitars arkitekturer för alla operativsystem.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -306,12 +306,12 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjäns
 - Windows 8
 - Windows 7
 
-### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux och Oracle Linux (med RHEL Kernel)
-- Endast standard och SMP Linux kernel-versioner stöds.
-- Avvikande kernel Frigör som PAE och Xen, inte stöds för Linux-distribution. Till exempel stöds ett system med versionen sträng med ”2.6.16.21-0.8-xen” inte.
-- Anpassade kärnor, inklusive omkompileringar standard kärnor stöds inte.
-- CentOSPlus kernel stöds inte.
-- Oracle Unbreakable Enterprise Kernel (UEK) ingår i ett senare avsnitt i den här artikeln.
+### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux och Oracle Linux (med RHEL-kernel)
+- Endast standardversioner och SMP Linux-kernelversioner stöds.
+- Avvikande kernelversioner, som exempelvis PAE och Xen, stöds inte för någon Linux-distribution. Till exempel stöds ett system med versionen sträng med ”2.6.16.21-0.8-xen” inte.
+- Anpassade kernlar, inklusive omkompileringar av standardkernlar, stöds inte.
+- CentOSPlus-kernel stöds inte.
+- Oracle Unbreakable Enterprise Kernel (UEK) beskrivs i ett senare avsnitt i den här artikeln.
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
@@ -322,6 +322,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjäns
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | OS-version | Kernel-version |
@@ -346,7 +347,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjäns
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
-- Anpassade kärnor, inklusive omkompileringar standard kärnor stöds inte.
+- Anpassade kernlar, inklusive omkompileringar av standardkernlar, stöds inte.
 
 | OS-version | Kernel-version |
 |:--|:--|
@@ -380,7 +381,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjäns
 | 11 SP4 | 3.0.101-65 |
 
 
-## <a name="diagnostic-and-usage-data"></a>diagnostik och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
 Microsoft samlar automatiskt in användnings- och prestandadata via din användning av tjänsten Tjänstkartan. Microsoft använder informationen för att tillhandahålla och förbättra kvalitet, säkerhet och integritet Tjänstkarta-tjänsten. Data innehåller information om konfiguration av programvaran som operativsystem och version. Även IP-adress, DNS-namn och namn på arbetsstation för att kunna tillhandahålla korrekta och effektiva funktioner för felsökning. Vi samlar inte in namn, adresser eller annan kontaktinformation.
 
 Mer information om insamling och användning finns i [sekretesspolicy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

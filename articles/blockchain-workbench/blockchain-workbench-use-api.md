@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Använda REST API för Azure Blockchain Workbench 
 
@@ -26,12 +26,14 @@ REST API:erna för Azure Blockchain Workbench ger utvecklare och IT-anställda e
 * Lista tillgängliga åtgärder för ett kontrakt
 * Utföra en åtgärd för ett kontrakt
 
+De exempel blockchain program som används i scenarier, kan vara [hämtas från GitHub](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Lista program
 
-När en användare loggat in i blockkedjeklienten, måste han/hon börja med att hämta alla sina Blockchain Workbench blockkedjeprogram. Användaren i det här scenariot har åtkomst till två program:
+När en användare har loggat in blockchain klienten, är den första uppgiften att hämta alla Blockchain arbetsstationen program för användaren. Användaren i det här scenariot har åtkomst till två program:
 
-1.  Tillgångsöverföring
-2.  Kyld transport
+1.  [Överföringen tillgången](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Kylda transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Använd [GET API för programmet](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
@@ -40,7 +42,7 @@ GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-Svaret listar alla blockkedjeprogram som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench-administratörer får alla blockkedjeprogram, medan andra administratörer än Workbench får alla instanser av blocknivåelement som de har minst en associerad programroll eller en kopplad roll för smarta kontrakt-instanser för.
+Svaret visar alla blockchain program som en användare har åtkomst till i Blockchain arbetsstationen. Blockchain Workbench-administratörer får alla blockkedjeprogram, medan andra administratörer än Workbench får alla instanser av blocknivåelement som de har minst en associerad programroll eller en kopplad roll för smarta kontrakt-instanser för.
 
 ``` http
 HTTP/1.1 200 OK
@@ -74,7 +76,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Lista arbetsflöden för ett program
 
-När en användare väljer tillämpliga blockkedjeprogram, i det här fallet tillgångsöverföring, hämtar blockkedjeklienten alla arbetsflöden för det specifika blockkedjeprogrammet. Användare kan sedan välja tillämpliga arbetsflöden innan alla instanser för smarta kontrakt för arbetsflödet visas. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. När du skapar blockkedjeklientprogram rekommenderar vi att du inte låter användare välja lämpligt arbetsflöde i de fall det bara finns ett arbetsflöde för blockkedjeprogrammet. I det här fallet har tillgångsöverföringen bara ett arbetsflöde, som kallas tillgångsöverföring.
+När en användare väljer tillämpliga blockchain-programmet i det här fallet **tillgångsinformation överföra**, blockchain klienten hämtar alla arbetsflöden för specifika blockchain programmet. Användare kan sedan välja tillämpliga arbetsflöden innan alla instanser för smarta kontrakt för arbetsflödet visas. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. När du skapar blockkedjeklientprogram rekommenderar vi att du inte låter användare välja lämpligt arbetsflöde i de fall det bara finns ett arbetsflöde för blockkedjeprogrammet. I det här fallet **tillgångsinformation överföra** har bara ett arbetsflöde, kallas även **tillgångsinformation överföra**.
 
 Använd [GET API för programarbetsflöden](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -106,7 +108,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Lista smarta kontrakt-instanser för ett arbetsflöde
 
-När en användare valt tillämpliga arbetsflöden, i det här fallet tillgångsöverföring, hämtar blockkedjeklienten alla smarta kontrakt-instanser för det angivna arbetsflödet. Du kan använda den här informationen för att visa alla smarta kontrakt-instanser för arbetsflödet och låta användare titta mer ingående på någon av de smarta kontrakt-instanser som visas. Ta till exempel i det här fallet en användare som vill interagera med någon av instanserna för det smarta kontrakt som ska utföras.
+När en användare väljer tillämpliga arbetsflödet, det här fallet **tillgångsinformation överföra**, blockchain klienten hämtar alla smarta kontraktet instanser för angivna arbetsflödet. Du kan använda den här informationen för att visa alla smarta kontrakt-instanser för arbetsflödet och låta användare titta mer ingående på någon av de smarta kontrakt-instanser som visas. Ta till exempel i det här fallet en användare som vill interagera med någon av instanserna för det smarta kontrakt som ska utföras.
 
 Använd [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) (GET API för kontrakt):
 

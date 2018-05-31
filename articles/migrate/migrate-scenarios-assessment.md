@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d8ef36e001aaf417b84efaf99a992fd64f01b6f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366349"
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -22,9 +23,9 @@ För att komma igång och få bättre kunskaper om de inblandade teknikerna utv�
 
 **Teknik** | **Beskrivning** | **Kostnad**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA utvärderar och identifierar kompatibilitetsproblem som kan påverka databasfunktioner i Azure. Dessutom utvärderar DMA funktionsparitet mellan SQL Server-källan och -målet, och rekommenderar prestanda- och tillförlitlighetsförbättringar för målmiljön. | Det här verktyget kan laddas ned utan kostnad. 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA utvärderar och identifierar kompatibilitetsproblem som kan påverka databasfunktioner i Azure. Dessutom utvärderar DMA funktionsparitet mellan SQL Server-källan och -målet, och rekommenderar prestanda- och tillförlitlighetsförbättringar för målmiljön. | Det här verktyget kan laddas ned utan kostnad.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Tjänsten hjälper dig att utvärdera lokala datorer för migrering till Azure. Och utvärderar migreringslämpligheten för datorerna och ger uppskattningar av storlek och kostnad för körning i Azure. För närvarande kan tjänsten Azure Migrate utvärdera lokala virtuella VMware-datorer för migrering till Azure. | För närvarande (april 2018) kan den här tjänsten användas utan kostnad.
-[Tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate använder Tjänstkarta för att visa beroenden mellan datorer som du vill migrera. |  Tjänstkarta ingår i Azure Log Analytics. Den kan för närvarande användas i 180 dagar utan kostnad. 
+[Tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate använder Tjänstkarta för att visa beroenden mellan datorer som du vill migrera. |  Tjänstkarta ingår i Azure Log Analytics. Den kan för närvarande användas i 180 dagar utan kostnad.
 
 I det här scenariot hämtar vi och kör DMA för att utvärdera den lokala SQL Server-databasen för vår reseapp. Vi använder Azure Migrate med beroendemappning för att utvärdera de virtuella datorerna för appen innan vi migrerar dem till Azure.
 
@@ -50,7 +51,7 @@ I det här scenariot:
 Det här behöver du för att distribuera det här scenariot:
 
 - En lokal vCenter Server som kör version 5.5, 6.0 eller 6.5.
-- Ett skrivskyddat kontot i vCenter Server eller behörighet att skapa ett sådant. 
+- Ett skrivskyddat kontot i vCenter Server eller behörighet att skapa ett sådant.
 - Behörighet att skapa en virtuell dator på vCenter Server med hjälp av en .OVA-mall.
 - Minst en ESXi-värd som kör version 5.0 eller senare.
 - Minst två lokala virtuella VMware-datorer, varav en kör en SQL Server-databas.
@@ -106,15 +107,15 @@ Kör en utvärdering för att analysera din SQL Server-instans mot ett angivet m
       För närvarande stöder DMA inte utvärdering för migrering till en hanterad SQL-instans. Som en tillfällig lösning använder vi SQL Server på Azure VM som mål för utvärderingen.
 
 1.  I **Välj målversion** anger du målversionen av SQL Server som du vill köra i Azure, och vad du vill identifiera i utvärderingen:
-    - **Kompatibilitetsproblem** anger ändringar som kan bryta migreringen eller som kräver en mindre justering före migreringen. Du får också information om vilka funktioner du använder som har blivit inaktuella. Problemen ordnas efter kompatibilitetsnivå. 
-    - **Nya funktionsrekommendation** informerar om nya funktioner i SQL Server-målplattformen som kan användas för din databas efter migreringen. Dessa är ordnade efter prestanda, säkerhet och lagring. 
+    - **Kompatibilitetsproblem** anger ändringar som kan bryta migreringen eller som kräver en mindre justering före migreringen. Du får också information om vilka funktioner du använder som har blivit inaktuella. Problemen ordnas efter kompatibilitetsnivå.
+    - **Nya funktionsrekommendation** informerar om nya funktioner i SQL Server-målplattformen som kan användas för din databas efter migreringen. Dessa är ordnade efter prestanda, säkerhet och lagring.
 
     ![Välja mål](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. I **Anslut till en server** anger du namnet på den dator som kör SQL Server-instansen, autentiseringstypen och anslutningsinformation. Klicka sedan på **Anslut**.
 
     ![Välja mål](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. I **Lägg till källa** markerar den databas som du vill utvärdera och klickar på **Lägg till**.
 4. En utvärdering med det namn du angav skapas.
 
@@ -126,7 +127,7 @@ Kör en utvärdering för att analysera din SQL Server-instans mot ett angivet m
 
 ### <a name="analyze-the-database-assessment"></a>Analysera databasutvärderingen
 
-Resultatet visas i assistenten när de är tillgängliga. 
+Resultatet visas i assistenten när de är tillgängliga.
 
 1. I rapporten **Kompatibilitetsproblem** kontrollerar du om det finns problem för databasen på respektive kompatibilitetsnivå, och i så fall hur du åtgärdar dem. Kompatibilitetsnivåerna mappar till SQL Server-versioner på följande sätt:
     - 100: SQL Server 2008/Azure SQL Database
@@ -141,7 +142,7 @@ Resultatet visas i assistenten när de är tillgängliga.
 
     ![Funktionsrekommendationer](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. Om du har åtgärdat problem klickar du på **Starta om utvärderingen** för att köra den på nytt. 
+3. Om du har åtgärdat problem klickar du på **Starta om utvärderingen** för att köra den på nytt.
 4. Klicka på **Exportera rapport** för att hämta utvärderingsrapporten i JSON- eller CSV-format.
 
 Om du kör en utvärdering i större skala:
@@ -182,8 +183,8 @@ Innan du startar distributionen ska statistikinställningarna för vCenter Serve
     - För lagring rekommenderar Azure Migrate en standarddisk i Azure, med samma storlek som den lokala disken.
     - För nätverk rekommenderas ett nätverkskort i Azure för varje lokalt nätverkskort.
     - För beräkning tittar Azure Migrate på den virtuella datorns kärnor och minnesstorlek och rekommenderar en virtuell Azure-dator med samma konfiguration. Om det finns flera tillgängliga Azure VM-storlekar rekommenderas den billigaste.
-   
-    
+
+
 [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing) om storleksändring med nivå 3.
 
 Ange nivå på följande sätt:
@@ -215,7 +216,7 @@ Skapa ett Azure Migrate-projekt, hämta och konfigurera den virtuella insamlarda
     ![Azure Migrate](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### <a name="download-the-collector-appliance"></a>Hämta insamlingsprogrammet
 
@@ -225,7 +226,7 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
 2. I **Identifiera datorer** klickar du på **Ladda ned** för att ladda ned .OVA-filen.
 3. I **Kopiera projektautentiseringsuppgifterna** kopierar du projekt-ID och nyckel. Du behöver dem när du konfigurerar insamlaren.
 
-    ![Hämta .OVA-fil](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![Hämta .OVA-fil](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>Kontrollera insamlingsprogrammet
 
@@ -235,14 +236,14 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera en hash för OVA-filen:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Den genererade hashen måste matcha nedanstående inställningar (version 1.0.9.7)
-    
+3. Den genererade hashen måste matcha nedanstående inställningar (version 1.0.9.8)
+
     **Algoritm** | **Hash-värde**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### <a name="create-the-collector-appliance"></a>Skapa insamlingsprogrammet
 
@@ -250,14 +251,14 @@ Importera den nedladdade filen till vCenter Server.
 
 1. I vSphere-klientkonsolen klickar du på **Arkiv** > **Distribuera OVF-mall**.
 
-    ![Distribuera OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![Distribuera OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. I guiden Distribuera OVF-mall > **Källa** anger du platsen för .OVA-filen och klickar på **Nästa**.
 3. I **OVF Template Details** (Information om OVF-mall) klickar du på **Nästa**. På sidan med **licensavtalet** godkänner du villkoren och klickar på **Acceptera** och klickar på **Nästa**.
 4. I **Namn och plats** anger du ett eget namn för den virtuella insamlardatorn och lagerplatsen där den virtuella datorn kommer att finnas och klickar på **Nästa**. Ange den värd eller det kluster som insamlingsprogrammet ska köras i.
 5. I **Lagring** anger du var du vill lagra filer för insamlingsprogrammet och klickar på **Nästa**.
 6. I **Diskformat** anger du hur du vill etablera lagringen.
-7. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste ha en Internetanslutning för att kunna skicka metadata till Azure. 
+7. I **Nätverksmappning** anger du det nätverk som den virtuella insamlardatorn kommer att ansluta till. Nätverket måste ha en Internetanslutning för att kunna skicka metadata till Azure.
 8. I **Ready to Complete** (Redo att slutföra) granskar du inställningarna, väljer **Power on after deployment** (Aktivera efter distribution) och klickar på **Finish** (Slutför).
 
 Ett meddelande som bekräftar att det är klart utfärdas när insamlingsprogrammet har skapats.
@@ -270,22 +271,22 @@ Observera innan du börjar att insamlaren för närvarande endast har stöd för
 2. Ange språk, tidszon och lösenordsinställningar för produkten.
 3. På skrivbordet klickar du på genvägen **Kör insamlare**.
 
-    ![Genväg till insamlaren](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![Genväg till insamlaren](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
     - Acceptera licensvillkoren och läs informationen från tredje part.
-    - Insamlaren kontrollerar att den virtuella datorn är ansluten till internet, att tiden synkroniseras, att insamlartjänsten körs (den installeras som standard på den virtuella datorn). Den installerar även VMWare PowerCLI. 
-    
+    - Insamlaren kontrollerar att den virtuella datorn är ansluten till internet, att tiden synkroniseras, att insamlartjänsten körs (den installeras som standard på den virtuella datorn). Den installerar även VMWare PowerCLI.
+
     > [!NOTE]
     > Vi förutsätter att den virtuella datorn har direkt åtkomst till Internet, utan proxy.
 
     ![Kontrollera förutsättningar](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
     - Ange namn (FQDN) eller IP-adress för vCenter-servern.
     - I **Användarnamn** och **Lösenord** anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer på vCenter-servern.
-    - I **Välj omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. 
+    - I **Välj omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer.
 
     ![Ansluta till vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -296,7 +297,7 @@ Observera innan du börjar att insamlaren för närvarande endast har stöd för
 7. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid.
 
     ![Insamling pågår](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
@@ -309,7 +310,7 @@ När insamlingen är klar kontrollerar du att de virtuella datorerna visas i por
     ![Identifierade datorer](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. Observera att Azure Migrate-agenter inte är installerade på datorerna för närvarande. Vi behöver installera dem så att vi kan visa beroenden.
-    
+
     ![Identifierade datorer](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -322,7 +323,7 @@ För att kunna visa beroenden mellan de virtuella datorer som vi vill utvärdera
 
 Om du vill ha en kopia av den virtuella datorn innan du ändrar den kan du ta en ögonblicksbild innan du installerar agenterna.
 
-![Ögonblicksbild av dator](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![Ögonblicksbild av dator](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
@@ -331,7 +332,7 @@ Om du vill ha en kopia av den virtuella datorn innan du ändrar den kan du ta en
 2.  På sidan **Identifiera datorer** hämtar och installerar du Microsoft Monitoring Agent (MMA) och beroendeagenten.
 3.  Kopiera arbetsytans ID och nyckel. Du behöver dem när du installerar MMA.
 
-    ![Hämning av agent](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![Hämning av agent](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -339,12 +340,12 @@ Om du vill ha en kopia av den virtuella datorn innan du ändrar den kan du ta en
 
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **Licensvillkor** klickar du på **Jag accepterar** för att acceptera licensen.
-3. I **Målmapp** behåller du standardinstallationsmappen > **Nästa**. 
-4. I **Installationsalternativ för Agent** väljer de **Anslut agenten till Azure Log Analytics** > **Nästa**. 
+3. I **Målmapp** behåller du standardinstallationsmappen > **Nästa**.
+4. I **Installationsalternativ för Agent** väljer de **Anslut agenten till Azure Log Analytics** > **Nästa**.
 
-    ![Installation av MMA](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![Installation av MMA](./media/migrate-scenarios-assessment/mma-install.png)
 5. I **Azure Log Analytic** klistrar du in i arbetsytans ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
-    ![Installation av MMA](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![Installation av MMA](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. I **Klar att installera** installerar du MMA.
 
@@ -356,10 +357,10 @@ Om du vill ha en kopia av den virtuella datorn innan du ändrar den kan du ta en
 2.  På sidan **Licensvillkor** klickar du på **Jag accepterar** för att acceptera licensen.
 3.  I **Installerar** väntar du tills installationen har slutförts. Klicka sedan på **Nästa**.
 
-    ![Beroendeagent](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![Beroendeagent](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## <a name="step-7-run-and-analyze-the-vm-assessment"></a>Steg 7: Köra och analysera VM-utvärderingen
 
 Kontrollera datorberoenden och skapa en grupp. Kör sedan utvärderingen.
@@ -368,7 +369,7 @@ Kontrollera datorberoenden och skapa en grupp. Kör sedan utvärderingen.
 
 1.  På sidan **Datorer** klickar du på **Visa beroenden** för de virtuella datorer som du vill analysera.
 
-    ![Visa datorberoenden](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![Visa datorberoenden](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. För SQLVM visar beroendekartan följande information:
 
@@ -376,8 +377,8 @@ Kontrollera datorberoenden och skapa en grupp. Kör sedan utvärderingen.
     - Inkommande (klient) och utgående (server) TCP-anslutningar till och från alla beroende datorer.
     - Beroende datorer med Azure Migrate-agenter installerade visas som separata rutor
     - Datorer utan agenter installerade visar information om port och IP-adress.
-    
- 3. För datorer med agenten installerad (WEBVM) klickar du på datorrutan för att visa mer information, inklusive FQDN, operativsystem och MAC-adress. 
+
+ 3. För datorer med agenten installerad (WEBVM) klickar du på datorrutan för att visa mer information, inklusive FQDN, operativsystem och MAC-adress.
 
     ![Visa gruppberoenden](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -385,7 +386,7 @@ Kontrollera datorberoenden och skapa en grupp. Kör sedan utvärderingen.
 5. Klicka på **Skapa grupp** och ange ett namn (smarthotelapp).
 
 > [!NOTE]
-    > Om du vill visa mer detaljerade beroenden kan du expandera tidsintervallet. Du kan välja en viss varaktighet eller start- och slutdatum. 
+    > Om du vill visa mer detaljerade beroenden kan du expandera tidsintervallet. Du kan välja en viss varaktighet eller start- och slutdatum.
 
 
 ### <a name="run-an-assessment"></a>Köra en utvärdering
@@ -409,7 +410,7 @@ I den här självstudiekursen har vi använt standardutvärderingsinställningar
     **Inställning** | **Detaljer** | **Standard**
     --- | --- | ---
     **Målplats** | Azure-platsen som du vill migrera till | Inget standardvärde.
-    **Lagringsredundans** | Den typ av lagringsredundans som de virtuella Azure-datorerna använder efter migreringen. | Standardvärdet är [lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md). Lägg märke till att Azure Migrate enbart stöder utvärderingar som baseras på hanterade diskar och att hanterade diskar endast stöder LRS, därav LRS-alternativet. 
+    **Lagringsredundans** | Den typ av lagringsredundans som de virtuella Azure-datorerna använder efter migreringen. | Standardvärdet är [lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md). Lägg märke till att Azure Migrate enbart stöder utvärderingar som baseras på hanterade diskar och att hanterade diskar endast stöder LRS, därav LRS-alternativet.
     **Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan antingen göra en *prestandabaserad* storleksändring eller ändra storlek på de virtuella datorerna *som lokalt*, utan att överväga prestandahistorik. | Standardalternativet är prestandabaserad storleksändring.
     **Prestandahistorik** | Tidsperioden att beakta när du utvärderar prestanda för de virtuella datorerna. Den här egenskapen gäller bara när storleksändringskriteriet är *prestandabaserad storleksändring*. | Standardvärdet är en dag.
     **Percentilutnyttjande** | Percentilvärdet för prestandaexempeluppsättningen som beaktas för rätt storleksändring. Den här egenskapen gäller bara när storleksändringskriteriet är *prestandabaserad storleksändring*.  | Standardvärdet är 95: e percentilen.
@@ -425,7 +426,7 @@ I den här självstudiekursen har vi använt standardutvärderingsinställningar
 
 ### <a name="analyze-the-vm-assessment"></a>Analysera VM-utvärderingen
 
-En Azure Migrate-utvärdering innehåller information om de lokala virtuella datorerna är kompatibla med Azure eller inte, vad som är rätt VM-storlek för att köra den virtuella datorn i Azure samt de beräknade kostnaderna för Azure per månad. 
+En Azure Migrate-utvärdering innehåller information om de lokala virtuella datorerna är kompatibla med Azure eller inte, vad som är rätt VM-storlek för att köra den virtuella datorn i Azure samt de beräknade kostnaderna för Azure per månad.
 
 ![Utvärderingsrapport](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -470,12 +471,12 @@ Utvärderingsrapporten visar den information som sammanfattas i tabellen. Observ
 
 #### <a name="review-monthly-cost-estimates"></a>Granska uppskattad månadskostnad
 
-Den här vyn visar total beräknings- och lagringskostnad för att köra de virtuella datorerna i Azure, samt information för varje dator. 
+Den här vyn visar total beräknings- och lagringskostnad för att köra de virtuella datorerna i Azure, samt information för varje dator.
 
-![Utvärderingsberedskap](./media/migrate-scenarios-assessment/azure-costs.png) 
+![Utvärderingsberedskap](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - Kostnadsuppskattningarna beräknas med hjälp av storleksrekommendationer för en dator.
-- Uppskattade månatliga kostnader för beräkning och lagring sammanställs för alla virtuella datorer i gruppen. 
+- Uppskattade månatliga kostnader för beräkning och lagring sammanställs för alla virtuella datorer i gruppen.
 
 
 ## <a name="conclusion"></a>Sammanfattning
@@ -490,6 +491,3 @@ I det här scenariot har vi:
 ## <a name="next-steps"></a>Nästa steg
 
 Nu ska vi gå vidare till nästa scenario och gör en [Lift and Shift-migrering](migrate-scenarios-lift-and-shift.md) av de lokala virtuella datorerna och databasen till Azure.
-
-
-

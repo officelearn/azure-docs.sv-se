@@ -1,24 +1,21 @@
 ---
-title: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal | Microsoft Docs
-description: 'Lär dig att skapa ett Data Lake Analytics-konto med hjälp av Azure Portal samt skapa ett Data Lake Analytics-jobb med hjälp av U-SQL och skicka jobbet. '
+title: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
+description: Lär dig att skapa ett Data Lake Analytics-konto med hjälp av Azure Portal samt skapa ett Data Lake Analytics-jobb med hjälp av U-SQL och skicka jobbet.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358293"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Skicka ett U-SQL-jobb
 
-1. Välj Data Lake Analytics-konto och klicka på **Nytt jobb**.
-2. Klistra in texten med U-SQL-skriptet från tidigare. 
-3. Klicka på **Skicka jobb**.   
-4. Vänta tills jobbstatusen har ändrats till **Klar**.
-5. Klicka på fliken **Utdata** och klicka sedan på `data.csv`. 
+1. Välj **Nytt jobb** från Data Lake Analytics-kontot.
+2. Klistra in texten från U-SQL-skriptet ovan. Ge jobbet ett namn. 
+3. Starta jobbet genom att välja **Skicka**.   
+4. Övervaka jobbets **status** och vänta tills statusen ändras till **Lyckades**.
+5. Välj fliken **Data** och välj sedan fliken **Utdata**. Välj utdatafilen med namnet `data.csv` och visa filens utdata.
 
 ## <a name="see-also"></a>Se även
 

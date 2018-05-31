@@ -1,14 +1,14 @@
 ---
-title: "Paketera och distribuera ett Service Fabric-behållarprogram | Microsoft Docs"
-description: "I den här självstudiekursen lär du dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet."
+title: Paketera och distribuera ett Service Fabric-behållarprogram | Microsoft Docs
+description: I den här självstudiekursen lär du dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365401"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Självstudiekurs: Paketera och distribuera behållare som ett Service Fabric-program
 
@@ -45,7 +46,8 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa program fr
 1. Installera NodeJS och NPM på datorn. Mac OSX-användare måste använda pakethanteraren Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Installera Yeoman mallgenerator på maskinen från NPM 
 
@@ -251,7 +253,7 @@ Använd installationsskriptet som medföljer i katalogen **TestContainer** för 
 
 ![Service Fabric Explorer][sfx]
 
-Anslut till programmet genom att öppna en webbläsare och gå till klustrets webbadress – till exempel http://lin0823ryf2he.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
+Anslut till det aktiva programmet genom att öppna en webbläsare och gå till webbadressen för klustret, t.ex. http://lin0823ryf2he.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
 
 ![röstningsapp][votingapp]
 

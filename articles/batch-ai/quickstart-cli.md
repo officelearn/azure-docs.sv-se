@@ -15,136 +15,85 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
-ms.openlocfilehash: 82e3885021a2f2309dfed456d472e7027b8d6cf2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3601ea412790c991892a0c05210d2551810287b8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869027"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Kör ett CNTK-utbildningsjobb med hjälp av Azure CLI
 
-Den här snabbstarten visar dig hur du kan använd Azures kommandoradsgränssnitt (CLI) för att köra ett utbildningsjobb med Microsoft Cognitive Toolkit (CNTK) med hjälp av Batch AI-tjänsten. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
+Med Azure CLI 2.0 kan du skapa och hantera Batch AI-resurser – skapa/ta bort Batch AI-filservrar och kluster, samt skicka/avsluta/ta bort/övervaka träningsjobb.
 
-I det här exemplet använder du MNIST-databasen med handritade bilder för att träna ett CNN (Convolutional Neural Network) i ett GPU-kluster med en nod som hanteras av Batch AI. 
+Den här snabbstarten visar hur du skapar ett GPU-kluster och kör ett träningsjobb med hjälp av Microsoft Cognitive Toolkit.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Träningsskriptet [ConvNet_MNIST.py](https://github.com/Azure/BatchAI/blob/master/recipes/CNTK/CNTK-GPU-Python/CNTK-GPU-Python.ipynb) finns tillgängligt på GitHub-sidan för Batch AI. Det här skriptet ger träning för CNN-nätverk (Convolutional Neural Network) i MNIST-databasen med handskrivna siffror.
 
-För den här snabbstarten krävs att du kör den senaste Azure CLI-versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Det officiella CNTK-exemplet har ändrats till att godkänna platsen för träningsdatauppsättningen och utdatakatalogens plats via kommandoradsargument.
 
-Batch AI-resursprovidrarna måste också ha registrerats en gång för din prenumeration med hjälp av Azure Cloud Shell eller Azure CLI. En providerregistrering kan ta upp till 15 minuter.
+## <a name="quickstart-overview"></a>Snabbstart, översikt
+
+* Skapa ett GPU-kluster med en nod (`Standard_NC6` i VM-storlek) med namnet `nc6`;
+* Skapa ett nytt lagringskonto där jobbets in- och utdata ska lagras;
+* Skapa en Azure-filresurs med två mappar, `logs` och `scripts`, för att lagra jobbets utdata och träningsskript;
+* Skapa Azure-blobbehållaren `data` där träningsdata ska lagras;
+* Distribuera träningsskript och träningsdata till den skapade filresursen och behållaren;
+* Konfigurera jobbet och montera Azure-filresursen och Azure-blobbehållaren på klusternoden. Gör dem sedan tillgängliga som ett normalt filsystem på `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` och `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`.
+`AZ_BATCHAI_JOB_MOUNT_ROOT` är en miljövariabel som anges av Batch AI för jobbet.
+* Övervaka jobbkörningen genom att strömma dess standardutdata;
+* När jobbet är slutfört granskar du dess utdata och genererade modeller;
+* När du är klar tar du bort alla allokerade resurser.
+
+# <a name="prerequisites"></a>Nödvändiga komponenter
+
+* Azure-prenumeration – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Åtkomst till Azure CLI 2.0 med version 2.0.31 eller högre. Du kan antingen använda Azure CLI 2.0 som finns i [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) eller installera det lokalt i enlighet med [instruktionerna](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+# <a name="cloud-shell-only"></a>Endast Cloud Shell
+
+Om du använder Cloud Shell ändrar du arbetskatalogen till `/usr/$USER/clouddrive`, eftersom hemkatalogen saknar ledigt utrymme:
 
 ```azurecli
-az provider register -n Microsoft.BatchAI
-az provider register -n Microsoft.Batch
+cd /usr/$USER/clouddrive
 ```
 
+# <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-Batch AI-kluster och jobb är Azure-resurser och måste placeras i en Azure-resursgrupp.
-
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create).
-
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*. Därefter använder den kommandot [az configure](/cli/azure/reference-index#az_configure) för att konfigurera den här resursgruppen och platsen som standard.
+En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Följande kommando skapar den nya resursgruppen ```batchai.quickstart``` på platsen USA, östra:
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
-
-az configure --defaults group=myResourceGroup
-
-az configure --defaults location=eastus
+az group create -n batchai.quickstart -l eastus
 ```
 
->[!NOTE]
->Att konfigurera standardvärden för kommandot `az` är ett valfritt steg. Du kan välja att inte ange standardvärdena. Om du väljer att ange standardvärdena bör du ta bort standardinställningarna efter et att du har slutfört självstudiekursen. Ta bort standardinställningarna med hjälp av följande kommandon:
->
->```azurecli
->az configure --defaults group=''
->
->az configure --defaults location=''
->```
->
+# <a name="create-gpu-cluster"></a>Skapa GPU-kluster
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-
-I den här snabbstarten använda ett Azure Storage-konto som värd för data och skript för utbildningsjobbet. Skapa ett lagringskonto med kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Följande kommando skapar ett GPU-kluster med en nod (VM-storleken är Standard_NC6) med Ubuntu DSVM som operativsystemavbildning:
 
 ```azurecli
-az storage account create --name mystorageaccount --sku Standard_LRS
+az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i UbuntuDSVM -t 1 --generate-ssh-keys
 ```
 
->[!NOTE]
->Varje lagringskonto måste ha ett unikt namn. I föregående `az`-kommando och andra liknande kommandon i den här självstudiekursen ersätter du värdet för inställningen `mystorageaccount` med namnet på ditt lagringskonto.
+Med Ubuntu DSVM kan du köra alla träningsjobb i Docker-behållare och köra de populäraste ramverken för djupinlärning direkt på den virtuella datorn.
 
-## <a name="prepare-azure-file-share"></a>Förbered en Azure-filresurs
+Med alternativet `--generate-ssh-keys` genererar Azure CLI privata och offentliga ssh-nycklar, om de inte redan finns. Du kan komma åt klusternoderna med hjälp av den aktuella användarens namn och genererade ssh-nyckel.
 
-I illustrationssyfte använder den här snabbstarten en Azure-filresurs som värd för utbildningsinformationen och skripten för utbildningsjobbet.
+Observera att om du använder Cloud Shell säkerhetskopierar du ~/.ssh-mappen till ett permanent lagringsutrymme.
 
-1. Skapa en filresurs med namnet *batchaiquickstart* med hjälp av kommandot [az storage share create](/cli/azure/storage/share#az_storage_share_create).
-
-  ```azurecli
-  az storage share create --account-name mystorageaccount --name batchaiquickstart
-  ```
-2. Skapa en katalog i resursen med namnet *mnistcntksample* med hjälp av kommandot [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create).
-
-  ```azurecli
-  az storage directory create --share-name batchaiquickstart  --name mnistcntksample
-  ```
-
-3. Hämta [exempelpaketet](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) och packa upp det. Överför innehållet till en katalog med hjälp av kommandot [az storage file upload](/cli/azure/storage/file#az_storage_file_upload):
-
-  ```azurecli
-  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample
-
-  az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
-
-  az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
-  ```
-
-
-## <a name="create-gpu-cluster"></a>Skapa GPU-kluster
-Använd kommandot [az batchai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) för att skapa ett Batch AI-kluster som består av en enskild GPU VM-nod. I det här exemplet kör en virtuell dator Ubuntu LTS standardavbildningen. Ange `image UbuntuDSVM` i stället om du vill köra Microsoft Deep Learning Virtual Machine, som stöder ytterligare utbildningsramverk. NC6-storleken har en NVIDIA K80 GPU. Montera filresursen i en mapp med namnet *azurefileshare*. Den fullständiga sökvägen till den här mappen på GPU-beräkningsnoden är $AZ_BATCHAI_MOUNT_ROOT/azurefileshare.
-
-
-```azurecli
-az batchai cluster create --name mycluster --vm-size STANDARD_NC6 --image UbuntuLTS --min 1 --max 1 --storage-account-name mystorageaccount --afs-name batchaiquickstart --afs-mount-path azurefileshare --user-name <admin_username> --password <admin_password>
-```
-
-
-När klustret har skapats ser utdata ut ungefär så här:
-
-```azurecli
+Exempel på utdata:
+```json
 {
-  "allocationState": "resizing",
-  "allocationStateTransitionTime": "2017-10-05T02:09:03.194000+00:00",
-  "creationTime": "2017-10-05T02:09:01.998000+00:00",
+  "allocationState": "steady",
+  "allocationStateTransitionTime": "2018-04-11T21:17:26.345000+00:00",
+  "creationTime": "2018-04-11T20:12:10.758000+00:00",
   "currentNodeCount": 0,
   "errors": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
   "location": "eastus",
-  "name": "mycluster",
-  "nodeSetup": {
-    "mountVolumes": {
-      "azureBlobFileSystems": null,
-      "azureFileShares": [
-        {
-          "accountName": "batchaisamples",
-          "azureFileUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart",
-          "credentialsInfo": {
-            "accountKey": null,
-            "accountKeySecretUrl": null
-          },
-          "directoryMode": "0777",
-          "fileMode": "0777",
-          "relativeMountPath": "azurefileshare"
-        }
-      ],
-      "fileServers": null,
-      "unmanagedFileSystems": null
-    },
-    "setupTask": null
-  },
+  "name": "nc6",
+  "nodeSetup": null,
   "nodeStateCounts": {
+    "additionalProperties": {},
     "idleNodeCount": 0,
     "leavingNodeCount": 0,
     "preparingNodeCount": 0,
@@ -152,273 +101,350 @@ När klustret har skapats ser utdata ut ungefär så här:
     "unusableNodeCount": 0
   },
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2017-10-05T02:09:02.857000+00:00",
-  "resourceGroup": "myresourcegroup",
+  "provisioningStateTransitionTime": "2018-04-11T20:12:11.445000+00:00",
+  "resourceGroup": "batchai.quickstart",
   "scaleSettings": {
+    "additionalProperties": {},
     "autoScale": null,
     "manual": {
       "nodeDeallocationOption": "requeue",
       "targetNodeCount": 1
     }
   },
-  "subnet": {
-    "id": null
-  },
+  "subnet": null,
   "tags": null,
   "type": "Microsoft.BatchAI/Clusters",
   "userAccountSettings": {
-    "adminUserName": "demoUser",
+    "additionalProperties": {},
+    "adminUserName": "alex",
     "adminUserPassword": null,
-    "adminUserSshPublicKey": null
+    "adminUserSshPublicKey": "<YOUR SSH PUBLIC KEY HERE>"
   },
   "virtualMachineConfiguration": {
+    "additionalProperties": {},
     "imageReference": {
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "16.04-LTS",
-      "version": "latest"
+      "additionalProperties": {},
+      "offer": "linux-data-science-vm-ubuntu",
+      "publisher": "microsoft-ads",
+      "sku": "linuxdsvmubuntu",
+      "version": "latest",
+      "virtualMachineImageId": null
     }
   },
   "vmPriority": "dedicated",
   "vmSize": "STANDARD_NC6"
+}
 ```
-## <a name="get-cluster-status"></a>Hämta klusterstatus
 
-Om du vill få en översikt över klusterstatusen för klustret kör du kommandot [az batchai cluster list](/cli/azure/batchai/cluster#az_batchai_cluster_list):
+# <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+
+Följande kommando skapar ett nytt lagringskonto i samma region som resursgruppen batchai.repices. Uppdatera kommandot med ett unikt lagringskontonamn.
 
 ```azurecli
-az batchai cluster list -o table
+az storage account create -n <storage account name> --sku Standard_LRS -g batchai.quickstart
 ```
 
-De utdata som genereras liknar följande:
+Om det valda lagringskontonamnet inte är tillgängligt, kommer kommandot ovan rapportera motsvarande fel. I det här fallet väljer du ett annat namn och försöker igen.
+
+# <a name="data-deployment"></a>Datadistribution
+
+## <a name="download-the-training-script-and-training-data"></a>Hämta träningsskript och träningsdata
+
+* Ladda ned och extrahera den förbehandlade MNIST-databasen från [den här platsen](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D) till den aktuella mappen.
+
+För GNU/Linux eller Cloud Shell:
 
 ```azurecli
-Name        Resource Group    VM Size        State     Idle    Running    Preparing    Unusable    Leaving
----------   ----------------  -------------  -------   ------  ---------  -----------  ----------  --------
-mycluster   myresourcegroup   STANDARD_NC6   steady    1       0          0            0            0
+wget "https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D" -O mnist_dataset.zip
+unzip mnist_dataset.zip
 ```
 
-Mer information får du genom att köra kommandot [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show). Den returnerar alla de klusteregenskaper som visas när klustret har skapats.
+Observera att du kan behöva installera `unzip` om din GNU/Linux-distribution inte har den.
 
-Klustret är klart när noderna har allokerats och är färdigförberedda (se `nodeStateCounts`-attributet). Om något går fel så innehåller `errors`-attributet felbeskrivningen.
+* Hämta exempelskriptet [ConvNet_MNIST.py](https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py) till den aktuella mappen:
 
-## <a name="create-training-job"></a>Skapa utbildningsjobb
+För GNU/Linux eller Cloud Shell:
 
-När klustret är klart så konfigurerar du utbildningsjobbet och skickar in det.
+```azurecli
+wget https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py
+```
 
-1. Skapa en JSON-mallfil för jobbskapande med namnet job.json:
+## <a name="create-azure-file-share-and-deploy-the-training-script"></a>Skapa Azure-filresursen och distribuera träningsskriptet
 
-  ```JSON
-  {
+Följande kommandon skapar Azure-filresurserna `scripts` och `logs`, samt kopierar träningsskript till `cntk`-mappen inuti `scripts`-resursen:
+
+```azurecli
+az storage share create -n scripts --account-name <storage account name>
+az storage share create -n logs --account-name <storage account name>
+az storage directory create -n cntk -s scripts --account-name <storage account name>
+az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --account-name <storage account name> 
+```
+
+## <a name="create-a-blob-container-and-deploy-training-data"></a>Skapa en blobbehållare och distribuera träningsdata
+
+Följande kommandon skapar Azure-blobbehållaren `data` och kopierar träningsdata till `mnist_cntk`-mappen:
+```azurecli
+az storage container create -n data --account-name <storage account name>
+az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --destination-path mnist_cntk --account-name <storage account name>
+```
+
+# <a name="submit-training-job"></a>Skicka träningsjobb
+
+## <a name="prepare-job-configuration-file"></a>Förbereda jobbets konfigurationsfil
+
+Skapa en konfigurationsfil för träningsjobbet `job.json` med följande innehåll:
+```json
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-03-01/cntk.json",
     "properties": {
-        "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-       "inputDirectories": [{
-            "id": "SAMPLE",
-            "path": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare/mnistcntksample"
-        }],
-        "outputDirectories": [{
-            "id": "MODEL",
-            "pathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-            "pathSuffix": "model",
-            "type": "custom"
-        }],
-        "containerSettings": {
-            "imageSourceRegistry": {
-                "image": "microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0"
-            }
-        },
         "nodeCount": 1,
         "cntkSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py",
-            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL"
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py",
+            "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL"
+        },
+        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
+        "outputDirectories": [{
+            "id": "MODEL",
+            "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs"
+        }],
+        "mountVolumes": {
+            "azureFileShares": [
+                {
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/logs",
+                    "relativeMountPath": "logs"
+                },
+                {
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
+                    "relativeMountPath": "scripts"
+                }
+            ],
+            "azureBlobFileSystems": [
+                {
+                    "accountName": "<AZURE_BATCHAI_STORAGE_ACCOUNT>",
+                    "containerName": "data",
+                    "relativeMountPath": "data"
+                }
+            ]
         }
     }
-  }
-  ```
-2. Skapa ett jobb med namnet *myjob* som ska köras på klustret med kommandot [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create):
+}
+```
 
-  ```azurecli
-  az batchai job create --name myjob --cluster-name mycluster --config job.json
-  ```
+Den här konfigurationsfilen anger:
 
-De utdata som genereras liknar följande:
+* `nodeCount` – antalet noder som krävs av jobbet (1 för den här snabbstarten);
+* `cntkSettings` – anger sökvägen till träningsskriptet och kommandoradsargumenten. Kommandoradsargument innehåller sökvägen till träningsdata och målsökvägen för lagring av de modeller som genereras. `AZ_BATCHAI_OUTPUT_MODEL` är en miljövariabel som angetts av Batch AI baserat på utdatans katalogkonfiguration (se nedan);
+* `stdOutErrPathPrefix` – sökväg där Batch AI skapar kataloger som innehåller jobbets utdata och loggar;
+* `outputDirectories` – samling med utdatakataloger som ska skapas av Batch AI. För varje katalog skapar Batch AI en miljövariabel med namnet `AZ_BATCHAI_OUTPUT_<id>`, där `<id>` är katalogidentifieraren;
+* `mountVolumes` – lista med filsystem som ska monteras under jobbkörningen. Filsystemen monteras under `AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` är en miljövariabel som anges av Batch AI;
+* `<AZURE_BATCHAI_STORAGE_ACCOUNT>` visar att namnet på lagringskontot kommer att anges under när jobbet skickas via parametern --storage-account-name eller miljövariabeln `AZURE_BATCHAI_STORAGE_ACCOUNT` på datorn.
+
+## <a name="submit-the-job"></a>Skicka jobbet
+
+Använd följande kommando för att skicka jobbet på klustret:
 
 ```azurecli
+az batchai job create -n cntk_python_1 -r nc6 -g batchai.quickstart -c job.json --storage-account-name <storage account name>
+```
+
+Exempel på utdata:
+```
 {
+  "additionalProperties": {},
   "caffeSettings": null,
   "chainerSettings": null,
   "cluster": {
-    "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
-    "resourceGroup": "myresourcegroup"
+    "additionalProperties": {},
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
+    "resourceGroup": "batchai.quickstart"
   },
   "cntkSettings": {
-    "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL",
+    "additionalProperties": {},
+    "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL",
     "configFilePath": null,
     "languageType": "Python",
     "processCount": 1,
     "pythonInterpreterPath": null,
-    "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py"
+    "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py"
   },
   "constraints": {
-    "maxTaskRetryCount": null,
+    "additionalProperties": {},
     "maxWallClockTime": "7 days, 0:00:00"
   },
-  "containerSettings": {
-    "imageSourceRegistry": {
-      "credentials": null,
-      "image": "microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0",
-      "serverUrl": null
-    }
-  },
-  "creationTime": "2017-10-05T06:41:42.163000+00:00",
+  "containerSettings": null,
+  "creationTime": "2018-04-11T21:48:10.303000+00:00",
   "customToolkitSettings": null,
   "environmentVariables": null,
-  "executionInfo": {
-    "endTime": null,
-    "errors": null,
-    "exitCode": null,
-    "lastRetryTime": null,
-    "retryCount": null,
-    "startTime": "2017-10-05T06:41:44.392000+00:00"
-  },
-  "executionState": "running",
-  "executionStateTransitionTime": "2017-10-05T06:41:44.953000+00:00",
+  "executionInfo": null,
+  "executionState": "queued",
+  "executionStateTransitionTime": "2018-04-11T21:48:10.303000+00:00",
   "experimentName": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/jobs/myjob",
-  "inputDirectories": [
-    {
-      "id": "SAMPLE",
-      "path": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare/mnistcntksample"
-    }
-  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/jobs/cntk_python_1",
+  "inputDirectories": null,
+  "jobOutputDirectoryPathSegment": "00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/b9576bae-e878-4fb2-9390-2e962356b5b1",
   "jobPreparation": null,
   "location": null,
-  "name": "cntk_job",
+  "mountVolumes": {
+    "additionalProperties": {},
+    "azureBlobFileSystems": [
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>",
+        "additionalProperties": {},
+        "containerName": "data",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "mountOptions": null,
+        "relativeMountPath": "data"
+      }
+    ],
+    "azureFileShares": [
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>,
+        "additionalProperties": {},
+        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/logs",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "directoryMode": "0777",
+        "fileMode": "0777",
+        "relativeMountPath": "logs"
+      },
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>",
+        "additionalProperties": {},
+        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/scripts",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "directoryMode": "0777",
+        "fileMode": "0777",
+        "relativeMountPath": "scripts"
+      }
+    ],
+    "fileServers": null,
+    "unmanagedFileSystems": null
+  },
+  "name": "cntk_python_1",
   "nodeCount": 1,
   "outputDirectories": [
     {
+      "additionalProperties": {},
       "createNew": true,
       "id": "MODEL",
-      "pathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-      "pathSuffix": "model",
-      "type": "Custom"
+      "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
+      "pathSuffix": null,
+      "type": "custom"
     }
   ],
   "priority": 0,
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2017-10-05T06:41:44.238000+00:00",
-  "resourceGroup": "demo",
-  "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
+  "provisioningStateTransitionTime": "2018-04-11T21:48:11.577000+00:00",
+  "pyTorchSettings": null,
+  "resourceGroup": "batchai.quickstart",
+  "secrets": null,
+  "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
   "tags": null,
   "tensorFlowSettings": null,
-  "toolType": "CNTK",
+  "toolType": "cntk",
   "type": "Microsoft.BatchAI/Jobs"
 }
 ```
 
-## <a name="monitor-job"></a>Övervaka jobb
+# <a name="monitor-job-execution"></a>Övervaka jobbkörningen
 
-Använd kommandot [az batchai job list](/cli/azure/batchai/job#az_batchai_job_list) om du vill få en översikt över jobbstatusen:
+Träningsskriptet rapporterar träningsförloppet i `stderr.txt`-filen som finns i standardutdatakatalogen. Du kan övervaka förloppet med följande kommando:
 
 ```azurecli
-az batchai job list -o table
+az batchai job file stream -n cntk_python_1 -g batchai.quickstart -f stderr.txt
 ```
 
-De utdata som genereras liknar följande:
+Exempel på utdata:
+```
+File found with URL "https://<YOU STORAGE ACCOUNT>.file.core.windows.net/logs/00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>/stdouterr/stderr.txt?sv=2016-05-31&sr=f&sig=n86JK9YowV%2BPQ%2BkBzmqr0eud%2FlpRB%2FVu%2FFlcKZx192k%3D&se=2018-04-11T23%3A05%3A54Z&sp=rl". Start streaming
+Selected GPU[0] Tesla K80 as the process wide default device.
+-------------------------------------------------------------------
+Build info:
 
-```azurecli
-Name        Resource Group    Cluster    Cluster RG      Nodes  State    Exit code
-----------  ----------------  ---------  --------------- -----  -------  -----------
-myjob       myresourcegroup   mycluster  myresourcegroup 1      running
+        Built time: Jan 31 2018 15:03:41
+        Last modified date: Tue Jan 30 03:26:13 2018
+        Build type: release
+        Build target: GPU
+        With 1bit-SGD: no
+        With ASGD: yes
+        Math lib: mkl
+        CUDA version: 9.0.0
+        CUDNN version: 7.0.4
+        Build Branch: HEAD
+        Build SHA1: a70455c7abe76596853f8e6a77a4d6de1e3ba76e
+        MPI distribution: Open MPI
+        MPI version: 1.10.7
+-------------------------------------------------------------------
+Training 98778 parameters in 10 parameter tensors.
 
+Learning rate per 1 samples: 0.001
+Momentum per 1 samples: 0.0
+Finished Epoch[1 of 40]: [Training] loss = 0.405960 * 60000, metric = 13.01% * 60000 21.741s (2759.8 samples/s);
+Finished Epoch[2 of 40]: [Training] loss = 0.106030 * 60000, metric = 3.09% * 60000 3.638s (16492.6 samples/s);
+Finished Epoch[3 of 40]: [Training] loss = 0.078542 * 60000, metric = 2.32% * 60000 3.477s (17256.3 samples/s);
+...
+Final Results: Minibatch[1-11]: errs = 0.54% * 10000
 ```
 
-Mer information får du genom att köra kommandot [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show).
+Strömningen stoppas när jobbet är slutfört (oavsett om det lyckades eller misslyckades).
 
-`executionState` innehåller jobbets aktuella körningsstatus:
+# <a name="inspect-generated-model-files"></a>Inspektera genererade modellfiler
 
-* `queued`: jobbet väntar på att klusternoderna ska bli tillgängliga
-* `running`: jobbet körs
-*   `succeeded` (eller `failed`): jobbet har slutförts och `executionInfo` innehåller information om resultatet
-
-
-## <a name="list-stdout-and-stderr-output"></a>Lista stdout- och stderr-utdata
-Använd kommandot [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_files) när du ska lista länkar till stdout- och stderr-loggfilerna:
+Jobbet lagrar de genererade modellfilerna i utdatakatalogen med `id`-attributet är lika med `MODEL`. Du kan se en lista med modellfilerna och hämta URL:er med följande kommando:
 
 ```azurecli
-az batchai job list-files --name myjob --output-directory-id stdouterr
+az batchai job file list -n cntk_python_1 -g batchai.quickstart -d MODEL
 ```
 
-De utdata som genereras liknar följande:
-
-```azurecli
+Exempel på utdata:
+```
 [
   {
-    "contentLength": 733,
-    "downloadUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart/10d0b7c6-9243-4713-91a9-2730375d3a1b/demo/jobs/cntk_job/stderr.txt?sv=2016-05-31&sr=f&sig=Rh%2BuTg9C1yQxm7NfA9YWiKb%2B5FRKqWmEXiGNRDeFMd8%3D&se=2017-10-05T07%3A44%3A38Z&sp=rl",
-    "lastModified": "2017-10-05T06:44:38+00:00",
-    "name": "stderr.txt"
+    "additionalProperties": {},
+    "contentLength": 409456,
+    "downloadUrl": "https://<YOUR STORAGE ACCOUNT>.file.core.windows.net/...",
+    "isDirectory": false,
+    "lastModified": "2018-04-11T22:05:51+00:00",
+    "name": "ConvNet_MNIST_0.dnn"
   },
   {
-    "contentLength": 300,
-    "downloadUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart/10d0b7c6-9243-4713-91a9-2730375d3a1b/demo/jobs/cntk_job/stdout.txt?sv=2016-05-31&sr=f&sig=jMhJfQOGry9jr4Hh3YyUFpW5Uaxnp38bhVWNrTTWMtk%3D&se=2017-10-05T07%3A44%3A38Z&sp=rl",
-    "lastModified": "2017-10-05T06:44:29+00:00",
-    "name": "stdout.txt"
-  }
-]
+    "additionalProperties": {},
+    "contentLength": 409456,
+    "downloadUrl": "https://<YOUR STORAGE ACCOUNT>.file.core.windows.net/...",
+    "isDirectory": false,
+    "lastModified": "2018-04-11T22:05:55+00:00",
+    "name": "ConvNet_MNIST_1.dnn"
+  },
+...
+
 ```
 
-
-## <a name="observe-output"></a>Observera utdata
-
-Du kan strömma eller spåra ett jobbs utdatafiler medan jobbet körs. I följande exempel används kommandot [az batchai job stream-file](/cli/azure/batchai/job#az_batchai_job_stream_file) för att strömma stderr.txt-loggen:
+Alternativt kan du använda portalen eller Azure Storage Explorer till att inspektera de genererade filerna. Batch AI skapar en unik mappstruktur för varje utdata för att kunna skilja dem från andra jobb. Du kan hitta sökvägen till mappen som innehåller utdata med `jobOutputDirectoryPathSegment`-attributet för det skickade jobbet:
 
 ```azurecli
-az batchai job stream-file --job-name myjob --output-directory-id stdouterr --name stderr.txt
+az batchai job show -n cntk_python_1 -g batchai.quickstart --query jobOutputDirectoryPathSegment
 ```
 
-De utdata som genereras liknar följande. Avbryt utdata genom att trycka på [Ctrl]-[C].
+Exempel på utdata:
+```
+"00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>"
+```
+
+# <a name="delete-resources"></a>Ta bort resurser
+
+Ta bort en resursgrupp och alla allokerade resurser med följande kommando:
 
 ```azurecli
-…
-Finished Epoch[2 of 40]: [Training] loss = 0.104846 * 60000, metric = 3.00% * 60000 3.849s (15588.5 samples/s);
-Finished Epoch[3 of 40]: [Training] loss = 0.077043 * 60000, metric = 2.23% * 60000 3.902s (15376.7 samples/s);
-Finished Epoch[4 of 40]: [Training] loss = 0.063050 * 60000, metric = 1.82% * 60000 3.811s (15743.9 samples/s);
-…
-
+az batchai group delete -n batchai.quickstart -y
 ```
-
-## <a name="delete-resources"></a>Ta bort resurser
-
-Använd kommandot [az batchai job delete](/cli/azure/batchai/job#az_batchai_job_delete) när du vill ta bort jobbet:
-
-```azurecli
-az batchai job delete --name myjob
-```
-Använd kommandot [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) när du vill ta bort klustret:
-
-```azurecli
-az batchai cluster delete --name mycluster
-```
-
-Använd kommandot `az group delete` när du vill ta bort resursgruppen som du skapade för den här snabbstarten:
-
-```azurecli
-az group delete --name myResourceGroup
-```
-
-## <a name="restore-azure-cli-20-default-settings"></a>Återställ standardinställningarna för Azure CLI 2.0
-
-Ta bort de tidigare konfigurerade standardinställningarna för platsen och resursgruppen:
-
-```azurecli
-az configure --defaults group=''
-
-az configure --defaults location=''
-```
-
-## <a name="next-steps"></a>Nästa steg
-
-I den här snabbstarten har du lärt dig hur du kör ett CNTK-utbildningsjobb i ett Batch AI-kluster med hjälp av Azure CLI. Mer information om hur du använder Batch AI med olika verktyg finns i [utbildningsrecept](https://github.com/Azure/BatchAI).
-
-Mer information om hur du använder Azure CLI 2.0 för att hantera Batch AI finns i [github-dokumentationen](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).

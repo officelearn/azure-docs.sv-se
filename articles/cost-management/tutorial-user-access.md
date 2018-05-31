@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301615"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Självstudie: Tilldela åtkomst till kostnadshanteringsdata
 
@@ -27,7 +28,8 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 > [!div class="checklist"]
 > * Skapa en användare med administratörsåtkomst
 > * Skapa en användare med användaråtkomst
-> * Skapa entiteter
+> * Skapa och hantera entiteter
+
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -56,11 +58,11 @@ Vanliga användare som behöver åtkomst till Cost Management-data som instrumen
 
 Om du vill se en självstudievideo om att lägga till användare kan du titta på [Adding Users to Azure Cost Management ](https://youtu.be/Nzn7GLahx30) (Lägga till användare i Azure Cost Management).
 
-## <a name="create-entities"></a>Skapa entiteter
+## <a name="create-and-manage-entities"></a>Skapa och hantera entiteter
 
-När du definierar din entitetshierarki för kostnader är det ett bra tips att identifiera organisationens struktur.
+När du definierar din entitetshierarki för kostnader är det ett bra tips att identifiera organisationens struktur. Med entiteter kan du sortera utgifter efter enskilda konton eller prenumerationer. Du skapar kostnadsentiteter för att skapa logiska grupper som hjälper dig att hantera och spåra utgifter. När du skapar trädet ska du tänka på hur du vill se kostnaderna uppdelade mellan olika affärsenheter, kostnadsställen, miljöer och säljavdelningar. Entitetsträdet i Cloudyn är flexibelt på grund av entitetsarvet.
 
-När du skapar trädet ska du tänka på hur du vill se kostnaderna uppdelade mellan olika affärsenheter, kostnadsställen, miljöer och säljavdelningar. Entitetsträdet i Cloudyn är flexibelt på grund av entitetsarvet. Enskilda prenumerationer för dina molnkonton är kopplade till specifika entiteter. Entiteter kan alltså ha flera klientorganisationer. Du kan tilldela specifika användare åtkomst till just sina affärssegment med entiteter. Om du gör det kan du hålla data isolerade även i stora delar av företag, som ett dotterbolag. Dataisoleringen hjälper även till med styrningen.  
+Enskilda prenumerationer för dina molnkonton är kopplade till specifika entiteter. Du associerar en entitet med kontot för en molntjänstleverantör eller prenumeration. Entiteter kan alltså ha flera klientorganisationer. Du kan tilldela specifika användare åtkomst till just sina affärssegment med entiteter. Om du gör det kan du hålla data isolerade även i stora delar av företag, som ett dotterbolag. Dataisoleringen hjälper även till med styrningen.  
 
 När du registrerade ditt Azure-avtal eller -konto hos Cloudyn kopierades dina Azure-resursdata, inklusive användning, prestanda, fakturering och taggdata från dina prenumerationer, till Cloudyn-kontot. Du måste däremot skapa entitetsträdet manuellt. Om du hoppade över Azure Resource Manager-registreringen är endast faktureringsdata och några tillgångsrapporter tillgängliga i Cloudyn-portalen.
 
@@ -74,6 +76,23 @@ Bredvid **Entities** (Entiteter) klickar du på **Add Entity** (Lägg till entit
 
 När du är färdig sparar du entiteten med **Save** (Spara).
 
+### <a name="entity-access-levels"></a>Åtkomstnivåer för entiteter
+
+Med åtkomstnivåer för entiteter tillsammans med en användares behörighet kan du definiera vilken typ av åtgärder som är tillgängliga på Cloudyn-portalen.
+
+- **Enterprise** – Ger behörighet att skapa och hantera underordnade kostnadsentiteter.
+- **Enterprise + kostnadsallokering** – Ger behörighet att skapa och hantera underordnade kostnadsentiteter, inklusive kostnadsallokering för konsoliderade konton.
+- **Enterprise, kostnad baserat på överordnad kostnadsallokering** – Ger behörighet att skapa och hantera underordnade kostnadsentiteter. Kostnaderna för kontot baseras på den överordnade kostnadsallokeringsmodellen.
+- **Endast anpassade instrumentpaneler** – Ger endast behörighet att visa fördefinierade anpassade instrumentpaneler.
+- **Endast instrumentpaneler** – Ger endast behörighet att visa instrumentpaneler.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Skapa en hierarki för kostnadsentiteter
+
+För att skapa en hierarki för kostnadsentiteter måste du ha ett konto med åtkomst av typen Enterprise eller Enterprise + kostnadsallokering.
+
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Trädet med **entiteter** visas i den vänstra rutan. Om det behövs expanderar du entitetsträdet så att du kan visa den entitet som du vill associera med ett konto.  Kontona för din molntjänstleverantör visas på flikarna i den högra rutan. Välj en flik och klicka och dra ett konto eller en prenumeration till entiteten. Rutan **Flytta** meddelar dig att kontot har skapats. Klicka på **OK**.
+
+Du kan också associera flera konton med en entitet. Markera kontona och klicka sedan på **Flytta**. I rutan Flytta konton väljer du den entitet som du vill flytta kontot till och klickar sedan på **Spara**. Rutan Flytta konton uppmanar dig att bekräfta att du vill flytta kontona. Klicka på **Ja** och sedan på **OK**.
 
 Om du vill se en självstudievideo om hur du skapar en entitetshierarki för kostnader kan du titta på [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU) (Skapa en enhetshierarki i Azure Cost Management).
 
@@ -86,7 +105,8 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en användare med administratörsåtkomst
 > * Skapa en användare med användaråtkomst
-> * Skapa entiteter
+> * Skapa och hantera entiteter
+
 
 Om du inte redan har aktiverat Azure Resource Manager API-åtkomst för dina konton, fortsätter du till följande artikel.
 

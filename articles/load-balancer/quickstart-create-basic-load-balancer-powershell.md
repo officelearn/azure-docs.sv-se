@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 2e80a090d003770f47d28dfaacf7ba5140f7b41f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304573"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en grundläggande belastningsutjämnare med Azure PowerShell
 Den här snabbstarten visar hur du skapar en Basic-belastningsutjämnare med Azure PowerShell. Om du vill testa belastningsutjämnaren så distribuera två virtuella datorer (VM) som kör Windows-servern och belastningsutjämna en webbapp mellan de virtuella datorerna.
@@ -331,4 +332,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Läs mer om Azure Load Balancer](load-balancer-overview.md)
+
+I den här snabbstarten har du skapat en grundläggande belastningsutjämnare, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, konfigurerat hälsoavsökningen och sedan testat belastningsutjämnaren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

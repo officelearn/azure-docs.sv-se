@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett Azure-webbprogram att läsa en hemlighet från nyckelvalvet | Microsoft Docs
-description: Kursen konfigurera ett ASP.Net core-program att läsa en hemlighet från nyckelvalvet
+title: 'Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault | Microsoft Docs'
+description: 'Självstudier: Konfigurera ett ASP.Net Core-program att läsa en hemlighet från Key Vault'
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -8,26 +8,27 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305182"
 ---
-# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Nyckelvalvet
+# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault
 
-I den här självstudiekursen gå igenom nödvändiga steg för att hämta ett Azure-webbprogram att läsa information från nyckelvalvet med hanteringstjänster identiteter. Lär dig att:
+Den här självstudiekursen beskriver steg för steg hur du konfigurerar ett Azure-webbprogram att läsa information från Key Vault med hjälp av hanterade tjänstidentiteter. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en Nyckelvalvet.
-> * Lagra en hemlighet i Nyckelvalvet.
+> * Skapa ett nyckelvalv.
+> * Lagra en hemlighet i Key Vault.
 > * Skapa ett Azure-webbprogram.
-> * Aktivera hanteringstjänster identiteter
-> * Bevilja behörigheterna som krävs för programmet att läsa data från nyckelvalvet.
+> * Aktivera hanterade tjänstidentiteter
+> * Bevilja de behörigheter som krävs för att programmet ska kunna läsa data från Key Vault.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -35,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-Om du vill logga in på Azure med hjälp av CLI, skriver du:
+Du kan logga in i Azure via CLI genom att skriva:
 
 ```azurecli
 az login
@@ -48,71 +49,69 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_c
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
-Resursgruppen som du nyss skapade används i hela den här kursen.
+Resursgruppen som du nyss skapade används i hela den här självstudiekursen.
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
 
-Nu kan du skapa ett Nyckelvalv i resursgruppen som du skapade i föregående steg. Du måste ange en del information:
-
->[!NOTE]
-> Även om ”ContosoKeyVault” används som namn på vår Key Vault under hela den här självstudiekursen, måste du använda ett unikt namn.
+Nu ska du skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg. ”ContosoKeyVault” används som namn på nyckelvalvet i hela den här självstudiekursen, men det är viktigt att poängtera att du måste använda ett unikt namn. Ange följande information:
 
 * Valvnamnet **ContosoKeyVault**.
 * Resursgruppnamnet **ContosoResourceGroup**.
 * Platsen är **Östra USA**.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
-Kommandots utdata visar egenskaperna för den nyligen skapade Nyckelvalvet. Anteckna de två egenskaperna som visas nedan:
+Utdata från det här kommandot visar egenskaper för nyckelvalvet som du precis skapade. Anteckna de två egenskaperna som visas nedan:
 
-* **Valvnamn**: I det här exemplet är namnet **ContosoKeyVault**. Namnet på ditt Nyckelvalv används för alla Key Vault-kommandon.
-* **Valvet URI**: I det här exemplet är https://<YourKeyVaultName>.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **Valvnamn**: I det här exemplet är namnet **ContosoKeyVault**. Du använder namnet på ditt nyckelvalv för alla Key Vault-kommandon.
+* **Valvets URI**: I det här exemplet är det https://<YourKeyVaultName>.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 >[!IMPORTANT]
-> Om det uppstår fel parametern 'vault_name' måste uppfylla följande mönster: ' ^ [en-öA-Z0 - 9-]{3,24}$”-namnet param värde är inte unikt eller överensstämde inte med en sträng som består av alfanumeriska tecken från 3 till 24 lång.
+> Om du får felet Parameter 'vault_name' must conform to the following pattern: '^[a-zA-Z0-9-]{3,24}$' (Parametern "vault_name" måste ha följande mönster: '^[a-zA-Z0-9-]$') betyder det att -name-parametervärdet inte var unikt eller att det inte uppfyllde kravet på en alfanumerisk sträng med 3 till 24 tecken.
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
-## <a name="add-a-secret-to-key-vault"></a>Lägg till en hemlighet i nyckelvalvet
+## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault
 
-Vi lägger till en hemlighet för att illustrera hur det fungerar. Du kan lagra en SQL-anslutningssträng eller annan information som behövs för att hålla på ett säkert sätt men gör tillgängligt för ditt program. I den här självstudiekursen lösenordet anropas **AppSecret** och lagrar värdet för **MinHemlighet** i den.
+Vi lägger till en hemlighet för att illustrera hur detta fungerar. Du kan lagra en SQL-anslutningssträng eller annan information som du behöver skydda men göra tillgänglig för ditt program. I den här självstudiekursen kallas lösenordet **AppSecret** och lagrar värdet för **MySecret**.
 
-Skriv kommandon nedan för att skapa en hemlighet i Nyckelvalvet kallas **AppSecret** som lagrar värdet **MinHemlighet**:
+Skriv kommandona nedan för att skapa en hemlighet i Key Vault med namnet **AppSecret** som ska lagra värdet **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Så här visar du värdet som finns i hemligheten som oformaterad text:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-Det här kommandot visar den hemliga information, inklusive URI: N. När du har slutfört de här stegen bör du ha en URI för en hemlighet i en Azure Key Vault. Anteckna den här informationen. Du behöver den senare.
+Det här kommandot visar den hemliga informationen, inklusive URI:n. När du har slutfört de här stegen bör du ha en URI till en hemlighet i Azure Key Vault. Anteckna den här informationen. Du behöver den senare.
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-I det här avsnittet skapar du ett ASP.NET MVC-program och distribuerar den i Azure som en Webbapp. Läs mer om Azure Web Apps [översikt över Web Apps](../app-service/app-service-web-overview.md).
+I det här avsnittet ska du skapa ett ASP.NET MVC-program och distribuera det i Azure som en webbapp. Mer information om Azure Web Apps finns i [Översikt över Web Apps](../app-service/app-service-web-overview.md).
 
 1. Skapa ett nytt projekt i Visual Studio genom att välja **Arkiv > Nytt > Projekt**. 
 
 2. I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET Core-webbtillämpningsprogram**.
 
-3. Ge programmet namnet **WebKeyVault**, och välj sedan **OK**.
+3. Ge programmet namnet **WebKeyVault** och välj sedan **OK**.
    >[!IMPORTANT]
-   > Du måste namnge appen WebKeyVault så du kopiera och klistra in koden matchar namnområdet. Om du namn på webbplats något annat behöver du ändra koden för att matcha namnet på webbplatsen.
+   > Du måste döpa appen till WebKeyVault så att koden som du kopierar och klistrar in matchar namnområdet. Om du döpte webbplatsen till något annat måste du ändra koden så att den matchar namnet på webbplatsen.
 
     ![Dialogrutan Nytt ASP.NET-projekt](media/tutorial-web-application-keyvault/aspnet-dialog.png)
 
-4. Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. För den här kursen väljer du den **webbprogram** mall, och kontrollera att autentisering har angetts till **ingen autentisering**.
+4. Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. I den här självstudiekursen väljer du mallen **Webbprogram** och ser till att autentiseringen är inställd på **Ingen autentisering**.
 
-    ![ASPNET dialogrutan ingen autentisering](media/tutorial-web-application-keyvault/aspnet-noauth.png)
+    ![ASPNET-dialogrutan Ingen autentisering](media/tutorial-web-application-keyvault/aspnet-noauth.png)
 
 5. Välj **OK**.
 
@@ -122,17 +121,17 @@ I det här avsnittet skapar du ett ASP.NET MVC-program och distribuerar den i Az
 
 ## <a name="modify-the-web-app"></a>Ändra webbappen
 
-Det finns två NuGet-paket som ditt webbprogram måste ha installerats. Följ stegen nedan för att installera dem:
+Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom att följa stegen nedan:
 
-1. I solution explorer högerklickar du på webbplatsens namn.
-2. Välj **hantera NuGet-paket för lösningen...**
-3. Markera kryssrutan bredvid sökrutan. **Inkludera förhandsversion**
-4. Sök efter två NuGet-paket som anges nedan och acceptera att läggas till i din lösning:
+1. Högerklicka på ditt webbplatsnamn i Solution Explorer.
+2. Välj **Hantera NuGet-paket för lösning...**
+3. Markera kryssrutan bredvid sökrutan. **Ta med förhandsversion**
+4. Sök efter de två NuGet-paketen som anges nedan och godkänn att de läggs till i din lösning:
 
-    * [Microsoft.Azure.Services.AppAuthentication (förhandsgranskning)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -gör det enkelt att hämta åtkomsttoken för Service to Azure Service autentiseringsscenarier. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) -innehåller metoder för att interagera med Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication (förhandsversion)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) gör det enkelt att hämta åtkomsttoken för autentiseringsscenarier av typen ”tjänst till Azure-tjänst”. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) innehåller metoder för interaktion med Key Vault.
 
-5. Använd Solution Explorer för att öppna `Program.cs` och Ersätt innehållet i filen Program.cs med följande kod. Ersätt ```<YourKeyVaultName>``` med namnet på ditt nyckelvalv:
+5. Öppna `Program.cs` i Solution Explorer och ersätt innehållet i filen Program.cs med följande kod. Ersätt ```<YourKeyVaultName>``` med namnet på ditt nyckelvalv:
 
     ```csharp
     
@@ -176,7 +175,7 @@ Det finns två NuGet-paket som ditt webbprogram måste ha installerats. Följ st
         }
     ```
 
-6. Använd Solution Explorer för att navigera till den **sidor** avsnittet och öppna `About.cshtml`. Ersätt innehållet i **About.cshtml.cs** med koden nedan:
+6. Navigera till avsnittet **Sidor** med hjälp av Solution Explorer och öppna `About.cshtml`. Ersätt innehållet i **About.cshtml.cs** med koden nedan:
 
     ```csharp
     
@@ -204,56 +203,56 @@ Det finns två NuGet-paket som ditt webbprogram måste ha installerats. Följ st
     
     ```
 
-7. Huvudmenyn, välja **felsöka** > **starta utan Debugging**. När det visas i webbläsaren, navigera till den **om** sidan. Värdet för AppSecret visas.
+7. Från huvudmenyn väljer du **Felsöka** > **Starta utan felsökning**. När webbläsaren visas går du till sidan **Om**. Värdet för AppSecret visas.
 
 >[!IMPORTANT]
-> Om du får en HTTP-fel 502.5 - processfel message Kontrollera namnet på det Nyckelvalv som anges i `Program.cs`
+> Om meddelandet ”HTTP-fel 502.5 – Processfel” visas kontrollerar du namnet på nyckelvalvet i `Program.cs`
 
 ## <a name="publish-the-web-application-to-azure"></a>Publicera webbappen till Azure
 
-1. Ovan redigeraren Välj **WebKeyVault**.
-2. Välj **publicera**.
-3. Välj **publicera** igen.
-4. Välj **skapa**.
+1. Välj **WebKeyVault** ovanför redigeraren.
+2. Välj **Publicera** och sedan **Start**.
+3. Skapa en ny **apptjänst** och välj **Publicera**.
+4. Välj **Skapa**.
 
 >[!IMPORTANT]
-> Ett fönster i webbläsaren öppnas och du ser ett 502.5 - fel i meddelande. Detta är förväntat. Du måste ge programmet identitet behörighet att läsa hemligheter från Nyckelvalvet.
+> Ett webbläsarfönster öppnas och ett meddelande av typen 502.5 – Processfel visas. Detta är normalt. Du måste bevilja programidentiteten behörighet att läsa hemligheter från Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Aktivera hanterade tjänstidentiteten
+## <a name="enable-managed-service-identity"></a>Aktivera Hanterad tjänstidentitet
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter och andra nycklar och hemligheter, men din kod måste autentisera till Key Vault de. Hanterad Service identitet (MSI) gör att lösa problemet enklare genom att ge en automatiskt hanterade identitet i Azure-tjänster i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault utan några autentiseringsuppgifter i koden.
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 1. Gå tillbaka till Azure CLI
-2. Kör kommandot Tilldela identitet för att skapa identiteten för det här programmet:
+2. Kör kommandot assign-identity för att skapa identiteten för det här programmet:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Detta motsvarar gå till portalen och växla **hanterade tjänstidentiteten** till **på** i webbegenskaper.
+>Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Hanterad tjänstidentitet** i egenskaperna för webbprogrammet.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Bevilja behörighet till programidentiteten
 
-Med hjälp av Azure portal, gå till den Key Vault åtkomstprinciper och bevilja dig själv hemlighet Management åtkomst till Nyckelvalvet. Detta kan du köra programmet på utvecklingsdatorn lokala.
+Gå till åtkomstprinciperna för Key Vault på Azure Portal och tilldela dig själv åtkomsten Hemlighetshantering för Key Vault. På så sätt kan du köra programmet på din lokala utvecklingsdator.
 
-1. Sök efter ditt Nyckelvalv i den **Sök efter resurser** dialogrutan i Azure-portalen.
-2. Välj **åtkomstprinciper**.
-3. Välj **Lägg till ny**i den **hemliga behörigheterna** avsnittet väljer **hämta** och **listan**.
-4. Välj **Välj huvudnamn**, och Lägg till programidentiteten. Den har samma namn som programmet.
-5. Välj **Ok**
+1. Sök efter ditt nyckelvalv i dialogrutan **Sök efter resurser** på Azure Portal.
+2. Välj **Åtkomstprinciper**.
+3. Välj **Lägg till ny** och välj **Hämta** och **Lista** i avsnittet **Hemliga behörigheter**.
+4. Välj **Välj tjänstens huvudnamn** och lägg till programidentiteten. Den har samma namn som programmet.
+5. Välj **OK**.
 
-Nu har ditt konto i Azure och programidentiteten behörighet att läsa information från Nyckelvalvet. Om du uppdaterar sidan bör du se Landningssida för platsen. Om du väljer **om**. Du kan se värdet i Nyckelvalvet.
+Nu har ditt konto i Azure och programidentiteten behörighet att läsa information från Key Vault. När du uppdaterar sidan bör du se webbplatsens landningssida. Om du väljer **Om** ser du värdet som du lagrade i Key Vault.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort en resursgrupp och alla dess resurser genom att använda den **ta bort grupp az** kommando.
+Ta bort en resursgrupp och alla dess resurser genom att köra kommandot **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault-Guide för utvecklare](key-vault-developers-guide.md)
+> [Utvecklarguide för Azure Key Vault](key-vault-developers-guide.md)

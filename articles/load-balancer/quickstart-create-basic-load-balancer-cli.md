@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304927"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snabbstart: Skapa en offentlig belastningsutjämnare som belastningsutjämnar virtuella datorer med Azure CLI 2.0
 
@@ -61,7 +62,7 @@ Det här avsnittet beskriver hur du gör för att skapa och konfigurera följand
 
 ### <a name="create-the-load-balancer"></a>Skapa belastningsutjämnaren
 
-Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) med namnet **myLoadBalancer** som innehåller en klientdelspool med namnet **myFrontEndPool**, en serverdelspool med namnet **myBackEndPool**, och som är associerad med den offentliga IP-adressen **myPublicIP** som du skapade i föregående steg.
+Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) med namnet **myLoadBalancer** som innehåller en klientdelspool med namnet **myFrontEndPool**, och en serverdelspool med namnet **myBackEndPool** som är associerad med den offentliga IP-adressen **myPublicIP** som du skapade i föregående steg.
 
 ```azurecli-interactive
   az network lb create \
@@ -262,4 +263,7 @@ När de inte längre behövs kan du ta bort resursgruppen, belastningsutjämnare
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du skapat en belastningsutjämnare, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, hälsoavsökningen och sedan testat belastningsutjämnaren. Lär dig mer om belastningsutjämnare och deras associerade resurser i artiklarna med anvisningar.
+I den här snabbstarten har du skapat en grundläggande belastningsutjämnare, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, konfigurerat hälsoavsökningen och sedan testat belastningsutjämnaren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

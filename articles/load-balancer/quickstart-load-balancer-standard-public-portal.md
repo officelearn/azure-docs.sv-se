@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 07700ecb8a31e6ee724f27e247f377eb869e6c39
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305148"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en standardbelastningsutjämnare som belastningsutjämnar virtuella datorer med Azure Portal
 
@@ -189,4 +190,7 @@ Ta bort resursgruppen, belastningsutjämnaren och alla relaterade resurser när 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+I den här snabbstarten har du skapat en Standard Load Balancer, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, hälsoavsökningen och sedan testat belastningsutjämnaren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

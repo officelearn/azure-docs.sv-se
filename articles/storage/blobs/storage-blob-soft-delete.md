@@ -10,9 +10,10 @@ ms.date: 03/21/2018
 ms.author: mihauss
 ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
 ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057867"
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Mjuk borttagning för Azure Storage BLOB (förhandsgranskning)
 
@@ -63,13 +64,13 @@ När **ta bort Blob** anropas på en ögonblicksbild den ögonblicksbilden har m
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. När **ögonblicksbild Blob** anropas B0 blir en ögonblicksbild och B1 är aktiv på blob. När ögonblicksbilden B0 tas bort, den har markerats som ej permanent borttagna.*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. När **ögonblicksbild Blob** anropas B0 blir en ögonblicksbild och B1 är aktiv på blob. När ögonblicksbilden B0 tas bort, den har markerats som ej permanent borttagna.\*
 
 När **ta bort Blob** anropas på en grundläggande blob (någon blob som inte själv en ögonblicksbild), blobben har markerats som ej permanent borttagna. Konsekvent med tidigare beteende, anropar **ta bort Blob** returnerar ett fel på en blob med aktiva ögonblicksbilder. Anropar **ta bort Blob** på en blob med ej permanent borttagna ögonblicksbilder inte returnerar ett fel. Du kan ändå ta bort en blob och alla dess ögonblicksbilder på gång när mjuk borttagning är aktiverat. Detta markerar de grundläggande blobben och ögonblicksbilder som mjuka tas bort.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här är en **ta bort Blob** anrop görs för att ta bort B2 och alla associerade ögonblicksbilder. Aktiva blob, B2 och alla associerade ögonblicksbilder är markerade som ej permanent borttagna.*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här är en **ta bort Blob** anrop görs för att ta bort B2 och alla associerade ögonblicksbilder. Aktiva blob, B2 och alla associerade ögonblicksbilder är markerade som ej permanent borttagna.\*
 
 > [!NOTE]
 > En ej permanent borttagna ögonblicksbild av blobens tillstånd innan Skrivåtgärden genereras automatiskt när en ej permanent borttagna blob skrivs över. Ny blob ärver nivån på över blob.
@@ -102,7 +103,7 @@ Om du vill göra det lättare att återställa borttagna data, har vi in ett nyt
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här, **ångra borttagning Blob** anropas på blob B, vilket återställer grundläggande blob, B1 och alla associerade ögonblicksbilder här bara B0 som aktiv. I det andra steget kopieras B0 över grundläggande blob. Den här kopieringsåtgärden genererar en ej permanent borttagen ögonblicksbild av B1.*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här, **ångra borttagning Blob** anropas på blob B, vilket återställer grundläggande blob, B1 och alla associerade ögonblicksbilder här bara B0 som aktiv. I det andra steget kopieras B0 över grundläggande blob. Den här kopieringsåtgärden genererar en ej permanent borttagen ögonblicksbild av B1.\*
 
 Om du vill visa ej permanent borttagna blobbar och blob ögonblicksbilder, kan du välja att inkludera borttagna data i **lista Blobbar**. Du kan välja att visa endast ej permanent borttagna grundläggande blobbar eller att inkludera ej permanent borttagna blob-ögonblicksbilder. Du kan visa den tid när data har tagits bort samt antalet dagar innan data upphör gälla permanent för ej permanent borttagna data.
 

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192963"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare.  Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav.
@@ -39,7 +40,7 @@ Användningsvillkoren för Azure AD kan användas i följande scenarier:
 Så här konfigurerar du användningsvillkoren för Azure AD:
 
 1. Logga in på Azure AD med en global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst för den katalog för vilken du vill konfigurera användningsvillkoren för Azure AD.
-2. Kontrollera att katalogen har en Azure AD Premium P1-, P2-, EMS E3- eller EMS E5-prenumeration.  Om den inte har det ska du [hämta Azure AD Premium](active-directory-get-started-premium.md) eller [starta en utvärderingsperiod](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Kontrollera att katalogen har en Azure AD Premium P1-, P2-, EMS E3- eller EMS E5-prenumeration.  Om du inte har det ska du [Skaffa Azure AD Premium](active-directory-get-started-premium.md) eller [starta en utvärderingsperiod](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Visa instrumentpanelen med användningsvillkoren för Azure AD på [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]
@@ -56,7 +57,7 @@ När du har skapat dina användningsvillkor använder du följande metod för at
 4. Ange **Visningsnamn**.  Den här rubriken ser användarna när de loggar in.
 5. **Bläddra** till dina färdigställda användningsvillkor i pdf-form och markera dem.  Den rekommenderade teckenstorlek är 24.
 6. **Välj** ett språk för användningsvillkoren.  Via språkalternativet kan du ladda upp flera användningsvillkor, vart och ett med olika språk.  Versionen av användningsvillkoren som en användare ser baseras på deras inställningar för webbläsaren.
-7. Välj antingen aktivera eller inaktivera för **Kräv att användarna expanderar användningsvillkoren**.  Om det här är aktiverat måste slutanvändarna läsa villkoren innan de accepterar dem.
+7. Välj antingen aktivera eller inaktivera för **Kräv att användarna expanderar användningsvillkoren**.  Om den här inställningen är aktiverad måste slutanvändarna läsa villkoren innan de godkänner dem.
 8. Under **Villkorlig åtkomst** kan du **Framtvinga** de uppladdade användningsvillkoren genom att välja en mall från listrutan eller en anpassad villkorlig åtkomstprincip.  Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [configuring conditional access policies](active-directory-conditional-access-best-practices.md) (konfigurera villkorliga åtkomstprinciper)
 9. Klicka på **Skapa**.
 10. Om du har markerat en mall för villkorlig åtkomst visas en ny skärm där du kan anpassa certifikatutfärdarprincipen.
@@ -89,7 +90,7 @@ Om du vill visa historiska godkännanden och avböjningar och inte bara den aktu
 Du kan använda granskning på två sätt, beroende på vad du försöker göra för tillfället.  
 
 
-Så här kommer du igång med granskning av följande steg:
+Kom igång med granskning genom att följa stegen:
 
 ### <a name="to-audit-terms-of-use"></a>Så här granskar du användningsvillkor
 1. Gå till instrumentpanelen på [https://aka.ms/catou](https://aka.ms/catou)
@@ -120,6 +121,13 @@ Användare kan granska och se användningsvillkoren som de har godkänt.  Om du 
 
 4.  Därifrån kan du granska användningsvillkoren som du har accepterat. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Ta bort användare från aktiva användningsvillkor
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Som standard är en användare som tas bort borttagen i Azure AD i 30 dagar. Under den här perioden kan användaren återställas av en administratör om det behövs.  Efter 30 dagar tas användaren bort permanent.  En global administratör kan också använda Azure Active Directory-portalen för att uttryckligen och [permanent ta bort en användare som nyligen lagts till](active-directory-users-restore.md) innan perioden är slut.  När en användare har tagits bort permanent tas efterföljande data om den användaren bort från de aktiva användningsvillkoren.  Granskningsinformation om borttagna användare finns kvar i spårningsloggen.
+
+
 
 ## <a name="additional-information"></a>Ytterligare information
 Följande information är något som du bör känna till, och det kan hjälpa till med användningsvillkor.
@@ -138,7 +146,7 @@ Följande information är något som du bör känna till, och det kan hjälpa ti
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**</br>
-S: Du kan bara klicka på numret under accepterade bredvid dina användningsvillkor.  Mer information finns i [Visa aktuell användarstatus](#viewing-current-user-status).  En användare som godkänner användningsvillkoren skrivs dessutom in i spårningsloggen. Du kan söka i Azure AD-spårningsloggen för att se resultatet.  
+S: Du kan klicka på numret under Accepterat bredvid dina användningsvillkor.  Mer information finns i [Visa aktuell användarstatus](#viewing-current-user-status).  En användare som godkänner användningsvillkoren skrivs dessutom in i spårningsloggen. Du kan söka i Azure AD-spårningsloggen för att se resultatet.  
 
 **F: Behöver användarna godkänna användningsvillkoren igen om de ändras?**</br>
 S: Ja, en administratör kan ändra användningsvillkoren och de nya villkoren måste godkännas.
@@ -153,7 +161,7 @@ S: Användningsvillkoren tillämpas under inloggningen.
 S: Du kan skapa en princip för villkorlig åtkomst för företagsprogram som använder modern autentisering.  Mer information finns i [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal) (företagsprogram).
 
 **F: Kan jag lägga till flera användningsvillkor till en viss användare eller app?**</br>
-S: Ja, genom att skapa flera principer för villkorlig åtkomst för dessa grupper eller appar. Om en användare som ingår i omfånget för flera användningsvillkor godkänner de ett användningsvillkor i taget.
+S: Ja, genom att skapa flera principer för villkorlig åtkomst för dessa grupper eller appar. Användare som omfattas av flera användningsvillkor godkänner ett användningsvillkor i taget.
  
 **F: Vad händer om en användare nekar användningsvillkoren?**</br>
 S: Användare blockeras från åtkomst till programmet. Användaren måste logga ut och in igen och acceptera villkoren för att få åtkomst.

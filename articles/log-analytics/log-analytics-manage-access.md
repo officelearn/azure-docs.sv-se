@@ -1,6 +1,6 @@
 ---
-title: Hantera arbetsytor i Azure Log Analytics | Microsoft-dokument
-description: Du kan hantera arbetsytor i Azure Log Analytics med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton.
+title: Hantera arbetsytor i Azure Log Analytics och OMS-portalen | Microsoft-dokument
+description: Du kan hantera arbetsytor i Azure Log Analytics och OMS-portalen med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2017
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271678"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -34,7 +35,7 @@ För att skapa en arbetsyta måste du:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
 En arbetsyta är en Azure-resurs och en behållare där data samlas in, aggregeras, analyseras och presenteras på Azure Portal.
 
-Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. Tidigare kunde du endast analysera data inifrån den aktuella arbetsytan, vilket begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration. Nu kan du [fråga över flera arbetsytor](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), vilket ger en systemomfattande överblick över dina data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta, med möjlighet att snabbt göra förfrågningar i alla. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
 För närvarande tillhandahåller en arbetsyta:
 
@@ -48,24 +49,24 @@ Baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 * Du är ett globalt företag och data behöver lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl.
 * Du använder Azure och du vill undvika kostnader för överföring av utgående data genom att ha en arbetsyta i samma region som de Azure-resurser som den hanterar.
 * Du vill fördela tillägg till olika avdelningar eller affärsgrupper baserat på deras användning. När du skapar en arbetsyta för varje avdelning eller affärsgrupp, visar Azure-fakturan och användningsutdraget avgifterna för varje arbetsyta separat.
-* Du är en leverantör av hanterade tjänster och behöver se till att logganalysdata för varje kund du hanterar är isolerade från andra kunders data.
+* Du är leverantör av hanterade tjänster och behöver Log Analytics-data för varje kund du hanterar isolerade från andra kunders data.
 * Du hanterar flera kunder och vill att varje kund/avdelning/affärsgrupp ska se sina egna data, men inte data för några andra.
 
-När du använder agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agent.md).
+När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agents.md).
 
-Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Microsoft Monitoring Agent på datorn kan dock konfigureras att rapportera till både Operations Manager och en annan Log Analytics-arbetsyta.  
+Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
 ### <a name="workspace-information"></a>Arbetsyteinformation
 
-Du kan visa information om din arbetsyta på Azure Portal. 
+Du kan visa information om din arbetsyta på Azure Portal. Du kan också visa information på OMS-portalen.
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Visa information om arbetsytan på Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **Alla tjänster**.  I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
-    ![Skärmbild som visar Azures vänstra meny](./media/log-analytics-manage-access/hub.png)  
-3. Välj en arbetsyta på Log Analytics-prenumerationssidan.
-4. Sidan för arbetsytan visar information om arbetsytan och länkar till ytterligare information.  
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
+2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
+    ![Azure-hubb](./media/log-analytics-manage-access/hub.png)  
+3. Välj en arbetsyta på Log Analytics-prenumerationsbladet.
+4. Bladet för arbetsytan visar information om arbetsytan och länkar till ytterligare information.  
     ![information om arbetsytan](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -77,7 +78,7 @@ Som standard blir det Microsoft-konto eller organisationskonto som använts för
 Det finns två behörighetsmodeller som kontrollerar åtkomst till en Log Analytics-arbetsyta:
 
 1. Äldre Log Analytics-användarroller
-2. [Rollbaserad åtkomst i Azure](../role-based-access-control/role-assignments-portal.md)
+2. [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md)
 
 I följande tabell sammanfattas åtkomsten som kan ställas in med varje behörighetsmodell:
 
@@ -104,7 +105,7 @@ Följande aktiviteter kräver även Azure-behörigheter:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
-Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
+Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
 
 Azure har två inbyggda användarroller för Log Analytics:
 - Log Analytics Reader
@@ -156,13 +157,13 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
 - Resurs: endast åtkomst till en angiven arbetsyta
 
-Använd [anpassade roller](../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
+Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure-användarroller och Log Analytics Portal-användarroller
-Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna OMS-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
+Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna Log Analytics-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
 
-När du öppnar OMS-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
-Din rolltilldelning i OMS-portalen fastställs så här:
+När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Din rolltilldelning i Log Analytics-portalen fastställs så här:
 
 | Villkor                                                   | Tilldelad Log Analytics-användarroll | Anteckningar |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -174,7 +175,7 @@ Din rolltilldelning i OMS-portalen fastställs så här:
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är i Azure Active Directory, länkat till arbetsytan | Administratör | Vanligtvis en CSP-kund |
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är inte i Azure Active Directory, länkat till arbetsytan | Deltagare | Vanligtvis CSP |
 
-<sup>1</sup> Läs [Azure permissions](../role-based-access-control/custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Läs [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`.
 
 Vissa saker att tänka på vad gäller Azure-portalen:
 
@@ -246,7 +247,7 @@ Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagn
 4. Markera gruppen i listresultaten och klicka sedan på **Lägg till**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Länka en befintlig arbetsyta till en Azure-prenumeration
-Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan det här datumet måste kopplas till en prenumeration när du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
+Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan det här datumet måste kopplas till en arbetsyta när du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i OMS-portalen
 
@@ -280,6 +281,76 @@ Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en A
 >
 >
 
+## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Uppgradera en arbetsyta till en betald plan
+Det finns tre typer av planer för arbetsytor i OMS: **Kostnadsfri**, **Fristående** och **OMS**.  Om du har planen *Kostnadsfri* finns det en gräns på 500 MB data per dag som kan skickas till Log Analytics.  Om du överskrider denna mängd måste du ändra din arbetsyta till en betald plan för att undvika att data inte samlas in utöver denna gräns. Du kan ändra din plantyp när som helst.  Mer information om OMS-priser finns i [Prisinformation](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
+
+### <a name="using-entitlements-from-an-oms-subscription"></a>Använda rättigheter från en OMS-prenumeration
+För att använda rättigheter som kommer från inköp av OMS E1, OMS E2 OMS eller MS-tillägg för System Center väljer du *OMS*-planen för OMS Log Analytics.
+
+När du köper en OMS-prenumeration läggs rättigheterna till i ditt Enterprise Agreement. Alla Azure-prenumerationer som har skapats under det här avtalet kan använda rättigheterna. Alla arbetsytor på dessa prenumerationer använder OMS-rättigheter.
+
+För att säkerställa att användningen av en arbetsyta tillämpas på dina rättigheter från OMS-prenumerationen måste du:
+
+1. Skapa din arbetsyta i en Azure-prenumeration som är en del av ett Enterprise Agreement som omfattar OMS-prenumerationen
+2. Välja planen *OMS* för arbetsytan
+
+> [!NOTE]
+> Om din arbetsyta skapades innan 26 september 2016 och din Log Analytics-prisplan är *Premium* kommer den här arbetsytan att använda rättigheter från OMS tillägget för System Center. Du kan också använda dina rättigheter genom att ändra till prisnivån *OMS*.
+>
+>
+
+OMS-prenumerationens rättigheter är inte synliga i Azure eller OMS-portalen. Du kan se rättigheter och användning i Enterprise Portal.  
+
+Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+
+### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Använda Azure-åtagande från ett Enterprise-avtal
+Om du inte har en OMS-prenumeration betalar du separat för varje komponent i OMS och användningen visas på din Azure-faktura.
+
+Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopplad till dina Azure-prenumerationer kommer all användning av Log Analytics automatiskt att debiteras mot eventuella återstående betalningsåtaganden.
+
+Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
+
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Ändra en arbetsyta till en prisnivå i Azure Portal
+1. Logga in på [Azure-portalen](http://portal.azure.com).
+2. Bläddra efter **Log Analytics** och markera den.
+3. Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
+4. Klicka på **Prisnivå** under **Allmänt** på bladet för arbetsytan.  
+5. Välj en prisnivå under **Prisnivå** och klicka på **Välj**.  
+    ![välj plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6. När du har uppdaterat vyn i Azure Portal visas **Prisnivå** uppdaterad med den prisnivå som du har valt.  
+    ![uppdaterad plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
+>
+>
+
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Ändra en arbetsyta till en prisnivå i OMS-portalen
+
+Om du vill ändra prisnivån med OMS-portalen måste du ha en Azure-prenumeration.
+
+1. Klicka på panelen **Inställningar** på OMS-portalen.
+2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
+3. Klicka på den prisnivå som du vill använda.
+4. Klicka på **Spara**.  
+   ![prenumeration och dataplaner](./media/log-analytics-manage-access/subscription-tab.png)
+
+Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.
+
+![OMS-menyflikar](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
+## <a name="change-how-long-log-analytics-stores-data"></a>Ändra hur länge Log Analytics lagrar data
+
+På den kostnadsfria prisnivån tillgängliggör Log Analytics de senaste sju dagarnas data.
+På standardprisnivån tillgängliggör Log Analytics de senaste 30 dagarnas data.
+På premiumprisnivån tillgängliggör Log Analytics de senaste 365 dagarnas data.
+På den fristående prisnivån och OMS-prisnivån tillgängliggör Log Analytics de senaste 31 dagarnas data.
+
+När du använder den fristående prisnivån och OMS-prisnivån kan du behålla upp till två års data (730 dagar). Data som lagras längre än standardvärdet 31 dagar medför en avgift för datakvarhållning. Mer information om priser finns i [överförbrukningsdebitering](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Om du vill ändra längden på datakvarhållning läser du [Hantera kostnader genom att kontrollera datavolym och kvarhållning i Log Analytics](log-analytics-manage-cost-storage.md).
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Ändra en organisations Azure Active Directory för en arbetsyta
 
 Du kan ändra en arbetsytas Azure Active Directory-organisation. Genom att ändra Azure Active Directory-organisationen kan du lägga till användare och grupper från katalogen till arbetsytan.
@@ -292,6 +363,14 @@ Du kan ändra en arbetsytas Azure Active Directory-organisation. Genom att ändr
 3. Ange ID-information för en administratör i Azure Active Directory-domänen. Därefter visas en bekräftelse om att din arbetsyta är kopplad till Azure Active Directory-domänen.  
     ![bekräftelse av länkad arbetsyta](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
+
+## <a name="delete-a-log-analytics-workspace"></a>Ta bort en Log Analytics-arbetsyta
+När du tar bort en Log Analytics-arbetsyta raderas alla data som är relaterade till arbetsytan från Log Analytics-tjänsten inom 30 dagar.
+
+Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor kan de fortsätta använda Log Analytics med de andra arbetsytorna. Om de inte är associerade med andra arbetsytor måste de skapa en arbetsyta för att kunna använda tjänsten. Om du vill ta bort en arbetsyta går du till [Ta bort en Azure Log Analytics-arbetsyta](log-analytics-manage-del-workspace.md)
+
 ## <a name="next-steps"></a>Nästa steg
-* Se [Förstå dataanvändning](log-analytics-usage.md) om du vill lära dig hur du analyserar datamängden som samlas in av lösningar och skickas från datorer.
-* [Lägg till Log Analytics-hanteringslösningar från Azure Marketplace](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
+* Om du vill samla in data från datorer i ditt datacenter eller annan molnmiljö går du till [Samla in data från datorer i din miljö med Log Analytics](log-analytics-concept-hybrid.md).
+* Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
+* [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
+

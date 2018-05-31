@@ -3,7 +3,8 @@ title: 'Felsöka: ”Active Directory-objekt är saknas eller är inte tillgäng
 description: Vad du gör om menyalternativet för Active Directory inte visas i Azure-hanteringsportalen.
 services: active-directory
 documentationcenter: na
-author: bryanla
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
@@ -13,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
-ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8996eaf1d780f957445c63eac96cf9a343b9ef90
+ms.sourcegitcommit: c306be629977f6bc22bb7aefd0522a30ed591ff3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34181545"
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Felsöka: ”Active Directory-objekt är saknas eller är inte tillgänglig
 Många av anvisningar för användning av Azure Active Directory-funktioner och tjänster som börjar med ”gå till Azure-hanteringsportalen och klicka på **Active Directory**”. Men vad gör du om Active Directory-tillägget eller menyobjektet inte visas eller om den är markerad **saknas**? Det här avsnittet är avsedda att hjälpa. Beskriver villkor under vilka **Active Directory** visas inte eller är inte tillgängligt och förklarar hur du fortsätter.

@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193959"
 ---
 # <a name="an-introduction-to-azure-maps"></a>En introduktion till Azure Maps
-Azure Maps är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med Azure OneAPI-kompatibla tjänster kan du använda välbekanta verktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en uppsättning REST API:er som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
+Azure Maps är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med tjänster kan du använda välbekanta verktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en uppsättning REST API:er som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
 
 Följande video introducerar Azure Maps:
 
@@ -87,7 +88,7 @@ Microsofts mål är att ge utvecklare ett val när det gäller erbjudanden om pl
 | Scenario | Använd Azure Maps när… | Använd Bing-kartor när… |
 | ------------- | ------------- | ------------- |
 | Utvecklingsmiljö | du skapar i eller koordinerar med andra Azure-tjänster | använder en moln- eller utvecklingsmiljö från tredje part |
-| Utvecklingsfas  | Eftersom Azure Maps för närvarande finns som en allmänt tillgänglig förhandsversion, har tjänsten optimerats för tidig testning och Proof of Concept-utveckling | Ett serviceavtal i företagsklass krävs för en produktionsmiljö |
+| Utvecklingsfas  | Azure Maps är optimerat för tidig testning och Proof of Concept-utveckling | Ett serviceavtal i företagsklass krävs för en produktionsmiljö |
 | Prisalternativ | Preliminära prisalternativ för utvecklare räcker | Anpassad prissättning i företagsklass krävs |
 | Miljö för användningsfall | Användning i fordon krävs | Användning i fordon krävs inte |
 | Geografisk täckning | Indien, Kina, Japan och Sydkorea krävs inte | Karttäckning för Indien, Kina, Japan och Sydkorea krävs |

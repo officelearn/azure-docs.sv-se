@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212797"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
@@ -47,7 +48,7 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure.
 
 1. På menyn [Azure Portal](https://portal.azure.com) väljer du **Nytt** > **Lagring** > **Lagringskonto**.
-2. I **Skapa lagringskonto** anger du ett namn för kontot. I dessa självstudier använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och mellan 3 och 24 tecken långt. Det får endast bestå av siffror och gemener.
+2. I **Skapa lagringskonto** anger du ett namn för kontot. I de här självstudierna använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken långt. Det får endast bestå av siffror och gemener.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
 4. I **Typ av konto** väljer du **Generell användning**. I **Prestanda** väljer du **Standard**. Välj inte blobblagring.
 5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans.
@@ -62,7 +63,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 ## <a name="create-a-vault"></a>Skapa ett valv
 
 1. I Azure-portalen markerar du **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
-2. I **Namn** anger du ett eget namn som identifierar valvet. I den här självstudien använder du **ContosoVMVault**.
+2. I **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
 3. I **Resursgrupp** väljer du den befintliga resursgruppen med namnet **contosoRG**.
 4. I **Plats** anger du Azure-regionen **Europa, västra** som används i de här självstudierna.
 5. För att snabbt komma åt valvet från instrumentpanelen väljer du **Fäst på instrumentpanelen** > **Skapa**.

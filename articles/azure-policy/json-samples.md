@@ -1,88 +1,82 @@
 ---
-title: Princip för mallen prover
-description: JSON-exempel för Azure-princip
+title: Exempel på principmallar
+description: JSON-exempel för Azure Policy
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195132"
 ---
-# <a name="templates-for-azure-policy"></a>Mallar för Azure-princip
+# <a name="templates-for-azure-policy"></a>Mallar för Azure Policy
 
-Följande tabell innehåller länkar till json-mallar för Azure-principen. De här exemplen finns i den [Azure princip prover databasen](https://github.com/Azure/azure-policy).
+Följande tabell innehåller länkar till json-mallar för Azure Policy. De här exemplen finns i [lagringsplatsen för Azure Policy-exempel](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Compute**||
-| [Godkända VM-avbildningar](scripts/allowed-custom-images.md) | Kräver att enbart godkänd anpassade avbildningar distribuerats i din miljö. Du anger en matris med godkända avbildningen ID: N. |
-| [Granska när VM inte använder hanteras Disk](scripts/create-vm-managed-disk.md) | Granskningar när en virtuell dator skapas som inte använder hanterade diskar.|
-| [Granska om tillägg inte finns](scripts/audit-ext-not-exist.md) | Granskningar om filnamnstillägget inte har distribuerats till en virtuell dator. Anger du tillägg utgivaren och typ för att kontrollera om den har distribuerats. |
-| [Tillåt anpassade VM-avbildning från en resursgrupp](scripts/allow-custom-vm-image.md) |  Kräver att anpassade avbildningar kommer från en godkänd resursgrupp. Du kan ange namnet på resursgruppen godkända. |
-| [Neka hybrid Använd förmån](scripts/deny-hybrid-use.md) | Tillåter inte användning av Azure (AHUB Hybrid använda förmånen). Använd när du inte vill tillåta att den lokala licenser. |
-| [Inte tillåtet VM-tillägg](scripts/not-allowed-vm-ext.md) | Förhindrar att den angivna tillägg. Du anger en matris som innehåller otillåtna Tilläggstyper. |
-| [Tillåt endast en vissa plattformsavbildning för VM](scripts/allow-certain-vm-image.md) | Kräver att virtuella datorer använder en viss version av UbuntuServer. |
-| [Skapa virtuell dator med hanterad Disk](scripts/use-managed-disk-vm.md) | Kräver att virtuella datorer använder hanterade diskar.|
+| [Godkända VM-avbildningar](scripts/allowed-custom-images.md) | Kräver att endast godkända anpassade avbildningar distribueras i din miljö. Du anger en matris med godkända avbildnings-ID. |
+| [Granska när VM inte använder hanterad disk](scripts/create-vm-managed-disk.md) | Granskar när en virtuell dator skapas som inte använder hanterade diskar.|
+| [Granska om tillägg inte finns](scripts/audit-ext-not-exist.md) | Granskar om ett tillägg inte distribueras med en virtuell dator. Du anger tilläggsutgivaren och typ för att kontrollera om den har distribuerats. |
+| [Tillåt anpassad VM-avbildning från en resursgrupp](scripts/allow-custom-vm-image.md) |  Kräver att anpassade avbildningar kommer från en godkänd resursgrupp. Du anger namnet på den godkända resursgruppen. |
+| [Neka hybridanvändningsförmån](scripts/deny-hybrid-use.md) | Förbjuder användning av Azure Hybrid Use Benefit (AHUB). Använd det här när du inte vill tillåta användning av lokala licenser. |
+| [Otillåtna VM-tillägg](scripts/not-allowed-vm-ext.md) | Förbjuder användning av angivna tillägg. Du anger en matris som innehåller de otillåtna tilläggstyperna. |
+| [Tillåt endast en viss VM-plattformsavbildning](scripts/allow-certain-vm-image.md) | Kräver att virtuella datorer använder en specifik version av UbuntuServer. |
+| [Skapa VM med hanterad disk](scripts/use-managed-disk-vm.md) | Kräver att virtuella datorer använder hanterade diskar.|
 |**Övervakning**||
-| [Granska diagnostikinställningen](scripts/audit-diag-setting.md) | Granskningar om diagnostikinställningar har inte aktiverats för anges resurstyper. Du anger en matris med resurstyper för att kontrollera om diagnostikinställningar är aktiverade. |
-|**Namn och text**||
-| [Tillåt flera namn mönster](scripts/allow-multiple-name-patterns.md) | Tillåt en av många namn mönster som ska användas för resurser. |
-| [Kräv som mönster](scripts/enforce-like-pattern.md) | Kontrollera resursnamn uppfyller villkoret like för ett mönster. |
+| [Granska diagnostikinställning](scripts/audit-diag-setting.md) | Granskar om diagnostikinställningarna inte är aktiverade för angivna resurstyper. Du anger en matris med resurstyper för att kontrollera om diagnostikinställningarna är aktiverade. |
+|**Konventioner för namn och text**||
+| [Tillåt flera namnmönster](scripts/allow-multiple-name-patterns.md) | Tillåt ett av många namnmönster som ska användas för resurser. |
+| [Kräv like-mönster](scripts/enforce-like-pattern.md) | Se till att resursnamnen uppfyller like-villkoret för ett mönster. |
 | [Kräv matchningsmönster](scripts/enforce-match-pattern.md) | Se till att resursnamnen matchar namngivningsmönstret. |
-| [Kräv taggen matchningsmönster](scripts/enforce-tag-match-pattern.md) | Se till att ett Taggvärde matchar ett textmönster. |
+| [Kräv taggmatchningsmönster](scripts/enforce-tag-match-pattern.md) | Se till att ett taggvärde matchar ett textmönster. |
 |**Nätverk**||
-| [Tillåtna program Gateway-SKU: er](scripts/allowed-app-gate-sku.md) | Kräver att programgatewayer använder en godkänd SKU. Du anger en matris med godkända SKU: er. |
-| [Granska om Nätverksbevakaren inte har aktiverats för region](scripts/net-watch-not-enabled.md) | Granskningar om nätverksbevakaren inte har aktiverats för ett visst område. Du kan ange namnet på regionen som ska kontrollera om nätverksbevakaren har aktiverats. |
-| [NSG X på varje nätverkskort](scripts/nsg-on-nic.md) | Kräver att en specifik nätverkssäkerhetsgrupp används med alla virtuella nätverksgränssnitt. Du kan ange ID för nätverkssäkerhetsgruppen ska användas. |
-| [NSG X i varje undernät](scripts/nsg-on-subnet.md) | Kräver att en specifik nätverkssäkerhetsgrupp används med alla virtuella undernät. Du kan ange ID för nätverkssäkerhetsgruppen ska användas. |
-| [Tillåtna Express Route-bandbredd](scripts/allowed-er-band.md) | Kräver att snabb vägar använder en viss uppsättning bandbredder. Du anger en matris med SKU: er som kan anges för Express Route. |
-| [Tillåtna Peeringplatsen för Express Route](scripts/allowed-peering-er.md) | Kräver att Express vägar Använd angetts peering platser. Du anger en matris med tillåtna peering platser. |
-| [Tillåtna Express Route-SKU: er](scripts/allowed-er-skus.md) | Kräver att Express vägar använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
-| [Tillåtna Load Balancer SKU: er](scripts/allowed-lb-skus.md) | Kräver att belastningsutjämnare använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
-| [Inget nätverk peering till ER nätverk](scripts/no-peering-er-net.md) | Förhindrar att ett nätverk som peering från som hör till ett nätverk i en viss resursgrupp. Använd för att förhindra anslutning med centralt hanterade nätverksinfrastruktur. Du kan ange namnet på resursgruppen att förhindra att kopplingen. |
-| [Ingen användardefinierad routningstabellen](scripts/no-user-def-route-table.md)  |Förhindrar att virtuella nätverk som distribueras med en användardefinierad routningstabell. |
-| [Tillåtna virtuella Gateway-SKU: er](scripts/allowed-vn-gate-sku.md) | Kräver att virtuella nätverksgatewayerna använder en godkända SKU och gateway-typen. Anger en matris med godkända SKU: er och en matris med godkända gateway-typer. |
-| [Använd godkända undernät för Virtuellt nätverkskort](scripts/use-approved-subnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett godkända undernät. Du kan ange ID för godkända undernätet. |
-| [Använd godkända virtuella nätverk för Virtuella nätverkskort](scripts/use-approved-vnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett virtuellt nätverk som är godkända. Du kan ange ID för det virtuella nätverket som är godkända. |
+| [Tillåtna SKU:er för programgateway](scripts/allowed-app-gate-sku.md) | Kräver att programgatewayer använder en godkänd SKU. Du anger en matris med godkända SKU:er. |
+| [Granska om Network Watcher inte är aktiverat för regionen](scripts/net-watch-not-enabled.md) | Granskar om Network Watcher inte är aktiverat för en angiven region. Du anger namnet på regionen för att kontrollera om Network Watcher är aktiverat. |
+| [NSG X på varje NIC](scripts/nsg-on-nic.md) | Kräver att en viss nätverkssäkerhetsgrupp används med varje gränssnitt för virtuellt nätverk. Du anger ID för nätverkssäkerhetsgruppen som ska användas. |
+| [NSG X i varje undernät](scripts/nsg-on-subnet.md) | Kräver att en viss nätverkssäkerhetsgrupp används med varje virtuella undernät. Du anger ID för nätverkssäkerhetsgruppen som ska användas. |
+| [Tillåten Express Route-bandbredd](scripts/allowed-er-band.md) | Kräver att ExpressRoutes använder en angiven uppsättning bandbredder. Du anger en matris med SKU:er som kan anges för ExpressRoute. |
+| [Tillåten peeringplats för Express Route](scripts/allowed-peering-er.md) | Kräver att Express Routes använder angivna peeringplatser. Du anger en matris med tillåtna peeringplatser. |
+| [Tillåtna Express Route-SKU:er](scripts/allowed-er-skus.md) | Kräver att Express Routes använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
+| [Tillåtna SKU:er för belastningsutjämnare](scripts/allowed-lb-skus.md) | Kräver att belastningsutjämnare använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
+| [Ingen nätverkspeering till ER-nätverk](scripts/no-peering-er-net.md) | Förbjuder att en nätverkspeering associeras till ett nätverk i en angiven resursgrupp. Använd för att förhindra anslutning med centralt hanterad nätverksinfrastruktur. Du kan ange namnet på resursgruppen att förhindra association. |
+| [Ingen användardefinierad routningstabell](scripts/no-user-def-route-table.md)  |Förbjuder att virtuella nätverk distribueras med en användardefinierad routningstabell. |
+| [Tillåtna SKU:er för virtuell nätverksgateway](scripts/allowed-vn-gate-sku.md) | Kräver att virtuella nätverksgatewayer använder en godkänd SKU och gatewaytyp. Du anger en matris med godkända SKU:er och en matris med godkända gatewaytyper. |
+| [Använda godkända undernät för VM-nätverksgränssnitt](scripts/use-approved-subnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett godkänt undernät. Du anger ID för det godkända undernätet. |
+| [Använda godkända vNet för VM-nätverksgränssnitt](scripts/use-approved-vnet-vm-nics.md) | Kräver att nätverksgränssnitt använder ett godkänt virtuellt nätverk. Du anger ID för det godkända virtuella nätverket. |
 |**Taggar**||
-| [Fakturering taggar princip initiativ](scripts/billing-tags-policy-init.md) | Kräver angivna värden för kostnad center och produktens namn. Använder inbyggda principer för att tillämpa och framtvinga taggar som krävs. Du anger de värden som krävs för taggar.  |
-| [Framtvinga taggen och dess värde på resursgrupper](scripts/enforce-tag-rg.md) | Kräver en tagg och värde i en resursgrupp. Du kan ange den obligatoriska taggnamn och värde.  |
+| [Principinitiativ för faktureringstaggar](scripts/billing-tags-policy-init.md) | Kräver angivna taggvärden för kostnadsställe och produktnamn. Använder inbyggda principer för att tillämpa och framtvinga taggar som krävs. Du anger de värden som krävs för taggar.  |
+| [Lägg till tagg och dess värde i resursgrupper](scripts/enforce-tag-rg.md) | Kräver en tagg och ett värde i en resursgrupp. Du anger taggnamn och värde som ska krävas.  |
 |**SQL**||
-| [Granska SQL DB-nivån granskning](scripts/audit-sql-db-audit-setting.md) | Granskningar SQL granskningsinställningar för databasen om dessa inställningar inte matchar en angiven nivå. Du kan ange ett värde som anger om granskningsinställningarna ska aktiveras eller inaktiveras.  |
-| [Granska transparent data krypteringsstatus](scripts/audit-trans-data-enc-status.md) | Granskningar transparent datakryptering för SQL-databasen om den inte är aktiverad.  |
-| [Granska DB nivån threat detection inställningen](scripts/audit-db-threat-det-setting.md) | Granskningar avisering principer SQL-databasen om dessa principer inte har angetts till angivet tillstånd. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
-| [Gransknings-och SQL Server-nivån granskning](scripts/audit-sql-ser-leve-audit-setting.md) | Granskningar SQL server audit-inställningar om dessa inställningar inte matchar en angiven nivå. Du kan ange ett värde som anger om granskningsinställningarna ska aktiveras eller inaktiveras. |
-| [Granska Serverinställningen nivån hot identifiering](scripts/audit-sql-ser-threat-det-setting.md) | Granskningar avisering principer SQL-databasen om dessa principer inte har angetts till angivet tillstånd. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
-| [Granska ingen Azure Active Directory-administratör](scripts/audit-no-aad-admin.md) | Granska när det finns inga Azure Active Directory-administratören som tilldelats till SQLServer. |
-| [Tillåtna SQL DB SKU: er](scripts/allowed-sql-db-skus.md) | Kräver SQL-databaser använder en godkänd SKU. Du anger en matris med tillåtna SKU-ID: N eller en matris med tillåtna SKU namn. |
+| [Granska granskningsinställning på SQL DB-nivå](scripts/audit-sql-db-audit-setting.md) | Granskar granskningsinställningar för SQL Database om inställningarna inte matchar en angiven inställning. Du kan ange ett värde som anger om granskningsinställningar ska vara aktiverade eller inaktiverade.  |
+| [Granska status för transparent datakryptering](scripts/audit-trans-data-enc-status.md) | Granskar transparent datakryptering för SQL Database om det inte är aktiverat.  |
+| [Granska inställningar för hotidentifiering på DB-nivå](scripts/audit-db-threat-det-setting.md) | Granskar principer för SQL Database-säkerhetsaviseringar om principerna inte är inställda på det angivna tillståndet. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
+| [Granska granskningsinställningar på SQL Server-nivå](scripts/audit-sql-ser-leve-audit-setting.md) | Granskar granskningsinställningar för SQL Server om inställningarna inte matchar en angiven inställning. Du kan ange ett värde som anger om granskningsinställningar ska vara aktiverade eller inaktiverade. |
+| [Granska inställningar för hotidentifiering på servernivå](scripts/audit-sql-ser-threat-det-setting.md) | Granskar principer för SQL Database-säkerhetsaviseringar om principerna inte är inställda på det angivna tillståndet. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
+| [Granska när det saknas Azure Active Directory-administratör](scripts/audit-no-aad-admin.md) | Granska när det inte finns någon Azure Active Directory-administratör som tilldelats till SQL-servern. |
+| [Tillåtna SKU:er för SQL DB](scripts/allowed-sql-db-skus.md) | Kräver att för SQL Database använder en godkänd SKU. Du kan ange en matris med tillåtna ID:n för SKU:er eller en matris med tillåtna SKU-namn. |
 |**Storage**||
-| [Tillåtna SKU: er för Storage-konton och virtuella datorer](scripts/allowed-skus-storage.md) | Kräver att storage-konton och virtuella datorer använder godkända SKU: er. Använder inbyggda principer för att säkerställa godkända SKU: er. Anger en matris med godkända virtuella datorer SKU: er och en matris med godkända lagringskonto SKU: er. |
-| [Se till att https-trafik endast för storage-konto](scripts/ensure-https-stor-acct.md) | Kräver storage-konton för att använda HTTPS-trafik.  |
-| [Kall neka skiktning för storage-konton](scripts/deny-cool-access-tiering.md) | Tillåter inte användning av kall åtkomst skiktning för blob storage-konton.  |
-| [Se till att filen lagringskryptering](scripts/ensure-store-file-enc.md) | Kräver att filen kryptering är aktiverat för lagringskonton.  |
+| [Tillåtna SKU:er för lagringskonton och virtuella datorer](scripts/allowed-skus-storage.md) | Kräver att lagringskonton och virtuella datorer använder godkända SKU:er. Använder inbyggda principer till att säkerställa godkända SKU:er. Du anger en matris med godkända SKU:er för virtuella datorer och en matris med godkända SKU:er för lagringskonton. |
+| [Garantera endast https-trafik för lagringskonto](scripts/ensure-https-stor-acct.md) | Kräver att lagringskonton använder HTTPS-trafik.  |
+| [Neka lågfrekvent åtkomstnivå för lagringskonton](scripts/deny-cool-access-tiering.md) | Förbjuder användning av lågfrekvent åtkomstnivå för Blob Storage-konton.  |
+| [Garantera kryptering för lagringsfil](scripts/ensure-store-file-enc.md) | Kräver att filkryptering är aktiverat för lagringskonton.  |
 |**Inbyggd princip**||
-| [Tillåtna platser](scripts/allowed-locs.md) | Kräver att alla resurser har distribuerats till godkända platserna. Du anger en matris med godkända platser.  |
+| [Tillåtna platser](scripts/allowed-locs.md) | Kräver att alla resurser distribueras till de godkända platserna. Du anger en matris med godkända platser.  |
 | [Tillåtna resurstyper](scripts/allowed-res-types.md) | Garanterar att bara godkända resurstyper distribueras. Du anger en matris med resurstyper som tillåts.  |
-| [Tillåtna lagringskonto SKU: er](scripts/allowed-stor-acct-skus.md) | Kräver att storage-konton använder en godkänd SKU. Du anger en matris med godkända SKU: er. |
-| [Tillämpa taggen och ett standardvärde](scripts/apply-tag-def-val.md) | Lägger till angivna taggnamn och värde, om taggen inte har angetts. Du kan ange taggnamnet och värdet ska gälla.  |
-| [Gransknings-och kryptering för SQL-databas](scripts/sql-database-encryption-audit.md) | Granskningar om SQL-databasen inte har transparent datakryptering är aktiverat. |
-| [Granska inställningarna för SQL Server audit](scripts/sql-server-audit.md) | Granskningar SQLServer baserat på om granskningsinställningarna är aktiverade. |
-| [Framtvinga kryptering för Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nekar alla Data Lake Store-konton som inte har kryptering aktiverat. |
-| [Framtvinga taggen och dess värde](scripts/enforce-tag-val.md) | Kräver angivna taggnamn och värde. Du kan ange taggnamn och värde för att genomdriva.  |
-| [Inte tillåtet resurstyper](scripts/not-allowed-res-type.md) | Förhindrar att distributionen av angivna resurstyper. Du anger en matris med resurstyper att blockera.  |
-| [Kräv SQL Server version 12.0](scripts/req-sql-12.md) | Kräver SQL-servrar att använda versionen 12.0.  |
-| [Kräv kryptering för storage-konto](scripts/req-store-acct-enc.md) | Kräver storage-konto använder blob-kryptering.  |
+| [Tillåtna SKU:er för lagringskonto](scripts/allowed-stor-acct-skus.md) | Kräver att lagringskonton använder en godkänd SKU. Du anger en matris med godkända SKU:er. |
+| [Använd taggen och dess standardvärde](scripts/apply-tag-def-val.md) | Lägger till ett angivet taggnamn och värde, om den taggen inte tillhandahålls. Du anger taggnamn och värde som ska gälla.  |
+| [Granska för SQL Database-kryptering](scripts/sql-database-encryption-audit.md) | Granskar om transparent datakryptering inte är aktiverat för SQL Database. |
+| [Granska granskningsinställningar för SQL Server](scripts/sql-server-audit.md) | Granskar SQL Server beroende på om granskningsinställningarna är aktiverade. |
+| [Kräv kryptering för Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nekar alla Data Lake Store-konton som inte har kryptering aktiverat. |
+| [Framtvinga tagg och dess värde](scripts/enforce-tag-val.md) | Kräver ett angivet taggnamn och värde. Du anger taggnamn och värde som ska framtvingas.  |
+| [Otillåtna resurstyper](scripts/not-allowed-res-type.md) | Förhindrar distributionen av angivna resurstyper. Du anger en matris med resurstyper som ska blockeras.  |
+| [Kräv SQL Server version 12.0](scripts/req-sql-12.md) | Kräver att SQL-servrar använder version 12.0.  |
+| [Kräv kryptering för lagringskonto](scripts/req-store-acct-enc.md) | Kräver att lagringskontot använder blobkryptering.  |

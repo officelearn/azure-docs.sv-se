@@ -4,14 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202855"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -78,7 +79,7 @@ I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 |Komponent          |För att kommunicera med     |Port som krävs  |Orsak   |
 |-------------------|------------------------|---------------|---------|
 |Insamlare          |Tjänsten Azure Migrate   |TCP 443        |Insamlaren ansluter till tjänsten via SSL-port 443|
-|Insamlare          |vCenter Server          |Standard 9443   | Som standard ansluter insamlaren till vCenter-servern på port 9443. Om servrarna lyssnar på en annan port ska den konfigureras som en utgående port på VM-insamlaren. |
+|Insamlare          |vCenter Server          |Standard 443   | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port ska den konfigureras som en utgående port på VM-insamlaren. |
 |Lokala virtuella datorer     | Log Analytics Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA (Microsoft Monitoring Agent). |
 
 

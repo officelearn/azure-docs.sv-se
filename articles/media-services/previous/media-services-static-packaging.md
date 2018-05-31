@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790561"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Med Azure Media Paketeraren för att utföra uppgifter för statiska paketering
 > [!NOTE]
@@ -707,7 +708,7 @@ Om du vill kryptera dina HLS med AES-128, kan du välja att använda dynamisk kr
 > [!NOTE]
 > För att konvertera ditt innehåll till HLS, måste du först konvertera/koda ditt innehåll till Smooth Streaming.
 > Kontrollera också att ange följande egenskaper i filen MediaPackager_SmoothToHLS.xml för HLS att hämta krypterats med AES: ange egenskapen encrypt till true, ange värdet för nyckeln och keyuri värdet så att den pekar till authentication\authorization-servern.
-> Media Services skapar en nyckelfil och placera den i behållaren tillgången. Du bör kopiera filen /asset-containerguid/*.key till servern (eller skapa en egen nyckel fil) och sedan ta bort filen *.key från behållaren för tillgången.
+> Media Services skapar en nyckelfil och placera den i behållaren tillgången. Du bör kopiera filen /asset-containerguid/\*.key till servern (eller skapa en egen nyckel fil) och sedan ta bort filen \*.key från behållaren för tillgången.
 > 
 > 
 

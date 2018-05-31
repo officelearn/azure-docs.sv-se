@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797710"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Självstudiekurs: Övervaka och diagnostisera ett ASP.NET Core-program i Service Fabric
 Den här självstudien är del fem i en serie. Den går igenom stegen för att konfigurera övervakning och diagnostik för ett ASP.NET Core-program som körs på ett Service Fabric-kluster med Application Insights. Vi samlar in telemetri från program som utvecklats i den första delen av självstudien [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md). 
@@ -237,7 +238,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till [localhost:8080](localhost:8080). Där lägger du till och tar bort vissa röstningsalternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse” samt all svarstelemetri. 
+När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till [localhost:8080](localhost:8080). Där lägger du till och tar bort vissa röstningsalternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse”\* samt all svarstelemetri. 
 
 ![anpassade händelser](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

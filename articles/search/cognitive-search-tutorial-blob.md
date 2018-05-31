@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366757"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -23,7 +24,7 @@ I den här självstudien gör du REST API-anrop för att utföra följande uppgi
 
 > [!div class="checklist"]
 > * Skapa en indexeringspipeline som berikar källdata i vägen till ett index
-> * Använda kunskaper om inbyggd enhetsidentifiering, språkidentifiering, textmanipulation och extrahering av nyckelfraser i en exempeldatauppsättning
+> * Använd inbyggda kunskaper med exempeldata: entitetsigenkänning, språkidentifiering, textredigering och extrahering av viktiga fraser
 > * Lära dig att sammanlänka kunskaper genom att mappa indata till utdata i en kompetens
 > * Köra begäranden och granska resultatet
 > * Återställa index och indexerare för ytterligare utveckling
@@ -59,7 +60,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Kognitiv sökning är tillgängligt som en förhandsversion. Kunskapskörning är för närvarande tillgängligt på alla nivåer, inklusive den kostnadsfria nivån. Priser för den här funktionen meddelas vid ett senare tillfälle.
+  > Kognitiv sökning är tillgängligt som en förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
 
 1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
@@ -84,7 +85,7 @@ Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma
   Anslutningssträngen ska vara en URL som ser ut ungefär så här:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Det finns andra sätt att ange anslutningssträngen, till exempel att ange en signatur för delad åtkomst. Om du vill veta mer om autentiseringsuppgifter för datakällor kan du läsa [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials) (Indexera Azure Blob Storage).

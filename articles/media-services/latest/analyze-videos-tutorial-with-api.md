@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362302"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Självstudie: Analysera videor med Azure Media Services 
 
@@ -66,7 +67,7 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Skapa en utdatatillgång där resultatet av ett jobb lagras 
 
-Utdatatillgången lagrar resultatet av ditt jobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
+[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt jobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -76,7 +77,7 @@ När kodningen eller bearbetningen av innehåll i Media Services görs, konfigur
 
 #### <a name="transform"></a>Transformering
 
-När du skapar en ny instans för en **Transformering**, måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är objektet **TransformOutput** som visas i koden ovan. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används förinställningen **VideoAnalyzerPreset** och språket (”en-US”) har överförts till konstruktorn. Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video. 
+När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är objektet **TransformOutput** som visas i koden ovan. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används förinställningen **VideoAnalyzerPreset** och språket (”en-US”) har överförts till konstruktorn. Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video. 
 
 När du skapar en **Transformering** bör du först kontrollera om det redan finns en. Det gör du med metoden **Get** som visas i koden nedan.  I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
 
@@ -84,7 +85,7 @@ När du skapar en **Transformering** bör du först kontrollera om det redan fin
 
 #### <a name="job"></a>Jobb
 
-Som nämns ovan är objektet **Transformering** receptet och ett **Jobb** är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto. 
+Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/en-us/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto. 
 
 I det här exemplet är jobbets indata en lokal video.  
 
@@ -92,7 +93,7 @@ I det här exemplet är jobbets indata en lokal video.
 
 ### <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Det finns olika alternativ för att få meddelanden om när jobben är klara. Det enklaste alternativet (som visas här) är att använda avsökning. 
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Det finns olika alternativ för att få meddelanden om när [jobben](https://docs.microsoft.com/en-us/rest/api/media/jobs) är klara. Det enklaste alternativet (som visas här) är att använda avsökning. 
 
 Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av att svarstiden kan bli lång. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid.
 
@@ -104,7 +105,7 @@ Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dyna
 
 ### <a name="download-the-result-of-the-job"></a>Ladda ned jobbets resultat
 
-Följande funktion laddar ned resultaten från utdatatillgången till mappen ”utdata”, så att du kan undersöka jobbresultatet. 
+Följande funktion laddar ned resultaten från [utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) till mappen ”utdata”, så att du kan undersöka jobbresultatet. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 

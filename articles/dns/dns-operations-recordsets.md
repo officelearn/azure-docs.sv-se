@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778843"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med hjälp av Azure PowerShell
 
@@ -57,7 +58,7 @@ I följande exempel skapas en postuppsättning med det relativa namnet ”www”
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Att skapa en postuppsättning på apex för en zon (i det här fallet ”contoso.com”), använder du postuppsättningsnamnet ”@” (utan citattecken):
+Att skapa en postuppsättning på apex för en zon (i det här fallet ”contoso.com”), använder du postuppsättningsnamnet ”\@” (utan citattecken):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -118,7 +119,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Skapa en MX-postuppsättning med en post
 
-I det här exemplet använder vi postuppsättningsnamnet ”@” så här skapar du en MX-post på zonens apex (i det här fallet ”contoso.com”).
+I det här exemplet använder vi postuppsättningsnamnet ”\@” så här skapar du en MX-post på zonens apex (i det här fallet ”contoso.com”).
 
 
 ```powershell
@@ -141,7 +142,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Skapa en SRV-postuppsättning med en post
 
-När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records), ange den  *\_service* och  *\_protokollet* i postuppsättningens namn. Behöver du inte inkludera ”@” i namnet på postuppsättningen när du skapar en SRV-post på zonens apex.
+När du skapar en [SRV-postuppsättning](dns-zones-records.md#srv-records), ange den  *\_service* och  *\_protokollet* i postuppsättningens namn. Behöver du inte inkludera ”\@” i namnet på postuppsättningen när du skapar en SRV-post på zonens apex.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 

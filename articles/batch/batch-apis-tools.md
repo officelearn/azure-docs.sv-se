@@ -1,18 +1,19 @@
 ---
-title: "Azure Batch API:er och verktyg för utvecklare | Microsoft Docs"
-description: "Läs mer om API:er och verktyg som är tillgängliga för utveckling av lösningar med Azure Batch-tjänsten."
+title: Azure Batch API:er och verktyg för utvecklare | Microsoft Docs
+description: Läs mer om API:er och verktyg som är tillgängliga för utveckling av lösningar med Azure Batch-tjänsten.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359330"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Översikt över Batch-API:er och verktyg
 
@@ -26,11 +27,10 @@ Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation e
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Azure-konton för Batch-utveckling
-När du utvecklar Batch-lösningar, använder du följande konton i Microsoft Azure.
+När du utvecklar Batch-lösningar använder du följande konton i Azure-prenumerationen:
 
-* **Azure-konto och -prenumeration** – om du inte redan har en Azure-prenumeration, kan du aktivera din [Visual Studio-prenumerantförmån][msdn_benefits], eller registrera dig för ett [kostnadsfritt Azure-konto][free_account]. När du skapar ett konto skapas en standardprenumeration åt dig.
-* **Batch-konto** – Azure Batch-resurser, inklusive pooler, beräkningsnoder, jobb och aktiviteter, är associerade med ett Azure Batch-konto. När ditt program gör en begäran mot batchtjänsten, autentiserar det begäran med hjälp av Azure Batch-kontonamnet, URL:en för kontot och antingen en åtkomstnyckel eller en Azure Active Directory-token. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) på Azure-portalen, eller programmässigt.
-* **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Blob Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. Om du vill skapa ett Storage-konto läser du [Om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+* **Batch-konto** – Azure Batch-resurser, inklusive pooler, beräkningsnoder, jobb och uppgifter, är associerade med ett Azure [Batch-konto](batch-api-basics.md#account). När ditt program gör en begäran mot batchtjänsten, autentiserar det begäran med hjälp av Azure Batch-kontonamnet, URL:en för kontot och antingen en åtkomstnyckel eller en Azure Active Directory-token. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) på Azure-portalen, eller programmässigt.
+* **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Blob Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API:er för Batch-tjänst
 

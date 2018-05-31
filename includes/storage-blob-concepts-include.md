@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31432782"
 ---
 Azure Blob storage är Microsofts objektet lagringslösning för molnet. BLOB-lagring är optimerad för att lagra stora mängder Ostrukturerade data, till exempel text eller binära data.
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426210"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans
 
@@ -56,7 +57,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLMana
    |**Typ av konto**|Blob Storage||
    |**Prestanda**|Standard eller premium|Magnetiska hårddiskar eller SSD-enheter|
    |**Replikering**|Lokalt redundant lagring||
-   |**Åtkomstnivå (standard)|Frekvent eller lågfrekvent||
+   |\*\*Åtkomstnivå (standard)|Frekvent eller lågfrekvent||
    |**Säker överföring krävs**|Disabled||
    |**Prenumeration**|Din prenumeration|Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions).|
    |**Resursgrupp**|Den resursgrupp som du skapade tidigare|| 

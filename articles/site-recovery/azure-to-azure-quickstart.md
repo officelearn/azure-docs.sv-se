@@ -1,27 +1,30 @@
 ---
-title: Replikera en virtuell Azure-dator till en annan Azure-region (förhandsversion)
+title: Replikera en virtuell Azure-dator till en annan Azure-region
 description: Denna snabbstart innehåller de steg som krävs för att replikera en virtuell Azure-dator i en Azure-region till en annan region.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208846"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replikera en virtuell Azure-dator till en annan Azure-region (förhandsversion)
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replikera en virtuell Azure-dator till en annan Azure-region
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region.
+I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region. Azure till Azure-replikering finns för närvarande i förhandsversion
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -31,7 +34,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. I Azure-portalen klickar du på **Virtuella datorer** och väljer den virtuella dator som du vill replikera.
 
-2. I **Inställningar** klickar du på **Haveriberedskap (förhandsversion)**.
+2. I **Inställningar** klickar du på **Haveriberedskap**.
 3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion som du ska replikera till.
 4. Acceptera de andra standardinställningarna för denna Snabbstart.
 5. Klicka på **Aktivera replikering**. Ett jobb startas som aktiverar replikering för den virtuella datorn.
@@ -59,7 +62,7 @@ Den virtuella datorn i den primära regionen slutar replikera när du inaktivera
 Stoppa replikering på följande sätt:
 
 1. Välj VM.
-2. I **Haveriberedskap (förhandsversion)** klickar du på **Mer**.
+2. I **Haveriberedskap** klickar du på **Mer**.
 3. Klicka på **Inaktivera replikering**.
 
    ![Inaktivera replikering](media/azure-to-azure-quickstart/disable2-replication.png)

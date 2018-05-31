@@ -15,11 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2018
 ms.author: cherylmc
-ms.openlocfilehash: 33f66f74813534b83e9e9307ec2105699439d6cf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f577edc4c60164d3fb56d13f201854797962ecf3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271767"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Azure PowerShell-exempel för VPN Gateway
 
@@ -31,3 +32,5 @@ Följande tabell innehåller länkar till Azure PowerShell-skript:
 | [Skapa en VPN-gateway och P2S-konfiguration – RADIUS](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md) | Skapar en routningsbaserad VPN-gateway och en P2S-konfiguration som använder RADIUS-autentisering med användarnamn/lösenord. |
 | [Skapa en VPN-gateway och P2S-konfiguration – certifikatautentisering](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md) | Skapar en routningsbaserad VPN-gateway och en P2S-konfiguration som använder intern Azure-certifikatautentisering. |
 | [Skapa en VPN-gateway och plats-till-plats-anslutning](./scripts/vpn-gateway-sample-site-to-site-powershell.md) | Skapar en routningsbaserad VPN-gateway och en S2S-anslutning. |
+| [Skapa anslutningar mellan virtuella nätverk](./scripts/vpn-gateway-sample-vnet-vnet-powershell.md) | Skapa anslutningar mellan virtuella nätverk. |
+| [Ladda ned en VPN-enhetsmall](./scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md) | Ladda ned en VPN-enhetsmall. |

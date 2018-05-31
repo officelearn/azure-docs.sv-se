@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207214"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Snabbstart: Skapa ett .NET Service Fabric-program i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -109,6 +110,7 @@ Gör så här om du vill se vad som händer i koden:
     - Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
 
 4. Tryck på **F5** för att fortsätta
+    - Om du uppmanas av webbläsaren ska du ge gruppen ServiceFabricAllowedUsers läs- och körbehörighet för felsökningsläge.
     - Du befinner dig nu på brytpunkten i serverdelstjänsten.
     
     ![Lägg till röst för serverdelstjänst](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
 Service Fabric-tjänster kan enkelt skalas över ett kluster beroende på en ändring av belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från PowerShell eller Service Fabric CLI (sfctl). I det här exemplet använder du Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att certifikatet är självsignerat. Du kan välja att ignorera varningen och gå vidare. När du uppmanas av webbläsaren väljer du det installerade certifikatet för att ansluta. 
+Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att certifikatet är självsignerat. Du kan välja att ignorera varningen och gå vidare.
+1. När du uppmanas av webbläsaren väljer du det installerade certifikatet för att ansluta. Certifikatet för partklustret som du väljer från listan måste matcha partklustret som du försöker få åtkomst till. Till exempel win243uja6w62r.westus.cloudapp.azure.com.
+2. Om du uppmanas av webbläsaren beviljar du åtkomst till din CryptoAPI Private Key för den här sessionen.
 
 Gör så här om du vill skala frontwebbtjänsten:
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. I trädvyn öppnar du **Applications**->**VotingType**->**fabric:/Voting** (Program > Rösttyp > fabric: /Röstning). Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

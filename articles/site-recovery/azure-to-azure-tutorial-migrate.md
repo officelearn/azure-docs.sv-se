@@ -5,20 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209716"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av virtuella Azure-datorer till en sekundär region. För att migrera virtuella datorer i Azure måste du aktivera replikering för dem, och redundansväxla dem från den primära regionen till den sekundära regionen du önskar.
 
-I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig hur man:
+I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
@@ -37,7 +38,7 @@ I den här självstudien förutsätts att du redan har en Azure-prenumeration. O
 
 - Kontrollera att du har virtuella Azure-datorer i den Azure-region dit du vill migrera.
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
-- Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
+- Granska [begränsningar i stöd samt krav](azure-to-azure-support-matrix.md).
 
 
 
@@ -102,7 +103,7 @@ Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och
 ## <a name="select-the-source"></a>Välj källan
 
 1. I Recovery Services-valven klickar du på **ConsotoVMVault** > **+Replikera**.
-2. I **Källa** väljer du **Azure – FÖRHANDSVERSION**.
+2. I **Källa** väljer du **Azure**.
 3. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 4. Välj Resource Manager-distributionsmodellen. Välj sedan **källresursgrupp**.
 5. Spara inställningarna genom att klicka på **OK**.
@@ -115,7 +116,7 @@ Site Recovery hämtar en lista med de virtuella datorer som är kopplade till pr
 
 1. Klicka på **Virtuella datorer** på Azure-portalen.
 2. Välj den virtuella dator du vill migrera. Klicka sedan på **OK**.
-3. I **Inställningar** klickar du på **Haveriberedskap (förhandsversion)**.
+3. I **Inställningar** klickar du på **Haveriberedskap**.
 4. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion som du ska replikera till.
 5. I den här självstudiekursen accepterar du de andra standardinställningarna.
 6. Klicka på **Aktivera replikering**. Ett jobb startas som aktiverar replikering för den virtuella datorn.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780236"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -154,7 +155,7 @@ I Media Services överför du (eller för in) dina digitala filer till en tillg�
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
 
-**CreateFromFile**-metoden tar **AssetCreationOptions, vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
+**CreateFromFile**-metoden tar \*\*AssetCreationOptions, vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
 
 * **Ingen** – Ingen kryptering används. Detta är standardvärdet. Observera att när du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
   Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.

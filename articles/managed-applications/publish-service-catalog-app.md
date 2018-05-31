@@ -1,42 +1,43 @@
 ---
-title: Skapa och publicera ett program för katalogen som hanteras av Azure-tjänst | Microsoft Docs
+title: Skapa och publicera ett Azure-hanterat program för tjänstkatalogen | Microsoft Docs
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305318"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicera ett hanterat program för internt bruk
 
-Du kan skapa och publicera Azure [hanterade program](overview.md) som är avsedda för medlemmar i din organisation. Exempelvis kan en IT-avdelning publicera hanterade program som säkerställa efterlevnad med organisationens normer. Dessa hanterade program är tillgängliga via tjänstkatalog, inte på Azure marketplace.
+Du kan skapa och publicera Azure-[hanterade program](overview.md) som är avsedda för medlemmar i din organisation. En IT-avdelning kan exempelvis publicera hanterade program som säkerställer efterlevnaden av organisationens standarder. Dessa hanterade program är tillgängliga via tjänstkatalogen, inte på Azure Marketplace.
 
-Om du vill publicera ett hanterat program för tjänstkatalogen, måste du:
+Om du vill publicera ett hanterat program för tjänstkatalogen måste du:
 
-* Skapa en mall som definierar resurserna som ska distribuera med hanterade program.
-* Definiera användargränssnittselement för portalen när du distribuerar det hanterade programmet.
-* Skapa en ZIP-paketet som innehåller mallfilerna som krävs för.
-* Bestäm vilka användare, grupp eller ett program behöver åtkomst till resursgruppen i användarens prenumeration.
-* Skapa definition för hanterade program som pekar på ZIP-paketet och begär åtkomst för identiteten.
+* Skapa en mall som definierar resurserna som ska distribueras med det hanterade programmet.
+* Definiera användargränssnittselementen för portalen när du distribuerar det hanterade programmet.
+* Skapa ett ZIP-paket som innehåller nödvändiga mallfiler.
+* Bestämma vilken användare, vilken grupp eller vilket program som behöver åtkomst till resursgruppen i användarens prenumeration.
+* Skapa definitionen för det hanterade programmet som pekar på ZIP-paketet och begär åtkomst för identiteten.
 
-För den här artikeln innehåller det hanterade programmet bara ett lagringskonto. Den är avsedd att illustrera stegen för att publicera ett hanterade program. Komplett exempel finns [exempelprojekten för Azure hanterade program](sample-projects.md).
+I den här artikeln innehåller det hanterade programmet bara ett lagringskonto. Artikeln beskriver steg för steg hur du publicerar ett hanterat program. Fullständiga exempel hittar du i [exempelprojekten för Azure-hanterade program](sample-projects.md).
 
-## <a name="create-the-resource-template"></a>Skapa resursmall för
+## <a name="create-the-resource-template"></a>Skapa resursmallen
 
-Varje definition för hanterade program innehåller en fil med namnet **mainTemplate.json**. I det definierar du Azure-resurser för att etablera. Mallen skiljer sig inte från en vanlig Resource Manager-mall.
+Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska etableras. Mallen skiljer sig inte från en vanlig Resource Manager-mall.
 
 Skapa en fil med namnet **mainTemplate.json**. Namnet är skiftlägeskänsligt.
 
-Lägg till följande JSON i din fil. Den definierar parametrar för att skapa ett lagringskonto och anger egenskaperna för lagringskontot.
+Lägg till följande JSON i filen. Den definierar parametrarna för att skapa ett lagringskonto och anger egenskaperna för lagringskontot.
 
 ```json
 {
@@ -81,9 +82,9 @@ Lägg till följande JSON i din fil. Den definierar parametrar för att skapa et
 
 Spara filen mainTemplate.json.
 
-## <a name="create-the-user-interface-definition"></a>Skapa gränssnittsdefinition användare
+## <a name="create-the-user-interface-definition"></a>Skapa definitionen för användargränssnittet
 
-Azure-portalen använder den **createUiDefinition.json** filen för att generera användargränssnittet för användare som skapar det hanterade programmet. Du definierar hur användare ange indata för varje parameter. Du kan använda alternativ som en listrutan, textrutan, lösenord och andra indata verktyg. Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.
+Azure Portal använder filen **createUiDefinition.json** för att generera användargränssnittet för användare som skapar det hanterade programmet. Du definierar hur användare anger indata för varje parameter. Du kan använda alternativ som en listruta, textruta, lösenordsruta och andra inmatningsverktyg. Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.
 
 Skapa en fil med namnet **createUiDefinition.json**. Namnet är skiftlägeskänsligt.
 
@@ -140,11 +141,11 @@ Lägg till följande JSON i filen.
 
 Spara filen createUiDefinition.json.
 
-## <a name="package-the-files"></a>Paketet filerna
+## <a name="package-the-files"></a>Paketera filerna
 
-Lägga till de två filerna i en .zip-fil med namnet app.zip. De två filerna måste vara på rotnivå på ZIP-filen. Om du placerar dem i en mapp, felmeddelande ett när du skapar definition för hanterade program om filerna som krävs inte finns. 
+Lägg till de två filerna i en ZIP-fil med namnet app.zip. Båda filerna måste ligga på rotnivå i ZIP-filen. Om du lägger dem i en mapp får du ett felmeddelande när du skapar definitionen för det hanterade programmet, som anger att de nödvändiga filerna saknas. 
 
-Överför paketet till en tillgänglig plats från där den kan användas. 
+Ladda upp paketet till en tillgänglig plats som det kan användas från. 
 
 ```powershell
 New-AzureRmResourceGroup -Name storageGroup -Location eastus
@@ -166,19 +167,19 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ## <a name="create-the-managed-application-definition"></a>Skapa definitionen för det hanterade programmet
 
-### <a name="create-an-azure-active-directory-user-group-or-application"></a>Skapa ett Azure Active Directory-användargrupp eller ett program
+### <a name="create-an-azure-active-directory-user-group-or-application"></a>Skapa en Azure Active Directory-användargrupp eller ett Azure Active Directory-program
 
-Nästa steg är att välja en användargrupp eller ett program för att hantera resurserna för kundens räkning. Den här användargruppen eller program du har behörighet på hanterade resursgruppen enligt den roll som är tilldelad. Rollen kan vara en inbyggd roll rollbaserad åtkomstkontroll (RBAC) som ägare eller deltagare. Du kan också ge en användarbehörighet att hantera resurser, men vanligtvis du tilldelar behörighet till en användargrupp. Om du vill skapa en ny Active Directory-användargrupp finns [skapar en grupp och lägga till medlemmar i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+I nästa steg väljer du en användargrupp eller ett program som ska hantera resurserna för kundens räkning. Användargruppen eller programmet har behörighet till den hanterade resursgruppen baserat på vilken roll som tilldelas. Rollen kan vara en inbyggd roll för rollbaserad åtkomstkontroll (RBAC) som Ägare eller Deltagare. Du kan också ge en enskild användare behörighet att hantera resurser, men vanligtvis tilldelar du den här behörigheten till en användargrupp. Information om hur du skapar en ny Active Directory-användargrupp finns i [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
-Du måste objekt-ID i gruppen du använder för att hantera resurser. 
+Du behöver objekt-ID:t för den användargrupp som du vill använda för att hantera resurser. 
 
 ```powershell
 $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 ```
 
-### <a name="get-the-role-definition-id"></a>Hämta rolldefinitions-ID:
+### <a name="get-the-role-definition-id"></a>Hämta rolldefinitions-ID:t
 
-Sedan måste roll definition-ID för den inbyggda RBAC-rollen som du vill bevilja åtkomst till användare, grupp eller programmet. Normalt använder du rollen ägare eller deltagare eller läsare. Följande kommando visar hur du hämtar rolldefinitions-ID:t för ägarrollen:
+Du behöver också rolldefinitions-ID:t för den inbyggda roll med rollbaserad åtkomstkontroll som du vill använda för att ge åtkomst till användaren, användargruppen eller programmet. Normalt använder du rollen Ägare, Deltagare eller Läsare. Följande kommando visar hur du hämtar rolldefinitions-ID:t för ägarrollen:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
@@ -186,7 +187,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 
 ### <a name="create-the-managed-application-definition"></a>Skapa definitionen för det hanterade programmet
 
-Om du inte redan har en resursgrupp för att lagra dina definition för hanterade program ska du skapa en nu:
+Om du inte redan har en resursgrupp där det hanterade programmets definition kan lagras skapar du en nu:
 
 ```powershell
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
@@ -210,7 +211,7 @@ New-AzureRmManagedApplicationDefinition `
 
 ## <a name="create-the-managed-application"></a>Skapa det hanterade programmet
 
-Du kan distribuera hanterade program via portalen, PowerShell eller Azure CLI.
+Du kan distribuera det hanterade programmet via portalen, PowerShell eller Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -234,44 +235,44 @@ New-AzureRmManagedApplication `
   -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
 ```
 
-Hanterade programmet och hanterad infrastruktur finns nu i prenumerationen.
+Nu finns det hanterade programmet och den hanterade infrastrukturen i prenumerationen.
 
 ### <a name="portal"></a>Portalen
 
 Nu ska vi använda portalen för att distribuera det hanterade programmet. Du kan se användargränssnittet som du skapade i paketet.
 
-1. Gå till Azure-portalen. Välj **+ skapa en resurs** och Sök efter **tjänstkatalogen**.
+1. Gå till Azure Portal. Välj **+ Skapa en resurs** och sök efter **tjänstkatalog**.
 
-   ![Sök tjänstkatalogen](./media/publish-service-catalog-app/create-new.png)
+   ![Sök efter tjänstkatalog](./media/publish-service-catalog-app/create-new.png)
 
-1. Välj **Tjänstkatalogen hanterat program**.
+1. Välj **Tjänstkatalogen för hanterade program**.
 
-   ![Välj tjänstkatalogen](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
+   ![Välj tjänstkatalog](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Välj **Skapa**.
 
    ![Välj Skapa](./media/publish-service-catalog-app/select-create.png)
 
-1. Hitta det hanterade programmet som du vill skapa i listan över tillgängliga lösningar och markera den. Välj **Skapa**.
+1. Leta upp det hanterade program som du vill skapa i listan över tillgängliga lösningar och välj det. Välj **Skapa**.
 
-   ![Hitta det hanterade programmet](./media/publish-service-catalog-app/find-application.png)
+   ![Leta upp det hanterade programmet](./media/publish-service-catalog-app/find-application.png)
 
-1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som innehåller det hanterade programmet. Välj **Väst centrala oss** för platsen. När du är klar väljer du **OK**.
+1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som ska innehålla det hanterade programmet. Välj **USA, västra centrala** för platsen. När du är klar väljer du **OK**.
 
-   ![Ange parametrar för hanterade program](./media/publish-service-catalog-app/add-basics.png)
+   ![Ange parametrar för det hanterade programmet](./media/publish-service-catalog-app/add-basics.png)
 
-1. Ange värden som är specifika för resurser i det hanterade programmet. När du är klar väljer du **OK**.
+1. Ange värden som är specifika för resurserna i det hanterade programmet. När du är klar väljer du **OK**.
 
-   ![Ange Resursparametrar för](./media/publish-service-catalog-app/add-storage-settings.png)
+   ![Ange resursparametrar](./media/publish-service-catalog-app/add-storage-settings.png)
 
-1. Mallen verifierar de värden du angav. Om verifieringen lyckas, väljer **OK** att starta distributionen.
+1. Mallen verifierar de värden du angett. Om verifieringen lyckas väljer du **OK** för att starta distributionen.
 
-   ![Validera hanterade program](./media/publish-service-catalog-app/view-summary.png)
+   ![Verifiera det hanterade programmet](./media/publish-service-catalog-app/view-summary.png)
 
-När distributionen är klar finns det hanterade programmet i en resursgrupp med namnet applicationGroup. Storage-konto finns i en resursgrupp med namnet applicationGroup plus ett strängvärde som hashformaterats.
+När distributionen är klar finns det hanterade programmet i en resursgrupp med namnet applicationGroup. Lagringskontot finns i en resursgrupp med namnet applicationGroup, samt ett hash-kodat strängvärde.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
-* Till exempel projekt, se [exempelprojekten för Azure hanterade program](sample-projects.md).
+* Exempelprojekt hittar du i [exempelprojekten för Azure-hanterade program](sample-projects.md).
 * Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.

@@ -11,25 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/16/2018
+ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ada38fc26f2fce9251ae648302733b04fe4c82ec
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195836"
 ---
-# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Övervaka användning och prestanda för Windows-appar
+# <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
-Även om telemetri kan skickas till Application Insights från ett program, är detta huvudsakligen användbatr för felsökning och utveckling.
+Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application Insights. Den enda begränsningen är behovet av att [tillåta kommunikation](app-insights-ip-addresses.md) till Application Insights-tjänsten. För övervakning av UWP-program (Universell Windows-plattform) rekommenderar vi [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
-## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Skicka telemetri till Application Insights från ett Windows-program
+## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Så här skickar du telemetri till Application Insights från ett klassiskt Windows-program
 1. [Skapa en Application Insights-resurs](app-insights-create-new-resource.md) på [Azure Portal](https://portal.azure.com). Välj ASP.NET-app för programtyp.
 2. Kopiera instrumenteringsnyckeln. Hitta nyckeln i Essentials-listrutan för den nya resursen som du nyss skapade. 
 3. Redigera NuGet-paketet av för ett programprojekt och lägg till Microsoft.ApplicationInsights.WindowsServer i Visual Studio. (Eller välj Microsoft.ApplicationInsights om du bara vill ha API, utan standardmoduler för telemetrisk insamling)
 4. Ange antingen instrumentationsnyckeln i koden:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *din nyckel* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *din nyckel* `";`
    
     eller i ApplicationInsights.config (om du har installerat ett standard-telemetripaket):
    

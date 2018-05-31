@@ -19,15 +19,16 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30185211"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuera en Azure Machine Learning-webbtjänst
 Azure Machine Learning kan du skapa, testa och distribuera förutsägelseanalyslösningar.
 
 Detta görs från en punkt-för-översikt, i tre steg:
 
-* **[Skapa en träningsexperiment]**  -Azure Machine Learning Studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en förutsägelseanalysmodell med hjälp av utbildningsdata som du anger.
+* **[Skapa ett experiment utbildning]**  -Azure Machine Learning Studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en förutsägelseanalysmodell med hjälp av utbildningsdata som du anger.
 * **[Konvertera den till en prediktivt experiment]**  -när modellen har tränats med befintliga data och du är redo att använda den för att samla in nya data kan du förbereda och förenkla experimentet för förutsägelser.
-* **[Distribuera den som en webbtjänst]**  -du kan distribuera din prediktivt experiment som en [nya] eller [klassiska] Azure-webbtjänsten. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
+* **[Distribuera den som en webbtjänst]**  -du kan distribuera din prediktivt experiment som en [Ny] eller [Klassisk] Azure-webbtjänsten. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -182,11 +183,11 @@ Eftersom du har distribuerat experimentet innan tillfrågas du om du vill skriva
 Ett alternativ för att uppdatera webbtjänsten är att träna om modellen programmässigt. Mer information finns i [Träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 
 <!-- internal links -->
-[Skapa en träningsexperiment]: #create-a-training-experiment
+[Skapa ett experiment utbildning]: #create-a-training-experiment
 [Konvertera den till en prediktivt experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Distribuera den som en webbtjänst]: #deploy-it-as-a-web-service
-[nya]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[klassiska]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Ny]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Klassisk]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198715"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt
 I den här snabbstarten aktiverar du Azure Content Delivery Network (CDN) genom att skapa en ny CDN-profil och CDN-slutpunkt. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder.
@@ -70,7 +71,7 @@ När du har skapat en CDN-profil kan använda du den för att skapa en slutpunkt
    ![CDN-slutpunkt](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Slutpunkten kan inte användas direkt, eftersom det tar tid för registreringen att sprida sig: 
-   - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+   - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
    - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
    - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 90 minuter. 
 
@@ -87,6 +88,6 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän i din CDN-slutpunkt finns i följande självstudiekurs:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Lägga till Azure CDN till en webbapp](app-service-web-tutorial-content-delivery-network.md)
+> [Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
 

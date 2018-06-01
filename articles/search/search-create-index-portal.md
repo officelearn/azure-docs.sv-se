@@ -3,27 +3,24 @@ title: Skapa ett index (portal – Azure Search) | Microsoft Docs
 description: Skapa ett index med hjälp av Azure-portalen.
 manager: cgronlun
 author: heidisteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: ab0352b8c830e875afc9b1d1b006ba4d2a512d7a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203877"
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Skapa ett Azure Search-index med hjälp av Azure-portalen
-> [!div class="op_single_selector"]
-> * [Översikt](search-what-is-an-index.md)
-> * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
 
 Använd den inbyggda funktionen för indexdesign i Azure-portalen som prototyp eller skapa ett [sökindex](search-what-is-an-index.md) som ska köras i din Azure Search-tjänst. 
+
+Du kan också skapa ett index med hjälp av [.NET](search-create-index-dotnet.md) eller [REST](search-create-index-rest-api.md) API:er.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

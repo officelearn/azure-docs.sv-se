@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304886"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande belastningsutjämnare med Azure Portal
 
@@ -165,7 +166,7 @@ Om du vill att den grundläggande belastningsutjämnaren ska övervaka status f�
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
 
-Du använder en belastningsutjämningsregel för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. 
+Du använder en belastningsutjämningsregel för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafik, samt även nödvändig käll- och målport. 
 
 Skapa en belastningsutjämningsregel med namnet **myLoadBalancerRuleWeb** för att avlyssna port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln används även för att skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
 
@@ -194,4 +195,7 @@ Du kan ta bort resursgruppen, belastningsutjämnaren och alla relaterade resurse
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan dessa resurser för att skapa en belastningsutjämnare. Lär dig mer om belastningsutjämnare och deras associerade resurser i självstudiekursens artiklar.
+I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan de här resurserna för att skapa en grundläggande belastningsutjämnare. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

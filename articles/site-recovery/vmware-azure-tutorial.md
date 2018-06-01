@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212882"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -35,7 +36,7 @@ Innan du börjar är det bra att [granska arkitekturen](vmware-azure-architectur
 
 ## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
 
-1. I **Recovery Services-valven** väljer du valvnamnet **ContosoVMVault**.
+1. Välj valvets namn i **Recovery Services-valv**. I det här scenariot använder vi namnet **ContosoVMVault**.
 2. I **Komma igång** väljer du Site Recovery. Välj sedan **Förbered infrastrukturen**.
 3. I **Skyddsmål** > **Var finns dina datorer?** väljer du **Lokalt**.
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
@@ -139,7 +140,7 @@ Välj och kontrollera målresurserna.
 1. Öppna [Azure Portal](https://portal.azure.com) och välj **Alla resurser**.
 2. Välj det Recovery Service-valv som har namnet **ContosoVMVault**.
 3. Om du vill skapa en replikeringsprincip väljer du **Site Recovery-infrastruktur** > **Replikeringsprinciper** > **+Replikeringsprincip**.
-4. I **Skapa replikeringsprincip** anger du principnamnet **VMwareRepPolicy**.
+4. I **Skapa replikeringsprincip** anger du principnamnet. I det här scenariot använder vi namnet **VMwareRepPolicy**.
 5. I **Tröskelvärde för återställningspunktmål** använder du standardvärdet 60 minuter. Det här värdet anger hur ofta återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
 6. I **Återställningspunkt för kvarhållning** anger du standardvärdet 24 timmar som kvarhållningsperiod för varje återställningspunkt. Använd 72 timmar i den här självstudien. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster.
 7. I **Appkompatibel ögonblicksbildsfrekvens** använder du standardvärdet 60 minuter som frekvens när programkonsekventa ögonblicksbilder skapas. Välj **OK** för att skapa principen.

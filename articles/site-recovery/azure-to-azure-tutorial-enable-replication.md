@@ -1,21 +1,22 @@
 ---
-title: Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery (förhandsversion)
+title: Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery
 description: Lär dig konfigurera programåterställning för virtuella Azure-datorer till annan Azure-region med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211675"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Konfigurera programåterställning för virtuella Azure-datorer till en sekundär Azure-region (förhandsversion)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
@@ -27,6 +28,7 @@ Den här självstudien visar hur du konfigurerar haveriberedskap till en sekund�
 > * Konfigurera utgående åtkomst för virtuella datorer
 > * Aktivera replikering för en virtuell dator
 
+Azure till Azure-replikering finns för närvarande som förhandsversion.
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
@@ -109,7 +111,7 @@ Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-r
 ### <a name="select-the-source"></a>Välj källan
 
 1. I Recovery Services-valven klickar du på valvnamnet > **+Replikera**.
-2. I **Källa** väljer du **Azure – FÖRHANDSVERSION**.
+2. I **Källa** väljer du **Azure**.
 3. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 4. Välj **Distributionsmodell för Azure virtuella datorer** för virtuella datorer: **Resurshanterare** eller **Klassisk**.
 5. Välj **Källresursgrupp** för resurshanterar-VM eller **molntjänst** för klassiska VM.

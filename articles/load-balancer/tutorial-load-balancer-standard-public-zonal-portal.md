@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304733"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Belastningsutjämna virtuella datorer i en tillgänglighetszon med standardbelastningsutjämnare med hjälp av Azure Portal
 
@@ -115,7 +116,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-1. Klicka på **Skapa en resurs** > **Beräkna** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupZLB* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupZLB*.
@@ -139,7 +140,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 2. Klicka på **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 3. Logga in på den virtuella datorn med användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 4. Navigera till **Windows Administrationsverktyg**>**Windows PowerShell** på serverdatorn.
-6. I PowerShell-fönstret kör du följande kommandon för att installera IIS server, tar bort filen default.htm och lägger till en ny med filen default.htm som visar namnet på den virtuella datorn:
+6. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Stäng RDP-session med *myVM1*
-9. Upprepa steg 1 till 8 för att installera IIS på *myVM2*.
+7. Stäng RDP-session med *myVM1*
+8. Upprepa steg 1 till 7 för att installera IIS på *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för belastningsutjämning
 

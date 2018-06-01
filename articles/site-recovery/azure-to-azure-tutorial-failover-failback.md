@@ -1,31 +1,34 @@
 ---
-title: "Redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery (förhandsversion)"
-description: "Lär dig hur du utför redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery"
+title: Redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery
+description: Lär dig hur du utför redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209281"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Redundansväxling och återställning vid fel för virtuella Azure-datorer mellan Azure-regioner (förhandsversion)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Redundansväxling och felåterställning av virtuella Azure-datorer mellan Azure-regioner
 
-[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och Azure virtuella datorer.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien beskriver hur en virtuell Azure-dator redundansväxlas till en sekundär Azure-region. När du har redundansväxlat kan du återställa till den primära regionen när den är tillgänglig. I den här guiden får du lära dig hur man:
+Den här självstudien beskriver hur en virtuell Azure-dator redundansväxlas till en sekundär Azure-region. När du har redundansväxlat kan du återställa till den primära regionen när den är tillgänglig. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Redundansväxla en virtuell Azure-dator
 > * Återaktivera skyddet för den sekundära virtuella Azure-datorn så att den replikeras till den primära regionen
 > * Återställa den sekundära virtuella datorn
 > * Återaktivera skyddet för den primära virtuella datorn så den replikeras till den sekundära regionen
+
+Azure till Azure-replikering finns för närvarande i förhandsversion.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

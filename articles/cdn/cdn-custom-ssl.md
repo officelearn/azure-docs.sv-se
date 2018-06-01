@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258447"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -52,9 +53,15 @@ Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-pr
 
 Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
-## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>Alternativ 1 (standard): Aktivera HTTPS-funktionen med ett CDN-hanterat certifikat  
+---
 
-Med det här alternativet kan den anpassade HTTPS-funktionen aktiveras med bara några klick. Azure CDN hanterar alla certifikathanteringsuppgifter, till exempel anskaffning och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till CDN-slutpunkten, krävs ingen ytterligare åtgärd. Azure CDN behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
+## <a name="ssl-certificates"></a>SSL-certifikat
+Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Azure CDN-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure CDN eller använda ett eget certifikat.
+
+
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Alternativ 1 (standard): Aktivera HTTPS med ett CDN-hanterat certifikat](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+När du använder ett CDN-hanterat certifikat kan du aktivera HTTPS med några få klick. Azure CDN hanterar alla certifikathanteringsuppgifter, till exempel anskaffning och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till CDN-slutpunkten, krävs ingen ytterligare åtgärd. Azure CDN behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
@@ -74,24 +81,44 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 4. Under certifikathanteringstyp väljer du **CDN-hanterat**.
 
-4. Välj **På** för att aktivera HTTPS.
+5. Välj **På** för att aktivera HTTPS.
 
     ![HTTPS-status för anpassad domän](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Fortsätt och [verifiera domänen](#validate-the-domain).
 
-## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Alternativ 2: Aktivera HTTPS-funktionen med ditt eget certifikat 
+
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Alternativ 2: Aktivera HTTPS med ditt eget certifikat](#tab/option-2-enable-https-with-your-own-certificate)
+
+> [!IMPORTANT]
+> Det här alternativet är endast tillgängligt med profiler av typen **Azure CDN Standard från Microsoft**. 
+>
  
-Du kan använda ditt eget certifikat på Azure CDN för att leverera innehåll via HTTPS. Den här processen görs via en integrering med Azure Key Vault. Med Azure Key Vault kan kunderna lagra sina certifikat på ett säkert sätt. Azure CDN-tjänsten använder den här säkra metoden för att hämta certifikatet. När du använder ditt eget certifikat krävs några ytterligare steg.
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg.
 
-### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Steg 1: Förbered ditt Azure Key Vault-konto och certifikat
+### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
 1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som Azure CDN-profilen och CDN-slutpunkterna där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
  
 2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en certifikatutfärdare som Azure Key Vault integreras med. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Steg 2: Ge Azure CDN-åtkomst till nyckelvalvet
+### <a name="register-azure-cdn"></a>Registrera Azure CDN
+
+Registrera Azure CDN som en app i Azure Active Directory via PowerShell.
+
+1. Om det behövs installerar du [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) i PowerShell på den lokala datorn.
+
+2. Kör följande kommando i PowerShell:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Registrera Azure CDN i PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="grant-azure-cdn-access-to-your-key-vault"></a>Ge Azure CDN åtkomst till ditt nyckelvalv
  
-Du måste ge Azure CDN-behörighet att komma åt certifikaten (hemligheterna) på ditt Azure Key Vault-konto.
+Ge Azure CDN behörighet att komma åt certifikaten (hemligheterna) på ditt Azure Key Vault-konto.
+
 1. I nyckelvalvskonto under INSTÄLLNINGAR väljer du **Åtkomstprinciper** och sedan **Lägg till nytt** för att skapa en ny princip.
 
     ![Skapa en ny åtkomstprincip](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +133,7 @@ Du måste ge Azure CDN-behörighet att komma åt certifikaten (hemligheterna) p�
 
     Azure CDN har nu åtkomst till nyckelvalvet och certifikaten (hemligheterna) som lagras i nyckelvalvet.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Steg 3: Välj det certifikat som Azure CDN ska distribuera
+### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Välj det certifikat som ska distribueras av Azure CDN
  
 1. Gå tillbaka till Azure CDN-portalen och välj den profil och CDN-slutpunkt som du vill aktivera anpassad HTTPS för. 
 
@@ -126,16 +153,21 @@ Du måste ge Azure CDN-behörighet att komma åt certifikaten (hemligheterna) p�
     - Tillgängliga certifikatversioner. 
  
 5. Välj **På** för att aktivera HTTPS.
+  
+6. Domänverifiering krävs inte om du använder ett eget certifikat. Gå vidare till [Vänta på spridning](#wait-for-propagation).
 
+---
 
 ## <a name="validate-the-domain"></a>Verifiera domänen
 
-Om du redan har en anpassad domän i bruk som är mappad till din anpassade slutpunkt med en CNAME-post, fortsätter du till  
+Om du redan har och använder en anpassad domän som är mappad till din anpassade slutpunkt med en CNAME-post eller om du använder ett eget certifikat fortsätter du till  
 [Den anpassade domänen har mappats till CDN-slutpunkten](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Om CNAME-posten för slutpunkten inte längre finns eller om den innehåller cdnverify-underdomänen fortsätter du i stället till [Den anpassade domänen har inte mappats till CDN-slutpunkten](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Den anpassade domänen har mappats till CDN-slutpunkten med en CNAME-post
 
-När du lade till en anpassad domän till din slutpunkt skapade du en CNAME-post i din domänregistrators DNS-tabell för att mappa den till CDN-slutpunktens värdnamn. Om CNAME-posten fortfarande finns kvar och inte innehåller cdnverify-underdomänen använder DigiCert-certifikatutfärdaren den för att verifiera ägarskapet för din anpassade domän. 
+När du lade till en anpassad domän till din slutpunkt skapade du en CNAME-post i din domänregistrators DNS-tabell för att mappa den till CDN-slutpunktens värdnamn. Om CNAME-posten fortfarande finns kvar och inte innehåller cdnverify-underdomänen använder DigiCert-certifikatutfärdaren den för att automatiskt verifiera ägarskapet för din anpassade domän. 
+
+Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade domän och *Värde* är CDN-slutpunktens värdnamn:
 

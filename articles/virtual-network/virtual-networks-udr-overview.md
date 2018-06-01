@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211804"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -123,7 +124,7 @@ En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i A
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
 
-Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN fås med hjälp av anpassade vägar](#custom-routes) där nästa hopp har typen VPN. Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](manage-route-table.md#create-a-route-table).
+Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen VPN. Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 

@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304468"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Belastningsutjämna virtuella datorer i flera tillgänglighetszoner med standardbelastningsutjämnare med hjälp av Azure Portal
 
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. Den här kursen går stegvis igenom hur du skapar en offentlig belastningsutjämningsstandard som belastningsutjämnar virtuella datorer i flera tillgänglighetszoner. Det här hjälper till att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter. Med zonredundans kan en eller flera tillgänglighetszoner misslyckas och datasökvägen överleva så länge en zon i regionen har god status. Lär dig att:
 
 > [!div class="checklist"]
-> * skapa en standardbelastningsutjämnare
+> * Skapa en standardbelastningsutjämnare
 > * skapa nätverkssäkerhetsgrupper för att definiera regler för inkommande trafik
 > * skapa zonredundanta virtuella datorer över flera zoner och ansluta till en belastningsutjämnare
 > * skapa hälsoavsökning för belastningsutjämnaren
@@ -37,6 +38,8 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 > * visa en belastningsutjämnare i praktiken
 
 Mer information om hur du använder tillgänglighetszoner med standardbelastningsutjämnare finns i [Standardbelastningsutjämnare och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
+
+Om du vill kan du slutföra den här självstudien med [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -118,7 +121,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för belastningsutjämnaren.
 
-1. Klicka på **Skapa en resurs** > **Beräkna** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
@@ -141,18 +144,21 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 1. Klicka på **Alla resurser** på den vänstra menyn och klicka sedan i resurslistan på **myVM1** som finns i resursgruppen *myResourceGroupLBAZ*.
 2. Klicka på **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 3. Logga in på den virtuella datorn med användarnamnet *azureuser*.
-4. Navigera till **Windows Administrationsverktyg**>**Serverhanteraren** på serverdatorn.
-5. På sidan snabbstartsidan i Serverhanteraren klickar du på **Lägg till roller och funktioner**.
-
-   ![Lägga till i backend-adresspoolen (serverdelspoolen) ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. Använd följande värden i guiden **Lägg till roller och funktioner**:
-    - Klicka på **Rollbaserad eller funktionsbaserad installation** på sidan **Välj installationstyp**.
-    - Klicka på **myVM1** på sidan **Välj målserver**.
-    - Klicka på **Webbserver (IIS)** på sidan **Välj serverroll**.
-    - Slutför arbetet genom att följa anvisningarna i guiden.
-2. Stäng RDP-sessionen med den virtuella datorn – *myVM1*.
-3. Upprepa steg 1–7 för att installera IIS på de virtuella datorerna *myVM2* och *myVM3*.
+4. Navigera till **Windows Administrationsverktyg**>**Windows PowerShell** på serverdatorn.
+5. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Stäng RDP-sessionen med *myVM1*.
+7. Upprepa steg 1 till 6 för att installera IIS och den uppdaterade filen iisstart.htm på *myVM2* och *myVM3*.
 
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för belastningsutjämning
 
@@ -215,7 +221,7 @@ En belastningsutjämningsregel används för att definiera hur trafiken ska dist
 
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
 
-      ![IIS-webbserver](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Om du vill se belastningsutjämnaren fördela trafik på de virtuella datorer som är distribuerade i zonen kan du tvångsuppdatera webbläsaren.
 

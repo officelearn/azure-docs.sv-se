@@ -1,97 +1,98 @@
 ---
-title: "Azure messaging-tjänster jämförelse"
-description: "Jämför Azure händelse rutnätet Händelsehubbar och Service Bus. Rekommenderar vilken tjänst som ska användas för olika scenarier."
+title: Jämförelse av Azure-meddelandetjänster
+description: Jämför Azure Event Grid, Event Hubs och Service Bus. Rekommenderar vilken tjänst som ska användas för olika scenarier.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303563"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Välj mellan Azure-tjänster som levererar meddelanden
 
-Azure erbjuder tre tjänster som hjälp med att leverera meddelanden om händelser i en lösning. Följande tjänster är:
+Azure erbjuder tre tjänster som hjälp med att leverera händelsemeddelanden i en lösning. Dessa tjänster är:
 
-* [Händelsen rutnätet](/azure/event-grid/)
+* [Event Grid](/azure/event-grid/)
 * [Event Hubs](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
-Även om de har vissa likheter är varje tjänst utformad för särskilda scenarier. Den här artikeln beskrivs skillnaderna mellan dessa tjänster och förstå vilken de ska välja för ditt program. I många fall meddelandetjänsten kompletterar och kan användas tillsammans.
+Även om de har vissa likheter är varje tjänst utformad för särskilda scenarier. I den här artikeln beskrivs skillnaderna mellan dessa tjänster, vilket hjälper dig förstå vilken som ska väljas för ditt program. I många fall kompletterar meddelandetjänsterna varandra och kan användas tillsammans.
 
-## <a name="event-vs-message-services"></a>Händelsen kontra message-tjänster
+## <a name="event-vs-message-services"></a>Händelser jämfört med meddelandetjänster
 
-Det är en viktig skillnad att notera mellan tjänster som levererar en händelse och tjänster som levererar ett meddelande.
+Det finns en viktig skillnad mellan tjänster som levererar en händelse och tjänster som levererar ett meddelande.
 
 ### <a name="event"></a>Händelse
 
-En händelse är ett enkelt meddelande om ett villkor eller en ändring. Utgivaren av händelsen har inga förväntan om hur händelsen hanteras. Konsumenter av händelsen avgör vad du gör med meddelandet. Händelser kan vara separata enheter eller en del av en serie.
+En händelse är ett enkelt meddelande om ett villkor eller en statusändring. Utgivaren av händelsen har ingen förväntan om hur händelsen ska hanteras. Händelsekonsumenten avgör vad man gör med meddelandet. Händelser kan vara diskreta enheter eller ingå i en serie.
 
-Diskreta händelser rapportera tillståndsändring och är tillämplig. Om du vill gå vidare endast måste veta att något hände. Händelsedata som innehåller information om vad som hänt men har inte de data som utlöste händelsen. Till exempel meddela en händelse konsumenter att en fil har skapats. Det kan innehålla allmän information om filen, men det innehåller inte själva filen. Diskreta händelser är idealisk för serverlösa lösningar som behöver för att skala.
+Diskreta händelser rapporterar statusändringar och har handlingsbarhet. För att gå vidare behöver konsumenten endast veta att något hände. Händelsedatan innehåller information om vad som har hänt, men har inte de data som utlöste händelsen. Till exempel meddelar en händelse konsumenten att en fil har skapats. Meddelandet innehåller allmän information om filen, men det innehåller inte själva filen. Diskreta händelser är idealiska för serverlösa lösningar som behöver vara skalbara.
 
-Serie händelser rapportera ett villkor och är analyzable. Händelser är sorterade tid och relaterade. Konsumenten måste den sekvenserade serien händelser att analysera vad hände.
+Seriehändelser rapporterar ett tillstånd och går att analysera. Händelserna är tidssorterade och överlappande. Konsumenten måste ha den sekventiella händelseserien för att kunna analysera vad hände.
 
 ### <a name="message"></a>Meddelande
 
-Ett meddelande är rådata som genereras av en tjänst som ska förbrukas eller lagrats någon annanstans. Meddelandet innehåller data som utlöste meddelandet pipeline. Utgivaren av meddelandet har en förväntan om hur konsumenten hanterar meddelandet. Det finns ett avtal mellan de två sidorna. Utgivaren skickar ett meddelande med rådata och förväntar sig konsumenten att skapa en fil från dessa data och skicka ett svar när arbetet utförs.
+Ett meddelande är rådata som genereras av en tjänst och som ska förbrukas eller lagras någon annanstans. Meddelandet innehåller de data som utlöste meddelandets pipeline. Utgivaren av meddelandet har en förväntan på hur konsumenten ska hantera meddelandet. Det finns ett kontrakt mellan de två sidorna. Utgivaren skickar exempelvis ett meddelande med rådata och förväntar sig att konsumenten skapar en fil från dessa data, samt skickar ett svar när arbetet utförts.
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
 | Tjänst | Syfte | Typ | När du ska använda detta |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reaktiv programmering | Händelsedistribution (diskreta) | Ta hänsyn till status ändras |
-| Händelsehubbar | Stordata pipeline | Händelsen streaming (serie) | Telemetri och distribuerade data strömning |
-| Service Bus | Högt värde enterprise-meddelanden | Meddelande | Bearbetningen och finansiella transaktioner |
+| Event Grid | Reaktiv programmering | Händelsedistribution (diskret) | Reagera på statusändringar |
+| Event Hubs | Pipeline för stordata | Händelseströmning (serie) | Telemetri och distribuerade strömmande data |
+| Service Bus | Företagsmeddelanden med högt värde | Meddelande | Orderbearbetning och finansiella transaktioner |
 
 ### <a name="event-grid"></a>Event Grid
 
-Händelsen rutnätet är en eventing bakplan som möjliggör händelsedriven, reaktiv programmering. Den använder ett Publicera-prenumerera modellen. Utgivare genererar händelser, men har ingen förväntan om vilka händelser som ska hanteras. Prenumeranter bestämmer vilka händelser som de vill hantera.
+Event Grid är en händelsebakplan som möjliggör händelsedriven och reaktiv programmering. Den använder en publicera/prenumerera-modell. Utgivarna genererar händelser, men har ingen förväntan på vilka händelser som hanteras. Prenumeranterna bestämmer vilka händelser de vill hantera.
 
-Händelsen rutnätet är djupt integrerad med Azure-tjänster och kan integreras med tjänster från tredje part. Det förenklar händelsekonsumtion och sänker kostnaderna genom att eliminera behovet av konstant avsökning. Händelsen rutnätet dirigerar effektivt och tillförlitligt händelser från Azure och Azure-resurser. Den distribuerar händelser till registrerade prenumeranten slutpunkter. Händelsemeddelandet innehåller den information du behöver ta hänsyn till ändringar i tjänster och program. Händelsen rutnätet är inte en data-pipeline och leverera inte det faktiska objektet har uppdaterats.
-
-Det har följande egenskaper:
-
-* dynamiskt utbyggbara
-* Låg kostnad
-* Serverlösa
-
-### <a name="event-hubs"></a>Händelsehubbar
-
-Händelsehubbar i Azure är en pipeline för stordata. Det underlättar capture, kvarhållning och omsändning av telemetri och händelse data i dataströmmen. Data kan komma från många samtidiga källor. Händelsehubbar kan telemetri och händelse data kan göras tillgängliga till en mängd olika tjänster för bearbetning av dataströmmen infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsebatchar. Den här tjänsten tillhandahåller en enkel lösning som möjliggör snabb datahämtning för realtidsbearbetning samt upprepade omsändning av lagrade rådata. Det kan samla in strömmande data till en fil för bearbetning och analys.
+Event Grid är djupt integrerat med Azures tjänster och kan även integreras med tjänster från tredje part. Det förenklar händelsekonsumtionen och sänker kostnaderna genom att eliminera behovet av konstant avsökning. Event Grid dirigerar effektivt och tillförlitligt händelser från resurser, oavsett om de kommer från Azure eller ej. Det distribuerar händelserna till registrerade prenumerantslutpunkter. Händelsemeddelandet innehåller den information du behöver för att kunna reagera på ändringar i tjänster och program. Event Grid är inte någon datapipeline och levererar inte det faktiska objekt som har uppdaterats.
 
 Det har följande egenskaper:
 
-* låg latens
-* kan ta emot och bearbetning av miljontals händelser per sekund
+* dynamiskt skalbart
+* låg kostnad
+* serverlöst
+
+### <a name="event-hubs"></a>Event Hubs
+
+Azure Event Hubs är en pipeline för stordata. Det underlättar avbildning, kvarhållning och återuppspelning av telemetri och händelsedataströmmar. Datan kan komma från många samtidiga källor. Med Event Hubs kan telemetri och händelsedata göras tillgängliga för en mängd olika tjänster för bearbetning av dataströmmar, infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsegrupper. Tjänsten innehåller en enskild lösning för snabb datahämtning till realtidsbearbetning, samt upprepad återuppspelning av lagrade rådata. Den kan avbilda strömmande data till en fil för bearbetning och analys.
+
+Den har följande egenskaper:
+
+* låg fördröjning
+* kan ta emot och bearbeta miljontals händelser per sekund
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus är avsedd för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, ordning, dubblettidentifiering och omedelbar konsekvenskontroll. Service Bus gör det möjligt för moln-intern program att tillhandahålla tillförlitlig övergången tillståndshantering för affärsprocesser. När du arbetar med högt värde meddelanden som inte kan tappas bort eller dubbletter, Använd Azure Service Bus. Service Bus också underlättar mycket säker kommunikation över hybridlösningar för molnet och befintliga lokala system kan ansluta till molnlösningar.
+Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, sortering, dubblettidentifiering och omedelbar konsekvens. Med Service Bus kan program i molnet tillhandahålla tillförlitlig övergångshantering för tillstånd i affärsprocesser. Om du hanterar viktiga meddelanden som inte får försvinna eller dupliceras, bör du använda Azure Service Bus. Service Bus underlättar också säker kommunikation i hybridmolnlösningar och kan ansluta befintliga lokala system till molnlösningar.
 
-Service Bus är en asynkrona meddelanden. Den lagrar meddelanden i en ”broker” (till exempel en kö) tills konsumentparten är redo att ta emot meddelanden.
+Service Bus är en asynkron meddelandetjänst. Den lagrar meddelanden på ett tillförlitligt sätt i en ”asynkron meddelandekö” tills konsumenten är redo att ta emot meddelandena.
 
-Det har följande egenskaper:
+Den har följande egenskaper:
 
-* tillförlitliga asynkron sändning av meddelande (enterprise-meddelanden som en tjänst) som kräver avsökning
-* avancerade meddelandefunktioner som FIFO, batchbearbetning/sessioner, transaktioner, dead-lettering, Tidsbestämd kontroll, Routning och filtrering och dubblettidentifiering
+* tillförlitlig asynkron leverans av meddelanden (företagsmeddelanden som en tjänst) som kräver avsökning
+* avancerade meddelandefunktioner som FIFO, batchbearbetning/sessioner, transaktioner, obeställbara meddelanden, tidsbaserad kontroll, routning och filtrering, samt dubblettidentifiering
 
 ## <a name="use-the-services-together"></a>Använda tjänsterna tillsammans
 
-I vissa fall kan använda du tjänster sida vid sida för att uppfylla olika roller. En e-handel plats kan använda Service Bus för att bearbeta ordningen Händelsehubbar att samla in telemetri för platsen, och händelsen rutnätet för att svara på händelser som ett objekt som har levererats.
+I vissa fall kan du använda tjänsterna sida vid sida för att uppfylla olika roller. En e-handelsplats kan exempelvis använda Service Bus till att bearbeta beställningen, Event Hubs för att samla in telemetri för platsen och Event Grid för att svara på händelser, som t.ex. när ett objekt levererades.
 
-I andra fall kan länka du dem tillsammans för att skapa en händelse och data pipeline. Du kan använda händelsen rutnätet för att svara på händelser i andra tjänster. Ett exempel på hur händelsen rutnät med Händelsehubbar för att migrera data till ett datalager, se [strömma stordata i ett data warehouse](event-grid-event-hubs-integration.md). Följande bild visar arbetsflödet för strömmande data.
+I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline. Du använder Event Grid till att svara på händelser i de andra tjänsterna. Ett exempel på hur Event Grid används tillsammans med Event Hubs för att migrera data till ett informationslager, finns i [Strömma stordata till ett informationslager](event-grid-event-hubs-integration.md). Följande bild visar arbetsflödet för att strömma datan.
 
-![Översikt över data i dataströmmen](./media/compare-messaging-services/overview.png)
+![Översikt över strömmad data](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om de Azure-tjänsterna som finns i blogginlägget [händelser, datapunkter och meddelanden - att välja rätt Azure messaging-tjänsten för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* En introduktion till händelse rutnätet finns [om händelsen rutnätet](overview.md).
-* Om du vill komma igång med händelsen rutnätet, se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).
-* Kom igång med Händelsehubbar finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md).
-* Om du vill komma igång med Service Bus finns [skapa ett namnområde för Service Bus med hjälp av Azure portal](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Mer information om Azure-meddelandetjänsterna som finns i blogginlägget [Händelser, datapunkter och meddelanden – Välja rätt Azure-meddelandetjänst för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
+* Kom igång med Event Grid genom att läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Kom igång med Event Hubs genom att läsa [Skapa ett namnområde för Event Hubs och en händelsehubb med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
+* Kom igång med Service Bus genom att läsa [Skapa ett namnområde för Service Bus med hjälp av Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md).

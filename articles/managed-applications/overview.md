@@ -1,75 +1,76 @@
 ---
-title: Översikt över Azure hanterade program | Microsoft Docs
-description: Beskriver konceptet för Azure hanterade program
+title: Översikt över Azure Managed Applications | Microsoft Docs
+description: Beskriver begreppen för Azure Managed Applications
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305005"
 ---
-# <a name="azure-managed-applications-overview"></a>Översikt över hanterade program i Azure
+# <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
-Azure hanterade program kan du erbjuda molnlösningar som är enkelt för kunder att distribuera och driva. Du har implementerat infrastrukturen och pågående stödja. Om du vill göra ett hanterat program tillgängliga för alla kunder att publicera den på Azure marketplace. Om du vill göra den tillgänglig för endast användare i din organisation, att publicera det till en intern katalog. 
+Med Azure Managed Applications kan du erbjuda molnlösningar som är enkla för användare att distribuera och använda. Du implementerar infrastrukturen och erbjuder fortlöpande support. Om du vill göra ett hanterat program tillgängligt för alla kunder publicerar du det på Azure Marketplace. Publicera det till en intern katalog för att endast göra det tillgängligt för användare i din organisation. 
 
-Ett hanterat program liknar en lösningsmall i Marketplace med en nyckel skillnad. I ett hanterat program etableras resurser till en resursgrupp som hanteras av utgivaren av appen. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klienten har åtkomst till resursgruppen. Som utgivare anger du kostnaden för pågående stöd för lösningen.
+Ett hanterat program liknar en lösningsmall i Marketplace med en viktig skillnad. I ett hanterat program distribueras resurserna till en resursgrupp som hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen. Som utgivare anger du kostnaden för fortlöpande support för lösningen.
 
-## <a name="advantages-of-managed-applications"></a>Fördelarna med hanterade program
+## <a name="advantages-of-managed-applications"></a>Fördelar med hanterade program
 
-Hanterade program minska barriärer till konsumenter med hjälp av dina lösningar. De behöver inte kunskaper i cloud-infrastruktur för att använda din lösning. Användare har begränsad åtkomst till viktiga resurser. De behöver inte bekymra dig om att göra fel vid hantering av den. 
+Hanterade program minskar hindren för användare som använder dina lösningar. De behöver inga kunskaper om molninfrastruktur för att använda din lösning. Användare har begränsad åtkomst till viktiga resurser. De behöver inte oroa sig för att göra fel i hanteringen. 
 
-Hanterade program kan du upprätta en pågående relation med dina användare. Du definierar villkoren för att hantera programmet och alla avgifter hanteras via Azure fakturering.
+Med hanterade program kan du etablera en fortlöpande relation med dina användare. Du definierar villkoren för hanteringen av programmet och alla kostnader hanteras via Azure-fakturering.
 
-Kunder distribuera dessa hanterade program i sina prenumerationer, men de inte behöver underhålla, uppdatera eller tjänsten dem. Du kan se till att alla kunder använder godkända versioner. Kunder behöver utveckla programspecifika kunskap för att hantera dessa program. Kunder hämta automatiskt programuppdateringar utan att behöva bekymra dig om felsökning och diagnos av problem med program. 
+Trots att kunder distribuerar hanterade program i sina prenumerationer måste de inte underhålla, uppdatera eller utföra service på dem. Du kan se till att alla kunder använder godkända versioner. Kunder måste inte utveckla programspecifika domänkunskaper för att hantera programmen. Kunder hämtar automatiskt programuppdateringar utan att behöva tänka på felsökning och att diagnostisera problem med programmen. 
 
-För IT-team kan hanterade program du erbjuda förhandsgodkända lösningar till användare i organisationen. Du kan kontrollera dessa lösningar är kompatibla med organisationens normer.
+För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du ser till att lösningarna uppfyller organisationens standarder.
 
 ## <a name="types-of-managed-applications"></a>Typer av hanterade program
 
-Du kan publicera det hanterade programmet internt eller externt.
+Du kan publicera dina hanterade program externt eller internt.
 
 ![Publicera internt eller externt](./media/overview/manage_app_options.png)
 
-### <a name="service-catalog"></a>tjänstkatalog
+### <a name="service-catalog"></a>Tjänstkatalog
 
-Tjänstkatalogen är en intern katalog godkända lösningar för användare i en organisation. Du kan använda katalogen för att säkerställa kompatibilitet med vissa organisationens normer när de tillhandahålla lösningar för organisationer. Anställda använder katalogen för att enkelt identifiera omfattande uppsättning program som rekommenderas och godkänts av sina IT-avdelningar. De hanterade program som andra personer i organisationen som delar med dem. visas.
+Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du använder katalogen för att säkerställa kompatibilitet med vissa organisationsstandarder samtidigt som de tillhandahåller lösningar för organisationer. Anställda använder katalogen för att enkelt upptäcka den omfattande uppsättning program som rekommenderas och godkänts av sina IT-avdelningar. De ser de hanterade program som andra personer i organisationen delar med dem.
 
-Information om hur du publicerar ett program för Tjänstkatalog hanteras finns [skapa katalogen tjänstprogram](publish-service-catalog-app.md).
+Information om att publicera en tjänstkatalog för hanterade program finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
 
 ### <a name="marketplace"></a>Marketplace
 
-Leverantörer som önskar debiterar för sina tjänster kan göra ett hanterat program tillgängliga via Azure marketplace. När leverantören publicerar ett program, är den tillgänglig för användare utanför organisationen. Med den här metoden, hanterade-leverantörer (MSPs), oberoende programvaruleverantörer (ISV) och system kan dietetisk (SIs) erbjuda lösningar till alla Azure-kunder.
+Leverantörer som vill fakturera för sina tjänster kan göra ett hanterat program tillgängligt via Azure Marketplace. När en leverantör publicerar ett program är det tillgängligt för användare utanför organisationen. Med den här metoden kan leverantörer av hanterade tjänster (MSP:er), oberoende programvaruleverantörer (ISV:er) och systemintegratörer (SI:er) erbjuda sina lösningar till alla Azure-kunder.
 
-Information om hur du publicerar ett hanterat program till Marketplace finns [skapa marketplace program](publish-marketplace-app.md).
+Mer information om hur du publicerar program på Marketplace finns i [Använda marknadsplatsprogram](publish-marketplace-app.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Resurser för ett hanterat program finns vanligtvis i två resursgrupper. Konsumenten hanterar en resursgrupp och utgivaren hanterar andra resursgruppen. När du definierar det hanterade programmet anger utgivaren av åtkomstnivåer. Följande bild illustrerar ett scenario där utgivaren begär rollen ägare för den hantera resursgruppen. Utgivaren placera ett skrivskyddat lås på den här resursgruppen konsumenten. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
+Vanligtvis finns resurserna för ett hanterat program i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Följande avbildning visar ett scenario där utgivaren begär ägarrollen för den hanterade resursgruppen. Utgivaren placerade ett skrivskyddat lås för den här resursgruppen för användaren. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 
-![Åtkomst till företagsresurser grupp](./media/overview/access.png)
+![Åtkomst till resursgrupp](./media/overview/access.png)
 
-### <a name="application-resource-group"></a>Programmet resursgruppen.
+### <a name="application-resource-group"></a>Programresursgrupp
 
-Den här resursgruppen innehåller hanterade programinstansen. Den här resursgruppen får bara innehålla en resurs. Resurstypen för det hanterade programmet är **Microsoft.Solutions/applications**.
+I den här resursgruppen finns instansen för det hanterade programmet. Den här resursgruppen får bara innehålla en resurs. Resurstypen för det hanterade programmet är **Microsoft.Solutions/applications**.
 
-Konsumenten har fullständig åtkomst till resursgruppen och används för att hantera livscykeln för det hanterade programmet.
+Användaren har fullständig åtkomst till resursgruppen och använder den för att hantera det hanterade programmets livscykel.
 
 ### <a name="managed-resource-group"></a>Hanterad resursgrupp
 
-Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller till exempel virtuella datorer, lagringskonton och virtuella nätverk för lösningen. Konsumenten har begränsad åtkomst till den här resursgruppen eftersom klienten inte hantera enskilda resurser för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som angavs i programdefinitionen för hanterade. Utgivaren kan till exempel begära rollen ägare eller deltagare för den här resursgruppen.
+Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen.
 
-När användaren tar bort det hanterade programmet, hanterade resursgruppen också att tas bort.
+När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till definiera och distribuera hanterade program, finns [skapa och distribuera en Azure hanterade program med Azure CLI](managed-apps-quickstart-cli.md)
-* Information om hur du publicerar en intern App finns i [skapa katalogen tjänstprogram](publish-service-catalog-app.md).
-* Information om hur du publicerar hanterade program till marketplace finns [skapa marketplace program](publish-marketplace-app.md).
+* En introduktion till att definiera och distribuera ett hanterat problem finns i [Skapa och distribuera Azure-hanterat program med Azure CLI](managed-apps-quickstart-cli.md)
+* Information om att publicera ett internt program finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
+* Mer information om hur du publicerar program på Marketplace finns i [Använda marknadsplatsprogram](publish-marketplace-app.md).

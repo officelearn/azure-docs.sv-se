@@ -1,3 +1,0 @@
-Om du är bekant med MSI kan ta en titt på [hanterade tjänstidentiteten översikt](../articles/active-directory/msi-overview.md).
-
-Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

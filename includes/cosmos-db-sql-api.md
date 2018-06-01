@@ -1,2 +1,0 @@
->[!TIP] 
-> Azure Cosmos DB DocumentDB API eller SQL (DocumentDB) API är nu kallat Azure SQL DB-API Cosmos. Du behöver inte ändra någonting om du vill fortsätta att köra dina appar som utvecklats med DocumentDB-API. Funktionen är densamma.

@@ -1,2 +1,0 @@
-Du kan skapa virtuella datorer (VM) i Azure och koppla flera nätverksgränssnitt (NIC) till var och en av dina virtuella datorer. Flera nätverkskort är ett krav för många virtuella nätverksenheter, till exempel leverans av program och optimering av WAN-lösningar. Flera nätverkskort ger också flera nätverk trafik hanteringsfunktioner, inklusive isolering av trafik mellan en frontend NIC och backend-nätverkskort är eller avgränsning av trafiken för plan från plan hanteringstrafik.
-

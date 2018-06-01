@@ -1,2 +1,0 @@
-När du skapar en eller flera Nätverkssäkerhetsgrupper (NSG: er), du behöver för att kunna hämta information om dina NSG: er, lägga till och ta bort regler, redigera befintliga regler, koppla eller koppla bort NSG: er och ta bort NSG: er. I den här artikeln får lära du dig att köra var och en av dessa uppgifter. Innan du kan hantera NSG: er, är det viktigt att veta [hur NSG: er fungerar](../articles/virtual-network/virtual-networks-nsg.md). 
-

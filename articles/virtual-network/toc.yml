@@ -205,17 +205,9 @@
     - name: Felsöka
       items:
         - name: Nätverkssäkerhetsgrupper
-          items:
-            - name: Azure Portal
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: Vägar
-          items:
-            - name: Azure Portal
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: Testning av dataflöde
           href: virtual-network-bandwidth-testing.md
         - name: Det går inte att ta bort virtuella nätverk

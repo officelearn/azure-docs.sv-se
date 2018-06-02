@@ -23,13 +23,12 @@
 ### [Site Recovery-översikt](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Skydda
-### [Övervaka resurser](oms-security-monitoring-resources.md)
-### [Åtgärda säkerhetsaviseringar](oms-security-responding-alerts.md)
-### [Utvärdering av baslinje](oms-security-baseline.md)
-### [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Systemuppdateringsbedömning](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Ansluta säkerhetsprodukter](oms-security-connect-products.md)
-### [Utvärdering av webbaslinje](oms-security-web-baseline-assessment.md)
+### [Övervaka resurser](../security-center/security-center-monitoring.md)
+### [Åtgärda säkerhetsaviseringar](../security-center/security-center-managing-and-responding-alerts.md)
+### [Utvärdering av baslinje](../security-center/security-center-customize-os-security-config.md)
+### [Utvärdering av skadlig kod](../security-center/security-center-install-endpoint-protection.md)
+### [Ansluta säkerhetsprodukter](../security-center/quick-security-solutions.md)
+### [Utvärdering av webbaslinje](../security-center/security-center-customize-os-security-config.md)
 
 ## Använd lösningar
 ### [Lösningar för hantering](../monitoring/monitoring-solutions.md)

@@ -63,8 +63,6 @@
           href: dsc-template.md
     - name: IaaS-program mot skadlig kod för Windows
       href: iaas-antimalware-windows.md
-    - name: Key Vault
-      href: key-vault-windows.md
     - name: VM-ögonblicksbild
       items:
         - name: Linux

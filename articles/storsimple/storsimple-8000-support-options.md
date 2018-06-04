@@ -16,7 +16,7 @@ ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ms.locfileid: "32191554"
@@ -121,7 +121,7 @@ StorSimple 8000-serien lagringsmatriser support tillhandahålls baserat på hur 
 
 *<text> * Premium täckning är inte tillgänglig på alla platser. Kontakta Microsoft på SSSupOps@microsoft.com för geografisk täckning innan man köper StorSimple Premium Support.*
 
-**\*StorSimple-enhet måste distribueras i en region där kunden omfattas av Premier support för att vara kvalificerad för en gratis uppgradering till premium StorSimple support.*
+\** *StorSimple-enhet måste distribueras i en region där kunden omfattas av Premier support för att vara kvalificerad för en gratis uppgradering till premium StorSimple support.*
 
 
 Villkoret så SNART + kunder kan växla till prenumerationen modell där standard support ingår. Använda StorSimple prisnivå Kalkylatorn för prenumerationen priser och kontakta SSSupOps@microsoft.com för frågor. Växla är kan endast från villkoret så SNART + prenumeration.

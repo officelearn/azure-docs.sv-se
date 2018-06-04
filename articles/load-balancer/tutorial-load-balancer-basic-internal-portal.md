@@ -22,6 +22,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779581"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Självstudier: Belastningsutjämna intern trafik till virtuella datorer med en enkel belastningsutjämnare med hjälp av Azure Portal
 
@@ -78,7 +79,7 @@ I det här avsnittet skapar du två virtuella datorer för belastningsutjämnare
     - *myNetworkSecurityGroup* – namnet på den nya nätverkssäkerhetsgrupp (brandvägg) som du måste skapa.
 5. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 6. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
-7. Skapa, med hjälp av steg 1-6, en andra virtuell dator med namnet *VM2* med *myAvailabilityset* som tillgänglighetsuppsättning, *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och **myNetworkSecurityGroup* som dess nätverkssäkerhetsgrupp. 
+7. Skapa, med hjälp av steg 1-6, en andra virtuell dator med namnet *VM2* med *myAvailabilityset* som tillgänglighetsuppsättning, *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och *myNetworkSecurityGroup* som dess nätverkssäkerhetsgrupp. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>Installera IIS och anpassa standardwebbsidan
 

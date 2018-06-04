@@ -1,0 +1,66 @@
+- name: Power BI Embedded-dokumentation
+  href: index.md
+- name: Översikt
+  items:
+    - name: Vad är Power BI Embedded?
+      href: what-is-power-bi-embedded.md
+- name: Kom igång
+  items:
+    - name: Kom igång med Power BI Embedded
+      href: get-started.md
+    - name: Kom igång med ett exempel
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Gör så här för att
+  items:
+    - name: Hantera kapacitet
+      items:
+        - name: Skapa kapacitet
+          href: create-capacity.md
+        - name: Skala kapacitet
+          href: scale-capacity.md
+        - name: Pausa och påbörja kapacitet
+          href: pause-start.md
+    - name: Registrera en Azure AD-app
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
+    - name: Bädda in Power BI-innehåll
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
+    - name: Migrera
+      items:
+        - name: Så här migrerar du från Power BI-arbetsytesamlingar
+          href: migrate-from-power-bi-workspace-collections.md
+        - name: Migreringsverktyg
+          href: migrate-tool.md
+        - name: Kodfragment för migrering
+          href: migrate-code-snippets.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
+    - name: Exempelgenomgång
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+    - name: Inbäddat exempel med JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+- name: Referens
+  items:
+    - name: 'API:er'
+      items:
+        - name: 'REST API:er i Azure Resource Management'
+          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
+        - name: 'Power BI REST-API:er'
+          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+- name: Resurser
+  items:
+    - name: Power BI Community
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Hämta .NET SDK
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
+    - name: Nedladdning av JavaScript SDK
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: GitHub-lagringsplatser
+      items:
+        - name: .NET för Power BI
+          href: 'https://github.com/Microsoft/PowerBI-CSharp'
+        - name: JavaScript för Power BI
+          href: 'https://github.com/Microsoft/PowerBI-JavaScript'

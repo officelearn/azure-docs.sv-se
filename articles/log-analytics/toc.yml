@@ -137,24 +137,20 @@
           href: log-analytics-powerbi.md
     - name: Skapa aviseringar
       items:
-        - name: Förstå aviseringar
-          href: log-analytics-alerts.md
-        - name: Aviseringsåtgärder
-          href: log-analytics-alerts-actions.md
-        - name: Skapa aviseringsregler
-          items:
-            - name: OMS-portalen
-              href: log-analytics-alerts-creating.md
-            - name: REST-API
-              href: log-analytics-api-alerts.md
-            - name: Resource Manager-mall
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Webhook-åtgärdsexempel
-          href: log-analytics-alerts-webhooks.md
-        - name: Lösning för aviseringshantering
-          href: log-analytics-solution-alert-management.md
+        - name: Förstå loggaviseringar
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Skapa en loggavisering
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Webhook-åtgärder för loggaviseringar
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Skapa en loggavisering med en Resource Manager-mall
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Kopiera aviseringar från Log Analytics till Azure-aviseringar
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: Hantera
       items:
+        - name: Hantering av personliga uppgifter
+          href: log-analytics-personal-data-mgmt.md
         - name: Agenthantering
           href: log-analytics-agent-manage.md
         - name: Hantera arbetsytekostnader
@@ -218,8 +214,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: Anpassat Logic Apps B2B-spårningsschema
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Utvärdering av skadlig kod
-          href: log-analytics-malware.md
         - name: Nätverksanalys
           href: log-analytics-azure-networking-analytics.md
         - name: Övervakning av nätverksprestanda
@@ -239,7 +233,7 @@
         - name: SCOM-hälsokontroll
           href: log-analytics-scom-assessment.md
         - name: Säkerhetsgranskning
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Service Fabric med Azure PowerShell
           href: log-analytics-service-fabric.md
           items:

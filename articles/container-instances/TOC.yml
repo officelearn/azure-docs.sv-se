@@ -45,8 +45,6 @@
           href: container-instances-using-azure-container-registry.md
         - name: Ange miljövariabler (env)
           href: container-instances-environment-variables.md
-        - name: Felsöka distributioner
-          href: container-instances-troubleshooting.md
     - name: Hantera
       items:
         - name: Köra ett kommando (exec)
@@ -69,6 +67,12 @@
           href: container-instances-volume-gitrepo.md
         - name: hemlighet
           href: container-instances-volume-secret.md
+    - name: Felsöka
+      items:
+        - name: Hämta behållarloggar och händelser
+          href: container-instances-get-logs.md
+        - name: Felsök vanliga problem
+          href: container-instances-troubleshooting.md
 - name: Referens
   items:
     - name: Azure CLI
@@ -78,7 +82,7 @@
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
-      href: /dotnet/api/overview/azure/containerinstances
+      href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
     - name: Java

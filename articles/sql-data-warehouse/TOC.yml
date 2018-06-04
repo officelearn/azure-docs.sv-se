@@ -6,6 +6,10 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: Översiktsblad
       href: cheat-sheet.md
+- name: Viktig information
+  items:
+    - name: Maj 2018
+      href: release-notes-may-2018.md
 - name: Snabbstarter
   expanded: true
   items:

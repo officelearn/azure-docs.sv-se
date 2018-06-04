@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Lägga till användare](data-lake-analytics-add-users.md)
 ### [Principer](data-lake-analytics-policies.md)
+### [Skydda jobbmappar](data-lake-analytics-secure.md)
 ### [Få åtkomst till diagnostikloggar](data-lake-analytics-diagnostic-logs.md)
 ### [Justera kvotgränser](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [Kognitiva tillägg](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [Lokal körning och felsökning](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Köra och testa](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [Installera](data-lake-analytics-data-lake-tools-install.md)
 #### [Bläddra och visa jobb](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [Information om brytpunktskörning](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Exportera U-SQL-databas](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
+#### [Lösa datasnedställning](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio-koden
@@ -64,7 +71,7 @@
 # Resurser
 ## [Azure Data Lake-blogg](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Ge feedback på UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Begära ändringar](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

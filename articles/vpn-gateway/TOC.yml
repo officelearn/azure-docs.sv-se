@@ -30,7 +30,7 @@
       href: vpn-gateway-highlyavailable.md
     - name: Om punkt-till-plats-anslutningar
       href: point-to-site-about.md
-    - name: Om routning från punkt till plats
+    - name: Om VPN-routning från punkt till plats
       href: vpn-gateway-about-point-to-site-routing.md
 - name: Instruktionsguider
   items:

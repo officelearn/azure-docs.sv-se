@@ -1,5 +1,7 @@
 - name: Dokumentation om Data Factory V2
   href: index.yml
+- name: Växla till dokumentationen för version 1
+  href: v1/data-factory-introduction.md
 - name: Översikt
   items:
     - name: Introduktion till Data Factory
@@ -374,6 +376,8 @@
       items:
         - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Aktivera Azure AD-autentisering för integreringskörning i Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
         - name: Konfigurera hög prestanda för Azure-SSIS-integreringskörning
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Etablera Enterprise Edition för Azure-SSIS Integration Runtime
@@ -382,7 +386,7 @@
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Utveckla licensierade komponenter för Azure-SSIS-integreringskörning
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: Köra SSIS-paket med SSIS-aktivitet
+        - name: Köra SSIS-paket med aktiviteten Kör SSIS-paket
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Köra SSIS-paket med en lagrad proceduraktivitet
           href: how-to-invoke-ssis-package-stored-procedure-activity.md

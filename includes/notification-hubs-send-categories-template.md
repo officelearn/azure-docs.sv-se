@@ -9,10 +9,11 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33835856"
 ---
 I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden från en .NET-konsolapp. 
 
@@ -25,7 +26,7 @@ I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden
         Install-Package Microsoft.Azure.NotificationHubs
    
 3. Välj **Retur**.  
-    Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet].
+    Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs NuGet-paketet].
 
 4. Öppna filen Program.cs och lägg till följande `using`-uttryck:
    
@@ -79,4 +80,4 @@ I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.Notification Hubs-NuGet-paketet]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft.Azure.Notification Hubs NuGet-paketet]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

@@ -12,10 +12,10 @@ ms.date: 04/10/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
 ms.locfileid: "31426210"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans
@@ -37,7 +37,7 @@ Använd följande steg för att ladda ned Wide World Importers – standardsäke
 
 Öppna Internet Explorer och skriv in https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak i webbadressfältet. När du uppmanas göra det klickar du på **Spara** och sparar filen i mappen **Hämtade filer**.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 

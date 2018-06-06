@@ -16,7 +16,7 @@ ms.date: 12/15/2015
 ms.author: Ning
 ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
 ms.locfileid: "32193068"
@@ -89,7 +89,7 @@ Steg 1. Skapa en fil med namnet PrivateConfig.json med följande innehåll:
         "storageAccountKey" : "the key of the account"
     }
 
-Steg 2. Kör *azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* \* --PrivateConfig.json** privat-config-sökvägen.
+Steg 2. Kör *azure vm-tillägget anger vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* \* --PrivateConfig.json privat-config-sökvägen.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Anpassa övervakaren prestandamått
 

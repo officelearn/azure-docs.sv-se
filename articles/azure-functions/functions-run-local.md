@@ -14,15 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725232"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
-När den [Azure-portalen] ger en fullständig uppsättning av verktyg för att utveckla och testa Azure Functions, många utvecklare föredrar en lokal utveckling upplevelse. Azure Functions gör det enkelt att använda din favorit redigerare och lokala utvecklingsverktyg att utveckla och testa dina funktioner på den lokala datorn. Dina funktioner kan utlösa händelser i Azure och du kan felsöka ditt C# och JavaScript-funktioner på den lokala datorn. 
+När den [Azure Portal] ger en fullständig uppsättning av verktyg för att utveckla och testa Azure Functions, många utvecklare föredrar en lokal utveckling upplevelse. Azure Functions gör det enkelt att använda din favorit redigerare och lokala utvecklingsverktyg att utveckla och testa dina funktioner på den lokala datorn. Dina funktioner kan utlösa händelser i Azure och du kan felsöka ditt C# och JavaScript-funktioner på den lokala datorn. 
 
 Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras med Visual Studio 2017](functions-develop-vs.md).
 
@@ -95,14 +96,14 @@ Följande steg används [LGH](https://wiki.debian.org/Apt) installera grundlägg
   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
   ```
 
-2.  Konfigurera paketet flöde eller ersätta `<version>` i följande kommando med namnet rätt version från tabellen:
+2.  Kontrollera Ubuntu server kör en lämplig version i tabellen nedan. Om du vill lägga till lgh källan, kör du:
 
   ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
   sudo apt-get update
   ```
 
-  | Linux-distribution | `<version>` |
+  | Linux-distribution | Version |
   | --------------- | ----------- |
   | Ubuntu 17.10    | `artful`    |
   | Ubuntu nr 17.04 från    | `zesty`     |
@@ -151,7 +152,7 @@ Använd för att skapa projektet utan en lokal Git-lagringsplats i `--no-source-
 
 ## <a name="register-extensions"></a>Registrera tillägg
 
-I version 2.x av Azure Functions-runtime måste du explicit registrera den [bindning tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) som du använder i appen funktion. 
+I version 2.x av Azure Functions-runtime måste du registrera bindning-tillägg (bindningstyper) som du använder i appen funktion.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -275,7 +276,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>Felsöka i VS-kod eller Visual Studio
+### <a name="vs-debug"></a>Felsöka i VS-kod eller Visual Studio
 
 Om du vill koppla en felsökare skickar den `--debug` argumentet. Använd Visual Studio-koden för att felsöka JavaScript-funktioner. Använda Visual Studio för C#.
 
@@ -388,7 +389,7 @@ Du kan använda följande alternativ:
 
 Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Information om hur du skapar en funktionsapp från Kommandotolken eller terminalfönster med hjälp av Azure CLI finns [skapa en Funktionsapp för serverlösa körning](./scripts/functions-cli-create-serverless.md).
 
-Den `publish` kommandot Överför innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt på `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure-portalen].  
+Den `publish` kommandot Överför innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt på `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].  
 
 >[!IMPORTANT]  
 > När du skapar en funktionsapp i Azure används version 1.x av funktionen körningsmiljön som standard. För att funktionen Använd programversion 2.x av körningsmiljön, Lägg till inställningen `FUNCTIONS_EXTENSION_VERSION=beta`.  
@@ -407,5 +408,5 @@ Till filen en bugg eller funktion begäran [öppna ett problem med GitHub](https
 <!-- LINKS -->
 
 [Azure Functions grundläggande verktyg]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portalen]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -1,13 +1,14 @@
 ---
-title: "Ansluta till en ny Windows 10-enhet med Azure AD under den första körningen | Microsoft Docs"
-description: "Ett avsnitt som förklarar hur användare kan konfigurera Azure AD Join under välkomstprogrammet."
+title: Ansluta till en ny Windows 10-enhet med Azure AD under den första körningen | Microsoft Docs
+description: Ett avsnitt som förklarar hur användare kan konfigurera Azure AD Join under välkomstprogrammet.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757400"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Ansluta till en ny Windows 10-enhet med Azure AD under den första körningen
 
@@ -37,6 +39,8 @@ I Windows *out of box experience*, ansluter till en lokal Active Directory (AD)-
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Registreringstjänsten för enheter måste konfigureras så att du kan registrera enheter för att ansluta till en Windows 10-enhet. Förutom att du har behörighet att ansluta enheter i din Azure AD-klient, måste du ha färre enheter som har registrerats än den konfigurerade maximalt. Mer information finns i [konfigurera Enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
+
+Dessutom om din klient är federerat identitetsprovider måste ha stöd för WS-Fed och WS-Trust användarnamn/lösenord slutpunkt. Detta kan vara version 1.3 eller 2005. Den här protokollstöd krävs till både ansluta enheten till Azure AD och logga in på enheten med ett lösenord.
 
 ## <a name="joining-a-device"></a>Koppla en enhet
 

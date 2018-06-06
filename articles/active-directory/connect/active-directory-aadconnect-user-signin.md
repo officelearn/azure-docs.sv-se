@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698823"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect användaren inloggningsalternativ
 Azure Active Directory (AD Azure) Connect kan användarna att logga in på både till molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitetsmodellen som hjälper dig att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -47,6 +49,8 @@ Se till att inga lösenord lagras i molnet.||x*|x|
 Aktivera lokal multifaktorautentisering lösningar.|||x|
 
 * Via en enkel agent.
+
+Detaljerad information om att välja en autentiseringsmetod finns [välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Synkronisering av lösenordshash
 Med synkronisering av lösenords-hash synkroniseras hash-värden för användarlösenord från lokala Active Directory till Azure AD. När lösenord har ändrats eller Återställ lokalt, nya lösenordshashvärden synkroniseras till Azure AD omedelbart så att användarna kan alltid använda samma lösenord för molnresurser och lokala resurser. Lösenorden aldrig skickas till Azure AD eller lagras i Azure AD i klartext. Du kan använda synkronisering av lösenords-hash tillsammans med tillbakaskrivning av lösenord för att aktivera Självbetjäning för återställning av lösenord i Azure AD.

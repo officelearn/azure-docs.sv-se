@@ -3,7 +3,7 @@ title: Så här konfigurerar du säkerhetsaviseringar | Microsoft Docs
 description: Lär dig hur du konfigurerar du säkerhetsvarningar för Azure Privileged Identity Management-tillägg.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f77567d35d3916ab1660134959d2d26916e08a0a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8dd546b0c3a60a50989b59fa295ceeb49e6b1e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698017"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Så här konfigurerar du säkerhetsaviseringar i Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
@@ -25,7 +26,7 @@ Azure Privileged Identity Management (PIM) genererar aviseringar när det är mi
 
 ![PIM instrumentpanelen säkerhetsaviseringar – skärmbild][1]
 
-| Varning | Allvarsgrad | Utlösare | Rekommendation |
+| Varning | Severity | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
 | **Roller tilldelas utanför PIM** |Hög |En användare har permanent tilldelade en privilegierad roll utanför PIM-gränssnittet. |Granska användare i listan och tilldela dem från Privilegierade roller som tilldelats utanför PIM. |
 | **Roller som ska aktiveras för ofta** |Medel |Det fanns för många omaktiveringar av samma roll inom den tiden som tillåts i inställningarna. |Kontakta användaren för att se varför de har aktiverat rollen så många gånger. Tidsgränsen är kanske för kort för att slutföra sina uppgifter eller kanske de använder skript aktivera rollen automatiskt. Kontrollera aktivering varaktighet för sin roll är tillräckligt länge för att utföra sina uppgifter. |
@@ -33,7 +34,7 @@ Azure Privileged Identity Management (PIM) genererar aviseringar när det är mi
 | **Användare som inte använder sina Privilegierade roller** |Låg |Det finns tillgängliga administratörer som inte har aktiverat sina roller nyligen. |Starta en åtkomst-granskning för att avgöra vilka användare som inte längre behöver åtkomst. |
 | **Det finns för många globala administratörer** |Låg |Det finns fler globala administratörer än vad som rekommenderas. |Om du har ett stort antal globala administratörer är det troligt att användare får fler behörigheter än de behöver. Flytta användare till mindre privilegierade roller eller se några av dem tillgängliga för rollen i stället för permanent tilldelade. |
 
-### <a name="severity"></a>Allvarsgrad
+### <a name="severity"></a>Severity
 * **Hög**: kräver omedelbara åtgärder på grund av en principöverträdelse. 
 * **Medel**: inte kräver omedelbara åtgärder men signalerar potentiella principöverträdelsen.
 * **Låg**: inte kräver omedelbara åtgärder men föreslår preferrable princip.

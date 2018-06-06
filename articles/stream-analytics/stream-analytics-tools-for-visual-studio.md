@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bcb4302c3a237ec75ff670b322c9d068d8700de9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738521"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Använda Azure Stream Analytics-verktyg för Visual Studio
 Azure Stream Analytics-verktyg för Visual Studio är nu allmänt tillgänglig. Dessa verktyg aktivera en rikare upplevelse för Stream Analytics användare att felsöka samt skriva komplexa frågor och skriva även frågor lokalt. Du kan också exportera ett Stream Analytics-jobb i Visual Studio-projekt.
@@ -30,14 +31,13 @@ När du har slutfört den här självstudiekursen kommer du att kunna:
 * Exportera befintliga jobb till projekt.
 
 >[!IMPORTANT]
+> Microsoft rekommenderar att du uppgradera till Azure Data Lake-verktyg för Visual Studio version 2.3.3000.4 eller senare. Tidigare versioner är inte längre tillgängliga för hämtning och nu är föråldrade. 
 >
->I förberedelse för den nya allmänna Data Protection förordning (BNPR) försättas effekt på 25 maj 2018, rekommenderar vi att användare av Azure Stream Analytics Tools för Visual Studio uppgradera till version 2.3.3000.5 eller senare. Den här versionen innehåller ändras baserat på de senaste kraven på dataskydd. Observera att tidigare versioner inte är tillgängliga för hämtning och är föråldrade. 
->
->**Vad behöver jag göra?**
+>**Vad måste jag göra?**
 >
 >1. Kontrollera om du använder en tidigare version än 2.3.3000.5 Azure Stream Analytics verktyg för Visual Studio. 
 >   
->   ![Version av verktyget](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+>   ![Kontrollera version av verktyget](./media/stream-analytics-tools-for-vs/about-data-lake.png)
 > 
 >2. Om din version är en tidigare version av 2.3.3000.5 uppdaterar du din Azure Data Lake-verktyg för Visual Studio genom att besöka download center: 
 >    - [För Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)

@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801940"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
-Syftet med det här avsnittet är att beskriva områden som måste betraktas under genomförandet designen av Azure AD Connect. Det här avsnittet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra avsnitt samt.
+Syftet med det här dokumentet är att beskriva områden som måste betraktas under genomförandet designen av Azure AD Connect. Det här dokumentet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra dokument.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 Attributet sourceAnchor definieras som *ett attribut som inte ändras under livslängden för ett objekt*. Den identifierar ett objekt som den samma objekt lokalt och i Azure AD. Attributet kallas även **immutableId** och de två namnen används utbytbara.
 
-Ordet ändras, som är ”kan inte ändras”, är viktigt att det här avsnittet. Eftersom värdet för det här attributet inte kan ändras när den väl har angetts, är det viktigt att välja en design som har stöd för ditt scenario.
+Ordet ändras, som är ”kan inte ändras”, är viktigt att det här dokumentet. Eftersom värdet för det här attributet inte kan ändras när den väl har angetts, är det viktigt att välja en design som har stöd för ditt scenario.
 
 Attributet används för följande scenarier:
 
@@ -40,12 +42,12 @@ Det här avsnittet handlar bara om sourceAnchor relateras till användare. Samma
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Att välja en bra sourceAnchor attribut
 Attributvärdet som måste följa följande regler:
 
-* Vara mindre än 60 tecken
+* Färre än 60 tecken
   * Tecken som inte är a-z, A-Z eller 0-9 kodas och räknas som 3 tecken
 * Inte innehåller ett specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Måste vara globalt unika
 * Måste vara en sträng, heltal eller binär
-* Ska inte baseras på användarens namn, dessa ändring
+* Bör inte väljas utifrån användarens namn eftersom dessa kan ändras
 * Bör inte skiftlägeskänsliga och undvika värden som kan variera efter fall
 * Ska tilldelas när objektet har skapats
 
@@ -165,7 +167,7 @@ Om du använder Azure AD Connect att hantera lokala AD FS-distribution, Azure AD
 
 Om du hanterar AD FS utanför Azure AD Connect eller om du använder federationsservrar från tredje part för autentisering, måste du manuellt uppdatera anspråksregler för ImmutableID anspråk till att det stämmer överens med sourceAnchor värden exporteras till Azure AD som beskrivs i artikel avsnittet [ändra AD FS anspråksregler](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Guiden returnerar följande varning när installationen är klar:
 
-![Tredjeparts federation-konfiguration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
+![Tredjeparts-federation-konfiguration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Lägga till nya kataloger till befintlig distribution
 Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid aktiverad och nu vill du lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för attributet mSDS-ConsistencyGuid i katalogen. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet används av andra program och returnerar ett fel som visas i diagrammet nedan. Om du är säker på att attributet inte är används av befintliga program, måste du kontakta Support för information om hur du kan ignorera felet.

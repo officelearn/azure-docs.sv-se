@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795568"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Kom igång med Application Insights med Java i Eclipse
 Application Insights SDK skickar telemetri från ditt webbprogram för Java så att du kan analysera användnings- och prestandadata. Plugin-program för Application Insights Eclipse installeras automatiskt SDK i projektet så att du får slut på rutan telemetri plus en API som du kan använda för att skriva en anpassad telemetri.   
@@ -32,6 +33,8 @@ Du behöver:
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
 * [Solförmörkelse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/), Indigo eller senare.
 * Windows 7 eller senare och Windows Server 2008 eller senare
+
+Om du föredrar att källan framework försök den [konfigurera en källan Start initieraren app om du vill använda Application Insights-guiden](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Installera SDK på Eclipse (en gång)
 Du behöver bara göra detta en gång per dator. Det här steget installerar en verktygslåda som sedan kan lägga till SDK i varje dynamiskt webbprojekt.

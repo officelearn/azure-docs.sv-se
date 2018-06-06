@@ -1,22 +1,19 @@
 ---
 title: IoT-hubb enheten Etableringstjänsten - Automatisk etablering begrepp
 description: 'Den här artikeln innehåller en översikt över faser i enheten automatiskt-etablering, med hjälp av Etableringstjänsten för IoT-enhet, IoT-hubb och klient-SDK: er.'
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736414"
 ---
 # <a name="auto-provisioning-concepts"></a>Automatisk etablering begrepp
 
@@ -33,7 +30,7 @@ Azure IoT-auto-etablering kan delas i tre faser:
 
 2. **Enhetsregistrering** -processen att göra tjänstinstansen enheten etablering medveten om de enheter som kommer att försöka registrera i framtiden. [Registrering](concepts-service.md#enrollment) görs genom att konfigurera enheten identitetsinformation i tjänsten allokering som en ”enskilda registrering” för en enstaka enhet eller en ”grupp registrering” för flera enheter. Identiteten är baserat på den [attestering mekanism](concepts-security.md#attestation-mechanism) enheten är utformat för att använda, vilket gör att tjänsten etablering att bekräfta att enhetens äkthetsbeviset under registreringen:
 
-   - **TPM**: konfigurerad som en ”enskilda registrering” enhetens identitet baseras på TPM registrerings-ID och offentliga bekräftelsenyckeln. Med hänsyn till att TPM är en [specifikationen]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), tjänsten bara förväntar att bekräfta per specifikationen oavsett TPM-implementeringen (maskinvara eller programvara). Se [enhetsetableringen: identitet attestering med TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) mer information om TPM-baserade attestering. 
+   - **TPM**: konfigurerad som en ”enskilda registrering” enhetens identitet baseras på TPM registrerings-ID och offentliga bekräftelsenyckeln. Med hänsyn till att TPM är en [specifikationen](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), tjänsten bara förväntar att bekräfta per specifikationen oavsett TPM-implementeringen (maskinvara eller programvara). Se [enhetsetableringen: identitet attestering med TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) mer information om TPM-baserade attestering. 
 
    - **X509**: konfigurerad som en ”enskilda registrering” eller ”grupp registrering” enhetens identitet baseras på ett digitalt certifikat från X.509 som överförs till registreringen som en .pem eller .cer-fil.
 
@@ -62,7 +59,7 @@ En serie Snabbstart finns i innehållsförteckningen till vänster för att för
 
 I följande diagram visas roller och sekvensering av åtgärder under auto-enhetsetableringen:
 <br><br>
-![Automatisk etablering sekvens för en enhet](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Automatisk etablering sekvens för en enhet](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Du kan också tillverkaren kan också utföra åtgärden ”registrera enhetsidentitet” med enheten etablering Service API: er (i stället för via operatorn). En detaljerad beskrivning av den här ordningsföljd och mer finns i [noll touch-enhetsregistrering med Azure IoT video](https://myignite.microsoft.com/sessions/55087) (börjar på markör 41:00)

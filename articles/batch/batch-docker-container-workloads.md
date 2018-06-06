@@ -8,22 +8,24 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8c9f772c9d3908e450961239797f6ce2bd4982e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801123"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Köra behållarprogram på Azure Batch
 
-Azure Batch kan du köra och skala stort antal batch computing jobb på Azure. Fram till nu batchaktiviteter har kört direkt på virtuella datorer (VM) i en Batch-pool, men nu kan du ställa in en Batch-pool att köra uppgifter i Docker-behållare. Den här artikeln visar hur du använder Batch .NET SDK för att skapa en pool med compute-noder som har stöd för aktiviteter som körs behållare och hur du kör behållaren uppgifter på poolen.
+Azure Batch kan du köra och skala stort antal batch computing jobb på Azure. Batchaktiviteter kan köras direkt på virtuella datorer (noder) i en Batch-pool, men du kan också ställa in en Batch-pool att köra uppgifter i Docker-kompatibel behållare på noderna. Den här artikeln visar hur du skapar en pool med compute-noder som stöder behållare aktiviteter som körs och kör sedan behållaren uppgifter på poolen. 
 
-Med hjälp av behållare ger ett enkelt sätt att köra batchaktiviteter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuera program som lätt och smidig självständigt enheter som kan köras i en mängd olika miljöer. Du kan till exempel skapa och testa en behållare lokalt och sedan överför avbildningen behållare till ett register i Azure eller någon annanstans. Distributionsmodell behållaren säkerställer att körningsmiljön på ditt program är alltid korrekt installerat och konfigurerat, oavsett var värd för programmet. Uppgifter i behållare i Batch kan också dra nytta av funktionerna i behållar-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafilerna. 
+Du bör känna till behållaren begrepp och hur du skapar en Batch-pool och jobb. Kodexemplen använder Batch .NET och Python SDK: er. Du kan också använda andra Batch SDK: er och verktyg, bland annat Azure-portalen att skapa behållaren-aktiverade Batch pooler och köra uppgifter i behållaren.
 
-Den här artikeln förutsätter förtrogenhet med Docker behållare begrepp och hur du skapar en Batch-pool och jobb med hjälp av .NET SDK. Kodavsnitten är avsedda att användas i ett klientprogram som liknar den [DotNetTutorial exempel](batch-dotnet-get-started.md), och är exempel på kod som du behöver stöd för behållarprogram i en Batch.
+## <a name="why-use-containers"></a>Varför använda behållare?
 
+Med hjälp av behållare ger ett enkelt sätt att köra batchaktiviteter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuera program som lätt och smidig självständigt enheter som kan köras i flera olika miljöer. Du kan till exempel skapa och testa en behållare lokalt och sedan överför avbildningen behållare till ett register i Azure eller någon annanstans. Distributionsmodell behållaren säkerställer att körningsmiljön på ditt program är alltid korrekt installerat och konfigurerat oavsett var du är värd för programmet. Uppgifter i behållare i Batch kan också dra nytta av funktionerna i behållar-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafilerna. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -36,107 +38,133 @@ Den här artikeln förutsätter förtrogenhet med Docker behållare begrepp och 
 
 * **Konton**: du behöver skapa ett Batch-konto och eventuellt ett Azure Storage-konto i din Azure-prenumeration.
 
-* **En VM-avbildning som stöds**: behållare stöds bara i programpooler som skapats med konfigurationen av den virtuella datorn från avbildningar som beskrivs i avsnittet ”stöd för avbildningar av virtuella datorer”. Om du anger en anpassad avbildning programmet måste använda Azure Active Directory [(Azure AD) autentisering](batch-aad-auth.md) för att kunna köra behållare-baserade arbetsbelastningar. 
+* **En VM-avbildning som stöds**: behållare stöds bara i programpooler som skapats med konfigurationen av den virtuella datorn från avbildningar som beskrivs i avsnittet ”stöd för avbildningar av virtuella datorer”. Om du anger en anpassad avbildning finns i följande avsnitt överväganden och krav i [använda en anpassad avbildning som hanterad för att skapa en pool med virtuella datorer](batch-custom-images.md). 
 
-
-## <a name="supported-virtual-machine-images"></a>Avbildningar av virtuella datorer
-
-Du måste använda en stöds Windows eller Linux-avbildningen för att skapa en pool med VM compute-noder för arbetsbelastningar i behållare.
-
-### <a name="windows-images"></a>Windows-avbildningar
-
-För Windows-behållaren arbetsbelastningar Batch stöder för närvarande anpassade avbildningar som du skapar från virtuella datorer som kör Docker i Windows eller du kan använda Windows Server 2016 Datacenter med behållare avbildning från Azure Marketplace. Den här avbildningen är kompatibel med den `batch.node.windows amd64` nod agent SKU-ID. Typ av behållare som stöds är för närvarande begränsad till Docker.
-
-### <a name="linux-images"></a>Linux-avbildningar
-
-För Linux-behållaren arbetsbelastningar Batch för närvarande stöder endast anpassade avbildningar som du skapar från virtuella datorer körs Docker på följande Linux-distributioner: Ubuntu 16.04 LTS eller CentOS 7.3. Om du vill ange en egen anpassad avbildning Linux instruktioner finns i [använda en anpassad avbildning som hanterad för att skapa en pool med virtuella datorer](batch-custom-images.md).
-
-Docker-support, installera [Docker Community Edition (CE)](https://www.docker.com/community-edition) eller [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
-
-Om du vill dra nytta av GPU prestanda hos Azure NC eller NV VM-storlekar som du behöver installera drivrutinerna på bilden. Du måste också installera och köra verktyget Docker-motorn för NVIDIA GPU [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-
-Använda RDMA-kompatibla VM-storlekar, till exempel A8 A9, H16r, H16mr eller NC24r för åtkomst till Azure RDMA-nätverket. RDMA drivrutiner är installerade i CentOS 7.3 HPC och Ubuntu 16.04 LTS bilder från Azure Marketplace. Ytterligare konfiguration kan behövas för att köra MPI arbetsbelastningar. Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pool](batch-pool-compute-intensive-sizes.md).
-
-
-## <a name="limitations"></a>Begränsningar
+### <a name="limitations"></a>Begränsningar
 
 * Batch tillhandahåller RDMA-stöd för behållare som körs på Linux-pooler.
 
+## <a name="supported-virtual-machine-images"></a>Avbildningar av virtuella datorer
 
-## <a name="authenticate-using-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
+Stöd för att använda något av följande Windows eller Linux-bilder att skapa en pool av VM compute-noder för arbetsbelastningar i behållare. Läs mer om Marketplace-avbildningar som är kompatibla med Batch [lista över virtuella datoravbildningar](batch-linux-nodes.md#list-of-virtual-machine-images). 
 
-Om du använder en anpassad VM-avbildning för att skapa Batch-pool, klientprogrammet måste autentisera med Azure AD-integrerad autentisering (delad nyckelautentisering fungerar inte). Kontrollera att du registrera den i Azure AD att upprätta en identitet för den och ange dess behörigheter till andra program innan du kör programmet.
+### <a name="windows-images"></a>Windows-avbildningar
 
-Dessutom när du använder en anpassad VM-avbildning, måste du ge IAM åtkomstkontroll till programmet för att komma åt den Virtuella datoravbildningen. I Azure-portalen klickar du på **alla resurser**, Välj behållare avbildningen, och från den **åtkomstkontroll (IAM)** avsnittet image-sidan klickar du på **Lägg till**. I den **lägga till behörigheter** anger en **rollen**i **bevilja åtkomst till**väljer **Azure AD-användare, grupp eller programmet**, sedan i  **Välj** Ange programnamnet.
+För Windows-behållaren arbetsbelastningar Batch för närvarande stöder den **Windows Server 2016 Datacenter med behållare** avbildning i Azure Marketplace. Endast Docker behållare avbildningar stöds i Windows.
 
-Skicka en Azure AD-autentiseringstoken i ditt program när du skapar Batch-klienten. Om du utvecklar med Batch .NET SDK, använda [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), enligt beskrivningen i [autentiserar Batch tjänstelösningar med Active Directory](batch-aad-auth.md).
+Du kan också skapa anpassade avbildningar från virtuella datorer som kör Docker i Windows.
 
+### <a name="linux-images"></a>Linux-avbildningar
 
-## <a name="reference-a-vm-image-for-pool-creation"></a>Referera till en VM-avbildning för att skapa en pool
+Batch stöder för närvarande följande Linux-bilder som publicerats av Microsoft Azure Batch i Azure Marketplace för Linux-behållaren arbetsbelastningar:
 
-Ange en referens till VM-avbildning som ska användas när compute-noder för poolen i din programkod. Det gör du genom att skapa en [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) objekt. Du kan ange avbildningen som ska användas på något av följande sätt:
+* **CentOS för Azure Batch behållaren pooler**
 
-* Om du använder en anpassad avbildning kan du ange en Azure Resource Manager resursidentifieraren för avbildningen av virtuella datorn. Bild-ID har en sökvägsformat som visas i följande exempel:
+* **CentOS (med RDMA-drivrutiner) för Azure Batch behållaren pooler**
 
-  ```csharp
-  // Provide a reference to a custom image using an image ID
-  ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
-  ```
+* **Ubuntu Server för Azure Batch behållaren pooler**
 
-    För att få den här avbildnings-ID från Azure-portalen kan öppna **alla resurser**, markerar du den anpassade avbildningen och från den **översikt** avsnittet av sidan avbildningen kopiera sökvägen i **resurs-ID**.
+* **Ubuntu Server (med RDMA-drivrutiner) för Azure Batch behållaren pooler**
 
-* Om du använder en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) bild, ange en uppsättning parametrar som beskriver bilden: utgivaren, erbjudandetypen, SKU och version för avbildningen som anges i [lista över virtuella datoravbildningar](batch-linux-nodes.md#list-of-virtual-machine-images):
+Dessa avbildningar stöds endast för användning i Azure Batch-pooler. De funktion:
 
-  ```csharp
-  // Provide a reference to an Azure Marketplace image for
-  // "Windows Server 2016 Datacenter with Containers"
-  ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-with-Containers",
-    version: "latest");
-  ```
+* En förinstallerad [Moby](https://github.com/moby/moby) behållare runtime 
+
+* Förinstallerade NVIDIA GPU drivrutiner, att förenkla distribution på Azure N-serien virtuella datorer
+
+* Bilder med eller utan förinstallerade RDMA-drivrutiner. de här drivrutinerna tillåter att poolen noder åtkomst till Azure RDMA-nätverket när de distribueras på RDMA-kompatibla VM-storlekar  
+
+Du kan också skapa anpassade avbildningar från virtuella datorer som kör Docker på en Linux-distributioner som är kompatibel med Batch. Om du vill ange en egen anpassad avbildning Linux instruktioner finns i [använda en anpassad avbildning som hanterad för att skapa en pool med virtuella datorer](batch-custom-images.md).
+
+Stöd för Docker på en anpassad avbildning, installera [Docker Community Edition (CE)](https://www.docker.com/community-edition) eller [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+
+Ytterligare överväganden för att använda en anpassad avbildning för Linux:
+
+* Om du vill dra nytta av Azure N-serien storlekar GPU prestanda när du använder en anpassad avbildning, förinstallation drivrutinerna. Du måste också installera verktyget Docker-motorn för NVIDIA GPU [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
+
+* Använd en RDMA-kompatibla VM-storlek för åtkomst till Azure RDMA-nätverket. RDMA drivrutiner är installerade i CentOS HPC och Ubuntu-avbildningar stöds av Batch. Ytterligare konfiguration kan behövas för att köra MPI arbetsbelastningar. Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pool](batch-pool-compute-intensive-sizes.md).
 
 
 ## <a name="container-configuration-for-batch-pool"></a>Konfigurationen för behållaren för Batch-pool
 
-Om du vill aktivera en Batch-pool att köra arbetsbelastningar för behållare, måste du ange [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) inställningar i poolen [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) objekt.
+Om du vill aktivera en Batch-pool att köra arbetsbelastningar för behållare, måste du ange [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) inställningar i poolen [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) objekt. (Den här artikeln innehåller länkar till Batch .NET API-referens. Motsvarande inställningar finns i den [Batch Python](/python/api/azure.batch) API.)
 
-Du kan skapa en behållare-aktiverade pool med eller utan prefetched behållare bilder, som visas i följande exempel. Processen pull (eller prefetch) gör att du kan förinläsa behållaren bilder från Docker-hubb eller en annan behållare registret på Internet. Fördelen med förhämtar behållare bilder är att när uppgifter börjar med de inte behöver vänta på behållaren bilden ska hämtas. Konfigurationen av behållaren hämtar behållaren avbildningar till de virtuella datorerna när poolen har skapats. Uppgifter som körs på poolen kan sedan referera till listan över behållare bilder och behållare kör alternativ.
+Du kan skapa en behållare-aktiverade pool med eller utan prefetched behållare bilder, som visas i följande exempel. Processen pull (eller prefetch) gör att du kan förinläsa behållaren bilder från Docker-hubb eller en annan behållare registret på Internet. För bästa prestanda bör du använda en [Azure-behållaren registret](../container-registry/container-registry-intro.md) i samma region som Batch-kontot.
 
+Fördelen med förhämtar behållare bilder är att när uppgifter börjar med de inte behöver vänta på behållaren bilden ska hämtas. Konfigurationen av behållaren hämtar behållaren avbildningar till de virtuella datorerna när poolen har skapats. Uppgifter som körs på poolen kan sedan referera till listan över behållare bilder och behållare kör alternativ.
 
 
 ### <a name="pool-without-prefetched-container-images"></a>Poolen utan prefetched behållare bilder
 
-Om du vill konfigurera poolen behållaren-aktiverade utan prefetched behållare bilder, definiera `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som visas i följande exempel. Det här och följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS med Docker-motorn.
+Om du vill konfigurera poolen behållaren-aktiverade utan prefetched behållare bilder, definiera `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som visas i exemplet nedan Python. Det här exemplet använder Ubuntu Server för Azure Batch behållaren pooler avbildning från Marketplace.
 
-```csharp
-// Specify container configuration. This is required even though there are no prefetched images.
-ContainerConfiguration containerConfig = new ContainerConfiguration();
 
-// VM configuration
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-    imageReference: imageReference,
-    containerConfiguration: containerConfig,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+```python
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
+        offer='ubuntu-server-container',
+        sku='16-04-lts',
+        version='latest')
 
-// Create pool
-CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration);
+"""
+Specify container configuration. This is required even though there are no prefetched images.
+"""
 
-// Commit pool creation
-pool.Commit();
+container_conf = batch.models.ContainerConfiguration()
+
+new_pool = batch.models.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            container_configuration=container_conf,
+            node_agent_sku_id='batch.node.ubuntu 16.04'),
+        vm_size='STANDARD_D1_V2',
+        target_dedicated_nodes=1)
+...
 ```
 
 
 ### <a name="prefetch-images-for-container-configuration"></a>Prefetch avbildningar för konfigurationen behållaren
 
-Om du vill förhämtning behållaren avbildningar på poolen lägger du till listan över behållare bilder (`containerImageNames`) till den `ContainerConfiguration`, och namnge Bildlistan. I följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS och förhämtning en TensorFlow-avbildning från [Docker-hubb](https://hub.docker.com). Det här exemplet innehåller en start-aktivitet som körs i VM-värden på pool-noder. Du kan köra Startuppgiften på värden, till exempel om du vill montera en filserver som kan nås från behållarna.
+Om du vill förhämtning behållaren avbildningar på poolen lägger du till listan över behållare bilder (`container_image_names`, i Python) till den `ContainerConfiguration`. 
+
+Följande grundläggande Python-exempel visar hur du förhämtning en standardiserad Ubuntu behållaren avbildning från [Docker-hubb](https://hub.docker.com).
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
+
+"""
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+"""
+
+container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
+...
+```
+
+
+I följande exempel C#-exempel förutsätter att du vill förhämtning en TensorFlow-avbildning från [Docker-hubb](https://hub.docker.com). Det här exemplet innehåller en start-aktivitet som körs i VM-värden på pool-noder. Du kan köra Startuppgiften på värden, till exempel om du vill montera en filserver som kan nås från behållarna.
 
 ```csharp
+
+ImageReference imageReference = new ImageReference(
+    publisher: "microsoft-azure-batch",
+    offer: "ubuntu-server-container",
+    sku: "16-04-lts",
+    version: "latest");
+
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
@@ -156,15 +184,13 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prefetch bilder från ett privat behållaren register
 
-Du kan också förhämtning behållaren avbildningar genom att autentisera till en server för privata behållare registret. I följande exempel visas den `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som använder en anpassad avbildning Ubuntu 16.04 LTS och förhämtning en privat TensorFlow-avbildning från en behållare för privat Azure-registret.
+Du kan också förhämtning behållaren avbildningar genom att autentisera till en server för privata behållare registret. I följande exempel visas den `ContainerConfiguration` och `VirtualMachineConfiguration` objekt förhämtning en privat TensorFlow-avbildning från en behållare för privat Azure-registret. Bildreferensen är samma som i föregående exempel.
 
 ```csharp
 // Specify a container registry
@@ -191,9 +217,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
@@ -207,7 +231,22 @@ Om du kör uppgifter på behållaren bilder, den [moln uppgiften](/dotnet/api/mi
 
 När du konfigurerar inställningar för behållare, alla kataloger rekursivt nedan i `AZ_BATCH_NODE_ROOT_DIR` (roten för Azure Batch kataloger på noden) mappas till behållare och alla uppgiften miljö variabler som ska mappas till behållaren och kommandorad för uppgift körs i behållaren.
 
-Kodexempel i [förhämtning avbildningar för konfigurationen behållaren](#prefetch-images-for-container-configuration) visades hur du anger en behållare konfiguration för en start-aktivitet. Följande kodexempel visar hur du anger konfigurationen för behållaren för en aktivitet i molnet:
+Python följande fragment visas en grundläggande kommandorad som körs i en behållare för Ubuntu som hämtas från Docker-hubb. Behållaren som kör alternativen är ytterligare argument till den `docker create` kommando som aktiviteten körs. Här är den `--rm` alternativet tar bort behållaren när uppgiften har slutförts.
+
+```python
+task_id = 'sampletask'
+task_container_settings = batch.models.TaskContainerSettings(
+    image_name='ubuntu', 
+    container_run_options='--rm')
+task = batch.models.TaskAddParameter(
+    id=task_id,
+    command_line='echo hello',
+    container_settings=task_container_settings
+)
+
+```
+
+Följande C#-exempel visar inställningar för grundläggande behållare för en aktivitet i molnet:
 
 ```csharp
 // Simple container task command
@@ -233,3 +272,5 @@ CloudTask containerTask = new CloudTask (
 * Mer information om att installera och använda Docker CE på Linux finns i [Docker](https://docs.docker.com/engine/installation/) dokumentation.
 
 * Mer information om hur du använder anpassade avbildningar finns [använda en anpassad avbildning som hanterad för att skapa en pool med virtuella datorer ](batch-custom-images.md).
+
+* Lär dig mer om den [Moby projekt](https://mobyproject.org/), ett ramverk för att skapa behållaren-baserade system.

@@ -1,28 +1,24 @@
 ---
-title: Skala lokal U-SQL-köra och testa med Azure Data Lake U-SQL-SDK | Microsoft Docs
-description: Lär dig hur du använder Azure Data Lake U-SQL-SDK för att skala U-SQL lokalt körs jobben och testning med kommandoraden och programmeringsgränssnitt på din lokala arbetsstationen.
+title: Köra och testa U-SQL-jobb lokalt med hjälp av Azure Data Lake U-SQL-SDK
+description: Lär dig mer om att köra och testa U-SQL-jobb lokalt med hjälp av kommandoraden och programmeringsgränssnitt på din lokala arbetsstationen.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737079"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Skala lokal U-SQL-köra och testa med Azure Data Lake U-SQL-SDK
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Köra och testa U-SQL med Azure Data Lake U-SQL-SDK
 
-När du utvecklar U-SQL-skript, är det vanligt att köra och testa U-SQL-skript lokalt skicka innan den till molnet. Azure Data Lake innehåller en Nuget-paketet kallas SDK för Azure Data Lake U-SQL i det här scenariot, via som du sedan kan du skala lokal U-SQL kör och test. Det är också möjligt att integrera U-SQL testet med CI (kontinuerlig Integration) system för att automatisera kompileringen och testa.
+När du utvecklar U-SQL-skript, är det vanligt att köra och testa U-SQL-skript lokalt skicka innan den till molnet. Azure Data Lake innehåller en Nuget-paketet kallas SDK för Azure Data Lake U-SQL i det här scenariot, via som du sedan kan skala kör U-SQL och testning. Det är också möjligt att integrera U-SQL testet med CI (kontinuerlig Integration) system för att automatisera kompileringen och testa.
 
 Om du bryr dig om hur för att manuellt lokala körs och felsöka U-SQL-skript med GUI-tooling kan du använda Azure Data Lake-verktyg för Visual Studio för att. Mer information från [här](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -60,9 +56,9 @@ Du kan använda både en relativ sökväg och en lokal absolut sökväg i U-SQL-
 
 |Relativ sökväg|Absolut sökväg|
 |-------------|-------------|
-|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/abc/def/input.csv |D:\abc\def\input.csv|
+|/ABC/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|ABC/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/ABC/def/Input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Arbetskatalog
 
@@ -72,12 +68,12 @@ När du kör U-SQL-skript lokalt, skapas en arbetskatalog under kompilering unde
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Hash-sträng av körningsversion|Skuggkopia av runtime-filer som behövs för lokal körning|
 | |Script_66AE4909AA0ED06C| |Script namn + hash-sträng med sökvägen för skriptet|Utdata för kompilering och körning steg loggning|
-| | |\_script\_.abr|Utdata för kompilator|Algebra fil|
-| | |\_ScopeCodeGen\_.*|Utdata för kompilator|Genererade hanterad kod|
-| | |\_ScopeCodeGenEngine\_.*|Utdata för kompilator|Genererade maskinkod|
+| | |\_skriptet\_.abr|Utdata för kompilator|Algebra fil|
+| | |\_ScopeCodeGen\_. *|Utdata för kompilator|Genererade hanterad kod|
+| | |\_ScopeCodeGenEngine\_. *|Utdata för kompilator|Genererade maskinkod|
 | | |Refererade sammansättningar|Sammansättningsreferensen|Sammansättningsfiler|
 | | |deployed_resources|Resurs-distribution|Resursfiler för distribution|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Körningsloggen|Logg över utförande|
+| | |xxxxxxxx.xxx[1..n]\_\*. *|Körningsloggen|Logg över utförande|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Använd SDK: N från kommandoraden
@@ -212,12 +208,12 @@ Den **köra** kommandot används för att köra kompilerade resultatet.
 
 Följande är valfria argument för **köra**:
 
-|Argumentet|Beskrivning|
-|--------|-----------|
-|-DataRoot [standardvärde '']|Dataroten för körning av metadata. Används som standard den **LOCALRUN_DATAROOT** miljövariabeln.|
-|-MessageOut [standardvärde '']|Dumpa meddelanden på konsolen till en fil.|
-|-Parallell [standardvärdet '1']|Indikator för att köra de genererade lokala kör steg med det angivna parallellitet.|
-|-Verbose [standardvärde 'False']|Indikator för att visa detaljerade utdata från körning.|
+|Argumentet|Standardvärde|Beskrivning|
+|--------|-------------|-----------|
+|-DataRoot | '' |Dataroten för körning av metadata. Används som standard den **LOCALRUN_DATAROOT** miljövariabeln.|
+|-MessageOut | '' |Dumpa meddelanden på konsolen till en fil.|
+|-Parallell | '1' |Indikator för att köra de genererade lokala kör steg med det angivna parallellitet.|
+|-Verbose | 'False' |Indikator för att visa detaljerade utdata från körning.|
 
 Här är ett exempel på användning:
 
@@ -343,7 +339,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 **Egenskaper**
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap |Typ|Beskrivning|
 |--------|----|-----------|
 |AlgebraPath|sträng|Sökvägen till filen algebra (algebra filen är ett resultat för kompilering)|
 |CodeBehindReferences|sträng|Om skriptet har ytterligare kod bakom referenser, ange sökvägar avgränsade med ';'|
@@ -380,7 +376,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>Vanliga frågor och svar om vanliga problem
 
 ### <a name="error-1"></a>Fel 1:
-E_CSC_SYSTEM_INTERNAL: Internal error! Det gick inte att läsa in filen eller sammansättningen 'ScopeEngineManaged.dll' eller en av dess beroenden. Det gick inte att hitta den angivna modulen.
+E_CSC_SYSTEM_INTERNAL: Internt fel! Det gick inte att läsa in filen eller sammansättningen 'ScopeEngineManaged.dll' eller en av dess beroenden. Det gick inte att hitta den angivna modulen.
 
 Kontrollera följande:
 

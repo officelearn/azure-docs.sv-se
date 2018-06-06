@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802365"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer - skillnad från och med
 Den här artikeln analyserar skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagringsköer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -47,7 +48,6 @@ Som lösning systemarkitekt/utvecklare, **bör du använda Service Bus-köer** n
 
 * Din lösning kunna ta emot meddelanden utan att behöva söka kön. Med Service Bus kan göra detta genom att använda den långa avsökningen mottagningsåtgärd med hjälp av TCP-baserat protokoll som stöds i Service Bus.
 * Lösningen kräver kön att tillhandahålla en garanterad första-i-first out (FIFO) sorterade leverans.
-* Vill du en symmetrisk upplevelse i Azure och Windows Server (privat moln). Mer information finns i [Service Bus för Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Din lösning kunna stödja automatisk identifiering av dubbletter.
 * Du vill att programmet för att bearbeta meddelanden som parallella tidskrävande dataströmmar (meddelanden som är kopplad till en dataström med hjälp av den [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) -egenskap). Varje nod i den konsumerande appen konkurrerar om strömmar, till skillnad från meddelanden i den här modellen. När en ström som har tilldelats en lång nod, kan noden Kontrollera status för dataströmmen programtillståndet använder transaktioner.
 * Lösningen kräver transaktionella beteende och gör att skicka eller ta emot flera meddelanden från en kö.
@@ -131,14 +131,14 @@ Det här avsnittet jämför lagringsköer och Service Bus-köer ur [kapacitet oc
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Största köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
-| Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
+| Största meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
 | Maximal meddelande-TTL |**Oändlig** (från och med api-version 2017-07-27) |**TimeSpan.Max** |
 | Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutningsgränsen gäller endast för TCP-protokoll-baserad kommunikation) |
 
 ### <a name="additional-information"></a>Ytterligare information
 * Service Bus tillämpar storleksbegränsningar för kön. Största köstorlek har angetts vid skapande av kön och kan ha ett värde mellan 1 och 80 GB. Om storleksvärdet kö på skapande av kön uppnås ytterligare inkommande meddelanden avvisas och tas emot ett undantag av den anropande koden. Mer information om kvoter i Service Bus finns [Service Bus kvoter](service-bus-quotas.md).
-* I den [standardnivån](service-bus-premium-messaging.md), kan du skapa Service Bus-köer i 1, 2, 3, 4 och 5 GB storlek (standard är 1 GB). Du kan skapa köer i Premium-nivån upp till 80 GB i storlek. I Standard nivå med partitionering är aktiverad (vilket är standard), Service Bus skapar 16 partitioner för varje GB som du anger. Så om du skapar en kö är 5 GB i storlek med 16 partitioner största köstorlek blir (5 * 16) = 80 GB. Du kan se den maximala storleken på din partitionerade kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal]. Premium-nivån skapas endast 2 partitioner per kö.
+* Partitionering stöds inte i den [premiumnivån](service-bus-premium-messaging.md). Du kan skapa Service Bus-köer i 1, 2, 3, 4 och 5 GB storlekar (standardvärdet är 1 GB) i Standard-nivån. I Standard nivå med partitionering är aktiverad (vilket är standard), Service Bus skapar 16 partitioner för varje GB som du anger. Så om du skapar en kö är 5 GB i storlek med 16 partitioner största köstorlek blir (5 * 16) = 80 GB. Du kan se den maximala storleken på din partitionerade kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal].
 * Med lagringsköer, om innehållet i meddelandet inte är XML-kassaskåp, sedan måste det vara **Base64** kodad. Om du **Base64**-koda meddelandet, nyttolasten användare kan vara upp till 48 KB, i stället för 64 KB.
 * Med Service Bus-köer, varje meddelande som lagras i en kö består av två delar: en rubrik och text. Den totala storleken på meddelandet får inte överskrida den maximala storleken som stöds av tjänstnivån.
 * När klienterna kommunicerar med Service Bus-köer via TCP-protokollet, är det maximala antalet samtidiga anslutningar till en enskild Service Bus-kö begränsad till 100. Det här antalet delas mellan avsändare och mottagare. Om den här kvoten har uppnåtts efterföljande begäranden om ytterligare anslutningar avvisas och tas emot ett undantag av den anropande koden. Den här begränsningar inte på klienter som ansluter till köer med hjälp av REST-baserad API.

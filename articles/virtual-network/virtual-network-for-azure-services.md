@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802569"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtuell nätverksintegration för Azure-tjänster
 
@@ -67,11 +68,7 @@ Du kan distribuera en [intern Azure belastningsutjämnare](../load-balancer/load
 
 ## <a name="service-endpoints-for-azure-services"></a>Slutpunkter för Azure-tjänster
 
-Vissa Azure-tjänster kan distribueras i virtuella nätverk. Du kan begränsa åtkomsten till tjänsten resurser till specifika virtuellt undernät, om du väljer genom att aktivera en tjänstslutpunkt för virtuellt nätverk. Lär dig mer om [slutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md).
-
-För närvarande stöds slutpunkter för följande tjänster: 
-- **Azure Storage**: [skydda Azure Storage-konton till virtuella nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Azure SQL Database**: [skydda Azure SQL Database till virtuella nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Vissa Azure-tjänster kan distribueras i virtuella nätverk. Du kan begränsa åtkomsten till tjänsten resurser till specifika virtuellt undernät, om du väljer genom att aktivera en tjänstslutpunkt för virtuellt nätverk. Lär dig mer om [slutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md), och de tjänster som slutpunkter kan aktiveras för.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Virtuell nätverksintegration över flera Azure-tjänster
 

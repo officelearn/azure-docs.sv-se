@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757527"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault-Guide för utvecklare
 
@@ -52,11 +53,11 @@ Resurser i ovannämnda video:
 
 ## <a name="creating-and-managing-key-vaults"></a>Skapa och hantera Nyckelvalv
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter och andra nycklar och hemligheter, men din kod måste autentisera till Key Vault de. Hanterad Service identitet (MSI) gör att lösa problemet enklare genom att ge en automatiskt hanterade identitet i Azure-tjänster i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault utan några autentiseringsuppgifter i koden. 
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden. 
 
 Mer information om MSI finns [hanteras Service identitet (MSI) för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-Läs mer om att arbeta med AAD [integrera program med Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Läs mer om att arbeta med AAD [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Innan du börjar arbeta med nycklar, hemligheter eller certifikat i nyckelvalvet ska du skapa och hantera nyckelvalvet via CLI, PowerShell, Resource Manager-mallar eller övriga, enligt beskrivningen i följande artiklar:
 

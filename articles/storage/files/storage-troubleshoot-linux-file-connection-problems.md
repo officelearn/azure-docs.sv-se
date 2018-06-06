@@ -3,9 +3,9 @@ title: Felsökning av problem med Azure-filer i Linux | Microsoft Docs
 description: Felsökning av problem med Azure-filer i Linux
 services: storage
 documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: wmgries
+manager: aungoo
+editor: tamram
 tags: storage
 ms.service: storage
 ms.workload: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: wgries
+ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738372"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsökning av problem med Azure-filer i Linux
 
@@ -129,7 +130,7 @@ Använd det storage-kontot för att kopiera filerna:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Det går inte att ansluta eller montera en filresurs på Azure
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Det går inte att ansluta eller montera en Azure-filresurs
 
 ### <a name="cause"></a>Orsak
 

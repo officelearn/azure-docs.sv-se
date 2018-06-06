@@ -7,20 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/04/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bbc26402b30c7796ba11fef159d5cedefa5d58d
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802477"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versioner i Azure Search
-Azure Search samlar funktionen uppdateras regelbundet. Ibland, men inte alltid kräver dessa uppdateringar oss att publicera en ny version av våra API för att bevara bakåtkompatibilitet. En ny version kan du styra hur och när du integrerar tjänstuppdateringar för sökning i koden.
+Azure Search samlar funktionen uppdateras regelbundet. Ibland, men inte alltid kräver dessa uppdateringar en ny version av API för att bevara bakåtkompatibilitet. En ny version kan du styra hur och när du integrerar tjänstuppdateringar för sökning i koden.
 
-Som regel som vi försöker publicera nya versioner bara när det behövs, eftersom den kan omfatta möda för att uppgradera din kod för att använda en ny API-version. Vi bara publicerar en ny version om vi behöver ändra vissa delar av API: et på ett sätt som bryter bakåtkompatibilitet. Detta kan inträffa på grund av korrigeringar av befintliga funktioner eller på grund av nya funktioner som ändrar befintliga API-ytan.
+Som regel publicerar Azure Search-teamet nya versioner bara när det behövs, eftersom den kan omfatta möda för att uppgradera din kod för att använda en ny API-version. En ny version krävs endast om någon del av API: et har ändrats på ett sätt som bryter bakåtkompatibilitet. Sådana ändringar kan inträffa på grund av korrigeringar av befintliga funktioner eller på grund av nya funktioner som ändrar befintliga API-ytan.
 
-Vi följer samma regel för SDK-uppdateringar. Azure Search SDK följer den [semantiska versionshantering](http://semver.org/) regler, vilket innebär att dess version består av tre delar: högre och lägre build-nummer (till exempel 1.1.0). Vi kommer att släppa en ny högre version av SDK endast vid ändringar som bryter bakåtkompatibilitet. Vi kommer att öka den lägre versionen för hårt funktionsuppdateringar och för felkorrigeringar vi bara ökar versionsnumret.
+Samma sak gäller för SDK-uppdateringar. Azure Search SDK följer den [semantiska versionshantering](http://semver.org/) regler, vilket innebär att dess version består av tre delar: högre och lägre build-nummer (till exempel 1.1.0). En ny högre version av SDK släpps endast för ändringar som bryter bakåtkompatibilitet. Hårt funktionsuppdateringar ökar värdet för den lägre versionen och felkorrigeringar endast ökar versionsnumret.
 
 > [!NOTE]
 > Din Azure Search-tjänstinstansen stöder flera REST API-versioner, inklusive det senaste. Du kan fortsätta att använda en version när det är inte längre den senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST-API, måste du ange API-versionen i varje begäran via parametern api-version. När du använder .NET SDK, anger versionen av du använder SDK motsvarande version av REST API. Om du använder en äldre SDK kan fortsätta du att köra koden utan ändringar, även om tjänsten uppgraderas för att stödja en nyare API-version.
@@ -32,13 +33,12 @@ Nedan en ögonblicksbild av de aktuella versionerna av alla programmeringsgräns
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |Allmänt tillgänglig, publicerat April 2018 |
 | [Förhandsversion av .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Förhandsgranskning, publicerat maj 2017 |
-| [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Allmänt tillgänglig |
-| [Tjänsten REST API 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-preview |Förhandsversion |
-| [Tjänsten REST API-2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-preview |Förhandsversion |
+| [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Allmänt tillgänglig |
+| [Tjänsten REST API-2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Förhandsversion |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Allmänt tillgänglig |
 | [REST API för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Allmänt tillgänglig |
 
-För REST API: erna, inklusive den `api-version` på varje anrop krävs. Detta gör det enkelt att fokusera på en viss version, till exempel en förhandsgranskning API. Följande exempel visar hur `api-version` parameter har angetts:
+För REST API: erna, inklusive den `api-version` på varje anrop krävs. Med hjälp av `api-version` gör det enkelt att fokusera på en viss version, till exempel en förhandsgranskning API. Följande exempel visar hur `api-version` parameter har angetts:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
@@ -47,14 +47,14 @@ För REST API: erna, inklusive den `api-version` på varje anrop krävs. Detta g
 >
 > Tjänsten REST-API och Management REST API är versionshanterade oberoende av varandra. Alla likheter i versionsnummer är sammanhanget.
 
-Allmänt tillgänglig (eller GA) API: er som kan användas i produktion och regleras Azure servicenivåavtal. Förhandsversioner har experiment funktioner som inte alltid har migrerats till en GA-version. **Vi starkt rekommenderar mot att använda Förhandsgranska API: er i program i produktion.**
+Allmänt tillgänglig (eller GA) API: er som kan användas i produktion och regleras Azure servicenivåavtal. Förhandsversioner har experiment funktioner som inte alltid har migrerats till en GA-version. **Du rekommenderas starkt att undvika att använda Förhandsgranska API: er i program i produktion.**
 
 ## <a name="about-preview-and-generally-available-versions"></a>Om förhandsversionen och allmänt tillgängliga versioner
 Azure Search Frigör alltid före experiment funktioner via REST API först, sedan via förhandsversioner av .NET SDK.
 
-Förhandsgranskningsfunktioner är inte säkert att migreras till en GA-version. Funktioner i en GA-versionen är anses sannolikt inte kommer att ändra med undantag för små bakåtkompatibla korrigeringar och förbättringar, är förhandsgranskningsfunktioner tillgängliga för testning och experiment, med målet att samla in feedback om funktionen designen och implementeringen.
+Funktioner är tillgängliga för testning och experiment, med målet att samla in feedback om funktionen designen och implementeringen. Därför kan förhandsgranskningsfunktionerna ändras med tiden, möjligen på ett sätt som bakåtkompatibilitet bryta kompatibiliteten. Detta skiljer sig från funktionerna i en GA-version som är sannolikt inte kommer att ändra med undantag för små bakåtkompatibla korrigeringar och förbättringar. Dessutom gör förhandsgranskningsfunktioner alltid den till en GA-version.
 
-Men eftersom förhandsgranskningsfunktionerna kan ändras, rekommenderar vi mot skriva kod som tar ett beroende på förhandsversioner. Om du använder en äldre version av preview rekommenderar vi migrering till den allmänt tillgängliga versionen (GA).
+Därför rekommenderar vi mot skriva kod som tar ett beroende på förhandsversioner. Om du använder en äldre version av preview rekommenderar vi migrering till den allmänt tillgängliga versionen (GA).
 
 För .NET SDK: vägledning för migrering av kod finns på [uppgradera .NET SDK](search-dotnet-sdk-migration.md).
 

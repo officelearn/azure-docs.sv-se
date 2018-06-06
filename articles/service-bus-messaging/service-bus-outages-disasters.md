@@ -1,24 +1,19 @@
 ---
 title: Isolering av Azure Service Bus program mot avbrott och katastrofer | Microsoft Docs
-description: "Metoder för att skydda mot en potentiella avbrott i Service Bus-program."
+description: Metoder för att skydda mot en potentiella avbrott i Service Bus-program.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802314"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för program mot Service Bus-avbrott och katastrofer isolering
 
@@ -34,7 +29,9 @@ Service Bus använder flera meddelandearkiv för att lagra meddelanden som skick
 Alla Service Bus meddelandeentiteter (köer, ämnen, reläer) finns i ett namnområde för tjänsten som är kopplad till ett datacenter. Stöd för Service Bus [ *Geo-återställning* och *georeplikering* ](service-bus-geo-dr.md) på namnområdesnivån.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Skydda köer och ämnen mot messaging store-fel
-En icke-partitionerat kö eller ett ämne tilldelas till ett meddelandearkiv. Om den här meddelandearkiv är tillgänglig, misslyckas alla åtgärder på den kö eller ett ämne. En partitionerad kö å andra sidan består av flera fragment. Varje fragment lagras i en annan meddelandearkiv. När ett meddelande skickas till en partitionerad kö eller ett ämne, tilldelar Service Bus meddelandet till en av fragment. Om motsvarande meddelandearkiv är tillgänglig, skriver Service Bus meddelandet till en annan fragment om möjligt. Mer information om partitionerade enheter finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
+En icke-partitionerat kö eller ett ämne tilldelas till ett meddelandearkiv. Om den här meddelandearkiv är tillgänglig, misslyckas alla åtgärder på den kö eller ett ämne. En partitionerad kö å andra sidan består av flera fragment. Varje fragment lagras i en annan meddelandearkiv. När ett meddelande skickas till en partitionerad kö eller ett ämne, tilldelar Service Bus meddelandet till en av fragment. Om motsvarande meddelandearkiv är tillgänglig, skriver Service Bus meddelandet till en annan fragment om möjligt. Partitionerade enheter stöds inte längre i den [Premium-SKU](service-bus-premium-messaging.md). 
+
+Mer information om partitionerade enheter finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Skydd mot datacenteravbrott eller katastrofer
 Om du vill tillåta växling mellan två datacenter, kan du skapa ett namnområde för Service Bus-tjänsten i varje datacenter. Till exempel namnområde för Service Bus-tjänsten **contosoPrimary.servicebus.windows.net** kanske finns i USA Central/Nord-region och **contosoSecondary.servicebus.windows.net** kan finnas i oss söder/centrala region. Om en Service Bus-meddelanden entiteten måste vara tillgänglig med en datacenter-avbrott, kan du skapa den entiteten i båda namnområden.
@@ -86,7 +83,7 @@ Mer information om återställning finns i följande artiklar:
 
 * [Azure Service Bus Geo-katastrofåterställning](service-bus-geo-dr.md)
 * [Företagskontinuitet för Azure SQL-databas][Azure SQL Database Business Continuity]
-* [Utforma flexibel program för Azure][Azure resiliency technical guidance]
+* [Designa program med återhämtningsförmåga för Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

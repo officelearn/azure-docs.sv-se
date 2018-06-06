@@ -3,7 +3,7 @@ title: Identifiera och hantera Azure-resurser med hjälp av Privileged Identity 
 description: Beskriver hur du skyddar Azure-resurser med hjälp av PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,12 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rolyon
+ms.openlocfilehash: af3aa7426515e8180fd41a4594b87f12645722e1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699554"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Identifiera och hantera Azure-resurser med hjälp av Privileged Identity Management
 

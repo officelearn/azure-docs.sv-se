@@ -3,7 +3,7 @@ title: Konfigurera inställningar för serverrollen med hjälp av för Azure-res
 description: Beskriver hur du konfigurerar inställningar för PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abab93f829bc93e9300090e52e29cd5a93f3414b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699394"
 ---
 # <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Konfigurera inställningar för serverrollen med hjälp av för Azure-resurser med hjälp av Privileged Identity Management 
 

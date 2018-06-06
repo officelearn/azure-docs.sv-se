@@ -1,31 +1,25 @@
 ---
 title: Etablera hallon Pi till fjärråtkomst övervakning med hjälp av C - Azure | Microsoft Docs
 description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 9de7616ec7174f6c55888a659e9a12bca1e07f94
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735502"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning solution accelerator (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ansluta enheten hallon Pi till Fjärrövervaknings solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till fjärråtkomst övervakning solution accelerator. Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets hallon Pi enhet skriven i C. I den här självstudiekursen skapar du programmet på en hallon Pi Raspbian operativsystem.
+Den här kursen visar hur du ansluter en fysisk enhet till Fjärrövervaknings solution accelerator. Precis som med de flesta embedded-program som körs på begränsad enheter, är klientkod för programmets hallon Pi enhet skriven i C. I den här självstudiekursen skapar du programmet på en hallon Pi Raspbian operativsystem.
 
 ### <a name="required-hardware"></a>Nödvändig maskinvara
 
@@ -62,7 +56,6 @@ Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-progr
 1. Använd följande kommando för att lägga till nödvändiga utvecklingsverktyg och bibliotek hallon-Pi:
 
     ```sh
-    sudo apt-get purge libssl-dev
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
@@ -71,9 +64,9 @@ Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-progr
     ```sh
     cd ~
     git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c/build_all/linux
-    ./build.sh --no-make
-    cd ../../cmake/iotsdk_linux
+    mkdir cmake
+    cd cmake
+    cmake ..
     make
     sudo make install
     ```

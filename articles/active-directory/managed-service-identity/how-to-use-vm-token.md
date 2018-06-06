@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796311"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för token 
 
@@ -312,6 +313,8 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 | 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att MSI har aktiverats på den virtuella datorn. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET URI-begäran har formaterats korrekt, särskilt resursen URI som angetts i frågesträngen. Finns i ”exempelbegäran” i den [föregående REST avsnittet](#rest) exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över tjänster och deras respektive resurs-ID.
 
 ## <a name="retry-guidance"></a>Försök vägledning 
+
+Det rekommenderas att försöka igen om du får ett 404, 429 eller 5xx felkoden (se [felhantering](#error-handling) ovan).
 
 Bandbreddsbegränsning begränsningar gäller för antalet anrop till IMDS-slutpunkten. När bandbreddsbegränsning tröskelvärdet överskrids begränsar IMDS endpoint eventuella ytterligare begäranden när begränsningen tillämpas. Under denna tid IMDS slutpunkten returneras HTTP-statuskoden 429 (”för många begäranden”), och begäranden att misslyckas. 
 

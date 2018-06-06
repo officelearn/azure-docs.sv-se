@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700714"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -90,7 +91,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Mer information finns i [felsöka nätverkssäkerhetsgrupper](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) dokumentet.
+        Mer information finns i [felsöka nätverkssäkerhetsgrupper](../virtual-network/diagnose-network-traffic-filter-problem.md) dokumentet.
 
         > [!IMPORTANT]
         > Regler för nätverkssäkerhetsgrupper tillämpas i ordning baserat på prioritet för regeln. Den första regeln som matchar trafikmönstret används och inga andra tillämpas efter den trafiken. Ordning regler från mest Tillåtande till minst Tillåtande. Mer information finns i [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
@@ -107,7 +108,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Mer information finns i [felsöka vägar](../virtual-network/virtual-network-routes-troubleshoot-portal.md) dokumentet.
+        Mer information finns i [felsöka vägar](../virtual-network/diagnose-network-routing-problem.md) dokumentet.
 
 4. Skapa ett HDInsight-kluster och välj det virtuella Azure-nätverket under konfigurationen. Använd åtgärderna i följande dokument för att förstå klusterskapandeprocessen:
 

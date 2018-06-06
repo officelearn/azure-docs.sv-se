@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/23/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5573399b33da64df8b9bbf78a9583572cf148d7b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713855"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snabbstart: Lägga till företagsanpassning till din inloggningssidan i Azure AD
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (AD Azure) tillhandahåller den här funktionen genom att låta dig anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman. På inloggningssidan visas när du loggar in till webbaserade program, till exempel Office 365 som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan om du vill ange dina autentiseringsuppgifter.
@@ -83,24 +84,24 @@ Azure AD-inloggning ger användaren kan förbli inloggad när de Stäng och öpp
 ## <a name="add-company-branding-to-your-directory"></a>Lägga till företagsanpassning till din katalog
 
 1. Logga in på [Administrationscenter Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör för klienten.
-2. Välj **användare och grupper** > **företagets anpassning** > **redigera**.
+2. Välj **Azure Active Directory** > **företagets anpassning** > **redigera**.
   
   ![Öppna anpassning](./media/customize-branding/navigation-to-branding.png)
 3. Ändra de element som du vill anpassa. Alla element är valfria.
   
   ![Redigera anpassning](./media/customize-branding/edit-branding.png)
-5. När du är klar väljer du **spara**.
+4. När du är klar väljer du **spara**.
 
 Det kan ta upp till en timme innan ändringarna inloggningssidan företagsanpassning ska visas.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Lägga till språkspecifik företagsanpassning för din katalog
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **användare och grupper** > **företagets anpassning** > **nytt språk**.
+2. Välj **Azure Active Directory** > **företagets anpassning** > **nytt språk**.
   
   ![Lägga till språkspecifik företagsanpassning element](./media/customize-branding/add-language.png)
-5. Ändra de element som du vill anpassa. Alla element är valfria.
-6. När du är klar väljer du **spara**.
+3. Ändra de element som du vill anpassa. Alla element är valfria.
+4. När du är klar väljer du **spara**.
 
 Det kan ta upp till en timme innan ändringarna inloggningssidan företagsanpassning ska visas.
 

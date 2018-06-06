@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699214"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Vanliga frågor om Azure Active Directory SSO plugin-program 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Vanliga frågor om Azure Active Directory SSO plugin-program
+
+Mer information finns nedan vanliga frågor och svar om du har en fråga om det här plugin-programmet.
 
 ## <a name="what-does-the-plug-in-do"></a>Vad gör plugin-programmet gör?
 
@@ -38,13 +41,13 @@ Nej. Plugin-programmet stöder endast lokala versioner av Jira och växer samman
 
 Plugin-programmet stöder följande versioner:
 
-* Jira Core- och programvara: 6.0 7.2.2 
-* Jira helpdesk: 3.0 och 3.2 
+* Jira Core- och programvara: 6.0 7,8
+* Jira helpdesk: 3.0 och 3.2
 * Antal samverkande: 5.0 till 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>Är gratis plugin-programmet eller betald?
 
-Det är ett kostnadsfritt tillägg. Du kan installera den från Atlassian Marketplace.
+Det är ett kostnadsfritt tillägg.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>Jag behöver starta om Jira eller växer samman när jag distribuerar plugin-programmet?
 
@@ -52,7 +55,7 @@ En omstart krävs inte. Du kan börja använda plugin-programmet omedelbart.
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>Hur får jag support för plugin-programmet?
 
-Nå ut till den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Teamet svarar i 24-48 kontorstid. 
+Du kan nå ut till den [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) för stöd krävs för den här plugin-programmet. Teamet svarar i 24-48 kontorstid.
 
 Du kan också medföra ett supportärende med Microsoft via Azure portal-kanalen.
 

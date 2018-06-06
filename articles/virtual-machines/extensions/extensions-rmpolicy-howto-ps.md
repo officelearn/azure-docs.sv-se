@@ -14,16 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: danis;cynthn
 ms.openlocfilehash: da5b0db997ba1aa0e998f6fe2645e955b490951d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33942685"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använda Azure för att begränsa tillägg installation på virtuella Windows-datorer
 
 Om du vill förhindra användning eller installationen av vissa tillägg på Windows-datorer kan du skapa en Azure-princip med PowerShell för att begränsa tillägg för virtuella datorer inom en resursgrupp. 
 
-Den här kursen används Azure PowerShell i molnet gränssnittet, som uppdateras till den senaste versionen. Om du väljer att installera och använda PowerShell lokalt kräver den här självstudiekursen Azure PowerShell Modulversion 3,6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Den här kursen används Azure PowerShell i molnet gränssnittet, som uppdateras till den senaste versionen. Om du väljer att installera och använda PowerShell lokalt behöver du ha version 3.6 eller senare av Azure PowerShell-modulen för den här självstudien. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 

@@ -8,16 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/03/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4d3b9d83bc949a2a77ac384b803521726b1bf09b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 624e4d0a8166f3aa60464e7f207a4fd30c414438
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714183"
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Lägga till eller ändra profilinformation för en användare i Azure Active Directory
 Den här artikeln förklarar hur du lägger till användarens profilinformation, till exempel en profilbild eller telefonnummer och e-post-information i Azure Active Directory (AD Azure). Information om att lägga till nya användare i din organisation finns i [lägga till nya användare i Azure Active Directory](active-directory-users-create-azure-portal.md).

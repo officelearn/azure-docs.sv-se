@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: Använda en SAML-identitetsprovider 2.0 för enkel inloggning på | Microsoft Docs"
-description: "Det här avsnittet beskriver hur du använder en kompatibel Idp SAML 2.0 för enkel inloggning på."
+title: 'Azure AD Connect: Använda en SAML-identitetsprovider 2.0 för enkel inloggning på | Microsoft Docs'
+description: Det här dokumentet beskriver hur du använder en kompatibel Idp SAML 2.0 för enkel inloggning på.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,21 +11,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801787"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
-Det här avsnittet innehåller information om hur du använder en SAML 2.0 kompatibel SP-Lite profil baserade identitetsleverantör som den prioriterade säkerhet säkerhetstokentjänst (STS) / identitetsleverantör. Detta är användbart om du redan har ett katalog för användarnamn och lösenord som lagras lokalt som kan nås med SAML 2.0. Den här befintliga användarkatalog kan användas för inloggning till Office 365 och andra Azure AD-skyddade resurser. SAML 2.0 SP-Lite profilen baserat på standarden federerad identitet vanliga Security Assertion Markup Language (SAML) för att ge en inloggning och attributet exchange.
+Det här dokumentet innehåller information om hur du använder en SAML 2.0 kompatibla SP-Lite profil-baserade identitetsleverantör som den prioriterade säkerhet säkerhetstokentjänst (STS) / identitetsleverantör. Det här scenariot är användbart när du redan har ett katalog för användarnamn och lösenord som lagras lokalt som kan nås med SAML 2.0. Den här befintliga användarkatalog kan användas för inloggning till Office 365 och andra Azure AD-skyddade resurser. SAML 2.0 SP-Lite profilen baserat på standarden federerad identitet vanliga Security Assertion Markup Language (SAML) för att ge en inloggning och attributet exchange.
 
 >[!NOTE]
 >En lista över 3 part Idps som har testats för användning med Azure AD finns i [kompatibilitetslista för Azure AD-federation](active-directory-aadconnect-federation-compatibility.md)
 
-Microsoft stöder den här inloggning som integreringen av en Microsoft-molntjänst som Office 365, med en korrekt konfigurerad SAML 2.0 baserade profilen IdP. SAML 2.0 identitetsleverantörer är produkter från tredje part och därmed Microsoft tillhandahåller inte stöd för att distribuera, konfiguration, felsökning Metodtips om dem. En gång korrekt konfigurerat integrationen med i SAML 2.0 identitetsleverantör kan testas för korrekt konfiguration med hjälp av Microsoft Analyzer anslutningsverktyget som beskrivs i detalj nedan. Mer information om SAML 2.0 SP-Lite profilen baserat identitetsprovider ber du den organisation som angetts för den.
+Microsoft stöder den här inloggning som en Microsoft-molntjänst som Office 365, med en korrekt konfigurerad SAML 2.0 profil-baserade IdP-integrering. SAML 2.0 identitetsleverantörer är produkter från tredje part och därmed Microsoft tillhandahåller inte stöd för att distribuera, konfiguration, felsökning Metodtips om dem. En gång korrekt konfigurerat integrationen med i SAML 2.0 identitetsleverantör kan testas för korrekt konfiguration med hjälp av Microsoft Analyzer anslutningsverktyget, som beskrivs i detalj nedan. Mer information om SAML 2.0 SP-Lite profil-baserade identitetsprovider ber du den organisation som angetts för den.
 
 >[!IMPORTANT]
 >Endast en mindre uppsättning klienter är tillgängliga i det här scenariot inloggning med SAML 2.0 identitetsleverantörer, bland annat:
@@ -38,10 +40,10 @@ Microsoft stöder den här inloggning som integreringen av en Microsoft-molntjä
     - E-postklient för Windows 8 och Windows 8.1 e-postklient
     - Windows 10-e-postklient
 
-Alla andra klienter är inte tillgängliga i det här scenariot inloggning med SAML 2.0 identitetsprovider. Lync 2010 skrivbord klienten är till exempel inte kan logga in på tjänsten med SAML 2.0 identitetsprovider konfigurerats för enkel inloggning.
+Alla andra klienter är inte tillgängliga i det här scenariot inloggning med SAML 2.0 identitetsprovider. Till exempel kan Lync 2010 skrivbord klienten inte logga in på tjänsten med SAML 2.0 identitetsprovider konfigurerats för enkel inloggning.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Krav för Azure AD SAML 2.0-protokollet
-Det här avsnittet innehåller detaljerade krav på protokoll och meddelandet formatering som identitetsprovider SAML 2.0 måste implementera om du vill federera med Azure AD för att aktivera inloggning till en eller flera Microsoft-molntjänster (till exempel Office 365). SAML 2.0 beroende part (SP-STS) för en Microsoft-molntjänst som används i det här scenariot är Azure AD.
+Det här dokumentet innehåller detaljerade krav på protokoll och meddelandet formatering som identitetsprovider SAML 2.0 måste implementera om du vill federera med Azure AD för att aktivera inloggning till en eller flera Microsoft-molntjänster (till exempel Office 365). SAML 2.0 beroende part (SP-STS) för en Microsoft-molntjänst som används i det här scenariot är Azure AD.
 
 Vi rekommenderar att du säkerställer identitetsprovider SAML 2.0 utgående meddelanden vara så likt angivna exempel spår som möjligt. Använd attributvärden från den angivna Azure AD-metadata om möjligt. När du är nöjd med utgående meddelanden, kan du testa med Microsoft anslutningen Analyzer som beskrivs nedan.
 
@@ -65,7 +67,7 @@ Noden signaturen innehåller information om den digitala signaturen för själva
 9.  Algoritmen SignatureMethod måste matcha i följande exempel:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Stöds bindningar
-Bindningar är transporten relaterade kommunikation parametrar som krävs. Följande krav gäller för bindningar
+Bindningar är transportrelaterade kommunikation parametrar som krävs. Följande krav gäller för bindningar
 
 1. HTTPS är obligatoriska transport.
 2.  Azure AD kräver HTTP POST för token som skickas automatiskt vid inloggning
@@ -76,23 +78,23 @@ Den här tabellen visas kraven för specifika attribut i SAML 2.0-meddelandet.
  
 |Attribut|Beskrivning|
 | ----- | ----- |
-|NameID|Värdet för den här kontrollen måste vara samma som Azure AD-användare ImmutableID. Det kan vara upp till 64 alfanumeriska tecken. Säker tecken icke HTML måste kodas, till exempel tecknet ”+” visas som ”.2b”.|
-|IDPEmail|Den UPN (User Principal Name) visas i SAML-svar som ett element med namnet IDPEmail är användarens UserPrincipalName (UPN) i Azure AD/Office 365. UPN-namnet är i formatet för e-postadress. UPN-värdet i Windows Office 365 (Azure Active Directory).|
-|Utgivare|Detta måste vara en URI: N för identitetsleverantören. Du bör inte återanvända utfärdaren från exemplet meddelanden. Om du har flera domäner på toppnivå i Azure AD-klienter måste utfärdaren matcha den angivna URI-inställningar som konfigureras per domän.|
+|NameID|Värdet för den här kontrollen måste vara samma som Azure AD-användare ImmutableID. Det kan vara upp till 64 alfanumeriska tecken. Säker tecken icke-HTML-måste kodas, till exempel tecknet ”+” visas som ”.2b”.|
+|IDPEmail|Den UPN (User Principal Name) anges i SAML-svaret som ett element med namnet IDPEmail användarens UserPrincipalName (UPN) i Azure AD/Office 365. UPN-namnet är i formatet för e-postadress. UPN-värdet i Windows Office 365 (Azure Active Directory).|
+|Utfärdare|Måste vara en URI: N för identitetsleverantören. Återanvänd inte utfärdaren från exemplet meddelanden. Om du har flera domäner på toppnivå i Azure AD-klienter måste utfärdaren matcha den angivna URI-inställningar som konfigureras per domän.|
 
 >[!IMPORTANT]
 >Azure AD för närvarande stöder följande NameID Format URI: N för SAML-2.0:urn:oasis:names:tc:SAML:2.0:nameid-format: beständig.
 
 ## <a name="sample-saml-request-and-response-messages"></a>Exempel SAML förfrågan och svar-meddelanden
 Paret förfrågan och svar meddelandet visas för inloggning meddelandet exchange.
-Det här är ett meddelande om begäran exempel som skickas från Azure AD till en exempel SAML 2.0-identitetsleverantör. Identitetsleverantören som exempel SAML 2.0 är Active Directory Federation Services (AD FS) konfigurerats för att använda protokollet SAML-P. Interoperabiliteten är också klar med andra identitetsleverantörer SAML 2.0.
+Följande är ett meddelande om begäran exempel som skickas från Azure AD till en exempel SAML 2.0-identitetsleverantör. Identitetsleverantören som exempel SAML 2.0 är Active Directory Federation Services (AD FS) konfigurerats för att använda protokollet SAML-P. Interoperabiliteten är också klar med andra identitetsleverantörer SAML 2.0.
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
     </samlp:AuthnRequest>`
 
-Det här är ett exempel svarsmeddelande som skickas från identitetsleverantören exempel SAML 2.0 kompatibla till Azure AD / Office 365.
+Följande är ett exempel svarsmeddelande som skickas från identitetsleverantören exempel SAML 2.0 kompatibla till Azure AD / Office 365.
 
     `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
@@ -151,7 +153,10 @@ Det här avsnittet innehåller riktlinjer för hur du konfigurerar din SAML 2.0 
 ## <a name="add-azure-ad-metadata"></a>Lägga till Azure AD-metadata
 Identitetsprovider SAML 2.0 måste följa information om Azure AD förlitande part. Azure AD publicerar metadata på https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
-Vi rekommenderar att du alltid importera den senaste Azure AD-metadata när du konfigurerar din SAML 2.0-identitetsleverantör. Observera att Azure AD inte läsa metadata från identitetsleverantören.
+Vi rekommenderar att du alltid importera den senaste Azure AD-metadata när du konfigurerar din SAML 2.0-identitetsleverantör.
+
+>[!NOTE]
+>Azure AD läser inte metadata från identitetsleverantören.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Lägg till Azure AD som en förlitande part
 Du måste aktivera kommunikationen mellan SAML 2.0 identitetsleverantör och Azure AD. Den här konfigurationen är beroende av specifika identitetsprovider och du bör se dokumentationen för den. Du skulle vanligtvis ange det förlitande part-ID: T till samma som det ID för entiteterna från Azure AD-metadata.
@@ -170,7 +175,10 @@ Du köra en uppsättning cmdlets i Windows PowerShell-kommandoradsgränssnittet 
 
 Varje Azure Active Directory-domän som du vill federera med din identitetsleverantör SAML 2.0 måste vara antingen läggas till som en enda domän inloggning eller konverteras en inloggning domän från en standarddomän. Att lägga till eller konvertera en domän anger du ett förtroende mellan din identitetsleverantör SAML 2.0 och Azure AD.
 
-Följande procedur vägleder dig genom att konvertera en befintlig domän som standard till en federerad domän med SAML 2.0 SP-Lite. Observera att din domän kan uppstå ett avbrott som påverkar användare upp till 2 timmar efter att du har utfört det här steget.
+Följande procedur vägleder dig genom att konvertera en befintlig domän som standard till en federerad domän med SAML 2.0 SP-Lite. 
+
+>[!NOTE]
+>Din domän kan det uppstå ett avbrott som påverkar användare upp till 2 timmar efter att du har utfört det här steget.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Konfigurera en domän i din Azure AD-katalog för federation
 
@@ -187,14 +195,14 @@ Läs mer om ”Set-MsolDomainAuthentication”: [ http://technet.microsoft.com/l
 >[!NOTE]
 >Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” om du ställer in ett ECP-tillägg för din identitetsleverantör. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på en POST baserat aktiv slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för att omfattande klienterna ska interagera med Exchange Online-tjänsten.
 
-När federationstjänsten har konfigurerats du kan gå tillbaka till ”ej federerad” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och kräver nya slumpmässigt lösenord för inloggning molnbaserad tilldela varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa scenarier för att återställa ett fel i inställningarna. Läs mer på domänen konvertering: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+När federationstjänsten har konfigurerats du kan gå tillbaka till ”ej federerad” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och det kräver att tilldela nya slumpmässigt lösenord för molnbaserade inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa scenarier för att återställa ett fel i inställningarna. Läs mer på domänen konvertering: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Etablera användare säkerhetsobjekt till Azure AD / Office 365
-Innan du kan autentisera användarna på Office 365 måste du etablera Azure AD med användare säkerhetsobjekt som motsvarar kontrollen i SAML 2.0-anspråket. Om dessa användare säkerhetsobjekt inte känner till Azure AD i förväg kan sedan de inte användas för federerad inloggning. Azure AD Connect eller Windows PowerShell kan användas för att etablera användare säkerhetsobjekt.
+Innan du kan autentisera användarna på Office 365, måste du etablera Azure AD med användare säkerhetsobjekt som motsvarar kontrollen i SAML 2.0-anspråket. Om dessa användare säkerhetsobjekt inte är känt att Azure AD i förväg, kan sedan de inte användas för federerad inloggning. Azure AD Connect eller Windows PowerShell kan användas för att etablera användare säkerhetsobjekt.
 
 Azure AD Connect kan användas för att etablera säkerhetsobjekt till dina domäner i din Azure AD-katalog från lokala Active Directory. Mer information finns i [integrera dina lokala kataloger med Azure Active Directory](active-directory-aadconnect.md).
 
-Windows PowerShell kan också användas för att automatiskt lägga till nya användare till Azure AD och synkronisera ändringar i den lokala katalogen. Att använda Windows PowerShell-cmdlets måste du hämta den [Azure Active Directory-moduler](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
+Windows PowerShell kan också användas för att automatiskt lägga till nya användare till Azure AD och synkronisera ändringar i den lokala katalogen. Om du vill använda Windows PowerShell-cmdlets, måste du hämta den [Azure Active Directory-moduler](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
 Den här proceduren visar hur du lägger till en enskild användare till Azure AD.
 
@@ -210,7 +218,7 @@ Den här proceduren visar hur du lägger till en enskild användare till Azure A
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Mer information om ”New MsolUser” utcheckningen, [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+Mer information om ”New MsolUser” utcheckning [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >”UserPrinciplName”-värdet måste matcha värdet som du skickar för ”IDPEmail” i SAML 2.0-anspråk och ”ImmutableID”-värdet måste matcha värdet som skickas i ”NameID”-kontrollen.
@@ -233,9 +241,9 @@ När du ställer in enkel inloggning med din SAML 2.0 SP-Lite baserat identitet 
 Innan du verifiera enkel inloggning ska du slutföra konfigurationen av Active Directory-synkronisering, synkronisera dina kataloger och aktivera synkroniserade användare.
 
 ### <a name="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly"></a>Verktyget för att kontrollera att enkel inloggning har ställts in korrekt
-Du kan utföra följande procedur för att bekräfta att du kan logga in på Molntjänsten med företagets autentiseringsuppgifter för att verifiera att enkel inloggning har ställts in korrekt.
+Du kan utföra följande procedur för att bekräfta att du ska kunna logga in på Molntjänsten med företagets autentiseringsuppgifter för att verifiera att enkel inloggning har ställts in korrekt.
 
-Microsoft tillhandahåller ett verktyg som du kan använda för att testa SAML 2.0 baserat identitetsprovider. Innan du kör testverktyget måste du ha konfigurerat en Azure AD-klient för att federera med din identitetsprovider.
+Microsoft tillhandahåller ett verktyg som du kan använda för att testa SAML 2.0 baserat identitetsprovider. Innan du kör testverktyget, måste du ha konfigurerat en Azure AD-klient för att federera med din identitetsprovider.
 
 >[!NOTE]
 >Anslutningen Analyzer kräver Internet Explorer 10 eller senare.
@@ -246,8 +254,8 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa SAML 2
 2.  Klicka på Installera nu att börja hämta och installera verktyget.
 3.  Välj ”det går inte att konfigurera federation med Office 365, Azure eller andra tjänster som använder Azure Active Directory”.
 4.  När verktyget har hämtats och körs, visas fönstret anslutning diagnostik. Verktyget vägleds du genom att testa federation-anslutning.
-5.  Anslutningen Analyzer öppnas din SAML 2.0 IDP du inloggning, ange autentiseringsuppgifterna för användarens huvudnamn du testar: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
-6.  I Federation test inloggning fönster ska du ange ett kontonamn och lösenord för Azure AD-klient som är konfigurerad att bli federerad med SAML 2.0 identitetsprovider. Verktyget kommer att försöka logga in med autentiseringsuppgifterna och kommer att tillhandahållas på detaljerade resultat för tester som utfördes under försök logga in som utdata.
+5.  Anslutningen Analyzer öppnas din SAML 2.0 IDP att logga in, ange autentiseringsuppgifterna för användarens huvudnamn du testar: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
+6.  I fönstret Federation test inloggning ska du ange ett kontonamn och lösenord för Azure AD-klient som är konfigurerad att bli federerad med SAML 2.0 identitetsprovider. Verktyget kommer att försöka logga in med autentiseringsuppgifterna och kommer att tillhandahållas på detaljerade resultat för tester som utfördes under försök logga in som utdata.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
 7. I fönstret visas en misslyckad resultatet tester. Klicka på granska detaljerade resultat att visa information om resultaten för varje test som har utförts. Du kan också spara resultaten till disk för att kunna dela dem.
  
@@ -259,9 +267,9 @@ Manuell kontroll ger ytterligare steg som du kan vidta för att säkerställa at
 Utför följande steg för att verifiera att enkel inloggning har konfigurerats på rätt sätt:
 
 
-1. Logga in på Molntjänsten med samma inloggningsnamn som du använder för företagets autentiseringsuppgifter på en domänansluten dator.
-2.  Klicka i lösenordsrutan. Om enkel inloggning har ställts in lösenord kommer att skuggad och följande meddelande visas ”: måste logga in på <your company>”.
-3.  Klicka på Logga in på <your company> länk. Om du ska kunna logga in har sedan enkel inloggning ställts in.
+1. På en domänansluten dator, logga in på Molntjänsten med samma inloggningsnamn som du använder för företagets autentiseringsuppgifter.
+2.  Klicka i lösenordsrutan. Om enkel inloggning har ställts in lösenord kommer att skuggad och följande meddelande visas ”: nu måste du logga in på &lt;företaget&gt;”.
+3.  Klicka på Logga in på &lt;företaget&gt; länk. Om du ska kunna har logga in, sedan enkel inloggning ställts in.
 
 ## <a name="next-steps"></a>Nästa steg
 

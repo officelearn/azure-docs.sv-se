@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/31/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4e6b3a2e8769c6e7e93071aed27b81c87ae336ca
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715565"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervakning av användning och de uppskattade kostnaderna
 
@@ -106,3 +107,146 @@ Den **priser vald modell** öppnas. Den visar en lista över alla prenumeratione
 ![Priser för modellen val av skärmbild](./media/monitoring-usage-and-estimated-costs/007.png)
 
 Om du vill flytta en prenumeration till nya priserna, markera kryssrutan och välj sedan **spara**. Du kan flytta tillbaka till äldre priserna på samma sätt. Tänk på att prenumerationsägaren eller deltagarbehörighet krävs för att ändra prisnivå modellen.
+
+## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttar till en ny prissättningsmodell
+
+Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+
+När du har den senaste versionen av Azure PowerShell kan du först behöver köra ``Connect-AzureRmAccount``.
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Ett resultat av True under isGrandFatherableSubscription anger att den här prenumerationen prismodellen kan flyttas mellan prissättningsmodeller. Saknas ett värde under optedInDate innebär den här prenumerationen är inställd på att gamla priserna.
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+Om du vill migrera den här prenumerationen till nya priserna kör:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+Bekräfta att ändringen har lyckats kör:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Om migreringen lyckades, bör resultatet nu se ut som:
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+OptInDate innehåller nu en tidsstämpel när den här prenumerationen valts i nya priserna.
+
+Om du behöver återgå till den gamla prismodellen kör du:
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+Om du kör sedan det föregående skript som har ``-Action listmigrationdate``, bör nu visas en tom optedInDate värde som anger din prenumeration har returnerats till äldre prismodell.
+
+Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa egna variant med delar av följande skript:
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+Om du vill kontrollera om alla prenumerationer i din klient är berättigad till nya priserna, kan du köra:
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris består av alla prenumerations-id's som har ```isGrandFatherableSubscription``` anges till True och optedInDate inte har ett värde. En andra matris med några prenumerationer för närvarande på nya priserna. Och en tredje matris endast med prenumerations-ID: n i din klient som inte är tillämplig för nya priserna:
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> Skriptet ovan kan ta lite tid att köra beroende på antalet prenumerationer. Användning av metoden .add() echo PowerShell-fönstret ökar värdena som objekt läggs till varje matris.
+
+Nu när du har dina prenumerationer uppdelat i tre matriser bör du granska resultatet noggrant. Du kanske vill göra en säkerhetskopia av innehållet i matriserna så att du kan enkelt återställa dina ändringar om det behövs i framtiden. Om du valt som du vill konvertera alla berättigade prenumerationer som för närvarande på gamla priserna till den nya Prismodell den här uppgiften kan nu uppnås med:
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

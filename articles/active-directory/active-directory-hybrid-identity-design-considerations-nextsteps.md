@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory hybrid identity design överväganden - nästa steg | Microsoft Docs"
-description: "En sammanfattning och nästa steg efter att du har läst Designguide för Hybrid Identity"
-documentationcenter: 
+title: Azure Active Directory hybrid identity design överväganden - nästa steg | Microsoft Docs
+description: En sammanfattning och nästa steg efter att du har läst Designguide för Hybrid Identity
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801498"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrid identity design överväganden nästa steg
 Nu när du har fyllt i definieringen av dina krav och undersökt alla alternativ för din mobila enhetshanteringslösning, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
@@ -46,6 +48,6 @@ Ofta övervakning av följande resurser ger de senaste nyheterna och uppdateras 
 * [Blogg för Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 * [Microsoft System Center Configuration Manager Team-blogg](http://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](active-directory-hybrid-identity-design-considerations-overview.md)
 

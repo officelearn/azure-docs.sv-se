@@ -1,6 +1,6 @@
 ---
-title: "Med hjälp av Azure CLI 1.0 med Azure Storage | Microsoft Docs"
-description: "Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 1.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobbar och filer. Azure CLI är ett verktyg för flera plattformar"
+title: Med hjälp av Azure CLI 1.0 med Azure Storage | Microsoft Docs
+description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 1.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobbar och filer. Azure CLI är ett verktyg för flera plattformar
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737477"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Med hjälp av Azure CLI 1.0 med Azure Storage
 
@@ -185,7 +186,7 @@ azure storage blob delete mycontainer myBlockBlob2
 Azure Files erbjuder delad lagring för program som använder SMB-standardprotokollet. Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via Azure CLI. Mer information om Azure-filer finns [introduktion till Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
-En filresurs i Azure är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontot kapacitetsgränser. Följande exempel skapar en filresurs med namnet **minresurs**.
+En Azure-filresursen är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontot kapacitetsgränser. Följande exempel skapar en filresurs med namnet **minresurs**.
 
 ```azurecli
 azure storage share create myshare

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757629"
 ---
 # <a name="testability-actions"></a>Möjlighet att testa åtgärder
 För att simulera en instabilt infrastruktur tillhandahåller Azure Service Fabric utvecklaren med olika sätt att simulera olika verkliga fel och tillståndsövergångar. Dessa visas som datatillgång åtgärder. Åtgärderna är för låg nivå API: er som orsakar en viss feltolerans injection, tillståndsövergång eller validering. Du kan skriva omfattande testscenarier för dina tjänster genom att kombinera dessa åtgärder.
@@ -41,8 +42,8 @@ För bättre kvalitet verifiering, kör du tjänsten och affärskrav arbetsbelas
 | CleanTestState |Tar bort alla testtillstånd från klustret vid en felaktig avstängning av test-drivrutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte tillämpligt |
 | InvokeDataLoss |Startar förlust av data i en partition med tjänsten. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Korrekt |
 | InvokeQuorumLoss |Placerar en given tillståndskänslig service partition i förlorar kvorum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
-| Flytta primära |Flyttar den angivna primära repliken av en tillståndskänslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
-| Flytta sekundär |Flyttar den aktuella sekundär repliken av en tillståndskänslig tjänst till en annan klusternod. |MoveSecondaryAsync |Flytta ServiceFabricSecondaryReplica |Korrekt |
+| En MovePrimary |Flyttar den angivna primära repliken av en tillståndskänslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
+| MoveSecondary |Flyttar den aktuella sekundär repliken av en tillståndskänslig tjänst till en annan klusternod. |MoveSecondaryAsync |Flytta ServiceFabricSecondaryReplica |Korrekt |
 | RemoveReplica |Simulerar ett replik fel genom att ta bort en replik från ett kluster. Detta kommer att stängas repliken och kommer övergång till rollen None, ta bort dess status från klustret. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Korrekt |
 | RestartDeployedCodePackage |Simulerar ett fel i koden paketet genom att starta om en kodpaketet har distribuerats på en nod i ett kluster. Detta avbryter kod paketet processen, vilket startar om alla användare service repliker finns i den här processen. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Städat |
 | RestartNode |Simulerar ett nodfel för Service Fabric-kluster genom att starta om en nod. |RestartNodeAsync |Starta om ServiceFabricNode |Städat |

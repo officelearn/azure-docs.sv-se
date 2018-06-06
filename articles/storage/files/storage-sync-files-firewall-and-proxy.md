@@ -4,7 +4,7 @@ description: Azure filsynkronisering lokala nätverkskonfigurationen
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.assetid: ''
 ms.service: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738538"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure filsynkronisering ansluter dina lokala servrar till Azure Files, aktivera synkronisering för flera platser och i molnet skiktning funktioner. Därmed kan måste en lokal server vara ansluten till internet. IT-administratör måste du bestämma bästa sökvägen för servern som ska få åtkomst till Azure-molntjänster.
@@ -64,7 +65,7 @@ I följande tabell beskrivs domänerna som krävs för kommunikation:
 | **Azure Resource Manager** | https://management.azure.com | Alla användare-anrop (till exempel PowerShell) genomgår att/denna URL, inklusive inledande server registrering anropet. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager-anrop måste göras av en autentiserad användare. Ska lyckas, används URL: en för autentisering av användare. |
 | **Azure Active Directory** | https://graph.windows.net/ | Som del av distributionen av Azure filsynkronisering skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för den. Detta säkerhetsobjekt används för att delegera en minimal uppsättning rättigheter till tjänsten Azure filsynkronisering. Den användare som utför installationen av Azure filsynkronisering måste vara en autentiserad användare med behörighet för ägaren av prenumerationen. |
-| **Azure Storage** | &ast;.core.windows.net | När servern hämtar en fil, sedan utför servern som flytt av data som är mer effektivt när kommunicerar direkt med Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som bara tillåter för åtkomst till resursen för filen. |
+| **Azure Storage** | &ast;.core.windows.net | När servern laddar ned en fil, utför servern sedan den dataflyttning mer effektivt när kommunicerar direkt med Azure-filresursen i Storage-konto. Servern har en SAS-nyckel som bara tillåter för åtkomst till resursen för filen. |
 | **Azure filsynkronisering** | &ast;.one.microsoft.com | Efter första server registration servern tar emot en regionala URL för tjänstinstansen Azure filsynkronisering i regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt sätt med den instans som hanterar synkroniserades. |
 
 > [!Important]

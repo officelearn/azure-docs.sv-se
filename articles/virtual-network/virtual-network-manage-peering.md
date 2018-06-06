@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702041"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -31,7 +32,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ett konto som har den [behörighet](#permissions) att arbeta med peerkopplingar.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Connect-AzureRmAccount` med ett konto som har den [behörighet](#permissions) att arbeta med peering, om du vill skapa en anslutning med Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Connect-AzureRmAccount` med ett konto som har den [behörighet](#permissions) att arbeta med peering, om du vill skapa en anslutning med Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` med ett konto som har den [behörighet](#permissions) att arbeta med peering, om du vill skapa en anslutning med Azure.
 
 Kontot du loggar in, eller Anslut till Azure med, måste vara tilldelade till den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
@@ -115,6 +116,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
     - Virtuella nätverk kan finnas i en region för offentliga Azure-molnet, men inte i Azure nationella moln.
     - Resurser i ett virtuellt nätverk inte kan kommunicera med IP-adressen för en Azure intern belastningsutjämnare i peered virtuella nätverk. Belastningsutjämnaren och resurser som kommunicerar med den måste vara i samma virtuella nätverk.
     - Du kan inte använda remote gateways eller tillåta gateway-överföring. För att använda remote gateways eller tillåta överföring av gateway, måste båda virtuella nätverken i peering finns i samma region. 
+    - Kommunikation över globalt peerkoppla virtuella nätverk via följande typer av VM stöds inte: [högpresterande beräkning](../virtual-machines/windows/sizes-hpc.md) och [GPU](../virtual-machines/windows/sizes-gpu.md). Detta inkluderar H, NC, NV, NCv2, NCv3 och ND serien virtuella datorer.
 - Virtuella nätverk kan finnas i samma eller olika prenumerationer. När de virtuella nätverk har olika prenumerationer kan måste båda prenumerationer vara kopplad till samma Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar du en](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan använda en [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) att ansluta två virtuella nätverk som finns i olika prenumerationer som är kopplade till olika Active Directory-klienter.
 - De virtuella nätverken peer-du måste ha icke-överlappande IP-adressutrymmen.
 - Du kan inte lägga till-adressintervall till eller ta bort adressintervall adressutrymmet för ett virtuellt nätverk när ett virtuellt nätverk är peerkopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adressintervall, ta bort peering, lägga till eller ta bort adressintervallen, sedan skapa peerkopplingen på nytt. Om du vill lägga till-adressintervall till eller ta bort adressintervall från virtuella nätverk, se [hantera virtuella nätverk](manage-virtual-network.md).
@@ -161,6 +163,6 @@ Om ditt konto inte har tilldelats någon av rollerna tidigare, den måste tillde
     |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
     |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
 
-* Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * Skapa ett virtuellt nätverk peering med [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller använda Azure [Resource Manager-mallar](template-samples.md)
 * Skapa och använda [Azure princip](policy-samples.md) för virtuella nätverk

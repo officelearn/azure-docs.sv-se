@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701360"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -31,13 +32,13 @@ Den här stegvisa guiden vägleder dig genom att skapa en säker Azure Service F
 
 Guiden innehåller följande procedurer:
 
-* Nyckelkoncept som du behöver känna av innan du distribuerar ett service fabric-kluster.
-* Skapar ett kluster i Azure med hjälp av service fabric Resource Manager moduler.
+* Nyckelkoncept som du behöver känna till innan du distribuerar ett Service Fabric-kluster.
+* Skapar ett kluster i Azure med hjälp av Service Fabric Resource Manager-moduler.
 * Konfigurera Azure Active Directory (Azure AD) för att autentisera användare utföra hanteringsåtgärder på klustret.
 * Redigera en anpassad Azure Resource Manager-mall för klustret och distribuera den.
 
 ## <a name="key-concepts-to-be-aware-of"></a>Viktiga begrepp att vara medveten om
-I Azure Service fabric kräver som du kan använda x509 certifikat för säker klustret och dess slutpunkter. Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Du kan använda certifikat eller Azure Active Directory-autentiseringsuppgifter för klienten åtkomst/utföra hanteringsåtgärder på klustret, inklusive distribution, uppgradera och ta bort program, tjänster och de data som de innehåller. Användning av Azure Active Directory är hög rekommenderar eftersom det är det enda sättet att förhindra delning av certifikat på klienterna.  Mer information om hur du använder certifikat i Service Fabric finns [säkerhetsscenarier för Service Fabric-klustret][service-fabric-cluster-security].
+I Azure Service Fabric kräver som du kan använda x509 certifikat för säker klustret och dess slutpunkter. Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Du kan använda certifikat eller Azure Active Directory-autentiseringsuppgifter för klienten åtkomst/utföra hanteringsåtgärder på klustret, inklusive distribution, uppgradera och ta bort program, tjänster och de data som de innehåller. Användning av Azure Active Directory är hög rekommenderar eftersom det är det enda sättet att förhindra delning av certifikat på klienterna.  Mer information om hur du använder certifikat i Service Fabric finns [säkerhetsscenarier för Service Fabric-klustret][service-fabric-cluster-security].
 
 Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Du använder [Nyckelvalvet] [ key-vault-get-started] att hantera certifikat för Service Fabric-kluster i Azure. 
 
@@ -75,30 +76,29 @@ Valfritt antal ytterligare certifikat kan anges för administratören eller anv�
 
 
 ## <a name="prerequisites"></a>Förutsättningar 
-Konceptet för att skapa skyddade kluster är densamma, oavsett om de är Linux eller Windows-kluster. Den här guiden omfattar användning av azure powershell eller azure CLI för att skapa nya kluster. Nödvändiga komponenter är antingen 
+Konceptet för att skapa skyddade kluster är densamma, oavsett om de är Linux eller Windows-kluster. Den här guiden omfattar användning av Azure PowerShell eller Azure CLI för att skapa nya kluster. Nödvändiga komponenter är antingen:
 
 -  [Azure PowerShell 4.1 och senare] [ azure-powershell] eller [Azure CLI 2.0 och senare][azure-CLI].
--  Du hittar information om tjänsten fabic moduler här - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) och [az SA CLI-modul](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+-  Du hittar information på de här - Service Fabric-modulerna [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) och [az SA CLI-modul](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 
-## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Använda service fabric RM-modulen för att distribuera ett kluster
+## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Använd Service Fabric RM-modulen för att distribuera ett kluster
 
-I det här dokumentet använder vi service fabric RM powershell och CLI modulen att distribuera ett kluster, powershell eller kommandot CLI modulen gör för scenarier med flera. Låt oss gå igenom den dem. Välj det scenario som du tycker bäst uppfyller dina behov. 
+I detta dokument, kommer vi att använda Service Fabric RM powershell och CLI modulen att distribuera ett kluster, PowerShell eller kommandot CLI modulen gör för scenarier med flera. Låt oss gå igenom den dem. Välj det scenario som du tycker bäst uppfyller dina behov. 
 
-- Skapa ett nytt kluster - med hjälp av ett system genererade självsignerat certifikat
-    - Använda en standardmall för kluster
-    - Använd en mall som du redan har
-- Skapa ett nytt kluster - använder ett certifikat som du redan äger
-    - Använda en standardmall för kluster
-    - Använd en mall som du redan har
+- Skapa ett nytt kluster 
+    - med hjälp av ett system genereras självsignerat certifikat
+    - med hjälp av ett certifikat som äger du redan
+
+Du kan använda en standardmall för klustret eller en mall som du redan har
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>Skapa nytt kluster - med hjälp av ett system genererade självsignerat certifikat
 
-Använd följande kommando för att skapa klustret, om du vill att systemet ska generera ett självsignerat certifikat och använda den för att skydda klustret. Detta kommando ställer in ett certifikat för primär kluster som används för klustret säkerhet och ställa in administratörsåtkomst för att utföra hanteringsåtgärder som använder certifikatet.
+Använd följande kommando för att skapa klustret, om du vill systemet att generera ett självsignerat certifikat och använda den för att skydda klustret. Detta kommando ställer in ett certifikat för primär kluster som används för klustret säkerhet och ställa in administratörsåtkomst för att utföra hanteringsåtgärder som använder certifikatet.
 
-### <a name="login-in-to-azure"></a>logga in i Azure.
+### <a name="login-to-azure"></a>logga in på Azure
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -107,15 +107,15 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Använda 5 nod 1 nodetype standardmallen som levereras i modulen för att skapa klustret
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Använda 5 nod 1 nod typen standardmallen som levereras i modulen för att skapa klustret
 
 Använd följande kommando för att snabbt skapa ett kluster genom att ange minimal parametrar
 
-Den mall som används är tillgänglig på den [azure service fabric mallen prover: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Den mall som används är tillgänglig på den [Azure Service Fabric mallen prover: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Kommandona nedan fungerar för att skapa Windows- och Linux-kluster, du behöver bara ange OS därefter. PowerShell / CLI-kommandon också utdata certifikatet i den angivna CertificateOutputFolder men kontrollera certifikat mapp som redan har skapats. Kommandot tar in samt andra parametrar som VM SKU.
+Kommandona nedan fungerar för att skapa Windows- och Linux-kluster, du behöver bara ange OS därefter. PowerShell/CLI-kommandona utdata också certifikatet i den angivna CertificateOutputFolder; dock se till att certifikatmapp som redan har skapats. Kommandot tar in samt andra parametrar som VM SKU.
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -151,7 +151,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>Använd den anpassade mall som du redan har 
 
-Om du behöver skapa en anpassad mall så att de passar dina behov, rekommenderas att du börjar med en av de mallar som är tillgängliga på den [azure service fabric mallen exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Följ vägledning och förklaringar till [anpassa mallen för klustret] [ customize-your-cluster-template] nedan.
+Om du behöver skapa en anpassad mall så att de passar dina behov, rekommenderas att du börjar med en av de mallar som är tillgängliga på den [Azure Service Fabric mallen exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Följ vägledning och förklaringar till [anpassa mallen för klustret] [ customize-your-cluster-template] nedan.
 
 Om du redan har en anpassad mall och sedan kontrollera att är dubbelkolla som alla tre certifikatet relaterade parametrar i mallen och parameterfilen är namngivna enligt följande och värden null som följer.
 
@@ -199,15 +199,15 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Skapa nytt kluster - med certifikat som du har köpt från en Certifikatutfärdare eller om du redan har.
+### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Skapa nytt kluster - med certifikat som du har köpt från en Certifikatutfärdare eller om du redan har
 
 Använda följande kommando för att skapa kluster, om du har ett certifikat som du vill använda för att skydda ditt kluster med.
 
 Om det här är en CA-signerat certifikat som du kommer att få med för andra ändamål samt sedan rekommenderas det att du anger en distinkta resursgrupp specifikt för nyckelvalvet. Vi rekommenderar att du placera nyckelvalvet i sin egen resursgruppen. Den här åtgärden kan du ta bort beräkning och lagring resursgrupper, inklusive resursgruppen som innehåller Service Fabric-klustret utan att förlora dina nycklar och hemligheter. **Resursgruppen som innehåller nyckelvalvet _måste vara i samma region_ som klustret som använder den.**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Använda 5 nod 1 nodetype standardmallen som levereras i modulen
-Den mall som används är tillgänglig på den [azure-exempel: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>Använda 5 nod 1 nod typen standardmallen som levereras i modulen
+Den mall som används är tillgänglig på den [Azure-exempel: Windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```PowerShell
 $resourceGroupLocation="westus"
@@ -241,7 +241,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>Använd den anpassade mall som du har 
-Om du behöver skapa en anpassad mall så att de passar dina behov, rekommenderas att du börjar med en av de mallar som är tillgängliga på den [azure service fabric mallen exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Följ vägledning och förklaringar till [anpassa mallen för klustret] [ customize-your-cluster-template] nedan.
+Om du behöver skapa en anpassad mall så att de passar dina behov, rekommenderas att du börjar med en av de mallar som är tillgängliga på den [Azure Service Fabric mallen exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Följ vägledning och förklaringar till [anpassa mallen för klustret] [ customize-your-cluster-template] nedan.
 
 Om du redan har en anpassad mall och sedan kontrollera att är dubbelkolla som alla tre certifikatet relaterade parametrar i mallen och parameterfilen är namngivna enligt följande och värden null som följer.
 
@@ -333,7 +333,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 3. Extrahera zip-filen.
 4. Kör `SetupApplications.ps1`, och anger TenantId, klusternamn och WebApplicationReplyUrl som parametrar. Exempel:
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -362,8 +362,8 @@ Skriptet skriver ut JSON som krävs av Azure Resource Manager-mallen när du ska
 
 <a id="customize-arm-template" ></a>
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en mall för Service Fabric-kluster Resource Manager
-Det här avsnittet är för användare som vill anpassad skapar Service Fabric-kluster Resource Manager-mall. När du har en mall kan du fortfarande gå tillbaka och använda powershell eller CLI-moduler för att distribuera den. 
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa ett Service Fabric-kluster resource manager-mall
+Det här avsnittet är för användare som vill till egna skapar ett Service Fabric-kluster resource manager-mall. När du har en mall kan du fortfarande gå tillbaka och Använd PowerShell eller CLI-moduler för att distribuera den. 
 
 Exempel Resource Manager-mallar är tillgängliga i den [Azure exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som en startpunkt för mallen för klustret.
 
@@ -371,7 +371,7 @@ Exempel Resource Manager-mallar är tillgängliga i den [Azure exemplen på GitH
 Den här guiden använder den [säker kluster med 5] [ service-fabric-secure-cluster-5-node-1-nodetype] exempel mallen och mallparametrar. Hämta `azuredeploy.json` och `azuredeploy.parameters.json` till din dator och öppna filer i valfri textredigerare.
 
 ### <a name="add-certificates"></a>Lägg till certifikat
-Du lägga till certifikat i ett kluster Resource Manager-mall genom att referera till nyckelvalvet som innehåller certifikatnycklarna. Lägg till dessa nyckelvalvet parametrar och värden i en Resource Manager parametrar mallfil (azuredeploy.parameters.json). 
+Du lägga till certifikat i ett kluster resource manager-mall genom att referera till nyckelvalvet som innehåller certifikatnycklarna. Lägg till dessa nyckelvalvet parametrar och värden i en Resource Manager parametrar mallfil (azuredeploy.parameters.json). 
 
 #### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Lägg till alla certifikat i virtual machine scale set osProfile
 Alla certifikat som installeras i klustret måste konfigureras i avsnittet osProfile i scale set-resurs (Microsoft.Compute/virtualMachineScaleSets). Den här åtgärden instruerar resursprovidern att installera certifikatet på virtuella datorer. Den här installationen innehåller både certifikatet kluster och alla program security-certifikat som du planerar att använda för dina program:
@@ -499,14 +499,13 @@ Du lägger till Azure AD-konfigurationen en klustret Resource Manager-mall genom
 }
 ```
 
-### <a name="populate-the-parameter-file-with-the-values"></a>Fyll i parameterfilen med värden.
-Använd slutligen utdatavärden från nyckelvalvet och Azure AD PowerShell-kommandon för att fylla i parameterfilen:
+### <a name="populate-the-parameter-file-with-the-values"></a>Fyll i parameterfilen med värden
+Slutligen använda utdatavärden från nyckelvalvet och Azure AD PowerShell-kommandon för att fylla i parameterfilen.
 
-Om du planerar att använda i Azure service fabric RM PowerShell-moduler och du inte behöver fylla certifikatinformationen klustret om du vill använda genereras self signerat certifikat för klustret säkerhet bara hålla dem som null. 
+Om du planerar att använda Azure service fabric RM PowerShell-moduler, behöver du inte fylla i klustret certifikatinformationen. Om du vill generera self signerade certifikat för klustret säkerhet, hålla dem precis som null. 
 
 > [!NOTE]
 > Att hämta och fylla i dessa tom parametervärden RM-moduler matchar parametrar namnen mycket namnen nedan
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -523,9 +522,9 @@ Om du planerar att använda i Azure service fabric RM PowerShell-moduler och du 
 },
 ```
 
-Om du använder certifikat för programmet eller använder ett befintligt kluster som du har överfört till nyckelvalvet måste du hämta den här informationen och fylla det 
+Om du använder certifikat för programmet eller använder ett befintligt kluster som du har överfört till nyckelvalvet, måste du hämta den här informationen och fyller den.
 
-RM-moduler har inte möjlighet att skapa Azure AD-konfiguration för dig. Så om du planerar att använda Azure AD för klientåtkomst, måste du fylla i den.
+RM-moduler har inte möjlighet att skapa Azure AD-konfiguration, så om du planerar att använda Azure AD för klientåtkomst, måste du fylla i den.
 
 ```json
 {
@@ -582,9 +581,19 @@ Följande diagram illustrerar där ditt nyckelvalv och Azure AD-konfiguration pa
 
 ![Hanteraren för filserverresurser beroendekarta för anslutningar][cluster-security-arm-dependency-map]
 
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>Kryptera diskar kopplade till ditt windows-instanser för noden för virtuell dator
+
+För att kryptera diskar (OS-enhet och andra hanterade diskar) kopplad till noderna utnyttja vi Azure Disk Encryption. Azure Disk Encryption är en ny funktion som hjälper dig att [kryptera Windows virtuella diskar](service-fabric-enable-azure-disk-encryption-windows.md). Azure Disk Encryption utnyttjar branschstandarden [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funktion i Windows för att tillhandahålla volymkryptering för systemvolymen. Lösningen är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) som hjälper dig att styra och hantera disk krypteringsnycklar och hemligheter i nyckelvalvet-prenumeration. Lösningen betyder också att krypteras alla data på virtuella diskar i vila i ditt Azure storage. 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>Kryptera diskar som är kopplade till ditt Linux-kluster nod för virtuella datorinstanser
+
+För att kryptera diskar (dataenhet och andra hanterade diskar) kopplad till noderna utnyttja vi Azure Disk Encryption. Azure Disk Encryption är en ny funktion som hjälper dig att [kryptera din virtuella Linux-diskar](service-fabric-enable-azure-disk-encryption-linux.md). Azure Disk Encryption utnyttjar branschstandarden [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funktion i Linux för att tillhandahålla volymkryptering för datadiskar. Lösningen är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) som hjälper dig att styra och hantera disk krypteringsnycklar och hemligheter i nyckelvalvet-prenumeration. Lösningen betyder också att krypteras alla data på virtuella diskar i vila i ditt Azure storage. 
+
+
 ## <a name="create-the-cluster-using-azure-resource-template"></a>Skapa klustret med hjälp av Azure-resurs-mall 
 
-Du kan nu distribuera kluster med hjälp av stegen som beskrivs tidigare i dokumentet eller om du har värdena i parameterfilen fyllts, sedan du är nu redo att skapa klustret med hjälp av [Azure-resurs malldistribution] [ resource-group-template-deploy] direkt.
+Du kan nu distribuera kluster med hjälp av stegen som beskrivs tidigare i dokumentet eller om du har värdena i parameterfilen fylld sedan du är nu redo att skapa klustret med hjälp av [Azure-resurs malldistribution] [ resource-group-template-deploy] direkt.
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
@@ -620,7 +629,7 @@ När du har skapat de program som ska representera klustret tilldelar användarn
 
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Felsöka hjälp med att konfigurera Azure Active Directory
-Konfigurera Azure AD och använder den, kan vara en utmaning, så här följer några tips på vad du kan göra för att felsöka problemet.
+Konfigurera Azure AD och använder den kan vara en utmaning, så här följer några tips på vad du kan göra för att felsöka problemet.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer uppmanar dig att välja ett certifikat
 #### <a name="problem"></a>Problem

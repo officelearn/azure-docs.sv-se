@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726422"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller och prenumerationer
 
@@ -106,7 +107,7 @@ Den här kursen använder olika konton för varje prenumeration. Om du använder
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. Stegen måste utföras med hjälp av ett bash skal med Azure CLI 2.0.4 eller senare [installerat](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), eller genom att använda Azure Cloud-gränssnittet. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på den **prova** knappen i skripten fram, vilket öppnar ett moln-gränssnitt som loggar in på ditt Azure-konto. Alternativen på körs bash CLI-skript på en Windows-klient, finns [kör Windows Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. Stegen måste utföras med hjälp av ett bash skal med Azure CLI 2.0.4 eller senare [installerat](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), eller genom att använda Azure Cloud-gränssnittet. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på den **prova** knappen i skripten fram, vilket öppnar ett moln-gränssnitt som loggar in på ditt Azure-konto. Alternativen på körs bash CLI-skript på en Windows-klient, finns [installerar Azure CLI på Windows](/cli/azure/install-azure-cli-windows). 
 6. Kopiera följande skript till en textredigerare på datorn. Ersätt `<SubscriptionB-Id>` med ditt prenumerations-ID. Om du inte vet ditt prenumerations-Id, ange den `az account show` kommando. Värdet för **id** i utdata är ditt prenumerations-Id. Kopiera skriptet ändrade, klistra in den i sessionen CLI 2.0 och tryck sedan på `Enter`. 
 
     ```azurecli-interactive

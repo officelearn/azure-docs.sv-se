@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fd6817e63eea622294bbf766b66beb8bc49bc30c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726065"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
-Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
+En grupp är en samling felaviseringar som definierats av användaren. Azure-Monitor och tjänstens hälsa för aviseringar är konfigurerade för att använda en specifik åtgärdsgrupp när en avisering utlöses. Olika typer av aviseringar kan använda samma grupp eller grupper av olika åtgärder beroende på användarens krav.
 
-Du kan konfigurera en lista med åtgärder med åtgärdsgrupper. Dessa grupper kan sedan användas av varje avisering som du definierar, se till att samma åtgärder vidtas för varje gång en avisering utlöses.
+Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
 
 Varje åtgärd består av följande egenskaper:
 
@@ -44,7 +45,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 3. Välj **Lägg till grupp**, och Fyll i fälten.
 
     ![Kommandot ”Lägg till grupp”](./media/monitoring-action-groups/add-action-group.png)
-4. Ange ett namn i den **åtgärd gruppnamn** och ange ett namn i den **kortnamnet** rutan. Det korta namnet används i stället för en fullständig åtgärd gruppnamn när meddelanden som skickas med den här gruppen.
+4. Ange ett namn i den **åtgärd gruppnamn** och ange ett namn i den **kortnamnet** rutan. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
       ![Dialogrutan Lägg till grupp för åtgärden ”](./media/monitoring-action-groups/action-group-define.png)
 
@@ -69,7 +70,14 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 <dd>Åtgärden Azure-program stöder endast ServiceHealth aviseringar just nu. Andra avisering tid kommer att ignoreras. Se [konfigurera aviseringar när ett meddelande om tjänstens hälsa är bokförd](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>E-post</dt>
-<dd>Du kan ha upp till 50 e-post-åtgärder i en grupp</dd>
+<dd>E-postmeddelanden skickas från följande e-postadresser. Se till att din e-filtrering har konfigurerats korrekt
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>Du kan ha upp till 1 000 e-post-åtgärder i en grupp</dd>
 <dd>Finns det [hastighet begränsa information](./monitoring-alerts-rate-limiting.md) artikel</dd>
 
 <dt>ITSM</dt>

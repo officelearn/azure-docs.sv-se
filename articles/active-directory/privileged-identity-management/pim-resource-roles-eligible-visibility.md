@@ -3,7 +3,7 @@ title: Berättigad tilldelningar och synlighet för Azure i Privileged Identity 
 description: Beskriver hur du tilldelar medlemmar som är berättigade till resursroller när du använder PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bb1f9c63d4e01f3927b1c58a68742e107cf9331d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699649"
 ---
 # <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Berättigad tilldelningar och synlighet med Privileged Identity Management
 
@@ -42,12 +43,12 @@ Resurs-administratörer kan välja mellan två alternativ för varje Tilldelning
 En administratör kan välja någon av följande typer av tilldelning:
 
 - Tillåt permanent berättigade tilldelning
-- Tillåt active permanent tilldelning
+- Tillåt permanent aktiv uppgift
 
 Eller så kan administratören välja någon av följande typer av tilldelning:
 
 - Berättigad tilldelningar efter att gälla
-- Aktiva tilldelningar efter att gälla
+- Aktiva uppgifter upphör efter
 
 Om en resursadministratör väljer **Tillåt permanent berättigade tilldelning** eller **Tillåt permanent active tilldelning**, alla administratörer som tilldelas resursen medlemmar kan tilldela permanent medlemskap.
 
@@ -62,7 +63,7 @@ Om en resursadministratör väljer **ut berättigade tilldelningar efter** eller
 PIM för Azure-resurser har två distinkta tilldelning tillstånd som visas på den **Active roller** fliken i den **min roller**, **roller**, och **medlemmar**vyer av PIM. Dessa tillstånd är:
 
 - Tilldelad
-- Aktiverad
+- Aktiverat
 
 När du visar ett medlemskap som anges i **Active roller**, du kan använda värdet i den **tillstånd** kolumnen att skilja mellan en användare som är **tilldelad** som aktiv och användare som **aktiverad** en berättigad tilldelning och är nu aktiv.
 

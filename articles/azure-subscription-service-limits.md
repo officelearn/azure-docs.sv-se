@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700200"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -73,6 +74,7 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Hanterade identitet](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobilt engagemang](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -82,6 +84,7 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [Nätverksbevakaren](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resursgrupp](#resource-group-limits)
+* [Rollbaserad åtkomstkontroll](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Sök](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -96,8 +99,8 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [Virtual Machines](#virtual-machines-limits)
 * [Skaluppsättningar för den virtuella datorn](#virtual-machine-scale-sets-limits)
 
-### <a name="subscription-limits"></a>Prenumerationsbegränsningar
-#### <a name="subscription-limits"></a>Prenumerationsbegränsningar
+### <a name="subscription-limits"></a>Prenumerationsgränser
+#### <a name="subscription-limits"></a>Prenumerationsgränser
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Prenumerationsbegränsningar - Azure Resource Manager
@@ -314,6 +317,12 @@ Läs mer om gränserna för en mer detaljerad nivå, till exempel storlek, fråg
 
 ### <a name="automation-limits"></a>Automation-gränser
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Hanterade identitet gränser
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Rollbaserad åtkomstkontroll gränser
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Begränsar SQL-databas
 SQL-databas gränser, se [gränserna för SQL-databasen](sql-database/sql-database-resource-limits.md).

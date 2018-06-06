@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c1444901fa46a62761d6b94ccb8e7ea3ff3d057f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701895"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka anslutningar till fjärrskrivbord till en virtuell Azure-dator
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserad Azure virtuell dator (VM) kan misslyckas av olika skäl, så att du inte har åtkomst till den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på värddatorn. Den här artikeln hjälper dig att några av de vanligaste metoderna för att lösa RDP-anslutningsproblem. 
@@ -65,7 +66,7 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
     Välj den virtuella datorn i Azure-portalen. Bläddra nedåt inställningsfönstret till den **stöd + felsökning** avsnittet nästan längst ned i listan. Klicka på den **Återställ lösenord** knappen. Ange den **läge** till **bara återställa konfigurationen** och klicka sedan på den **uppdatering** knappen:
    
     ![Återställa RDP-konfigurationen i Azure-portalen](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Kontrollera Nätverkssäkerhetsgruppen regler**. Använd [Kontrollera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva regler för nätverkssäkerhetsgrupper för att säkerställa inkommande ”Tillåt” NSG regel finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [med effektiva säkerhetsregler för att felsöka VM infrastrukturtrafiken rör](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+2. **Kontrollera Nätverkssäkerhetsgruppen regler**. Använd [Kontrollera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva regler för nätverkssäkerhetsgrupper för att säkerställa inkommande ”Tillåt” NSG regel finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [med effektiva säkerhetsregler för att felsöka VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Granska VM startdiagnostikinställningar**. Den här åtgärden granskar loggarna för VM-konsolen för att avgöra om den virtuella datorn rapporterar ett problem. Inte alla virtuella datorer har startdiagnostikinställningar aktiverat, så den här åtgärden kan vara valfri.
    
@@ -95,7 +96,7 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
    
     När den här åtgärden har slutförts tillfälliga diskdata går förlorad och dynamiska IP-adresser som är associerade med den virtuella datorn har uppdaterats.
 
-9. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+9. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Kontrollera att alla lokala brandväggen eller brandvägg på datorn, tillåter utgående TCP 3389 trafik till Azure.
 
@@ -184,7 +185,7 @@ Försök ansluta till den virtuella datorn igen efter varje steg i felsökningen
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+6. **Kontrollera routning**. Använda nätverket Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte hindra trafik dirigeras till eller från en virtuell dator. Du kan också granska effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [Using effektiva vägar för felsökning av VM-trafik flödet](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Kontrollera att alla lokala brandväggen eller brandvägg på datorn, tillåter utgående TCP 3389 trafik till Azure.
 

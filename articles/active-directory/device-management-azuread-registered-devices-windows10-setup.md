@@ -1,13 +1,14 @@
 ---
 title: Konfigurera Azure Active Directory registrerade enheter | Microsoft Docs
-description: "Lär dig hur du ställer in Azure Active Directory registrerade enheter."
+description: Lär dig hur du ställer in Azure Active Directory registrerade enheter.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713532"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Konfigurera Azure Active Directory registrerade Windows 10-enheter
 
 Med hantering av enheter i Azure Active Directory (Azure AD), kan du se till att dina användare har åtkomst till dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. Mer information finns i [introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md).
 
-Om du vill aktivera den **Bring Your Own Device (BYOD)** scenario du åstadkommer detta genom att konfigurera Azure AD som registrerade enheter. Du kan konfigurera Azure AD som registrerade enheter för Windows 10, iOS, Android och macOS i Azure AD. Det här avsnittet innehåller relaterade steg för Windows 10-enheter. 
+Om du vill aktivera den **Bring Your Own Device (BYOD)** scenario du åstadkommer detta genom att konfigurera Azure AD som registrerade enheter. Du kan konfigurera Azure AD som registrerade enheter för Windows 10, iOS, Android och macOS i Azure AD. Den här artikeln innehåller relaterade steg för Windows 10-enheter. 
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Registreringstjänsten för enheter måste konfigureras så att du kan registrera enheter om du vill registrera en Windows 10-enhet. Förutom att du har behörighet att registrera enheter i din Azure AD-klient, måste du ha färre enheter som har registrerats än den konfigurerade maximalt. Mer information finns i [konfigurera Enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
+Registreringstjänsten för enheter måste konfigureras så att du kan registrera enheter om du vill registrera en Windows 10-enhet. Du måste dessutom ha färre enheter som har registrerats än den konfigurerade maximalt. Mer information finns i [konfigurera Enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Vad du bör känna till
 
@@ -49,7 +51,7 @@ När du registrerar en enhet, bör du tänka på följande i åtanke:
 
 ## <a name="registering-a-device"></a>Registrerar en enhet
 
-Det här avsnittet ger dig stegen för att registrera din Windows 10-enhet till din Azure AD. Om du har registrerat enheten till Azure AD din **åtkomst arbetet eller skolan** dialogrutan anger detta med en **fungerar- eller skolkonto** transaktionen.
+Det här avsnittet ger dig stegen för att registrera din Windows 10-enhet till din Azure AD. En enhet som har registrerats visas med en **arbets- eller skolkonto** transaktionen.
 
 ![Registrera dig](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -74,7 +76,7 @@ Det här avsnittet ger dig stegen för att registrera din Windows 10-enhet till 
     ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. På den **konfigurera ett arbets- eller skolkonto konto** dialogrutan, ange namnet på ditt konto (t.ex.: someone@example.com), och klicka sedan på **nästa**.
+5. På den **konfigurera ett arbets- eller skolkonto konto** dialogrutan, ange namnet på ditt konto (till exempel someone@example.com), och klicka sedan på **nästa**.
 
     ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -94,7 +96,7 @@ Om du vill kontrollera om en enhet är ansluten till en Azure AD, kan du granska
 
 ![Registrera dig](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
-Alternativt kan du också granska inställningar för enheter på Azure AD-portalen.
+Du kan också granska inställningar för enheter på Azure AD-portalen.
 
 ![Registrera dig](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 

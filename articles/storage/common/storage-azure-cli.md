@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737376"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Med hjälp av Azure CLI 2.0 med Azure Storage
 
@@ -320,7 +321,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 Azure Files erbjuder delad lagring för program som använder Server Message Block (SMB)-protokollet. Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via Azure CLI. Mer information om Azure-filer finns [introduktion till Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
-En filresurs i Azure är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontot kapacitetsgränser. Följande exempel skapar en filresurs med namnet **minresurs**.
+En Azure-filresursen är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontot kapacitetsgränser. Följande exempel skapar en filresurs med namnet **minresurs**.
 
 ```azurecli
 az storage share create --name myshare
@@ -394,7 +395,7 @@ Exempel på utdata
 }
 ```
 
-### <a name="list-share-snapshots"></a>Lista resursen ögonblicksbilder
+### <a name="list-share-snapshots"></a>Lista resursögonblicksbilder
 
 Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av `az storage share list --include-snapshots`
 
@@ -438,7 +439,7 @@ az storage share list --include-snapshots
 ]
 ```
 
-### <a name="browse-share-snapshots"></a>Bläddra resursen ögonblicksbilder
+### <a name="browse-share-snapshots"></a>Bläddra resursögonblicksbilder
 Du kan även bläddra i en viss resurs ögonblicksbild för att visa dess innehåll med hjälp av `az storage file list`. Behöver ange resursnamnet `--share-name <snare name>` och tidsstämpeln `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive

@@ -4,28 +4,29 @@ description: Konfigurera infrastruktur kräver anslutning om du vill använda SA
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763773"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruktur för SAP HANA (stora instanser) och anslutningar på Azure 
 
 Vissa definitioner gång innan du läser den här guiden. I [SAP HANA (stora instanser) översikt och arkitektur för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vi har fört två olika klasser av HANA stora instans enheter med:
 
-- S72, S72m, S144, S144m, S192 och S192m som vi kallar ”typen I klassen' av SKU: er.
-- S384, S384m, S384xm, S576m, S768m och S960m som vi kallar ”typ II class-av SKU: er.
+- S72, S72m, S144, S144m, S192, S192m och S192xm som vi kallar ”typen I klassen' av SKU: er.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm och S960m som vi kallar ”typ II class-av SKU: er.
 
 Klass-specificerare kommer att användas i hela dokumentationen HANA stora instans att så småningom referera till olika funktioner och krav utifrån HANA stora instans SKU: er.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 I det här exemplet används HighPerformance gateway SKU. Alternativen är HighPerformance eller UltraPerformance som den enda gatewayen-SKU: er som stöds för SAP HANA i Azure (stora instanser).
 
 > [!IMPORTANT]
-> För HANA stora instanser av SKU: N typer S384, S384m, S384xm, S576m, S768m och S960m (typ II klassen SKU: er), användning av Gateway-SKU UltraPerformance är obligatoriskt.
+> För HANA stora instanser av typen II classs SKU är användning av Gateway-SKU UltraPerformance obligatoriskt.
 
 ### <a name="linking-vnets"></a>Länka Vnet
 

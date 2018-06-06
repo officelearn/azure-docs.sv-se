@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725453"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -29,13 +30,17 @@ Den här artikeln förklarar hur du arbetar med timer utlösare i Azure Function
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Timer-utlösare har angetts i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
+Timer-utlösare har angetts i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet version 2.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Timer-utlösare har angetts i den [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -174,7 +179,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan endast användas för en funktionsapp som körs på en App Service-Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appen inställningsnamn kapslas in i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
-|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter.|
+|**RunOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Exempelvis startar körningen när appen funktionen aktiveras efter att inaktiveras på grund av inaktivitet. När funktionen appen startas om på grund av funktionen ändringar och när appen funktionen skalas ut. Så **runOnStartup** bör sällan om någonsin anges till `true`, vilket gör koden köra vid hög oväntade tidpunkter.|
 |**UseMonitor**|**UseMonitor**|Ange till `true` eller `false` att indikera om schemat bör övervakas. Övervakning av schemat kvarstår schema förekomster till stöd för schemat underhålls på rätt sätt när du startar om funktionen app-instanser. Om den inte har angetts explicit är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard är `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -213,6 +218,8 @@ Varje fält kan ha något av följande typer av värden:
 |Ett intervall (`-` operatorn)|<nobr>”5-7 **** *”</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH är minuten i timmen (3 gånger minut)|  
 |En uppsättning värden (`,` operatorn)|<nobr>”5,8,10 **** *”</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH är minuten i timmen (3 gånger minut)|
 |Ett intervallvärde (`/` operatorn)|<nobr>”0 * / 5 *** *”</nobr>|hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
+
+Du kan använda tre bokstäver förkortningar i stället för numeriska värden om du vill ange månader eller dagar. Till exempel använda Jan för januari eller Sun för söndag.
 
 ### <a name="cron-examples"></a>CRON-exempel
 
@@ -272,7 +279,7 @@ Om du delar ett lagringskonto över flera funktionen appar, se till att varje fu
 
 ## <a name="retry-behavior"></a>Omförsök
 
-Till skillnad från kön-utlösaren igen inte timer utlösaren efter en funktion misslyckas. När en funktion inte den is't anropas igen förrän nästa gång i schemat.
+Till skillnad från kön-utlösaren igen inte timer utlösaren efter en funktion misslyckas. När en funktion inte är inte den anropade igen förrän nästa gång enligt schemat.
 
 ## <a name="next-steps"></a>Nästa steg
 

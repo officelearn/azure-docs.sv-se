@@ -8,22 +8,23 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.workload: identity
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 81d2916709f4d9e88faebc198940ad905705125a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6fe473d606df4ea0c37c2e6b2b1c9146056d0106
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713481"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Gruppbaserade licensiering grunderna i Azure Active Directory
 
-Med hjälp av Microsoft betald molntjänster, till exempel Office 365 Enterprise Mobility + Security, Dynamics CRM och andra liknande produkter kräver licenser. Dessa licenser har tilldelats till varje användare som behöver åtkomst till dessa tjänster. För att hantera licenser kan använda administratörer hanteringsportalerna (Office eller Azure) och PowerShell-cmdlets. Azure Active Directory (AD Azure) är den underliggande infrastruktur som stöder Identitetshantering för alla Microsoft-molntjänster. Azure AD lagrar information om tilldelning av licenstillstånd för användare.
+Microsoft betald molntjänster, till exempel Office 365 Enterprise Mobility + Security, Dynamics 365 och andra liknande produkter kräver licenser. Dessa licenser har tilldelats till varje användare som behöver åtkomst till dessa tjänster. För att hantera licenser kan använda administratörer hanteringsportalerna (Office eller Azure) och PowerShell-cmdlets. Azure Active Directory (AD Azure) är den underliggande infrastruktur som stöder Identitetshantering för alla Microsoft-molntjänster. Azure AD lagrar information om tilldelning av licenstillstånd för användare.
 
 Fram till nu kan licenser endast tilldelas på enskilda nivån, vilket kan göra storskaliga management svårt. Till exempel om du vill lägga till eller ta bort användarlicenser baserat på organisationens ändringar, till exempel användare ansluta till eller lämnar organisationen eller en avdelning måste administratör ofta skriva ett komplext PowerShell-skript. Det här skriptet anrop enskilda till Molntjänsten.
 
@@ -40,7 +41,7 @@ Här är de viktigaste funktionerna i gruppbaserade licensiering:
 
 - När en licens tilldelas till en grupp, kan administratören inaktivera en eller flera serviceplaner i produkten. Detta görs vanligtvis när organisationen inte ännu är redo att börja med en tjänst som ingår i en produkt. Administratören kan till exempel tilldela en avdelning Office 365 men tillfälligt inaktivera Yammer-tjänsten.
 
-- Alla Microsoft-molntjänster som kräver användarnivå licensiering stöds. Detta omfattar alla Office 365 produkter Enterprise Mobility + Security och Dynamics CRM.
+- Alla Microsoft-molntjänster som kräver användarnivå licensiering stöds. Detta omfattar alla produkter, Enterprise Mobility + Security och Dynamics 365 i Office 365.
 
 - Gruppbaserade licensiering finns för närvarande endast via [Azure-portalen](https://portal.azure.com). Om du använder andra hanteringsportalerna främst för användare och grupp management, till exempel Office 365-portalen kan du kan fortsätta att göra detta. Men du bör använda Azure-portalen för att hantera licenser på gruppnivå.
 
@@ -54,7 +55,7 @@ Här är de viktigaste funktionerna i gruppbaserade licensiering:
 
 ## <a name="your-feedback-is-welcome"></a>Din feedback är Välkommen!
 
-Om du har feedback eller funktionen begäranden kan du dela dem med oss via [forumet](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
+Om du har feedback eller funktionen begäranden kan du dela dem med oss via [i Azure AD admin-forumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
 
 ## <a name="next-steps"></a>Nästa steg
 

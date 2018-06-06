@@ -6,18 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: sujayt
-ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715946"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
->[!NOTE]
-> Site Recovery replikering för virtuella Azure-datorer är för närvarande under förhandsgranskning.
+
 
 Den här artikeln innehåller vägledning för nätverk när du replikerar och återställa virtuella Azure-datorer från en region till en annan, med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 

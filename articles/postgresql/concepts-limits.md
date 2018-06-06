@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757424"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure-databas för PostgreSQL
 I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för.
 
-## <a name="pricing-tier-maximums"></a>Priser för nivån maxkapacitet
-Azure-databas för PostgreSQL har flera prisnivåer som du kan välja mellan när du skapar en server. Mer information finns i [prisnivåer i Azure-databas för PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Maximalt antal anslutningar
+Det maximala antalet anslutningar per prisnivå och vCores är följande: 
 
-Det finns ett maximalt antal anslutningar, enheter för beräkning och lagring i varje prisnivå: 
-
-|Prisnivå| Compute-generering| vCore(s)| Högsta antal anslutningar |
-|---|---|---|---|
-|Basic| Generation 4| 1| 50 |
-|Basic| Generation 4| 2| 100 |
-|Basic| Generation 5| 1| 50 |
-|Basic| Generation 5| 2| 100 |
-|Generellt syfte| Generation 4| 2| 150|
-|Generellt syfte| Generation 4| 4| 250|
-|Generellt syfte| Generation 4| 8| 480|
-|Generellt syfte| Generation 4| 16| 950|
-|Generellt syfte| Generation 4| 32| 1500|
-|Generellt syfte| Generation 5| 2| 150|
-|Generellt syfte| Generation 5| 4| 250|
-|Generellt syfte| Generation 5| 8| 480|
-|Generellt syfte| Generation 5| 16| 950|
-|Generellt syfte| Generation 5| 32| 1500|
-|Minnesoptimerad| Generation 5| 2| 150|
-|Minnesoptimerad| Generation 5| 4| 250|
-|Minnesoptimerad| Generation 5| 8| 480|
-|Minnesoptimerad| Generation 5| 16| 950|
+|**Prisnivå**| **vCore(s)**| **Högsta antal anslutningar** |
+|---|---|---|
+|Basic| 1| 50 |
+|Basic| 2| 100 |
+|Generellt syfte| 2| 150|
+|Generellt syfte| 4| 250|
+|Generellt syfte| 8| 480|
+|Generellt syfte| 16| 950|
+|Generellt syfte| 32| 1500|
+|Minnesoptimerad| 2| 150|
+|Minnesoptimerad| 4| 250|
+|Minnesoptimerad| 8| 480|
+|Minnesoptimerad| 16| 950|
 
 När anslutningar överskrider gränsen, får du följande fel:
 > Oåterkalleligt fel: Det gick tyvärr redan för många klienter

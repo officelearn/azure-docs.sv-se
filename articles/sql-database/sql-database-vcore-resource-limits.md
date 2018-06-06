@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: carlrab
-ms.openlocfilehash: d225af55a705d56a94bb0e8dcfcc938b64f3633a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 324f9f35de37c717d57e46413cd881dce785f4fd
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737671"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL Database vCore-baserade köp modellen gränser (förhandsgranskning)
 
@@ -49,11 +50,11 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |||
 
 #### <a name="generation-5-compute-platform"></a>Generation 5 beräkningsplattform
-|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Minne (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Minne (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnesintern OLTP lagringsutrymme (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
@@ -62,7 +63,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |Maxstorlek|307|307|461|614|1229|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
 |Mål-IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
-|Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|2400|3200|4800|8000|
+|Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|2400|3200|4000|8000|
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|1|
 |Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -89,28 +90,28 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|3200|4800|
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|3|3|3|3|3|3|
-|Flera AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läsa skalbar|Ja|Ja|Ja|Ja|Ja|Ja|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Generation 5 beräkningsplattform
-|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Minne (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Minne (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnesintern OLTP lagringsutrymme (GB)|1.571|3,142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Minnesintern OLTP lagringsutrymme (GB)|1.571|3,142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (CA)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maxstorlek för data (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maxstorlek|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Mål-IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
-|Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|2400|3200|4800|8000|
+|Mål-IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
+|Maximalt antal samtidiga arbetare (antal begäranden)|200|400|800|1600|2400|3200|4000|8000|
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
-|Antal repliker|1|1|1|1|1|1|1|1|
+|Antal repliker|3|3|3|3|3|3|3|3|
 |Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läsa skalbar|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
@@ -174,11 +175,11 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |||
 
 #### <a name="generation-5-compute-platform"></a>Generation 5 beräkningsplattform
-|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
+|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Minne (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Minne (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnesintern OLTP lagringsutrymme (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
@@ -187,10 +188,10 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
 |Mål-IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |I/o-svarstid (CA)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|5-7 ms (skriva)<br>5-10 ms (läsa)|
-|Maximalt antal samtidiga arbetare (antal begäranden)|210|420|840|1680|2520|3360|5040|8400
+|Maximalt antal samtidiga arbetare (antal begäranden)|210|420|840|1680|2520|3360|4200|8400
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Max poolen densitet|100|200|500|500|500|500|500|500|
-|Minsta/högsta elastisk pool Klicka-slutar|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Minsta/högsta elastisk pool Klicka-slutar|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|1|
 |Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läsa skalbar|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -217,30 +218,32 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Max poolen densitet|Gäller inte|50|100|100|100|100|
 |Minsta/högsta elastisk pool Klicka-slutar|Gäller inte|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
-|Flera AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Antal repliker|3|3|3|3|3|3|
+|Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läsa skalbar|Ja|Ja|Ja|Ja|Ja|Ja|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Generation 5 beräkningsplattform
-|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|32|48|80|
-|Minne (GB)|11|22|44|88|132|176|264|440|
+|vCores|2|4|8|16|24|32|40|80|
+|Minne (GB)|11|22|44|88|132|176|220|440|
 |Columnstore-support|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnesintern OLTP lagringsutrymme (GB)|1.571|3,142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Minnesintern OLTP lagringsutrymme (GB)|1.571|3,142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (CA)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maxstorlek för data (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maxstorlek|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Mål-IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Mål-IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maximalt antal samtidiga arbetare (antal begäranden)|210|420|840|1680|2520|3360|5040|8400|
 |Högsta tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Max poolen densitet|Gäller inte|50|100|100|100|100|100|100|
-|Minsta/högsta elastisk pool Klicka-slutar|Gäller inte|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
-|Flera AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Minsta/högsta elastisk pool Klicka-slutar|Gäller inte|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Antal repliker|3|3|3|3|3|3|3|3|
+|Flera AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läsa skalbar|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Ingår lagring för säkerhetskopiering|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|1 X-DB storlek|
 |||

@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724915"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Flera master i global skala med Azure Cosmos DB 
  
-Utveckla globalt distribuerade program som svarar med lokala fördröjning när det är svårt problem att upprätthålla konsekvent vyer av data över hela världen. Kunder använder globalt distribuerade databaser, eftersom de behöver för att förbättra svarstiden för åtkomst av data, uppnå hög tillgänglighet till data och säkerställa garanterad katastrofåterställning och, (4) för att uppfylla sina affärsbehov. Flera master i Azure Cosmos DB ger hög tillgänglighet (99,999%), en siffra millisekunders latens att skriva data och skalbarhet med stöd för inbyggda omfattande och flexibelt konflikt lösning. Dessa funktioner avsevärt förenklar utvecklingen av globalt distribuerade program. Stöd för flera master är avgörande för globalt distribuerade program. 
+Utveckla globalt distribuerade program som svarar med lokala fördröjning när det är svårt problem att upprätthålla konsekvent vyer av data över hela världen. Kunder använder globalt distribuerade databaser, eftersom de behöver för att förbättra svarstiden för åtkomst av data, uppnå hög tillgänglighet, kontrollera garanterad katastrofåterställning och för att uppfylla sina affärsbehov. Flera master i Azure Cosmos DB ger hög tillgänglighet (99,999%), en siffra millisekunders latens att skriva data och skalbarhet med stöd för inbyggda omfattande och flexibelt konflikt lösning. Dessa funktioner avsevärt förenklar utvecklingen av globalt distribuerade program. Stöd för flera master är avgörande för globalt distribuerade program. 
 
 ![Multimaster-arkitektur](./media/multi-region-writers/multi-master-architecture.png)
 

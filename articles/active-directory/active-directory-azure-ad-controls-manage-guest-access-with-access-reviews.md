@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 4a61bb418083bafe9e00a76147ab9bfdcdb0b0ce
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713515"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gästbehörighet med Azure AD åtkomst till granskningar
 
@@ -34,10 +35,7 @@ Du också kan enkelt se till att gästanvändare har lämplig åtkomst. Du kan b
 ## <a name="prerequisites"></a>Förutsättningar 
 
 
-Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Varje användare som interagerar med den här funktionen, inklusive att skapa en granskning, Fyll i ett omdöme eller bekräfta sin åtkomst kräver en licens. 
-
-Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-whatis.md). Varje användare som använder den här funktionen för att skapa en granskning, få åtkomst till en granskning eller tillämpa en granskning kräver en licens.
-
+Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Varje användare som använder den här funktionen, inklusive för att skapa en granskning, fylla i en granskning eller bekräfta sin åtkomst, behöver en licens. 
 
 Om du planerar att be gästen användaren att granska sina egna åtkomst kan du läsa om gäst licenser. Mer information finns i [licensiering av Azure AD B2B-samarbete](active-directory-b2b-licensing.md).
 

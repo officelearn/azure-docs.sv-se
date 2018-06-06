@@ -1,28 +1,30 @@
 ---
-title: "Hybrid identity designkrav på åtkomstkontroll Azure | Microsoft Docs"
-description: "Beskriver pelare för identitets- och identifiera krav för resurser för användare i en hybridmiljö."
-documentationcenter: 
+title: Hybrid identity designkrav på åtkomstkontroll Azure | Microsoft Docs
+description: Beskriver pelare för identitets- och identifiera krav för resurser för användare i en hybridmiljö.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801226"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav på åtkomstkontroll för din hybrididentitetslösning
-När du designar en organisation sina hybrididentitetslösning kan de också använda passa på att granska åtkomstkraven för de resurser som de planerar att göra den tillgänglig för användare. Åtkomst till data mellan alla fyra pelare identitet, som är:
+När en organisation skapar sina hybrididentitetslösning kan använda de också denna möjlighet för att granska åtkomstkraven för de resurser som de planerar att göra den tillgänglig för användare. Åtkomst till data mellan alla fyra pelare identitet, som är:
 
 * Administration
 * Autentisering
@@ -41,7 +43,7 @@ Det finns olika scenarier för autentisering och auktorisering, dessa scenarier 
 
 * Kommer din organisation autentisera och auktorisera endast användare som finns i deras identitet hanteringssystemet?
   * Finns det några planer för B2B-scenarier?
-  * Om Ja, du redan vet vilka protokoll (SAML OAuth, Kerberos, token eller certifikat) används för att ansluta båda företag?
+  * Om Ja, du redan vet vilka protokoll (SAML OAuth, Kerberos eller certifikat) används för att ansluta båda företag?
 * Stöder hybrididentitetslösning som du kommer att anta stöd för dessa protokoll?
 
 En annan viktig sak att tänka på är där databasen för autentisering som ska användas av användare och partners kommer att finnas och administrationsmodellen som ska användas. Överväg följande två grundläggande alternativ:
@@ -58,7 +60,7 @@ Vilken modell som företaget antar varierar beroende på deras affärskrav som d
   * Om Ja, införandet av en modell för hybrid identity påverkar processen?
 
 ## <a name="access-control"></a>Access Control
-Autentisering och auktorisering är core element att aktivera åtkomst till företagets data via användarens verifiering, men det är också viktigt att styra åtkomstnivån som dessa användare har och hur administratörer har över de resurser som de hanterar är. Din hybrididentitetslösning måste kunna tillhandahålla detaljerade åtkomst till resurser, delegering och rollbaserad åtkomstkontroll. Se till att följande fråga besvaras om åtkomstkontroll:
+Autentisering och auktorisering är core element att aktivera åtkomst till företagets data via användarens verifiering, men det är också viktigt att styra åtkomstnivån som dessa användare har och hur administratörer har över de resurser som de hanterar är. Din hybrididentitetslösning måste kunna tillhandahålla detaljerade åtkomst till resurser, delegering och rollbaserad åtkomstkontroll. Se till att följande frågan besvaras om åtkomstkontroll:
 
 * Har företaget flera användare med förhöjda privilegier för att hantera identitet systemet?
   * Om Ja, varje användare behöver samma åtkomstnivå?

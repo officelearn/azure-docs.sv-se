@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715830"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -56,7 +57,7 @@ Trafik analytics är tillgängliga i förhandsversionen. Funktioner i förhandsv
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="enable-network-watcher"></a>Aktivera Nätverksbevakaren 
+### <a name="enable-network-watcher"></a>Aktivera Network Watcher 
 
 Om du vill analysera trafik, måste du ha en befintlig nätverksbevakaren eller [aktivera en nätverksbevakaren](network-watcher-create.md) trafik för varje region där NSG: er som du vill analysera. Trafik analytics kan aktiveras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions).
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Välj en nätverkssäkerhetsgrupp 
 
-Innan du aktiverar NSG flödet loggning måste du ha en nätverkssäkerhetsgrupp logga flöden. Om du inte har en nätverkssäkerhetsgrupp, se [skapar en nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) att skapa en.
+Innan du aktiverar NSG flödet loggning måste du ha en nätverkssäkerhetsgrupp logga flöden. Om du inte har en nätverkssäkerhetsgrupp, se [skapar en nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md#create-a-network-security-group) att skapa en.
 
 På vänster sida av Azure portal, väljer **övervakaren**, sedan **nätverksbevakaren**, och välj sedan **NSG flödet loggar**. Välj nätverkssäkerhetsgruppen som du vill aktivera en NSG flödet logg för, enligt följande bild:
 

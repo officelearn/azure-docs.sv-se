@@ -8,16 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: a9bf9748de5f390f95b8b672e0cf77afa5c49581
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41f69a1dd4cbd4c0f6be0764efdbf0fb61ac3cb7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724436"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standardbehörigheterna för användare i Azure Active Directory
 
@@ -35,11 +36,11 @@ Standardbehörigheter för gäster är begränsade som standard. Gäster kan lä
 **Område** | **Behörigheter för medlemmen** | **Gästen användarbehörigheter**
 ------------ | --------- | ----------
 Användare och kontakter | Läsa alla offentliga egenskaper för användare och kontakter<br>Bjud in gäster<br>Ändra eget lösenord<br>Hantera egna mobiltelefonnummer<br>Hantera egna foto<br>Ogiltigförklara egna uppdaterings-tokens | Läsa egna egenskaper<br>Läs visningsnamn, e-post, inloggningsnamn, foto, användarens huvudnamn och användaregenskaper typ av andra användare och kontakter<br>Ändra eget lösenord
-Grupper   | Skapa säkerhetsgrupper<br>Skapa grupper för Office 365<br>Läsa alla egenskaper i grupper<br>Läsa icke-dolda gruppmedlemskap<br>Läsa dolda Office 365-gruppmedlemskap för domänanslutna grupp<br>Hantera egenskaper, ägarskap och medlemskap i grupper som företagsägda<br>Lägga till gäster i företagsägda grupper<br>Hantera inställningar för dynamiskt medlemskap<br>Ta bort företagsägda grupper<br>Återställning som ägs av Office 365-grupper | Läsa alla egenskaper i grupper<br>Läsa icke-dolda gruppmedlemskap<br>Läs dolda medlemskap i Office 365 för sammanslagna grupper<br>Hantera företagsägda grupper<br>Lägg till gäster företagsägda grupper (om tillåts)<br>Ta bort företagsägda grupper<br>Återställning som ägs av Office 365-grupper           
+Grupper | Skapa säkerhetsgrupper<br>Skapa grupper för Office 365<br>Läsa alla egenskaper i grupper<br>Läsa icke-dolda gruppmedlemskap<br>Läsa dolda Office 365-gruppmedlemskap för domänanslutna grupp<br>Hantera egenskaper, ägarskap och medlemskap i grupper som företagsägda<br>Lägga till gäster i företagsägda grupper<br>Hantera inställningar för dynamiskt medlemskap<br>Ta bort företagsägda grupper<br>Återställning som ägs av Office 365-grupper | Läsa alla egenskaper i grupper<br>Läsa icke-dolda gruppmedlemskap<br>Läs dolda medlemskap i Office 365 för sammanslagna grupper<br>Hantera företagsägda grupper<br>Lägg till gäster företagsägda grupper (om tillåts)<br>Ta bort företagsägda grupper<br>Återställning som ägs av Office 365-grupper 
 Program | Registrera (skapa) nytt program<br>Skrivskyddade egenskaper för registrerats och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för företagsägda program<br>Skapa eller ta bort programmet lösenord för användare<br>Ta bort företagsägda program<br>Återställa företagsägda program | Skrivskyddade egenskaper för registrerats och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för företagsägda program<br>Ta bort företagsägda program<br>Återställa företagsägda program
 Enheter | Läsa alla egenskaper för enheter<br>Hantera alla egenskaper för företagsägda enheter<br> | Inga behörigheter<br>Ta bort företagsägda enheter<br>
 Katalog | Läsa alla företagsinformation<br>Läsa alla domäner<br>Läsa alla partner kontrakt | Läsa visningsnamn och verifierats domäner
-Roller och omfattningar | Läsa alla administrativa roller och medlemskap<br>Läsa alla egenskaper och medlemskap i administrativa enheter | Inga behörigheter              
+Roller och omfattningar | Läsa alla administrativa roller och medlemskap<br>Läsa alla egenskaper och medlemskap i administrativa enheter | Inga behörigheter 
 Prenumerationer | Läsa alla prenumerationer<br>Aktivera tjänsten Plan medlem | Inga behörigheter
 Principer | Läsa alla egenskaper för principer<br>Hantera alla egenskaper för företagsägda princip | Inga behörigheter
 

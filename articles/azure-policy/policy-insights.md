@@ -4,15 +4,16 @@ description: Den här artikeln vägleder dig genom programmässigt skapa och han
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794822"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Skapa principer och visa kompatibilitetsdata programmässigt
 
@@ -112,15 +113,19 @@ Använd följande procedur för att skapa en principdefinition.
   }
   ```
 
-2. Skapa principdefinitionen med hjälp av följande anrop:
+2. Skapa principdefinitionen med någon av följande anrop:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Ersätt den föregående &lt;subscriptionId&gt; med ID för prenumerationen avsedda.
+  Ersätt den föregående {subscriptionId} med ID för din prenumeration eller {managementGroupId} med ID: T för din [hanteringsgruppen](../azure-resource-manager/management-groups-overview.md).
 
-Mer information om strukturen i frågan finns [Principdefinitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate).
+  Mer information om strukturen i frågan finns [Principdefinitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate) och [Principdefinitioner – skapa eller uppdatera vid hantering av grupp](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Använd följande procedur för att skapa en principtilldelning och tilldela principdefinitionen på resursgruppsnivå.
 
@@ -199,99 +204,6 @@ Princip-ID för definition för principdefinitionen som du skapade bör likna f�
 
 Mer information om hur du kan hantera resursprinciper med Azure CLI finns [Azure CLI resursprinciper](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="identify-non-compliant-resources"></a>Identifiera icke-kompatibla resurser
-
-En resurs är icke-kompatibla om du inte följer principen eller initiativ regler för en tilldelning. Följande tabell visar hur olika principer effekter som fungerar med villkoret utvärderingsversionen för resulterande kompatibilitetsstatus:
-
-| Resource tillstånd | Verkan | Utvärderingen | Kompatibilitetsstatus |
-| --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
-| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
-
-\* Lägg till, DeployIfNotExist och AuditIfNotExist effekterna kräver instruktionen om ska TRUE. Effekterna kräver även villkoret förekomsten ska vara FALSE för icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
-
-För att bättre förstå hur resurser har flaggats som icke-kompatibla, ska vi använda princip tilldelningen exemplet skapade ovan.
-
-Anta att du har en resursgrupp – ContsoRG, med vissa storage-konton (markerat i rött) som exponeras för offentliga nätverk.
-
-![Storage-konton som exponeras för offentliga nätverk](media/policy-insights/resource-group01.png)
-
-I det här exemplet behöver du vara försiktig med säkerhetsrisker. Nu när du har skapat en principtilldelning, utvärderas den för alla lagringskonton i resursgruppen ContosoRG. Den granskningar tre icke-kompatibla lagringskonton, därför ändra deras tillstånd att **icke-kompatibla.**
-
-![Granskas icke-kompatibla storage-konton](media/policy-insights/resource-group03.png)
-
-Använd följande procedur för att identifiera resurser i en resursgrupp som inte är kompatibla med principtilldelningen. I det här exemplet är resurserna storage-konton i resursgruppen ContosoRG.
-
-1. Hämta princip tilldelnings-ID genom att köra följande kommandon:
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  Mer information om hur du får en principtilldelning ID finns [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
-
-2. Kör följande kommando för att ha resurs-ID: N av icke-kompatibla resurser kopieras till en JSON-fil:
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. Resultatet bör likna följande exempel:
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-Resultatet är likvärdiga med vad som skulle normalt visas i listan under **icke-kompatibel resurser** i den [Azure portal-vy](assign-policy-definition.md#identify-non-compliant-resources).
-
-Icke-kompatibla resurser för närvarande endast identifieras med hjälp av Azure portal och med HTTP-begäranden. Mer information om frågor princip tillstånd finns det [Principstatus](/rest/api/policy-insights/policystates) artikel för API-referens.
-
-## <a name="view-policy-events"></a>Visa händelser för principen
-
-När en resurs skapas eller uppdateras, skapas en utvärderingsresultat av principen. Resultaten kallas _Principhändelser_. Kör följande fråga om du vill visa alla Principhändelser som är associerade med principtilldelningen.
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-Ditt resultat liknar följande exempel:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-Du kan bara visa Principhändelser med HTTP-begäranden som principen tillstånd. Mer information om frågor Principhändelser finns i [Principhändelser](/rest/api/policy-insights/policyevents) referensartikeln.
-
 ## <a name="next-steps"></a>Nästa steg
 
 Granska följande artiklar för mer information om kommandon och frågor i den här artikeln.
@@ -300,3 +212,4 @@ Granska följande artiklar för mer information om kommandon och frågor i den h
 - [Azure RM PowerShell-moduler](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI-kommandona för principen](/cli/azure/policy?view=azure-cli-latest)
 - [Principprovidern insikter resurs REST API-referens](/rest/api/policy-insights)
+- [Ordna dina resurser med Azure-Hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)

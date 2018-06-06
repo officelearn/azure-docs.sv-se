@@ -1,29 +1,31 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - översikt | Microsoft Docs"
-description: "Översikt och innehåll karta över designguide Hybrid Identity"
-documentationcenter: 
+title: Azure Active Directory hybrid identity designöverväganden - översikt | Microsoft Docs
+description: Översikt och innehåll karta över designguide Hybrid Identity
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 94e67c5ea0028419e9bf74420e2bb46709b3df01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e81908e3fd77b8fde706b27c3bed305ad0436677
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801644"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
 Konsumenten-baserade enheter proliferating företagets världen och molnbaserade program för programvara som en tjänst (SaaS) är lätta att vidta. Därför kan behålla kontrollen över användarnas programåtkomst plattformar interna datacenter och moln en utmaning.  
 
-Microsofts identitetslösningar omfattar lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering för alla resurser, oavsett plats. Vi kallar detta Hybrididentitet. Det finns olika design och konfigurationsalternativ för hybrididentitet med hjälp av Microsoft solutions och i vissa fall kan det vara svårt att avgöra vilken kombination bästa uppfyller behoven för din organisation. 
+Microsofts identitetslösningar omfattar lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering för alla resurser, oavsett plats. Detta kallas Hybrididentitet. Det finns olika design och konfigurationsalternativ för hybrididentitet med hjälp av Microsoft solutions och i vissa fall kan det vara svårt att avgöra vilken kombination bästa uppfyller behoven för din organisation. 
 
 Den här Designguide för Hybrid Identity hjälper dig att förstå hur för att utforma en hybrididentitetslösning som passar bäst för verksamheten och teknikbehov för din organisation.  Den här guiden innehåller en rad steg och aktiviteter som du kan följa för att hjälpa dig att utforma en hybrididentitetslösning som uppfyller organisationens unika krav. I steg och aktiviteter, kommer guiden presentera relevanta tekniker och funktioner finns tillgängliga för organisationer att uppfylla funktions- och kvalitetskrav (till exempel tillgänglighet, skalbarhet, prestanda, hantering och säkerhet) nivå krav. 
 
@@ -37,17 +39,17 @@ Mer specifikt är hybrid identity överväganden guiden designmålen att besvara
  CHEF, CITO, chefen identitet arkitekter, Enterprise-arkitekter och IT-arkitekter som ansvarar för att utforma en hybrididentitetslösning för medelstora eller stora organisationer.
 
 ## <a name="how-can-this-guide-help-you"></a>Hur kan den här handboken hjälpa dig?
-Du kan använda den här guiden för att förstå hur du utformar en hybrididentitetslösning som går att integrera en molnbaserad identity management-systemet med din aktuella lokal identitetslösning. 
+Du kan använda den här guiden för att förstå hur du utformar en hybrididentitetslösning som går att integrera ett system för hantering av molnbaserade identitets med din aktuella lokal identitetslösning. 
 
 Följande bild visar ett exempel en hybrididentitetslösning som gör att IT-administratörer att hantera deras aktuella Windows Server Active Directory lösningen som finns lokalt integrera med Microsoft Azure Active Directory så att användarna kan använda enkel inloggning ( SSO) över program som finns i molnet och lokalt.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-På bilden ovan är ett exempel på en hybrididentitetslösning som använder molntjänster till att integrera med lokala funktioner för att ge en enda upplevelse för slutanvändaren autentiseringsprocessen och för att underlätta IT hanterar de resurser. Även om detta kan vara ett mycket vanligt scenario, kommer varje organisations identitet hybridutformning skiljer sig från exemplet som illustreras i bild 1 på grund av olika krav. 
+På bilden ovan är ett exempel på en hybrididentitetslösning som använder molntjänster till att integrera med lokala funktioner för att ge en enda upplevelse för slutanvändaren autentiseringsprocessen och för att underlätta IT hanterar de resurser. Även om det här exemplet kan vara ett vanligt scenario kan är varje organisations hybrid identity design sannolikt att skilja sig från exemplet som illustreras i bild 1 på grund av olika krav. 
 
 Den här guiden innehåller en serie steg och aktiviteter som du kan följa om du vill skapa en hybrididentitetslösning som uppfyller organisationens unika krav. I följande steg och aktiviteter presenterar handboken relevanta tekniker och Funktionsalternativ för att uppfylla funktions- och tjänsten kvalitetsnivån som krävs för din organisation.
 
-**Antaganden**: du har viss erfarenhet av Windows Server, Active Directory Domain Services och Azure Active Directory. I det här dokumentet förutsätter vi att du söker efter hur lösningarna kan uppfylla företagets behov på egen hand eller i en integrerad lösning.
+**Antaganden**: du har viss erfarenhet av Windows Server Active Directory Domain Services och Azure Active Directory. I det här dokumentet förutsätts det du söker efter hur lösningarna kan uppfylla företagets behov på egen hand eller i en integrerad lösning.
 
 ## <a name="design-considerations-overview"></a>Översikt över design-överväganden
 Det här dokumentet innehåller en uppsättning steg och aktiviteter som du kan följa om du vill skapa en hybrididentitetslösning som bäst uppfyller dina krav. Stegen visas i tur och ordning. Överväganden vid utformning av du lär dig i senare steg kan kräva att du ändrar beslut som du tog tidigare, men på grund av konflikter som uppstår. Varje försök görs att varna dig om eventuella designkonflikter i hela dokumentet. 

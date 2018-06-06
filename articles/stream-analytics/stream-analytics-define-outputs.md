@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701725"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskriver de olika typerna av utdata som är tillgängliga för ett Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobbet. Med utdata kan du göra ytterligare Företagsanalys och datalagring för dina data. 
@@ -27,6 +28,8 @@ Vissa typer av stöd för utdata [partitionering](#partitioning), och [utdata ba
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Strömma Analytics stöder [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Data Lake Store kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser. Stream Analytics måste ha behörighet att komma åt Data Lake Store.
+
+Azure Data Lake Store utdata från Stream Analytics är inte tillgängligt i Azure Kina (21Vianet) och Azure Tyskland (T-Systems internationell) regioner.
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Godkänna ett Azure Data Lake Store-konto
 
@@ -44,7 +47,7 @@ Strömma Analytics stöder [Azure Data Lake Store](https://azure.microsoft.com/s
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera utdata till denna Data Lake Store. | 
 | Kontonamn | Namnet på lagring av Data Lake-konto där du skickar din utdata. Visas med listan över Data Lake Store-konton som är tillgängliga i din prenumeration. |
-| Prefixmönster för sögväg | Den filsökväg som används för att skriva filer i den angivna Data Lake Store-konto. Du kan ange en eller flera instanser av {date} och {time} variabler.</br><ul><li>Exempel 1: mapp1/logs / {date} / {time}</li><li>Exempel 2: mapp1/logs / {date}</li></ul>Om sökvägar filen innehåller inte en avslutande ”/”, det senaste mönstret i sökvägen behandlas som ett filnamnsprefix. </br></br>Nya filer skapas under dessa omständigheter:<ul><li>Ändra utdataschemat</li><li>Externa eller interna omstart av ett jobb.</li></ul> |
+| Prefixmönster för sögväg | Den filsökväg som används för att skriva filer i den angivna Data Lake Store-konto. Du kan ange en eller flera instanser av {date} och {time} variabler.</br><ul><li>Exempel 1: mapp1/logs / {date} / {time}</li><li>Exempel 2: mapp1/logs / {date}</li></ul><br>Tidsstämpel för mappstrukturen skapade följer UTC-tid och inte lokal tid.</br><br>Om sökvägar filen innehåller inte en avslutande ”/”, det senaste mönstret i sökvägen behandlas som ett filnamnsprefix. </br></br>Nya filer skapas under dessa omständigheter:<ul><li>Ändra utdataschemat</li><li>Externa eller interna omstart av ett jobb.</li></ul> |
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i sökvägen till prefix. Exempel: ÅÅÅÅ/MM/DD |
 |Tidsformat | Valfri. Ange tidsformat där filerna ordnas om tid token används i sökvägen till prefix. Det enda värdet som stöds är för närvarande HH. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata. JSON-, CSV- och Avro stöds.| 
@@ -67,7 +70,7 @@ Förnya auktorisering, **stoppa** jobbet > Gå till din Data Lake Store-utdata >
 | Utdataalias |Ett eget namn som används i frågor för att dirigera utdata till den här databasen. |
 | Databas | Namnet på databasen där du skickar din utdata. |
 | servernamn | SQL Database-servernamn. |
-| Användarnamn | Användarnamnet som har behörighet att skriva till databas. |
+| Användarnamn | Användarnamnet som har behörighet att skriva till databasen. |
 | Lösenord | Lösenord för att ansluta till databas.e |
 | Tabell | Tabellnamnet där utdata skrivs. Tabellnamnet är skiftlägeskänsligt och schemat för den här tabellen ska matcha exakt med antalet fält och deras typer som skapas av jobbutdata. |
 
@@ -86,7 +89,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Lagringskonto | Namnet på det lagringskonto där du skickar din utdata. |
 | Lagringskontonyckel | Den hemliga nyckeln som associeras med lagringskontot. |
 | Lagringsbehållaren | Behållare innehåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du överför en blobb till Blob-tjänsten måste du ange en behållare för blobben. |
-| Sökvägsmönster | Valfri. Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. </br></br> Du kan välja att använda en eller flera instanser av variablerna datum tid för att ange hur ofta BLOB skrivs i sökväg-mönster: </br> {date}, {time} </br> </br>Om du har registrerat dig för den [preview](https://aka.ms/ASAPreview), du kan också ange en anpassad {fältet} namn från din händelsedata till partitionen blobbar efter, där namnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fall insensitivity (det går inte att skiljer sig mellan kolumnen ”ID” och kolumnen ”id”)</li><li>Kapslade fält är inte tillåtna (i stället använda ett alias i jobbet frågan till ”platta ut” fältet)</li><li>Uttryck kan inte användas som ett fältnamn</li></ul>Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3 (förhandsversion): cluster1 / {client_id} / {date} / {time}</li><li>Exempel 4 (förhandsversion): cluster1 / {myField} där frågan är: Välj data.myField som myField indata från;</li></ul><BR> Filnamngivning följer enligt följande konvention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Exempel utdatafilerna: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Sökvägsmönster | Valfri. Filen sökvägar som används för att skriva dina blobbar i den angivna behållaren. </br></br> Du kan välja att använda en eller flera instanser av variablerna datum tid för att ange hur ofta BLOB skrivs i sökväg-mönster: </br> {date}, {time} </br> </br>Om du har registrerat dig för den [preview](https://aka.ms/ASAPreview), du kan också ange en anpassad {fältet} namn från din händelsedata till partitionen blobbar efter, där namnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fall insensitivity (det går inte att skilja mellan kolumnen ”ID” och kolumnen ”id”)</li><li>Kapslade fält är inte tillåtna (i stället använda ett alias i jobbet frågan till ”platta ut” fältet)</li><li>Uttryck kan inte användas som ett fältnamn</li></ul>Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3 (förhandsversion): cluster1 / {client_id} / {date} / {time}</li><li>Exempel 4 (förhandsversion): cluster1 / {myField} där frågan är: Välj data.myField som myField indata från;</li></ul><br>Tidsstämpel för mappstrukturen skapade följer UTC-tid och inte lokal tid.</br><BR> Filnamngivning följer enligt följande konvention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Exempel utdatafilerna: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i sökvägen till prefix. Exempel: ÅÅÅÅ/MM/DD |
 | Tidsformat | Valfri. Ange tidsformat där filerna ordnas om tid token används i sökvägen till prefix. Det enda värdet som stöds är för närvarande HH. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata.  JSON-, CSV- och Avro stöds.
@@ -103,7 +106,7 @@ När du använder blob storage som utdata, skapas en ny fil i blob i följande f
 * Om en fil eller en behållare för lagringskontot tas bort av användaren.  
 * Om resultatet blir tid partitionerats med hjälp av prefixet sökvägar, används en ny blob när frågan flyttar till nästa timma.
 * Om utdata har partitionerats med ett anpassat fält, skapas en ny blob per partitionsnyckel om den inte finns.
-*   Om resultatet är partitionerad med ett anpassat fält där partition nyckelns kardinalitet överstiger 8000 kan du skapa en ny blob per partitionsnyckel.
+* Om resultatet är partitionerad med ett anpassat fält där partition nyckelns kardinalitet överstiger 8000 kan du skapa en ny blob per partitionsnyckel.
 
 ## <a name="event-hub"></a>Händelsehubb
 Den [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service är en mycket skalbar publicera och prenumerera händelseinmatare. Det kan samla in miljontals händelser per sekund. När resultatet av ett Stream Analytics-jobb blir indata för en annan direktuppspelningsjobbet är en använda en Händelsehubb som utdata.
@@ -125,6 +128,8 @@ Det finns några parametrar som behövs för att konfigurera Event Hub-dataströ
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) kan användas som utdata för ett Stream Analytics-jobb för att tillhandahålla för omfattande visualisering av analysresultat. Den här funktionen kan användas för kontrollpaneler, rapportgenerering och mått som drivs reporting.
+
+Power BI-utdata från Stream Analytics är inte tillgängligt i Azure Kina (21Vianet) och Azure Tyskland (T-Systems internationell) regioner.
 
 ### <a name="authorize-a-power-bi-account"></a>Auktorisera en Power BI-konto
 1. När Power BI väljs som utdata i Azure-portalen, uppmanas du att auktorisera en befintlig Power BI-användare eller skapa ett nytt Power BI-konto.  
@@ -247,6 +252,8 @@ Antalet partitioner är [baserat på Service Bus SKU och storlek](../service-bus
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos-DB](https://azure.microsoft.com/services/documentdb/) är en global och flera olika modeller databas tjänsten att obegränsad erbjuder elastisk utskalning runt världen, omfattande frågan och automatisk indexering via schema-oberoende datamodeller garanteras låg latens och branschledande omfattande serviceavtal. Mer information om Cosmos DB samling alternativ för Stream Analytics, referera till den [Stream Analytics med Cosmos DB som utdata](stream-analytics-documentdb-output.md) artikel.
 
+Azure DB Cosmos-utdata från Stream Analytics är inte tillgängligt i Azure Kina (21Vianet) och Azure Tyskland (T-Systems internationell) regioner.
+
 > [!Note]
 > Just nu är Azure Stream Analytics endast stöd för anslutning till CosmosDB med **SQL API**.
 > Andra Azure Cosmos DB-API: er stöds inte ännu. Om platsen Azure Stream Analytics till Azure DB som Cosmos-konton som har skapats med andra API: er, kanske data inte korrekt lagras. 
@@ -266,6 +273,8 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure DB som Cosmos-
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions är en serverlös beräkningstjänst som gör det möjligt köra kod på begäran utan att behöva installera eller hantera infrastruktur. Gör det möjligt att implementera kod som utlöses av händelser i Azure eller tjänster från tredje part.  Den här möjligheten i Azure Functions för att svara på utlösare gör det fysiska utdata för ett Azure Stream Analytics. Den här utdataadapter tillåter användare att ansluta Stream Analytics till Azure Functions och köra ett skript eller kodavsnitt som svar på en mängd olika händelser.
+
+Azure Functions utdata från Stream Analytics är inte tillgängligt i Azure Kina (21Vianet) och Azure Tyskland (T-Systems internationell) regioner.
 
 Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Det nya Azure funktionen utdata-kortet är tillgänglig med följande konfigurerbara egenskaper:
 

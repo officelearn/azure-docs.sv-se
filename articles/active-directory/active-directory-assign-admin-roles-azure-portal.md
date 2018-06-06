@@ -10,21 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 06/04/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 94062c69a1de32d061b97bbaae0d7028b0424feb
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757680"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
 Du kan ange separata administratörer att hantera olika funktioner med Azure Active Directory (AD Azure). Administratörer kan har åtkomst till olika funktioner i Azure-portalen och, beroende på deras roll, skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser och hantera domäner, bland annat. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på, oavsett om du tilldelar rollen i Office 365-portalen eller i Azure-portalen eller med hjälp av Azure AD-modulen för Windows PowerShell.
 
-## <a name="details-about-the-global-administrator-role"></a>Information om rollen global administratör
+## <a name="details-about-the-global-administrator-role"></a>Information om rollen Global administratör
 Den globala administratören har åtkomst till alla administrativa funktioner. Den person som registrerar sig för en Azure-prenumeration har tilldelats rollen global administratör för katalogen som standard. Endast globala administratörer kan tilldela andra administratörsroller.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
@@ -41,7 +42,7 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Användaren måste också vara Global administratör om du vill distribuera principen för villkorlig åtkomst i Exchange ActiveSync i Azure.
   
-* **Dynamics 365 tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft CRM Online när tjänsten finns, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Dynamics 365 administratören**: användare med den här rollen har globala behörigheter i Microsoft Dynamics 365 när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Enhetsadministratörer**: användare med den här rollen blir för lokala datoradministratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheter objekt i Azure Active Directory.
 
@@ -67,6 +68,8 @@ Följande administratörsroller är tillgängliga:
 * **Intune-tjänstadministratören**: användarna med den här rollen har globala behörigheter i Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen kan hantera användare och enheter för att associera principen, samt skapa och hantera grupper.
 
 * **Postlåda administratören**: den här rollen används endast som en del av Exchange Online e-postsupport för RIM Blackberry-enheter. Om din organisation inte använder Exchange Online-epost på RIM Blackberry-enheter, Använd inte den här rollen.
+
+* **Meddelande Center Reader**: användare i den här rollen kan övervaka meddelanden och advisory hälsa uppdateringar i [Office 365 meddelandecenter](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) i organisationen på konfigurerade tjänster, till exempel Exchange, Intune och Microsoft Team. Meddelandecenter läsare får varje vecka e-sammandrag av inlägg, uppdateringar, och kan dela meddelandet center inlägg i Office 365. I Azure AD har användare som tilldelats denna roll bara skrivskyddad åtkomst på Azure AD-tjänster, till exempel användare och grupper. 
 
 * **Samarbeta stöd för nivå 1**: Använd inte. Den här rollen är inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd för användning av ett litet antal Microsoft-partner återförsäljning och är inte avsedd för allmänt bruk.
 
@@ -110,7 +113,7 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 |<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p> |<p>Återställa användarlösenord</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p>|
 
-### <a name="conditional-access-administrator"></a>Villkorlig åtkomst administratör
+### <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
 
 | Kan göra | Det går inte att göra |
 | --- | --- |
@@ -119,9 +122,9 @@ Följande administratörsroller är tillgängliga:
 ### <a name="global-administrator"></a>Global administratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
-|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Återställa användarlösenord</p><p>Återställa andra administratörslösenord</p> <p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |Gäller inte |
+|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Återställa användarlösenord</p><p>Återställa lösenord för andra administratörer</p> <p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |Gäller inte |
 
-### <a name="password-administrator--helpdesk-administrator"></a>För lösenordsadministratör / supportavdelning administratör
+### <a name="password-administrator--helpdesk-administrator"></a>Lösenord för administratör / supportavdelning administratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
@@ -155,20 +158,20 @@ Visa Azure AD-inloggning rapporter och granskningsloggar<br>Visa information om 
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p> |<p>Återställa användarlösenord</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p> |
 
-### <a name="user-account-administrator"></a>Kontoadministratör för användaren
+### <a name="user-account-administrator"></a>Användarkonto-administratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportavdelning administratörer och andra användarkonto administratörer</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
 
-### <a name="to-add-a-colleague-as-a-global-administrator"></a>Att lägga till en kollega som global administratör
+### <a name="to-add-a-user-as-a-global-administrator"></a>Lägga till en användare som global administratör
 
-1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för klientkatalogen.
+1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med ett konto som är en Global administratör för klientkatalogen.
 
    ![Öppna administrationscentret för azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
 2. Välj **användare och grupper &gt; alla användare**
 
-3. Sök efter den användare som du vill beteckna som en global administratör och öppna bladet för den användaren.
+3. Sök efter den användare som du vill beteckna som en Global administratör och öppna bladet för den användaren.
 
 4. På bladet användare väljer **Directory rollen**.
  

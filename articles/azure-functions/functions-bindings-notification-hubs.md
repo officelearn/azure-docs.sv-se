@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 572bf9d783e1018b835b47c6c63fff1ce69659e9
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724983"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs utdatabindning för Azure Functions
 
@@ -29,13 +30,15 @@ Azure Notification Hub måste konfigureras för den plattform meddelanden Servic
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) GitHub-lagringsplatsen.
+Notification Hubs-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-paketet version 1.x. Källkoden för paketet är i den [azure-webjobs-sdk-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Den här bindningen är inte tillgänglig i funktioner 2.x.
 
 ## <a name="example---template"></a>Exempel - mall
 
@@ -287,7 +290,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**typ** |Saknas| Måste anges till ”notificationHub”. |
 |**riktning** |Saknas| Måste anges till ”out”. | 
 |**Namn** |Saknas| Variabelnamn som används i Funktionskoden för hubben meddelandet. |
-|**tagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
+|**TagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **hubName** | Namn på notification hub resurs i Azure-portalen. |
 |**Anslutning** | **ConnectionStringSetting** | Namnet på en appinställning som innehåller en anslutningssträng för Notification Hubs.  Anslutningssträngen måste anges till den *DefaultFullSharedAccessSignature* värde för meddelandehubben. Se [sträng anslutningsinställningar](#connection-string-setup) senare i den här artikeln.|
 |**Plattform** | **Plattform** | Egenskapen plattform anger klientplattformen notification-mål. Som standard om egenskapen plattform utelämnas från utdata-bindningen kan mallen meddelanden användas för alla plattformar som konfigurerats på Azure Notification Hub. Mer information om hur du använder mallar i allmänhet att skicka mellan plattform meddelanden med en Azure Notification Hub finns [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När inställningen **plattform** måste vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Mer information om hur du konfigurerar meddelandehubben för APNS och ta emot meddelandet i ett klientprogram, se [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Mer information om hur du konfigurerar meddelandehubben för ADM och ta emot meddelandet i en Kindle-app finns [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, vilket är den nya versionen av GCM stöds också. Mer information finns i [skicka push-meddelanden till Android med Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) riktad Windows-plattformar. Windows Phone 8.1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal-plattformen appar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Den här plattformen stöder Windows Phone 8 och Windows Phone-plattformar som tidigare. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |

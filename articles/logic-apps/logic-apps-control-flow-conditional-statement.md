@@ -1,29 +1,25 @@
 ---
-title: "Villkorssatser - kör steg baserat på ett villkor - Azure Logic Apps | Microsoft Docs"
-description: "Kör steg i din logikapp efter uppfyller ett villkor. Skapa beslutsträd som kör arbetsflöden baserat på angivet villkor."
+title: Lägg till villkorssatser arbetsflöden - Azure Logic Apps | Microsoft Docs
+description: Skapa villkor som styr åtgärder i arbetsflöden i Azure Logic Apps
 services: logic-apps
-keywords: "villkorssatser beslutsträd"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 5629c743434a0fe53f35da29343945951bbc5dd7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725738"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Villkorssatser: köra steg baserat på ett villkor i logikappar
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorssatser som styr arbetsflödesåtgärder i Azure Logic Apps
 
-Använd för att utföra åtgärder endast efter att skicka ett angivet villkor en *villkorlig instruktionen*. Den här strukturen jämför data i arbetsflödet mot specifika värden eller fält. Sedan kan du definiera olika steg för att köra baserat på om huruvida data uppfyller villkoret. Du kan kapsla villkor i varandra.
+Om du vill köra specifika åtgärder i din logikapp efter att skicka ett angivet villkor, lägger du till en *villkorlig instruktionen*. Den här strukturen jämför data i arbetsflödet mot specifika värden eller fält. Sedan kan du definiera olika åtgärder som körs baserat på om huruvida data uppfyller villkoret. Du kan kapsla villkor i varandra.
 
 Anta att du har en logikapp som skickar för många e-postmeddelanden när nya objekt visas på en webbplats RSS-feed. Du kan lägga till en villkorlig instruktion för att skicka e-post endast när den nya artikeln innehåller en specifik sträng. 
 
@@ -65,7 +61,7 @@ Anta att du har en logikapp som skickar för många e-postmeddelanden när nya o
 
    Här är det fullständiga villkoret:
 
-   ![Slutförd](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Slutför villkor](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
 
    > [!TIP]
    > Om du vill skapa ett mer avancerade villkor eller använda uttryck, Välj **redigera i Avancerat läge**. Du kan använda uttryck som definieras av den [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md).

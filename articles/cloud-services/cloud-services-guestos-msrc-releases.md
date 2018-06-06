@@ -12,16 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737545"
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
+
+## <a name="may-guest-os"></a>Kan gästen OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18 05 | [4103721], [4103727], [4103723] |Windows 10-säkerhet |5.19 |8 kan 2018 |
+| Rel 18 05 | [4103712] |Windows-säkerhet |2.74 |8 kan 2018 |
+| Rel 18 05 | [4103726] |Windows-säkerhet |3,61 |8 kan 2018 |
+| Rel 18 05 | [4103715] |Windows-säkerhet |4.54.b |8 kan 2018 |
+| Rel 18 05 | [4095514], [4095519] |.NET 3.5 4.x säkerhet |2.74 |8 kan 2018 |
+| Rel 18 05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x 4.5 x-säkerhet |3,61 |8 kan 2018 |
+| Rel 18 05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x 4.5 x-säkerhet |4.74|8 kan 2018 |
+| Rel 18 05 | [4054856] |Säkerhet för .NET 4,7 x |5.19 |8 kan 2018 |
+| Rel 18 05 | [4103768] |Internet Explorer |2.74, 3,61, 4.74 |8 kan 2018 |
+| Rel 18 05 | [4103729] |Flash |3,61, 4.74, 5.19 |8 kan 2018 |
+| Gäller inte | [4093118] |Insamling av april icke-säkerhet |2,73 |10 april 2018 |
+| Gäller inte | [4093123] |Insamling av april icke-säkerhet |3,61 |10 april 2018 |
+| Gäller inte | [4093114] |Insamling av april icke-säkerhet |4.74 |10 april 2018 |
+| Gäller inte | [4093137] |April SSU |5.19 |10 april 2018 |
+| Gäller inte | [4093753] |TimeZone-uppdatering |2.74, 3,61, 4.74 |10 april 2018 |
+
 
 ## <a name="april-guest-os"></a>April gästoperativsystemet
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
@@ -162,7 +183,7 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Rel 17-06 | [4019472] |WS 2016 OS kvalitet förbättringar |5.8 |9 kan 2017 |
 | Rel 17-06 | [4022722] |Windows-säkerhet |2.63 |13 juni 2017 |
 | Rel 17-06 | [4022717] |Windows-säkerhet |4.43 |13 juni 2017 |
-| Rel 17-06 | [4022718] |Windows-säkerhet |3.50 |13 juni 2017 |
+| Rel 17-06 | [4022718] |Windows-säkerhet |3,50 |13 juni 2017 |
 | Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 juni 2017 |
 | Rel 17-06 | [4022719], [4022724], [4022726] |Månatliga uppdateringar för Windows |2.63, 3.50, 4.43 |13 juni 2017 |
 | Rel 17-06 | [4022730] |Säkerhetsuppdatering för Adobe Flash Player |3.50, 4.43, 5.8 |13 juni 2017 |
@@ -173,11 +194,11 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte | [4014508] |Kan insamling av .NET-säkerhet |2.63 |9 kan 2017 |
 | Gäller inte | [4014511] |Kan insamling av .NET-säkerhet |2.63 |9 kan 2017 |
 | Gäller inte | [4014514] |Kan insamling av .NET-säkerhet |2.63 |9 kan 2017 |
-| Gäller inte | [4019216] |Insamling av kan icke-säkerhet |3.50 |9 kan 2017 |
-| Gäller inte | [4014503] |Kan insamling av .NET-säkerhet |3.50 |9 kan 2017 |
-| Gäller inte | [4014506] |Kan insamling av .NET-säkerhet |3.50 |9 kan 2017 |
-| Gäller inte | [4014509] |Kan insamling av .NET-säkerhet |3.50 |9 kan 2017 |
-| Gäller inte | [4014513] |Kan insamling av .NET-säkerhet |3.50 |9 kan 2017 |
+| Gäller inte | [4019216] |Insamling av kan icke-säkerhet |3,50 |9 kan 2017 |
+| Gäller inte | [4014503] |Kan insamling av .NET-säkerhet |3,50 |9 kan 2017 |
+| Gäller inte | [4014506] |Kan insamling av .NET-säkerhet |3,50 |9 kan 2017 |
+| Gäller inte | [4014509] |Kan insamling av .NET-säkerhet |3,50 |9 kan 2017 |
+| Gäller inte | [4014513] |Kan insamling av .NET-säkerhet |3,50 |9 kan 2017 |
 | Gäller inte | [4019215] |Insamling av kan icke-säkerhet |4.43 |9 kan 2017 |
 | Gäller inte | [4014505] |Kan insamling av .NET-säkerhet |4.43 |9 kan 2017 |
 | Gäller inte | [4014507] |Kan insamling av .NET-säkerhet |4.43 |9 kan 2017 |
@@ -628,6 +649,28 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte |[2999802] |Heldragen linje i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 

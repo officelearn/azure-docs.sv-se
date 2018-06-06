@@ -1,8 +1,8 @@
 ---
 title: Skala upp en app i Azure | Microsoft Docs
-description: "Lär dig mer om att skala upp en app i Azure App Service för att lägga till kapacitet och funktioner."
+description: Lär dig mer om att skala upp en app i Azure App Service för att lägga till kapacitet och funktioner.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714943"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Skala upp en app i Azure
 
@@ -50,7 +51,7 @@ Information om priser och funktioner i enskilda App Service-planer finns [App Se
 2. På din Apptjänst-app klickar du på **alla inställningar**, och klicka sedan på **skala upp**.
    
     ![Navigera för att skala upp din Azure-app.][ChooseWHP]
-3. Välj din nivå och klicka sedan på **Välj**.
+3. Välj din nivå och klicka sedan på **tillämpa**.
    
     Den **meddelanden** fliken blinkar en grön **lyckade** när åtgärden har slutförts.
 

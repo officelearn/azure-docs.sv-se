@@ -5,20 +5,17 @@ keywords: Ändra feed
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0a646591811e7c965ad7de5201913a43cae54fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715181"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
 
@@ -167,7 +164,7 @@ Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
 
 Om du har flera läsare, kan du använda **ChangeFeedOptions** att distribuera skrivskyddade inläsning till olika trådar eller olika klienter.
 
-Och som är det, med dessa några rader kod kan du börja läsa ändra feeden. Du kan hämta den fullständiga koden som används i denna artikel från den [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+Och som är det, med dessa några rader kod kan du börja läsa ändra feeden. Du kan hämta den fullständiga koden som används i denna artikel från den [GitHub-repo-](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
 I koden i steg 4 ovan, den **ResponseContinuation** under senaste raden innehåller den sista logiska sekvensnumret (LSN) av dokument som du ska använda nästa gång du läsa nya dokument efter den här sekvensnummer. Med hjälp av den **StartTime** av den **ChangeFeedOption** utvidga din net för att hämta dokumenten. I så fall om din **ResponseContinuation** är null, men din **StartTime** går tillbaka i tiden och sedan får du alla dokument som ändrats sedan den **StartTime**. Men om din **ResponseContinuation** har ett värde system får du alla dokument eftersom den LSN.
 
@@ -194,7 +191,7 @@ Observera att om du har två serverlösa Azure funktioner som krävs för överv
 Det finns fyra huvudsakliga komponenter för att implementera ändra Feed Processor: samlingen övervakade, lån samlingen, värd för händelsebearbetning och konsumenterna. 
 
 > [!WARNING]
-> Det finns priseffekter med att skapa en samling eftersom du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Det finns priseffekter med att skapa en samling eftersom du reserverar genomströmning för programmet för att kommunicera med Azure Cosmos DB. Mer information finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
@@ -279,7 +276,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-Det stämmer. När dessa några steg dokument startar till den **DocumentFeedObserver ProcessChangesAsync** metod.
+Det stämmer. När dessa några steg dokument startar till den **DocumentFeedObserver ProcessChangesAsync** metod. Hitta koden ovan i [GitHub-repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 
 ## <a name="next-steps"></a>Nästa steg
 

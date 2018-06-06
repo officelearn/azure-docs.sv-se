@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794555"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights för Java-webbappar som redan är live
-
 
 Om du har ett program som redan körs på J2EE-server kan du börja övervaka med [Programinsikter](app-insights-overview.md) utan att behöva göra kodändringar eller kompileras projektet. Med det här alternativet får du information om HTTP-förfrågningar som skickas till din server, ohanterade undantag och prestandaräknare.
 
@@ -136,4 +136,4 @@ Och när du visar egenskaperna för en begäran, du kan se de telemetriska händ
 * [Ställ in webbtester](app-insights-monitor-web-app-availability.md) att vara säker tillämpningsprogrammet är live och svarstid.
 * [Avbilda loggspårningar](app-insights-java-trace-logs.md)
 * [Söka efter händelser och loggar](app-insights-diagnostic-search.md) för att diagnostisera problem.
-
+* [Konfigurera en app för initieraren källan Start](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

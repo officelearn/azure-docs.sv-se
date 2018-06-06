@@ -1,21 +1,21 @@
 ---
-title: Twitter-konfigurationen för Azure AD B2C | Microsoft Docs
+title: Twitter-konfigurationen för Azure Active Directory B2C | Microsoft Docs
 description: Ange registrering och inloggning för kunder med Twitter-konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 4/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 40e4c5549414765dabc6f37c5ffb5aea519ae673
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 68b9e9edbacda08bc98b6b7af5d944d3df9edca1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709588"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Ange registrering och inloggning för konsumenter med hjälp av Azure AD B2C Twitter-konton
 
@@ -27,8 +27,10 @@ Om du vill använda Twitter som en identitetsleverantör i Azure Active Director
 3. I formuläret anger du ett värde för den **namn**, **beskrivning**, och **webbplats**.
 4. För den **motringning URL**, ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Ersätt **{klient}** med din klient namn (till exempel contosob2c.onmicrosoft.com).
 5. Markera kryssrutan om du accepterar den **Developer avtal** och på **skapa programmet Twitter**.
-6. När appen har skapats klickar du på **nycklar och åtkomst-token**.
-7. Kopiera värdet för **konsumenten nyckeln** och **konsumenthemlighet**. Du måste båda för att konfigurera Twitter som en identitetsleverantör i din klient.
+6. När appen har skapats, markerar du den i listan och välj sedan den **inställningar** fliken.
+7. Avmarkera den **aktivera motringning låsning** rutan och klicka på **Tjänsteinställningarna**.
+8. Välj den **nycklar och åtkomst-token** fliken.
+9. Kopiera värdet för **konsumenten nyckeln** och **konsumenthemlighet**. Du måste båda för att konfigurera Twitter som en identitetsleverantör i din klient.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Konfigurera Twitter som en identitetsleverantör i din klientorganisation
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som Global administratör för Azure AD B2C-klient. 

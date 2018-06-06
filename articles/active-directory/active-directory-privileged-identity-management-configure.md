@@ -3,7 +3,7 @@ title: Konfigurera Azure AD Privileged Identity Management | Microsoft Docs
 description: Ett avsnitt som förklarar vad Azure AD Privileged Identity Management är och hur du förbättrar säkerheten för molnet med hjälp av PIM.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b8ae9c91882c91263b6bcbcb640bc6cf27756548
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698534"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 

@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698738"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
 
 Syftet med den här kursen är att visa de steg som du behöver göra i ServiceNow och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 
+> [!NOTE]
+> Den här självstudiekursen beskriver en koppling som bygger på Etableringstjänsten Azure AD-användare. Viktig information om vad tjänsten gör så här fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
+För att konfigurera Azure AD-integrering med ServiceNow, behöver du följande:
 
-*   En Azure Active directory-klient.
-*   Du måste ha en giltig klient för ServiceNow för arbets- eller ServiceNow för utbildning. Du kan använda ett kostnadsfritt utvärderingskonto för antingen service.
-*   Ett användarkonto i ServiceNow-teamet administratörsbehörigheter.
+- En Azure AD-prenumeration
+- För ServiceNow, instans eller innehavare för ServiceNow Calgary version eller högre
+- För ServiceNow Express, en instans av ServiceNow Express, Helsingfors version eller högre
+
+> [!NOTE]
+> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+
+Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## <a name="assigning-users-to-servicenow"></a>Tilldela användare till ServiceNow
 

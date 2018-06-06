@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763603"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 För att underhålla din befintliga investering i System Center Operations Manager och använda utökade funktioner med Log Analytics, kan du integrera Operations Manager med ditt Log Analytics-arbetsområde.  På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -77,7 +78,9 @@ Utför följande steg för att konfigurera hanteringsgruppen för Operations Man
 Om det är första gången din Operations Manager-hanteringsgrupp registreras med en Log Analytics-arbetsyta och hanteringsservrarna måste kommunicera med tjänsten via en proxy- eller OMS gatewayserver är alternativet för att ange proxykonfiguration för hanteringsgruppen inte tillgängligt i Operations-konsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  Du behöver uppdatera systemproxykonfigurationen med Netsh på systemet som Operations-konsolen körs från för att konfigurera integration och alla hanteringsservrar i hanteringsgruppen.  
 
 1. Öppna en upphöjd kommandotolk.
-1. Ange följande kommando och tryck på **Enter**:
+   a. Gå till **starta** och skriv **cmd**.
+   b. Högerklicka på **kommandotolk** och välj Kör som administratör **.
+2. Ange följande kommando och tryck på **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ Det är inte helt enkelt att ta bort hanteringspaketen för lösningarna som du 
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-1. Öppna menyn **Avancerade inställningar** för Log Analytics i Azure Portal.
-1. Välj **Anslutna källor** och sedan **System Center**.
-1. Du bör se namnet på hanteringsgruppen du vill ta bort från arbetsytan.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
+7. Klicka på panelen **Inställningar** på OMS-portalen.
+8. Välj **anslutna källor**.
+9. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i avsnittet System Center Operations Manager.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
    
     > [!NOTE]
     > Länken **Ta bort** blir inte tillgänglig förrän efter att den anslutna hanteringsgruppen känner av 14 dagar utan aktivitet.  
@@ -210,7 +213,7 @@ Det är inte helt enkelt att ta bort hanteringspaketen för lösningarna som du 
 För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor.DataConnector och Advisor Connector – sparar du PowerShell-skriptet nedan på datorn och kör det med följande exempel:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

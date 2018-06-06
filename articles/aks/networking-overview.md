@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: marsma
-ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757016"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure-Kubernetes (AKS)
 
@@ -38,7 +39,7 @@ Noder i ett kluster som AKS är konfigurerad för avancerade nätverk den [Azure
 Avancerade nätverk ger följande fördelar:
 
 * Distribuera AKS-kluster till ett befintligt virtuellt nätverk eller skapa en ny VNet och undernät för klustret.
-* Varje baljor i klustret tilldelas en IP-adress i virtuella nätverk och kan kommunicera direkt med andra skida i klustret och andra virtuella datorer i VNet.
+* Varje baljor i klustret tilldelas en IP-adress i virtuella nätverk och kan kommunicera direkt med andra skida i klustret och andra noder i virtuella nätverk.
 * En baljor kan ansluta till andra tjänster i ett peered VNet och lokala nätverk via ExpressRoute och plats-till-plats (S2S) VPN-anslutningar. Skida kan även nås från lokalt.
 * Exponera en Kubernetes tjänst externt eller internt via Azure belastningsutjämnare. Också en funktion i grundläggande nätverk.
 * Skida i ett undernät som har aktiverat slutpunkter kan på ett säkert sätt ansluta till Azure-tjänster, till exempel Azure Storage- och SQL-databas.
@@ -46,7 +47,33 @@ Avancerade nätverk ger följande fördelar:
 * Skida kan komma åt resurser på Internet. Också en funktion i grundläggande nätverk.
 
 > [!IMPORTANT]
-> Varje nod i ett kluster för AKS som konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**. Varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 IP-adresser** (/ 20).
+> Varje nod i ett kluster för AKS som konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**. Varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 konfigurerade IP-adresser**.
+
+## <a name="advanced-networking-prerequisites"></a>Avancerade krav för nätverk
+
+* Virtuella nätverk för AKS klustret måste tillåta utgående Internetanslutning.
+* Skapa inte fler än ett AKS kluster i samma undernät.
+* Avancerade nätverk för AKS stöder inte Vnet som använder Azure privata DNS-zoner.
+* AKS kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16` för Kubernetes service-adressintervall.
+* Tjänstens huvudnamn för AKS klustret måste ha `Contributor` behörigheter till den resursgrupp som innehåller befintliga VNet.
+
+## <a name="plan-ip-addressing-for-your-cluster"></a>Planera IP-adresser för klustret
+
+Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planering. Storleken på ditt VNet och dess undernät måste hantera både antalet skida som du planerar att köra samt antalet noder för klustret.
+
+IP-adresser för skida och den klusternoder tilldelas från det angivna undernätet inom VNet. Varje nod har konfigurerats med en primär IP-adress, vilket är den IP-Adressen på noden och 30 ytterligare IP-adresser förkonfigurerade genom Azure CNI som har tilldelats skida schemalagda till noden. När du skalar upp ditt kluster, konfigureras varje nod på samma sätt med IP-adresser från undernätet.
+
+IP-adress planen för en AKS klustret består av ett VNet, minst ett undernät för noderna och skida, och ett Kubernetes service-adressintervall.
+
+| Adressintervall / Azure resurs | Gränser och storlek |
+| --------- | ------------- |
+| Virtuellt nätverk | Azure-VNet kan vara så stor som/8 som men kan endast ha 4096 konfigurerade IP-adresser. |
+| Undernät | Måste vara tillräckligt stor för att hantera noder och skida. Att beräkna storleken på din minsta undernät: (antal noder) + (antalet noder * skida per nod). I ett kluster 50 noder: (50) + (50 * 30) = 1,550, ditt undernät måste vara en /21 eller större. |
+| Kubernetes service-adressintervall | Det här intervallet bör inte används av nätverket element på eller ansluten till detta virtuella nätverk. Serviceadressen CIDR måste vara mindre än /12. |
+| IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube dns). |
+| Docker bridge adress | IP-adress (CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet för 172.17.0.1/16. |
+
+Som nämnts tidigare varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 konfigurerade IP-adresser**. Varje nod i ett kluster som har konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**.
 
 ## <a name="configure-advanced-networking"></a>Konfigurera avancerade nätverk
 
@@ -66,14 +93,6 @@ Följande skärmbild från Azure-portalen visar ett exempel på hur du konfigure
 
 ![Avancerade nätverkskonfigurationen i Azure-portalen][portal-01-networking-advanced]
 
-## <a name="plan-ip-addressing-for-your-cluster"></a>Planera IP-adresser för klustret
-
-Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planering. Storleken på ditt VNet och dess undernät måste hantera antalet skida som du tänker köra samtidigt i klustret, samt dina skalning krav.
-
-IP-adresser för skida och den klusternoder tilldelas från det angivna undernätet inom VNet. Varje nod har konfigurerats med en primär IP-adress, som är den IP-Adressen för noden sig själv och 30 ytterligare IP-adresser förkonfigurerade genom Azure CNI som har tilldelats skida schemalagda till noden. När du skalar upp ditt kluster, konfigureras varje nod på samma sätt med IP-adresser från undernätet.
-
-Som nämnts tidigare varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 IP-adresser** (/ 20). Varje nod i ett kluster som har konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**.
-
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 Följande frågor och svar som gäller för den **Avancerat** nätverkskonfigurationen.
@@ -92,7 +111,7 @@ Följande frågor och svar som gäller för den **Avancerat** nätverkskonfigura
 
 * *Är det maximala antalet skida distribueras till en konfigurerbar nod?*
 
-  Som standard kan varje nod vara värd för högst 30 skida. Du kan ändra det maximala värdet för närvarande endast genom att ändra den `maxPods` egenskapen när du distribuerar ett kluster med en Resource Manager-mall.
+  Som standard kan varje nod vara värd för högst 30 skida. Du kan ändra det högsta värdet genom att ändra den `maxPods` egenskapen när du distribuerar ett kluster med en Resource Manager-mall.
 
 * *Konfigurera ytterligare egenskaper för det undernät som jag har skapat när klustret skapas AKS? Till exempel tjänstens slutpunkter.*
 

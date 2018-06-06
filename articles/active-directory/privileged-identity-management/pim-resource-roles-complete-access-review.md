@@ -3,7 +3,7 @@ title: Slutför en åtkomst-granskning för Azure-resurser med hjälp av Privile
 description: Beskriver hur du utför en åtkomst-granskning för Azure-resurser.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1dd5eb4a2a0a4edd15e5299754028570806db09b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699462"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Slutför en åtkomst-granskning för Azure-resurser med hjälp av Privileged Identity Management
 Privilegierade rollen administratörer kan granska privilegierad åtkomst efter en [säkerhetsgranskning har startats](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) för Azure-resurser skickar automatiskt ett e-postmeddelande som uppmanar användaren att granska deras åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en säkerhetsgranskning](pim-resource-roles-perform-access-review.md).
@@ -30,7 +31,7 @@ När omprövningsperioden säkerhet är över, eller när alla användare har sl
 2. Välj din resurs.
 
 3. Välj den **åtkomst till granskningar** på instrumentpanelen.
-![Åtkomst granskningar](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Åtkomstgranskningar](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
 
 4. Välj den granskning av åtkomst som du vill hantera.
 

@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714120"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsökning av hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -53,7 +55,7 @@ Den här artikeln finns felsökningsanvisningar om hur du löser problem.
 
 - Registreringen / koppling för enheter som har konfigurerats för att utföra ett försök vid inloggning eller Lås / Lås upp. Det dröja 5 minuter innan utlöses av en uppgift i Schemaläggaren. 
 
-- Installera om operativsystemet eller manuell re-registreringar kan skapa en ny registrering på Azure AD, vilket resulterar i flera poster information på fliken användare i Azure-portalen. 
+- En ominstallation av operativsystemet eller manuell omregistrering kan skapa en ny registrering i Azure AD, vilket resulterar i flera poster information på fliken användare i Azure-portalen. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Steg 1: Hämta registreringsstatus 
 
@@ -88,7 +90,7 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
     
     - Den inloggade användaren är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-anslutning på äldre enheter stöds endast för domänanvändare.
     
-    - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på ett inkommande bundna problem med nätverksanslutningen till Azure AD URL-adresser (kontrollera krav). Det kan också vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar **autoworkplace.exe** tyst får en token.
+    - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på ett inkommande bundna problem med nätverksanslutningen till URL: er för Azure AD. Det kan också vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på federationsservern. En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar **autoworkplace.exe** tyst får en token.
     
     - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens IE intranätsinställningar och **tillåta uppdateringar av statusfältet via skript** har inte aktiverats för zonen Intranät.
 
@@ -104,7 +106,7 @@ Du kan också hitta statusinformation i Loggboken under: **program och tjänster
   
 **De vanligaste orsakerna till en misslyckad hybrid Azure AD-koppling är:** 
 
-- Datorn är inte ansluten till organisationens interna nätverket och inte heller att en VPN-anslutning med en anslutning till din lokala AD-domänkontrollant.
+- Datorn är inte ansluten till organisationens interna nätverket eller till en VPN-anslutning med en anslutning till din lokala AD-domänkontrollant.
 
 - Du är inloggad på datorn med ett lokalt datorkonto. 
 

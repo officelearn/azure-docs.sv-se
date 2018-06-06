@@ -1,11 +1,11 @@
 ---
-title: "Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör | Microsoft Docs"
-description: "En genomgång registrera Azure Stack som en Molntjänstleverantör och lägga till kunder."
+title: Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör | Microsoft Docs
+description: En genomgång registrera Azure Stack som en Molntjänstleverantör och lägga till kunder.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 23e3a675e6a464c92d26df220c8126c970f590a0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796707"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure-stacken som en Molntjänstleverantör 
 
@@ -40,7 +41,7 @@ I följande diagram visas de steg som du behöver välja kontot för delade tjä
 
 Du måste välja vilken typ av konto för delade tjänster som du använder för Azure-stacken. Typer av prenumerationer som kan användas för registrering av en multitenant Azure-stacken är:
 
- - Cloud Service Provider 
+ - Molntjänstleverantör 
  - Partner delade tjänster prenumeration 
 
 #### <a name="csp-shared-services"></a>CSP delade tjänster
@@ -84,4 +85,4 @@ Eftersom klienten prenumerationer är CSP-prenumerationer, deras faktura skickas
 ## <a name="next-steps"></a>Nästa steg
 
  - Läs mer om CSP-programmet i [leverantör programmet](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](/azure-stack-billing-and-chargeback.md).
+ - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](azure-stack-billing-and-chargeback.md).

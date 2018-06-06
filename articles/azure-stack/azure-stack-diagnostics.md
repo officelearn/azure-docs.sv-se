@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801661"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnosverktyg
 
@@ -140,7 +141,7 @@ if($s)
 
 - Om den **FromDate** och **ToDate** parametrar har angetts, loggarna har samlats in under de senaste fyra timmarna som standard.
 - Du kan använda den **TimeOutInMinutes** parametern ange tidsgränsen för Logginsamling. Den är inställd på 150 (2,5 timmar) som standard.
-
+- I version 1805 och senare, är dump filinsamling loggen inaktiverad som standard. Aktivera den med den **IncludeDumpFile** växla parametern. 
 - För närvarande kan du använda den **FilterByRole** parameter till filter Logginsamling av följande roller:
 
    |   |   |   |
@@ -184,7 +185,7 @@ Om du vill veta mer om ERCS_AzureStackLogs.ps1 PowerShell-skriptet kan du titta 
 * Kommandot tar tid att köra baserat på vilka roller som samlar in loggarna. Bidragande faktorer också innefatta varaktighet som angetts för Logginsamling och antal noder i Azure Stack-miljö.
 * Som loggar samling körs, kontrollera mappen skapas i den **OutputSharePath** parameter har angetts i kommandot.
 * Varje roll har loggar i enskilda zip-filer. Beroende på storleken på de insamlade loggarna kan en roll ha loggar dela med flera zip-filer. Använd ett verktyg som kan packa i grupp (till exempel 7zip) för en roll, om du vill ha alla loggfiler som uppackade i till en enda mapp. Välj de komprimerade filerna för rollen och välj **extrahera här**. Detta upp alla loggfiler för rollen i en enda kopplade mapp.
-* En fil som heter **Get-AzureStackLog_Output.log** skapas också i den mapp som innehåller de komprimerade loggfilerna. Den här filen är en logg över kommandoutdata som kan användas vid felsökning av problem vid Logginsamling av.
+* En fil som heter **Get-AzureStackLog_Output.log** skapas också i den mapp som innehåller de komprimerade loggfilerna. Den här filen är en logg över kommandoutdata som kan användas vid felsökning av problem vid Logginsamling av. Ibland loggfilen innehåller `PS>TerminatingError` poster som kan ignoreras, såvida inte den förväntade loggfiler saknas efter logga samling körs.
 * Loggar kan behövas från mer än en komponent för att undersöka ett specifikt fel.
     -   System och händelseloggarna för alla virtuella datorer som infrastrukturen har samlats in i den *VirtualMachines* roll.
     -   System och händelseloggarna för alla värdar har samlats in i den *BareMetal* roll.

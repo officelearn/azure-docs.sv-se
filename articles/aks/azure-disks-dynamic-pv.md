@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801389"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Beständiga volymer med Azure-diskar
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Beständiga volym anspråk som har angetts i GiB men Azure hanteras diskar debiteras av SKU för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 4TiB för S50 eller p 50 diskar. Dessutom genomflöde och IOPS prestanda för en Premium hanteras disk beror på båda SKU och instansstorleken på noderna i klustret AKS. Se [priser och prestanda för hanterade diskar][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Skapa beständiga volym anspråk
 
 Beständiga volym-anspråk (PVC) används för att automatiskt etablera lagring baseras på en lagringsklass. I det här fallet en PVC kan använda en i förväg skapade lagringsklasser för att skapa en standard- eller premium Azure hanterade diskar.
 
-Skapa en fil med namnet `azure-premimum.yaml`, och kopiera följande manifestet.
+Skapa en fil med namnet `azure-premium.yaml`, och kopiera följande manifestet.
 
 Notera som den `managed-premium` lagringsklass har angetts i anteckningen och anspråket begär en disk `5GB` i storlek med `ReadWriteOnce` åtkomst.
 
@@ -63,7 +67,7 @@ spec:
 Skapa beständiga volym anspråk med den [kubectl gäller] [ kubectl-apply] kommando.
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Med hjälp av beständiga volymens
@@ -103,16 +107,17 @@ Nu har du en körs baljor med din Azure-disken monterat i den `/mnt/azure` direc
 Läs mer om Kubernetes beständiga volymer med Azure-diskarna.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin-program för Azure-diskar][kubernetes-disk]
+> [Kubernetes plugin-program för Azure-diskar][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md 
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

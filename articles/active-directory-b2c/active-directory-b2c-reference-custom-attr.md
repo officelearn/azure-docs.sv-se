@@ -1,27 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: Anpassade attribut som | Microsoft Docs'
-description: Hur du använder anpassade attribut i Azure Active Directory B2C för att samla in information om dina användare
+title: Azure Active Directory B2C anpassade attribut | Microsoft Docs
+description: Hur du använder anpassade attribut i Azure Active Directory B2C för att samla in information om dina användare.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 6f285c10b7d8ff92c8568c42b6a78dc4ea9bcc74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 61931be8e50cdc3132e36a63a2fdb059d62ba947
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711883"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Använd anpassade attribut för att samla in information om dina användare
 Din Azure Active Directory (AD Azure) B2C-katalog som levereras med en inbyggd uppsättning information (attribut): Förnamn, efternamn, ort, postnummer och andra attribut. Men har alla konsumentinriktade program unika krav på vad attribut för att samla in från konsumenterna. Du kan utöka uppsättningen attribut som lagras på varje konsumentkonto med Azure AD B2C. Du kan skapa anpassade attribut på den [Azure-portalen](https://portal.azure.com/) och använda den i din anmälan principer som visas nedan. Du kan också läsa och skriva dessa attribut med hjälp av den [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 > [!NOTE]
-> Använd för anpassade attribut [Azure AD Graph API Directory-schemautökningar](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+> Använd för anpassade attribut [Azure AD Graph API Directory-schemautökningar](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 > 
 > 
 

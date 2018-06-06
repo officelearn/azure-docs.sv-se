@@ -3,22 +3,19 @@ title: Azure Cosmos DB indexering principer | Microsoft Docs
 description: Förstå hur indexering fungerar i Azure Cosmos-databasen. Lär dig hur du konfigurerar och ändra indexprincip för automatisk indexering och bättre prestanda.
 keywords: hur indexering fungerar automatisk indexering, indexering databas
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3abae65ccc430c791e289a4767d057cf010b974b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700340"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
@@ -79,9 +76,9 @@ Azure Cosmos-DB stöder tre indexering lägen som du kan konfigurera via indexpr
 
 Konsekvent indexering stöder konsekvent frågor på bekostnad av en eventuell minskning i genomströmning för skrivning. Denna minskning är en funktion av de unika sökvägar som behöver indexeras och ”konsekvensnivå”. Konsekvent indexering läge är utformad för ”skriva snabbt fråga omedelbart” arbetsbelastningar.
 
-**Lazy**: indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt, det vill säga när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som. Det Lazy indexering läget kan vara lämplig för ”mata in nu fråga senare” arbetsbelastningar som kräver införandet av dokumentet. Observera att du kan få inkonsekventa resultat eftersom data är inhämtas och indexerade långsamt. Detta innebär att din antal frågor eller en specifik fråga resultaten kan vara konsekvent eller repeterbara vid en given tidpunkt. 
+**Lazy**: indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt, det vill säga när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som.  Observera att du kan få inkonsekventa resultat eftersom data är inhämtas och indexerade långsamt. Detta innebär att din antal frågor eller specifika frågeresultat inte kanske är konsekvent eller repeterbara på den angivna tiden. 
 
-Indexet är vanligtvis i catch-up läge med infogade data. Med Lazy indexering, ändrar tiden live (TTL) resultatet i indexet tas bort och återskapas. Detta gör att antalet och fråga resultaten inkonsekvent under en tidsperiod. Därmed bör de flesta Azure Cosmos DB konton Använd konsekventa indexering läge.
+Indexet är vanligtvis i catch-up läge med infogade data. Med Lazy indexering, ändrar tiden live (TTL) resultatet i indexet tas bort och återskapas. Detta gör att antalet och fråga resultaten inkonsekvent under en tidsperiod. De flesta Azure Cosmos DB konton bör använda konsekvent indexering läge.
 
 **Ingen**: en samling som har en ingen indexläge har inget index som är kopplade till den. Detta är vanligt om Azure Cosmos DB används som en nyckel / värde-lagring och dokument används endast av deras ID-egenskap. 
 
@@ -135,7 +132,7 @@ Här följer vanliga mönster för att ange index sökvägar:
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Standardsökvägen för samlingen. Rekursiva och gäller för hela dokumentträdet.                                                                                                                                                                                                                                   |
 | / prop /?             | Index sökväg som krävs för att hantera frågor som följande (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                       |
-| /prop/*             | Index sökvägen för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”värde”<br><br>Välj samling c ORDER BY c.prop         |
+| / prop / *             | Index sökvägen för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”värde”<br><br>Välj samling c ORDER BY c.prop         |
 | [] / sammanställer / /?         | Index sökväg krävs för att hantera iteration och delta i frågor mot matriser av skalärer som [”a”, ”b”, ”c”]:<br><br>Välj taggen från tagg i collection.props var taggen = ”värde”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props där tagga > 5                                                                         |
 | /Props/ [] /subprop/? | Index sökväg krävs för att hantera iteration och JOIN-frågor mot matriser av objekt som [{subprop: ”a”}, {subprop: ”b”}]:<br><br>Välj taggen från tagg i collection.props var tag.subprop = ”värde”<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var tag.subprop = ”värde”                                  |
 | / prop/subprop /?     | Index sökväg som krävs för att hantera frågor (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5                                                                                                                    |

@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801804"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
 I den här uppgiften definierar du hybrid identity införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -32,7 +34,7 @@ I den här uppgiften definierar du hybrid identity införandestrategin för din 
 De första uppgift adresserna fastställa organisationer företag behöver.  Detta kan vara mycket bred och scope krypning kan inträffa om du inte är försiktig.  Enkelhet i början, men komma ihåg att planera för en design som ska anpassas och underlätta förändringen i framtiden.  Oavsett om det är en enkel design eller en extremt komplexa, Azure Active Directory är Microsoft Identity-plattform som stöder Office 365, Microsoft Online Services och molnet medvetna program.
 
 ## <a name="define-an-integration-strategy"></a>Definiera en strategi för integrering
-Microsoft har tre huvudsakliga integrationsscenarier är molnidentiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera på införandet av en av dessa strategier för integrering.  Den strategi som du väljer kan variera och beslut att välja en kan innehålla vilken typ av användarupplevelse som du vill ge har du några av den befintliga infrastrukturen redan på plats och vad som är den mest kostnadseffektiva.  
+Microsoft har tre huvudsakliga integrationsscenarier är molnidentiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera på införandet av en av dessa strategier för integrering.  Den strategi som du väljer kan variera och beslut att välja en kan innehålla vilken typ av användarupplevelse som du vill ge, har du en befintlig infrastruktur och vad är den mest kostnadseffektiva.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ I följande tabell kan fastställa fördelarna och nackdelarna med vart och ett 
 
 | Strategi | Fördelar | Nackdelar |
 | --- | --- | --- |
-| **Molnidentiteter** |Enklare att hantera för små företag. <br> Inget att installera på-lokal-ingen ytterligare maskinvara krävs<br>Enkelt inaktiveras om användaren lämnar företaget |Användare behöver logga in vid åtkomst av arbetsbelastningar i molnet <br> Lösenord kan eller kan inte vara samma för molnet och lokala identiteter |
+| **Molnidentiteter** |Enklare att hantera för små företag. <br> Inget att installera lokalt. Ingen ytterligare maskinvara krävs<br>Enkelt inaktiveras om användaren lämnar företaget |Användare behöver logga in vid åtkomst av arbetsbelastningar i molnet <br> Lösenord kan eller kan inte vara samma för molnet och lokala identiteter |
 | **Synkroniserade** |Lokala lösenord autentiserar både lokalt och i molnet kataloger <br>Enklare att hantera för små, medelstora eller stora organisationer <br>Användare kan ha enkel inloggning (SSO) för vissa resurser <br> Microsoft önskad metod för synkronisering <br> Enklare att hantera |Vissa kunder kan vara ovilliga att synkronisera sina kataloger med molnet på grund av ett visst företag polis |
 | **Federerad** |Användare kan ha enkel inloggning (SSO) <br>Om en användare lämnar avslutas och kontot kan inaktiveras omedelbart och behörighet återkallats<br> Stöd för avancerade scenarier som kan utföras med synkroniserade |Flera steg för att installera och konfigurera <br> Högre Underhåll <br> Kan kräva ytterligare maskinvara för STS-infrastruktur <br> Kan kräva ytterligare maskinvara för att installera federationsservern. Det krävs ytterligare programvara om AD FS används <br> Kräv omfattande inställningar för enkel inloggning <br> Kritisk felpunkt om federationsservern är nere, användare kommer inte att kunna autentisera |
 
@@ -119,7 +121,7 @@ När du definierar en strategi för synkronisering, måste topologin som använd
 
 Scenario med flera skogar
 
-Om det här fallet sedan flera-forest-enda Azure AD-topologi bör övervägas om följande är sant:
+Om detta är fallet och sedan flera skogar enda Azure AD-topologi bör övervägas om följande är sant:
 
 * Användare har bara 1 identitet i alla skogar – unikt identifiera användarna avsnittet nedan beskriver detta i detalj.
 * Användaren autentiseras mot den skog som sin identitet finns
@@ -149,13 +151,13 @@ Det är möjligt och stöds för att ansluta en lokal instans av Active Director
 
 **En skog filtrering scenario**
 
-För att kunna göra detta på följande måste vara sant:
+Följande detta gör det måste vara sant:
 
 * Azure AD Connect sync-servrar måste konfigureras för att filtrera så att de har ett ömsesidigt uteslutande uppsättning objekt.  Detta har gjort, till exempel genom att ange omfång för varje server till en viss domän eller Organisationsenhet.
 * En DNS-domän kan bara registreras i en enda Azure AD-katalog därför UPN för användarna i lokalt AD måste använda separata namnområden
 * Användare i en instans av Azure AD kommer bara att kunna se användare från deras instans.  De kommer inte att visa användare i andra instanser
 * Endast en av Azure AD-kataloger kan du aktivera Exchange hybrid med lokalt AD
-* Ömsesidig ensamrätt gäller även för tillbakaskrivning.  Det gör att vissa återskrivning funktioner stöds inte med den här topologin eftersom dessa förutsätter en enda lokal konfiguration.  Detta omfattar:
+* Ömsesidig ensamrätt gäller även för tillbakaskrivning.  Det gör att vissa återskrivning funktioner stöds inte med den här topologin eftersom dessa förutsätter en enda lokal konfiguration.  Det här omfattar:
   * Gruppera återskrivning med standardkonfiguration
   * Tillbakaskrivning av enhet
 

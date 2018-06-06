@@ -1,26 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: Weibo konfiguration | Microsoft Docs'
+title: Weibo konfigurationen i Azure Active Directory B2C | Microsoft Docs
 description: Ange registrering och inloggning för konsumenter med Weibo konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: c11931b0b1c568591a89277844722dceeac59039
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711475"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med Weibo konton
 
 > [!NOTE]
-> Den här funktionen är i förhandsgranskningen. Använd inte den här identitetsleverantör i produktionsmiljön.
+> Den här funktionen är en förhandsversion. Använd inte den här identitetsleverantör i produktionsmiljön.
 > 
 
 ## <a name="create-a-weibo-application"></a>Skapa ett Weibo program

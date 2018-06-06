@@ -13,19 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 83d6715d6d8178e273131a6bc123627126644271
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726303"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Hämta Windows VHD från Azure
 
 I den här artikeln får du lära dig hur du hämtar en [Windows virtuell hårddisk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) filen från Azure med Azure-portalen. 
-
-Virtuella datorer (VM) i Azure används [diskar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som en plats att lagra ett operativsystem, program och data. Alla virtuella Azure-datorer har minst två diskar – en disk i Windows-operativsystem och en tillfällig disk. Operativsystemdisken har skapats ursprungligen från en avbildning och både operativsystemdisken och image är virtuella hårddiskar som lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar.
 
 ## <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 

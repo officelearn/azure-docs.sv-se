@@ -1,26 +1,19 @@
 ---
 title: Översikt över acceleratorer för Azure IoT-lösning | Microsoft Docs
 description: En beskrivning av acceleratorer för Azure IoT-lösningen och deras arkitektur med länkar till ytterligare resurser.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 6f23324c697aa181179fd0ba4d81d1502bc5ac83
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362132"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724898"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
@@ -32,7 +25,7 @@ _Lösningsacceleratorer_ för Azure IoT är en uppsättning lösningar som:
 
 Alla lösningsacceleratorer är utformade enligt samma principer och mål.
 
-I följande video visas en översikt över lösningsacceleratorern för fjärrövervakning:
+Följande videoklipp visar en översikt över fjärråtkomst övervakning solution accelerator:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
@@ -54,7 +47,7 @@ Varje lösningsaccelerator är en fullständig implementering från slutpunkt ti
 Tre lösningsacceleratorer är tillgängliga idag:
 
 * [Fjärrövervakning](iot-accelerators-remote-monitoring-explore.md)
-* [Förebyggande underhåll](../iot-suite/iot-suite-predictive-overview.md)
+* [Förebyggande underhåll](iot-accelerators-predictive-overview.md)
 * [Ansluten fabrik](iot-accelerators-connected-factory-overview.md)
 
 Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
@@ -62,7 +55,7 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 | Lösning | Datainhämtning | Enhetsidentitet | Enhetshantering | Edge-bearbetning | Kommando och kontroll | Regler och åtgärder | Förutsägelseanalys |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Fjärrövervakning](iot-accelerators-remote-monitoring-explore.md)  |Ja |Ja |Ja |-   |Ja |Ja |-   |
-| [Förebyggande underhåll](../iot-suite/iot-suite-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
+| [Förebyggande underhåll](iot-accelerators-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
 | [Ansluten fabrik](iot-accelerators-connected-factory-overview.md) |Ja |- |- |Ja |Ja |Ja |-   |
 
 * *Datainhämtning*: Inhämtning av data till molnet i hög skala.
@@ -73,7 +66,7 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 * *Förutsägelseanalys*: Lösningens backend-server analyserar data från enheten till molnet för att förutsäga när specifika åtgärder ska äga rum. Lösningen kan till exempel analysera telemetri från en flygplansmotor för att fastställa när motorunderhåll krävs.
 
 > [!NOTE]
-> Besök [Acceleratorer för Microsoft Azure IoT-lösning](https://www.azureiotsuite.com/) om du vill distribuera en lösningsaccelerator och lära dig mer om hur du anpassar den.
+> Besök [Acceleratorer för Microsoft Azure IoT-lösning](https://www.azureiotsolutions.com/) om du vill distribuera en lösningsaccelerator och lära dig mer om hur du anpassar den.
 
 ## <a name="azure-services"></a>Azure-tjänster
 
@@ -91,14 +84,14 @@ När du distribuerar en lösningsaccelerator konfigurerar etableringsprocessen e
 | Azure Storage         |                    | Ja                    | Ja               |
 
 > [!NOTE]
-> Mer information om resurser som har distribuerats i  lösningsacceleratorn för fjärrövervakning finns i den här [artikeln](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) på GitHub.
+> Mer information om resurser som har distribuerats i Fjärrövervaknings solution accelerator finns [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) på GitHub.
 
 * [Azure IoT Hub](../iot-hub/index.yml). Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga lösningsacceleratortjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter. Med tjänsten kan du även [hantera dina enheter](../iot-hub/iot-hub-device-management-overview.md). Du kan till exempel konfigurera, starta om eller utföra en fabriksåterställning på en eller flera enheter som är anslutna till hubben.
-* [Azure Event Hubs](../active-directory-domain-services/index.md). Tjänst för inmatning av stora händelsevolymer. Se [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Jämförelse mellan Azure IoT Hub och Azure Event Hubs).
+* [Azure Event Hubs](../active-directory-domain-services/index.yml). Tjänst för inmatning av stora händelsevolymer. Se [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Jämförelse mellan Azure IoT Hub och Azure Event Hubs).
 * [Azure Time Series Insights](../time-series-insights/index.yml). Lösningsacceleratorerna använder den här tjänsten för att analysera och visa telemetridata från dina enheter.
 * [Azure Container Service](../container-service/index.yml). Den här tjänsten är värd för och hanterar mikrotjänster i lösningsacceleratorer.
 * [Azure Cosmos DB](../cosmos-db/index.yml) och [Azure Storage](../storage/index.yml) för datalagring.
-* [Azure Stream Analytics](../stream-analytics/index.yml). Den förkonfigurerade lösningen Förutsägande underhåll använder den här tjänsten för att bearbeta inkommande telemetri, utföra sammansättningar och identifiera händelser. Den här förkonfigurerade lösningen använder också dataströmsanalys för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter.
+* [Azure Stream Analytics](../stream-analytics/index.yml). Förutsägande Underhåll solution accelerator använder den här tjänsten för att bearbeta inkommande telemetri, utföra aggregering och identifiera händelser. Den här förkonfigurerade lösningen använder också dataströmsanalys för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter.
 * [Azure Web Apps](../app-service/index.yml) som värd för den anpassade programkoden i de förkonfigurerade lösningarna.
 
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)](iot-accelerators-what-is-azure-iot.md).
@@ -117,7 +110,7 @@ Följande avsnitt beskriver vad som är nytt i de lösningsacceleratorerna som �
 
 ### <a name="microservices"></a>Mikrotjänster
 
-Den nya versionen av lösningsacceleratorn för fjärrövervakning använder en arkitektur baserad på mikrotjänster. Den här lösningsacceleratorn består av flera mikrotjänster som en *IoT Hub-hanterare* och en *Lagringshanterare*. Både Java- och .NET-versioner av varje mikrotjänst är tillgänglig för nedladdning tillsammans med relaterad utvecklardokumentation. Läs mer om mikrotjänsterna i [Remote monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md) (Arkitektur för fjärrövervakning).
+Den nya versionen av Fjärrövervaknings solution accelerator använder en arkitektur för mikrotjänster. Den här lösningsacceleratorn består av flera mikrotjänster som en *IoT Hub-hanterare* och en *Lagringshanterare*. Både Java- och .NET-versioner av varje mikrotjänst är tillgänglig för nedladdning tillsammans med relaterad utvecklardokumentation. Läs mer om mikrotjänsterna i [Remote monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md) (Arkitektur för fjärrövervakning).
 
 Den här arkitekturen för mikrotjänster är ett beprövat mönster för molnlösningar som:
 
@@ -129,7 +122,7 @@ Den här arkitekturen för mikrotjänster är ett beprövat mönster för molnl�
 > [!TIP]
 > Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
 
-När du distribuerar den nya versionen av fjärrövervakningen så måste du välja något av följande distributionsalternativ:
+När du distribuerar den nya versionen av Fjärrövervaknings måste du välja något av följande distributionsalternativ för:
 
 * **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
 * **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-behållare som värdar för enskilda mikrotjänster.
@@ -152,7 +145,7 @@ Användargränssnittet skapas med javascript-biblioteket [React](https://faceboo
 Nu när du har en översikt över lösningsacceleratorerna föreslår vi följande nästa steg för varje lösningsaccelerator:
 
 * [Utforska lösningen för fjärrövervakning](iot-accelerators-remote-monitoring-explore.md).
-* [Översikt över lösningsaccelerator för förutsägande underhåll](../iot-suite/iot-suite-predictive-overview.md)
+* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Kom igång med lösningsacceleratorn Ansluten fabrik](iot-accelerators-connected-factory-overview.md).
 
-Mer information om IoT-lösningsarkitekturer finns i [Microsoft Azure IoT-tjänster: referensarkitektur](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+Mer information om IoT-lösningsarkitekturer finns i [Microsoft Azure IoT-tjänster: referensarkitektur](https://aka.ms/iotrefarchitecture).

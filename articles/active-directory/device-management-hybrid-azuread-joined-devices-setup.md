@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714399"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
 Med hantering av enheter i Azure Active Directory (Azure AD), kan du se till att dina användare har åtkomst till dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. Mer information finns i [introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md).
 
-Om du har en lokal Active Directory-miljö och du vill ansluta till din domänanslutna enheter till Azure AD, kan du göra detta genom att konfigurera hybrid Azure AD anslutna enheter. Avsnittet ger relaterade steg. 
+Om du har en lokal Active Directory-miljö och du vill ansluta till din domänanslutna enheter till Azure AD, kan du göra detta genom att konfigurera hybrid Azure AD anslutna enheter. Den här artikeln ger relaterade steg. 
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -36,7 +38,7 @@ Om du förlita dig på den [systemförberedelseverktyget (Sysprep)](https://docs
 
 Alla domänanslutna enheter som kör Windows 10 årsdagar Update och Windows Server 2016 registreras automatiskt med Azure AD vid omstart av enheten eller användaren logga in när de konfigurationssteg som anges nedan är uppfyllda. **Om problemet automatiskt registrera inte rekommenderas, eller om en kontrollerad distribution önskas**, följ instruktionerna i avsnittet ”steg 4: kontroll distribution och distribution” för att selektivt aktivera eller inaktivera automatisk distributionen innan följande andra konfigurationssteg.  
 
-För att förbättra läsbarhet beskrivningar, används det här avsnittet följande villkor: 
+Den här artikeln används för att förbättra läsbarhet beskrivningar, följande villkor: 
 
 - **Aktuella Windows-enheter** -termen refererar till domänanslutna enheter som kör Windows 10 eller Windows Server 2016.
 - **Windows-klientversioner enheter** -termen avser alla **stöds** domänanslutna Windows-enheter som inte är igång Windows 10 eller Windows Server 2016.  

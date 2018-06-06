@@ -3,22 +3,18 @@ title: Azure Service Bus-mätvärden i Azure-Monitor (förhandsversion) | Micros
 description: Använda Azure-övervakning för att övervaka Service Bus-entiteter
 services: service-bus-messaging
 documentationcenter: .NET
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/05/2018
+ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb0c9fcc33d6f5b54a8c2c8ad3e356a485d6ccbb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701302"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mätvärden i Azure-Monitor (förhandsgranskning)
 
@@ -64,8 +60,16 @@ Räknar antalet begäranden om data och hantering av åtgärder.
 | Inkommande begäranden (förhandsgranskning) | Antalet begäranden som görs till Service Bus-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Lyckade begäranden (förhandsgranskning)|Antal slutförda förfrågningar som görs till Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Fel (förhandsgranskning)|Antalet begäranden som inte bearbetas på grund av ett fel i Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Fel (förhandsgranskning)|Antalet begäranden som inte bearbetas på grund av fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+|Fel (Förhandsgranska, finns i följande delavsnitt)|Antalet begäranden som inte bearbetas på grund av fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Begränsad begäranden (förhandsgranskning)|Antalet begäranden som har begränsats eftersom användningen har överskridits.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+
+### <a name="user-errors"></a>Fel
+
+Följande två typer av fel är klassificerade som användarfel:
+
+1. Klienten sida fel uppstod (i HTTP som skulle vara 400-fel).
+2. Fel som uppstår under bearbetningen meddelanden som [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+
 
 ## <a name="message-metrics"></a>Meddelande-mått
 

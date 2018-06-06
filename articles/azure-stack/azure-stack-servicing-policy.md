@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796439"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure-stacken behandling av princip
 Den här artikeln beskriver Underhåll princip för Azure-stacken integrerat system och vad du måste göra för att hålla datorn i ett läge som stöds. 
@@ -37,10 +38,9 @@ Det finns två typer av uppdateringspaket för integrerade system:
 Microsoft räknar med att släppa programuppdateringspaket i en månatlig takt. Det är dock möjligt att ha flera och update-versioner i en månad. OEM-maskinvaruleverantörer släpp uppdateringarna som behövs. 
 
 Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdateringar översikt](azure-stack-updates.md). Information om en viss uppdatering, inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
+- [Azure-stacken 1805 uppdatering](azure-stack-update-1805.md)
+- [Azure-stacken 1804 uppdatering](azure-stack-update-1804.md)
 - [Azure-stacken 1803 uppdatering](azure-stack-update-1803.md)
-- [Azure-stacken 1802 uppdatering](azure-stack-update-1802.md)
-- [Azure-stacken 1712 uppdatering](azure-stack-update-1712.md)
-
 
 
 ## <a name="hotfixes"></a>Snabbkorrigeringar

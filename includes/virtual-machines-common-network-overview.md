@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5341df808e65dda9ed68c5cda633d6d8e19d9fc9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723114"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -170,4 +171,4 @@ Det finns också självstudiekurser att belastningsutjämna virtuella datorer oc
 
 - Läs mer om konfigurering av [användardefinierade vägar och IP-vidarebefordring](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Läs mer om hur du konfigurerar [VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Läs mer om [Felsökningsvägar](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Läs mer om [Felsökningsvägar](../articles/virtual-network/diagnose-network-routing-problem.md).

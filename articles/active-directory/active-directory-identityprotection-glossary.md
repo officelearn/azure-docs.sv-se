@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory Identity Protection – ordlista | Microsoft Docs"
-description: Azure Active Directory Identity Protection Glossary
+title: Azure Active Directory Identity Protection – ordlista | Microsoft Docs
+description: Azure Active Directory Identity Protection – ordlista
 services: active-directory
-keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprinciper och ordlista"
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprinciper och ordlista
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,13 +16,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713399"
 ---
-# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection – ordlista
 ### <a name="at-risk-user"></a>Risk (användare)
 En användare med en eller flera aktiva riskhändelser. 
 
@@ -32,7 +34,7 @@ En inloggning från en geografisk plats som inte är typiska för specifika anv�
 En säkerhetsmodul för Azure Active Directory som tillhandahåller en samlad vy riskhändelser och potentiella säkerhetsproblem som påverkar en organisations identiteter.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
-En princip för att skydda åtkomsten till resurser. Villkorliga tillgångsregler lagras i Azure Active Directory och utvärderas av Azure AD innan du beviljar åtkomst till resursen.  Exempel regler är att begränsa åtkomst baserat på plats, enhet hälsa eller user autentiseringsmetod.
+En princip för att skydda åtkomsten till resurser. Villkorliga tillgångsregler lagras i Azure Active Directory och utvärderas av Azure AD innan du beviljar åtkomst till resursen.  Exempel regler är att begränsa åtkomst baserat på plats, enhetens hälsotillstånd eller metod för autentisering av användare.
 
 ### <a name="credentials"></a>Autentiseringsuppgifter
 Information om identifiering och bekräftelse för identifiering som används för att få åtkomst till lokala resurser och nätverksresurser. Exempel på autentiseringsuppgifter är användarnamn och lösenord, smartkort och certifikat.
@@ -80,7 +82,7 @@ Del av en säkerhetsprincip som beskriver de omständigheter som ska utlösa pri
 En åtgärd för att förhindra att organisationen via missbruk av en identitet eller enhet misstänkt eller vet äventyras. En åtgärd för att förhindra skydda inte enheten eller identitet och matchar inte tidigare riskhändelser.
 
 ### <a name="privileged-user"></a>Privilegierad (användare)
-En användare som vid tidpunkten för en risk händelse hade permanenta eller tillfälliga administratörsbehörigheter till minst en resurs i Azure Active Directory, exempelvis en Global administratör faktureringsadministratör, administratör, Användaradministratör och Lösenordsadministratör. 
+En användare som vid tidpunkten för en risk händelse hade permanenta eller tillfälliga administratörsbehörigheter till en eller flera resurser i Azure Active Directory, exempelvis en Global administratör faktureringsadministratör, administratör, Användaradministratör och Lösenordsadministratör. 
 
 ### <a name="real-time"></a>Realtid
 Finns i realtid identifiering.
@@ -137,7 +139,7 @@ En risk händelsen som utlöses när en inloggning som kommer från en IP-adress
 En risk händelsen utlöses när en lyckad inloggning från en IP-adress med ett stort antal misslyckade inloggningsförsök för flera användarkonton under en kort tidsperiod.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Logga in från okänd plats
-En risk händelsen som utlöses när en användare loggar in från en ny plats (IP, latitud/longitud och ASN) har.
+En risk händelsen som utlöses när en användare loggar in från en ny plats (IP-latitud/longitud och ASN) har.
 
 ### <a name="sign-in-risk"></a>Inloggningsrisk
 Finns Risk nivå (inloggning)
@@ -158,7 +160,7 @@ En villkorlig åtkomstprincip som överväger logga in och tillämpar åtgärder
 Användare som har riskhändelser som är aktiva eller reparerade
 
 ### <a name="vulnerability"></a>Sårbarhet
-En konfiguration eller villkor i Azure Active Directory som gör att katalogen känsligt för kryphål eller hot.
+En konfiguration eller villkor i Azure Active Directory, vilket gör att katalogen är utsatt för kryphål och hot.
 
 ## <a name="see-also"></a>Se också
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

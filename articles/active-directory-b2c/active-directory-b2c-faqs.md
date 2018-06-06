@@ -1,20 +1,21 @@
 ---
-title: Vanliga frågor och svar – Azure Active Directory B2C
-description: Vanliga frågor och svar om Azure Active Directory B2C
+title: Vanliga frågor om Azure Active Directory B2C | Microsoft Docs
+description: Vanliga frågor (FAQ) om Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: B2C
+ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710740"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -118,7 +119,7 @@ Följ dessa steg för att ta bort din Azure AD B2C-klient:
 4. Markera varje användare i sin tur (exkludera du för närvarande är inloggad som administratör för prenumeration användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
 5. Klicka på den **App registreringar**.
 6. Välj program kallat **b2c-tillägg-app**. Klicka på **ta bort** och på **Ja** när du tillfrågas.
-7. Välj **översikt**.
+7. Välj **Översikt**.
 8. Klicka på **ta bort katalogen**. Följ instruktionerna på skärmen för att slutföra processen.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Kan jag få Azure AD B2C som en del av Enterprise Mobility Suite?

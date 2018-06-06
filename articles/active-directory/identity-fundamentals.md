@@ -9,15 +9,17 @@ ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
 ms.prod: ''
-ms.service: azure
+ms.service: active-directory
+ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 3603a1e91bc6bcf8a472b41bb0d0a276bf231d7c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 552c777b9ae8b33bc624436aeecc8ef9e097cf3c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713797"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azure Identitetshantering
 

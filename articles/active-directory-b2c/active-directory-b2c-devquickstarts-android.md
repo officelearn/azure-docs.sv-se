@@ -1,26 +1,25 @@
 ---
-title: 'Azure Active Directory B2C: Hämta en token som använder en Android-App | Microsoft Docs'
+title: Hämta en token som använder en Android-App i Azure Active Directory B2C | Microsoft Docs
 description: Den här artikeln visar hur du skapar en Android-app som använder AppAuth med Azure Active Directory B2C hanterar användaridentiteter och autentiserar användare.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-android
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 6c4c9359571882fbbea4e7701305e30e0f49f460
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7c0a72e03eaa8d12c26b1bbbf6a05b4d94e72358
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709914"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Logga in med ett Android-program
 
-Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Det innebär att utvecklare kan utnyttja alla bibliotek som de vill integrera med våra tjänster. Vi har skrivit några genomgång som detta att demonstrera hur du konfigurerar 3 part bibliotek för att ansluta till Microsoft identity-plattformen för att hjälpa utvecklare i vår plattform med andra bibliotek. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity-plattformen.
+Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Dessa normer kan du utnyttja alla bibliotek som du vill integrera med Azure Active Directory B2C. Du kan använda en genomgång som detta som hjälper dig att använda andra bibliotek, för att demonstrera hur du konfigurerar 3 part bibliotek för att ansluta till Microsoft identity-plattformen. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity-plattformen.
 
 > [!WARNING]
 > Microsoft tillhandahåller inte korrigeringar för 3 part bibliotek och inte har gjort en genomgång av dessa bibliotek. Det här exemplet använder ett 3 part bibliotek kallas AppAuth har testats för kompatibilitet i grundläggande scenarier med Azure AD B2C. Problem och funktionsförfrågningar ska dirigeras till biblioteksprojekt öppen källkod. Se [i den här artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) för mer information.  
@@ -136,5 +135,5 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 Mer information finns i [AppAuth guide](https://openid.github.io/AppAuth-Android/) om hur du Slutför resten av processen. Om du behöver att snabbt komma igång med en fungerande app kan ta en titt [exemplet](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
 
-Vi är alltid öppna för feedback och förslag! Om du har problem med det här avsnittet eller rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För funktionsbegäranden, lägga till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för feedback och förslag! Om du har problem med den här artikeln eller rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För funktionsbegäranden, lägga till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

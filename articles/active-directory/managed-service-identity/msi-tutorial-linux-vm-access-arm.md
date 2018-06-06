@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6d4f7378ccd24af4281793dbc93df40830a1b31a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 542b2e434767711a6947a87c6995343d27e6dddd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699123"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en tilldelad användaridentitet på en Linux-VM för att komma åt Azure Resource Manager
 
@@ -73,29 +74,29 @@ Den här självstudiekursen kommer skapa du först en ny Linux VM. Du kan också
 
 2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create). Den `-g` parametern anger resursgruppen där MSI skapas och `-n` parametern anger dess namn. Se till att ersätta den `<RESOURCE GROUP>` och `<MSI NAME>` parametervärden med egna värden:
     
-    > [!IMPORTANT]
-    > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <MSI NAME>
-    ```
 
-    Svaret innehåller information om användaren som har tilldelats identitet skapas, liknande exemplet nedan. Observera den `id` värdet för användaren som har tilldelats-identitet som den ska användas i nästa steg:
+```azurecli-interactive
+az identity create -g <RESOURCE GROUP> -n <MSI NAME>
+```
 
-    ```json
-    {
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "9012",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-    ```
+Svaret innehåller information om användaren som har tilldelats identitet skapas, liknande exemplet nedan. Observera den `id` värdet för användaren som har tilldelats-identitet som den ska användas i nästa steg:
+
+```json
+{
+"clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+"clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
+"id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+"location": "westcentralus",
+"name": "<MSI NAME>",
+"principalId": "9012",
+"resourceGroup": "<RESOURCE GROUP>",
+"tags": {},
+"tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+"type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
 
 ## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Tilldela en användare som tilldelats identitet för Linux-VM
 
@@ -192,5 +193,8 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
     
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över hanterade tjänstidentiteten finns [översikt](overview.md).
+I kursen får du har lärt dig hur du skapar en användare som tilldelats identitet och koppla den till en virtuell Linux-dator åtkomst till Azure Resource Manager API.  Om du vill veta mer om Azure Resource Manager, se:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

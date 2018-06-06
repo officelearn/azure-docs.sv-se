@@ -1,7 +1,24 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666950"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Aktivera loggning med diagnostikinställningar
 
 1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb.
-1. Välj **diagnostikinställningar**.
+1. Välj **diagnostikinställningarna**.
 1. Välj **aktivera diagnostiken**.
 
    ![Slå på diagnostik][1]

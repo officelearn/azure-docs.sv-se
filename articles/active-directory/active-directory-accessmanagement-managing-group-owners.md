@@ -8,16 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: curtand
 ms.custom: it-pro
-ms.openlocfilehash: e4703ab5d9f4b8593e758764e50455672e368e18
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0f379c22f1bad522a2d9bff399bbf7006f7c4920
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713287"
 ---
 # <a name="managing-owners-for-a-group"></a>Hantera ägare för en grupp
 När en resursägare har tilldelats till en resurs till en Azure AD-grupp, hanteras medlemskap i gruppen av gruppägare. Effektivt resursägaren behörighet att tilldela användare till resursen till ägare av gruppen.

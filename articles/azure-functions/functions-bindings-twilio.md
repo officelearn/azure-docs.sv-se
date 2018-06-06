@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30a47fb597b5739e9f947caa9b72238631c780fe
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 62df5ebc6f5928c0992bd715e208137d89789e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724453"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -28,13 +29,17 @@ Den här artikeln beskrivs hur du skickar meddelanden med hjälp av [Twilio](htt
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet version 1.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Twilio-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -232,7 +237,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**typ**|| måste anges till `twilioSms`.|
 |**riktning**|| måste anges till `out`.|
 |**Namn**|| Variabelnamn som används i Funktionskoden för textmeddelande Twilio SMS. |
-|**accountSid**|**AccountSid**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-konto Sid.|
+|**AccountSid**|**AccountSid**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-konto Sid.|
 |**AuthToken**|**AuthToken**| Det här värdet måste anges till namnet på en appinställning som innehåller dina Twilio-token för autentisering.|
 |**Att**|**Till**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas till.|
 |**Från**|**Från**| Det här värdet anges till det telefonnummer som SMS-meddelanden skickas från.|

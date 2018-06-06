@@ -6,21 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: d47c170936fc954ceac0d76fdb2e6d9c2c886602
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a709c5716a861f6b8dca5a365b9ef51e1252f644
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726744"
 ---
-### <a name="c-class-library"></a>C#-klassbiblioteket
+Följande tabell innehåller information om hur du lägger till stöd för den här bindningen i varje utvecklingsmiljö.
 
-För C# class library utveckling, stöd för bindningen läggs till av [installera paketet](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code).
-
-### <a name="binding-extensions-in-functions-2x"></a>Bindningen tillägg i funktioner 2.x
-
-För lokal utveckling i Azure Functions version2.x paketet används för att [registrera bindning tillägget](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
-
+| Utvecklingsmiljö               | Lägga till stöd för i <br>Fungerar 1.x  |
+|----------------------|----------------|---------------|
+|Lokal utveckling - klassbiblioteket i C#       | [Installera paketet](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) | 
+|Lokal utveckling - C# skript, JavaScript, F # |Automatisk         |
+|Portal-utveckling|  Automatisk    |

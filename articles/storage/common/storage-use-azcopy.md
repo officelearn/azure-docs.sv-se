@@ -1,8 +1,8 @@
 ---
 title: Kopiera eller flytta data till Azure Storage med AzCopy i Windows | Microsoft Docs
-description: "Använd AzCopy på Windows-verktyg för att flytta eller kopiera data till och från blob-, tabell- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage."
+description: Använd AzCopy på Windows-verktyg för att flytta eller kopiera data till och från blob-, tabell- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,22 +12,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757612"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
-AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
+AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
 
-Det finns två versioner av AzCopy som du kan hämta. AzCopy i Windows har skapats med .NET Framework och erbjuder kommandoradsalternativ för Windows-formatet. [AzCopy på Linux](storage-use-azcopy-linux.md) har byggts med .NET Core Framework som riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. Den här artikeln beskriver AzCopy i Windows.
+Det finns två versioner av AzCopy som du kan hämta. AzCopy på Windows erbjuder stilen Windows kommandoradsalternativ. [AzCopy på Linux](storage-use-azcopy-linux.md) riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. Den här artikeln beskriver AzCopy i Windows.
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Hämta och installera AzCopy i Windows
 
-Hämta den [senaste versionen av AzCopy på Windows](http://aka.ms/downloadazcopy).
+### <a name="latest-preview-version-v800"></a>Senaste förhandsversionen (v8.0.0)
+Hämta den [senaste förhandsversionen av AzCopy på Windows](http://aka.ms/downloadazcopypr). Den här förhandsversionen erbjuder betydande prestandaförbättringar och paket .NET Core i installationen.
+
+#### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy på Windows 8.0 Preview viktig information
+- Tabelltjänsten stöds inte längre i den senaste versionen. Om du använder tabellen exportfunktionen kan hämta den säkra versionen.
+- Skapats med .NET Core 2.1 och alla .NET Core beroenden nu är paketerade i installationen.
+- Betydande prestandaförbättringar för både ladda upp och hämta scenarier
+
+### <a name="latest-stable-version-v710"></a>Senaste stabil version (v7.1.0)
+Hämta den [senaste säkra versionen av AzCopy på Windows](http://aka.ms/downloadazcopy).
+
+### <a name="post-installation-step"></a>Steg efter installationen.
 
 När du har installerat AzCopy i Windows med installationsprogrammet, öppna ett kommandofönster och gå till installationskatalogen för AzCopy på din dator - där den `AzCopy.exe` körbara finns. Om du vill kan du lägga till installationsplatsen AzCopy systemsökvägen. Som standard installeras AzCopy på `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` eller `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
@@ -136,7 +148,7 @@ Nu ska vi titta på flera olika sätt att överföra blobar med hjälp av AzCopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 ```
 
-Om den angivna Målbehållaren inte finns, skapar den AzCopy och överför filen till den.
+Om den angivna målbehållaren inte finns, så skapar AzCopy den och överför filen till den.
 
 ### <a name="upload-a-single-blob-to-a-virtual-directory"></a>Ladda upp en enda blob till en virtuell katalog
 
@@ -298,7 +310,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Observera att inte hämtas tomma mappar.
 
-## <a name="upload-files-to-an-azure-file-share"></a>Överföra filer till en filresurs på Azure
+## <a name="upload-files-to-an-azure-file-share"></a>Ladda upp filer till en Azure-filresurs
 
 Nu ska vi titta på flera olika sätt att överföra filer med hjälp av AzCopy.
 
@@ -340,7 +352,7 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https
 ```
 När du kopierar en fil från filresursen till blob, en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
-### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Kopiera en blobb från Blob storage till en filresurs på Azure
+### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Kopiera en blobb från Blob storage till en Azure-filresurs
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
@@ -610,6 +622,20 @@ Du kan också köra det för tabeller:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
+### <a name="automatically-determine-content-type-of-a-blob"></a>Bestäm automatiskt Content-Type för en Blob
+
+AzCopy anger content-type för en blob baserat på en JSON-fil som lagrar content-type för tillägget filmappningen. Den här JSON-filen heter AzCopyConfig.json och finns i katalogen AzCopy. Om du har en filtyp som inte finns med i listan kan du lägga till mappningen till JSON-filen:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
 ## <a name="azcopy-parameters"></a>AzCopy-parametrar
 
 Parametrar för AzCopy beskrivs nedan. Du kan också ange något av följande kommandon från kommandoraden för att få hjälp med AzCopy:
@@ -646,13 +672,13 @@ Det standardmönster för filen som används när inga filmönstret har angetts 
 
 **Gäller för:** Blobbar, filer
 
-### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
+### <a name="destkeystorage-key"></a>/ DestKey: ”lagringsnyckel”
 
 Anger lagringskontonyckel för målresurs.
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="destsassas-token"></a>/DestSAS:"sas-token"
+### <a name="destsassas-token"></a>/ DestSAS: ”sas-token”
 
 Anger en delad signatur åtkomst (SAS) med behörigheter för Läs- och skrivbehörighet för mål (om tillämpligt). Omge SAS med dubbla citattecken, eftersom det kanske innehåller kommandoradsverktyget specialtecken.
 
@@ -662,7 +688,7 @@ Om käll- och båda blobbar, måste mål-blob finnas inom samma lagringskonto so
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
+### <a name="sourcekeystorage-key"></a>/ SourceKey: ”lagringsnyckel”
 
 Anger lagringskontonyckel för käll-resurs.
 
@@ -678,7 +704,7 @@ Om källan är en filresurs eller tabell, en nyckel eller en SAS måste anges.
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="s"></a>/S
+### <a name="s"></a>/ S
 
 Anger rekursiv kopieringsåtgärd. AzCopy kopierar alla blobbar eller filer som matchar det angivna mönstret, inklusive de på undermappar i rekursiva läge.
 
@@ -700,7 +726,7 @@ AzCopy egenskapen alltid Content-MD5 för ett Azure blob eller en fil efter öve
 
 **Gäller för:** Blobbar, filer
 
-### <a name="snapshot"></a>/Snapshot
+### <a name="snapshot"></a>/ Ögonblicksbild
 
 Anger om du vill överföra ögonblicksbilder. Det här alternativet gäller endast om källan är en blob.
 
@@ -710,7 +736,7 @@ Som standard kopieras inte ögonblicksbilder.
 
 **Gäller för:** Blobbar
 
-### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
+### <a name="vverbose-log-file"></a>/ V: [utförlig log-fil]
 
 Utdata utförlig statusmeddelanden till en loggfil.
 
@@ -718,7 +744,7 @@ Som standard heter den utförliga loggfilen AzCopyVerbose.log i `%LocalAppData%\
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
+### <a name="zjournal-file-folder"></a>/ Z: [journal-filmapp]
 
 Anger en mapp för att återuppta en åtgärd journalen.
 
@@ -736,7 +762,7 @@ Observera att återuppta en åtgärd från en journal-fil som skapats av en tidi
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="parameter-file"></a>/@:"parameter-file"
+### <a name="parameter-file"></a>/@:"parameter-File”
 
 Anger en fil som innehåller parametrar. AzCopy bearbetar parametrarna i filen, precis som om de hade angetts på kommandoraden.
 
@@ -789,7 +815,7 @@ Undantar en äldre käll-resurs. Resursen kopieras inte om den senaste ändrings
 
 **Gäller för:** Blobbar, filer
 
-### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
+### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
 
 Överför bara filer med någon av de angivna attributen.
 
@@ -808,7 +834,7 @@ Tillgängliga attribut inkluderar:
 
 **Gäller för:** Blobbar, filer
 
-### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
+### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
 
 Undantar filer med någon av de angivna attributen.
 
@@ -827,7 +853,7 @@ Tillgängliga attribut inkluderar:
 
 **Gäller för:** Blobbar, filer
 
-### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
+### <a name="delimiterdelimiter"></a>/ Avgränsare: ”avgränsare”
 
 Anger ett avgränsningstecken som används för att avgränsa virtuella kataloger i ett blob-namn.
 
@@ -859,7 +885,7 @@ Anger att den `destination` resursen är en blob som är tillgängliga i den lok
 
 **Gäller för:** Blobbar, tabeller
 
-### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
+### <a name="pkrskey1key2key3"></a>/ PKRS ”: key1 #key2 key3 #...”
 
 Delar partitionsnyckelintervallet om du vill aktivera Exportera tabelldata parallellt, vilket ökar hastigheten för exporten.
 
@@ -905,7 +931,7 @@ Det här alternativet krävs under importen för att hitta datafilerna.
 
 **Gäller för:** tabeller
 
-### <a name="synccopy"></a>/SyncCopy
+### <a name="synccopy"></a>/ SyncCopy
 
 Anger om du vill kopiera synkront blobbar eller filer mellan två Azure Storage-slutpunkter.
 
@@ -915,7 +941,7 @@ Du kan använda det här alternativet när du kopierar filer i Blob storage fill
 
 **Gäller för:** Blobbar, filer
 
-### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
+### <a name="setcontenttypecontent-type"></a>/ SetContentType: ”content-type”
 
 Anger MIME content-type för mål-BLOB eller filer.
 
@@ -942,10 +968,6 @@ Låt oss ta en titt på några kända problem och bästa praxis.
 När du kopierar blobar eller filer med AzCopy, Tänk på att ett annat program kan ändra data när du kopierar den. Kontrollera om det är möjligt att du kopierar data inte ändras under kopieringen. Till exempel när du kopierar en virtuell Hårddisk som är kopplad till en virtuell Azure-dator, kontrollera att inga andra program för tillfället skrivning till den virtuella Hårddisken. Ett bra sätt att göra detta är genom leasing resurs som ska kopieras. Alternativt kan du skapa en ögonblicksbild av den virtuella Hårddisken först och sedan kopiera ögonblicksbilden.
 
 Om du inte hindra andra program från att skriva till filer eller blobbar när de kopieras sedan Kom ihåg att när jobbet har slutförts, kopiera resurserna kan inte längre har fullständig paritet med resurserna som källa.
-
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Köra en AzCopy-instans på en dator.
-
-AzCopy är utformat för att maximera användningen av din datorresurser som påskyndar dataöverföringen rekommenderar vi du kör endast en AzCopy-instans på en dator och ange alternativet `/NC` om du behöver fler samtidiga åtgärder. Mer information skriver du `AzCopy /?:NC` på kommandoraden.
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>Aktivera MD5 FIPS-kompatibla algoritmer för AzCopy när du ”Använd FIPS-kompatibla algoritmer för kryptering, hashing och signering”.
 
@@ -977,7 +999,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 * [Hur du använder File storage från .NET](../storage-dotnet-how-to-use-files.md)
 * [Använda Table storage från .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Skapa, hantera eller ta bort ett lagringskonto](../storage-create-storage-account.md)
-* [Överföra data med AzCopy på Linux](storage-use-azcopy-linux.md)
+* [Överföra data med AzCopy i Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage blogginlägg:
 * [Introduktion till Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

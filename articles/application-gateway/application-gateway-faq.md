@@ -7,13 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699911"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -82,6 +83,11 @@ Nej, Application Gateway har inte stöd för statiska offentliga IP-adresser, me
 **FRÅGOR. Stöder Programgateway flera offentliga IP-adresser på gateway?**
 
 Endast en offentlig IP-adress stöds på en Programgateway.
+
+**FRÅGOR. Hur stora bör se mitt undernät för Programgateway?**
+
+Programgateway förbrukar en privat IP-adress per instans plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning.
+Till exempel om Application Gateway har angetts till tre instanser och ingen privat klientdels-IP, sedan en /29 undernät storlek eller högre krävs. I detta fall använder Programgateway tre IP-adresser. Om du har tre instanser och en IP-adress för privat klientdels IP-konfiguration, sedan en /28 undernät stora eller större krävs när fyra IP-adresser behövs.
 
 **FRÅGOR. Stöder Programgateway x vidarebefordras för huvuden?**
 
@@ -183,6 +189,21 @@ Det finns inget driftstopp, instanser är fördelade på uppgraderingsdomäner o
 
 Ja. Du kan konfigurera anslutningen tömmer om du vill ändra medlemmar i en serverdelspool utan avbrott. Detta gör att befintliga anslutningar till att skickas till deras tidigare plats tills anslutningen har stängts eller en konfigurerbar tidsgränsen har nåtts. Observera tömmer endast väntar för aktuella relä anslutningar att slutföra anslutningen. Programgateway är inte medveten om programmet sessionstillstånd.
 
+**FRÅGOR. Vad är application gateway storlekar?**
+
+Application Gateway finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
+
+Du kan skapa upp till 50 Application Gateways per prenumeration och varje Application Gateway kan ha upp till 10 instanser styck. Varje Application Gateway kan bestå av 20 http-lyssnare. En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Application Gateway-instans som har SSL-avlastning aktiverat:
+
+| Genomsnittlig storlek backend-sida | Liten | Medel | Stor |
+| --- | --- | --- | --- |
+| 6KB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
+| 100KB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
+
+> [!NOTE]
+> De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
 
 **FRÅGOR. Kan jag ändra instansstorleken från medelstora till stora utan avbrott?**
 

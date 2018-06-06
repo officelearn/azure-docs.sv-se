@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714008"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
 
 
 Med hantering av enheter i Azure Active Directory (Azure AD), kan du se till att dina användare har åtkomst till dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. 
 
-Det här avsnittet:
+Den här artikeln:
 
 - Förutsätter att du är bekant med den [introduktion till hantering av enheter i Azure Active Directory](device-management-introduction.md)
 
@@ -40,11 +42,11 @@ Azure-portalen ger dig en central plats för att hantera dina enheter. Du kommer
 
 2. Klicka på den vänstra navigeringsfält för, **Active Directory**.
 
-    ![Konfigurera inställningar för enheter](./media/device-management-azure-portal/01.png)
+    ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/01.png)
 
 3. I den **hantera** klickar du på **enheter**.
 
-    ![Konfigurera inställningar för enheter](./media/device-management-azure-portal/11.png)
+    ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/11.png)
  
 Den **enheter** sidan kan du:
 
@@ -57,11 +59,11 @@ Den **enheter** sidan kan du:
 - Granska enhetshantering relaterade granskningsloggar  
   
 
-## <a name="configure-device-settings"></a>Konfigurera inställningar för enheter
+## <a name="configure-device-settings"></a>Konfigurera enhetsinställningar
 
 Om du vill hantera enheter med Azure-portalen kan dina enheter måste vara antingen [registrerad eller anslutna](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) till Azure AD. Du kan finjustera registrera och ansluta enheter genom att konfigurera inställningar för enheter som en administratör. 
 
-![Konfigurera inställningar för enheter](./media/device-management-azure-portal/22.png)
+![Konfigurera enhetsinställningar](./media/device-management-azure-portal/22.png)
 
 Inställningssidan kan du konfigurera:
 
@@ -185,10 +187,17 @@ Du kan använda enhets-ID för att verifiera ID enhetsinformation på enheten el
 
 ### <a name="view-or-copy-bitlocker-keys"></a>Visa eller kopiera BitLocker-nycklar
 
-Om du är administratör kan du visa och kopiera BitLocker-nycklar för att hjälpa användare att återställa den krypterade enheten. Nycklarna är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar lagras i Azure AD. Du kan kopiera dessa nycklar vid åtkomst till information om enheten.
+Du kan visa och kopiera BitLocker-nycklar för att hjälpa användare att återställa den krypterade enheten. Nycklarna är bara tillgängliga för Windows-enheter som är krypterade och har sina nycklar lagras i Azure AD. Du kan kopiera dessa nycklar vid åtkomst till information om enheten.
  
 ![Visa BitLocker-nycklar](./media/device-management-azure-portal/36.png)
 
+Om du vill visa eller kopiera BitLocker-nycklar, måste du antingen vara ägare till enheten, eller en användare som har minst en av följande roller:
+
+- Globala administratörer
+- Supportavdelningen administratörer
+- Säkerhetsadministratörer
+- Säkerhet läsare
+- Administratörer för Intune
 
 
 ## <a name="audit-logs"></a>Granskningsloggar

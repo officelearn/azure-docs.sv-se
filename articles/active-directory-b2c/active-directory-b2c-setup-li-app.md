@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: LinkedIn-konfiguration | Microsoft Docs'
-description: Ange registrering och inloggning för konsumenter med LinkedIn-konton i dina program som skyddas av Azure Active Directory B2C
+title: LinkedIn-konfigurationen i Azure Active Directory B2C | Microsoft Docs
+description: Ange registrering och inloggning för konsumenter med LinkedIn-konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6db3832031a1bb960ee40c0e4fb8c3d0591a976c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711706"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med LinkedIn-konton
 ## <a name="create-a-linkedin-application"></a>Skapa ett LinkedIn-program
@@ -35,7 +35,7 @@ Om du vill använda LinkedIn som en identitetsleverantör i Azure Active Directo
    > **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
    > 
    > 
-6. Ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i den **behörighet omdirigerings-URL: er** fält (under **OAuth 2.0**). Ersätt **{klient}** med din klient namn (till exempel contoso.onmicrosoft.com). Klicka på **Lägg till**, och klicka sedan på **uppdatering**. Den **{klient}** värdet är skiftlägeskänsligt.
+6. Ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i den **behörighet omdirigerings-URL: er** fält (under **OAuth 2.0**). Ersätt **{klient}** med din klient namn (till exempel contoso.onmicrosoft.com). Klicka på **Lägg till**, och klicka sedan på **uppdatering**. Den **{klient}** värdet ska vara gemener.
    
     ![LinkedIn - installationsprogrammet för app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

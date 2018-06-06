@@ -2,28 +2,26 @@
 title: Utföra åtgärder i Azure Cosmos DB tabell API med PowerShell | Microsoft Docs
 description: Hur fungerar Azure Cosmos DB tabell API med PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798652"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Utföra åtgärder i Azure Cosmos DB tabell API med Azure PowerShell 
 
 >[!NOTE]
->Azure Cosmos DB tabell API innehåller premium-funktioner för tabellagring, till exempel NYCKELFÄRDIGT global distributionsplatsen, låg latens läsningar och skrivningar, automatisk sekundära indexering och dedikerad genomströmning. PowerShell-kommandon i den här artikeln fungerar för både Azure Cosmos DB tabell API och Azure Table storage, men den här artikeln är specifika för Azure Cosmos DB tabell API i de flesta fall. Om du använder Azure Table storage, se [utföra Azure Table storage-åtgärder med Azure PowerShell](table-storage-how-to-use-powershell.md).
+>Azure Cosmos DB tabell API innehåller premium-funktioner för tabellagring, till exempel NYCKELFÄRDIGT global distributionsplatsen, låg latens läsningar och skrivningar, automatisk sekundära indexering och dedikerad genomströmning. PowerShell-kommandon i den här artikeln fungerar för både Azure Cosmos DB tabell API och Azure Table storage, men den här artikeln är specifika för Azure Cosmos DB tabell API i de flesta fall. Om du använder Azure Table storage, se [utföra Azure Table storage-åtgärder med Azure PowerShell](../storage/tables/table-storage-how-to-use-powershell.md).
 >
 
 Azure Cosmos DB tabell API kan du lagra och fråga stora mängder strukturerad, icke-relationella data. Huvudkomponenterna i tjänsten är tabeller, enheter och egenskaper. En tabell är en samling med entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, som är alla namn / värde-par. Den här artikeln förutsätter att du redan är bekant med principerna för Azure Cosmos DB tabell API. Detaljerad information finns i [introduktion till Azure Cosmos DB tabell API](table-introduction.md) och [skapar ett .NET-program med hjälp av tabellen API](create-table-dotnet.md).

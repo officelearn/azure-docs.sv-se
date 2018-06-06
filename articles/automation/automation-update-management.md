@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d93f79874ff65a1b6bb7ddd75932111c5caa6072
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 83204132a7494dc766420520eeaf2362c98d878f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801821"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -59,7 +60,7 @@ I följande tabell visas en lista över operativsystem som stöds:
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
 ### <a name="unsupported-client-types"></a>Typer av klient som inte stöds
 
@@ -284,7 +285,7 @@ Distribuera uppdateringar med klassificeringen kanske inte fungerar på openSUSE
 
 Det här avsnittet innehåller information för att hjälpa dig att felsöka fel med lösningen Hantering av uppdateringar.
 
-Om det uppstår problem när du försöker integrera lösningen eller en virtuell dator söker du i händelseloggen **Program- och tjänstloggar\Operations Manager** efter händelser med händelse-ID 4502 och händelsemeddelanden som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Följande tabell illustrerar specifika felmeddelanden och en möjlig lösning för vart och ett.
+Kontrollera om det uppstår problem vid försök att publicera lösningen eller en virtuell dator kan den **program och tjänster för Logs\Operations** händelseloggen på den lokala datorn för händelser med händelse-ID 4502 och händelse meddelande som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Följande tabell illustrerar specifika felmeddelanden och en möjlig lösning för vart och ett.
 
 | Meddelande | Orsak | Lösning |
 |----------|----------|----------|

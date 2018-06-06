@@ -1,12 +1,12 @@
 ---
-title: "Azure hög tillgänglighet för Advisor-rekommendationer | Microsoft Docs"
-description: "Använda Azure Advisor för att förbättra tillgängligheten för din Azure-distributioner."
+title: Azure hög tillgänglighet för Advisor-rekommendationer | Microsoft Docs
+description: Använda Azure Advisor för att förbättra tillgängligheten för din Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736559"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-rekommendationer för hög tillgänglighet
 
@@ -48,6 +49,9 @@ Om diskarna inte behöver höga IOPS, kan du begränsa kostnader genom att håll
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina data för virtuell dator tas bort av misstag
 Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för affärskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data.  Advisor identifierar virtuella datorer där säkerhetskopiering inte har aktiverats och rekommenderar att aktivera säkerhetskopiering. 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Kontrollera att du har åtkomst till Azure-molnet experter när du behöver det.
+När en verksamhetskritiska körning, är det viktigt att ha åtkomst till teknisk support vid behov. Advisor identifierar potentiella verksamhetskritiska prenumerationer som inte har teknisk support ingår i deras supportavtal och rekommenderar att du uppgraderar till ett alternativ som innehåller teknisk support.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

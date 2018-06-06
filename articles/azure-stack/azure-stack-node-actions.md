@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801423"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure-stacken
 
@@ -41,11 +43,11 @@ Visa status för en skalningsenhet:
  
 Här kan du visa följande information:
 
-- namn på område
+- Namn på område. Regionsnamnet refereras med **-plats** i PowerShell-modulen.
 - typ av system
 - Totalt antal logiska kärnor
 - Total mängd minne
-- listan över enskilda noder och deras status. antingen igång eller stoppad.
+- listan över enskilda noder och deras status. antingen **kör** eller **stoppats**.
 
 ![Skala körs sida vid sida som visar statusen för varje nod](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Den här åtgärden används vanligtvis när en nod är i låst tillstånd och i
 Så här kör du stänga av åtgärden med hjälp av PowerShell:
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 Använd webbgränssnitt BMC i stället förmodan som inte fungerar stänga av åtgärden.
@@ -102,7 +104,7 @@ Den **slå på strömmen** stängs på noden. Det är samma som om du trycker p�
 Att köra kraften på åtgärden med hjälp av PowerShell:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 Använd webbgränssnitt BMC i stället förmodan som slå på åtgärden inte fungerar.
@@ -113,13 +115,13 @@ Den **tömmer** åtgärd evacuates alla aktiva arbetsbelastningar genom att dist
 
 Den här åtgärden används vanligtvis under fältet ersättning av delar, till exempel ersätts en hel nod.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kontrollera att du tömma en nod endast under en planerad underhållsperiod, där användarna meddelas. Under vissa förhållanden upplevelse aktiva arbetsbelastningar avbrott.
 
 Att köra instruktionen tömning via PowerShell:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Återuppta
@@ -129,7 +131,7 @@ Den **återuppta** åtgärden återupptar en dränerad nod och markerar det akti
 Att köra åtgärden återuppta via PowerShell:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Reparera
@@ -139,7 +141,7 @@ Den **reparera** åtgärd reparerar en nod. Använd den för något av följande
 - Fullständig nod ersättning (med eller utan att nya datadiskar)
 - Efter fel i maskinvara och ersättning (om bäst i fältet utbytbara enhet (FRU) dokumentationen).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Dokumentationen din OEM maskinvaruleverantören FRU för de specifika stegen när du vill ersätta en nod eller enskilda maskinvarukomponenter. FRU-dokumentation kommer att ange om du behöver köra reparationsåtgärden när du ersätter en maskinvarukomponent.  
 
 När du kör reparationsåtgärden måste du ange BMC IP-adress. 
@@ -147,7 +149,9 @@ När du kör reparationsåtgärden måste du ange BMC IP-adress.
 Så här kör reparationsåtgärden via PowerShell:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Nästa steg
 
+Om du vill veta mer om modulen Azure Stack Fabric-administratören kan se [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

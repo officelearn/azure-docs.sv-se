@@ -5,20 +5,17 @@ keywords: ODBC, odbc-drivrutinen
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725099"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos-databasen med verktyg för analys av BI med ODBC-drivrutin
 
@@ -123,7 +120,7 @@ Följande steg att skapa ett schema för data i en eller flera samlingar med hj�
 Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom att skapa en länkad server-anslutning.
 
 1. Skapa en datakälla för system som beskrivs i [steg 2](#connect)med namnet till exempel `SDS Name`.
-2. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och ansluta till servern. 
 3. Skapa en länkad server-objekt i frågeredigeraren SSMS `DEMOCOSMOS` för datakällan med följande kommandon. Ersätt `DEMOCOSMOS` med namnet för den länkade servern och `SDS Name` med namnet på datakällan system.
 
     ```sql

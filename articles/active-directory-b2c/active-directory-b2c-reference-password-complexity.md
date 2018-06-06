@@ -1,21 +1,21 @@
 ---
-title: Lösenordskomplexitet - Azure AD B2C | Microsoft Docs
-description: Konfigurera komplexitetskrav för lösenord som angavs av konsumenten i Azure Active Directory B2C
+title: Lösenordskomplexitet i Azure Active Directory B2C | Microsoft Docs
+description: Hur du konfigurerar komplexitetskrav för lösenord som angavs av konsumenten i Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 617385bec29e2c09ae18bde3a7878624c0b2461f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709843"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Konfigurera komplexitetskrav för lösenord
 

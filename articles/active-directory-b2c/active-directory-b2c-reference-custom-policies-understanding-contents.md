@@ -1,27 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: Förstå anpassade principer för starter pack | Microsoft Docs'
-description: Ett ämne på Azure Active Directory B2C anpassade principer
+title: Förstå anpassade principer för start hanteringspaket i Azure Active Directory B2C | Microsoft Docs
+description: Ett avsnitt på Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: eb78e4c2f2e27d59d7925ac9eaffd1cef0924463
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711587"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Så här fungerar på Azure AD B2C anpassad princip startpaket anpassade principer
 
 Det här avsnittet innehåller alla kärnor element i B2C_1A_base principen som medföljer den **startpaket** och som utnyttjas för att skapa dina egna principer genom arv av den *B2C_1A_base_extensions princip* .
 
-Därför fokuserar den särskilt på redan definierad anspråkstyper, anspråksomvandlingar, definitioner av innehåll, Anspråksproviders med deras tekniska eller profilerna och core användaren resor.
+Det innebär fokuserar den särskilt på redan definierad anspråkstyper, anspråksomvandlingar, definitioner av innehåll, Anspråksproviders med deras tekniska eller profilerna och core användaren resor.
 
 > [!IMPORTANT]
 > Microsoft lämnar inga garantier, uttryckliga eller underförstådda, avseende informationen nedan. Ändringar kan införas när som helst före GA tiden GA tidpunkt eller efter.
@@ -51,16 +51,16 @@ Följande anspråk krävs för användaren resor ska fungera korrekt:
 |-------------|-------------|
 | *Användar-ID* | Användarnamn |
 | *signInName* | Logga in namn |
-| *tenantId* | Klient ID-Numret för användarobjektet i Azure AD B2C |
-| *objectId* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
+| *Klient-ID* | Klient ID-Numret för användarobjektet i Azure AD B2C |
+| *objekt-ID* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
 | *Lösenord* | Lösenord |
 | *Nytt lösenord* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Lösenordsprinciper som används av Azure AD B2C för att fastställa lösenordssäkerhet, upphör att gälla, osv. |
-| *sub* | |
-| *alternativeSecurityId* | |
-| *identityProvider* | |
-| *displayName* | |
+| *Sub* | |
+| *AlternativeSecurityId* | |
+| *IdentityProvider* | |
+| *Visningsnamn* | |
 | *strongAuthenticationPhoneNumber* | Användarens telefonnummer |
 | *Verified.strongAuthenticationPhoneNumber* | |
 | *E-post* | E-postadress som kan användas för att kontakta användaren |
@@ -69,9 +69,9 @@ Följande anspråk krävs för användaren resor ska fungera korrekt:
 | *userPrincipalName* | Användarnamnet som lagras i Azure AD B2C |
 | *upnUserName* | Användarnamn för att skapa användarens huvudnamn |
 | *mailNickName* | Användarens e-smeknamn som lagras i Azure AD B2C |
-| *newUser* | |
-| *executed-SelfAsserted-Input* | Anspråk som anger om attribut samlades in från användaren |
-| *executed-PhoneFactor-Input* | Anspråk som anger om ett nytt telefonnummer samlats in från användaren |
+| *ny användare* | |
+| *köra SelfAsserted-inmatning* | Anspråk som anger om attribut samlades in från användaren |
+| *köra PhoneFactor-inmatning* | Anspråk som anger om ett nytt telefonnummer samlats in från användaren |
 | *authenticationSource* | Anger om användaren har autentiserats på sociala identitetsleverantör, login.microsoftonline.com eller lokalt konto |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Anspråk som krävs för frågan string-parametrar och andra särskilda parametrar
@@ -81,14 +81,14 @@ Följande anspråk krävs för att vidarebefordra särskilda parametrar (inklusi
 | Typ av anspråk | Beskrivning |
 |-------------|-------------|
 | *nux* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
-| *nca* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
-| *prompt* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
+| *NCA* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
+| *kommandotolk* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
 | *mkt* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
-| *lc* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
+| *LC* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
 | *grant_type* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
 | *Omfång* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
 | *client_id* | Särskilda parameter som skickades för lokalt konto autentisering för login.microsoftonline.com |
-| *objectIdFromSession* | Parametern som angetts av standardprovidern för sessionen management att indikera att objekt-id har hämtats från en SSO-session |
+| *objectIdFromSession* | Parametern som angetts av standardprovidern för sessionen management att indikera att objekt-ID har hämtats från en SSO-session |
 | *isActiveMFASession* | Parametern som angetts av MFA sessionshantering som visar att användaren har en aktiv session MFA |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Ytterligare (valfritt) anspråk som kan samlas in
@@ -98,7 +98,7 @@ Följande anspråk är ytterligare anspråk som kan samlas in från användarna,
 | Typ av anspråk | Beskrivning |
 |-------------|-------------|
 | *givenName* | Användarens förnamn (även kallat Förnamn) |
-| *surname* | Användarens efternamn (även kallat namn eller efternamn) |
+| *Efternamn* | Användarens efternamn (även kallat namn eller efternamn) |
 | *Extension_picture* | Användarens bild från sociala |
 
 ## <a name="claim-transformations"></a>Anspråksomvandlingar
@@ -145,21 +145,21 @@ Det här avsnittet visar profilerna tekniska redan deklarerats per anspråksleve
 
 | Tekniska profil | Beskrivning |
 |-------------------|-------------|
-| *Login-NonInteractive* | |
+| *Logga in utan interaktivitet* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Tekniska profiler för Phonefactor
 
 | Tekniska profil | Beskrivning |
 |-------------------|-------------|
-| *PhoneFactor-Input* | |
+| *PhoneFactor-indata* | |
 | *PhoneFactor-InputOrVerify* | |
-| *PhoneFactor-Verify* | |
+| *PhoneFactor-verifiera* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Tekniska profiler för Azure Active Directory
 
 | Tekniska profil | Beskrivning |
 |-------------------|-------------|
-| *AAD-Common* | Tekniska profil ingår som de andra AAD-xxx tekniska profilerna |
+| *AAD-gemensamma* | Tekniska profil ingår som de andra AAD-xxx tekniska profilerna |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Tekniska profil för sociala inloggningar |
 | *AAD-UserReadUsingAlternativeSecurityId* | Tekniska profil för sociala inloggningar |
 | *AAD-UserReadUsingAlternativeSecurityId-NoError* | Tekniska profil för sociala inloggningar |
@@ -174,8 +174,8 @@ Det här avsnittet visar profilerna tekniska redan deklarerats per anspråksleve
 
 | Tekniska profil | Beskrivning |
 |-------------------|-------------|
-| *SelfAsserted-Social* | |
-| *SelfAsserted-ProfileUpdate* | |
+| *SelfAsserted Social* | |
+| *SelfAsserted ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Tekniska profiler för lokala konton
 
@@ -193,7 +193,7 @@ Det här avsnittet visar profilerna tekniska redan deklarerats per anspråksleve
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Tekniska profiler för Trustframework princip motorn TechnicalProfiles
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Tekniska profiler för principmodulen förtroende framework
 
 För närvarande inga tekniska profiler har definierats för den **Trustframework princip motorn TechnicalProfiles** anspråksleverantör.
 
@@ -209,8 +209,8 @@ Det här avsnittet visar de användare körningar redan deklarerats i den *B2C_1
 
 | Användaren resa | Beskrivning |
 |--------------|-------------|
-| *SignUp* | |
-| *SignIn* | |
+| *Registreringen* | |
+| *Logga in* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

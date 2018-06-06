@@ -1,31 +1,28 @@
 ---
 title: Ansluta till SQLServer eller Azure SQL Database - Azure Logikappar | Microsoft Docs
-description: Skapa anslutningar till SQL Server lokalt och Azure SQL Database i molnet från Azure Logic Apps
-services: logic-apps
-documentationcenter: ''
+description: Hur du åt och hantera SQL-databaser lokalt eller i molnet genom att automatisera arbetsflöden med Azure Logikappar
 author: ecfan
 manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 73dadb85f3608f863a7fa0227d8e051fc77bb918
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756958"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ansluta till SQLServer eller Azure SQL-databas från Azure Logikappar
 
-Den här artikeln visar hur du kan komma åt data i SQL-databasen från inuti en logikapp med SQL Server-anslutningen. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att hantera dina data. Kopplingen fungerar för både [SQL Server på lokala](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) och [Azure SQL Database i molnet](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Den här artikeln visar hur du kan komma åt data i SQL-databasen från inuti en logikapp med SQL Server-anslutningen. På så sätt kan du automatisera uppgifter, processer och arbetsflöden som hanterar din SQL-data och resurser genom att skapa logikappar. Kopplingen fungerar för både [SQL Server på lokala](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) och [Azure SQL Database i molnet](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-Du kan skapa logikappar som körs när den utlöses av händelser i din SQL-databas eller i andra system, till exempel Dynamics CRM Online. Dina logic apps kan också få, insert-, eller ta bort data och även köra SQL-frågor eller lagrade procedurer. Du kan till exempel skapa en logikapp som automatiskt söker efter nya poster i Dynamics CRM Online, lägger till objekt till SQL-databasen för nya poster, och skickar sedan e-postaviseringar.
+Du kan skapa logikappar som körs när den utlöses av händelser i din SQL-databas eller i andra system, till exempel Dynamics CRM Online. Dina logic apps kan också hämta, infoga och ta bort data och köra SQL-frågor och lagrade procedurer. Du kan till exempel skapa en logikapp som automatiskt söker efter nya poster i Dynamics CRM Online, lägger till objekt till SQL-databasen för nya poster, och skickar sedan e-postaviseringar.
 
 Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du har använt logikappar granska [vad är Azure Logikappar](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Connector-specifik teknisk information finns i <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referens för SQL Server-koppling</a>.
 

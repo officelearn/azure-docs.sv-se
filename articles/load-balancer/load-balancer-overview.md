@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726269"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure belastningsutjämnare?
 
@@ -93,7 +94,7 @@ Belastningsutjämnare ger följande grundläggande funktioner för TCP och UDP-p
 
     - **Anpassade TCP-avsökning**: den här avsökningen förlitar sig på att upprätta en lyckad TCP-session till en definierad avsökningsport. Den här avsökningen lyckas så länge som den angivna lyssnaren på den virtuella datorn finns. Avsökningen misslyckas om anslutningen nekas. Den här avsökningen åsidosätter standard gäst agent avsökning.
 
-    - **Gästen agent avsökningen (på plattform som en tjänst [PaaS] virtuella datorer bara)**: belastningsutjämnaren kan också använda gästagenten inuti den virtuella datorn. Gästagenten lyssnar och svarar med ett HTTP-200 OK svar endast när instansen är i tillståndet redo. Om agenten inte svarar med en HTTP-200 OK, markerar instansen som inte svarar belastningsutjämnaren och stoppar skickar trafik till den instansen. Belastningsutjämnaren fortsätter att försöka att nå instansen. Om gästagenten svarar med en HTTP-200, skickar belastningsutjämnaren trafik till instansen igen. Gästen agent avsökningar är en sista utväg och bör inte när HTTP- eller TCP anpassad avsökningsåtgärd konfigurationer är möjliga. 
+    - **Gästen agent avsökningen**: belastningsutjämnaren kan också använda gästagenten inuti den virtuella datorn. Gästagenten lyssnar och svarar med ett HTTP-200 OK svar endast när instansen är i tillståndet redo. Om agenten inte svarar med en HTTP-200 OK, markerar instansen som inte svarar belastningsutjämnaren och stoppar skickar trafik till den instansen. Belastningsutjämnaren fortsätter att försöka att nå instansen. Om gästagenten svarar med en HTTP-200, skickar belastningsutjämnaren trafik till instansen igen. Gästen agent avsökningar är en _sista utväg och bör inte_ när HTTP- eller TCP anpassad avsökningsåtgärd konfigurationer är möjliga. 
     
 * **Utgående anslutningar (SNAT)**
 

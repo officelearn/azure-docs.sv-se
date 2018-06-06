@@ -1,9 +1,9 @@
 ---
-title: Privileged Identity Management resurser för Azure - utöka och förnya roller | Microsoft Docs
+title: Utöka och granska roller i Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
 description: Det här dokumentet beskriver hur du utökar och förnya Azure-resursroller för PIM-resurser.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,120 +12,121 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2547b3793688eb51a4114f30bfcf61a9402f2cd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f152b2dd690976b31a34046954440dc848e5952c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699537"
 ---
-# <a name="privileged-identity-management---resource-roles---extend-or-renew"></a>Privileged Identity Management - resursroller - utöka eller förnya
+# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Utöka och granska roller i Azure-resurser med hjälp av Privileged Identity Management
 
-PIM för Azure-resurser introducerar nya kontroller för att hantera livscykeln för åtkomst och tilldelning för Azure-resurser. Administratörer kan tilldela medlemskap med hjälp av start- och egenskaper för datum och tid. När det närmar sig slutet tilldelning, PIM skickar e-postmeddelanden till de berörda medlemmarna (det kan vara en användare eller grupp) och för administratörer av resursen så åtkomstbehörighet upprätthålls. Om åtkomst inte är utökat på grund av inaktivitet, tilldelningar kan förnyas och är synligt i ett tillståndet för upp till 30 dagar.
+Privileged Identity Management (PIM) för Azure-resurser introducerar nya kontroller för att hantera livscykeln för åtkomst och tilldelning för Azure-resurser. Administratörer kan tilldela medlemskap med hjälp av start- och egenskaper för datum och tid. När det närmar sig slutet tilldelning, skickar PIM e-postmeddelanden till de berörda användare eller grupper. Även skickar den e-postaviseringar till administratörer av resursen så att lämplig åtkomst bibehålls. Tilldelningar kan förnyas och fortfarande att visas i en gått ut för upp till 30 dagar, även om åtkomst inte är utökat.
 
 ## <a name="who-can-extend-and-renew"></a>Vem som kan utöka och förnya?
 
-Endast administratörer av resursen kan utöka eller förnya rolltilldelningar. Den berörda medlemmen kan begära för att utöka roller snart att gälla och begäran om förnyelse av roller upphört att gälla redan.
+Endast administratörer av resursen kan utöka eller förnya rolltilldelningar. Den berörda medlemmen kan begära för att utöka roller som håller på att förfalla och begäran om för att förnya roller som redan upphört att gälla.
 
 ## <a name="when-are-notifications-sent"></a>När skickas meddelanden?
 
-PIM skickar e-postaviseringar till administratörer och berörda medlemmar i rollerna som går ut inom 14 dagar och en dag före förfallodatum. Ett ytterligare e-postmeddelande skickas när en tilldelning officiellt har gått ut. 
+PIM skickar e-postaviseringar till administratörer och berörda medlemmar i rollerna som går ut inom 14 dagar och en dag före förfallodatum. Ett ytterligare e-postmeddelande skickas när en tilldelning officiellt går ut. 
 
-Administratörer få meddelanden när en medlem av en roll som upphör att gälla eller har upphört att gälla begär att utöka eller förnya. När en viss administratör matchar förfrågan andra administratörer informeras om beslutet upplösning (godkännas eller avvisas) och begärande medlemmen får ett meddelande om beslutet. 
+Administratörer få meddelanden när en medlem av en roll som upphör att gälla eller har upphört att gälla begär att utöka eller förnya. När en viss administratör matchar förfrågan, meddelas alla andra administratörer i beslutet upplösning (godkännas eller avvisas). Sedan meddelande den begärande medlemmen om beslutet. 
 
 ## <a name="extend-role-assignments"></a>Utöka rolltilldelningar
 
-Stegen nedan beskriver stegen och användargränssnitt som ingår i begär, löst eller administrerar ett tillägg eller förnyelse av en rolltilldelning. 
+Följande steg beskriver processen för att begära, löst eller administrerar ett tillägg eller förnyelse av en rolltilldelning. 
 
 ### <a name="member-extend"></a>Utöka medlem
 
-Medlemmar i en rolltilldelning kan begära för att utöka utgående rolltilldelningar direkt från ”kvalificerade” eller ”aktiv” fliken på den ”min roller” sidan av en resurs och från den översta nivån min roller av PIM-portalen. Medlemmar kan begära för att utöka berättigade och aktiva (tilldelade) roller som går ut nästa 14 dagar.
+Medlemmar i en rolltilldelning kan utöka utgående rolltilldelningar direkt från den **berättigade** eller **Active** fliken på den **min roller** sidan av en resurs och från den översta nivån **Min roller** i PIM-portalen. Medlemmar kan begära för att utöka berättigade och aktiva (tilldelade) roller som går ut nästa 14 dagar.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_ui.png)
+![Utöka roller](media/azure-pim-resource-rbac/aadpim_rbac_extend_ui.png)
 
-När tilldelningen datum sluttiden är inom 14 dagar, blir för att ”utöka” en aktiv länk i användargränssnittet. I exemplet nedan förutsätter att det aktuella datumet infaller 27 mars.
+När tilldelningen datum sluttiden är inom 14 dagar, för att **utöka** blir en aktiv länk i användargränssnittet. I följande exempel förutsätter att det aktuella datumet infaller 27 mars.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Knappen ”Utöka”](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
-Om du vill begära en förlängning av den här rollen tilldelningen klickar du på ”utöka” för att öppna formuläret.
+Om du vill begära en förlängning av den här rolltilldelningen Välj **utöka** att öppna formuläret.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_role_assignment_request.png)
+![Öppna formuläret](media/azure-pim-resource-rbac/aadpim_rbac_extend_role_assignment_request.png)
 
-Expandera ”tilldelning information” att visa information om den ursprungliga tilldelningen. Ange en orsak till Tilläggsbegäran och klicka på ”utöka”.
+Om du vill visa information om den ursprungliga tilldelningen av Expandera **tilldelningsinformation**. Ange en orsak till Tilläggsbegäran och välj sedan **utöka**.
 
 >[!Note]
->Vi rekommenderar med detaljerad varför tillägget är nödvändiga, och för hur länge tillägget bör vara (om känt).
+>Vi rekommenderar med detaljerad varför tillägget är nödvändiga, och för hur länge tillägget bör beviljas (om du har den här informationen).
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_form_complete.png)
+![Utöka rolltilldelning](media/azure-pim-resource-rbac/aadpim_rbac_extend_form_complete.png)
 
-På några ögonblick får resurs administratörer ett e-postmeddelande som begär de igenom Tilläggsbegäran. Om en begäran om att utöka har redan skickats, visas ett popup-meddelande längst upp i Azure-portalen förklarar felet.
+I en fråga om stund administratörerna resurs en e-meddelande med en begäran att granska de Tilläggsbegäran. Om en begäran om att utöka har redan skickats, visas ett popup-meddelande längst upp i Azure-portalen förklarar felet.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
-Besök fliken ”väntande begäranden” i den vänstra navigeringsmenyn för att visa status för eller Avbryt din förfrågan.
+Gå till den **väntande begäranden** fliken i den vänstra rutan för att visa status för din begäran eller Avbryt den.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Administratören godkänna
 
-När en medlem skickar en begäran om att utöka en rolltilldelning, får resurs administratörer ett e-postmeddelande som innehåller information om den ursprungliga tilldelningen och orsaken tillhandahålls av förfrågaren. Meddelandet innehåller en direktlänk till begäran för administratören att godkänna eller neka. 
+När en medlem skickar en begäran om att utöka en rolltilldelning, får resurs administratörer ett e-postmeddelande som innehåller information om den ursprungliga tilldelningen och orsaken till begäran. Meddelandet innehåller en direktlänk till begäran för administratören att godkänna eller neka. 
 
-Förutom att följa länken från e-post, kan administratörer godkänna eller neka begäranden genom att gå till PIM-administrationsportalen och välja ”Godkänn begäran” från den vänstra navigeringsmenyn.
+Förutom att använda följa länken från e-post, kan administratörer godkänna eller neka begäranden genom att gå till administration PIM portalen och markerar **godkänna begäranden** i den vänstra rutan.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![Skärmbild av fel](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-När en administratör väljer godkänna eller neka visas information om begäran tillsammans med ett fält till att ange en motivering för granskningsloggarna.
+När en administratör väljer **Godkänn** eller **neka**, information om begäran visas, tillsammans med ett fält för att ange en motivering för granskningsloggarna.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
-När du godkänner en begäran om att utöka rolltilldelning kan resurs administratörer välja en ny start- och Slutdatum tid och tilldelning typ. Ändra Tilldelningstyp kan vara nödvändigt om administratören vill bevilja begränsad åtkomst för att slutföra en viss uppgift (till exempel en dag). I det här exemplet ändra administratören tilldelningen från berättigad till aktiv ger den begärande åtkomsten utan att aktivera.
+När du godkänner en begäran om att utöka rolltilldelning kan resurs administratörer välja ett nytt startdatum och slutdatum Tilldelningstyp. Ändra Tilldelningstyp kan vara nödvändigt om administratören vill bevilja begränsad åtkomst för att slutföra en viss uppgift (en dag, till exempel). I det här exemplet kan administratören ändra tilldelningen från **berättigade** till **Active**. Det innebär att de kan ge åtkomst till begäranden utan att aktivera.
 
-### <a name="admin-extend"></a>Utöka Admin
+### <a name="admin-extend"></a>Administratören utökade
 
-Rollmedlem glömmer eller går inte att begära medlemskap tillägg för rollen kan administratör utöka en tilldelning för medlemmen. Administrativa tillägg av rollmedlemskap kräver inte godkännande men meddelanden skickas till andra administratörer vid slutförandet av utöka rollen.
+Om en Rollmedlem glömmer eller inte går att begära ett tillägg för rollen medlemskap, kan en administratör utöka en tilldelning för medlemmen. Administrativa tillägg av rollmedlemskap kräver inte godkännande, men meddelanden skickas till andra administratörer när rollen har utökats.
 
-Om du vill utöka en roll medlemskap navigerar du till rollen eller medlem vyn i PIM. Medlemmen som kräver ett tillägg, och klicka på ”utöka” i kolumnen åtgärd.
+Om du vill utöka en rollmedlemskap bläddrar du till rollen eller medlem vyn i PIM. Hitta den medlem som kräver ett tillägg. Välj sedan **utöka** i kolumnen åtgärd.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_extend.png)
+![Utöka en rollmedlemskap](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_extend.png)
 
 ## <a name="renew-role-assignments"></a>Förnya rolltilldelningar
 
-Medan begreppsmässigt, är processen för att förnya ett utgånget rolltilldelning annorlunda än begär ett tillägg för både medlemmar och administratörer. Med hjälp av stegen nedan medlemmar och administratörer kan förnya åtkomst till utgångna roller vid behov.
+Processen för att förnya ett utgånget rolltilldelning skiljer sig medan begreppsmässigt till processen för att begära ett tillägg. Med följande steg kan medlemmar och administratörer förnya åtkomst till utgångna roller vid behov.
 
 ### <a name="member-renew"></a>Förnya medlem
 
-Medlemmar som kan inte längre att komma åt resurser kan komma åt upp till 30 dagar har upphört att gälla tilldelningshistorik genom att gå till min roller i det vänstra navigeringsfönstret för PIM och välja fliken ”roller har upphört att gälla” i avsnittet Azure-resurs roller.
+Medlemmar som kan inte längre att komma åt resurser kan komma åt upp till 30 dagar har upphört att gälla tilldelningshistorik. Om du vill göra detta, bläddrar till **Mina roller** i det vänstra fönstret och välj sedan den **upphört att gälla roller** fliken i Azure-resurs roller avsnittet.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Fliken ”roller har upphört att gälla”](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
-Lista över roller som visas som standard berättigade tilldelningar. Använd listrutan för att växla mellan kvalificerade och aktiv tilldelats roller.
+Lista över roller som visas som standard **berättigade roller**. Använd nedrullningsbara menyn för att växla mellan kvalificerade och Active tilldela roller.
 
-Om du vill begära förnyelse av rollen tilldelningar i listan väljer du åtgärden ”förnya” och ange ett skäl för begäran. Är det bra att ge en varaktighet utöver eventuella ytterligare kontext som hjälper resursadministratören bestämmer dig för att godkänna eller neka.
+Om du vill begära förnyelse för någon av rolltilldelningen i listan, Välj den **förnya** åtgärd. Ange en orsak till begäran. Är det bra att ge en varaktighet utöver eventuella ytterligare kontext som hjälper till att resursadministratören vill godkänna eller neka.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_request_form.png)
+![Förnya rolltilldelning](media/azure-pim-resource-rbac/aadpim_rbac_renew_request_form.png)
 
-När du har skickat begäran meddelas resurs administratörer om en väntande begäran om att förnya en rolltilldelning.
+När begäran har skickats, meddelas resurs administratörer om en väntande begäran om att förnya en rolltilldelning.
 
 ### <a name="admin-approves"></a>Administratören godkänner
 
-Resurs-administratörer kan komma åt begäranden om förnyelse från länken i e-postmeddelande eller genom att komma åt PIM från portalen Auzre och välja ”Godkänn begäran” från den vänstra navigeringsmenyn.
+Resurs-administratörer kan komma åt begäranden om förnyelse från länken i e-postmeddelande eller genom att öppna PIM från Azure-portalen och välja **godkänna begäranden** i den vänstra rutan.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![Godkänn ansökningar](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-När en administratör väljer godkänna eller neka visas information om begäran tillsammans med ett fält till att ange en motivering för granskningsloggarna.
+När en administratör väljer **Godkänn** eller **neka**, information om begäran visas tillsammans med ett fält för att ange en motivering för granskningsloggarna.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Godkänn rolltilldelning](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
-När du godkänner en begäran om att förnya rolltilldelning måste resurs administratörer ange en ny start- och Slutdatum tid och tilldelning typ. 
+När du godkänner en begäran om att förnya rolltilldelning måste resurs administratörer ange ett nytt startdatum och slutdatum Tilldelningstyp. 
 
-### <a name="admin-renew"></a>Förnya Admin
+### <a name="admin-renew"></a>Administratören förnyade
 
-Resurs-administratörer kan förnya utgångna rolltilldelningar fliken medlemmar i den vänstra navigeringsmenyn av en resurs eller i fliken utgångna roller av en resurs-roll.
+Resurs-administratörer kan förnya utgångna rolltilldelningar från den **medlemmar** fliken i den vänstra navigeringsmenyn av en resurs. De kan också förnya utgångna rolltilldelningar inifrån den **utgångna** fliken roller av en resurs-roll.
 
-Välj roller som har upphört att gälla ska visa en lista över alla utgångna rolltilldelningar skärmen medlemmar.
+Visa en lista över alla VD rolltilldelningar den **medlemmar** väljer **upphört att gälla roller**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_member_blade.png)
+![Roller som har upphört](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_member_blade.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

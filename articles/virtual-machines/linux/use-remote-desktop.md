@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716626"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux VM i Azure
 Linux virtuella datorer (VM) i Azure som oftast hanteras från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya Linux eller för snabb felsökning scenarier kan användningen av fjärrskrivbord vara enklare. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för dina Linux VM med hjälp av Resource Manager-distributionsmodellen.
@@ -36,7 +37,7 @@ De flesta virtuella Linux-datorer i Azure har inte en Skrivbordsmiljö installer
 
 I följande exempel installeras förenklade [xfce4](https://www.xfce.org/) Skrivbordsmiljö på en virtuell Ubuntu 16.04 LTS-dator. Kommandon för andra distributioner variera (Använd `yum` installera på Red Hat Enterprise Linux och konfigurera lämplig `selinux` regler eller Använd `zypper` att installera på SUSE, till exempel).
 
-Första SSH till den virtuella datorn. I följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.azure.com* med användarnamnet för *azureuser*:
+Första SSH till den virtuella datorn. I följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.azure.com* med användarnamnet för *azureuser*. Använd egna värden:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -85,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en säkerhetsgrupp för nätverk-regel för Remote Desktop-trafik
 För att tillåta trafik för fjärrskrivbord till din Linux VM en nätverkssäkerhet grupp regeln måste skapas som tillåter TCP på port 3389 till den virtuella datorn. Mer information om regler för nätverkssäkerhetsgrupper finns [vad är en nätverkssäkerhetsgrupp?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure portal för att skapa en grupp för nätverkssäkerhetsregeln](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-I följande exempel skapas en grupp nätverkssäkerhetsregeln med [az vm öppna port](/cli/azure/vm#az_vm_open_port) på port *3389*.
+I följande exempel skapas en grupp nätverkssäkerhetsregeln med [az vm öppna port](/cli/azure/vm#az-vm-open-port) på port *3389*. Öppna följande grupp nätverkssäkerhetsregeln från Azure CLI 2.0, inte SSH-session till den virtuella datorn:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

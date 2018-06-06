@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 05/26/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ddfa3d70e2ce901a59476c5c0784d35999731ed6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724368"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -81,32 +83,8 @@ Med villkorlig åtkomst till Azure AD, kan du styra hur behöriga användare kan
 
 En fördel med att använda en principbaserad metod för att skydda åtkomst till dina molnappar är att du kan starta utformning principkraven för din miljö med strukturen som beskrivs i den här artikeln utan att oroa teknisk implementering. 
 
-## <a name="what-you-need-to-know"></a>Vad du behöver veta
 
-### <a name="general-requirements-for-using-conditional-access"></a>Allmänna krav för att använda villkorlig åtkomst
-
-Du kan använda villkorlig åtkomst i Azure AD för att skydda molnappar när Autentiseringsförsöket kommer från:
-
-- En webbläsare
-
-- Ett klientprogram som använder modern autentisering
-
-- Exchange ActiveSync
-
-Mer information finns i [klientappar](active-directory-conditional-access-conditions.md#client-apps).
-
-Vissa [molnappar](active-directory-conditional-access-conditions.md#cloud-apps) också stöder äldre autentiseringsprotokoll. Detta gäller, till exempel SharePoint Online och Exchange Online. När ett klientprogram kan använda ett äldre autentiseringsprotokoll att komma åt en molnappen, kan Azure AD tillämpa en princip för villkorlig åtkomst på den här åtkomstförsök. Om du vill förhindra att ett klientprogram kringgå tillämpning av principer, bör du kontrollera om det är möjligt att endast aktivera modern autentisering på de berörda molnapparna.
-
-Är exempel på appar villkorlig åtkomst inte gäller för klient:
-
-- Office 2010 eller tidigare
-
-- Office 2013 när modern autentisering inte är aktiverat
-
-Mer information finns i [Ställ in SharePoint Online och Exchange Online för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Krav för att använda villkorlig åtkomst
+## <a name="license-requirements-for-using-conditional-access"></a>Krav för att använda villkorlig åtkomst
 
 Använda villkorlig åtkomst kräver en Azure AD Premium-licens. Du hittar rätt licens för dina behov [jämföra allmänt tillgängliga funktioner i lediga, grundläggande och Premium-utgåvorna](https://azure.microsoft.com/pricing/details/active-directory/).
 

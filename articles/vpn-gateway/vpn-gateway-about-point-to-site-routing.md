@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702184"
 ---
-# <a name="about-point-to-site-vpn-routing"></a>Om punkt-till-plats VPN-routning
+# <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 
 Den här artikeln hjälper dig att förstå hur Azure punkt-till-plats VPN-routning fungerar. VPN-P2S dirigeringsbeteendet är beroende av klientens operativsystem, vilket protokoll som används för VPN-anslutningen och hur de virtuella nätverk (Vnet) är anslutna till varandra.
 
@@ -228,7 +229,7 @@ Alla klienter kan komma åt VNet1 endast.
 
 ## <a name="multivnets2sbranchbgp"></a>Flera Vnet som är anslutna via S2S och ett avdelningskontor (BGP)
 
-I det här exemplet är punkt-till-plats VPN-gateway-anslutningen för VNet1. VNet1 är ansluten till VNet2 med hjälp av en plats-till-plats VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats VPN-tunnel mellan VNet1 och VNet3 nätverk. VNet3 är ansluten till ett filialkontor (Site1) med hjälp av en plats-till-plats VPN-anslutning. Alla VPN-anslutningar körs inte BGP. Alla VPN-anslutningar använder BGP.
+I det här exemplet är punkt-till-plats VPN-gateway-anslutningen för VNet1. VNet1 är ansluten till VNet2 med hjälp av en plats-till-plats VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats VPN-tunnel mellan VNet1 och VNet3 nätverk. VNet3 är ansluten till ett filialkontor (Site1) med hjälp av en plats-till-plats VPN-anslutning. Alla VPN-anslutningar använder BGP.
 
 Klienter som använder Windows kan komma åt Vnet och platser som är anslutna via en plats-till-plats VPN-anslutning, men vägarna till VNet2, VNet3 och Site1 måste läggas till manuellt till klienten. Icke-Windows-klienter kan komma åt Vnet och platser som är anslutna via en plats-till-plats VPN-anslutning utan någon manuell åtgärd. Åtkomst är transitiva och klienter kan komma åt resurser i alla anslutna Vnet och platser (lokal).
 

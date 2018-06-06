@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
-ms.author: billmath
-ms.openlocfilehash: 7998d69a079c4858c54bea22dbd24e4e84c8c793
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 7e3fbb0f355ff0ffab404af9b7de1a27de02f1fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697922"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Slutföra en åtkomst-granskning av medlemmar i en grupp eller användare åtkomst till ett program i Azure AD
 
-Administratörer kan använda Azure Active Directory (Azure AD) att [skapa en åtkomst-granska](active-directory-azure-ad-controls-create-access-review.md) för medlemmar i grupper eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [granska din åtkomst](active-directory-azure-ad-controls-perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men har inte accepterat inbjudan får ett e-postmeddelande från åtkomst granskningar som de måste du acceptera en inbjudan innan granska.) Följ stegen i den här artikeln finns och att tillämpa resultaten när omprövningsperioden åtkomst är över eller om en administratör slutar åtkomst granska.
+Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [granska din åtkomst](active-directory-azure-ad-controls-perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men har inte accepterat inbjudan får ett e-postmeddelande från åtkomst granskningar som de måste du acceptera en inbjudan innan granska.) Följ stegen i den här artikeln finns och att tillämpa resultaten när omprövningsperioden åtkomst är över eller om en administratör slutar åtkomst granska.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Visa en åtkomst-granskning i Azure-portalen
 
 1. Gå till den [åtkomst går igenom sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)väljer **program**, och välj det program som innehåller granska åtkomstkontroll.
 
-2. Välj **hantera**, och välj granska åtkomstkontroll. Om det finns många kontroller i programmet, kan du filtrera för kontroller för en viss typ och sortera efter deras status. Du kan också söka efter namnet på åtkomstkontroll för granskning eller visningsnamnet för ägaren som skapade den. 
+2. Välj **hantera**, och välj granska åtkomstkontroll. Om det finns många kontroller i programmet kan du filtrera efter en viss typ av kontroller och sortera på status. Du kan även söka efter namnet på kontrollen för åtkomstgranskning eller efter visningsnamnet för ägaren som skapade den. 
 
 ## <a name="stop-a-review-that-hasnt-finished"></a>Stoppa en granskning inte har slutförts
 

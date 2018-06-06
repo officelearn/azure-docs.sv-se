@@ -4,21 +4,18 @@ description: Läs mer om S1, S2 och S3 prestandanivåer som tidigare fanns i Azu
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e565f4ee4d25afb29627e6beca99fd2998cd6396
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796656"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
@@ -26,16 +23,15 @@ ms.lasthandoff: 04/06/2018
 > Prestandanivåer S1, S2 och S3 i den här artikeln är som har återkallats och är inte längre tillgängliga för den nya Azure Cosmos DB konton.
 >
 
-Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer och beskriver hur de samlingar som använder dessa prestandanivåer kommer att migreras till enskilda partitionssamlingar sent i 2017. När du har läst den här artikeln kommer du att kunna svara på följande frågor:
+Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer och beskriver hur de samlingar som använder dessa prestandanivåer kan vara migrerade till en enda partitionerade samlingar. När du har läst den här artikeln kommer du att kunna svara på följande frågor:
 
-- [Varför är S1, S2 och S3 prestanda nivåer som har återkallats?](#why-retired)
+- [Varför är prestandanivåer S1, S2 och S3 är som har återkallats?](#why-retired)
 - [Hur enskilda partitionssamlingar och partitionerade samlingar Jämför med S1, S2, prestandanivåer S3?](#compare)
 - [Vad behöver jag för att säkerställa kontinuerlig tillgång till Mina data?](#uninterrupted-access)
 - [Hur ändrar jag samlingen efter migreringen?](#collection-change)
 - [Hur ändras efter att jag har migrerats till enskilda partitionssamlingar av min fakturering?](#billing-change)
 - [Vad händer om jag behöver fler än 10 GB lagringsutrymme?](#more-storage-needed)
 - [Kan jag ändra mellan S1, S2 och S3 prestandanivåer innan den planerade migreringen?](#change-before)
-- [Hur vet jag om min samling har migrerats?](#when-migrated)
 - [Hur jag migrera från S1, S2, S3 prestandanivåer för enskilda partitionssamlingar själv?](#migrate-diy)
 - [Hur kan jag påverkas om jag en EA-kund?](#ea-customer)
 
@@ -64,25 +60,23 @@ I följande tabell jämförs dataflöden och lagringsutrymmen alternativen i ens
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Vad behöver jag för att säkerställa kontinuerlig tillgång till Mina data?
 
-Något, Cosmos DB hanterar du migreringen. Om du har en S1, S2 och S3 samling kommer aktuella samlingen att migreras till en enda partition samling sent i 2017. 
+Om du har en S1, S2 och S3 samling du bör migrera samlingen till en enda partition samling programmässigt [med hjälp av .NET SDK](#migrate-diy). 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Hur ändrar jag samlingen efter migreringen?
 
-Om du har en S1 samling migreras till en enda partition samling med 400 RU/s genomströmning. 400 RU/s är den lägsta genomflödet som är tillgängliga med enskilda partitionssamlingar. Dock kostnaden för 400 RU/s i en enda partition samling är ungefär densamma som du betalar med S1 samlingen och 250 RU/s – så att du inte betalar för extra 150 RU/s tillgängliga.
+Om du har en S1-samling kan migrera du dem till en enda partition samling med 400 RU/s genomströmning. 400 RU/s är den lägsta genomflödet som är tillgängliga med enskilda partitionssamlingar. Dock kostnaden för 400 RU/s i en enda partition samling är ungefär densamma som du betalar med S1 samlingen och 250 RU/s – så att du inte betalar för extra 150 RU/s tillgängliga.
 
-Om du har en S2 samling migreras till en enda partition samling med 1 K RU/s. Ingen ändring ser du till genomflödet-nivå.
+Om du har en S2 samling kan migrera du dem till en enda partition samling med 1 K RU/s. Ingen ändring ser du till genomflödet-nivå.
 
-Om du har en S3 samling migreras till en enda partition samling med 2,5 K RU/s. Ingen ändring ser du till genomflödet-nivå.
+Om du har en S3-samling kan migrera du dem till en enda partition samling med 2,5 K RU/s. Ingen ändring ser du till genomflödet-nivå.
 
-I dessa fall migrerat samlingen kommer du att kunna anpassa genomströmning-nivå eller skala den upp eller ned efter behov för att ge låg latens åtkomst till dina användare. Om du vill ändra dataflödesnivån när din samling har migrerats, helt enkelt öppna Cosmos-DB-konto i Azure-portalen, klickar du på skala, Välj din samling och sedan justera dataflöde, som visas i följande skärmbild:
-
-![Så här skalar genomflöde i Azure-portalen](./media/performance-levels/portal-scale-throughput.png)
+I dessa fall, när du migrerar samlingen kommer du att kunna anpassa genomströmning-nivå eller skala den upp eller ned efter behov för att ge låg latens åtkomst till dina användare. 
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Hur ändras efter att jag har migrerats till enskilda partitionssamlingar av min fakturering?
+## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>Hur ändras min faktureringen efter att jag har migrerats till enskilda partitionssamlingar?
 
 Om du har 10 S1 samlingar, 1 GB lagringsutrymme i region oss Öst och du migrerar dessa 10 S1 samlingar till 10 enskilda partitionssamlingar på 400 RU/s (lägsta nivå). Fakturan ska se ut så här om du behåller 10 enskilda partitionssamlingar för en hel månad:
 
@@ -92,55 +86,23 @@ Om du har 10 S1 samlingar, 1 GB lagringsutrymme i region oss Öst och du migrera
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Vad händer om jag behöver fler än 10 GB lagringsutrymme?
 
-Om du har en samling med en S1, S2 och S3 prestandanivå eller ha en enda partition samling, 10 GB tillgängligt lagringsutrymme som alla har kan du använda Cosmos-Migreringsverktyget DB Data för att migrera dina data till en partitionerad samling med praktiskt taget obegränsade lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](sql-api-partition-data.md). 
+Om du har en samling med S1, S2 och S3 prestandanivå eller har en enda partition-samling som har 10 GB med tillgänglig lagring, du kan använda Migreringsverktyget Azure Cosmos DB Data för att migrera dina data till en partitionerad samling med princip obegränsad lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
 ## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>Kan jag ändra mellan S1, S2 och S3 prestandanivåer innan den planerade migreringen?
 
-Endast befintliga konton med S1, S2 och S3 prestanda kommer att kunna ändra och ändra nivån prestandanivåer via portalen eller programmässigt. Om du ändrar från S1, S3 eller S3 till en enda partition samling, kan du återgå till prestandanivåer S1, S2 och S3.
-
-<a name="when-migrated"></a>
-
-## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Hur vet jag om min samling har migrerats?
-
-Migreringen sker på sent i 2017. Om du har en samling som använder S1 S2 eller S3 prestandanivåer, Cosmos-DB-teamet kommer att kontakta dig via e-post innan migreringen sker. När migreringen är klar visas den Azure-portalen att samlingen använder standardprisnivån.
-
-![Hur du kontrollerar din samling har migrerats till Standard prisnivån](./media/performance-levels/portal-standard-pricing-applied.png)
+Endast befintliga konton med S1, S2 och S3 prestanda kan ändras och ändra nivån prestandanivåer programmässigt [med hjälp av .NET SDK](#migrate-diy). Om du ändrar från S1, S3 eller S3 till en enda partition samling, kan du återgå till prestandanivåer S1, S2 och S3.
 
 <a name="migrate-diy"></a>
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Hur jag migrera från S1, S2, S3 prestandanivåer för enskilda partitionssamlingar själv?
 
-Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssamlingar med Azure-portalen eller programmässigt. Du kan göra detta på egen hand innan den planerade migreringen att dra nytta av flexibla genomströmning-alternativen med enskilda partitionssamlingar eller kommer vi att migrera samlingar som du sen i 2017.
+Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssamlingar programmässigt [med hjälp av .NET SDK](#migrate-diy). Du kan göra detta på egen hand innan den planerade migreringen att dra nytta av flexibla genomströmning-alternativen med enskilda partitionssamlingar.
 
-**Att migrera till enskilda partitionssamlingar med Azure-portalen**
+### <a name="migrate-to-single-partition-collections-by-using-the-net-sdk"></a>Migrera till enskilda partitionssamlingar med hjälp av .NET SDK
 
-1. I den [ **Azure-portalen**](https://portal.azure.com), klickar du på **Azure Cosmos DB**, Välj Cosmos-DB-konto för att ändra. 
- 
-    Om **Azure Cosmos DB** är inte i Jumpbar klickar du på >, bläddra till **databaser**väljer **Azure Cosmos DB**, och välj sedan kontot.  
-
-2. På menyn resurs under **behållare**, klickar du på **skala**, markera samlingen för att ändra listrutan och klicka sedan på **prisnivån**. Konton med hjälp av fördefinierade genomströmning har en prisnivå för S1, S2 och S3.  I den **Välj din prisnivå** klickar du på **Standard** ändra till användardefinierade genomflöde och klicka sedan på **Välj** att spara ändringen.
-
-    ![Skärmbild av sidan visar var du kan ändra värdet för dataflöde](./media/performance-levels/change-performance-set-thoughput.png)
-
-3. I den **skala** sidan den **prisnivån** ändras till **Standard** och **genomströmning (RU/s)** visas med en standard värdet för 400. Ange dataflöde mellan 400 och 10 000 [programbegäran](request-units.md)/second (RU/s). Den **uppskattad Månadsfaktura** längst ned på sidan uppdateringar automatiskt för att ge en uppskattning av månadskostnaden. 
-
-    >[!IMPORTANT] 
-    > När du sparar ändringarna och gå till den Standardprisnivån kan inte du återställa prestandanivåer S1, S2 och S3.
-
-4. Klicka på **spara** att spara ändringarna.
-
-    Om du anser att du behöver mer genomströmning (större än 10 000 RU/s) eller mer lagringsutrymme (större än 10 GB) kan du skapa en partitionerad samling. Om du vill migrera en enskild partition samling till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](sql-api-partition-data.md#migrating-from-single-partition).
-
-    > [!NOTE]
-    > Ändra från S1, S2 och S3 till Standard kan det ta upp till två minuter.
-    > 
-    > 
-
-**Att migrera till enskilda partitionssamlingar med .NET SDK**
-
-Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [SQL .NET API](sql-api-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
+Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [SQL .NET API](sql-api-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
 
 Här är ett kodfragment för att ändra samlingen genomströmning till 5 000 frågeenheter per sekund:
     

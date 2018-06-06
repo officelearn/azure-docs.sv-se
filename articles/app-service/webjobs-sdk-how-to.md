@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725538"
 ---
 # <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Hur du använder WebJobs-SDK för händelsedriven Bakgrundsbearbetning
 
@@ -66,7 +67,7 @@ static void Main(string[] args)
 
 Den `JobHostConfiguration` klassen har en `UseDevelopmentSettings` metod som du kan anropa för att effektivisera lokal utveckling. Här följer några av de inställningar som den här metoden ändras:
 
-| Egenskap | Inställningen för utveckling |
+| Egenskap  | Inställningen för utveckling |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Maximera loggutdata. |
 | `Queues.MaxPollingInterval`  | Ett lågt värde så kön metoder utlöses omedelbart.  |
@@ -322,7 +323,7 @@ Mer information finns i [bindning under körning](../azure-functions/functions-d
 
 Information om varje bindningstyp tillhandahålls i Azure Functions-dokumentationen. Med Storage-kö som exempel, hittar du följande information i varje bindning referens-artikel:
 
-* [Paket](../azure-functions/functions-bindings-storage-queue.md#packages) -vilket paket för att installera om du vill inkludera stöd för bindningen i WebJobs-SDK-projekt.
+* [Paket](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) -vilket paket för att installera om du vill inkludera stöd för bindningen i WebJobs-SDK-projekt.
 * [Exempel](../azure-functions/functions-bindings-storage-queue.md#trigger---example) -i C# class library exempel gäller WebJobs SDK; bara utelämna den `FunctionName` attribut.
 * [Attribut](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) -attribut som ska användas för bindningstyp.
 * [Konfigurationen](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) -förklaringar av egenskaper för attribut och parametrar som konstruktorn.
@@ -390,6 +391,26 @@ Vissa utlösare har inbyggt stöd för hantering av samtidighet:
 * **FileTrigger** – du kan ställa `FileProcessor.MaxDegreeOfParallelism` till 1.
 
 Du kan använda dessa inställningar för att se till att din funktion körs som en singleton på en enda instans. För att säkerställa att bara en instans av funktionen körs när webbprogrammet skalas ut till flera instanser, tillämpa lyssnare nivån Singleton lås på funktionen (`[Singleton(Mode = SingletonMode.Listener)]`). Lyssnare Lås förvärvas vid start av JobHost. Om tre utskalat instanser alla startar på samma gång, endast en av instanserna hämtar Lås och endast en lyssnare startar.
+
+### <a name="scope-values"></a>Scope-värden
+
+Du kan ange en **omfånguttrycksvärdet/** på Singleton som säkerställer att alla körningar av funktionen på detta scope ska serialiseras. Implementera mer detaljerade låsning på så sätt kan tillåta för vissa nivå av parallellitet för din funktion vid serialiseringen andra anrop enligt dina krav. Till exempel i följande exempel scope-uttrycket Binder till den `Region` värdet för det inkommande meddelandet. Om kön innehåller 3 meddelanden i regioner ”Öst”, ”Öst” och ”Väst” respektive sedan de meddelanden som har ”Öst” körs seriellt när meddelandet med region ”Väst” körs parallellt med de region.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

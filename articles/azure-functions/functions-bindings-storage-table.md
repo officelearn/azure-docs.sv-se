@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1c8cee149e99786b58e4584e5e7b508b1040389d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724589"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
@@ -27,13 +28,17 @@ Den här artikeln förklarar hur du arbetar med Azure Table storage bindningar i
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Table storage bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub-lagringsplatsen.
+Table storage bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 2.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Table storage bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -104,6 +109,9 @@ public class TableStorage
     }
 }
 ```
+
+  > [!NOTE]
+  > `IQueryable` stöds inte i den [Functions-runtime v2](functions-versions.md). Ett alternativ är att [använder en CloudTable paramName metodparameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) att läsa tabellen med hjälp av Azure Storage SDK: N. Om du försöker att binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 ### <a name="input---c-script-example-1"></a>Indata - C# skript exempel 1
 
@@ -382,8 +390,8 @@ Table storage inkommande bindningen stöder följande scenarion:
 
   Komma åt informationen med hjälp av en metodparameter `IQueryable<T> <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att utföra filtrering krävs. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot.  
 
-> [!NOTE]
-> `IQueryable` stöds inte i den [Functions-runtime v2](functions-versions.md). Ett alternativ är att [använder en CloudTable paramName metodparameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) att läsa tabellen med hjälp av Azure Storage SDK: N.
+  > [!NOTE]
+  > `IQueryable` stöds inte i den [Functions-runtime v2](functions-versions.md). Ett alternativ är att [använder en CloudTable paramName metodparameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) att läsa tabellen med hjälp av Azure Storage SDK: N. Om du försöker att binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 * **Läs en eller flera rader i JavaScript**
 
@@ -640,7 +648,7 @@ Table storage utdata bindningen stöder följande scenarier:
 
   Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `IAsyncCollector<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
 
-  Ett alternativ är att använda en `CloudTable paramName` Metodparametern att skriva till tabellen med hjälp av Azure Storage SDK: N.
+  Ett alternativ är att använda en `CloudTable paramName` Metodparametern att skriva till tabellen med hjälp av Azure Storage SDK: N. Om du försöker att binda till `CloudTable` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 * **Skriv en eller flera rader i JavaScript**
 

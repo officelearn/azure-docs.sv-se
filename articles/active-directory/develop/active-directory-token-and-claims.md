@@ -17,11 +17,12 @@ ms.date: 05/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801872"
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
 Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token. 
@@ -55,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT-anspråk | Namn | Beskrivning |
 | --- | --- | --- |
 | `aud` |Målgrupp |Den avsedda mottagaren av token. Det program som tar emot en token måste kontrollera att värdet för målgruppen är korrekt och ignorera eventuella tokens som är avsedda för en annan publik. <br><br> **Exempel SAML värdet**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT exempelvärde**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Application Authentication Context Class Reference |Anger hur klienten autentiserades. För en offentlig klient är värdet 0. Om du använder klient-ID och klienthemlighet, är värdet 1. <br><br> **JWT exempelvärde**: <br> `"appidacr": "0"` |
+| `appidacr` |Application Authentication Context Class Reference |Anger hur klienten autentiserades. För en offentlig klient är värdet 0. Om du använder klient-ID och klienthemlighet, är värdet 1. Om ett klientcertifikat används för autentisering, är värdet 2. <br><br> **JWT exempelvärde**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Anger hur ämnet autentiserades klienten i Application Authentication Context Class Reference-anspråk. Värdet ”0” anger slutanvändarens autentisering inte uppfyllde kraven i ISO/IEC 29115. <br><br> **JWT exempelvärde**: <br> `"acr": "0"` |
 | Autentisering snabbmeddelanden |Registrerar datum och tid då autentisering inträffade. <br><br> **Exempel SAML värdet**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Autentiseringsmetod |Anger hur ämnet för token autentiserades. <br><br> **Exempel SAML värdet**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **JWT exempelvärde**: `“amr”: ["pwd"]` |
@@ -152,21 +153,31 @@ En fullständig lista över anspråk verifieringar din app ska utföra för ID-t
 ## <a name="token-revocation"></a>Token återkallade certifikat
 
 Uppdatera token kan ogiltiga eller återkallas när som helst för en mängd olika skäl. Dessa är indelade i två huvudkategorier: timeout och återkallelse. 
-* Tidsgränser för token
-  * MaxInactiveTime: Om uppdateringstoken som inte har använts under den tiden enligt MaxInactiveTime uppdatera Token kommer inte längre giltig. 
-  * MaxSessionAge: Om MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor har angetts till något annat än standard (förrän har återkallats), sedan återautentiseringen måste utföras efter den tid som anges i MaxAgeSession *. 
-  * Exempel:
-    * Klienten har en MaxInactiveTime på fem dagar och användaren gick på semester för en vecka så AAD har inte visas en ny token begäran från användaren i 7 dagar. Nästa gång användaren begär en ny token hittar de sina uppdatera Token har återkallats och de måste ange sina autentiseringsuppgifter igen. 
-    * En känslig applikation har en MaxAgeSessionSingleFactor på 1 dag. Om en användare loggar in på måndag och tisdagen (efter 25 timmar har förflutit) uppmanas de att autentisera igen. 
-* Återkallade certifikat
-  * Frivillig lösenordsändring: Om en användare ändrar sina lösenord, de kanske återautentisera över några av sina program, beroende på hur token har uppnåtts. Se informationen nedan för undantag. 
-  * Ofrivilliga lösenordsändring: Om en administratör tvingar en användare att ändra sina lösenord eller återställer den, sedan användarens token blir ogiltiga om de har uppnås med hjälp av sina lösenord. Se informationen nedan för undantag. 
-  * Säkerhetsintrång: Vid ett intrång (t.ex. det lokala arkivet för lösenord komprometteras) administratören kan återkalla alla uppdaterings-tokens som utfärdats för närvarande. Detta kräver att alla användare att autentisera igen. 
+
+**Tidsgränser för token**
+
+* MaxInactiveTime: Om uppdateringstoken som inte har använts under den tiden enligt MaxInactiveTime uppdatera Token kommer inte längre giltig. 
+* MaxSessionAge: Om MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor har angetts till något annat än standard (förrän har återkallats), sedan återautentiseringen måste utföras efter den tid som anges i MaxAgeSession *. 
+* Exempel:
+  * Klienten har en MaxInactiveTime på fem dagar och användaren gick på semester för en vecka så AAD har inte visas en ny token begäran från användaren i 7 dagar. Nästa gång användaren begär en ny token hittar de sina uppdatera Token har återkallats och de måste ange sina autentiseringsuppgifter igen. 
+  * En känslig applikation har en MaxAgeSessionSingleFactor på 1 dag. Om en användare loggar in på måndag och tisdagen (efter 25 timmar har förflutit) uppmanas de att autentisera igen. 
+
+**Återkallade certifikat**
+
+|   | Lösenordsbaserade cookie | Lösenordsbaserade token | Icke-password baserat cookie | Icke-password baserat token | Konfidentiell klienttoken| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Lösenordet upphör att gälla| Förblir aktiv|Förblir aktiv|Förblir aktiv|Förblir aktiv|Förblir aktiv|
+|Lösenordet har ändrats av användaren| Återkallad | Återkallad | Förblir aktiv|Förblir aktiv|Förblir aktiv|
+|Användaren har SSPR|Återkallad | Återkallad | Förblir aktiv|Förblir aktiv|Förblir aktiv|
+|Administratörslösenord för återställning|Återkallad | Återkallad | Förblir aktiv|Förblir aktiv|Förblir aktiv|
+|Användaren återkallar sina uppdaterings-tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad |Återkallad | Återkallad |
+|Administratör återkallar alla uppdaterings-tokens för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad |Återkallad | Återkallad |
+|[Enkel inloggning ut](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) på webben | Återkallad | Förblir aktiv |Återkallad | Förblir aktiv |Förblir aktiv |Förblir aktiv |
 
 > [!NOTE]
->Om en icke-password-metod för autentisering för (Windows Hello, autentiseringsapp, biometrik som en yta eller fingeravtryck) att uppnå token, ändra användarens lösenord kommer inte att tvinga användaren att autentisera igen (men det tvingar sina autentiseringsapp återautentisera). Detta beror på att ange sina valda autentisering (en min, t.ex.) inte har ändrats och därför kan användas igen återautentisera.
+> En ”icke-password baserad” inloggning är en där användaren inte ange ett lösenord för att hämta den.  Till exempel använder din yta med Windows Hello, en FIDO nyckel eller en PIN-kod. 
 >
-> Konfidentiell klienter påverkas inte av återkallelse för ändring av lösenord. En konfidentiell klient med en uppdateringstoken som utfärdats innan en lösenordsändring fortsätter att vara abl att använda den uppdateringstoken för att få fler token. 
+> Det finns ett känt problem med den Windows primära uppdatera Token.  Om PRT erhålls via ett lösenord, och sedan en användare loggar in via Hello, ursprunget för PRT ändras inte och kommer att återkallas om användaren har ändrat sitt lösenord. 
 
 ## <a name="sample-tokens"></a>Exempel-token
 

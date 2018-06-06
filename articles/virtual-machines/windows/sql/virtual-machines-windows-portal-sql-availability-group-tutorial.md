@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716728"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera alltid på Tillgänglighetsgruppen i Azure VM manuellt
 
@@ -57,7 +58,7 @@ Innan du påbörjar självstudiekursen måste du [slutföra förutsättningar f�
 <a name="CreateCluster"></a>
 ## Skapa klustret
 
-När förutsättningarna har slutförts, är det första steget att skapa ett redundanskluster för Windows-Server som innehåller två SQL-servrar och en vittnesserver som.  
+När förutsättningarna har slutförts, är det första steget att skapa ett redundanskluster för Windows-Server som innehåller två SQL-servrar och en vittnesserver som.
 
 1. RDP till den första SQL-servern med ett domänkonto som är administratör på både SQL-servrar och vittnesservern.
 
@@ -85,7 +86,8 @@ När förutsättningarna har slutförts, är det första steget att skapa ett re
 
    ![Egenskaper för klustret](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Välj **statisk IP-adress** och ange en tillgänglig adress från undernätet där SQL Server finns i textrutan adress. Klicka på **OK**.
+3. Välj **statisk IP-adress** och ange en tillgänglig adress från intervallet privata IP-adressering APIPA (Automatic): 169.254.0.1 till 169.254.255.254 i textrutan adress. Du kan använda alla adresser i intervallet för det här exemplet. Till exempel `169.254.0.1`. Klicka på **OK**.
+
 4. I den **klustrets kärnresurser** avsnittet, högerklickar du på klusternamnet och klickar på **Anslut**. Vänta tills båda resurser är online. När namnet klusterresursen är online uppdaterar DC-servern med ett nytt AD-datorkonto. Använda AD-kontot för att köra tjänsten Availability Group klustrade senare.
 
 ### <a name="addNode"></a>Lägga till SQL Server i klustret
@@ -337,7 +339,7 @@ Du har nu en tillgänglighetsgrupp med repliker på två instanser av SQL Server
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Skapa en Azure Load Balancer
+## <a name="create-an-azure-load-balancer"></a>skapa en Azure Load Balancer
 
 På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-tillgänglighetsgrupp. Belastningsutjämnaren innehåller IP-adressen för tillgänglighetsgruppens lyssnare. Det här avsnittet beskrivs hur du skapar belastningsutjämnaren i Azure-portalen.
 
@@ -413,13 +415,13 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd port för SQL Server-instansen | 1433 |
    | **Backend-Port** | Det här fältet används inte när flytande IP är inställd för direkta servern returnerade | 1433 |
-   | **Probe** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
+   | **Avsökningen** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
    | **Persistence för session** | Listrutan | **Ingen** |
    | **Inaktivitetstid** | Minuter att öppna en TCP-anslutning | 4 |
    | **Flytande IP (direkt serverreturnering)** | |Enabled |
 
    > [!WARNING]
-   > Direkt serverreturnering anges när du skapar. Det går inte att ändra.
+   > Direkt serverreturnering anges när du skapar. Det kan inte ändras.
 
 1. Klicka på **OK** att ange regler för belastningsutjämning.
 

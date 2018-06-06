@@ -1,44 +1,51 @@
 ---
 title: Hantera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar en befintlig configuration server för VMware katastrofåterställning till Azure med Azure Site Recovery.
+description: Den här artikeln beskriver hur du hanterar en befintlig configuration server för VMware katastrofåterställning till Azure med Azure Site RecoveryS.
 services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 06/04/2018
+ms.author: raynew
+ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737511"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för virtuella VMware-datorer
 
 Du konfigurerar en lokal konfigurationsservern när du använder [Azure Site Recovery](site-recovery-overview.md) för katastrofåterställning av virtuella VMware-datorer och fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala VMware och Azure och hanterar datareplikering. Den här artikeln beskrivs vanliga uppgifter för att hantera konfigurationsservern när den har distribuerats.
 
 
+
 ## <a name="modify-vmware-settings"></a>Ändra inställningar för VMware
 
-Ändra inställningarna för VMware-server som konfigurationsservern ansluter.
+Du kan komma åt konfigurationsservern enligt följande:
+    - Logga in på den virtuella datorn har distribuerats och starta Azure Site Recovery Configuration Manager från genvägen på skrivbordet.
+    - Du kan också komma åt konfigurationsservern via en fjärranslutning från **https://*ConfigurationServerName*/:44315 /**. Logga in med administratörsbehörighet.
+   
+### <a name="modify-vmware-server-settings"></a>Ändra inställningarna för VMware
 
-1. Logga in på datorn som kör konfigurationsservern.
-2. Starta Azure Site Recovery Configuration Manager från genvägen på skrivbordet. Eller öppna [länken](https://configuration-server-name/IP:44315).
-3. Välj **hantera vCenter Server/vSPhere ESXi-servern**, och gör sedan följande:
+1. Om du vill associera en annan VMware-server med konfigurationsservern, när du loggar in, markera **Lägg till vCenter-Server/vSphere ESXi servern**.
+2. Ange information och välj sedan **OK**.
 
-    * Om du vill associera en annan VMware-server med konfigurationsservern, Välj **Lägg till vCenter-Server/vSphere ESXi servern**. Ange serverinformation.
 
-    * Om du vill uppdatera autentiseringsuppgifterna för att ansluta till VMware-servern för automatisk identifiering av virtuella VMware-datorer, Välj **redigera**. Ange nya autentiseringsuppgifter och välj sedan **OK**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Ändra autentiseringsuppgifter för automatisk identifiering
+
+1. Om du vill uppdatera autentiseringsuppgifterna för att ansluta till VMware-server för automatisk identifiering av virtuella VMware-datorer, efter inloggning, Välj **redigera**.
+2. Ange nya autentiseringsuppgifter och välj sedan **OK**.
 
     ![Ändra VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Ändra autentiseringsuppgifter för installation av Mobilitetstjänsten
 
 Ändra de autentiseringsuppgifter som används för att automatiskt installera Mobilitetstjänsten på den virtuella VMware-datorer aktiveras för replikering.
 
-1. Logga in på datorn som kör konfigurationsservern.
-2. Starta Site Recovery Configuration Manager från genvägen på skrivbordet. Eller öppna [länken](https://configuration-server-name/IP:44315).
-3. Välj **hantera virtuella autentiseringsuppgifter**, och ange nya autentiseringsuppgifter. Välj sedan **OK** att uppdatera inställningarna.
+1. Efter inloggning, Välj **hantera virtuella autentiseringsuppgifter**
+2. Ange nya autentiseringsuppgifter och välj sedan **OK**.
 
     ![Ändra Mobilitetstjänsten autentiseringsuppgifter](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +53,15 @@ Du konfigurerar en lokal konfigurationsservern när du använder [Azure Site Rec
 
 Ändra proxyinställningar som används av configuration server-datorn för internet-åtkomst till Azure. Om du har en dator med processen server förutom standardserver för processen som körs på serverdatorn konfiguration kan du ändra inställningarna på båda datorerna.
 
-1. Logga in på datorn som kör konfigurationsservern.
-2. Starta Site Recovery Configuration Manager från genvägen på skrivbordet. Eller öppna [länken](https://configuration-server-name/IP:44315).
-3. Välj **hantera anslutningen**, och uppdatera proxy-värden. Välj sedan **spara** att uppdatera inställningarna.
+1. Logga in på konfigurationsservern, markerar **hantera anslutningen**.
+2. Uppdatera proxy-värden. Välj sedan **spara** att uppdatera inställningarna.
 
 ## <a name="add-a-network-adapter"></a>Lägga till ett nätverkskort
 
-Öppna virtualisering (OVF) mallen distribuerar konfigurationsservern virtuell dator med ett enda nätverkskort. Du kan [lägga till ett ytterligare nätverkskort till den virtuella datorn)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), men du måste lägga till den innan du registrerar konfigurationsservern i valvet.
+Öppna virtualisering (OVF) mallen distribuerar konfigurationsservern virtuell dator med ett enda nätverkskort.
 
-Om du vill lägga till ett kort när du har registrerat konfigurationsservern i valvet, lägger du till nätverkskortet i VM-egenskaper. Sedan registrera servern i valvet.
+- Du kan [lägga till ett ytterligare nätverkskort till den virtuella datorn)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), men du måste lägga till den innan du registrerar konfigurationsservern i valvet.
+- Om du vill lägga till ett kort när du har registrerat konfigurationsservern i valvet, lägger du till nätverkskortet i VM-egenskaper. Du måste registrera servern i valvet.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrera en konfigurationsserver i samma valvet
@@ -65,8 +72,8 @@ Du kan registrera om konfigurationsservern i samma valvet om du behöver. Om du 
   1. Öppna i valvet, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
   2. I **servrar**väljer **Download registreringsnyckel** att hämta valvautentiseringsfilen.
   3. Logga in på serverdatorn konfiguration.
-  4. I **%ProgramData%\ASR\home\svagent\bin**öppnar **cspsconfigtool.exe**.
-  5. På den **valvet registrering** väljer **Bläddra** och leta upp valvautentiseringsfilen som du hämtat.
+  4. I **%ProgramData%\ASR\home\svsystems\bin**öppnar **cspsconfigtool.exe**.
+  5. På den **valvet registrering** väljer **Bläddra**, och leta upp valvautentiseringsfilen som du hämtat.
   6. Ange proxy-serverinformation om det behövs. Välj sedan **Registrera**.
   7. Öppna ett PowerShell-Kommandotolken som administratör och kör följande kommando:
 
@@ -88,15 +95,27 @@ Länkar till samlade uppdateringar för uppgradering av alla versioner av konfig
 
 Uppgradera servern på följande sätt:
 
+1. I valvet, går du till **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
+2. Om en uppdatering är tillgänglig, visas en länk i den **Agentversion** > kolumn.
+
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. Hämta installationsfilen för uppdateringen till konfigurationsservern.
-2. Dubbelklicka för att köra installationsprogrammet.
-3. Installationsprogrammet identifierar den aktuella versionen som körs på datorn.
-4. Välj **OK** att bekräfta och köra uppgraderingen. 
+
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Dubbelklicka för att köra installationsprogrammet.
+2. Installationsprogrammet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** starta uppgraderingen. 
+3. När uppgraderingen har slutförts verifierar serverkonfigurationen.
+
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. Klicka på **Slutför** stängs installationsprogrammet.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurationsserver
 
-1. Inaktivera [inaktivera skydd](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurationsservern.
+1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurationsservern.
 2. [Avassociera](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
 3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenter-servrar/vSphere-värdar som är kopplade till konfigurationsservern.
 4. Öppna i valvet, **Site Recovery-infrastruktur** > **Konfigurationsservrar**.

@@ -10,11 +10,12 @@ ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 014dbf6ff6d30bfb988c404bfe35693fe68f22fd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d7384d8d1d8c0378e1a9dd68a4f7b71196330b8e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736702"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stacken datacenter integrering – publicera slutpunkter
 Azure-stacken konfigurerar virtuella IP-adresser (VIP) för sin infrastrukturroller. Dessa virtuella IP-adresser tilldelas från den offentliga IP-adresspoolen. Varje VIP är skyddad med en åtkomstkontrollista (ACL) i nätverkslagret för programvarudefinierade. ACL: er används också för de fysiska växlarna (TORs och BMC) för att ytterligare skydda lösningen. En DNS-post skapas för varje slutpunkt i den externa DNS-zon som anges vid tidpunkten för distribution.
@@ -48,7 +49,7 @@ Intern infrastruktur för VIP inte visas eftersom de inte krävs för att public
 |Key Vault (administratör)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lagringskö|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabell för lagring|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Lagringsblob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL-Resursprovidern|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300 44304|
 |MySQL-Resursprovidern|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300 44304|
 |App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
@@ -67,7 +68,7 @@ Azure-stacken stöder endast transparent proxy-servrar. I en distribution där e
 |Marketplace-syndikeringsfeed|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |Korrigering & uppdatering|https://&#42;.azureedge.net|HTTPS|443|
 |Registrering|https://management.azure.com|HTTPS|443|
-|Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
+|Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 
 

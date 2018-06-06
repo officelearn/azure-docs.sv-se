@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716082"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med logganalys
 
@@ -73,19 +74,27 @@ Du kan hämta och ändra den här mallen för att distribuera ett kluster som pa
 
 Nu när du har lagt till OMS-agent head vill till logganalys-portalen för att välja vilka prestandaräknare samla in. 
 
-1. Gå till resursgruppen som du skapade Service Fabric Analytics-lösning i Azure-portalen. Välj **ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan. Klicka på länken för att gå till OMS-portalen överst.
+1. Gå till resursgruppen som du skapade Service Fabric Analytics-lösning i Azure-portalen. Välj **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. När du är i portalen visas en paneler i form av ett diagram för var och en av de lösningar som aktiverad, inklusive en för Service Fabric. Klicka här om du vill fortsätta till Service Fabric Analytics-lösningen. 
+2. Klicka på **OMS-arbetsytan**.
 
-3. Nu visas några paneler med diagram på operativa kanalen och tillförlitlig services händelser. Klicka på ikonen växel för att gå till inställningssidan till höger.
+3. Klicka på **avancerade inställningar**.
 
-    ![OMS-inställningar](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Klicka på **Data**, klicka på **Windows eller Linux-prestandaräknare**. Det finns en lista över standard räknare kan du aktivera och du kan ange intervall för samling för. Du kan också lägga till [ytterligare prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) att samla in. Rätt format är refererad i detta [artikel](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. På inställningssidan klickar du på Data och väljer Windows eller Linux-prestandaräknare. Det finns en lista med standardinställningarna kan du aktivera och du kan ställa in intervall för insamling också. Du kan också lägga till [ytterligare prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) att samla in. Rätt format är refererad i detta [artikel](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Klicka på **spara**, klicka på **OK**.
 
-När din räknare har konfigurerats, head tillbaka till sidan lösningar och visas snart data flödar i och de visas i diagram under **nod mått**. Du kan också fråga på prestandaräknardata på samma sätt som klusterhändelser och filtrera på noder, perf räknarens namn och värden med hjälp av frågespråket Kusto. 
+6. Stäng bladet avancerade inställningar.
 
-![OMS perf räknaren fråga](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Under rubriken Allmänt klickar du på **översikt**.
+
+8. Paneler i form av ett diagram som visas för var och en av de lösningar som aktiverad, inklusive en för Service Fabric. Klicka på den **Service Fabric** diagram fortsätta till Service Fabric Analytics-lösningen.
+
+9. Du ser några paneler med diagram på operativa kanalen och tillförlitlig services händelser. Grafisk representation av de data som flödar i för räknarna som du har valt visas under noden mått. 
+
+10. Klicka på ett diagram för behållaren mått att visa ytterligare information. Du kan också fråga på prestandaräknardata på samma sätt som klusterhändelser och filtrera på noder, perf räknarens namn och värden med hjälp av frågespråket Kusto.
+
+![OMS perf räknaren fråga](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

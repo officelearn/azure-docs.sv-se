@@ -1,24 +1,25 @@
 ---
-title: "Hög densitet värd i Azure App Service | Microsoft Docs"
-description: "Hög densitet värd i Azure App Service"
+title: Hög densitet värd i Azure App Service | Microsoft Docs
+description: Hög densitet värd i Azure App Service
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 22/01/2018
+ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8bdf62ce70929c583b59b91e5f1e7c520376120b
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735820"
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hög densitet värd i Azure App Service
 När du använder App Service, frikopplas programmet från den kapacitet som tilldelas av två begrepp:
@@ -54,9 +55,9 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
 
 Om du vill uppdatera en befintlig programtjänstplan att använda den här funktionen: 
 
-- Hämta mål-plan```Get-AzureRmAppServicePlan```
-- ändra egenskapen lokalt```$newASP.PerSiteScaling = $true```
-- skicka ändringarna till azure```Set-AzureRmAppServicePlan``` 
+- Hämta mål-plan ```Get-AzureRmAppServicePlan```
+- ändra egenskapen lokalt ```$newASP.PerSiteScaling = $true```
+- skicka ändringarna till azure ```Set-AzureRmAppServicePlan``` 
 
 ```
 # Get the new App Service Plan and modify the "PerSiteScaling" property.

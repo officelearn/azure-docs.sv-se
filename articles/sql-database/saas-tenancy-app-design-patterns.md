@@ -7,22 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737688"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS databasen innehavare mönster
 
 När du designar ett SaaS-program med flera innehavare, måste du noggrant välja innehavare modellen som passar bäst för ditt program.  En innehavare modell avgör hur varje klient data mappas till lagring.  Ditt val av innehavare modellen påverkar programmet design och hantering.  Växla till en annan modell senare är ibland kostsamma.
 
-En beskrivning av alternativa innehavare modeller följer.
+Den här artikeln beskriver alternativa innehavare modeller.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. Så här väljer du lämplig innehavare modellen
+## <a name="a-saas-concepts-and-terminology"></a>A. SaaS-begrepp och termer
+
+Programuppdateringar som en tjänst (SaaS)-modellen i ditt företag inte säljer *licenser* med din programvara. I stället varje kund gör hyra ut betalningar företaget, vilket gör varje kund en *klient* för ditt företag.
+
+Tack vare att de betalar hyra varje klient tar emot åtkomst till SaaS-programkomponenter och dess data lagras i SaaS-systemet.
+
+Termen *innehavare modellen* refererar till hur ordnas klienternas lagrade data:
+
+- *Single-innehavare:* &nbsp; varje databas som lagrar data från en enda klient.
+- *Multitenans:* &nbsp; varje databas som lagrar data från flera olika klienter (med mekanismer för att skydda datasekretessen).
+- Det finns också hybridmodeller för innehavare.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Så här väljer du lämplig innehavare modellen
 
 I allmänhet innehavare modellen påverkar inte funktionen för ett program, men det sannolikt påverkar andra aspekter av virtualiseringslösningen.  Följande villkor används för att utvärdera var och en av:
 
@@ -50,7 +64,7 @@ I allmänhet innehavare modellen påverkar inte funktionen för ett program, men
 
 Innehavare diskussionen fokuserar på de *data* lager.  Men kom ihåg att ett ögonblick de *programmet* lager.  Applikationsnivån behandlas som en monolitisk entitet.  Om du dividerar programmet till många små komponenter kan valet av modellen för innehavare ändras.  Vissa komponenter gick behandlas annorlunda än andra om både innehavare och lagringsteknik eller plattform som används.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Stöd för en innehavare fristående app med stöd för en innehavare databas
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Stöd för en innehavare fristående app med stöd för en innehavare databas
 
 #### <a name="application-level-isolation"></a>Isolering av servicenivå
 
@@ -66,7 +80,7 @@ Varje klient databas distribueras som en fristående databas.  Den här modellen
 
 Leverantören kan komma åt alla databaser i alla fristående app instanser, även om app-instanser som är installerade på olika klient prenumerationer.  Åtkomst uppnås via SQL-anslutningar.  Åtkomst mellan instansen kan aktivera leverantören för att centralisera schemahantering och mellan databasfrågan för rapportering eller i analytics.  Om den här typen av centraliserad hantering önskas måste en katalog distribueras som mappar klient-ID: n till databasen URI: er.  Azure SQL-databasen innehåller ett bibliotek för horisontell partitionering som används tillsammans med en SQL-databas för att tillhandahålla en katalog.  Horisontell partitionering biblioteket heter formellt den [klientbibliotek för elastisk databas][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Flera innehavare app med databasen per klient
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Flera innehavare app med databasen per klient
 
 Den här nästa mönster använder ett program med flera innehavare med många databaser som alla databaser som en klient.  En ny databas etableras för varje ny klient.  Programmet nivån skalas *in* lodrätt genom att lägga till fler resurser per nod.  Eller appen skalas *ut* vågrätt genom att lägga till fler noder.  Skalningen baserat på arbetsbelastning och är oberoende av det antal eller skalan för enskilda databaser.
 
@@ -105,7 +119,7 @@ Hanteringsåtgärderna som kan användas av skriptet och erbjuds via en [devops]
 
 Exempelvis kan du automatisera återställning av en enskild klient till en tidigare tidpunkt.  Återställningen behöver bara återställa en enskild klient-databas som lagrar innehavaren.  Den här återställningen har ingen inverkan på andra klienter som bekräftar att hanteringsåtgärder är på varje enskild klientorganisation buffertstorleken detaljerad nivå.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Flera innehavare app med flera innehavare databaser
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Flera innehavare app med flera innehavare databaser
 
 En annan tillgänglig mönstret är att lagra många klienter i en databas med flera innehavare.  Programinstansen kan ha valfritt antal databaser för flera innehavare.  Schemat för en databas med flera innehavare måste ha en eller flera innehavare identifierare kolumner så att data från en viss klient kan hämtas selektivt.  Schemat kan dessutom kräva några tabeller eller kolumner som används av en delmängd av klienter.  Statiska kod och referens data lagras bara en gång och delas av alla klienter.
 
@@ -121,13 +135,13 @@ I allmänhet har databaser för flera innehavare den lägsta per-klient kostnad.
 
 Två varianter av en databasmodell för flera innehavare beskrivs vad följer med delat modell för flera klienter som är den mest flexibla och skalbara.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Flera innehavare app med en enskild databas för flera innehavare
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Flera innehavare app med en enskild databas för flera innehavare
 
 Enklaste mönstret för flera innehavare databasen använder en enda fristående databas som värd för data för alla klienter.  När flera innehavare läggs skalas databasen med mer resurser för lagring och beräkning.  Den här skalas upp kan vara allt som krävs, även om det finns alltid en ultimate skala gräns.  Lång innan gränsen nås databasen blir emellertid svårhanterliga att hantera.
 
 Hanteringsåtgärder som fokuserar på enskilda klienter är mer komplex att implementera i en databas med flera innehavare.  Och i skala dessa åtgärder bli oacceptabelt långsamt.  Ett exempel är en point-in-time-återställning av data för en klient.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Flera innehavare app med delat databaser för flera innehavare
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Flera innehavare app med delat databaser för flera innehavare
 
 De flesta SaaS-program för att komma åt data för endast en klient i taget.  Det här åtkomstmönstret tillåter klientdata sprids över flera databaser eller delar, där alla data för en klient finns i en Fragmentera.  I kombination med ett mönster för flera innehavare databas, kan en delat modell nästan obegränsad skala.
 
@@ -151,7 +165,7 @@ Beroende på den horisontell partitionering-metod som används, kan ytterligare 
 
 Delat databaser för flera innehavare kan placeras i elastiska pooler.  I allmänhet är har många stöd för en innehavare databaser i poolen kostnad effektiv som har många hyresgäster i några databaser för flera innehavare.  Flera innehavare databaser är bra när det finns ett stort antal relativt inaktiva klienter.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Hybrid delat flera innehavare databasmodellen
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Hybrid delat flera innehavare databasmodellen
 
 I hybrid-modellen har alla databaser klient-ID i schemat.  Databaserna finns alla kan lagra mer än en klient och databaserna kan vara delat.  Så i schemat mening, de är alla databaser för flera innehavare.  I praktiken kan vissa av dessa databaser ännu innehålla endast en klient.  Oavsett, har antalet klienter som lagras i en viss databas ingen effekt på databasschemat.
 
@@ -165,11 +179,11 @@ Hybrid-modellen kommer till sin rätt när det finns stora skillnader mellan res
 
 Stöd för en innehavare databaser för prenumeranten klienter kan placeras i resurspooler för att minska kostnaderna för databasen per klient i den här hybrid-modellen.  Detta görs även i databasen per klient-modellen.
 
-## <a name="h-tenancy-models-compared"></a>H. Innehavare modeller jämfört med
+## <a name="i-tenancy-models-compared"></a>I. Innehavare modeller jämfört med
 
 I följande tabell sammanfattas skillnaderna mellan de huvudsakliga innehavare modellerna.
 
-| Mätning | Fristående app | Databasen per klient | Delat flera innehavare |
+| Mått | Fristående app | Databasen per klient | Delat flera innehavare |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Skala | Medel<br />1-100-tal | Mycket hög<br />100 1-000-tal | Obegränsat<br />1 1,000,000s |
 | Klientisolering | Mycket hög | Hög | Låg; Förutom alla singleton-klient (det är enbart i en Huvudmålservern db). |

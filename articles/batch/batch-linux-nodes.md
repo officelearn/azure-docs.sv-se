@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801770"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux compute-noder i Batch-pooler
 
@@ -38,7 +39,7 @@ En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräknings
 **Konfiguration av virtuell dator** innehåller både Linux och Windows-avbildningar för compute-noder. Tillgängliga compute-nod storlekar listas i [storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) och [storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). När du skapar en pool som innehåller konfiguration av virtuell dator noder måste du ange storleken på noderna, bildreferens virtuell dator och Batch nod agenten SKU installeras på noderna.
 
 ### <a name="virtual-machine-image-reference"></a>Bildreferens för virtuell dator
-Batch-tjänsten används [skalningsuppsättningar i virtuella](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för att tillhandahålla Linux compute-noder. Du kan ange en bild från den [Azure Marketplace][vm_marketplace], eller ange en anpassad avbildning som du har förberett. Mer information om anpassade avbildningar finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md#pool).
+Batch-tjänsten används [skalningsuppsättningar i virtuella](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) att tillhandahålla beräkningsnoder i konfigurationen av den virtuella datorn. Du kan ange en bild från den [Azure Marketplace][vm_marketplace], eller ange en anpassad avbildning som du har förberett. Mer information om anpassade avbildningar finns [skapa en pool med en anpassad avbildning](batch-custom-images.md).
 
 När du konfigurerar en virtuell dator en bildreferens kan ange du egenskaperna för den virtuella datoravbildningen. När du skapar en virtuell dator bildreferens krävs följande egenskaper:
 
@@ -57,9 +58,9 @@ När du konfigurerar en virtuell dator en bildreferens kan ange du egenskaperna 
 ### <a name="node-agent-sku"></a>Noden agent SKU
 Agent för Batch-nod är ett program som körs på varje nod i poolen och ger och kommandokontroll gränssnittet mellan noden och Batch-tjänsten. Det finns olika implementeringar av agenten nod kallas SKU: er, för olika operativsystem. I princip när du skapar en konfiguration av virtuell dator du första ange bildreferens virtuella datorn och ange sedan noden agenten att installera avbildningen. Normalt varje nod agent SKU är kompatibel med flera virtuella avbildningar. Här följer några exempel på noden agent SKU: er:
 
-* batch.node.ubuntu 14.04
+* batch.node.Ubuntu 14.04
 * batch.node.centos 7
-* batch.node.windows amd64
+* batch.node.Windows amd64
 
 > [!IMPORTANT]
 > Inte alla virtuella avbildningar som är tillgängliga i Marketplace är kompatibla med de tillgängliga Batch nod agenterna. Använda Batch-SDK: er för att visa tillgängliga noden agenten SKU: er och virtuella avbildningar som de är kompatibla. Finns det [lista virtuella avbildningar](#list-of-virtual-machine-images) senare i den här artikeln för mer information och exempel på hur du hämtar en lista över giltiga bilder vid körning.
@@ -145,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Skapa en pool med Linux: Batch .NET
-Följande kodavsnitt visar ett exempel på hur du använder den [Batch .NET] [ nuget_batch_net] klientbiblioteket för att skapa en pool med Ubuntu Server compute-noder. Du hittar den [Batch .NET referensdokumentationen] [ api_net] på MSDN.
+Följande kodavsnitt visar ett exempel på hur du använder den [Batch .NET] [ nuget_batch_net] klientbiblioteket för att skapa en pool med Ubuntu Server compute-noder. Du hittar den [Batch .NET referensdokumentationen] [ api_net] på docs.microsoft.com.
 
 I följande kod fragment används den [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] metoden att välja från listan över för närvarande stöds Marketplace-avbildning och noden agent SKU kombinationer. Den här tekniken är önskvärt eftersom listan över kombinationer som stöds kan då förändras. Oftast läggs kombinationer som stöds.
 
@@ -206,7 +207,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lista över avbildningar av virtuella datorer
-I följande tabell visas de virtuella datorn Marketplace-bilder som är kompatibla med de tillgängliga Batch nod agenterna när den här artikeln senast uppdaterades. Det är viktigt att Observera att den här listan inte är slutgiltig eftersom bilder och nod-agenter kan läggas till eller tas bort när som helst. Vi rekommenderar att dina Batch-program och tjänster alltid använder [list_node_agent_skus] [ py_list_skus] (Python) och [ListNodeAgentSkus] [ net_list_skus] (Batch .NET) om du vill fastställa och välja bland tillgängliga SKU: er.
+I följande tabell visas de virtuella datorn Marketplace-bilder som är kompatibla med de tillgängliga Batch nod agenterna när den här artikeln senast uppdaterades. Det är viktigt att Observera att den här listan inte är slutgiltig eftersom bilder och nod-agenter kan läggas till eller tas bort när som helst. Vi rekommenderar att dina Batch-program och tjänster alltid använder [list_node_agent_skus] [ py_list_skus] (Python) eller [ListNodeAgentSkus] [ net_list_skus] () Batch .NET) vill fastställa och välja bland tillgängliga SKU: er.
 
 > [!WARNING]
 > I följande lista kan ändras när som helst. Använd alltid den **lista nod agent SKU** metoder som är tillgängliga i Batch-API: er för lista över kompatibla virtuella datorn och noden agent SKU: er när du kör Batch-jobb.
@@ -215,26 +216,33 @@ I följande tabell visas de virtuella datorn Marketplace-bilder som är kompatib
 
 | **Utgivare** | **Erbjudande** | **Bild SKU** | **Version** | **Noden agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | senaste | batch.node.ubuntu 16.04 |
+| batch | återgivning centos73 | Återgivning | senaste | batch.node.centos 7 |
+| batch | återgivning windows2016 | Återgivning | senaste | batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | senaste | batch.node.Ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.Ubuntu 14.04 |
+| credativ | Debian | 9 | senaste | batch.node.debian 9 |
 | credativ | Debian | 8 | senaste | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | senaste | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | senaste | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | senaste | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | senaste | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | senaste | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.2 | senaste | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | senaste | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | senaste | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | senaste | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12-SP1 | senaste | batch.node.opensuse 42.1 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | senaste | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | senaste | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | senaste | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | senaste | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter med behållare | senaste | batch.node.windows amd64 |
+| microsoft-ads | standard-data-vetenskap-vm | standard-data-vetenskap-vm | senaste | batch.node.Windows amd64 |
+| Microsoft azure batch | centos-behållare | 7-4 | senaste | batch.node.centos 7 |
+| Microsoft azure batch | rdma-centos-behållare | 7-4 | senaste | batch.node.centos 7 |
+| Microsoft azure batch | Ubuntu server behållare | 16-04-lts | senaste | batch.node.Ubuntu 16.04 |
+| Microsoft azure batch | Ubuntu-server-behållaren-rdma | 16-04-lts | senaste | batch.node.Ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter med behållare | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2 SP1-smalldisk | senaste | batch.node.Windows amd64 |
+| OpenLogic | CentOS | 7.4 | senaste | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | senaste | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | senaste | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | senaste | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | senaste | batch.node.centos 7 |
+| SUSE | SLES HPC | 12-SP2 | senaste | batch.node.OpenSuSE 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Anslut till Linux-noder via SSH
 Under utveckling eller vid felsökning kan det vara nödvändigt att logga in på noderna i din pool. Du kan inte använda Remote Desktop Protocol (RDP) till skillnad från Windows compute-noder för att ansluta till Linux-noder. Batch-tjänsten kan i stället SSH-åtkomst på varje nod för fjärranslutning.

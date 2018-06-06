@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 57455c5abf8c566f3935ece73d0b7470863936f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699157"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användaren tilldelas hanterade tjänsten identitet (MSI) på en Windows-VM för att komma åt Azure Resource Manager
 
@@ -79,8 +80,7 @@ New-AzureRmVm `
 
 En användare som tilldelats identitet skapas som en fristående Azure-resurs. Med hjälp av den [ny AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure skapar en identitet i Azure AD-klienten som kan tilldelas till en eller flera instanser av Azure-tjänsten.
 
-> [!IMPORTANT]
-> Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
@@ -171,4 +171,7 @@ Svaret innehåller den specifika resursgruppen informationen liknar följande ex
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
+I kursen får du har lärt dig hur du skapar en användare som tilldelats identitet och kopplar den till en Azure virtuell dator åtkomst till Azure Resource Manager API.  Om du vill veta mer om Azure Resource Manager, se:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera PremiumV2 nivå för Azure App Service | Microsoft Docs"
-description: "Lär dig hur du bättre prestanda för webb-, mobil- och API-app i Azure App Service genom att skala till nya PremiumV2 prisnivån."
+title: Konfigurera PremiumV2 nivå för Azure App Service | Microsoft Docs
+description: Lär dig hur du bättre prestanda för webb-, mobil- och API-app i Azure App Service genom att skala till nya PremiumV2 prisnivån.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714569"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2 nivå för Azure App Service
 
@@ -51,9 +52,9 @@ Prisnivån för App Service-appen definieras i den [programtjänstplanen](azure-
 
 När du konfigurerar App Service-plan i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>väljer **prisnivå**. 
 
-Välj något av de **PremiumV2** alternativ och klickar på **Välj**.
+Välj **produktion**och välj **P1V2**, **P2V2**, eller **P3V2**, klicka på **tillämpa**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, antingen **PremiumV2** är inte tillgängligt i din region väljer, eller om du är Konfigurera en Linux App Service-plan som inte stöder **PremiumV2**.
@@ -70,7 +71,7 @@ I det vänstra navigeringsfönstret på Apptjänst appsidan Välj **skala upp (a
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Välj något av de **PremiumV2** storlekar och klicka sedan på **Välj**.
+Välj **produktion**och välj **P1V2**, **P2V2**, eller **P3V2**, klicka på **tillämpa**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

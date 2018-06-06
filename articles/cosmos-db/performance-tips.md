@@ -5,20 +5,17 @@ keywords: hur du förbättrar databasens prestanda
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715028"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -40,27 +37,28 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt observerade klientens svarstid. Det finns två viktiga konfigurationsinställningar för att konfigurera klienten anslutningsprincip – anslutningen *läge* och [anslutning *protokollet*](#connection-protocol).  De två lägena finns:
 
-   1. Gateway-läge (standard)
+   * Gateway-läge (standard)
       
-      Gateway-läge stöds på alla SDK-plattformar och är konfigurerad som standard. Om programmet körs i ett företagsnätverk med strikt brandväggsbegränsningar, är Gateway-läge det bästa valet eftersom den använder standardporten för HTTPS och en enda slutpunkt. Förhållandet prestanda är dock att Gateway-läge innebär ett hopp ytterligare nätverk varje gång data har lästs eller skrivits till Azure Cosmos DB. Därmed ger direkt läge bättre prestanda på grund av färre nätverkshopp.
+     Gateway-läge stöds på alla SDK-plattformar och är konfigurerad som standard. Om programmet körs i ett företagsnätverk med strikt brandväggsbegränsningar, är Gateway-läge det bästa valet eftersom den använder standardporten för HTTPS och en enda slutpunkt. Förhållandet prestanda är dock att Gateway-läge innebär ett hopp ytterligare nätverk varje gång data har lästs eller skrivits till Azure Cosmos DB. Därmed ger direkt läge bättre prestanda på grund av färre nätverkshopp.
 
-   2. Direkt-läge
+   * Direkt-läge
 
-     Direkt läge stöder anslutningar via TCP- och HTTPS-protokoll. För närvarande stöds direkt i .NET Standard 2.0 för Windows-plattformen.
-      
-<a id="use-tcp"></a>
-2. **Anslutningsprincip: använda TCP-protokollet**
+     Direkt läge stöder anslutningar via TCP- och HTTPS-protokoll. För närvarande stöds direkt i .NET Standard 2.0 för Windows-plattformen. När du använder direkt läge, finns det två tillgängliga protokollalternativ:
 
-    När du använder direkt läge, finns det två tillgängliga protokollalternativ:
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    När du använder Gateway-läge, Azure Cosmos DB använder port 443 MongoDB-API används 10250, 10255 och 10256 portar. 10250 port mappar till en standardinstans Mongodb utan geo-replikering och 10255/10256 portar mappa till Mongodb-instansen med funktioner för geo-replikering. När du använder TCP i direkt läge, förutom portarna som Gateway, måste du kontrollera porten intervallet mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar. Om dessa portar inte är öppna och försök att använda TCP, felmeddelandet 503 tjänsten är inte tillgänglig. I följande tabell visas anslutningen lägen som är tillgängliga för olika API: er och portar tjänstanvändaren för varje API:
 
-     Azure Cosmos-DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom erbjuder en effektiv TCP-protokoll som är också RESTful i dess kommunikation modell och är tillgänglig via .NET klient-SDK. Använda SSL för första autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
+    |Anslutningsläge  |Protokoll som stöds  |SDK: er som stöds  |API-tjänsten-port  |
+    |---------|---------|---------|---------|
+    |Gateway  |   HTTPS    |  Alla SDK    |   SQL(443) Mongo (10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Direkt    |    HTTPS     |  .NET och Java SDK    |    SQL(443)   |
+    |Direkt    |     TCP    |  .NET SDK    | Portar i 10 000 – 20 000 intervall |
 
-     När du använder TCP i Gateway-läge, TCP-Port 443 är Azure DB som Cosmos-port och 10255 är MongoDB API-port. När du använder TCP i direkt läge, förutom portarna som Gateway, måste du kontrollera porten intervallet mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar. Om dessa portar inte är öppna och försök att använda TCP, felmeddelandet 503 tjänsten är inte tillgänglig.
+    Azure Cosmos-DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom erbjuder en effektiv TCP-protokoll som är också RESTful i dess kommunikation modell och är tillgänglig via .NET klient-SDK. Använda SSL för första autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 
-     Anslutningsläget konfigureras under konstruktion av DocumentClient-instans med parametern ConnectionPolicy. Om direkt läge används, kan du också ange protokollet i parametern ConnectionPolicy.
+    Anslutningsläget konfigureras under konstruktion av DocumentClient-instans med parametern ConnectionPolicy. Om direkt läge används, kan du också ange protokollet i parametern ConnectionPolicy.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -77,19 +75,19 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     ![Bild av principen för Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
-3. **Anropa OpenAsync för att undvika Start svarstid på förfrågan**
+2. **Anropa OpenAsync för att undvika Start svarstid på förfrågan**
 
     Den första begäranden har en högre latens eftersom den har att hämta adressen routningstabellen som standard. Om du vill undvika det här Start fördröjning den första begäran bör du anropa OpenAsync() en gång under initieringen på följande sätt.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Samordna klienter i samma Azure-region för prestanda**
+3. **Samordna klienter i samma Azure-region för prestanda**
 
     När det är möjligt placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos-DB-databas. Anrop till Azure Cosmos DB inom samma region som utför inom 1 – 2 ms för en ungefärlig jämförelse, men fördröjning mellan Väst och av USA: S > 50 ms. Den här fördröjningen kan förmodligen variera från begäran till begäran beroende på vägen som begäran när det överförs från klienten till den Azure datacenter-gränsen. Lägsta möjliga tidsfördröjning uppnås genom att säkerställa att det anropande programmet finns i samma Azure-region som etablerade Azure DB som Cosmos-slutpunkt. En lista över tillgängliga regioner, se [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
     ![Bild av principen för Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Öka antalet trådar/uppgifter**
+4. **Öka antalet trådar/uppgifter**
 
     Eftersom anrop till Azure Cosmos DB görs över nätverket, kan du behöva variera grad av parallellitet med dina begäranden så att klientprogrammet använder mycket lite tid att vänta mellan begäranden. Till exempel om du använder. NET'S [parallella Uppgiftsbibliotek](https://msdn.microsoft.com//library/dd460717.aspx), skapa i 100-tal uppgifter läsning eller skrivning till Azure Cosmos DB.
 

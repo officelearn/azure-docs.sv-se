@@ -1,20 +1,21 @@
 ---
 title: Anpassa Användargränssnittet för en användare resa med anpassade principer | Microsoft Docs
-description: Lär dig mer om Azure Active Directory B2C anpassade principer
+description: Läs mer om Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0980c79ccd9ebd170e747514bba712c498e1387c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711917"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användare resa med anpassade principer
 
@@ -139,10 +140,10 @@ I följande tabell beskrivs syftet med de föregående HTML5-sidorna.
 
 | HTML5-mall | Beskrivning |
 |----------------|-------------|
-| *phonefactor.html* | Den här sidan kan användas som en mall för en multifaktorautentiseringssidan. |
+| *phonefactor.HTML* | Den här sidan kan användas som en mall för en multifaktorautentiseringssidan. |
 | *resetpassword.html* | Den här sidan kan användas som en mall för en glömt lösenord. |
 | *selfasserted.html* | Den här sidan kan användas som en mall för ett konto för sociala registrering sida, ett lokalt konto registrering eller ett lokalt konto-inloggningssida. |
-| *unified.html* | Den här sidan kan användas som en mall för en enhetlig registrering eller inloggning sida. |
+| *Unified.HTML* | Den här sidan kan användas som en mall för en enhetlig registrering eller inloggning sida. |
 | *updateprofile.html* | Den här sidan kan användas som en mall för en uppdatering profilsida. |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Lägga till en länk i HTML5/CSS-mallar för att dina användare resa
@@ -156,15 +157,15 @@ Följande tabell beskriver uppsättningen innehåll Definitions-ID som identifie
 | Innehålls-ID: N | Beskrivning |
 |-----------------------|-------------|
 | *api.error* | **Felsidan**. Den här sidan visas när ett undantagsfel eller ett fel har påträffats. |
-| *api.idpselections* | **Identity-providern på sidan**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja från under inloggningen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare). |
-| *api.idpselections.signup* | **Identitet providern val för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare). |
+| *API.idpselections* | **Identity-providern på sidan**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja från under inloggningen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare). |
+| *API.idpselections.Signup* | **Identitet providern val för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja bland under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-adress eller användare). |
 | *api.localaccountpasswordreset* | **Har du glömt lösenordssidan**. Den här sidan innehåller ett formulär med användaren att fylla för att initiera sina återställning av lösenord.  |
-| *api.localaccountsignin* | **Lokalt konto inloggningssidan**. Den här sidan innehåller en inloggning formulär med användaren att fylla i när du loggar in med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textruta och inmatningsfält för lösenord. |
-| *api.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användaren har för att fylla i när du registrerar dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel textrutan inmatningsfält för lösenord, knappen, enkelval listrutorna och välja flera kryssrutor. |
-| *api.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
+| *API.localaccountsignin* | **Lokalt konto inloggningssidan**. Den här sidan innehåller en inloggning formulär med användaren att fylla i när du loggar in med ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla en textruta och inmatningsfält för lösenord. |
+| *API.localaccountsignup* | **Lokalt konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användaren har för att fylla i när du registrerar dig för ett lokalt konto som baseras på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika inkommande kontroller, till exempel textrutan inmatningsfält för lösenord, knappen, enkelval listrutorna och välja flera kryssrutor. |
+| *API.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
 | *api.selfasserted* | **Sociala konto registreringssidan**. Den här sidan innehåller en registreringsformuläret som användaren har för att fylla i när du loggar in med ett befintligt konto från en sociala identitetsleverantören, till exempel Facebook eller Google +. Den här sidan liknar föregående sociala konto registreringssidan med undantag för transaktionen lösenordsfält. |
 | *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sin profil. Den här sidan liknar föregående sociala konto registreringssidan med undantag för transaktionen lösenordsfält. |
-| *api.signuporsignin* | **Enhetlig registrering eller inloggning sidan**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
+| *API.signuporsignin* | **Enhetlig registrering eller inloggning sidan**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
 
 ## <a name="next-steps"></a>Nästa steg
 [Referens: Förstå hur anpassade principer arbeta med Identity upplevelse ramverk i B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

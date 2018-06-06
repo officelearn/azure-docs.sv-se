@@ -1,13 +1,14 @@
 ---
-title: "Microsoft Graph för Azure Active Directory identitetsskydd | Microsoft Docs"
-description: "Lär dig hur man frågar Microsoft Graph en lista över riskhändelser och tillhörande information från Azure Active Directory."
+title: Microsoft Graph för Azure Active Directory identitetsskydd | Microsoft Docs
+description: Lär dig hur man frågar Microsoft Graph en lista över riskhändelser och tillhörande information från Azure Active Directory.
 services: active-directory
-keywords: azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph
-documentationcenter: 
+keywords: Azure active directory identitetsskydd, risk händelse, säkerhetsproblem, säkerhetsprinciper, Microsoft Graph
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713209"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 Microsoft Graph är Microsoft unified API-slutpunkt och hem för [Azure Active Directory Identity Protection](active-directory-identityprotection.md) API: er. Det första API **identityRiskEvents**, kan du fråga Microsoft Graph en lista över [riskerar händelser](active-directory-identityprotection-risk-events-types.md) och tillhörande information. Den här artikeln hjälper dig att komma igång frågar detta API. En detaljerad introduktion, fullständig dokumentation och åtkomst till diagrammet Explorer finns på [Microsoft Graph plats](https://graph.microsoft.io/).
@@ -171,7 +173,7 @@ För att anropa API: et, skapar du en rubrik med följande parameter:
 
 När autentisering, hittar du tokentypen och åtkomst-token i den returnerade token.
 
-Skicka detta huvud som en begäran till följande API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
+Skicka detta huvud som en begäran till följande API-URL: `https://graph.microsoft.com/beta/identityRiskEvents`
 
 Svaret, är om det lyckas, en samling av riskhändelser identitet och associerade data i OData JSON-format, som kan parsas och hanteras som du vill.
 
@@ -224,5 +226,5 @@ Mer information finns i:
 
 - [Översikt över Microsoft Graph](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD Identity Protection Service rot](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 

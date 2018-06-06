@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714637"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Konfigurera en virtuell dator skaluppsättning hanteras Service identitet (MSI) med hjälp av Azure CLI
 
@@ -119,8 +120,7 @@ Det här avsnittet vägleder dig genom att skapa en VMSS och tilldelning av en a
 
 2. Skapa en användare som tilldelats identitet med hjälp av [az identitet skapa](/cli/azure/identity#az-identity-create).  Den `-g` parametern anger resursgruppen där användaren som har tilldelats identitet skapas och `-n` parametern anger dess namn. Se till att ersätta den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med egna värden:
 
-    > [!IMPORTANT]
-    > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -176,10 +176,10 @@ Svaret innehåller information för den tilldelade användaridentitet skapade li
    }
    ```
 
-2. Tilldela användaridentitet tilldelad till VMSS med hjälp av [az vmss identitet tilldela](/cli/azure/vmss/identity#az_vm_assign_identity). Se till att ersätta den `<RESOURCE GROUP>` och `<VM NAME>` parametervärden med egna värden. Den `<USER ASSIGNED IDENTITY ID>` kommer att identiteten för användare som är tilldelad resursen `id` egenskapen som du skapade i föregående steg:
+2. Tilldela användaridentitet tilldelad till VMSS med hjälp av [az vmss identitet tilldela](/cli/azure/vmss/identity#az_vm_assign_identity). Se till att ersätta den `<RESOURCE GROUP>` och `<VMSS NAME>` parametervärden med egna värden. Den `<USER ASSIGNED IDENTITY ID>` kommer att identiteten för användare som är tilldelad resursen `id` egenskapen som du skapade i föregående steg:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Ta bort en användare som tilldelats identitet från en Azure-VMSS
@@ -187,15 +187,15 @@ Svaret innehåller information för den tilldelade användaridentitet skapade li
 > [!NOTE]
 >  Ta bort alla användartilldelade identiteter från en Virtual Machine Scale Set stöds för närvarande inte, såvida du inte har ett system som tilldelats identitet. 
 
-Om din VMSS har flera tilldelade användaridentiteter, du kan ta bort alla utom den senaste en med hjälp av [az vmss identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Se till att ersätta den `<RESOURCE GROUP>` och `<VM NAME>` parametervärden med egna värden. Den `<MSI NAME>` är identiteten för användaren som har tilldelats egenskapen name, som finns med i identitetsavsnittet i den virtuella datorn med hjälp av `az vm show`:
+Om din VMSS har flera tilldelade användaridentiteter, du kan ta bort alla utom den senaste en med hjälp av [az vmss identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Se till att ersätta den `<RESOURCE GROUP>` och `<VMSS NAME>` parametervärden med egna värden. Den `<MSI NAME>` är identiteten för användaren som har tilldelats egenskapen name, som finns med i identitetsavsnittet i den virtuella datorn med hjälp av `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 Om din VMSS har både system som har tilldelats och användaren som har tilldelats identiteter kan du ta bort alla användaren som har tilldelats identiteter genom att använda endast de system som har tilldelats. Ange följande kommando: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>Nästa steg

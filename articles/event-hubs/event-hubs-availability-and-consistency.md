@@ -1,11 +1,11 @@
 ---
-title: "Tillgänglighet och konsekvens i Händelsehubbar i Azure | Microsoft Docs"
-description: "Så här ger maximal mängd tillgänglighet och konsekvens med Händelsehubbar i Azure med hjälp av partitioner."
+title: Tillgänglighet och konsekvens i Händelsehubbar i Azure | Microsoft Docs
+description: Så här ger maximal mängd tillgänglighet och konsekvens med Händelsehubbar i Azure med hjälp av partitioner.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
 ms.devlang: na
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e119406292ca1d805f831bc65e3ae6e583147c6d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700697"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Händelsehubbar
 
 ## <a name="overview"></a>Översikt
 Händelsehubbar i Azure använder en [partitionering modellen](event-hubs-features.md#partitions) för bättre tillgänglighet och parallellisering inom en enskild händelsehubb. Till exempel om en händelsehubb har fyra partitioner och en av dessa partitioner flyttas från en server till en annan i en åtgärd för belastningsutjämning, du fortfarande skicka och ta emot från tre partitioner. Dessutom kan med fler partitioner du behöva flera samtidiga läsare bearbetning av dina data, förbättra din sammanställda genomflöde. Förstå konsekvenserna av att partitionering och ordning i ett distribuerat system är en kritisk del av lösningen.
 
-För att visa en kompromiss mellan ordning och tillgänglighet, finns det [CAP-sats](https://en.wikipedia.org/wiki/CAP_theorem), även kallad Brewers-sats. Den här sats beskrivs valet mellan konsekvens, tillgänglighet och tolerans för partitionen.
+För att visa en kompromiss mellan ordning och tillgänglighet, finns det [CAP-sats](https://en.wikipedia.org/wiki/CAP_theorem), även kallad Brewers-sats. Den här sats beskrivs valet mellan konsekvens, tillgänglighet och tolerans för partitionen. Det tillstånd som för de system som har partitionerats med nätverket finns alltid förhållandet mellan konsekvens och tillgänglighet.
 
 Brewers sats definierar konsekvens och tillgänglighet på följande sätt:
 * Partitionera tolerans: möjlighet för databearbetning systemet fortsätta databearbetning, även om en partition fel inträffar.
@@ -36,7 +37,7 @@ Brewers sats definierar konsekvens och tillgänglighet på följande sätt:
 Händelsehubbar är byggt på en partitionerad datamodell. Du kan konfigurera antalet partitioner i din event hub under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med Händelsehubbar, måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
 
 ## <a name="availability"></a>Tillgänglighet
-Det enklaste sättet att komma igång med Händelsehubbar är att använda standardinställningen. Om du skapar en ny  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  objekt och använda den  **[skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  metoden händelserna automatiskt distribueras mellan partitioner i din event hub. Detta gör att störst upptid.
+Det enklaste sättet att komma igång med Händelsehubbar är att använda standardinställningen. Om du skapar en ny **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** objekt och använda den **[skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** metoden händelserna automatiskt distribueras mellan partitioner i din event hub. Detta gör att störst upptid.
 
 Den här modellen är prioriterade för användningsområden som kräver högsta tid.
 

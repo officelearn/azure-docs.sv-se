@@ -1,29 +1,25 @@
 ---
-title: "Växla instruktioner - kör steg baserat på specifika värden - Azure Logic Apps | Microsoft Docs"
-description: "Kör olika steg baserat på värdena från objekt, uttryck eller variabler i logikappar"
+title: Lägga till växeln instruktioner till arbetsflöden - Azure Logic Apps | Microsoft Docs
+description: Så här skapar du switch-satser som styr arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
 services: logic-apps
-keywords: Switch-instruktionen
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2ffac49d14e05ff252d6cd0e90fc23d77ac0caff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726082"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Växla instruktioner: köra olika steg baserat på specifika värden i logikappar
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa växeln instruktioner som kör arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
 
-Använd för att utföra olika steg baserat på värdena i ett objekt, uttryck eller token en *växla* instruktionen. Den här strukturen utvärderar objektet, uttryck eller token, väljer fallet som matchar resultatet och kör steg för endast detta. När switch-instruktionen körs ska bara ett fall matcha resultatet.
+Om du vill köra specifika åtgärder baserat på värdena för objekt, uttryck eller token, lägger du till en *växla* instruktionen. Den här strukturen utvärderar objektet, uttryck eller token, väljer fallet som matchar resultatet och kör specifika åtgärder endast för detta. När switch-instruktionen körs ska bara ett fall matcha resultatet.
 
 Anta att du vill använda en logikapp som tar olika steg baserat på ett alternativ som valts i e-post. I det här exemplet kontrollerar logikappen webbplatsens RSS-feed för nytt innehåll. När ett nytt objekt visas i RSS-feeden skickar logikappen e-postmeddelande till en godkännare. Baserat på om godkännaren väljer ”Godkänn” eller ”ignorera”, följer logikappen olika steg.
 
@@ -70,7 +66,7 @@ Anta att du vill använda en logikapp som tar olika steg baserat på ett alterna
    |:------ |:-------------------|:------ |
    | Fall 1 | **Godkänn** | Lägg till Outlook **skickar ett e-** åtgärd för att skicka information om RSS-objektet som endast när godkännaren valts **Godkänn**. |
    | Fall 2 | **Avvisa** | Lägg till Outlook **skickar ett e-** åtgärd för att meddela andra godkännare att RSS-objektet avvisades. |
-   | Standard | \<none\> | Ingen åtgärd krävs. I det här exemplet i **standard** fallet är tom eftersom **SelectedOption** har bara två alternativ. |
+   | Standard | \<Ingen\> | Ingen åtgärd krävs. I det här exemplet i **standard** fallet är tom eftersom **SelectedOption** har bara två alternativ. |
    |         |          |
 
    ![Switch-instruktionen](./media/logic-apps-control-flow-switch-statement/switch.png)

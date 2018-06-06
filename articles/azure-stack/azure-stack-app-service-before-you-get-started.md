@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796741"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
 
@@ -330,7 +331,7 @@ Följ de här stegen:
 | AdminArmEndpoint | Krävs | Null | Admin Azure Resource Manager-slutpunkt. Ett exempel är adminmanagement.local.azurestack.external. |
 | TenantARMEndpoint | Krävs | Null | Klient Azure Resource Manager-slutpunkt. Ett exempel är management.local.azurestack.external. |
 | AzureStackAdminCredential | Krävs | Null | Azure AD-tjänsten admin autentiseringsuppgifter. |
-| CertificateFilePath | Krävs | Null | Sökvägen till filen identitet programmet certifikatet skapats tidigare. |
+| CertificateFilePath | Krävs | Null | **Fullständig sökväg** till identitet programmet certifikatfilen skapats tidigare. |
 | CertificatePassword | Krävs | Null | Lösenordet som hjälper dig att skydda den privata nyckeln för certifikatet. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Skapa ett Active Directory Federation Services-program
@@ -364,7 +365,7 @@ Följ de här stegen:
 | AdminArmEndpoint | Krävs | Null | Admin Azure Resource Manager-slutpunkt. Ett exempel är adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Krävs | Null | Privilegierade slutpunkt. Ett exempel är AzS ERCS01. |
 | CloudAdminCredential | Krävs | Null | Konto-domänautentiseringsuppgifterna för Azure-stacken molnet administratörer. Ett exempel är Azurestack\CloudAdmin. |
-| CertificateFilePath | Krävs | Null | Sökvägen till programmet identitet certifikatets PFX-fil. |
+| CertificateFilePath | Krävs | Null | **Fullständig sökväg** till programmet identitet certifikatets PFX-fil. |
 | CertificatePassword | Krävs | Null | Lösenordet som hjälper dig att skydda den privata nyckeln för certifikatet. |
 
 ## <a name="next-steps"></a>Nästa steg

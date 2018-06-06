@@ -1,29 +1,25 @@
 ---
-title: "Parallella grenar – Azure Logic Apps | Microsoft Docs"
-description: Skapa eller Anslut till parallella grenar i logikappar
+title: Skapa eller Anslut till parallella grenar - Azure Logic Apps | Microsoft Docs
+description: Skapa eller Anslut parallella grenar för arbetsflöden i Azure Logic Apps
 services: logic-apps
-keywords: filialer, parallell bearbetning
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 40af32b1618ee495cff82ed0a588ad620b759e96
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725555"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>Skapa eller Anslut till parallella grenar i din logikapp
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut till parallella grenar för arbetsflödesåtgärder i Azure Logic Apps
 
-Som standard körs åtgärder i en logikapp sekventiellt. Om du vill utföra oberoende åtgärder på samma gång, kan du skapa [parallella grenar](#parallel-branches), och sedan [ansluta dessa grenar](#join-branches) senare i din flödet. 
+Som standard körs dina åtgärder i logik app arbetsflöden sekventiellt. Om du vill utföra oberoende åtgärder på samma gång, kan du skapa [parallella grenar](#parallel-branches), och sedan [ansluta dessa grenar](#join-branches) senare i din flödet. 
 
 > [!TIP] 
 > Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje matris-objekt, kan du *debatch* att matris med de [ **SplitOn** utlösa egenskapen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).

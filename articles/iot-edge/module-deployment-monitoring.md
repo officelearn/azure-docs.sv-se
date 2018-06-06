@@ -1,19 +1,19 @@
 ---
 title: Distribuera moduler för Azure IoT kant | Microsoft Docs
 description: Lär dig mer om hur moduler distribueras till enheter
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725334"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Förstå IoT kant distributioner för enstaka enheter eller i skala - förhandsgranskning
 
@@ -25,7 +25,7 @@ Azure IoT-gränsenheterna följer en [enhetslivscykeln] [ lnk-lifecycle] som lik
 
 Azure IoT-Edge tillhandahåller två sätt att konfigurera modulerna som körs på enheter som IoT: en för utveckling och snabb iterationer på en enskild enhet (som du använde i Azure IoT kant självstudier) och en för att hantera stora fordonsflottor kant för IoT-enheter. Båda dessa metoder är tillgängliga i Azure-portalen och genom programmering.
 
-Den här artikeln fokuserar på konfiguration och övervakning faser för flottor av enheterna, vilket gemensamt kallas för IoT kant-distributioner. Övergripande stegen för distributionen är följande:   
+Den här artikeln fokuserar på konfiguration och övervakning faser för flottor av enheterna, vilket gemensamt kallas för IoT kant automatiska uppdateringar. Övergripande stegen för distributionen är följande:   
 
 1. En operator definierar en distribution som beskriver en uppsättning moduler samt målenheter. Varje distribution har en distributionsmanifestet som visar den här informationen. 
 1. Tjänsten IoT-hubb kommunicerar med alla målriktade enheter att konfigurera dem med de önskade modulerna. 
@@ -36,7 +36,7 @@ Den här artikeln beskriver hur varje komponent som ingår i konfigurering och �
 
 ## <a name="deployment"></a>Distribution
 
-En distribution tilldelar IoT kant modulen bilder att köras som instanser på en riktad uppsättning kant för IoT-enheter. Det fungerar genom att konfigurera en IoT-Edge distributionsmanifestet om du vill inkludera en lista med moduler med motsvarande initieringsparametrar. En distribution kan tilldelas till en enhet (vanligtvis baserat på enhets-Id) eller till en grupp av enheter (baserat på taggar). När en IoT-enhet tar emot en distributionsmanifestet, hämtar och installerar modulen behållaren bilder från respektive behållaren databaser, och konfigurerar den dem i enlighet med detta. När du har skapat en distribution kan operatör övervaka Distributionsstatus om målenheter är korrekt konfigurerad.   
+En automatisk distribution IoT kant tilldelar IoT kant modulen bilder att köras som instanser på en riktad uppsättning kant för IoT-enheter. Det fungerar genom att konfigurera en IoT-Edge distributionsmanifestet om du vill inkludera en lista med moduler med motsvarande initieringsparametrar. En distribution kan tilldelas till en enhet (vanligtvis baserat på enhets-Id) eller till en grupp av enheter (baserat på taggar). När en IoT-enhet tar emot en distributionsmanifestet, hämtar och installerar modulen behållaren bilder från respektive behållaren databaser, och konfigurerar den dem i enlighet med detta. När du har skapat en distribution kan operatör övervaka Distributionsstatus om målenheter är korrekt konfigurerad.   
 
 Enheter måste etableras som IoT-gränsenheterna konfigureras med en distribution. Följande är förutsättningar och ingår inte i distributionen:
 * Det grundläggande operativsystemet

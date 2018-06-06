@@ -1,23 +1,19 @@
 ---
 title: Förstå Azure IoT Hub-enhet till moln messaging | Microsoft Docs
 description: Utvecklare guide - hur du använder enhet till moln-meddelanden med IoT-hubben. Innehåller information om hur du skickar data både telemetri och icke-telemtry routning för att leverera meddelanden.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 261cca7c6830396574943f5e200449f16cb5b4f5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700782"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT-hubb
 
@@ -65,8 +61,8 @@ Den **ConnectionAuthMethod** -egenskapen innehåller ett serialiserat JSON-objek
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```

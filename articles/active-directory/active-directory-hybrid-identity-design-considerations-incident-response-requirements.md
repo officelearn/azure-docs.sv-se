@@ -1,11 +1,11 @@
 ---
-title: "Identitet hybridutformning - kraven på incidentsvar Azure | Microsoft Docs"
-description: "Fastställa funktioner för övervakning och rapportering för hybrididentitetslösning som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och minska potentiella hot"
-documentationcenter: 
+title: Identitet hybridutformning - kraven på incidentsvar Azure | Microsoft Docs
+description: Fastställa funktioner för övervakning och rapportering för hybrididentitetslösning som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och minska potentiella hot
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801066"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställa kraven på incidentsvar för din hybrididentitetslösning
 Stora eller medelstora organisationer troligen har en [säkerhet incidenter](https://technet.microsoft.com/library/cc700825.aspx) för att hjälpa IT vidta åtgärder i enlighet med detta till nivån för incident. Identity management-systemet är en viktig komponent i incidenter processen eftersom den kan användas för att identifiera vem som utförde en specifik åtgärd mot målet. Hybrididentitetslösning måste kunna tillhandahålla övervakning och rapportering funktioner som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och åtgärda ett potentiellt hot. I en typisk incidentsvarsplanen har du följande faser som en del av planen:

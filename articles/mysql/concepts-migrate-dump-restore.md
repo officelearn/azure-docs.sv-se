@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: 9d9b9b5eda110ad7fa66bb99501936dda5d45e52
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737053"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databas till Azure-databas för MySQL med dump och återställning
 Den här artikeln förklarar två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL
@@ -51,6 +52,7 @@ För att optimera prestanda uppmärksamma dessa överväganden när dumpning sto
 -   Använd partitionerade tabeller när det är lämpligt.
 -   Läsa in data parallellt. Undvik att för mycket parallellitet som skulle innebära att du har nått gränsen för en resurs och övervaka resurser med hjälp av mätvärden som är tillgängliga i Azure-portalen. 
 -   Använd den `defer-table-indexes` alternativet i mysqlpump när dumpning databaser, så att skapandet av index uppstår efter tabeller data har lästs in.
+-   Kopiera de säkerhetskopiera filerna till en Azure blobstore och utföra återställningen därifrån som ska vara mycket snabbare än att utföra återställningen via Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Skapa en säkerhetskopia från kommandoraden med hjälp av mysqldump
 Om du vill säkerhetskopiera en befintlig MySQL-databas på den lokala lokal servern eller i en virtuell dator, kör du följande kommando: 
@@ -74,7 +76,6 @@ Att markera specifika tabeller i databasen för att säkerhetskopiera, lista tab
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Om du vill säkerhetskopiera mer än en databas samtidigt använda--databasen växla och visa en lista över databasnamn avgränsade med blanksteg. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>Exportera med PHPMyAdmin
 Om du vill exportera, kan du använda den vanliga verktyget phpMyAdmin som du redan har installerat lokalt i din miljö. Så här exporterar MySQL-databasen med hjälp av PHPMyAdmin:
-- Öppna phpMyAdmin.
-- Välj din databas. Klicka på namnet på databasen i listan till vänster. 
-- Klicka på den **exportera** länk. En ny sida visas att visa dumpning av databasen.
-- Exportera, klicka på den **Markera alla** länk till Välj tabellerna i databasen. 
-- Klicka på alternativ i området för SQL-alternativ. 
-- Klicka på den **Spara som filen** alternativet och motsvarande komprimering och klickar sedan på den **Gå** knappen. En dialogruta visas där du uppmanas att spara filen lokalt.
+1. Öppna phpMyAdmin.
+2. Välj din databas. Klicka på namnet på databasen i listan till vänster. 
+3. Klicka på den **exportera** länk. En ny sida visas att visa dumpning av databasen.
+4. Exportera, klicka på den **Markera alla** länk till Välj tabellerna i databasen. 
+5. Klicka på alternativ i området för SQL-alternativ. 
+6. Klicka på den **Spara som filen** alternativet och motsvarande komprimering och klickar sedan på den **Gå** knappen. En dialogruta visas där du uppmanas att spara filen lokalt.
 
 ## <a name="import-using-phpmyadmin"></a>Importera med hjälp av PHPMyAdmin
 Importera databasen liknar export. Gör följande:
-- Öppna phpMyAdmin. 
-- Klicka på installationssidan phpMyAdmin **Lägg till** att lägga till din Azure-databas för MySQL-servern. Ange anslutningsinformationen och inloggningsinformation.
-- Skapa en korrekt namngiven databas och markera den till vänster på skärmen. Om du vill skriva om den befintliga databasen, klickar du på namnet på databasen, markerar du kryssrutorna bredvid tabellnamnen och väljer **släppa** att ta bort de befintliga tabellerna. 
-- Klicka på den **SQL** länken för att visa sidan där du kan skriva i SQL-kommandon eller ladda upp din SQL-fil. 
-- Använd den **Bläddra** för att hitta databasfilen. 
-- Klicka på den **Gå** för att exportera säkerhetskopieringen, köra SQL-kommandon och återskapa din databas.
+1. Öppna phpMyAdmin. 
+2. Klicka på installationssidan phpMyAdmin **Lägg till** att lägga till din Azure-databas för MySQL-servern. Ange anslutningsinformationen och inloggningsinformation.
+3. Skapa en korrekt namngiven databas och markera den till vänster på skärmen. Om du vill skriva om den befintliga databasen, klickar du på namnet på databasen, markerar du kryssrutorna bredvid tabellnamnen och väljer **släppa** att ta bort de befintliga tabellerna. 
+4. Klicka på den **SQL** länken för att visa sidan där du kan skriva i SQL-kommandon eller ladda upp din SQL-fil. 
+5. Använd den **Bläddra** för att hitta databasfilen. 
+6. Klicka på den **Gå** för att exportera säkerhetskopieringen, köra SQL-kommandon och återskapa din databas.
 
 ## <a name="next-steps"></a>Nästa steg
-[Ansluta program till Azure-databas för MySQL](./howto-connection-string.md)
+- [Ansluta program till Azure-databas för MySQL](./howto-connection-string.md).
+- Mer information om hur du migrerar databaser till Azure-databas för MySQL, finns det [databasen Migreringsguide](http://aka.ms/datamigration).

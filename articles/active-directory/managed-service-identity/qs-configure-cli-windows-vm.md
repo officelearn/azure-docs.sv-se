@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 44d1dabdb6a9e5f4b405b876f37daa9097c6e7f8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 09ee4dfc403bf570631f64b0b13d1592a03eed17
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698976"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade tjänsten identitet (MSI) på en virtuell Azure-dator med hjälp av Azure CLI
 
@@ -116,35 +117,34 @@ Det här avsnittet vägleder dig genom att skapa en virtuell dator med tilldelni
 
 2. Skapa en användare som tilldelats identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create).  Den `-g` parametern anger resursgruppen där användaren som har tilldelats identitet skapas och `-n` parametern anger dess namn.    
     
-    > [!IMPORTANT]
-    > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
-    ```azurecli-interactive
-    az identity create -g myResourceGroup -n myUserAssignedIdentity
-    ```
+```azurecli-interactive
+az identity create -g myResourceGroup -n myUserAssignedIdentity
+```
 Svaret innehåller information för den tilldelade användaridentitet skapade liknar följande. Resurs-id-värdet som tilldelas användaren som har tilldelats identitet används i följande steg.
 
-   ```json
-   {
-        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-        "location": "westcentralus",
-        "name": "<MSI NAME>",
-        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-        "resourceGroup": "<RESOURCE GROUP>",
-        "tags": {},
-        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-   }
-   ```
+```json
+{
+    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+    "location": "westcentralus",
+    "name": "<MSI NAME>",
+    "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+    "resourceGroup": "<RESOURCE GROUP>",
+    "tags": {},
+    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+}
+```
 
 3. Skapa en virtuell dator med hjälp av [az vm skapa](/cli/azure/vm/#az_vm_create). I följande exempel skapas en virtuell dator som är associerade med den nya användare som har tilldelats identiteten som anges av den `--assign-identity` parameter. Se till att ersätta den `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, och `<MSI ID>` parametervärden med egna värden. För `<MSI ID>`, använda identiteten för användare som är tilldelad resursen `id` egenskapen skapade i föregående steg: 
 
-   ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
-   ```
+```azurecli-interactive 
+az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Tilldela en användare som tilldelats identitet till en befintlig virtuell Azure-dator
 

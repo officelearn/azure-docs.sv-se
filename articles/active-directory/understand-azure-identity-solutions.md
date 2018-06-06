@@ -9,18 +9,20 @@ ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
 ms.prod: ''
-ms.service: azure
+ms.service: azure-directory
+ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: acd69b6ea4d7a1d5c13cd0172f15b93eac96058e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bdd2138c861e9fd335b1c579c6ab80400777035
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714807"
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
-Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
+Microsoft Azure Active Directory är en molnlösning för identitets- och åtkomsthantering som tillhandahåller katalogtjänster, identitetsstyrning och programåtkomsthantering. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
 
 En enda Azure AD-katalog associeras automatiskt med en Azure-prenumeration när den skapas. Som tjänsten identitet i Azure innehåller Azure AD sedan alla Identitetshantering och access control-funktioner för molnbaserade resurser. Dessa resurser kan innehålla användare, appar och grupper för en enskild klientorganisation (organisation) som visas i följande diagram:
 

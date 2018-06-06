@@ -4,24 +4,25 @@ description: Lär dig hur du registrerar och Avregistrerar en Windows-Server med
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738300"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Hantera registrerade servrar med Azure filsynkronisering (förhandsgranskning)
-Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
+Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
 I följande artikel visar hur du kan registrera och hantera en server med en Storage-synkroniseringstjänsten. Se [hur du distribuerar Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure filsynkronisering slutpunkt till slutpunkt.
 
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Avregistrera servern med synkroniseringstjänsten för lagring
 Det finns flera steg som krävs för att avregistrera en server med en Storage-synkroniseringstjänsten. Låt oss ta en titt på hur du avregistrerar en server korrekt.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Valfritt) Återställa alla nivåindelade data
-När aktiverat för en serverslutpunkt för, molnet lagringsnivåer kommer *nivå* filer till Azure-filresurser. Detta gör att lokala filresurser för att fungera som en cache i stället för en fullständig kopia av datauppsättningen, för att effektivt utnyttja utrymme på filservern. Men om en serverslutpunkt har tagits bort med nivåindelade filer fortfarande lokalt på servern, blir filerna tillgängliga. Därför måste fortsatt åtkomst till filen önskas, du återkalla alla nivåindelade filer från Azure-filer innan du fortsätter med avregistrering. 
+> [!Warning]  
+> Försök inte att felsöka problem med synkronisering, molnbaserad skiktning eller någon aspekt av Azure filsynkronisering av avregistreras och registrera en server, eller ta bort och återskapa server-slutpunkter såvida inte uttryckligen har angett till av en Microsoft-tekniker. Avregistrerar en server och ta bort server slutpunkter är en destruktiva åtgärd och nivåindelade filer i volymer med server-slutpunkter kommer inte ”återanslutas” till deras platser på Azure-filresursen när registrerade servern och server-slutpunkter återskapas, vilket leder synkroniserade fel. Observera också, skiktad filer som finns utanför en slutpunkt namnrymd kan vara förlorade permanent. Nivåindelad filer kan finnas inom server slutpunkter även om molnet skiktning aldrig har aktiverats.
 
-Detta kan göras med hjälp av PowerShell-cmdlet enligt nedan:
+#### <a name="optional-recall-all-tiered-data"></a>(Valfritt) Återställa alla nivåindelade data
+Om du vill att filer som för närvarande nivåer för att vara tillgängliga efter att ta bort Azure filsynkronisering (dvs. Detta är en produktion, inte en test, miljö), kan du återställa alla filer på varje volym som innehåller server-slutpunkter. Inaktivera molnet skiktning för alla slutpunkter för server och kör följande PowerShell-cmdlet:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

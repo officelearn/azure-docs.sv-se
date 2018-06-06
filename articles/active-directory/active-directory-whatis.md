@@ -8,17 +8,19 @@ manager: mtillman
 ms.author: lizross
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: daeda2a44cbfd39cd2b796f9d1fe1327e93bf4aa
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714212"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 Azure Active Directory (AD Azure) är Microsofts flera innehavare, molnbaserad katalog och identity management-tjänsten som kombinerar core katalogtjänster, hantering av åtkomst och identitetsskydd i en enda lösning. Azure AD erbjuder också en omfattande, standardbaserad plattform som gör att utvecklare kan leverera åtkomstkontroll till sina program baserat på centraliserade princip och regler.

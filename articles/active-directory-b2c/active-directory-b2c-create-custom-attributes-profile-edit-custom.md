@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Lägga till egna attribut i anpassade principer och använda i profilen redigera | Microsoft Docs'
-description: En genomgång av använder tilläggsegenskaper, anpassade attribut och inkludera dem i användargränssnittet
+title: Lägga till egna attribut i anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: En genomgång för använder tilläggsegenskaper, anpassade attribut och inkludera dem i användargränssnittet.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: e4dfb92257dca4069905f17e1c3ccd43d87cd45c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710166"
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Skapa och använda anpassade attribut i en anpassad profil redigera principen
 
@@ -54,7 +54,7 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
 1. Ange följande rekommenderade poster:
   * Ange ett namn för webbprogrammet: **WebApp-GraphAPI-DirectoryExtensions**
   * Programtyp: webb-app/API
-  * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+  * URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions inloggning
 1. Välj ** Skapa. Åtgärden lyckades visas i den **meddelanden**
 1. Välj det nyligen skapade webbprogrammet: **WebApp-GraphAPI-DirectoryExtensions**
 1. Välj inställningar: **nödvändiga behörigheter**

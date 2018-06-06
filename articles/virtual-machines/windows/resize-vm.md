@@ -13,43 +13,55 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: d2010ee9017416360069c74118b8ae25e71e1da7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8854f694ce067aaa80a159430a9f48440bcdd95a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701878"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en Windows VM
-Den här artikeln visar hur du ändrar storlek på en Windows-VM som skapats i Resource Manager-distributionsmodellen med hjälp av Azure Powershell.
+
+Den här artikeln visar hur du flyttar en virtuell dator till en annan [VM-storlek](sizes.md) med hjälp av Azure Powershell.
 
 När du har skapat en virtuell dator (VM) kan du skala VM uppåt eller nedåt genom att ändra VM-storlek. I vissa fall måste du frigöra den virtuella datorn först. Detta kan inträffa om den nya storleken inte är tillgänglig på klustret maskinvara som för närvarande är värd för den virtuella datorn.
 
+Om den virtuella datorn använder Premium-lagring, se till att du väljer en **s** version storlek du kan få support för Premium-lagring. Till exempel välja Standard_E4**s**_v3 i stället för Standard_E4_v3.
+
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändra storlek på en Windows-VM inte i en tillgänglighetsuppsättning
-1. Lista över storlek på Virtuella datorer som är tillgängliga på maskinvara klustret där den virtuella datorn finns. 
+
+Ange några variabler. Ersätt värdena med din egen information.
+
+```powershell
+$resourceGroup = "myResourceGroup"
+$vmName = "myVM"
+```
+
+Lista över storlek på Virtuella datorer som är tillgängliga på maskinvara klustret där den virtuella datorn finns. 
    
-    ```powershell
-    Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
-    ```
-2. Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om önskad storlek inte visas kan du gå vidare till steg 3.
+```powershell
+Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+```
+
+Om du vill visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om önskad storlek inte visas kan du gå vidare till steg 3.
    
-    ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
-    $vm.HardwareProfile.VmSize = "<newVMsize>"
-    Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
-    ```
-3. Om önskad storlek inte visas, kör följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn.
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm.HardwareProfile.VmSize = "<newVMsize>"
+Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+```
+
+Om du vill inte visas, kör följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn. Replease **<newVMsize>** med önskad storlek.
    
-    ```powershell
-    $rgname = "<resourceGroupName>"
-    $vmname = "<vmName>"
-    Stop-AzureRmVM -ResourceGroupName $rgname -Name $vmname -Force
-    $vm = Get-AzureRmVM -ResourceGroupName $rgname -Name $vmname
-    $vm.HardwareProfile.VmSize = "<newVMSize>"
-    Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
-    Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
-    ```
+```powershell
+Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm.HardwareProfile.VmSize = "<newVMSize>"
+Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+```
 
 > [!WARNING]
 > Det har frigjorts VM Frigör alla dynamiska IP-adresser som tilldelats den virtuella datorn. Operativsystemet och datadiskarna påverkas inte. 
@@ -57,50 +69,59 @@ När du har skapat en virtuell dator (VM) kan du skala VM uppåt eller nedåt ge
 > 
 
 ## <a name="resize-a-windows-vm-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator i en tillgänglighetsuppsättning
+
 Om den nya storleken för en virtuell dator i en tillgänglighetsuppsättning inte är tillgänglig på maskinvara klustret för närvarande är värd för den virtuella datorn, måste alla virtuella datorer i tillgänglighetsuppsättningen att frigöras om du vill ändra storlek på den virtuella datorn. Du kan behöva uppdatera storleken på andra virtuella datorer i tillgänglighetsuppsättningen när en virtuell dator har storleksändrats. Utför följande steg om du vill ändra en virtuell dator i en tillgänglighetsuppsättning.
 
-1. Lista över storlek på Virtuella datorer som är tillgängliga på maskinvara klustret där den virtuella datorn finns.
+```powershell
+$resourceGroup = "myResourceGroup"
+$vmName = "myVM"
+```
+
+Lista över storlek på Virtuella datorer som är tillgängliga på maskinvara klustret där den virtuella datorn finns. 
    
-    ```powershell
-    Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
-    ```
-2. Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om det inte finns med i listan går du till steg 3.
+```powershell
+Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+```
+
+Om önskad storlek visas kör du följande kommandon för att ändra storlek på den virtuella datorn. Om det inte finns med i listan går du till nästa avsnitt.
    
-    ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
-    $vm.HardwareProfile.VmSize = "<newVmSize>"
-    Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
-    ```
-3. Om önskad storlek inte visas, fortsätter du med följande steg för att frigöra alla virtuella datorer i tillgänglighetsuppsättningen, ändra storlek på virtuella datorer och starta om dem.
-4. Stoppa alla virtuella datorer i tillgänglighetsuppsättningen.
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
+$vm.HardwareProfile.VmSize = "<newVmSize>"
+Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+```
+    
+Om du vill inte visas, fortsätter du med följande steg för att frigöra alla virtuella datorer i tillgänglighetsuppsättningen, ändra storlek på virtuella datorer och starta om dem.
+
+Stoppa alla virtuella datorer i tillgänglighetsuppsättningen.
    
-   ```powershell
-   $rg = "<resourceGroupName>"
-   $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
-   $vmIds = $as.VirtualMachinesReferences
-   foreach ($vmId in $vmIDs){
-     $string = $vmID.Id.Split("/")
-     $vmName = $string[8]
-     Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
-   } 
-   ```
-5. Ändra storlek och starta om de virtuella datorerna i tillgänglighetsuppsättningen.
+```powershell
+$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$vmIds = $as.VirtualMachinesReferences
+foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    } 
+```
+
+Ändra storlek och starta om de virtuella datorerna i tillgänglighetsuppsättningen.
    
-   ```powershell
-   $rg = "<resourceGroupName>"
-   $newSize = "<newVmSize>"
-   $as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
-   $vmIds = $as.VirtualMachinesReferences
-   foreach ($vmId in $vmIDs){
-     $string = $vmID.Id.Split("/")
-     $vmName = $string[8]
-     $vm = Get-AzureRmVM -ResourceGroupName $rg -Name $vmName
-     $vm.HardwareProfile.VmSize = $newSize
-     Update-AzureRmVM -ResourceGroupName $rg -VM $vm
-     Start-AzureRmVM -ResourceGroupName $rg -Name $vmName
-   }
-   ```
+```powershell
+$newSize = "<newVmSize>"
+$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$vmIds = $as.VirtualMachinesReferences
+  foreach ($vmId in $vmIDs){
+    $string = $vmID.Id.Split("/")
+    $vmName = $string[8]
+    $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    $vm.HardwareProfile.VmSize = $newSize
+    Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
+    Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    }
+```
 
 ## <a name="next-steps"></a>Nästa steg
-* För ytterligare utbyggbarhet köra flera VM-instanser och skala ut. Mer information finns i [skala automatiskt Windows-datorer i en virtuell dator Skaluppsättning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+
+För ytterligare utbyggbarhet köra flera VM-instanser och skala ut. Mer information finns i [skala automatiskt Windows-datorer i en virtuell dator Skaluppsättning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

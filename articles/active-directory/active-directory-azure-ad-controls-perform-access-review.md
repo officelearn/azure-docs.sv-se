@@ -1,22 +1,23 @@
 ---
-title: "Granska åtkomst med hjälp av Azure AD åtkomst till granskningar | Microsoft Docs"
-description: "Lär dig mer om att granska åtkomst med hjälp av Azure Active Directory access granskningar."
+title: Granska åtkomst med hjälp av Azure AD åtkomst till granskningar | Microsoft Docs
+description: Lär dig mer om att granska åtkomst med hjälp av Azure Active Directory access granskningar.
 services: active-directory
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: 98658a2b9fdd0ede98b3f6c10a19af527a8677cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 3688dbc595d7980fee780cac55cb615911b93316
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698058"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Granska åtkomst med Azure AD åtkomst till granskningar
 

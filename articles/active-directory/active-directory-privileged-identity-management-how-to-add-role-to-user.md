@@ -3,7 +3,7 @@ title: Lägga till eller ta bort en användarroll | Microsoft Docs
 description: Lär dig mer om att lägga till roller för privilegierade identiteter med Azure Active Directory Privileged Identity Management-programmet.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 01/03/2018
-ms.author: curtand
-ms.openlocfilehash: 6024016d7c59551e5678069cb6a6e1e7ab45ad6e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: rolyon
+ms.openlocfilehash: 809ee0593c1d7947c9f2faa7dfaff800866b1cee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698364"
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management, lägg till eller ta bort en användarroll
 Med Azure Active Directory (AD), en global administratör (eller företagets administratör) kan uppdatera som användare kan **permanent** tilldelade roller i Azure AD. Detta görs med PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`. De kan också använda Azure portal som beskrivs i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md).

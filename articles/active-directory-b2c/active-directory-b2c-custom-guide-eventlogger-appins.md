@@ -1,20 +1,21 @@
 ---
-title: Spåra användarens beteende med hjälp av händelser i Application Insights från Azure AD B2C | Microsoft Docs
+title: Spåra användarens beteende med hjälp av händelser i Application Insights från Azure Active Directory B2C | Microsoft Docs
 description: Stegvisa instruktioner för att aktivera händelseloggar i Application Insights från Azure AD B2C användaren transporter med hjälp av anpassade principer (förhandsgranskning)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709972"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Spåra användarens beteende i Azure AD B2C resor med hjälp av Application Insights
 
@@ -26,7 +27,7 @@ Azure Active Directory B2C (Azure AD B2C) fungerar bra med Azure Application Ins
 * Skapa aviseringar från Application Insights.
 
 > [!NOTE]
-> Den här funktionen är i förhandsgranskningen.
+> Den här funktionen är en förhandsversion.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -256,7 +257,7 @@ Referenced using: {Culture:One of the property names below}
 | LanguageName | De två enhetsbokstaven ISO-koden för språket | en |
 | RegionName | De två enhetsbokstaven ISO-koden för regionen | USA |
 | RFC5646 | RFC5646 språkkod | sv-SE |
-| LCID   | LCID för språkkod | 1053 |
+| LCID   | LCID för språkkod | 29 |
 
 ### <a name="policy-specific-claims"></a>Princip-specifika anspråk
 

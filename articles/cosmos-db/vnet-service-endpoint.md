@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735466"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Säker åtkomst till ett Azure DB som Cosmos-konto med hjälp av Azure Virtual Network tjänstslutpunkten
 
@@ -48,7 +49,7 @@ När ett Azure DB som Cosmos-konto har konfigurerats med ett virtuellt nätverk 
    ![Välj virtuella nätverk och undernät](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Om du inte tidigare har konfigurerat tjänstslutpunkten för Azure Cosmos DB för de valda virtuella Azure-nätverk och undernät, kan den konfigureras som en del av den här åtgärden. Aktiverar åtkomst tar upp till 15 minuter att slutföra. 
+   > Om du inte tidigare har konfigurerat tjänstslutpunkten för Azure Cosmos DB för de valda virtuella Azure-nätverk och undernät, kan den konfigureras som en del av den här åtgärden. Aktiverar åtkomst tar upp till 15 minuter att slutföra. Det är mycket viktigt att inaktivera brandväggen IP efter påpekas ned innehållet i brandväggen ACL för renabling dem senare. 
 
    ![virtuellt nätverk och undernät som har konfigurerats](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Ditt konto i Azure Cosmos DB kan nu trafik från det valda undernätet. Om du ha
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Konfigurera tjänsteslutpunkt för en ny Azure-nätverk och undernät
 
 1. Från **alla resurser** hitta Cosmos-DB Azure-konto du vill skydda bladet.  
+
+> [!NOTE]
+> Om du har en IP-brandvägg som konfigurerats för ditt konto i Azure Cosmos DB Observera brandväggskonfigurationen, ta bort IP-brandvägg och aktivera sedan tjänstslutpunkten. Om du aktiverar tjänstslutpunkten utan disbling brandväggen trafik från det ip-adressintervallet går förlorat den virtuella IP-identitet och tas den bort med ett felmeddelande för IP-filter. Så du bör alltid inaktivera brandväggsreglerna för att förhindra det här felet, kopierar du dem, aktivera tjänstslutpunkten från undernätet och slutligen ACL undernät från Cosmos-databasen. När du konfigurerar tjänstslutpunkten och lägger till ACL kan du återaktivera IP brandväggen igen om det behövs.
 
 2. Kopiera IP brandväggen informationen som är kopplad till ditt Azure DB som Cosmos-konto för framtida användning innan du aktiverar virtuellt nätverk tjänstslutpunkten. Du kan återaktivera IP-brandväggen när du har konfigurerat tjänstslutpunkten.  
 
@@ -95,6 +99,10 @@ För att säkerställa att du har åtkomst till Azure Cosmos DB statistik från 
 Använd följande steg för att konfigurera tjänstslutpunkten till ett Azure DB som Cosmos-konto med hjälp av Azure PowerShell:  
 
 1. Installera senaste [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) och [inloggning](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Se till att du Observera IP-brandväggsinställningar och ta bort IP-brandväggen helt innan du aktiverar tjänstslutpunkten för kontot.
+
+
+> [!NOTE]
+> Om du har en IP-brandvägg som konfigurerats för ditt konto i Azure Cosmos DB Observera brandväggskonfigurationen, ta bort IP-brandvägg och aktivera sedan tjänstslutpunkten. Om du aktiverar tjänstslutpunkten utan disbling brandväggen trafik från det ip-adressintervallet går förlorat den virtuella IP-identitet och tas den bort med ett felmeddelande för IP-filter. Så du bör alltid inaktivera brandväggsreglerna för att förhindra det här felet, kopierar du dem, aktivera tjänstslutpunkten från undernätet och slutligen ACL undernät från Cosmos-databasen. När du konfigurerar tjänstslutpunkten och lägger till ACL kan du återaktivera IP brandväggen igen om det behövs.
 
 2. Kopiera IP brandväggen informationen som är kopplad till ditt Azure DB som Cosmos-konto för framtida användning innan du aktiverar virtuellt nätverk tjänstslutpunkten. Du kan återaktivera IP-brandväggen när du har konfigurerat tjänstslutpunkten.  
 
@@ -219,9 +227,13 @@ Detta krävs bara när du vill att ditt Azure DB som Cosmos-konto som kan nås a
 
 slutpunkter 64 virtuella nätverket tillåts för ett konto i Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>Vad är relationen mellan tjänstslutpunkten med avseende på regler för Nätverkssäkerhetsgrupp (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Vad är relationen mellan tjänstslutpunkten och Nätverkssäkerhetsgrupp (NSG)?  
 
-NSG'S Azure Cosmos DB regeln kan restric endast åtkomst till Azure Cosmos DB IP-adressintervall.
+NSG-regler i Azure Cosmos-databasen kan du begränsa åtkomsten till specifika Azure Cosmos DB IP-adressintervall. Om du vill tillåta åtkomst till en Azure DB som Cosmos-instans som finns i en specifik [region](https://azure.microsoft.com/global-infrastructure/regions/), du kan ange regionen i följande format: 
+
+    AzureCosmosDB.<region name>
+
+Läs mer om NSG-taggar finns [virtuellt nätverk service taggar](../virtual-network/security-overview.md#service-tags) artikel. 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>Vad är förhållandet mellan ett IP-brandväggen och endpoint kapaciteten för Virtual Network service?  
 

@@ -8,43 +8,35 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 7d05d3aa94fffb13a96fc9074d55d8fa67cadb04
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763127"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
 
-## <a name="service-tier-maximums"></a>Tjänsten nivå maxkapacitet
-Azure MySQL-databas har flera tjänstnivåer för att välja mellan när du skapar en server. Mer information finns i [Azure-databas för MySQL prisnivåer](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Maximalt antal anslutningar
+Det maximala antalet anslutningar per prisnivå och vCores är följande: 
 
-Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje tjänstnivå: 
+|**Prisnivå**|**vCore(s)**| **Högsta antal anslutningar**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Generellt syfte| 2| 300|
+|Generellt syfte| 4| 625|
+|Generellt syfte| 8| 1250|
+|Generellt syfte| 16| 2500|
+|Generellt syfte| 32| 5000|
+|Minnesoptimerad| 2| 600|
+|Minnesoptimerad| 4| 1250|
+|Minnesoptimerad| 8| 2500|
+|Minnesoptimerad| 16| 5000|
 
-|**Prisnivå**| **Compute-generering**|**vCore(s)**| **Högsta antal anslutningar**|
-|---|---|---|---|
-|Basic| Generation 4| 1| 50|
-|Basic| Generation 4| 2| 100|
-|Basic| Generation 5| 1| 50|
-|Basic| Generation 5| 2| 100|
-|Generellt syfte| Generation 4| 2| 300|
-|Generellt syfte| Generation 4| 4| 625|
-|Generellt syfte| Generation 4| 8| 1250|
-|Generellt syfte| Generation 4| 16| 2500|
-|Generellt syfte| Generation 4| 32| 5000|
-|Generellt syfte| Generation 5| 2| 300|
-|Generellt syfte| Generation 5| 4| 625|
-|Generellt syfte| Generation 5| 8| 1250|
-|Generellt syfte| Generation 5| 16| 2500|
-|Generellt syfte| Generation 5| 32| 5000|
-|Minnesoptimerad| Generation 5| 2| 600|
-|Minnesoptimerad| Generation 5| 4| 1250|
-|Minnesoptimerad| Generation 5| 8| 2500|
-|Minnesoptimerad| Generation 5| 16| 5000|
-
-När för många anslutningar har uppnåtts, får du följande fel:
+När anslutningar överskrider gränsen, får du följande fel:
 > FEL 1040 (08004): För många anslutningar
 
 ## <a name="storage-engine-support"></a>Stödet för lagring
@@ -56,7 +48,7 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="unsupported"></a>Stöds inte
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [SVARTLISTADE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [ARKIV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERERAD](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>Stöd för behörighet
@@ -85,8 +77,6 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
 - Är inte tillåtet att återställa till olika tjänstnivå och/eller Compute enheter och lagringsstorlek.
 - Återställa en borttagen server stöds inte.
-
-## <a name="functional-limitations"></a>Funktionella begränsningar
 
 ### <a name="subscription-management"></a>Prenumerationshantering
 - Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.

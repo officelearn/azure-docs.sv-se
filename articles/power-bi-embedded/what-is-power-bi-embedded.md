@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/04/2018
+ms.date: 05/31/2018
 ms.author: maghan
-ms.openlocfilehash: 1bc641e210a5bd965c5cdbf41efe853e9b297132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d68a950438a332cdf8ddd8d4f13a316c87aa0a5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715929"
 ---
-# <a name="about-power-bi-embedded"></a>Om Powerbi Embedded
+# <a name="what-is-power-bi-embedded"></a>Vad är Power BI Embedded?
 
 Power BI Embedded är avsedda att förenkla hur ISV: er och utvecklare använda Power BI-funktioner. Power BI Embedded förenklar Power BI-funktioner genom att hjälpa dig att snabbt lägga till snygg visuell information, rapporter och instrumentpaneler i dina appar. Liknar appar som bygger på Microsoft Azure-tjänster som Machine Learning- och IoT på användning. Genom att aktivera enkel att navigera datagranskning i sina appar kan ISV: er kunderna för snabb, välgrundade beslut i kontexten.
 
@@ -30,7 +31,7 @@ Vi har meddelat konvergens Power BI och Power BI Embedded i maj 2017. Konvergeri
 
 Med Power BI Embedded ISV: er och utvecklare har lagt till flexibilitet i hur de bädda in intelligence i sina appar med hjälp av Power BI-API: er. ISV: er och utvecklare kan dra nytta av minimerat utvecklingsarbete att uppnå snabbare tid till marknad och sticka ut av infusing Microsofts världsklass analytics motorn i appen. Lika, utvecklare kan ägna tid åt att fokusera på sitt lösning för att uppfylla kraven för kunden, i stället för att utveckla visual analysfunktioner. Dessutom Power BI Embedded kan du arbeta i bekant utvecklingsmiljöer – Azure och Visual Studio – du använder redan.
 
-Har en befintlig app med inbäddade Power BI-innehåll med hjälp av Power BI Premium? Om du är en ISV eller utvecklare leverera appar eller en organisation som använder dem, krävs ingen åtgärd. Du och dina kunder kan fortsätta använda de här apparna utan avbrott. Om du har en befintlig app som bygger på Power BI arbetsytan samlingar och är intresserad av att dra nytta av konvergerade API-ytan och den nya kapacitet-baserad Azure SKU: er finns dokumentationen för vägledning för migrering.
+Har du en befintlig app med inbäddade Power BI-innehåll med hjälp av Power BI Premium? Om du är en ISV eller utvecklare leverera appar eller en organisation som använder dem, krävs ingen åtgärd. Du och dina kunder kan fortsätta använda de här apparna utan avbrott. Om du har en befintlig app som bygger på Power BI arbetsytan samlingar och är intresserad av att dra nytta av konvergerade API-ytan och den nya kapacitet-baserad Azure SKU: er finns dokumentationen för vägledning för migrering.
 
 ## <a name="comparing-power-bi-embedded-with-power-bi-premium"></a>Jämföra Powerbi Embedded med Power BI Premium
 
@@ -38,7 +39,7 @@ Power BI Embedded är för utvecklare som skapar program. Det kan användas när
 
 ## <a name="easy-to-use-tools"></a>Lättanvända verktyg
 
-Power BI Embedded kan du fokusera på vad du gör bäst: skapa bra appar. Du kan hantera och utveckla mot Power BI Embedded med hjälp av verktyg och kunskaper som du redan har.
+Power BI Embedded kan du fokusera på vad du gör bäst: skapa bra appar. Du kan hantera och utveckla med Power BI Embedded med hjälp av verktyg och kunskaper som du redan har.
 
 * [**Azure-portalen**](https://portal.azure.com/): ett webbaserat program för att hantera alla Azure-tjänster
 * [**Visual Studio Code**](https://code.visualstudio.com/docs): ett kostnadsfritt, nedladdningsbart, Öppna källa, redigerare för Windows och macOS Linux som har stöd för tillägg

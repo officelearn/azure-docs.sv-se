@@ -1,29 +1,25 @@
 ---
-title: "Kör steg baserat på grupperade Åtgärdsstatus - Azure Logic Apps | Microsoft Docs"
-description: "Gruppera åtgärder till scope och köra steg baserat på Gruppstatus"
+title: Lägga till scope som kör åtgärder baserat på Gruppstatus - Azure Logic Apps | Microsoft Docs
+description: Så här skapar du scope som kör arbetsflödesåtgärder baserat på status för grupp-åtgärd i Azure Logic Apps
 services: logic-apps
-keywords: filialer, parallell bearbetning
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: c6f6b54e17d12ff21d50748810699e78e3a14757
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726388"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Omfång: Köra steg baserat på Gruppstatus i logikappar
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Skapa scope som kör arbetsflödesåtgärder baserat på Gruppstatus för i Azure Logic Apps
 
-Om du vill köra steg efter en annan grupp av åtgärder lyckas eller misslyckas, placera gruppen inuti en *omfång*. Den här strukturen är användbart när du vill ordna åtgärder som en logisk grupp, utvärdera gruppens status och utföra åtgärder som är baserade på scopets status. När alla åtgärder i en omfattning klara så hämtar omfånget också sin egen status. Du kan till exempel använda scope när du vill implementera [undantag och felhantering](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Om du vill köra åtgärder när en annan grupp av åtgärder lyckas eller misslyckas, gruppera dessa åtgärder i en *omfång*. Den här strukturen är användbart när du vill ordna åtgärder som en logisk grupp, utvärdera gruppens status och utföra åtgärder som är baserade på scopets status. När alla åtgärder i en omfattning klara så hämtar omfånget också sin egen status. Du kan till exempel använda scope när du vill implementera [undantag och felhantering](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Om du vill kontrollera status för ett omfång kan du använda samma villkor som används för att fastställa en logik appar kör status, till exempel ”Succeeded”, ”misslyckades”, ”avbrott” och så vidare. Som standard när alla omfattningar åtgärder lyckas markeras scopets status ”lyckades”. Men om alla åtgärder i omfånget misslyckas eller avbryts, scope har status ”misslyckades”. Gränserna för scope finns [gränser och config](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -83,7 +79,7 @@ Du kan spara logikappen när som helst, så du bör spara ditt arbete ofta.
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** (Platsmarkör 1) | <*start*> | Ange din väg ursprung. | 
+      | **Waypoint 1** (Platsmarkör 1) | <*Starta*> | Ange din väg ursprung. | 
       | **Waypoint 2** (Platsmarkör 2) | <*End*> | Ange din väg mål. | 
       | **Avoid** (Undvik) | Ingen | Ange objekt för att undvika längs vägen, till exempel väg, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera din flödet, till exempel avståndet, tid med aktuell trafikinformation om och så vidare. Det här värdet används i det här exemplet: ”timeWithTraffic” | 
@@ -153,7 +149,7 @@ Du kan spara logikappen när som helst, så du bör spara ditt arbete ofta.
 
 Sedan lägger till ett scope så att du kan gruppera specifika åtgärder och utvärdera deras status.
 
-## <a name="add-a-scope"></a>Lägga till ett scope
+## <a name="add-a-scope"></a>Lägg till Omfång
 
 1. Om du inte redan gjort öppna logikappen i logik App Designer. 
 
@@ -162,7 +158,7 @@ Sedan lägger till ett scope så att du kan gruppera specifika åtgärder och ut
    * Om du vill lägga till ett scope mellan befintliga stegen i logik app arbetsflödet muspekaren på pilen där du vill lägga till området. 
    Välj den **plustecknet** (**+**) > **lägga till ett scope**.
 
-     ![Lägga till ett scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+     ![Lägg till Omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
      När du vill lägga till ett scope i slutet av arbetsflödet, längst ned i din logikapp, Välj **+ nytt steg** > **... Flera** > **lägga till ett scope**.
 

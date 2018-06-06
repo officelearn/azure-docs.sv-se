@@ -1,26 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: QT konfiguration | Microsoft Docs'
+title: QT konfigurationen i Azure Active Directory B2C | Microsoft Docs
 description: Ange registrering och inloggning för konsumenter med QT konton i dina program som skyddas av Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a33a1b2a68b82b1d65b1187547695cccd7c395f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711679"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med QT konton
 
 > [!NOTE]
-> Den här funktionen är i förhandsgranskningen.
+> Den här funktionen är en förhandsversion.
 > 
 
 ## <a name="create-a-qq-application"></a>Skapa ett QT-program

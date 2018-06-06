@@ -1,24 +1,26 @@
 ---
 title: 'Azure AD Connect: Om du redan har Azure AD | Microsoft Docs'
-description: "Det här avsnittet beskriver hur du använder Anslut när du har en befintlig Azure AD-klient."
+description: Det här avsnittet beskriver hur du använder Anslut när du har en befintlig Azure AD-klient.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725215"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: När du har en befintliga klient
 De flesta avsnitt för hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det finns inga användare eller det andra objekt. Men om du har börjat med Azure AD-klient fylls med användare och andra objekt, och nu vill använda Connect, sedan det här avsnittet är för dig.
@@ -56,7 +58,7 @@ För e-postaktiverade grupper och kontakter, du kan soft-matcha utifrån proxyAd
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Skapa en ny Active Directory för lokala data i Azure AD
 Vissa kunder börja med en molnbaserad lösning med Azure AD och de inte har en lokal AD. De vill använda lokala resurser och vill skapa en lokal AD-baserad på data i Azure AD. Azure AD Connect kan hjälpa dig för det här scenariot. Den skapar inte användare lokala och har inte någon möjlighet att ange lösenord för lokal till samma som i Azure AD.
 
-Om det enda skäl varför du vill lägga till lokala AD är att stödja LOB (Line-of-Business-program), kanske du bör överväga för att använda [Azure AD domain services](../../active-directory-domain-services/index.md) i stället.
+Om det enda skäl varför du vill lägga till lokala AD är att stödja LOB (Line-of-Business-program), kanske du bör överväga för att använda [Azure AD domain services](../../active-directory-domain-services/index.yml) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).

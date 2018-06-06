@@ -1,11 +1,11 @@
 ---
-title: "Utveckla för Azure-filer med Java | Microsoft Docs"
-description: "Lär dig hur du utvecklar Java-program och tjänster som använder Azure-filer för att lagra fildata."
+title: Utveckla för Azure-filer med Java | Microsoft Docs
+description: Lär dig hur du utvecklar Java-program och tjänster som använder Azure-filer för att lagra fildata.
 services: storage
 documentationcenter: java
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738209"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure-filer med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,18 +27,18 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>Om den här självstudiekursen
-Den här kursen visar grunderna i Java för att utveckla program eller tjänster som använder Azure-filer för att lagra fildata. I den här kursen ska vi skapa ett enkelt konsolprogram och visar hur du utför grundläggande åtgärder med Java och Azure-filer:
+Den här kursen visar grunderna i Java för att utveckla program eller tjänster som använder Azure-filer för att lagra fildata. I den här kursen ska vi skapa ett konsolprogram och visar hur du utför grundläggande åtgärder med Java och Azure-filer:
 
 * Skapa och ta bort Azure-filresurser
 * Skapa och ta bort kataloger
-* Räkna upp filer och kataloger i en filresurs på Azure
+* Räkna upp filer och kataloger i en Azure-filresurs
 * Ladda upp, hämta och ta bort en fil
 
 > [!Note]  
-> Eftersom Azure-filer kan nås över SMB, är det möjligt att skriva enkla program som har åtkomst till Azure filresursen med standard Java-i/o-klasser. Den här artikeln beskriver hur du skriver program som använder Azure Storage Java SDK, som använder den [Azure filer REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tala med Azure-filer.
+> Eftersom Azure-filer kan nås över SMB, är det möjligt att skriva program som har åtkomst till Azure filresursen med standard Java-i/o-klasser. Den här artikeln beskriver hur du skriver program som använder Azure Storage Java SDK, som använder den [Azure filer REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tala med Azure-filer.
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
-Du behöver för att skapa exemplen Java Development Kit (JDK) och [Azure Storage-SDK för Java] [-]. Du bör också har skapat ett Azure storage-konto.
+Om du vill skapa exemplen behöver du Java Development Kit (JDK) och [Azure Storage SDK för Java](https://github.com/Azure/azure-storage-java). Du bör också har skapat ett Azure storage-konto.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Konfigurera programmet så att Azure-filer
 Lägg till följande uttryck överst i Java-filen där du vill komma åt tjänsten storage från om du vill använda Azure storage API: er.
@@ -78,7 +79,7 @@ try {
 
 **CloudStorageAccount.parse** utlöser ett InvalidKeyException så måste du placera den i ett försök/catch-block.
 
-## <a name="create-an-azure-file-share"></a>Skapa en filresurs på Azure
+## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Alla filer och kataloger i Azure-filer finns i en behållare som kallas en **resursen**. Storage-konto kan ha så många resurser som gör att din kapacitet. Du måste använda en Azure-filer klient för att få åtkomst till en resurs och dess innehåll.
 
 ```java
@@ -127,7 +128,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Skapa en katalog
-Du kan även sortera lagring genom att lägga till filer i underkataloger i stället för att alla i rotkatalogen. Azure Files kan du skapa så många kataloger som ditt konto tillåter. Koden nedan för att skapa en underkatalog med namnet **sampledir** under rotkatalogen.
+Du kan även sortera lagring genom att lägga till filer i underkataloger i stället för att alla i rotkatalogen. Azure Files kan du skapa så många kataloger som ditt konto tillåter. Koden nedan skapar en undermapp som heter **sampledir** under rotkatalogen.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -144,7 +145,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
-Om du tar bort en katalog är ganska enkel aktivitet, men det bör noteras att du inte kan ta bort en katalog som fortfarande innehåller filer eller andra kataloger.
+Om du tar bort en katalog är en enkel aktivitet, men det bör noteras att du inte kan ta bort en katalog som fortfarande innehåller filer eller andra kataloger.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -159,7 +160,7 @@ if ( containerDir.deleteIfExists() ) {
 }
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en filresurs på Azure
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
 Hämtar en lista över filer och kataloger i en resurs görs enkelt genom att anropa **listFilesAndDirectories** för en CloudFileDirectory-referens. Metoden returnerar en lista över ListFileItem-objekt som du kan söka på. Exempelvis följande kod visar en lista över filer och kataloger i rotkatalogen.
 
 ```java
@@ -172,7 +173,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>Överför en fil
-Resursen innehåller minst en Azure-fil, en rotkatalog där filer kan finnas. I det här avsnittet lär du dig hur du överför en fil från lokal lagring till rotkatalogen för en resurs.
+I det här avsnittet lär du dig hur du överför en fil från lokal lagring till rotkatalogen för en resurs.
 
 Det första steget i att överföra en fil är att hämta en referens till katalogen där det ska finnas. Du kan göra detta genom att anropa den **getRootDirectoryReference** metod för att dela objekt.
 

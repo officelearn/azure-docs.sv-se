@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Krav
-* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
-* En [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) dess anslutningsinformation, inklusive servernamnet, databasnamnet och användarnamn/lösenord. Den här informationen ingår i anslutningssträngen för SQL-databasen:
-  
-    Server = tcp:*yoursqlservername*. database.windows.net,1433;Initial katalog =*yourqldbname*; Spara säkerhetsinformation = False; Användar-ID = {your_username}; Lösenord = {your_password}; MultipleActiveResultSets = False; Kryptera = True; TrustServerCertificate = False; Timeout för anslutningen = 30.
-  
-    Läs mer om [Azure SQL-databaser](https://azure.microsoft.com/services/sql-database).
+---
+title: ta med fil
+description: ta med fil
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678313"
+---
+* Om du använder Azure SQL Database, följer du stegen under [Anslut till Azure SQL Database](#connect-azure-sql-db). 
 
-> [!NOTE]
-> När du skapar en Azure SQL Database, kan du också skapa exempeldatabasen som ingår i SQL. 
-> 
-> 
+* Om du använder SQL Server, följer du stegen under [Anslut till SQL Server](#connect-sql-server).
 
-Innan du använder Azure SQL Database i en logikapp, ansluta till SQL-databasen. Du kan göra detta enkelt i din logikapp på Azure-portalen.  
+<a name="connect-azure-sql-db"></a>
 
-Anslut till din Azure SQL-databas med följande steg:  
+### <a name="connect-to-azure-sql-database"></a>Anslut till Azure SQL Database
 
-1. Skapa en logikapp. Lägg till en utlösare i Logic Apps-designer och sedan lägga till en åtgärd. Välj **visa Microsoft hanterade API: er** i nedrullningsbara listan, och ange sedan ”sql” i sökrutan. Välj något av åtgärderna som:  
-   
-    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Om du inte tidigare har skapat alla anslutningar till SQL-databas, tillfrågas om anslutningsinformationen:  
-   
-    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Ange information om SQL-databas. Egenskaper med en asterisk krävs.
-   
-   | Egenskap | Information |
-   | --- | --- |
-   | Anslut via Gateway |Lämna det här alternativet är avmarkerat. Det här används vid anslutning till en lokal SQL Server. |
-   | Anslutningsnamn * |Ange ett namn för anslutningen. |
-   | SQL Server-namnet * |Ange namnet på servern; vilket är något som liknar *servername.database.windows.net*. Namnet på servern visas i egenskaperna för SQL-databas på Azure-portalen och visas också i anslutningssträngen. |
-   | Databasnamn för SQL * |Ange det namn du gav din SQL-databas. Detta visas i Egenskaper för SQL-databas i anslutningssträngen: Initial Catalog =*yoursqldbname*. |
-   | Användarnamn * |Ange användarnamnet som du skapade när SQL-databasen har skapats. Detta visas i egenskaperna för SQL-databas på Azure-portalen. |
-   | Lösenord * |Ange lösenordet som du skapade när SQL-databasen har skapats. |
-   
-    Dessa autentiseringsuppgifter används för att verifiera din logikapp för att ansluta och komma åt SQL-data. När du är klar, likna din anslutningsinformation följande:  
-   
-    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Välj **Skapa**. 
-5. Observera att anslutningen har skapats. Nu kan fortsätta med andra steg i din logikapp: 
-   
-    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/table.png)
+1. När SQL-utlösare eller åtgärd efterfrågar anslutningsinformation, gör du följande:
 
+   1. Skapa ett namn för anslutningen.
+
+   2. Välj den SQL-servern och välj sedan databasen. 
+
+      Databaslistan visas endast när du väljer SQLServer.
+ 
+   3. Ange ditt användarnamn och lösenord för servern.
+
+      Du hittar den här informationen i Azure portal under Egenskaper för SQL-databas eller i anslutningssträngen: 
+      
+      ”Användar-ID = <*användarnamn*>”
+      <br>
+      ”Lösenordet = <*yourPassword*>”
+
+   Det här exemplet visar anslutningsinformationen för en utlösare, men de här stegen fungerar för åtgärder för.
+
+   ![Skapa Azure SQL Database-anslutning](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Asterisker (*) anger nödvändiga värden.
+
+   | Egenskap  | Värde | Information | 
+   |----------|-------|---------| 
+   | Anslutningsnamn | <*Mina sql-anslutning*> | Namn för din anslutning | 
+   | SQL Server-namn | <*Min sql server*> | Namnet på SQLServer |
+   | SQL Database-namn | <*Mina sql database*>  | Namnet på din SQL-databas | 
+   | Användarnamn | <*Mina sql användarnamn*> | Användarnamnet för åtkomst till databasen |
+   | Lösenord | <*Mina sql lösenord*> | Lösenord för åtkomst till databasen | 
+   |||| 
+
+2. När du är klar väljer du **Skapa**.
+
+3. När du skapar anslutningen fortsätta med [lägga till SQL-utlösare](#add-sql-trigger) eller [lägga till SQL-åtgärd](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Ansluta till SQL Server
+
+Innan du kan välja din gateway, kontrollerar du att du redan [ställa in din datagateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). På så sätt kan din gateway som visas i listan gateways när du skapar din anslutning.
+
+1. När SQL-utlösare eller åtgärd efterfrågar anslutningsinformation, gör du följande:
+
+   1. Markera i utlösare eller åtgärd **Anslut via lokala datagateway** så att SQL server-alternativ visas.
+
+   2. Skapa ett namn för anslutningen.
+
+   3. Ange adressen för SQLServer och ange namn för din databas.
+   
+      Du hittar den här informationen i anslutningssträngen: 
+      
+      * ”Server = <*yourServerAddress*>”
+      * ”Databas = <*yourDatabaseName*>”
+
+   4. Ange ditt användarnamn och lösenord för servern.
+
+      Du hittar den här informationen i anslutningssträngen: 
+      
+      * ”Användar-ID = <*användarnamn*>”
+      * ”Lösenordet = <*yourPassword*>”
+
+   5. Om din SQL-servern använder Windows eller grundläggande autentisering, Välj autentiseringstyp.
+
+   6. Välj namnet på din lokala datagateway som du skapade tidigare.
+   
+      Om din gateway inte visas i listan, kontrollera att du korrekt [ställa in din gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   Det här exemplet visar anslutningsinformationen för en utlösare, men de här stegen fungerar för åtgärder för.
+
+   ![Skapa SQL Server-anslutning](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Asterisker (*) anger nödvändiga värden.
+
+   | Egenskap  | Värde | Information | 
+   |----------|-------|---------| 
+   | Anslut via lokal gateway | Välj det här alternativet först för SQL Server-inställningar. | | 
+   | Anslutningsnamn | <*Mina sql-anslutning*> | Namn för din anslutning | 
+   | SQL Server-namn | <*Min sql server*> | Namnet på SQLServer |
+   | SQL Database-namn | <*Mina sql database*>  | Namnet på din SQL-databas |
+   | Användarnamn | <*Mina sql användarnamn*> | Användarnamnet för åtkomst till databasen |
+   | Lösenord | <*Mina sql lösenord*> | Lösenord för åtkomst till databasen | 
+   | Autentiseringstyp | Windows- eller Basic | Valfritt: Autentiseringstypen används av SQLServer | 
+   | Gateways | <*Min data gateway*> | Namnet på din lokala datagateway | 
+   |||| 
+
+2. När du är klar väljer du **Skapa**. 
+
+3. När du skapar anslutningen fortsätta med [lägga till SQL-utlösare](#add-sql-trigger) eller [lägga till SQL-åtgärd](#add-sql-action).

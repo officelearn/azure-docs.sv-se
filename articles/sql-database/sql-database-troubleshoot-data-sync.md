@@ -3,17 +3,18 @@ title: Felsöka Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs
 description: Lär dig hur du felsöker vanliga problem med Azure SQL-datasynkronisering (förhandsversion).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757544"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Felsökning av problem med SQL-datasynkronisering (förhandsgranskning)
 
@@ -224,7 +225,7 @@ Uppdatera agentens lösenordet till ditt nuvarande serverlösenord:
 4. På **SQL datasynkronisering (förhandsgranskning) agentegenskaper Preview**, Välj den **logga in** fliken.
 5. I den **lösenord** ange ditt lösenord.
 6. I den **Bekräfta lösenord** rutan, ange ditt lösenord igen.
-7. Välj **tillämpa**, och välj sedan **OK**.
+7. Tryck på **Tillämpa** och välj sedan **OK**.
 8. I den **Services** fönstret högerklickar du på den **datasynkronisering (förhandsversion) för SQL Agent Preview** tjänst och klicka sedan på **starta**.
 9. Stäng den **Services** fönster.
 
@@ -240,9 +241,8 @@ Innan du går vidare kontrollerar du om följande villkor:
 
 -   SQL-datasynkronisering (förhandsgranskning) Windows-tjänsten körs.  
 -   Tjänstkontot för SQL-datasynkronisering (förhandsgranskning) Preview Windows-tjänsten har åtkomst till nätverket.    
--   Klientagenten kan kontakta Locator-tjänsten. Kontrollera att registernyckeln har värdet https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   På en x86 dator: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   På en x64 dator: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   Den utgående porten 1433 är öppen i din lokala brandväggsregel.
+-   Den lokala IP-adressen har lagts till den server eller databas-brandväggsregler för synkronisering av metadata-databasen.
 
 #### <a name="cause"></a>Orsak
 
@@ -384,7 +384,7 @@ Bevilja log-på-as-a-service-autentiseringsuppgifter för användarkontot:
 1. Gå till **starta** > **Kontrollpanelen** > **Administrationsverktyg** > **lokal säkerhetsprincip**  >  **Lokal princip** > **användaren Rights Management**.
 2. Välj **logga in som en tjänst**.
 3. I den **egenskaper** dialogrutan Lägg till användarkontot.
-4. Välj **tillämpa**, och välj sedan **OK**.
+4. Tryck på **Tillämpa** och välj sedan **OK**.
 5. Stäng alla fönster.
 
 ### <a name="a-database-has-an-out-of-date-status"></a>En databas med statusen ”inaktuell”
@@ -444,7 +444,7 @@ Mer information om SQL-datasynkronisering (förhandsgranskning) finns i:
 -   [Metodtips för datasynkronisering för Azure SQL (förhandsgranskning)](sql-database-best-practices-data-sync.md)  
 -   [Övervaka Azure SQL-datasynkronisering (förhandsversion) med logganalys](sql-database-sync-monitor-oms.md)  
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL-datasynkronisering (förhandsversion):  
-    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)  
+    -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Hämta SQL datasynkronisering (förhandsgranskning) REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 

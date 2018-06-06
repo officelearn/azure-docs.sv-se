@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701450"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
 ## <a name="overview"></a>Översikt
@@ -105,7 +106,10 @@ HTTPS-protokollet ger serverautentisering och används också för att kryptera 
 > [!NOTE]
 > En tjänst-protokollet kan inte ändras under uppgradering av programmet. Om den har ändrats under uppgraderingen, är en ny ändring.
 > 
-> 
+
+> [!WARNING] 
+> När du använder HTTPS, Använd inte samma port och certifikat för olika tjänstinstanser (oberoende av programmet) distribueras till samma nod. Uppgradera två olika tjänster som använder samma port i annat fall leder en uppgraderar. Mer information finns i [uppgraderar flera program med HTTPS-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Här är ett exempel ApplicationManifest som du måste ange för HTTPS. Tumavtrycket för certifikatet måste anges. EndpointRef är en referens till EndpointResource i ServiceManifest, som du anger HTTPS-protokollet. Du kan lägga till fler än en EndpointCertificate.  
 
@@ -154,11 +158,11 @@ För Linux-kluster i **MY** lagra standard mappen **/var/lib/sfcerts**.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosättning av slutpunkterna i ServiceManifest.xml
 
-Lägg till ett ResourceOverrides avsnitt som kommer att vara på samma nivå som ConfigOverrides avsnitt i ApplicationManifest. I det här avsnittet kan du ange åsidosättningen för slutpunkter i avsnittet resurser som angetts i manifestet för tjänsten. Åsidosätta slutpunkter stöds i runtime 5.7.217/SDK 2.7.217 och högre.
+Lägg till ett ResourceOverrides avsnitt, som kommer att vara på samma nivå som ConfigOverrides avsnitt i ApplicationManifest. Du kan ange en åsidosättning för slutpunkter i avsnittet resurser som angetts i manifestet för tjänsten i det här avsnittet. Åsidosätta slutpunkter stöds i runtime 5.7.217/SDK 2.7.217 och högre.
 
 För att åsidosätta slutpunkt i ServiceManifest med ApplicationParameters ändring i ApplicationManifest som följande:
 
-Lägg till ett nytt avsnitt ”ResourceOverrides” i avsnittet ServiceManifestImport
+Lägg till ett nytt avsnitt ”ResourceOverrides” i avsnittet ServiceManifestImport.
 
 ```xml
 <ServiceManifestImport>
@@ -188,13 +192,13 @@ Lägg till nedan i parametrarna:
   </Parameters>
 ```
 
-Vid distribution av programmet nu kan du skicka in dessa värden som ApplicationParameters till exempel:
+Vid distribution av programmet kan du skicka in dessa värden som ApplicationParameters.  Exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Obs: Om värdena tillhandahåller ApplicationParameters är tom vi gå tillbaka till standardvärdet som angetts i ServiceManifest för motsvarande EndPointName.
+Obs: Om värdena tillhandahåller ApplicationParameters är tom, vi gå tillbaka till standardvärdet som angetts i ServiceManifest för motsvarande EndPointName.
 
 Exempel:
 

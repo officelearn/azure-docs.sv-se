@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713416"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Logga in som inträffar med Azure AD Identity Protection
 Med Azure Active Directory identitetsskydd kan du:
@@ -27,9 +29,9 @@ Med Azure Active Directory identitetsskydd kan du:
 * användaren måste registrera sig för multifaktorautentisering
 * Hantera riskfyllda inloggningar och avslöjade användare
 
-Svaret för systemet på dessa problem påverkar på en användares inloggning eftersom bara direkt logga in med ett användarnamn och lösenord inte möjligt längre. Ytterligare steg krävs för att hämta en användare på ett säkert sätt tillbaka till företag.
+Svaret för systemet på dessa problem påverkar på en användares inloggning eftersom direkt logga in med ett användarnamn och lösenord inte möjligt längre. Ytterligare steg krävs för att hämta en användare på ett säkert sätt tillbaka till företag.
 
-Det här avsnittet ger en översikt över en användares inloggning i samtliga fall som kan uppstå.
+Den här artikeln ger en översikt över en användares inloggning i samtliga fall som kan uppstå.
 
 **Multi-Factor Authentication**
 
@@ -56,7 +58,7 @@ Administratörer kan ange en princip som kräver att användare skapar sina kont
 1. I det första steget är att användaren får ett meddelande om krav för att ange kontot för multifaktorautentisering. 
    
     ![Reparation](./media/active-directory-identityprotection-flows/140.png "reparation")
-2. Om du vill konfigurera multifaktorautentisering måste du låta systemet vet hur du vill bli kontaktad.
+2. Om du vill konfigurera multifaktorautentisering, måste du låta systemet vet hur du vill bli kontaktad.
    
     ![Reparation](./media/active-directory-identityprotection-flows/141.png "reparation")
 3. Systemet skickar en uppmaning att du och du måste svara.
@@ -71,7 +73,7 @@ När en administratör har konfigurerat en princip för inloggning risker, medde
 1. Användaren informeras om att något annorlunda identifierades om deras inloggning, till exempel loggar in från en ny plats, enhet eller app. 
    
     ![Reparation](./media/active-directory-identityprotection-flows/120.png "reparation")
-2. Användaren krävs för att bevisa sin identitet genom att lösa en säkerhetskontrollen. Om användaren har registrerats för multifaktorautentisering behöver de följa med en säkerhetskod till deras telefonnummer. Eftersom det är bara en riskfyllda inloggning, inte en komprometterad konto inte användaren att ändra lösenordet i det här flödet. 
+2. Användaren krävs för att bevisa sin identitet genom att lösa en säkerhetskontrollen. Om användaren är registrerad för multifaktorautentisering som de behöver för att avrunda utlösas en säkerhetskod till deras telefonnummer. Eftersom detta är en riskfyllda logga in och inte en komprometterat konto inte användaren att ändra lösenordet i det här flödet. 
    
     ![Reparation](./media/active-directory-identityprotection-flows/121.png "reparation")
 
@@ -88,7 +90,7 @@ När en säkerhetsprincip för användaren risk har konfigurerats kan användare
 1. Användaren informeras om att deras kontosäkerhet är i fara på grund av misstänkt aktivitet eller läcka ut autentiseringsuppgifter.
    
     ![Reparation](./media/active-directory-identityprotection-flows/101.png "reparation")
-2. Användaren krävs för att bevisa sin identitet genom att lösa en säkerhetskontrollen. Om användaren har registrerats för multifaktorautentisering återställa de själva från komprometteras. De måste följa med en säkerhetskod till deras telefonnummer. 
+2. Användaren krävs för att bevisa sin identitet genom att lösa en säkerhetskontrollen. Om användaren har registrerats för multifaktorautentisering återställa de själva från komprometteras. De måste avrunda utlösas en säkerhetskod till deras telefonnummer. 
    
    ![Reparation](./media/active-directory-identityprotection-flows/110.png "reparation")
 3. Slutligen, om användaren tvingas att ändra sina lösenord eftersom någon annan kan ha haft tillgång till sitt konto. 

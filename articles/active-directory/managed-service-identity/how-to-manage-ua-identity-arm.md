@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: e5c5ff74ee94f8df03ceb5b469ad635bd80d5a11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ce8221cd7bf427084e63f8b13dcf6f0f1cc7a35e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699010"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Skapa, visa och ta bort en tilldelad användaridentitet med Azure Resource Manager
 
@@ -52,8 +53,7 @@ Som i Azure ge portal och skript, Azure Resource Manager-mallar möjlighet att d
 
 Använd följande mall för att skapa en användare som tilldelats identitet. Ersätt den `<USER ASSIGNED IDENTITY NAME>` värdet med egna värden:
 
-> [!IMPORTANT]
-> Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {

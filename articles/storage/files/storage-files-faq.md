@@ -5,22 +5,23 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737817"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (FAQ) om Azure-filer
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
 
 Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funktioner, inklusive användning av Azure filsynkronisering med Azure-filer. Om du inte hittar svar på din fråga kan kontakta du oss via följande kanaler (i växande ordning):
 
@@ -188,6 +189,14 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 * <a id="afs-os-support"></a>
 **Kan jag använda Azure filsynkronisering med Windows Server 2008 R2, Linux eller enheten nätverksansluten lagring (NAS)?**  
     Azure filsynkronisering stöder för närvarande endast Windows Server 2016 och Windows Server 2012 R2. Vi har inte de scheman som vi kan dela just nu, men vi har öppna stöd för ytterligare plattformar baserat på kundernas behov. Berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar som vi ska stödja.
+
+* <a id="afs-tiered-files-out-of-endpoint"></a>
+**Varför finns nivåindelade filer utanför namnområdet server slutpunkten?**  
+    Innan Azure filsynkronisering agent-version 3 blockeras Azure filsynkronisering flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som serverslutpunkt. Kopiera åtgärder, flyttas inte nivåer filer och flyttas av nivåer till andra volymer har påverkas inte. Orsak till detta var den det underförstådda antagandet med Utforskaren och andra Windows-API: er som flyttar åtgärder på samma volym är (nästan) instanenous byta namn på åtgärder. Det innebär flyttar gör Utforskaren eller andra move-metoder (till exempel kommandorad eller PowerShell) visas inte svarar medan Azure filsynkronisering återställer data från molnet. Från och med [Azure filsynkronisering agentversion 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure filsynkronisering kan du flytta en skiktad fil utanför Serverslutpunkten. Vi undvika negativa effekter som tidigare nämnts genom att nivåindelade filen finns som en skiktad fil utanför Serverslutpunkten och sedan återkallar en fil i bakgrunden. Detta betyder som flyttar på samma volym är instaneous och vi gör allt arbete för att återställa filen till disk när flyttningen har slutförts. 
+
+* <a id="afs-do-not-delete-server-endpoint"></a>
+**Jag har problem med synkronisering av Azure-fil på servern (synkronisering molnet lagringsnivåer osv). Ta bort och återskapa Serverslutpunkten min**  
+    [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="security-authentication-and-access-control"></a>Säkerhet, autentisering och åtkomstkontroll
 * <a id="ad-support"></a>

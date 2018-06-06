@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 50f28fcb2d7945949134d89f6bcc4238cf625bd1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dffc76151e0739bf56091d987bf21d02b5bfb1e2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716551"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Virtuella vCPU kvoter
 
-VCPU kvoter för virtuella datorer och virtuella datorer är ordnade i två nivåer för varje prenumeration i varje region. Den första nivån är den totala regionala vCPUs och i det andra lagret är olika VM storlek family kärnor, till exempel Standard D-serien vCPUs. När en ny virtuell dator är distribuerat i vCPUs för den nyligen distribuerade virtuella datorn inte får överstiga vCPU kvoten för familjen för specifika VM-storlek eller totala regionala vCPU kvoten. Om någon av dessa kvoter överskrids sedan tillåts VM-distribution inte. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Information om var och en av dessa kvoter kan ses i den **användning + kvoter** avsnitt i den **prenumeration** sidan i den [Azure-portalen](https://portal.azure.com), eller fråga efter värden med PowerShell.
+VCPU kvoter för virtuella datorer och virtuella datorer är ordnade i två nivåer för varje prenumeration i varje region. I det andra lagret är olika VM storlek family kärnor, till exempel D-serien vCPUs på första nivån är den totala regionala vCPUs. När en ny virtuell dator är distribuerat i vCPUs för den virtuella datorn inte får överstiga vCPU kvoten för familjen för VM-storlek eller totala regionala vCPU kvoten. Om någon av dessa kvoter överskrids tillåts inte VM-distribution. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Information om var och en av dessa kvoter kan ses i den **användning + kvoter** avsnitt i den **prenumeration** sidan i den [Azure-portalen](https://portal.azure.com), eller fråga efter värden med PowerShell.
 
  
 ## <a name="check-usage"></a>Kontrollera användning
@@ -74,7 +75,6 @@ Standard NCv3 Family vCPUs                   0     0 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
-
 ```
 
 

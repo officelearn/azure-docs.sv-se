@@ -1,21 +1,21 @@
 ---
-title: Säkra en webb-API – ASP.NET – Azure Active Directory B2C | Microsoft Azure
+title: Skydda ett ASP.NET webb-API i Azure Active Directory B2C | Microsoft Docs
 description: Skapa ett .NET-webb-API med Azure Active Directory B2C som skyddas med hjälp av OAuth 2.0-åtkomsttoken för autentisering.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2018
 ms.author: davidmu
-ms.openlocfilehash: c64ca3546c5c2d21b00b379c297c9265b264cb9a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8eb4045338476254fa9687a367d45b3646aeb9c1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712376"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: Skapa ett .NET-webb-API
 

@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c38187221e7cd4e3244199e713f41be0005eb024
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801889"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsökning av fel under synkroniseringen
 Fel kan inträffa när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och möjliga sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla möjliga fel.
@@ -29,7 +30,7 @@ Med den senaste versionen av Azure AD Connect \(augusti 2016 eller senare\), en 
 
 Från den 1 September 2016 [Azure Active Directory duplicera attribut återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) funktionen aktiveras som standard för alla de *nya* Azure Active Directory-klienter. Den här funktionen ska aktiveras automatiskt för befintliga klienter under de kommande månaderna.
 
-Azure AD Connect utför 3 typer av åtgärder från kataloger den bevarar synkroniserade: Import, synkronisering och Export. Fel kan ske i alla åtgärder. Den här artikeln fokuserar huvudsakligen på fel under exporten till Azure AD.
+Azure AD Connect utför tre typer av åtgärder från kataloger den bevarar synkroniserade: Import, synkronisering och Export. Fel kan ske i alla åtgärder. Den här artikeln fokuserar huvudsakligen på fel under exporten till Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Fel under exporten till Azure AD
 Följande avsnitt beskrivs olika typer av synkroniseringsfel som kan uppstå under exportåtgärden till Azure AD med hjälp av Azure AD-koppling. Den här anslutningen kan identifieras av namnformat som ”contoso. *onmicrosoft.com*”.
@@ -60,32 +61,32 @@ Azure Active Directory-schemat tillåter inte två eller flera objekt som ska ha
 >
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>Exempelscenarier för InvalidSoftMatch
-1. Två eller flera objekt med samma värde för attributet ProxyAddresses finns i lokala Active Directory. Endast en etableras om i Azure AD.
-2. Två eller flera objekt med samma värde för userPrincipalName finns i lokala Active Directory. Endast en etableras om i Azure AD.
+1. Det finns två eller flera objekt med samma värde för attributet ProxyAddresses i lokala Active Directory. Endast en etableras om i Azure AD.
+2. Det finns två eller flera objekt med samma värde för attributet userPrincipalName i lokala Active Directory. Endast en etableras om i Azure AD.
 3. Ett objekt har lagts till i lokalerna Active Directory med samma värde för attributet ProxyAddresses med ett befintligt objekt i Azure Active Directory. Objektet som läggs till på lokala komma inte etableras i Azure Active Directory.
 4. Ett objekt har lagts till i lokala Active Directory med samma värde för attributet userPrincipalName som ett konto i Azure Active Directory. Objektet komma inte etableras i Azure Active Directory.
 5. Synkroniserade konto har flyttats från skog A till skog B. Azure AD Connect (Synkroniseringsmotorn) med attributet ObjectGUID för att beräkna SourceAnchor. Värdet för SourceAnchor skiljer sig efter överflyttningen skog. Det nya objektet (från skog B) kan inte synkroniseras med det befintliga objektet i Azure AD.
 6. Synkroniserade objekt har fått av misstag tas bort från lokala Active Directory och ett nytt objekt har skapats i Active Directory för samma entitet (till exempel användare) utan att ta bort kontot i Azure Active Directory. Det går inte att synkronisera med det befintliga objektet i Azure AD det nya kontot.
-7. Azure AD Connect har avinstalleras och installeras igen. Ett annat attribut valdes under ominstallationen, som SourceAnchor. Alla objekt som tidigare har synkroniserats stoppats synkroniserar med InvalidSoftMatch fel.
+7. Azure AD Connect har avinstallerats och installerats om. Ett annat attribut valdes under ominstallationen, som SourceAnchor. Alla objekt som tidigare har synkroniserats stoppats synkroniserar med InvalidSoftMatch fel.
 
 #### <a name="example-case"></a>Exempel fall:
 1. **Bob Smith** är en synkroniserade användare i Azure Active Directory från på lokala Active Directory för *contoso.com*
 2. Bob Smith **UserPrincipalName** har angetts som **bobs@contoso.com**.
 3. **”abcdefghijklmnopqrstuv ==”** är den **SourceAnchor** beräknas av Azure AD Connect med Bob Smith **objectGUID** från lokala Active Directory, vilket är den  **immutableId** för Bob Smith i Azure Active Directory.
 4. Bob innehåller också följande värden för den **proxyAddresses** attribut:
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
-   * **smtp:bob@contoso.com**
+   * SMTP: bobs@contoso.com
+   * SMTP: bob.smith@contoso.com
+   * **SMTP: bob@contoso.com**
 5. En ny användare **Bob Taylor**, har lagts till i lokalerna Active Directory.
 6. Bob Taylor **UserPrincipalName** har angetts som **bobt@contoso.com**.
 7. **”abcdefghijkl0123456789 ==” ”** är den **sourceAnchor** beräknas av Azure AD Connect med Bob Taylor **objectGUID** från på lokala Active Directory. Bob Taylor objektet har inte synkroniserats till Azure Active Directory ännu.
 8. Bob Taylor har följande värden för attributet proxyAddresses
-   * smtp:bobt@contoso.com
-   * smtp:bob.taylor@contoso.com
-   * **smtp:bob@contoso.com**
+   * SMTP: bobt@contoso.com
+   * SMTP: bob.taylor@contoso.com
+   * **SMTP: bob@contoso.com**
 9. Azure AD Connect kommer under synkronisering känner igen för att lägga till Bob Taylor i lokala Active Directory och be Azure AD för att göra samma ändringar.
 10. Azure AD först utför hårda matchning. Det vill säga söker om ett objekt med immutableId är lika med ”abcdefghijkl0123456789 ==”. Hårda matchar misslyckas eftersom inga objekt i Azure AD har den immutableId.
-11. Azure AD försöker soft-matcha Bob Taylor. Det vill säga söker om ett objekt med proxyAddresses är lika med tre värden, inklusive smtp:bob@contoso.com
+11. Azure AD försöker soft-matcha Bob Taylor. Det vill säga söker om ett objekt med proxyAddresses är lika med tre värden, inklusive smtp: bob@contoso.com
 12. Azure AD hittar Bob Smith objekt som matchar villkor som soft-matchning. Men det här objektet har värdet för immutableId = ”abcdefghijklmnopqrstuv ==”. Anger det här objektet har synkroniserats från ett annat objekt från lokala Active Directory. Därför Azure AD kan inte soft-matcha de här objekten och resulterar i en **InvalidSoftMatch** synkroniseringsfel.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Hur du löser InvalidSoftMatch fel
@@ -93,10 +94,10 @@ Den vanligaste orsaken till felet InvalidSoftMatch är två objekt med olika Sou
 
 1. Identifiera duplicerade proxyAddresses, userPrincipalName eller andra attributvärde som orsakar felet. Också identifiera vilka två \(eller flera\) objekt ingår i konflikten. Rapporten som genereras av [Azure AD Connect Health för synkronisering](https://aka.ms/aadchsyncerrors) kan hjälpa dig att identifiera de båda objekten.
 2. Identifiera vilka objekttyper som ska fortsätta att ha duplicerade värdet och vilket objekt bör inte.
-3. Ta bort dubbletter värdet från det objekt som inte ska ha värdet. Observera att du ska göra ändringen i den katalog där objektet kommer från. I vissa fall kan behöva du ta bort ett objekt i konflikt.
+3. Ta bort dubbletter värdet från det objekt som inte ska ha värdet. Du bör se ändringen i katalogen där objektet kommer från. I vissa fall kan behöva du ta bort ett objekt i konflikt.
 4. Om du har gjort ändringen i lokalerna AD låta Azure AD Connect synkroniserar ändringen.
 
-Observera att synkronisera felrapport i Azure AD Connect Health för synkronisering uppdateras var 30: e minut och innehåller fel från det senaste synkroniseringsförsöket.
+Felrapporter för synkronisering i Azure AD Connect Health för synkronisering uppdateras var 30: e minut och innehålla fel från det senaste synkroniseringsförsöket.
 
 > [!NOTE]
 > ImmutableId, bör per definition inte ändra av objektet. Om Azure AD Connect inte har konfigurerats med några scenarier i åtanke i listan ovan, du kan hamna i en situation där Azure AD Connect beräknar ett annat värde för SourceAnchor för AD-objekt som representerar samma entitet (samma användargrupp / Kontakta osv.) som har en befintlig Azure AD-objekt som du vill fortsätta använda.
@@ -114,8 +115,8 @@ När Azure AD försöker matcha mjuka två objekt, är det möjligt att två obj
 * En e-aktiverade säkerhetsgruppen har skapats i Office 365. Administratören lägger till en ny användare eller en kontakt i lokala AD (som inte är synkroniserat till Azure AD ännu) med samma värde för attributet ProxyAddresses som Office 365-gruppen.
 
 #### <a name="example-case"></a>Exempel fallet
-1. Administratören skapar en ny e-post aktiverad säkerhetsgrupp i Office 365 för skatt avdelningen och ger en e-postadress som tax@contoso.com. Den här tilldelas ProxyAddresses attributet för den här gruppen med värdet för **smtp:tax@contoso.com**
-2. En ny användare ansluter Contoso.com och ett konto skapas för användaren på lokal med proxyAddress som **smtp:tax@contoso.com**
+1. Administratören skapar en ny e-post aktiverad säkerhetsgrupp i Office 365 för skatt avdelningen och ger en e-postadress som tax@contoso.com. Den här gruppen har tilldelats värdet på attributet ProxyAddresses för **smtp: tax@contoso.com**
+2. En ny användare ansluter Contoso.com och ett konto skapas för användaren på lokal med proxyAddress som **smtp: tax@contoso.com**
 3. När Azure AD Connect kommer att synkronisera det nya användarkontot, får den felet ”ObjectTypeMismatch”.
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Hur du löser ObjectTypeMismatch fel
@@ -143,14 +144,14 @@ Azure Active Directory-schemat tillåter inte två eller flera objekt som ska ha
 1. **Bob Smith** är en synkroniserade användare i Azure Active Directory från på lokala Active Directory för contoso.com
 2. Bob Smith **UserPrincipalName** har angetts som lokala **bobs@contoso.com**.
 3. Bob innehåller också följande värden för den **proxyAddresses** attribut:
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
-   * **smtp:bob@contoso.com**
+   * SMTP: bobs@contoso.com
+   * SMTP: bob.smith@contoso.com
+   * **SMTP: bob@contoso.com**
 4. En ny användare **Bob Taylor**, har lagts till i lokalerna Active Directory.
 5. Bob Taylor **UserPrincipalName** har angetts som **bobt@contoso.com**.
-6. **Bob Taylor** har följande värden för den **ProxyAddresses** attribut i. smtp:bobt@contoso.com II. smtp:bob.taylor@contoso.com
+6. **Bob Taylor** har följande värden för den **ProxyAddresses** attribut i. SMTP: bobt@contoso.com ii. SMTP: bob.taylor@contoso.com
 7. Bob Taylor objektet synkroniseras med Azure AD har.
-8. Administratören har valt att uppdatera Bob Taylor **ProxyAddresses** attribut med följande värde: jag. **smtp:bob@contoso.com**
+8. Administratören har valt att uppdatera Bob Taylor **ProxyAddresses** attribut med följande värde: jag. **SMTP: bob@contoso.com**
 9. Azure AD försöker uppdatera Bob Taylor objektet i Azure AD med ovanstående värde, men som misslyckas åtgärden som att ProxyAddresses värdet har redan tilldelats Bob Smith, vilket resulterade i felet ”AttributeValueMustBeUnique”.
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Hur du löser AttributeValueMustBeUnique fel
@@ -167,7 +168,7 @@ Den vanligaste orsaken till felet AttributeValueMustBeUnique är två objekt med
 ## <a name="data-validation-failures"></a>Dataverifiering
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
 #### <a name="description"></a>Beskrivning
-Azure Active Directory tillämpar olika begränsningar för själva informationen innan du tillåter att data skrivs till katalogen. Detta är så att slutanvändarna får bästa möjliga upplevelser när du använder program som är beroende av dessa data.
+Azure Active Directory tillämpar olika begränsningar för själva informationen innan du tillåter att data skrivs till katalogen. Dessa begränsningar är så att slutanvändarna får bästa möjliga upplevelser när du använder program som är beroende av dessa data.
 
 #### <a name="scenarios"></a>Scenarier
 a. Värdet för attributet UserPrincipalName har tecken som inte ogiltig stöds.
@@ -181,7 +182,7 @@ a. Se till att attributet userPrincipalName har stöds tecken och format som kr�
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Beskrivning
-Detta är ett specialfall som resulterar i en **”FederatedDomainChangeError”** synkroniseringsfel när suffix för en användares UserPrincipalName ändras från en federerad domän till en annan federerad domän.
+Det här fallet resulterar i en **”FederatedDomainChangeError”** synkroniseringsfel när suffix för en användares UserPrincipalName ändras från en federerad domän till en annan federerad domän.
 
 #### <a name="scenarios"></a>Scenarier
 För en synkroniserad användare ändrades UserPrincipalName suffix från en federerad domän till en annan federerad domän lokalt. Till exempel *UserPrincipalName = bob@contoso.com*  ändrades till *UserPrincipalName = bob@fabrikam.com* .

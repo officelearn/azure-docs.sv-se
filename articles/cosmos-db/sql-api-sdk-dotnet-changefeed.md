@@ -2,22 +2,20 @@
 title: 'Azure Cosmos DB: .NET ändra Feed Processor API, SDK & resurser | Microsoft Docs'
 description: Läs mer om ändringen Feed Processor-API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av .NET-ändra Feed Processor-SDK.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798897"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -44,6 +42,10 @@ ms.lasthandoff: 05/08/2018
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="stable-builds"></a>Stabil versioner
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Lägga till mer loggning.
+* Fast en DocumentClient läcka vid anrop av pågående arbete uppskattning flera gånger.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Korrigeringar i den pågående arbete beräkning av.
@@ -107,6 +109,7 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |08 kan 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |
 | [1.2.0](#1.2.0) |31 oktober 2017 |--- |

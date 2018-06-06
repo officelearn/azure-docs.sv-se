@@ -2,34 +2,35 @@
 title: Azure Stream Analytics IoT kant (förhandsgranskning)
 description: Skapa edge jobb i Azure Stream Analytics och distribuera dem till enheter igång Azure IoT kant.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802535"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
 > [!IMPORTANT]
-> Den här funktionen är i förhandsgranskningen. Vi rekommenderar inte används i produktionen.
+> Den här funktionen är i förhandsvisning och rekommenderas inte för användning i produktion.
  
-Azure Stream Analytics (ASA) på IoT kant ger utvecklare möjlighet att distribuera nära realtid analytiska intelligence närmare till IoT-enheter så att de kan låsa upp det fulla värdet av data som genereras av enheten. Har utformats för låg latens, återhämtning, effektiv användning av nätverksbandbredd och efterlevnad och kan företag nu distribuera logik nära industriell verksamhet och kompletterar analyser av Stordata i molnet.  
-Azure Stream Analytics IoT kant som körs inom den [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/) framework. När jobbet skapas i ASA, deploym och hantera ASA jobb med hjälp av IoT-hubb.
-Den här funktionen är i förhandsvisning, om du har frågor eller feedback kan du använda [undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) att kontakta produktteamet. 
+Azure Stream Analytics (ASA) på IoT kant ger utvecklare möjlighet att distribuera nära realtid analytiska intelligence närmare till IoT-enheter så att de kan låsa upp det fulla värdet av data som genereras av enheten. Azure Stream Analytics har utformats för låg latens, återhämtning, effektiv användning av nätverksbandbredd och efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och kompletterar analyser av Stordata i molnet.  
+
+Azure Stream Analytics IoT kant som körs inom den [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/) framework. När jobbet har skapats i ASA, kan du distribuera och hantera ASA jobb med hjälp av IoT-hubb. Den här funktionen är en förhandsversion. Om du har några frågor eller kommentarer, kan du använda [undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) att kontakta produktteamet. 
 
 ## <a name="scenarios"></a>Scenarier
 ![Översiktsdiagram](media/stream-analytics-edge/ASAedge_highlevel.png)
 
 * **Låg latens kommando- och**: till exempel produktion säkerhetssystem måste svara på användningsdata med mycket låg latens. Du kan analysera sensor data i nära realtid och utfärda kommandon när du identifiera avvikelser att stoppa en dator eller utlösa aviseringar med ASA på IoT kant.
 *   **Begränsad anslutning till molnet**: Mission kritiska system, till exempel remote utvinningsmodellen utrustning, anslutna fartyg eller offshore borra måste du analysera och ta hänsyn till data, även om molnet anslutningen bryts. Din strömmande logik körs oberoende av nätverksanslutningen med ASA, och du kan välja som du skickar till molnet för vidare bearbetning eller lagring.
-* **Begränsad bandbredd**: mängden data som produceras av jet motorer eller anslutna bilar kan vara så stor data måste vara filtrerade eller bearbetas före innan den skickas till molnet. Använda ASA kan du filtrera eller aggregera data som måste skickas till molnet.
+* **Begränsad bandbredd**: mängden data som produceras av jet motorer eller anslutna bilar kan vara så stor data måste vara filtrerade eller bearbetas före innan den skickas till molnet. Använda ASA kan du filtrera eller aggregera data som ska skickas till molnet.
 * **Kompatibilitet**: regelefterlevnad kan kräva att vissa data lokalt anonym eller aggregeras innan den skickas till molnet.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-jobb i Azure Stream Analytics
@@ -48,16 +49,21 @@ ASA använder IoT-hubb för att distribuera edge jobb till enheter. Mer informat
 De övergripande stegen beskrivs i följande tabell. Mer information ges i följande avsnitt.
 |      |Steg   | Plats     | Anteckningar   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Skapa ett ASA edge-jobb**   | Azure Portal      |  Skapa ett nytt jobb väljer **kant** som **värdmiljön**. <br> Dessa jobb från molnet är skapat/hanteras och köras på din egen IoT-gränsenheterna.     |
-| 2   | **Skapa en lagringsbehållare**   | Azure Portal       | Behållare för lagring för att spara din jobbdefinitionen där de kan nås av IoT-enheter. <br>  Du kan återanvända eventuella befintliga lagringsbehållaren.     |
-| 3   | **Konfigurera din miljö för IoT kanten på dina enheter**   | Enheter      | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 1   | **Skapa en lagringsbehållare**   | Azure Portal       | Behållare för lagring för att spara din jobbdefinitionen där de kan nås av IoT-enheter. <br>  Du kan återanvända eventuella befintliga lagringsbehållaren.     |
+| 2   | **Skapa ett ASA edge-jobb**   | Azure Portal      |  Skapa ett nytt jobb väljer **kant** som **värdmiljön**. <br> Dessa jobb från molnet är skapat/hanteras och köras på din egen IoT-gränsenheterna.     |
+| 3   | **Konfigurationsmiljö för din IoT kanten på dina enheter**   | Enheter      | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Distribuera ASA på IoT Edge-enheter**   | Azure Portal      |  ASA jobbdefinitionen exporteras till vilken lagringsbehållare som du skapade tidigare.       |
 Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) att distribuera din första ASA jobb på IoT kant. Följande videoklipp hjälper dig att förstå processen för att köra ett Stream Analytics-jobb på en insticksenhet för IoT:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### <a name="create-a-storage-container"></a>Skapa en lagringsbehållare
+En lagringsbehållare krävs för att exportera ASA kompilerad fråga och jobbkonfigurationen som. Den används för att konfigurera ASA Docker-avbildningen med specifika frågan. 
+1. Följ [instruktionerna](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto från Azure-portalen. Du kan behålla alla standardalternativ att använda det här kontot med ASA.
+2. Skapa en behållare för blob storage i det nyligen skapade lagringskontot:
+    1. Klicka på **Blobbar**, sedan **+ behållare**. 
+    2. Ange ett namn och behålla behållaren som **privata**.
 
 #### <a name="create-an-asa-edge-job"></a>Skapa ett ASA Edge-jobb
 > [!Note]
@@ -71,17 +77,11 @@ Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-ed
     2. Definiera referensdata (valfritt).
     3. **Definiera utdata Stream(s)**. Definiera en eller flera utdata dataströmmar för jobbet. 
     4. **Definiera fråga**. Definiera ASA frågan i molnet med hjälp av infogade editor. Kompilatorn kontrollerar automatiskt den syntax som aktiverats för ASA kant. Du kan också testa frågan genom att ladda upp exempeldata. 
-4. Ange valfria inställningar
+4. Ange information för storage-behållare den **inställningar IoT Edge** menyn.
+5. Ange valfria inställningar
     1. **Händelsen ordning**. Du kan konfigurera principen för out-ordning i portalen. Dokumentation för [här](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Språk**. Ange internalization format.
 
-
-#### <a name="create-a-storage-container"></a>Skapa en lagringsbehållare
-En lagringsbehållare krävs för att exportera ASA kompilerad fråga och jobbkonfigurationen som. Den används för att konfigurera ASA Docker-avbildningen med specifika frågan. 
-1. Följ [instruktionerna](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto från Azure-portalen. Du kan behålla alla standardalternativ att använda det här kontot med ASA.
-2. Skapa en behållare för blob storage i det nyligen skapade lagringskontot:
-    1. Klicka på ”BLOB”, sedan ”+ behållare”. 
-    2. Ange ett namn och behålla behållaren som ”privat”
 
 
 > [!Note]
@@ -91,23 +91,23 @@ En lagringsbehållare krävs för att exportera ASA kompilerad fråga och jobbko
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Konfigurera din miljö för IoT kanten på dina enheter
 Edge-jobb kan distribueras på enheter som kör Azure IoT kant.
 För att göra detta måste du följa dessa steg:
-- Skapa en Iot-hubb;
-- Installera Docker- och IoT kanten runtime på dina enheter edge;
-- Ange dina enheter som ”IoT kant enheter” i IoT-hubb.
+- Skapa en Iot-hubb.
+- Installera Docker- och IoT kanten runtime på dina enheter.
+- Konfigurera dina enheter som **IoT gränsenheterna** i IoT-hubb.
 
 Dessa steg beskrivs i dokumentationen för IoT kant [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Distributionen ASA på IoT Edge-enheter
 ##### <a name="add-asa-to-your-deployment"></a>Lägg till ASA för din distribution
-- Öppna IoT-hubb i Azure-portalen, navigera till IoT kant Explorer och öppna bladet för din enhet.
-- Välj **ange moduler**och välj **Import Azure Service IoT kant Module**.
-- Välj prenumerationen och jobbet ASA kant som du skapade. Välj sedan ditt lagringskonto. Klicka på Spara.
+- Öppna IoT-hubb i Azure-portalen, gå till **IoT kant** och klicka på den enhet som du vill använda som mål för den här distributionen.
+- Välj **ange moduler**och välj **+ Lägg till** och välj **Azure Stream Analytics-modulen**.
+- Välj prenumerationen och jobbet ASA kant som du skapade. Klicka på Spara.
 ![Lägg till ASA modul i distributionen](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Det här steget ASA begär åtkomst till den valda lagringsbehållaren och skapar sedan en mapp med namnet ”EdgeJobs”. För varje distribution skapas en ny undermapp i mappen ”EdgeJobs”.
+> Det här steget skapar ASA en mapp med namnet ”EdgeJobs” i lagringsbehållaren (om det inte redan finns). För varje distribution skapas en ny undermapp i mappen ”EdgeJobs”.
 > För att distribuera projektet till gränsenheterna skapar ASA en signatur för delad åtkomst (SAS) för definitionsfilen för jobbet. SAS-nyckeln överförs på ett säkert sätt till IoT gränsenheterna med dubbla för enheten. Upphör att gälla för den här nyckeln är tre år från dag då skapades.
 
 
@@ -140,12 +140,12 @@ Det här exemplet definierar följande rutter:
 
 ## <a name="technical-information"></a>Teknisk information
 ### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Aktuella begränsningar för edge projekt jämfört med molntjänster jobb
-Målet är att paritet mellan kant-jobb och molnet jobb. De flesta av funktionerna i vår SQL-frågespråket stöds redan.
+Målet är att paritet mellan kant-jobb och molnet jobb. De flesta funktioner i SQL-frågan språk stöds redan.
 Men följande funktioner stöds inte ännu för edge jobb:
 * Användardefinierade funktioner (UDF) och användardefinierade aggregeringar (UDA).
 * Azure ML-funktioner.
 * Använder mer än 14 mängder i ett enda steg.
-* AVRO-formatet för in-/ utdata. Just nu stöds endast CSV och JSON.
+* AVRO-formatet för in-/ utdata. För närvarande kan stöds endast CSV och JSON.
 * Följande SQL-operatorer:
     * AnomalyDetection
     * Geospatiala operatorer:
@@ -161,11 +161,11 @@ Men följande funktioner stöds inte ännu för edge jobb:
 
 
 ### <a name="runtime-and-hardware-requirements"></a>Runtime-och maskinvarukrav
-För att kunna köra ASA IoT kant måste enheter som kan köra [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/). 
+Om du vill köra ASA IoT kant måste enheter som kan köra [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/). 
 
-ASA och Azure IoT kanten använda **Docker** behållare för att tillhandahålla en bärbar lösning som körs på flera värdar OS (Windows, Linux).
+ASA och Azure IoT kanten använda **Docker** behållare för att tillhandahålla en bärbar lösning som körs på flera värdoperativsystem (Windows, Linux).
 
-ASA IoT kant görs tillgänglig som Windows- och Linux-bilder, körs på både x86 64 eller ARM arkitekturerna. 
+ASA IoT kant görs tillgänglig som Windows- och Linux-bilder, körs på både x86-64- eller Azure Resource Manager arkitekturerna. 
 
 
 ### <a name="input-and-output"></a>Inkommande och utgående
@@ -176,12 +176,14 @@ För både indata och utdata stöds CSV och JSON-format.
 
 För varje indata- och utdataström skapar ASA-jobb, skapas en motsvarande slutpunkt på dina distribuerade modulen. Dessa slutpunkter kan användas i vägar för din distribution.
 
+AT finns, det går endast att strömindata och dataströmmen utdata typer är Edge hubb. Referera till inkommande stöder referenstyp för filen. Andra utdata kan nås med hjälp av en moln-jobbet nedströms. Till exempel skickar ett Stream Analytics-jobb finns i Edge utdata till Edge hubben, som sedan kan skicka utdata till IoT-hubben. Du kan använda en andra molnbaserade Azure Stream Analytics-jobbet med indata från IoT-hubb och utdata för Power BI eller en annan Utdatatyp.
+
 
 
 ##### <a name="reference-data"></a>Referensdata
-Referensdata (även kallat en uppslagstabell) är en begränsad datamängd som är statiska eller saktas ändrar till sin natur. Den används för att utföra en sökning eller korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Mer information finns i [ASA dokumentationen om referensdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrar till sin natur. Den används för att utföra en sökning eller korrelera med din dataström. För att använda referensdata i Azure Stream Analytics-jobbet, använder du normalt en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Mer information finns i [ASA dokumentationen om referensdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-För att kunna använda referensdata för ASA Iot kant, måste du följa dessa steg: 
+Följ dessa steg om du vill använda referensdata för ASA Iot kant: 
 1. Skapa en ny inmatning för jobbet
 2. Välj **referensdata** som den **källtypen**.
 3. Ange sökvägen till filen. Sökvägen till filen måste vara en **absolut** sökväg på enheten ![referera skapa data](media/stream-analytics-edge/ReferenceData.png)

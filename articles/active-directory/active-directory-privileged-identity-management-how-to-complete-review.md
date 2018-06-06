@@ -3,7 +3,7 @@ title: Hur du utför en åtkomst-granskning | Microsoft Docs
 description: När du har startat en åtkomst-granskning i Azure AD Privileged Identity Management lär du dig hur du slutför den och visa resultaten
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98a6731be3c4977b644f2f6524443aceb1d414d7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697983"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Hur du utför en åtkomst-granskning i Azure AD Privileged Identity Management
 Privilegierade rollen administratörer kan granska privilegierad åtkomst när en [säkerhetsgranskning har startats](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickar automatiskt ett e-postmeddelande som uppmanar användare att granska deras åtkomst. Om en användare inte fick ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en säkerhetsgranskning](active-directory-privileged-identity-management-how-to-perform-security-review.md).

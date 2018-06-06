@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735875"
 ---
 # <a name="advisor-cost-recommendations"></a>Kostnad Advisor-rekommendationer
 
@@ -33,6 +34,11 @@ Om du vill ha mer aggressivt på identifiera underutnyttjade virtuella datorer, 
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Minska kostnaderna genom att eliminera avetableras ExpressRoute-kretsar
 Advisor identifierar ExpressRoute-kretsar som har statusen providern av *inte etablerats* för mer än en månad och rekommenderar att du tar bort kretsen om du inte planerar att etablera kretsen med anslutningen providern.
+
+## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>Köp reserverade instanser av virtuella datorer och spara pengar jämfört med Betala per användning
+Advisor granskar din användning av virtuella datorer under de senaste 30 dagarna och avgöra om du kan spara pengar genom att köpa reserverade instanser. Advisor visas regioner och storlekar där du eventuellt har de flesta besparingar och visar de uppskattade besparingarna från hur du köper reserverade instanser. 
+
+Du kan före köpa grundläggande kostnaderna för dina virtuella datorer med reserverade instanser. Rabatter kopplas automatiskt till nya eller befintliga virtuella datorer som har samma storlek och region som din reserverade instanser. [Läs mer om Azure reserverade VM-instanser.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Hur du kommer åt kostnaden rekommendationerna i Azure Advisor
 

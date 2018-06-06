@@ -1,13 +1,14 @@
 ---
 title: Konfigurera Azure Active Directory-anslutna enheter | Microsoft Docs
-description: "Lär dig hur du ställer in Azure Active Directory anslutna enheter."
+description: Lär dig hur du ställer in Azure Active Directory anslutna enheter.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713620"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Konfigurera Azure Active Directory-anslutna enheter
 
@@ -50,7 +52,7 @@ Registreringstjänsten för enheter måste konfigureras så att du kan registrer
 
 ## <a name="joining-a-device"></a>Koppla en enhet
 
-Det här avsnittet ger dig stegen för att ansluta din Windows 10-enhet till din Azure AD. Om du har anslutit din enhet till Azure AD din **åtkomst arbetet eller skolan** dialogrutan anger detta med en **ansluten till \<din Azure AD\>**  transaktionen.
+Det här avsnittet ger dig stegen för att ansluta din Windows 10-enhet till din Azure AD. En enhet som har anslutits visas som **ansluten till \<din Azure AD\>**.
 
 ![Ansluten](./media/device-management-azuread-joined-devices-setup/13.png)
 
@@ -105,7 +107,7 @@ Om du vill kontrollera om en enhet är ansluten till en Azure AD, kan du granska
 
 ![Ansluten](./media/device-management-azuread-joined-devices-setup/13.png)
 
-Du kan också köra följande kommando:`dsregcmd /status`  
+Du kan också köra följande kommando: `dsregcmd /status`  
 På en enhet som har anslutits **AzureAdJoined** är **Ja**.
 
 ![Ansluten](./media/device-management-azuread-joined-devices-setup/14.png)

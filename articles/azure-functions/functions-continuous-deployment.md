@@ -1,12 +1,12 @@
 ---
-title: "Kontinuerlig distribution för Azure Functions | Microsoft Docs"
-description: "Använd kontinuerlig distribution av Azure App Service för att publicera dina Azure-funktioner."
+title: Kontinuerlig distribution för Azure Functions | Microsoft Docs
+description: Använd kontinuerlig distribution av Azure App Service för att publicera dina Azure-funktioner.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735711"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 Azure Functions gör det enkelt att distribuera appen funktionen med hjälp av Apptjänst kontinuerlig integration. Functions kan integreras med BitBucket, Dropbox, GitHub eller Visual Studio Team Services VSTS (). Detta gör att ett arbetsflöde där Funktionskoden uppdateringar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du har använt Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
@@ -41,6 +42,8 @@ Distributioner konfigureras på grundval av per funktion app. Efter kontinuerlig
 Du måste ha din distributionskälla konfigurerad och funktioner koden i distributionskälla innan du kan ställa in kontinuerlig distribution. I en viss funktion appdistribution bor varje funktion i en namngiven underkatalog där katalognamnet är namnet på funktionen.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+För att kunna distribuera från VSTS, måste du först koppla VSTS-konto med din Azure-prenumeration. Mer information finns i [konfigurerar faktureringen för ditt konto i VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Konfigurera kontinuerlig distribution
 Använd den här proceduren för att konfigurera kontinuerlig distribution för en befintlig funktionsapp. Dessa steg visar integrering med en GitHub-databas, men liknande steg gäller för Visual Studio Team Services eller andra deployment services.

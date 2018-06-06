@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: f9de8d213d11a8ccb3ffff484a67560d9e2abe77
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 33d6d83d4dcd0ec9bebf8d4197684e0e52c48ac5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701326"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhetsprincip åtkomst för HTTP och HTTPS-slutpunkter
 Om du använder en Kör som-princip och service manifest deklarerar http-slutpunkt resurser, måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** garanterar att portar som allokerats till dessa slutpunkter korrekt är begränsade till det användarkonto som tjänsten körs under. Annars **http.sys** inte har åtkomst till tjänsten och du får ett fel med anrop från klienten. I följande exempel gäller en slutpunkt som kallas kontot Customer1 **EndpointName**, vilket ger fullständig behörighet.
@@ -42,6 +43,10 @@ För en HTTPS-slutpunkt, också ange namnet på certifikatet som ska returneras 
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+
+> [!WARNING] 
+> När du använder HTTPS, Använd inte samma port och certifikat för olika tjänstinstanser (oberoende av programmet) distribueras till samma nod. Uppgradera två olika tjänster som använder samma port i annat fall leder en uppgraderar. Mer information finns i [uppgraderar flera program med HTTPS-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 Läs följande artiklar för nästa steg:

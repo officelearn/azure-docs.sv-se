@@ -1,31 +1,25 @@
 ---
 title: Arkitektur för fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: En genomgång av arkitekturen för fjärråtkomst övervakning solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757441"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Fjärråtkomst övervakning accelerator lösningsarkitektur
 
 Fjärråtkomst övervakning [lösningsaccelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
 
-Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
+Den här artikeln vägleder dig igenom några av de viktigaste beståndsdelarna i Fjärrövervaknings lösningen att du ska förstå hur den fungerar. Med den här kunskapen kan du sedan:
 
 * Felsöka problem i lösningen.
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
@@ -33,7 +27,7 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
-Diagrammet nedan visar logiska komponenter för fjärråtkomst övervakning solution accelerator högst upp på den [IoT-arkitekturen](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
+Diagrammet nedan visar logiska komponenter i Fjärrövervaknings solution accelerator högst upp på den [IoT-arkitekturen](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Logisk arkitektur](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -97,13 +91,13 @@ Lösningen innehåller två mikrotjänster för att hantera enheter telemetri.
 
 Den [telemetri-agent](https://github.com/Azure/telemetry-agent-dotnet) mikrotjänster:
 
-* Lagrar telemetri i Cosmos-databasen.
+* Lagrar telemetri i Azure Cosmos DB.
 * Analyserar dataströmmen telemetri från enheter.
 * Genererar larm enligt definierade regler.
 
-Larm lagras i Cosmos-databasen.
+Larm lagras i Azure Cosmos DB.
 
-Den `telemetry-agent` mikrotjänster kan lösningen-portalen för att läsa telemetri som skickas från enheter. Lösning portalen använder också den här tjänsten till:
+Den [telemetri-agent](https://github.com/Azure/telemetry-agent-dotnet) mikrotjänster kan lösningen-portalen för att läsa telemetri som skickas från enheter. Lösning portalen använder också den här tjänsten till:
 
 * Definiera regler för övervakning, till exempel tröskelvärden som utlöser larm
 * Hämta listan över de senaste larm.
@@ -114,9 +108,9 @@ Använda RESTful slutpunkten som tillhandahålls av den här mikrotjänster för
 
 Den [lagringsadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) mikrotjänster är ett kort framför den huvudsakliga storage-tjänst som används för solution accelerator. Det ger enkel insamling och nyckel / värde-lagring.
 
-Standarddistribution av solution accelerator använder Cosmos DB som dess huvudsakliga storage-tjänst.
+Standarddistribution av solution accelerator använder Azure Cosmos DB som dess huvudsakliga storage-tjänst.
 
-Cosmos-DB-databasen lagrar data i solution accelerator. Den **lagringsadapter** mikrotjänster fungerar som ett kort för den andra mikrotjänster i lösningen till lagringstjänster för åtkomst.
+Azure DB som Cosmos-databasen lagrar data i solution accelerator. Den **lagringsadapter** mikrotjänster fungerar som ett kort för den andra mikrotjänster i lösningen till lagringstjänster för åtkomst.
 
 ## <a name="presentation"></a>Presentation
 
@@ -141,6 +135,8 @@ Om du vill utforska källa kod och utvecklare dokumentationen börjar du med en 
 
 * [Solution accelerator för fjärråtkomst övervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solution accelerator för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Solution accelerator för fjärråtkomst övervakning arkitektur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Mer information om fjärråtkomst övervakning solution accelerator finns [anpassa solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Arkitekturdiagram detaljerad lösning:
+* [Solution accelerator för Fjärrövervaknings arkitektur](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Mer information om Fjärrövervaknings solution accelerator finns [anpassa solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

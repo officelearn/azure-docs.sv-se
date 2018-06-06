@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757265"
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -36,7 +37,7 @@ Azure-stacken 1802 uppdatera versionsnumret är **20180302.1**.
 
 ## <a name="before-you-begin"></a>Innan du börjar    
 > [!IMPORTANT]    
-> Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns [hantera uppdateringar i Azure-stacken översikt](/azure-stack-updates#plan-for-updates).
+> Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>Förutsättningar
@@ -107,6 +108,9 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 Följande är efter installationen kända problem för version **20180302.1**
 
 #### <a name="portal"></a>Portalen
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Lösning: Lös problemet när du har installerat uppdateringen med steg 3 från de [utlösaren automation för att konfigurera anspråksproviderförtroende i Azure-stacken](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard providern Prenumerationens ägare.   
+
 - Möjlighet [att öppna en ny supportförfrågan i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
     - För Azure-Stack integrerad system använda https://aka.ms/newsupportrequest.
 
@@ -137,7 +141,22 @@ Följande är efter installationen kända problem för version **20180302.1**
 
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
-Det finns inga kända problem när du har uppdaterat till 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Avisera #1:
+   - NAMN: Infrastrukturrollen ohälsosamt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Hälsotillstånd domänkontrollant
+   - Beskrivning: Hälsotillstånd controller pulsslag skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.  
+
+  Avisera #2:
+   - NAMN: Infrastrukturrollen ohälsosamt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Hälsotillstånd domänkontrollant
+   - Beskrivning: Hälsotillstånd controller fel skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.
+
+  Båda aviseringarna kan ignoreras. De stängs automatiskt med tiden.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa element som planer och erbjudanden. Objekten är icke-fungerande till användare.
@@ -155,7 +174,7 @@ Det finns inga kända problem när du har uppdaterat till 1802.
 
 - När du skapar en tillgänglighetsuppsättning i portalen genom att gå till **ny** > **Compute** > **tillgänglighetsuppsättning**, du kan bara skapa en tillgänglighetsuppsättning med en feldomän och uppdateringsdomän 1. Som en lösning när du skapar en ny virtuell dator, skapa tillgänglighetsuppsättning med hjälp av PowerShell, CLI eller från portalen.
 
-- När du skapar virtuella datorer på Azure-stacken användarportalen visar portalen ett felaktigt antal datadiskar som kan kopplas till DS-serien VM. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
+- När du skapar virtuella datorer på Azure-stacken användarportalen visar portalen ett felaktigt antal datadiskar som kan kopplas till D-serien VM. Alla stöds D-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
 - När en VM-avbildning misslyckas skapas kan en misslyckade objekt som du inte kan ta bort läggas till bladet VM-avbildningar beräkning.
 
@@ -277,6 +296,8 @@ Det finns inga kända problem när du har uppdaterat till 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Hämta Azure Stack-verktyg från GitHub
 - När du använder den *anropa webrequest* PowerShell-cmdlet för att ladda ned Azure-stacken verktyg från Github, du får ett felmeddelande:     

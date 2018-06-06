@@ -1,6 +1,6 @@
 ---
-title: Azure-säkerhet och efterlevnad modell - webbprogram för FedRAMP
-description: Azure-säkerhet och efterlevnad modell - webbprogram för FedRAMP
+title: Azure-säkerhet och efterlevnad modell - IaaS webbprogram för FedRAMP
+description: Azure-säkerhet och efterlevnad modell - IaaS webbprogram för FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b7a81db6a1caf11ac4a85a5202c5ed943225e849
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 27346d8e2133ea61056817fb48050a4e5c8c3c97
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726490"
 ---
-# <a name="azure-security-and-compliance-blueprint-web-application-for-fedramp"></a>Azure-säkerhet och efterlevnad utkast: webbprogrammet för FedRAMP
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-säkerhet och efterlevnad utkast: IaaS webbprogram för FedRAMP
 
 ## <a name="overview"></a>Översikt
 
@@ -149,8 +150,8 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
 
 OMS innehåller utförlig loggning av system- och användaraktivitet samt systemhälsa. OMS [logganalys](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
 
-- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om åtgärder som utförs på resurser i en prenumeration.   Aktivitetsloggar kan hjälpa dig att bestämma en åtgärd initieraren tid på förekomst och status.
-- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs.   Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
+- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om åtgärder som utförs på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att bestämma en åtgärd initieraren tid på förekomst och status.
+- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
 - **Arkivering av logg:** alla diagnostikloggar skriva till en central och krypterad Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar till bevarande organisation-specifika krav. Dessa loggar ansluta till Azure Log Analytics för bearbetning, lagring och rapportering av instrumentpanelen.
 
 Dessutom installeras följande OMS-lösningar som en del av denna arkitektur. Observera att det är kundens ansvar för att konfigurera dessa lösningar för att justera FedRAMP säkerhetsåtgärder:

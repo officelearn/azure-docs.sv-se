@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 67dff6acff33b548518053ca1f569186d6b5b3ae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 71adccabc0778e2765c574f3714aab0ed0179deb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724477"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage bindningar för Azure Functions
 
@@ -28,11 +29,19 @@ Den här artikeln förklarar hur du arbetar med Azure Queue storage bindningar i
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Queue storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-lagringsplatsen.
+Queue storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 2.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Queue storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Utlösare
 
@@ -237,11 +246,13 @@ Få åtkomst till meddelandedata i C# och C# skript, med hjälp av en metodparam
 * `byte[]`
 * [CloudQueueMessage]
 
+Om du försöker att binda till `CloudQueueMessage` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
+
 I JavaScript, använda `context.bindings.<name>` att komma åt nyttolasten för objekt i kö. Om nyttolasten är JSON, är den avserialiseras till ett objekt.
 
 ## <a name="trigger---message-metadata"></a>Utlösaren - meddelande metadata
 
-Kö utlösaren innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Värden har samma semantik som [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Kö utlösaren innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Dessa är egenskaper för den [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) klass.
 
 |Egenskap |Typ|Beskrivning|
 |--------|----|-----------|
@@ -252,8 +263,6 @@ Kö utlösaren innehåller flera [metadataegenskaper](functions-triggers-binding
 |`InsertionTime`|`DateTimeOffset`|Den tidpunkt som meddelandet har lagts till i kön.|
 |`NextVisibleTime`|`DateTimeOffset`|Den tidpunkt som meddelandet visas bredvid.|
 |`PopReceipt`|`string`|Meddelandets pop inleverans.|
-
-Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare i den här artikeln.
 
 ## <a name="trigger---poison-messages"></a>Utlösaren - förgiftade meddelanden
 
@@ -472,6 +481,8 @@ I C# och C# skript, skriver du ett enda kömeddelande med en metodparameter som 
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
+
+Om du försöker att binda till `CloudQueueMessage` och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 I C# och C# skript, skriva flera meddelanden i kö med någon av följande typer: 
 

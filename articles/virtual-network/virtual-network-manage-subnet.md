@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702082"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
@@ -31,12 +32,12 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 Kontot du loggar in, eller Anslut till Azure med, måste vara tilldelade till den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
 
-## <a name="add-a-subnet"></a>Lägg till ett undernät
+## <a name="add-a-subnet"></a>Lägga till ett undernät
 
 1. Skriv i sökrutan överst i portalen *virtuella nätverk* i sökrutan. När **virtuella nätverken** visas i sökresultaten, markerar du den.
 2. Välj det virtuella nätverket som du vill lägga till ett undernät till i listan över virtuella nätverk.
@@ -51,7 +52,7 @@ Kontot du loggar in, eller Anslut till Azure med, måste vara tilldelade till de
 
     Om du vill ta bort en tjänstslutpunkt avmarkerar du tjänsten som du vill ta bort tjänstslutpunkten för. Läs mer om Tjänsteslutpunkter och de tjänster som de kan aktiveras för i [översikt över virtuella nätverk service slutpunkter](virtual-network-service-endpoints-overview.md). När du aktiverar en tjänstslutpunkt för en tjänst, måste du också aktivera nätverksåtkomst för undernätet för en resurs som skapas med tjänsten. Om du aktiverar tjänstslutpunkten för till exempel *Microsoft.Storage*, måste du även aktivera nätverksåtkomst till alla Azure Storage-konton som du vill bevilja åtkomst till. Du har aktiverat tjänstslutpunkten för mer information om hur du aktivera nätverksåtkomst till undernät som en tjänstslutpunkt har aktiverats för finns i dokumentationen för enskild tjänst.
 
-    Om du vill verifiera att en tjänstslutpunkt har aktiverats för ett undernät, visa den [effektiva vägar](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) för alla nätverksgränssnitt i undernätet. När en slutpunkt har konfigurerats kan du se en *standard* vägen med adressprefix för tjänsten och en nextHopType av **VirtualNetworkServiceEndpoint**. Mer information om routning finns [routning: översikt](virtual-networks-udr-overview.md).
+    Om du vill verifiera att en tjänstslutpunkt har aktiverats för ett undernät, visa den [effektiva vägar](diagnose-network-routing-problem.md) för alla nätverksgränssnitt i undernätet. När en slutpunkt har konfigurerats kan du se en *standard* vägen med adressprefix för tjänsten och en nextHopType av **VirtualNetworkServiceEndpoint**. Mer information om routning finns [routning: översikt](virtual-networks-udr-overview.md).
 6. Om du vill lägga till undernätet i det virtuella nätverket som du har valt, Välj **OK**.
 
 **Kommandon**

@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725351"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -45,38 +46,39 @@ Information om vilka bindningar finns i förhandsgranskningen eller godkänns f�
 
 ## <a name="register-binding-extensions"></a>Registrera bindning tillägg
 
-I version 2.x av Azure Functions-runtime måste du explicit registrera den [bindning tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) som du använder i appen funktion. 
+I version 2.x av Azure Functions-runtime måste du registrera bindning-tillägg (bindningstyper) som du använder i appen funktion. 
 
-Tillägg levereras som NuGet-paket, där paketet vanligtvis namn börjar med [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Hur du installerar och registrerar bindning tillägg beror på hur du utvecklar dina funktioner: 
+Version 2.x för Functions-runtime är för närvarande under förhandsgranskning. Information om hur du ställer in en funktionsapp att använda version 2.x för Functions-runtime finns [så avsedda för Azure Functions-runtime versioner](set-runtime-version.md).
+
+Det finns en grundläggande uppsättning bindningar i version 2.x registreras automatiskt, så du behöver registrera dem explicit: HTTP-timer- och Azure Storage (BLOB, köer och tabeller). 
+
+Tillägg levereras som NuGet-paket, där paketet vanligtvis namn börjar med [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Hur du registrerar bindning tillägg beror på hur du utvecklar dina funktioner: 
 
 + [Lokalt i C# med hjälp av Visual Studio eller VS-kod](#local-c-development-using-visual-studio-or-vs-code)
 + [Lokalt med hjälp av Azure Functions grundläggande verktyg](#local-development-azure-functions-core-tools)
 + [I Azure-portalen](#azure-portal-development) 
 
-Det finns en grundläggande uppsättning bindningar i version 2.x som inte har angetts som tillägg. Du behöver inte registrera tillägg för följande utlösare och bindningar: HTTP-timer- och Azure Storage. 
+Paketversionerna visas i det här avsnittet tillhandahålls endast som exempel. Kontrollera den [NuGet.org plats](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) att avgöra vilken version av ett visst tillägg som krävs av andra beroenden i funktionen appen.    
 
-Information om hur du ställer in en funktionsapp att använda version 2.x för Functions-runtime finns [så avsedda för Azure Functions-runtime versioner](set-runtime-version.md). Version 2.x för Functions-runtime är för närvarande under förhandsgranskning. 
+### <a name="local-csharp"></a>Lokala C# utveckling med hjälp av Visual Studio eller VS-kod
 
-Paketversionerna visas i det här avsnittet tillhandahålls endast som exempel. Kontrollera den [NuGet.org plats](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) att fastställa vilken version av ett visst tillägg som krävs av andra beroenden i funktionen appen.    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Lokala C# utveckling med hjälp av Visual Studio eller VS-kod 
-
-När du använder Visual Studio eller Visual Studio-koden för att utveckla lokalt funktioner i C#, behöver du bara lägga till NuGet-paket för tillägget. 
+När du använder Visual Studio eller Visual Studio-koden för att utveckla lokalt funktioner i C#, installera NuGet-paketet för tillägget. 
 
 + **Visual Studio**: Använd NuGet Package Manager-verktyg. Följande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) installerar Azure DB som Cosmos-tillägget från Package Manager-konsolen:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: du kan installera paket från en kommandotolk med hjälp av den [dotnet lägga till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) kommandot i .NET-CLI på följande sätt:
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>Lokal utveckling Azure Functions grundläggande verktyg
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Azure portal-utveckling
 

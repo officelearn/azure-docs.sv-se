@@ -1,12 +1,12 @@
 ---
 title: Bash i Azure Cloud Shell funktioner | Microsoft Docs
-description: "Översikt över funktionerna i Bash i Azure Cloud Shell"
+description: Översikt över funktionerna i Bash i Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e71f2307ab68b2bc4694c7782f7a0f0d43b159b
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757050"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funktioner och verktyg för Bash i Azure Cloud Shell
 
@@ -48,22 +49,22 @@ Filer utanför `$Home` och datorns tillstånd är inte beständiga mellan sessio
 
 [Läs mer om spara filer i Bash i molnet Shell.](persisting-shell-storage.md)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med öppen källkod verktygsuppsättning
+### <a name="integration-with-open-source-tooling"></a>Integrering med öppen källkod verktygsuppsättning
 
-Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen källkod verktyg som Terraform och Ansible. Prova från exempel genomgång.
+Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen källkod verktyg som Terraform, Ansible och InSpec Chef. Prova från exempel genomgång.
 
 ## <a name="tools"></a>Verktyg
 
 |Kategori   |Namn   |
 |---|---|
-|Linux-verktyg            |Bash<br> del<br> tmux<br> dig<br>               |
+|Linux-verktyg            |Bash<br> del<br> tmux<br> gräva<br>               |
 |Azure-verktyg            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) och [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
-|Textredigerare           |vim<br> nano<br> emacs       |
-|Källkontrollen         |git                    |
-|Skapa verktyg            |Kontrollera<br> maven<br> npm<br> pip         |
+|Textredigerare           |VIM<br> nano<br> emacs       |
+|Källkontrollen         |Git                    |
+|Skapa verktyg            |Kontrollera<br> maven<br> npm<br> PIP         |
 |Behållare             |[Docker CLI](https://github.com/docker/cli)/[Docker-dator](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyget](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Annat                  |iPython Client<br> [Molnet Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Annat                  |iPython klienten<br> [Molnet Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Språkstöd
 
@@ -73,7 +74,7 @@ Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen käl
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 och 3.5 (standard)|
 
 ## <a name="next-steps"></a>Nästa steg

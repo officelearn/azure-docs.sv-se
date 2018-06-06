@@ -4,13 +4,14 @@ description: Beskriver hur du ställer in och kör en bedömning för migrera VM
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
-ms.openlocfilehash: c826453dcbcaf2facfd58daa05b77decda7ae456
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73dab9c7eca53ecce44d43a9607fcc7426f9de8d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715514"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -24,12 +25,12 @@ ms.lasthandoff: 05/16/2018
 
     **Inställning** | **Detaljer** | **Standard**
     --- | --- | ---
-    **Målplats** | Azure-platsen du vill migrera till.<br/><br/> Azure migrera stöder för närvarande 30 regioner inbegripet Östra Australien, sydost, södra, Kanada Central, Kanada, Öst, centrala Indien, centrala USA, Kina Öst, Kina Nord, Östasien, östra USA, Tyskland Central, Tyskland nordöst, östra USA 2, Japan Öst, västra Japan, Korea Central, Korea söder, norra centrala USA, Nordeuropa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, Syd, Storbritannien, Väst, USA Gov Arizona, USA Gov Texas, USA Gov Virginia, West centrala USA, västra Europa, västra Indien, västra USA och västra US2. |  USA, västra 2 är standardplatsen.
-    **Lagringsredundans** | Den typ av lagringsredundans som de virtuella Azure-datorerna använder efter migreringen. | Standardvärdet är [lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md). Azure migrera har bara stöd för hanterade diskar-baserade bedömningar och hanterade diskar har endast stöd för LRS, därför egenskapen har för närvarande endast alternativet LRS.
+    **Målplats** | Azure-platsen du vill migrera till.<br/><br/> För närvarande stöder Azure Migrate 30 regioner, bland andra: Australien – östra, Australien – sydöstra, Brasilien – södra, Kanada – centrala, Kanada – östra, Indien – centrala, USA – centrala, Kina – östra, Kina – norra, Asien – östra (Asien och stillahavsområdet), USA – östra, Tyskland – centrala, Tyskland – nordöstra, USA – östra 2, Japan – östra, Japan – västra, Korea – centrala, Korea – södra, USA – norra centrala, Europa – norra, USA – södra centrala, Asien – sydost, Indien – södra, Storbritannien – södra, Storbritannien – västra, USA – US Gov Arizona – US Gov Texas – US Gov Virginia – västra centrala, USA – västra centrala, Europa – västra, Indien – västra, USA – västra och USA – västra 2. |  USA, västra 2 är standardplatsen.
+    **Lagringstyp** | Du kan ange vilken typ av diskar som du vill allokera i Azure. Den här egenskapen gäller när sizing kriteriet är lokalt storlek. Du kan ange disk måltypen antingen som Premium hanterade diskar eller Standard hanterade diskar. Disk-rekommendationen görs automatiskt baserat på prestandadata för de virtuella datorerna för prestandabaserad storlek. Observera att Azure migrera stöder bara hanterade diskar för utvärdering av migreringen. | Standardvärdet är Premium hanterade diskar (med storlek kriterium som *som lokalt storlek*).
     **Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan antingen göra en *prestandabaserad* storleksändring eller ändra storlek på de virtuella datorerna *som lokalt*, utan att överväga prestandahistorik. | Standardalternativet är prestandabaserad storleksändring.
     **Prestandahistorik** | Tidsperioden att beakta när du utvärderar prestanda för de virtuella datorerna. Den här egenskapen gäller bara när storleksändringskriteriet är *prestandabaserad storleksändring*. | Standardvärdet är en dag.
     **Percentilutnyttjande** | Percentilvärdet för prestandaexempeluppsättningen som beaktas för rätt storleksändring. Den här egenskapen gäller bara när storleksändringskriteriet är *prestandabaserad storleksändring*.  | Standardvärdet är 95: e percentilen.
-    **VM-serien** | Du kan ange den VM som du vill att fundera över gällande rätt storlek. Om du har en produktionsmiljön som du inte planerar att migrera till A-series virtuella datorer i Azure, kan du utesluta A-series från listan eller serie och rätt storlek kommer endast göras på den markerade serien. | Som standard markeras alla VM-serien.
+    **VM-serie** | Du kan ange den VM-serie som du vill överväga vid storleksberäkningen. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-serien av virtuella datorer i Azure, kan du utesluta A-serien från listan eller serien, så fastställs storleken endast baserat på de valda serierna. | Som standard markeras alla VM-serien.
     **prisnivå** | Du kan ange [prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du exempelvis planerar att migrera en produktionsmiljö bör du överväga standardnivån, som tillhandahåller virtuella datorer med låg svarstid men kan kosta mer. Om du å andra sidan har en miljö för utveckling och testning kanske du vill överväga Basic-nivån som har virtuella datorer med högre svarstider och lägre kostnader. | Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
     **Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. | Standardinställningen är 1.3x.
     **Erbjudande** | [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) som du är registrerad för. | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) är standard.

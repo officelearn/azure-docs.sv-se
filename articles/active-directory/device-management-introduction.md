@@ -8,18 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714144"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -30,9 +32,9 @@ I mobile första, molnet först världen aktiverar Azure Active Directory (AD Az
 
 Via enheter kan får användarna åtkomst till ditt företags tillgångar. För att skydda ditt företags tillgångar, som IT-administratör, som du vill ha kontroll över enheterna. På så sätt kan du se till att dina användare har åtkomst till dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. 
 
-Enhetshantering också är grunden för [enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md). Du kan kontrollera åtkomsten till resurser i din miljö är endast möjlig med betrodda enheter med enhetsbaserad villkorlig åtkomst.   
+Enhetshantering också är grunden för [enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md). Du kan kontrollera åtkomsten till resurser i din miljö är endast möjlig med hanterade enheter med enhetsbaserad villkorlig åtkomst.   
 
-Det här avsnittet beskrivs hur enhetshantering i Azure Active Directory fungerar.
+Den här artikeln förklarar hur enhetshantering i Azure Active Directory fungerar.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Hantera enheter under kontroll av Azure AD
 
@@ -122,7 +124,7 @@ Du bör använda Azure AD hybrid anslutna enheter om:
 
 - Du har Win32-appar som distribueras till dessa enheter som använder NTLM / Kerberos.
 
-- Du behöver GP eller SCCM / DCM att hantera enheter.
+- Du behöver GP att hantera enheter.
 
 - Vill du fortsätta att använda avbildningsverktyg lösningar för att konfigurera enheter för dina anställda.
 

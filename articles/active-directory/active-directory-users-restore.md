@@ -8,25 +8,25 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e743bdd5fd7e302e4c7c5d229bb14753776df079
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723538"
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Återställa en borttagen användare i Azure Active Directory
 
 Den här artikeln innehåller anvisningar för att återställa eller ta bort en användare som tidigare har tagits bort permanent. När du tar bort en användare i Azure Active Directory (AD Azure) bevaras den borttagna användaren i 30 dagar från det datum då tas bort. Under den tiden kan kan användaren och dess egenskaper återställas. 
 
-> [!wARNING]
+> [!WARNING]
 > Användaren kan inte återställas när den bort permanent.
-
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Återställa en nyligen borttagna användare
 När en användare har nyligen tagits bort, bevaras all kataloginformation. Om användaren återställs återställs den också.
@@ -44,7 +44,7 @@ När en användare har nyligen tagits bort, bevaras all kataloginformation. Om a
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 Följande behörigheter är tillräckliga för att återställa en användare.
 
-Roll  | Behörigheter 
+Roll | Behörigheter 
 --------- | ---------
 Företagsadministratör<p>Partnersupport, nivå 1<p>Partnersupport, nivå 2<p>Användarkonto-administratör | Kan återställa borttagna användare 
 Företagsadministratör<p>Partnersupport, nivå 1<p>Partnersupport, nivå 2<p>Användarkonto-administratör | Permanent ta bort användare

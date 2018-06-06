@@ -1,11 +1,11 @@
 ---
-title: "Köp ett anpassat domännamn för Azure-Webbappar"
-description: "Lär dig hur du köper ett anpassat domännamn med en webbapp i Azure App Service."
+title: Köp ett anpassat domännamn för Azure Web Apps
+description: Lär dig hur du köper ett anpassat domännamn med en webbapp i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714892"
 ---
-# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure-Webbappar
+# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure Web Apps
 
 Apptjänst-domäner (förhandsversion) är toppnivådomäner som hanteras direkt i Azure. De gör det lättare att hantera anpassade domäner för [Azure Web Apps](app-service-web-overview.md). Den här kursen visar hur du köper en Apptjänst-domän och tilldela Azure Web Apps DNS-namn.
 
@@ -28,7 +29,7 @@ Den här artikeln är Azure App Service (Web Apps, API Apps, Mobilappar, Logic A
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 * [Ta bort utgiftsgränsen för din prenumeration](../billing/billing-spending-limit.md#remove). Du kan inte köpa Apptjänst domäner med ledigt prenumerationskrediter.
@@ -45,7 +46,7 @@ Att använda anpassade domäner i Azure Web Apps ditt webbprograms [programtjän
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigera till appen i Azure Portal
 
-Välj **Apptjänster** på menyn till vänster och välj sedan appens namn.
+Välj **App Services** på menyn till vänster och välj sedan appens namn.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -57,17 +58,17 @@ I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Ins
 
 ![Skala upp-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är på den **kostnadsfria** nivån. Anpassad DNS stöds inte på den **kostnadsfria** nivån. 
+Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är i den **F1** nivå. Anpassad DNS stöds inte i den **F1** nivå. 
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Om App Service-plan inte **lediga**Stäng den **Välj din prisnivå** sidan och gå vidare till [köpa domänen](#buy-the-domain).
+Om App Service-plan inte är i den **F1** nivån, Stäng av **skala upp** sidan och gå vidare till [köpa domänen](#buy-the-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Skala upp App Service-planen
 
-Välj en nivå som inte är kostnadsfri (**Delad**, **Basic**, **Standard** eller **Premium**). 
+Välj någon av de icke kostnadsfria nivåerna (**D1**, **B1**, **B2**, **B3**, eller någon tjänstnivån i den **produktion** kategori). För ytterligare alternativ klickar du på **se ytterligare alternativ**.
 
-Klicka på **Välj**.
+Klicka på **Använd**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -226,7 +227,7 @@ Välj i Azure-portalen från den vänstra menyn **alla tjänster** > **App Servi
 
 Välj domänen som ska hantera. 
 
-### <a name="access-dns-zone"></a>Access DNS zone
+### <a name="access-dns-zone"></a>Åtkomst till DNS-zonen
 
 Välj domänens vänstra menyn **DNS-zonen**.
 

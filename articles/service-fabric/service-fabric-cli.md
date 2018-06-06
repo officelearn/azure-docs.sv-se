@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763365"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -24,7 +25,7 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-CLI stöder Python versioner 2.7, 3.5 och 3.6. Python 3.6 är den rekommenderade versionen, eftersom stödet snart upphör för Python 2.7.
+CLI stöder Python 2.7, 3.5 och 3,6. Python 3.6 är den rekommenderade versionen, eftersom stödet snart upphör för Python 2.7.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric-mål-runtime
 
@@ -32,7 +33,8 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~=4)  | Senaste (~=6.1)            |
+| Senaste (~ = 5)  | Senaste (~ = 6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-Kör sedan följande kommando för att installera Service Fabric CLI:
+Kör följande kommando för att installera Azure Service Fabric CLI (sfctl) och visa hjälpsidan CLI:
 
 ```bat
 pip install sfctl
@@ -120,7 +122,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Om du vill testa installationen följer du stegen i avsnittet **Ubuntu- och Windows-undersystem for Linux**
+För att testa installationen, kan du referera till de steg som nämns i **Ubuntu och Windows undersystem för Linux** avsnitt
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -231,13 +233,13 @@ Mer information finns i [OpenSSL-dokumentationen](https://www.openssl.org/docs/)
 
 Vissa åtgärder kan generera följande meddelande:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Kontrollera också att gränssnittet för Service Fabric Explorer kan nås på denna värd och port. Använd `sfctl cluster select` till att uppdatera slutpunkten.
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. En global `--debug`-flagga ökar detaljnivån i loggfilerna.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. Den `--debug` flaggan ökar detaljnivå för utdata.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 

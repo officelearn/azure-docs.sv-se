@@ -1,24 +1,20 @@
 ---
 title: Enheten firmware-uppdatering med Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Hur du använder hantering av enheter på Azure IoT Hub för att initiera en firmware-uppdatering för enheten. Du kan använda Azure IoT-enhet SDK för .NET för att implementera en simulerad enhetsapp och tjänsten Azure IoT SDK för .NET att implementera ett service-appen som utlöser firmware-uppdatering.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736763"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Använd enhetshantering för att starta en enhet på en firmware-uppdatering (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ I det här avsnittet får du:
 > [!NOTE]
 > Den här metoden utlöser simulerade uppdateringen som ska köras som en **aktivitet** och sedan omedelbart svarar på metodanropet informera tjänsten firmware-uppdatering har startats. Uppdateringsstatus och slutförande skickas till tjänsten via rapporterade egenskaper för enhet dubbla. Vi svarar metodanropet när du startar uppdateringen snarare än efter slutförandet, eftersom:
 > * En verklig uppdateringsprocessen är mycket troligt tar längre tid än tidsgränsen för anrop av metoden.
-> * En verklig uppdateringsprocessen är mycket troligt att kräva en omstart, som kan starta om den här appen att göra den **MetodRequest** objekt som är tillgänglig. (Uppdatera rapporterade egenskaperna är dock möjligt även efter en omstart.) 
+> * En verklig uppdateringsprocessen är mycket troligt att kräva en omstart, som kan starta om den här appen att göra den **MethodRequest** objekt som är tillgänglig. (Uppdatera rapporterade egenskaperna är dock möjligt även efter en omstart.) 
 
 14. Slutligen lägger du till följande kod i **Main** metod för att öppna anslutningen till din IoT-hubb och initiera lyssnaren för metoden:
    

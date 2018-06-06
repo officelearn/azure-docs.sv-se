@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f8db3284d0fb0da6d0091c021581a5275642a42b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2dc9c0678c2517c0f2ede9b9ecfe2d1ac9c27aaa
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713780"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrering av SaaS-program med Azure Active Directory
 
@@ -46,7 +47,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-absorblms-tutorial.png)| [Upptar LMS](active-directory-saas-absorblms-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-accredible-tutorial.png)| [Accredible](active-directory-saas-accredible-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-achieve3000-tutorial.png)| [Achieve3000](active-directory-saas-achieve3000-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adaptivesuite-tutorial.png)| [Anpassningsbar Suite](active-directory-saas-adaptivesuite-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adaptivesuite-tutorial.png)| [Anpassningsbar insikter](active-directory-saas-adaptivesuite-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobecaptivateprime-tutorial.png)| [Skapandeprocessen Prime](active-directory-saas-adobecaptivateprime-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-creative-cloud-tutorial.png)| [Adobe kreativa moln](active-directory-saas-adobe-creative-cloud-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe upplevelse Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
@@ -115,6 +116,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cezannehrsoftware-tutorial.png)| [Cezanne HR-programvara](active-directory-saas-cezannehrsoftware-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cherwell-tutorial.png)| [Cherwell](active-directory-saas-cherwell-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-chromeriver-tutorial.png)| [Chromeriver](active-directory-saas-chromeriver-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-chronicx-tutorial.png)| [ChronicXÂ®](active-directory-saas-chronicx-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](active-directory-saas-cimpl-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco moln](active-directory-saas-ciscocloud-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](active-directory-saas-ciscocloudlock-tutorial.md)|
@@ -183,9 +185,11 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-fiscalnote-tutorial.png)| [FiscalNote](active-directory-saas-fiscalnote-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-five9-tutorial.png)| [Five9 Plus nätverkskort (CTI, kontakta Center-agenter)](active-directory-saas-five9-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-flatter-files-tutorial.png)| [Plattare filer](active-directory-saas-flatter-files-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-flock-tutorial.png)| [Flock](active-directory-saas-flock-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-floqast-tutorial.png)| [FloQast](active-directory-saas-floqast-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-fluxxlabs-tutorial.png)| [Fluxx Labs](active-directory-saas-fluxxlabs-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-fm-systems-tutorial.png)| [FM:Systems](active-directory-saas-fm-systems-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-foreseecxsuite-tutorial.png)| [Förutse CX Suite](active-directory-saas-foreseecxsuite-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-formcom-tutorial.png)| [Form.com](active-directory-saas-formcom-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-freshdesk-tutorial.png)| [FreshDesk](active-directory-saas-freshdesk-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-freshgrade-tutorial.png)| [FreshGrade](active-directory-saas-freshgrade-tutorial.md)|
@@ -193,7 +197,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-front-tutorial.png)| [Framför](active-directory-saas-front-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-fuse-tutorial.png)| [säkrad](active-directory-saas-fuse-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-fuze-tutorial.png)| [Fuze](active-directory-saas-fuze-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](active-directory-saas-google-apps-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](active-directory-saas-google-apps-tutorial.md)|[G Suite - Användaretablering](active-directory-saas-google-apps-provisioning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-gaggleamp-tutorial.png)| [GaggleAMP](active-directory-saas-gaggleamp-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-getabstract-tutorial.png)| [Getabstract](active-directory-saas-getabstract-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-gigya-tutorial.png)| [Gigya](active-directory-saas-gigya-tutorial.md)|
@@ -240,7 +244,9 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-iriusrisk-tutorial.png)| [IriusRisk](active-directory-saas-iriusrisk-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](active-directory-saas-itrp-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](active-directory-saas-itslearning-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-iwellnessnow-tutorial.png)| [iWellnessNow](active-directory-saas-iwellnessnow-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](active-directory-saas-jamfprosamlconnector-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [JIRA SAML SSO av Microsoft](active-directory-saas-jiramicrosoft-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit supportavdelningen](active-directory-saas-jitbit-helpdesk-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jive-tutorial.png)| [Jive](active-directory-saas-jive-tutorial.md)|[Jive - Användaretablering](active-directory-saas-jive-provisioning-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jobbadmin-tutorial.png)| [Jobbadmin](active-directory-saas-jobbadmin-tutorial.md)|
@@ -292,7 +298,6 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-mercell-tutorial.png)| [Mercell](active-directory-saas-mercell-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral (av MBC)](active-directory-saas-mercerhrs-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [Merchlogix](active-directory-saas-merchlogix-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [Microsoft Azure Active Directory enkel inloggning för JIRA](active-directory-saas-jiramicrosoft-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-jira52microsoft-tutorial.png)| [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](active-directory-saas-jira52microsoft-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-admin-console-tutorial.png)| [Mimecast-administrationskonsolen](active-directory-saas-mimecast-admin-console-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast Personal Portal](active-directory-saas-mimecast-personal-portal-tutorial.md)|
@@ -359,6 +364,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-projectplace-tutorial.png)| [Projectplace](active-directory-saas-projectplace-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-promapp-tutorial.png)| [Promapp](active-directory-saas-promapp-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-proofpoint-ondemand-tutorial.png)| [Proofpoint på begäran](active-directory-saas-proofpoint-ondemand-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-proxyclick-tutorial.png)| [Proxyclick](active-directory-saas-proxyclick-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](active-directory-saas-purelyhr-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-qliksense-enterprise-tutorial.png)| [Qlik mening Enterprise](active-directory-saas-qliksense-enterprise-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-qprism-tutorial.png)| [QPrism](active-directory-saas-qprism-tutorial.md)|
@@ -373,10 +379,12 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-redvector-tutorial.png)| [RedVector](active-directory-saas-redvector-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-reflektive-tutorial.png)| [Reflektive](active-directory-saas-reflektive-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-replicon-tutorial.png)| [Replicon](active-directory-saas-replicon-tutorial.md)|[Replicon - Användaretablering](active-directory-saas-replicon-provisioning-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-reviewsnap-tutorial.png)| [Reviewsnap](active-directory-saas-reviewsnap-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-reward-gateway-tutorial.png)| [Ersättning Gateway](active-directory-saas-reward-gateway-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-rfpio-tutorial.png)| [RFPIO](active-directory-saas-rfpio-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-rightanswers-tutorial.png)| [RightAnswers](active-directory-saas-rightanswers-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-rightscale-tutorial.png)| [Rightscale](active-directory-saas-rightscale-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-riskware-tutorial.png)| [Riskware](active-directory-saas-riskware-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-rolepoint-tutorial.png)| [RolePoint](active-directory-saas-rolepoint-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-rollbar-tutorial.png)| [Rollbar](active-directory-saas-rollbar-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-runmyprocess-tutorial.png)| [RunMyProcess](active-directory-saas-runmyprocess-tutorial.md)|
@@ -410,6 +418,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-sequr-tutorial.png)| [Sequr](active-directory-saas-sequr-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-servicechannel-tutorial.png)| [ServiceChannel](active-directory-saas-servicechannel-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](active-directory-saas-servicenow-tutorial.md)|[ServiceNow - Användaretablering](active-directory-saas-servicenow-provisioning-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-sharepoint-on-premises-tutorial.png)| [SharePoint lokala](active-directory-saas-sharepoint-on-premises-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-shmoopforschools-tutorial.png)| [Shmoop för skolorna](active-directory-saas-shmoopforschools-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-showpad-tutorial.png)| [Showpad](active-directory-saas-showpad-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-signalfx-tutorial.png)| [SignalFx](active-directory-saas-signalfx-tutorial.md)|
@@ -477,6 +486,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-veracode-tutorial.png)| [Veracode](active-directory-saas-veracode-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-veritas-tutorial.png)| [Veritas Enterprise Vault.cloud SSO](active-directory-saas-veritas-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-versal-tutorial.png)| [Ån](active-directory-saas-versal-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-vidyard-tutorial.png)| [Vidyard](active-directory-saas-vidyard-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-vodeclic-tutorial.png)| [Vodeclic](active-directory-saas-vodeclic-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-voyance-tutorial.png)| [Voyance](active-directory-saas-voyance-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-vxmaintain-tutorial.png)| [vxMaintain](active-directory-saas-vxmaintain-tutorial.md)|
@@ -503,6 +513,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-ziflow-tutorial.png)| [Ziflow](active-directory-saas-ziflow-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](active-directory-saas-zivver-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](active-directory-saas-zoho-mail-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zohoone-tutorial.png)| [Zoho en](active-directory-saas-zohoone-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zoom-tutorial.png)| [Zooma](active-directory-saas-zoom-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](active-directory-saas-zscaler-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](active-directory-saas-zscaler-beta-tutorial.md)|

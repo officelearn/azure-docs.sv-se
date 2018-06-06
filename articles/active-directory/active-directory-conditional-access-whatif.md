@@ -1,14 +1,15 @@
 ---
-title: "Azure Active Directory-verktyget om villkorlig åtkomst - preview | Microsoft Docs"
-description: "Lär dig hur du kan testa konfigurationen av din Azure Active Directory-principer för villkorlig åtkomst."
+title: Azure Active Directory-verktyget om villkorlig åtkomst - preview | Microsoft Docs
+description: Lär dig hur du kan testa konfigurationen av din Azure Active Directory-principer för villkorlig åtkomst.
 services: active-directory
-keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
-documentationcenter: 
+keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723838"
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory-verktyget om villkorlig åtkomst - förhandsgranskning
 
@@ -52,7 +54,7 @@ När utvärderingen har slutförts, skapas en rapport över berörda principer.
 
 ## <a name="running-the-tool"></a>Kör verktyget
 
-Du hittar den **vad händer om** verktyget på den  **[villkorlig åtkomst - principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)**  sida i Azure-portalen.
+Du hittar den **vad händer om** verktyget på den **[villkorlig åtkomst - principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** sida i Azure-portalen.
 
 Starta verktyget i verktygsfältet på listan med principer, klicka på **vad händer om**.
 

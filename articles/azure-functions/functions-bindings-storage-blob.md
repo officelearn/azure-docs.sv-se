@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724806"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -34,13 +35,17 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i 
 > [!NOTE]
 > Använd händelsen rutnätet utlösaren instead of-utlösare för Blob-lagring för endast blob-lagringskonton för hög skala eller för att undvika kall start fördröjningar. Mer information finns i [utlösaren](#trigger) avsnitt. 
 
-## <a name="packages"></a>Paket
+## <a name="packages---functions-1x"></a>Paket - fungerar 1.x
 
-Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-lagringsplatsen.
+Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 2.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+
+Blob storage-bindningar finns i den [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet version 3.x. Källkoden för paketet är i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -262,6 +267,8 @@ I C# och C#-skript, kan du använda följande parametertyper för utlösande blo
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
+
+Om du försöker att binda till något av följande Storage SDK: N och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 Bindning till `string`, `Byte[]`, eller POCO rekommenderas endast om blobbstorleken är liten, som hela blob innehållet är inlästa i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) senare i den här artikeln.
 
@@ -563,6 +570,8 @@ I C# och C#-skript, kan du använda följande parametertyper för blob-indatabin
 
 <sup>1</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
 
+Om du försöker att binda till något av följande Storage SDK: N och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
+
 Bindning till `string` eller `Byte[]` rekommenderas endast om blobbstorleken är liten, eftersom hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) tidigare i den här artikeln.
 
 I JavaScript, få åtkomst till blob-data med `context.bindings.<name from function.json>`.
@@ -776,6 +785,8 @@ I C# och C#-skript kan binda du till följande typer att skriva BLOB:
 <sup>1</sup> kräver ”i” bindning `direction` i *function.json* eller `FileAccess.Read` i en C#-klassbiblioteket. Du kan dock använda behållarobjekt som körningsmiljön tillhandahåller för att skrivåtgärder, till exempel överföra blobbar i behållaren.
 
 <sup>2</sup> kräver ”inout” bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i en C#-klassbiblioteket.
+
+Om du försöker att binda till något av följande Storage SDK: N och får ett felmeddelande, se till att du har en referens till [rätt Storage SDK: N version](#azure-storage-sdk-version-in-functions-1x).
 
 I async-funktion, använder du det returnera värdet eller `IAsyncCollector` i stället för en `out` parameter.
 

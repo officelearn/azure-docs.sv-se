@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726456"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -31,7 +32,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppna https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 Kontot du loggar in, eller Anslut till Azure med, måste vara tilldelade till den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
@@ -93,6 +94,8 @@ Ett undernät kan ha noll eller en vägtabell associerad till den. En routingtab
 3. Välj **undernät** under **inställningar**.
 4. Välj du vill associera routningstabellen för undernätet.
 5. Välj **routningstabellen**, Välj routningstabellen som du vill koppla till undernätet och välj sedan **spara**.
+
+Om det virtuella nätverket är ansluten till en Azure VPN-gateway kan inte koppla en routingtabell till den [gatewayundernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) som innehåller en väg med 0.0.0.0/0 som mål. Gör detta kan inte gatewayen från att fungera korrekt. Mer information om hur du använder 0.0.0.0/0 i en väg finns [trafikroutning för virtuella nätverk](virtual-networks-udr-overview.md#default-route).
 
 **Kommandon**
 
@@ -216,7 +219,7 @@ Effektiva vägar för varje nätverksgränssnitt som är kopplad till en virtuel
 
 Du kan fastställa nästa hopptyp mellan en virtuell dator och IP-adressen för en annan Azure-resurs, en lokal resurs eller en resurs på Internet. Bestämma Azure routning är användbart när du felsöker problem med routning. För att slutföra den här uppgiften, måste du ha en befintlig Nätverksbevakaren. Om du inte har en befintlig Nätverksbevakaren kan skapa en genom att slutföra stegen i [skapa en instans av Nätverksbevakaren](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Skriv i sökrutan överst i portalen *nätverksbevakaren* i sökrutan. När **Nätverksbevakaren** visas i sökresultaten väljer den.
+1. Skriv i sökrutan överst i portalen *nätverksbevakaren* i sökrutan. När **Network Watcher** visas i sökresultatet väljer du posten.
 2. Välj **nästa hopp** under **verktyg för NÄTVERKSDIAGNOSTIK**.
 3. Välj din **prenumeration** och **resursgruppen** av den virtuella källdatorn som du vill validera routning från.
 4. Välj den **virtuella**, **nätverksgränssnittet** kopplade till den virtuella datorn och **källans IP-adress** tilldelats nätverksgränssnittet som du vill validera Routning från.

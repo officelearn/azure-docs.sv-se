@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700016"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Konfigurera en VMSS hanteras Service identitet (MSI) med hjälp av PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/10/2018
 
 Hanterade tjänstidentiteten ger Azure-tjänster med en automatiskt hanterade identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan autentiseringsuppgifter i koden. 
 
-Lär dig hur du utför följande åtgärder på ett Azure Virtual Machine Scale ange (VMSS), med hjälp av PowerShell på hanterade tjänstidentiteten i den här artikeln:
+I den här artikeln får du lära dig hur utföra åtgärder på en virtuell dator skala ange (VMSS), med hjälp av PowerShell som hanterade tjänstidentiteten:
 - Aktivera och inaktivera tilldelats identiteten på ett Azure-VMSS
 - Lägga till och ta bort en användare som tilldelats identiteten på ett Azure-VMSS
 
@@ -121,8 +122,7 @@ Tilldela en användare som tilldelats en befintlig Azure-VMSS identitet:
 
 2. Först hämta VM-egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill tilldela en tilldelad användaridentitet Azure VMSS, Använd den `-IdentityType` och `-IdentityID` växeln de [uppdatering AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Ersätt `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` med egna värden.
 
-   > [!IMPORTANT]
-   > Skapa tilldelade användaridentiteter stöder endast alfanumeriska och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Sök igen efter uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

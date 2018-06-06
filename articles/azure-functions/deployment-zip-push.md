@@ -1,24 +1,25 @@
 ---
-title: "ZIP-push-distribution för Azure Functions | Microsoft Docs"
-description: "Använda ZIP-filen distribution verksamhet för tjänsten Kudu-distribution för att publicera dina Azure-funktioner."
+title: ZIP-push-distribution för Azure Functions | Microsoft Docs
+description: Använda ZIP-filen distribution verksamhet för tjänsten Kudu-distribution för att publicera dina Azure-funktioner.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699962"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>ZIP-push-distribution för Azure Functions 
 Den här artikeln beskriver hur du distribuerar projektfilerna funktionen app till Azure från en ZIP-fil (komprimerade). Du lär dig att göra en push-distribution med hjälp av Azure CLI såväl med hjälp av REST-API: er. 
@@ -40,23 +41,33 @@ ZIP-filen som du använder för push-distribution måste innehålla alla projekt
 >[!IMPORTANT]
 > När du använder .zip push distribution tas filer från en befintlig distribution som inte finns i ZIP-filen bort från appen funktion.  
 
-### <a name="function-app-folder-structure"></a>Funktionen app-mappstruktur
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>Ladda ned ditt funktionen app-projekt
+En funktionsapp innehåller alla filer och mappar i den `wwwroot` directory. En .zip-filen distributionen omfattar innehållet i den `wwwroot` directory, men inte den aktuella katalogen.  
+
+## <a name="download-your-function-app-files"></a>Hämta din funktionen app-filer
 
 När du utvecklar på en lokal dator är det enkelt att skapa en ZIP-fil i mappen funktionen app-projekt på utvecklingsdatorn. 
 
-Du kan dock har skapat dina funktioner med hjälp av redigeraren i Azure-portalen. Hämta projektet funktionen appen från portalen: 
+Du kan dock har skapat dina funktioner med hjälp av redigeraren i Azure-portalen. Du kan hämta ett befintligt funktionen app-projekt i något av följande sätt: 
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och gå sedan till din funktionsapp.
++ **Från Azure-portalen:** 
 
-2. På den **översikt** väljer **app hämtningar**. Välj alternativ för hämtning och välj sedan **hämta**.     
+    1. Logga in på den [Azure-portalen](https://portal.azure.com), och gå sedan till din funktionsapp.
 
-    ![Hämta funktionen app-projekt](./media/deployment-zip-push/download-project.png)
+    2. På den **översikt** väljer **app hämtningar**. Välj alternativ för hämtning och välj sedan **hämta**.     
 
-Hämtade ZIP-filen är i rätt format publiceras till funktionen appen med .zip push-distribution.
+        ![Hämta funktionen app-projekt](./media/deployment-zip-push/download-project.png)
+
+    Hämtade ZIP-filen är i rätt format publiceras till funktionen appen med .zip push-distribution. Portalen hämtningen kan också lägga till de filer som behövs för att öppna appen funktionen direkt i Visual Studio.
+
++ **Med hjälp av REST API: er:** 
+
+    Använd följande distribution hämta API för att hämta filerna från din `<function_app>` projektet: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Inklusive `/site/wwwroot/` gör att zip-filen innehåller bara de funktion app projektfilerna och inte hela webbplatsen. Om du redan inte är inloggad till Azure, blir du ombedd att göra detta. Observera att skicka en POST-begäran till den `api/zip/` API är discoraged för zip-distributionsmetod som beskrivs i det här avsnittet. 
 
 Du kan också hämta en .zip-fil från en GitHub-databas. Tänk på att när du hämtar en GitHub-databas som en .zip-fil, GitHub lägger till en extra mappnivå för grenen. Den här extra mappen nivå innebär att du inte kan distribuera .zip-filen som du hämtade den från GitHub. Om du använder en GitHub-databas för att underhålla din funktionsapp bör du använda [kontinuerlig integration](functions-continuous-deployment.md) att distribuera din app.  
 

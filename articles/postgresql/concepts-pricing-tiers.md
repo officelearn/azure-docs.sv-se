@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756644"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure-databas för PostgreSQL prisnivåer
 
@@ -23,7 +24,7 @@ Du kan skapa en Azure-databas för PostgreSQL-server i en av tre olika prisnivå
 |:---|:----------|:--------------------|:---------------------|
 | Compute-generering | Gen 4 Gen 5 | Gen 4 Gen 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Minne per vCore | Baslinje | 2 x Basic | 2 x generella |
+| Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 2 TB | 5 GB till 2 TB |
 | Lagringstyp | Azure standardlagring | Azure Premium Storage | Azure Premium Storage |
 | Databasen period för lagring av säkerhetskopior. | 7-35 dagar | 7-35 dagar | 7-35 dagar |
@@ -39,7 +40,7 @@ Använd följande tabell som utgångspunkt för att välja en prisnivå.
 När du har skapat en server, kan antalet vCores ändras uppåt eller nedåt (inom samma prisnivån) inom några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och säkerhetskopiering kvarhållningsperioden uppåt eller nedåt utan avbrott för programmet. Du kan inte ändra prisnivån eller typen lagring för säkerhetskopiering när en server har skapats. Mer information finns i [skala](#scale-resources) avsnitt.
 
 
-## <a name="compute-generations-vcores-and-memory"></a>Beräkna generationer, vCores och minne
+## <a name="compute-generations-and-vcores"></a>Beräkna generationer och vCores
 
 Beräkna resurser tillhandahålls som vCores som representerar den underliggande maskinvaran logiska Processorn. För närvarande kan kan du välja mellan två beräkning generationer Gen 4 och 5 Gen. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer. Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgänglig). 
 
@@ -63,14 +64,12 @@ Beräkna resurser tillhandahålls som vCores som representerar den underliggande
 | Sydostasien | X | X |
 | Östra Australien |  | X |
 | Sydöstra Australien |  | X |
-| Indien, centrala | X |  |
-| Indien, västra | X |  |
+| Indien, centrala | X | X |
+| Indien, västra | X | X |
 | Södra Indien |  | X |
 | Östra Japan | X | X |
 | Västra Japan | X | X |
 | Sydkorea |  | X |
-
-Beroende på prisnivå, är varje vCore utrustad med en viss mängd minne. Om du ökar eller minskar antalet vCores serverns minne ökar eller minskar proportionerligt. Generella nivån innehåller dubbla mängden minne per vCore jämfört med den grundläggande nivån. Den Minnesoptimerade nivån innehåller dubbla mängden minne jämfört med generella nivån.
 
 ## <a name="storage"></a>Storage
 

@@ -1,25 +1,22 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet | Microsoft Docs
-description: Lär dig att hantera Data Lake Analytics-konton, datakällor, jobb och användare som använder Azure CLI
+title: Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet
+description: Den här artikeln beskriver hur du använder Azure CLI för att hantera Data Lake Analytics-jobb, datakällor och användare.
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86fa41db2d21beac08015d067b79ce1375cd3ddf
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736097"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -214,24 +211,6 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
-
-
-## <a name="use-azure-resource-manager-groups"></a>Använda Azure Resource Manager-grupper
-Programmen består vanligtvis av flera komponenter, t.ex. webbapp, databas, databasserver, lagring och tredjepartstjänster. Azure Resource Manager kan du arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser i programmet i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Du kan tydliggöra fakturering för din organisation genom att visa upplyfta kostnader för hela gruppen. Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
-
-Data Lake Analytics-tjänsten kan innefatta följande komponenter:
-
-* Azure Data Lake Analytics-konto
-* Nödvändiga standardkontot för lagring av Azure Data Lake
-* Ytterligare Azure Data Lake Storage-konton
-* Ytterligare Azure Storage-konton
-
-Du kan skapa alla dessa komponenter under en Resource Manager-gruppen så att de blir enklare att hantera.
-
-![Azure Data Lake Analytics-konto och lagring](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-Ett Data Lake Analytics-konto och beroende storage-konton måste finnas i samma Azure-datacenter.
-Resource Manager-gruppen kan dock finnas i olika datacenter.  
 
 ## <a name="see-also"></a>Se också
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

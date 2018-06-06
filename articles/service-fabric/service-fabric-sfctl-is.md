@@ -1,24 +1,25 @@
 ---
-title: "Azure Service Fabric CLI - sfctl är | Microsoft Docs"
-description: "Beskriver Service Fabric CLI sfctl är kommandon."
+title: Azure Service Fabric CLI - sfctl är | Microsoft Docs
+description: Beskriver Service Fabric CLI sfctl är kommandon.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 02/22/2018
-ms.author: ryanwi
-ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 05/23/2018
+ms.author: bikang
+ms.openlocfilehash: aa1e4d588f367351f0bed10370c7d67d50dd9927
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763059"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Fråga efter och skicka kommandon till tjänsten infrastruktur.
@@ -27,32 +28,31 @@ Fråga efter och skicka kommandon till tjänsten infrastruktur.
 
 |Kommando|Beskrivning|
 | --- | --- |
-|    kommandot| Initierar en administrativa kommando på den angivna Infrastructure Service-instansen.|
-|    DocumentDB  | Anropar en skrivskyddad fråga på tjänstinstansen angivna infrastruktur.|
-
+| kommandot | Initierar en administrativa kommando på den angivna Infrastructure Service-instansen. |
+| DocumentDB | Anropar en skrivskyddad fråga på tjänstinstansen angivna infrastruktur. |
 
 ## <a name="sfctl-is-command"></a>sfctl är kommando
 Initierar en administrativa kommando på den angivna Infrastructure Service-instansen.
 
-För kluster som har en eller flera instanser av tjänsten infrastruktur som konfigurerats för kan detta API skicka infrastruktur-fil till en viss instans av tjänsten infrastruktur. Tillgängliga kommandon och deras motsvarande svar format varierar beroende på den infrastruktur som körs på klustret. Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas direkt från din kod. 
+För kluster som har en eller flera instanser av tjänsten infrastruktur som konfigurerats för kan detta API skicka infrastruktur-fil till en viss instans av tjänsten infrastruktur. Tillgängliga kommandon och deras motsvarande svar format varierar beroende på den infrastruktur som körs på klustret. Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas direkt från din kod.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika. |
-| --service-id     | Identiteten för infrastruktur-tjänst. ID: T är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
-| --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
+| --kommando [krävs] | Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika. |
+| --tjänst-id | Identiteten för infrastruktur-tjänst. <br><br> Detta är det fullständiga namnet på tjänsten infrastruktur utan 'fabric-URI-schemat. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
+| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
-| --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
-| --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
-| --fråga          | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
-| -verbose        | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
+| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
+| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
+| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
+| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
+| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
 
 ## <a name="sfctl-is-query"></a>sfctl är fråga
 Anropar en skrivskyddad fråga på tjänstinstansen angivna infrastruktur.
@@ -63,19 +63,19 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.|
-| --service-id     | Identiteten för infrastruktur-tjänst. ID: T är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
-| --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
+| --kommando [krävs] | Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika. |
+| --tjänst-id | Identiteten för infrastruktur-tjänst. <br><br> Detta är det fullständiga namnet på tjänsten infrastruktur utan den ' fabric\:-URI-schema. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
+| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
-| --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
-| --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
-| --fråga          | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|
-| -verbose        | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
+| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
+| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
+| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
+| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
+| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
 
 ## <a name="next-steps"></a>Nästa steg
 - [Ställ in](service-fabric-cli.md) Service Fabric CLI.

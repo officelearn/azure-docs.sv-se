@@ -2,22 +2,20 @@
 title: Använda Mongoose-ramverket med Azure Cosmos DB | Microsoft Docs
 description: Läs hur du ansluter en Node.js Mongoose-app till Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: romitgirdhar
 manager: kfile
-ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 4ce86c6a3fb3d191f101329025d0aedf266ce79e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: 3c2a1299bec954a1b00b3315113c0967171b0001
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795874"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Använda Mongoose-ramverket med Azure Cosmos DB
 
@@ -25,7 +23,7 @@ I den här självstudien visas hur du använder [Mongoose-ramverket](http://mong
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

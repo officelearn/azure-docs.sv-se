@@ -3,7 +3,7 @@ title: Aktivera roller för Azure-resurser med hjälp av Privileged Identity Man
 description: Beskriver hur du aktiverar roller i PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d41e7e808177ffc3cb9ffd37c5aaba6d401f6bd8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699673"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management
 Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigad rollmedlemmar kan schemalägga aktivering för framtida datum och tid. De kan också välja en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Mer information finns i [så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).

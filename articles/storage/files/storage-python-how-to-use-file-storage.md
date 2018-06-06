@@ -1,11 +1,11 @@
 ---
-title: "Utveckla för Azure-filer med Python | Microsoft Docs"
-description: "Lär dig hur du utvecklar Python-program och tjänster som använder Azure-filer för att lagra fildata."
+title: Utveckla för Azure-filer med Python | Microsoft Docs
+description: Lär dig hur du utvecklar Python-program och tjänster som använder Azure-filer för att lagra fildata.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738269"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure-filer med Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,11 +30,11 @@ Den här kursen visar grunderna i Python för att utveckla program eller tjänst
 
 * Skapa Azure-filresurser
 * Skapa kataloger
-* Räkna upp filer och kataloger i en filresurs på Azure
+* Räkna upp filer och kataloger i en Azure-filresurs
 * Ladda upp, hämta och ta bort en fil
 
 > [!Note]  
-> Eftersom Azure-filer kan nås över SMB, är det möjligt att skriva enkla program som har åtkomst till Azure filresursen med standard Python-i/o-klasser och funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage Python SDK, som använder den [Azure filer REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tala med Azure-filer.
+> Eftersom Azure-filer kan nås över SMB, är det möjligt att skriva enkla program som har åtkomst till Azure-filresursen med standard Python-i/o-klasser och funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage Python SDK, som använder den [Azure filer REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tala med Azure-filer.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Hämta och installera Azure Storage SDK för Python
 
@@ -69,7 +70,7 @@ Den `FileService` objektet kan du arbeta med resurser, kataloger och filer. Föl
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Skapa en filresurs på Azure
+## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 I följande kodexempel, kan du använda en `FileService` objekt att skapa resursen om den inte finns.
 
 ```python
@@ -83,7 +84,7 @@ Du kan även sortera lagring genom att lägga till filer i underkataloger i stä
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en filresurs på Azure
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
 Om du vill visa en lista över filer och kataloger på en resurs, Använd den **lista\_kataloger\_och\_filer** metod. Den här metoden returnerar en generator. I följande kod utdata i **namn** av varje fil- och på en resurs i konsolen.
 
 ```python
@@ -93,11 +94,11 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Överför en fil 
-Azure File resursen innehåller minst, en rotkatalog där filer kan finnas. I det här avsnittet lär du dig hur du överför en fil från lokal lagring till rotkatalogen för en resurs.
+Azure-filresursen innehåller minst, en rotkatalog där filer kan finnas. I det här avsnittet lär du dig hur du överför en fil från lokal lagring till rotkatalogen för en resurs.
 
 Om du vill skapa en fil och överför data använder den `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` eller `create_file_from_text` metoder. De är övergripande metoder som utför nödvändiga högoptimerat när storleken på data överskrider 64 MB.
 
-`create_file_from_path`Överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` Överför innehållet från en redan öppnad filström. `create_file_from_bytes`Överför en matris med byte och `create_file_from_text` överför det angivna textvärdet med den angivna kodningen (standardvärdet är UTF-8).
+`create_file_from_path` Överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` Överför innehållet från en redan öppnad filström. `create_file_from_bytes` Överför en matris med byte och `create_file_from_text` överför det angivna textvärdet med den angivna kodningen (standardvärdet är UTF-8).
 
 I följande exempel Överför innehållet i den **sunset.png** filen till den **minfil** fil.
 

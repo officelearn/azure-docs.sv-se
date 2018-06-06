@@ -1,6 +1,6 @@
 ---
-title: "Dump och återställa i Azure-databas för PostgreSQL"
-description: "Beskriver hur du extrahera en PostgreSQL-databas till en dumpfil och återställa från en fil som skapats av pg_dump i Azure-databas för PostgreSQL."
+title: Dump och återställa i Azure-databas för PostgreSQL
+description: Beskriver hur du extrahera en PostgreSQL-databas till en dumpfil och återställa från en fil som skapats av pg_dump i Azure-databas för PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f74c60cb99ee5bae1af8e000ebbd21b41600638d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 06/01/2018
+ms.openlocfilehash: 586df8d72dc05104bbf589eabcf3bd2245c268c8
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737256"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med hjälp av dump och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databas från en fil skapas av pg_dump.
@@ -35,6 +36,10 @@ Till exempel om du har en lokal server och en databas som heter **testdb** i den
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
+> [!IMPORTANT]
+> Kopiera de säkerhetskopiera filerna till en Azure blobstore och utföra återställningen därifrån som ska vara mycket snabbare än att utföra återställningen via Internet.
+> 
+
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Återställa data till mål-Azure-databas för PostrgeSQL med pg_restore
 När du har skapat måldatabasen, kan du använda kommandot pg_restore och -d,--dbname-parametern för att återställa data i måldatabasen från dumpfilen.
 ```bash
@@ -48,4 +53,5 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill migrera en PostgreSQL-databas med hjälp av export och import finns [migrera din PostgreSQL-databas med hjälp av export och import](howto-migrate-using-export-and-import.md)
+- Om du vill migrera en PostgreSQL-databas med hjälp av export och import, se [migrera din PostgreSQL-databas med hjälp av export och import](howto-migrate-using-export-and-import.md).
+- Mer information om hur du migrerar databaser till Azure-databas för PostgreSQL, finns det [databasen Migreringsguide](http://aka.ms/datamigration).

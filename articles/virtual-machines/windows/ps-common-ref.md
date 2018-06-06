@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 313a313764f8ba14c9661429d1f6a8463778c934
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff861c21250a042191651ab4a4cffbf3928e4f26
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738572"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Vanliga PowerShell-kommandon för att skapa och hantera virtuella datorer i Azure
 
-Den här artikeln beskrivs några av de Azure PowerShell-kommandon som du kan använda för att skapa och hantera virtuella datorer i din Azure-prenumeration.  Mer detaljerad hjälp med specifika kommandoradsväxlar och alternativ, kan du använda **Get-Help** *kommandot*.
+Den här artikeln beskrivs några av de Azure PowerShell-kommandon som du kan använda för att skapa och hantera virtuella datorer i din Azure-prenumeration.  Mer detaljerad hjälp med specifika kommandoradsväxlar och alternativ du kan använda den **Get-Help** *kommandot*.
 
 Se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 
@@ -33,7 +34,16 @@ Dessa variabler kan vara praktiskt om körs mer än något av kommandona i den h
 - $myResourceGroup - namnet på resursgruppen som innehåller den virtuella datorn.
 - $myVM - namnet på den virtuella datorn.
 
-## <a name="create-a-vm"></a>Skapa en virtuell dator
+## <a name="create-a-vm---simplified"></a>Skapa en virtuell dator – förenklad
+
+| Aktivitet | Kommando |
+| ---- | ------- |
+| Skapa en enkel virtuell dator | [Nya AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) -Name $myVM <BR></BR><BR></BR> Nya AzureRMVM har en uppsättning *förenklad* parametrar, där allt som krävs är ett enda namn. Värdet för - namnet kommer att användas som namn på alla resurser som krävs för att skapa en ny virtuell dator. Du kan ange flera, men det här är allt som krävs.|
+| Skapa en virtuell dator från en anpassad avbildning | Nya AzureRmVm - ResourceGroupName $myResourceGroup-Name $myVM avbildning ”myImage”-plats $location  <BR></BR><BR></BR>Du måste ha skapat egna [hanterad avbildning](capture-image-resource.md). Du kan använda en avbildning för att göra flera identiska virtuella datorer. |
+
+
+
+## <a name="create-a-vm-configuration"></a>Skapa en VM-konfiguration
 
 | Aktivitet | Kommando |
 | ---- | ------- |
@@ -41,10 +51,8 @@ Dessa variabler kan vara praktiskt om körs mer än något av kommandona i den h
 | Lägg till konfigurationsinställningar |$vm = [set AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) - VM $vm-Windows - ComputerName $myVM-autentiseringsuppgifter $cred - ProvisionVMAgent - EnableAutoUpdate<BR></BR><BR></BR>Inställningar för operativsystem inklusive [autentiseringsuppgifter](https://technet.microsoft.com/library/hh849815.aspx) läggs till i konfigurationsobjektet som du skapat med hjälp av ny AzureRmVMConfig. |
 | Lägg till ett nätverksgränssnitt |$vm = [Lägg till AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMNetworkInterface) - VM $vm-Id $nic. ID<BR></BR><BR></BR>En virtuell dator måste ha en [nätverksgränssnittet](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kommunicera på ett virtuellt nätverk. Du kan också använda [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) att hämta ett befintligt nätverk gränssnittet objekt. |
 | Ange en plattformsavbildning |$vm = [set AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) - VM $vm - PublisherName ”publisher_name”-erbjudande ”publisher_offer” - SKU: er ”product_sku”-”senaste” Version<BR></BR><BR></BR>[Bild information](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) har lagts till i konfigurationsobjektet som du skapat med hjälp av ny AzureRmVMConfig. Objektet som returnerades från det här kommandot används bara när du ställer in OS-disken att använda en plattformsavbildning. |
-| Ange OS-disken att använda en plattformsavbildning |$vm = [set AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk) - VM $vm-Name ”myOSDisk” - VhdUri ”http://mystore1.blob.core.windows.net/vhds/myOSDisk.vhd” - CreateOption FromImage<BR></BR><BR></BR>Namnet på disken för operativsystemet och dess plats i [lagring](../../storage/common/storage-powershell-guide-full.md) har lagts till i konfigurationsobjektet som du skapade tidigare. |
-| Ange OS-disken att använda en generaliserad avbildning |$vm = AzureRmVMOSDisk set - VM $vm-Name ”myOSDisk” - SourceImageUri ”https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd” - VhdUri ”https://mystore1.blob.core.windows.net/vhds/disk_name.vhd” - CreateOption FromImage-Windows<BR></BR><BR></BR>Namnet på operativsystemets disk, platsen för källbilden och diskplatsen i [lagring](../../storage/common/storage-powershell-guide-full.md) har lagts till i konfigurationsobjektet. |
-| Ange OS-disken att använda en specialiserad avbildning |$vm = AzureRmVMOSDisk set - VM $vm-Name ”myOSDisk” - VhdUri ”http://mystore1.blob.core.windows.net/vhds/” - CreateOption bifoga - Windows |
 | Skapa en virtuell dator |[Nya AzureRmVM]() - ResourceGroupName $myResourceGroup-plats $location - VM $vm<BR></BR><BR></BR>Alla resurser skapas i en [resursgruppen](../../azure-resource-manager/powershell-azure-resource-manager.md). Innan du kör det här kommandot Kör New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Lägg till AzureRmVMNetworkInterface och Set-AzureRmVMOSDisk. |
+| Uppdatera en virtuell dator |[Uppdatera AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) - ResourceGroupName $myResourceGroup - VM $vm<BR></BR><BR></BR>Hämta den aktuella VM-konfigurationen med hjälp av Get-AzureRmVM, ändra konfigurationsinställningarna på det Virtuella datorobjektet och kör det här kommandot. |
 
 ## <a name="get-information-about-vms"></a>Hämta information om virtuella datorer
 
@@ -61,13 +69,7 @@ Dessa variabler kan vara praktiskt om körs mer än något av kommandona i den h
 | Stoppa en virtuell dator |[Stoppa AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) - ResourceGroupName $myResourceGroup-Name $myVM |
 | Starta om en aktiv virtuell dator |[Starta om AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/restart-azurermvm) - ResourceGroupName $myResourceGroup-Name $myVM |
 | Ta bort en virtuell dator |[Ta bort AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm) - ResourceGroupName $myResourceGroup-Name $myVM |
-| Generalisera en virtuell dator |[Ange AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvm) - ResourceGroupName $myResourceGroup-Name $myVM-generaliserad<BR></BR><BR></BR>Kör kommandot innan du kör spara AzureRmVMImage. |
-| Avbilda en virtuell dator |[Spara AzureRmVMImage](https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvmimage) - ResourceGroupName $myResourceGroup - VMName $myVM - DestinationContainerName ”myImageContainer” - VHDNamePrefix ”myImagePrefix”-sökvägen ”C:\filepath\filename.json”<BR></BR><BR></BR>En virtuell dator måste vara [förberedd, Stäng och generaliserad](prepare-for-upload-vhd-image.md) som används för att skapa en avbildning. Innan du kör det här kommandot Kör Set-AzureRmVm. |
-| Uppdatera en virtuell dator |[Uppdatera AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) - ResourceGroupName $myResourceGroup - VM $vm<BR></BR><BR></BR>Hämta den aktuella VM-konfigurationen med hjälp av Get-AzureRmVM, ändra konfigurationsinställningarna på det Virtuella datorobjektet och kör det här kommandot. |
-| Lägg till en datadisk i en virtuell dator |[Lägg till AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) - VM $vm-Name ”myDataDisk” - VhdUri ”https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd” - LUN #-cachelagring ReadWrite - DiskSizeinGB # - CreateOption är tom<BR></BR><BR></BR>Använd Get-AzureRmVM för att hämta det Virtuella datorobjektet. Ange LUN-nummer och storleken på disken. Kör Update-AzureRmVM för att tillämpa ändringar i konfigurationen på den virtuella datorn. Disken som du lägger till har inte initierats. |
-| Ta bort en datadisk från en virtuell dator |[Ta bort AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) - VM $vm-Name ”myDataDisk”<BR></BR><BR></BR>Använd Get-AzureRmVM för att hämta det Virtuella datorobjektet. Kör Update-AzureRmVM för att tillämpa ändringar i konfigurationen på den virtuella datorn. |
-| Lägga till ett tillägg till en virtuell dator |[Ange AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) - ResourceGroupName $myResourceGroup-plats $location - VMName $myVM-Name ”Tilläggsnamn”-Publisher ”publisherName”-typ ”extensionType” - TypeHandlerVersion ”#. #”-inställningar $Settings - ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Kör det här kommandot med rätt [konfigurationsinformation](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) för det tillägg som du vill installera. |
-| Ta bort ett virtuellt datortillägg |[Ta bort AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension) - ResourceGroupName $myResourceGroup-Name ”Tilläggsnamn” - VMName $myVM |
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Se stegen för att skapa en virtuell dator i [skapa en virtuell Windows-dator med Resource Manager och PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

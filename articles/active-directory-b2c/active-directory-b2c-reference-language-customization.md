@@ -1,21 +1,21 @@
 ---
-title: Anpassning av språk i Azure AD B2C | Microsoft Docs
+title: Anpassning av språk i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig mer om hur du anpassar språk-upplevelse.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711944"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Anpassning av språk i Azure Active Directory B2C
 
@@ -182,8 +182,8 @@ Chrome och Firefox både begäran för sitt set-språk. Om det är ett språk so
 
 | Språk              | Språkkod |
 |-----------------------|---------------|
-| Bengali                | bn            |
-| tjeckiska                 | cs            |
+| Bangla                | bn            |
+| Tjeckiska                 | cs            |
 | Danska                | da            |
 | Tyska                | de            |
 | Grekiska                 | el            |
@@ -194,10 +194,10 @@ Chrome och Firefox både begäran för sitt set-språk. Om det är ett språk so
 | Gujarati              | Gu            |
 | Hindi                 | Hej            |
 | Kroatiska              | tim            |
-| ungerska             | hu            |
+| Ungerska             | hu            |
 | Italienska               | it            |
 | Japanska              | ja            |
-| Kannada               | kn            |
+| Kannada               | KN            |
 | Koreanska                | ko            |
 | Malayalam             | ml            |
 | Marathi               | MR            |
@@ -214,7 +214,7 @@ Chrome och Firefox både begäran för sitt set-språk. Om det är ett språk so
 | Svenska               | sv            |
 | Tamilska                 | ta            |
 | Telugu                | te            |
-| Thai                  | TH            |
+| Thai                  | :e            |
 | Turkiska               | TR            |
 | Kinesiska – förenklad  | zh-hans       |
 | Kinesiska – traditionell | zh-hant       |

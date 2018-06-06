@@ -1,26 +1,22 @@
 ---
-title: "Vanliga frågor och svar om Azure Service Bus | Microsoft Docs"
-description: "Besvarar några vanliga frågor om Azure Service Bus."
+title: Vanliga frågor och svar om Azure Service Bus | Microsoft Docs
+description: Besvarar några vanliga frågor om Azure Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802273"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
+
 Den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](http://go.microsoft.com/fwlink/?LinkID=185083) allmän Azure priser och support information.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
@@ -37,9 +33,11 @@ En [Service Bus-kö](service-bus-queues-topics-subscriptions.md) är en entitet 
 Ett ämne kan vara visualiseras som en kö och när du använder flera prenumerationer, blir den en rikare meddelanden modellen. i grunden en en-till-många-kommunikationsverktyg. Den här modellen för Publicera/prenumerera (eller *pub/sub*) aktiverar ett program som skickar ett meddelande till ett ämne med flera prenumerationer har meddelandet tas emot av flera program.
 
 ### <a name="what-is-a-partitioned-entity"></a>Vad är en partitionerad enhet?
-En vanlig kö eller ett ämne hanteras av en enda meddelande broker och lagras i ett meddelandearkiv. En [partitionerade kö eller ett ämne](service-bus-partitioning.md) hanteras av flera meddelandet mäklare och lagras i flera meddelandearkiv. Det innebär att det totala genomflödet i en partitionerad kö eller ett ämne begränsas inte längre av prestanda i ett enda meddelande broker eller meddelandearkiv. Dessutom kan återges ett tillfälligt avbrott i ett meddelandearkiv inte en partitionerad kö eller ett ämne inte tillgänglig.
+En vanlig kö eller ett ämne hanteras av en enda meddelande broker och lagras i ett meddelandearkiv. Stöds endast i Basic och Standard messaging nivåer, en [partitionerade kö eller ett ämne](service-bus-partitioning.md) hanteras av flera meddelandet mäklare och lagras i flera meddelandearkiv. Den här funktionen innebär att det totala genomflödet i en partitionerad kö eller ett ämne begränsas inte längre av prestanda i ett enda meddelande broker eller meddelandearkiv. Dessutom kan återges ett tillfälligt avbrott i ett meddelandearkiv inte en partitionerad kö eller ett ämne inte tillgänglig.
 
-Observera att beställa inte säkerställs när du använder partitionerade enheter. I händelse av att en partition är tillgänglig, kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
+Sortering är inte garanterad när med partitionerade enheter. I händelse av att en partition är tillgänglig, kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
+
+ Partitionerade enheter stöds inte längre i den [Premium-SKU](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>Bästa praxis
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vad är Azure Service Bus Metodtips?
@@ -74,9 +72,9 @@ Nej, Service Bus inte debitera för lagring. Det finns dock en kvot för att beg
 En lista över Service Bus gränser och kvoter finns i [översikt över Service Bus-kvoter][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Har Service Bus användning kvoter?
-Som standard för alla moln anger tjänsten Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Eftersom vi förstår att du behöver mer än dessa gränser, kan du kontakta kundtjänst när som helst så att vi kan förstå dina behov och justera dessa gränser korrekt. För Service Bus är den sammanlagd kvoten 5 miljarder meddelanden per månad.
+Som standard för alla moln anger tjänsten Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Om du behöver mer än dessa begränsningar kan kontakta du kundtjänst när som helst för att förstå dina behov och justera dessa gränser korrekt. För Service Bus är den sammanlagd kvoten 5 miljarder meddelanden per månad.
 
-Medan vi förbehåller sig rätten att inaktivera ett kundkonto som har överskridit sina kvoter för användning i en viss månad, vi ange e-postavisering och göra flera försök att kontakta en kund innan du vidtar någon åtgärd. Kunder som överstiger dessa kvoter är fortfarande ansvarig för avgifter som överskrider kvoter.
+Microsoft förbehåller sig rätten att inaktivera ett kundkonto som har överskridit sina kvoter för användning i en viss månad, e-postmeddelanden skickas och flera försök görs att kontakta en kund innan du vidtar någon åtgärd. Kunder som överstiger dessa kvoter är fortfarande ansvarig för avgifter som överskrider kvoter.
 
 Precis som med andra tjänster i Azure tillämpar Service Bus en uppsättning specifika kvoter så att det är verkliga förbrukningen av resurser. Du hittar mer information om dessa kvoter i den [översikt över Service Bus-kvoter][Quotas overview].
 

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736195"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ I följande tabell visas de åtgärder som kan utföras av användare i dessa ro
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Lägg till en ägare eller användare på nivån labb
-Ägare och användare kan läggas på nivån lab via Azure portal. Detta omfattar även externa användare med ett giltigt [Microsoft-konto (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+Ägare och användare kan läggas på nivån lab via Azure portal. En användare kan vara en extern användare med ett giltigt [Microsoft-konto (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Följande steg hjälper dig att lägga till en ägare eller användare i ett labb i Azure DevTest Labs:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet.
-4. På den testmiljön bladet välj **Configuration**. 
-5. På den **Configuration** bladet väljer **användare**.
-6. På den **användare** bladet väljer **+ Lägg till**.
-   
+4. På den testmiljön bladet välj **konfiguration och principer**. 
+5. På den **konfiguration och principer** väljer **åtkomstkontroll (IAM)** på menyn till vänster. 
+6. Välj **Lägg till** i verktygsfältet för att lägga till en användare till en roll.
+
     ![Lägga till användare](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. På den **Välj en roll** bladet Välj önskad roll. Avsnittet [åtgärder som kan utföras i varje roll](#actions-that-can-be-performed-in-each-role) visas de olika åtgärder som kan utföras av användare i rollerna ägare, DevTest användare och deltagare.
-8. På den **lägga till användare** bladet anger du e-postadress eller namnet på den användare som du vill lägga till i rollen som du angav. Om användaren inte hittas, förklaras problemet med ett felmeddelande. Om användaren hittas, visas den användaren och valt. 
-9. Välj **Välj**.
-10. Välj **OK** att stänga den **Lägg till åtkomst** bladet.
+1. I den **lägga till behörigheter** och göra följande: 
+    1. Välj en roll (till exempel: DevTest Labs användare). Avsnittet [åtgärder som kan utföras i varje roll](#actions-that-can-be-performed-in-each-role) visas de olika åtgärder som kan utföras av användare i rollerna ägare, DevTest användare och deltagare.
+    2. Välj användaren som ska läggas till rollen. 
+    3. Välj **Spara**. 
+
+        ![Lägg till användare i rollen](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. När du kommer tillbaka till den **användare** bladet användaren har lagts till.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Lägg till en extern användare i ett testlabb med hjälp av PowerShell
-Förutom att lägga till användare i Azure-portalen kan du lägga till en extern användare ditt labb använder ett PowerShell-skript. I följande exempel bara ändra parametervärden under den **värden för att ändra** kommentar.
+Förutom att lägga till användare i Azure-portalen kan du lägga till en extern användare ditt labb använder ett PowerShell-skript. I följande exempel ändrar parametervärden under den **värden för att ändra** kommentar.
 Du kan hämta den `subscriptionId`, `labResourceGroup`, och `labName` värdena från bladet labb i Azure-portalen.
 
 > [!NOTE]

@@ -1,31 +1,25 @@
 ---
-title: "Använd vyn Vertex körning i Data Lake-verktyg för Visual Studio | Microsoft Docs"
-description: "Lär dig använda Vertex körning vyn examen Data Lake Analytics-jobb."
+title: Använd vyn Vertex körning i Data Lake-verktyg för Visual Studio
+description: Den här artikeln beskriver hur du använder vyn Vertex körningen till examen Data Lake Analytics-jobb.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735449"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Använd vyn Vertex körning i Data Lake-verktyg för Visual Studio
 Lär dig använda Vertex körning vyn examen Data Lake Analytics-jobb.
 
-## <a name="prerequisites"></a>Krav
-
-Du måste grundläggande kunskaper om med Data Lake-verktyg för Visual Studio för att utveckla U-SQL-skript.  Se [Självstudier: utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Öppna vyn Vertex körning
 Öppna ett U-SQL-jobb i Data Lake-verktyg för Visual Studio. Klicka på **Vertex vy** i det nedre vänstra hörnet. Du kan uppmanas att först läsa in profiler och det kan ta lite tid beroende på nätverksanslutningen.

@@ -1,29 +1,25 @@
 ---
-title: Slingor - processen matriser eller Upprepa åtgärder - Azure Logic Apps | Microsoft Docs
-description: Bearbeta matriser med ”för varje” loopar eller Upprepa åtgärder förrän särskilda villkor uppfylls i logikappar
+title: Lägg till slingor som Upprepa åtgärder eller bearbeta matriser - Azure Logic Apps | Microsoft Docs
+description: Så här skapar du slingor som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 services: logic-apps
-keywords: för varje slingor
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 26db63ed7706bdff9eb5c037a906fbc252b83a9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725963"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Slingor: Bearbeta matriser eller Upprepa åtgärder tills ett villkor uppfylls
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa slingor som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 
-Du kan använda för att iterera över matriser i din logikapp, en [”Foreach” loop](#foreach-loop) eller en [sekventiella ”Foreach” loop](#sequential-foreach-loop). Cykler i en standard ”Foreach” loop körs parallellt, medan cykler i en sekventiell ”Foreach” loop körs en i taget. Det maximala antalet objekt i matrisen som ”Foreach” slingor kan bearbeta en enkel logikapp som körs, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill gå igenom matriser i din logikapp, kan du använda en [”Foreach” loop](#foreach-loop) eller en [sekventiella ”Foreach” loop](#sequential-foreach-loop). Upprepningar för en standard ”Foreach” loop körs parallellt, medan upprepningar för en sekventiell ”Foreach” loop körs en i taget. Det maximala antalet objekt i matrisen som ”Foreach” slingor kan bearbeta en enkel logikapp som körs, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje matris-objekt, kan du *debatch* att matris med de [ **SplitOn** utlösa egenskapen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -164,7 +160,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
 
    ![Lägga till ”Schemalägg--återkommande” utlösare](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Egenskap | Värde |
+   | Egenskap  | Värde |
    | -------- | ----- |
    | **Intervall** | 1 | 
    | **Frekvens** | Dag |
@@ -179,7 +175,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
 
    ![Ange variabeln egenskaper](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Egenskap | Värde | Beskrivning |
+   | Egenskap  | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Din variabelnamn | 
    | **Typ** | Integer | Data variabeltyp | 
@@ -202,7 +198,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
 
    ![Räkna upp ”gräns” 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Lägg till en åtgärd som skickar e-postmeddelande under men utanför loopen. Om du uppmanas logga in på ditt e-postkonto.
+9. Lägg till en åtgärd som skickar e-postmeddelande under men utanför loopen. Logga in på ditt e-postkonto om du uppmanas att göra det.
 
    ![Lägg till åtgärd som skickar e-post](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
@@ -210,7 +206,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
 
     ![Konfigurera egenskaper för e-post](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Egenskap | Värde | Beskrivning |
+    | Egenskap  | Värde | Beskrivning |
     | -------- | ----- | ----------- | 
     | **Till** | *<email-address@domain>* | mottagarens e-postadress. För att testa, använder du e-postadress. | 
     | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange ämnet för e-post. Se till att du inkluderar det här exemplet i **gränsen** variabeln. | 
@@ -227,7 +223,7 @@ Till exempel på 8:00:00 varje dag ökar den här logikapp en variabel tills var
 
 En ”tills” loop har standardgränser som stoppa körning om något av följande villkor:
 
-| Egenskap | Standardvärde | Beskrivning | 
+| Egenskap  | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
 | **Antal** | 60 | Det maximala antalet loopar som körs innan slingan avslutas. Standardvärdet är 60 cykler. | 
 | **Timeout** | PT1H | Längsta tid att köra en loop innan slingan avslutas. Standardvärdet är en timme och har angetts i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop cykel. Om alla åtgärder i en slinga tar längre tid än timeout-gränsen Stoppa inte den aktuella cykeln, men nästa cykel starta inte eftersom gränsen inte är uppfyllt. | 

@@ -9,11 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802518"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installera en Linux-huvudmålsserver
 När du växlar över dina virtuella datorer till Azure kan du växla tillbaka de virtuella datorerna till den lokala platsen. För att växla tillbaka måste att skydda den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålservern för att ta emot trafiken. 
@@ -242,7 +243,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
 
 2. Använd den **multipath -lla** kommandot Läs multipath ID kvarhållningsdisken: **multipath -lla**
 
-    ![MPIO-ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![MPIO-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formatera hårddisken och sedan skapa ett filsystem i den nya enheten: **mkfs.ext4 /dev/mapper/< multipath kvarhållning disk-id >**.
     

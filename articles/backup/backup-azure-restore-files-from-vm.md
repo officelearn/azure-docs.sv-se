@@ -1,24 +1,20 @@
 ---
-title: "Azure-säkerhetskopiering: Återställa filer och mappar från en virtuell dator i Azure-säkerhetskopiering | Microsoft Docs"
-description: "Återställa filer från en återställningspunkt för virtuell Azure-dator"
+title: 'Azure-säkerhetskopiering: Återställa filer och mappar från en virtuell dator i Azure-säkerhetskopiering'
+description: Återställa filer från en återställningspunkt för virtuell Azure-dator
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "återställning på objektnivå; filåterställning från Virtuella Azure-säkerhetskopia. återställa filer från Azure VM"
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
+keywords: återställning på objektnivå; filåterställning från Virtuella Azure-säkerhetskopia. återställa filer från Azure VM
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737026"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från en säkerhetskopia av virtuell Azure-dator
 
@@ -31,7 +27,7 @@ Azure-säkerhetskopiering ger möjlighet att återställa [Azure virtuella dator
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montera volymen och kopiera filer
 
-Om du vill återställa filer och mappar från återställningspunkten, gå till den virtuella datorn och välja att återställningspunkten. 
+Om du vill återställa filer och mappar från återställningspunkten, gå till den virtuella datorn och välj önskad återställningspunkt. 
 
 1. Logga in på den [Azure-portalen](http://portal.Azure.com) och i den vänstra menyn klickar du på **virtuella datorer**. Välj den virtuella datorn för att öppna instrumentpanelen för den virtuella datorn från listan över virtuella datorer. 
 
@@ -65,7 +61,7 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
     Om du kör skriptet på en dator med begränsad åtkomst, se till att det finns åtkomst till:
 
-    - download.microsoft.com
+    - Download.microsoft.com
     - [Azure-slutpunkter som används för Virtuella Azure-säkerhetskopieringar](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - utgående port 3260
 
@@ -170,7 +166,7 @@ Om RAID-disken har en annan LVM som konfigurerats i, ska du använda föregåend
 
 I följande tabell visas kompatibiliteten mellan servern och datorn operativsystem. När du återställer filer, kan du återställa filer till en tidigare eller framtida operativsystemversion. Exempelvis kan du inte återställa en fil från en Windows Server 2016 VM till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator på samma server-operativsystem eller kompatibel klientens operativsystem.   
 
-|Server OS | Kompatibel klient-OS  |
+|Server-OS | Kompatibel klient-OS  |
 | --------------- | ---- |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |

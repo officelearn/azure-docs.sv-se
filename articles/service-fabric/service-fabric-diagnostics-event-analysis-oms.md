@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1552fbe66f7bad219d8aea8a3f208b0fe69cdf2b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716065"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med logganalys
 
@@ -36,17 +37,15 @@ När data tas emot av logganalys Azure har flera *hanteringslösningar* som är 
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric Analytics-lösning
 
-1. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Markera resursen **ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan.
+1. Gå till resursgruppen som du skapade Service Fabric Analytics-lösning i Azure-portalen.
 
-2. På översiktssidan klickar du på länken längst ned att gå till OMS-portalen
+2. Markera resursen **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-    ![Länken OMS-portalen](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. Sammanfattningsvis visas paneler i form av ett diagram för var och en av de lösningar som aktiverad, inklusive en för Service Fabric. Klicka på den **Service Fabric** kurva (första bilden nedan) för att fortsätta till Service Fabric Analytics-lösning (andra bilden nedan).
 
-3. Du är nu i OMS-portalen och kan se de lösningar som du har aktiverat. Klicka på diagrammet med rubriken Service Fabric (första bilden nedan) för få gå till Service Fabric-lösning (andra bilden nedan)
+    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är en ögonblicksbild vy över vad som händer i klustret. Om du har aktiverat diagnostik när klustret har skapats kan du visa händelser för 
 
@@ -57,9 +56,9 @@ Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är 
 >[!NOTE]
 >Förutom den operativa kanalen, mer detaljerad systemhändelser kan samlas in av [uppdaterar konfigurationen av diagnostik-tillägg](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>Visa operativa händelser, inklusive åtgärder på noder
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric händelser inklusive åtgärder på noder
 
-1. På sidan Service Fabric Analytics på OMS-portalen klickar du på diagrammet för drift-kanal
+1. På sidan Service Fabric Analytics klickar du på diagrammet för **Service Fabric händelser**.
 
     ![OMS SA lösning operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
@@ -78,7 +77,7 @@ Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemt
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visa Fabric tillförlitlig Service och aktören händelser
 
-1. På sidan Service Fabric Analytics på OMS-portalen klickar du på diagrammet för Reliable Services
+1. Diagram för på sidan Service Fabric Analytics **Reliable Services**.
 
     ![OMS SA lösning Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
 

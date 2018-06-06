@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726228"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller, samma prenumeration
 
@@ -89,7 +90,7 @@ Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet]
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. Skapa en resursgrupp och ett virtuellt nätverk (Resource Manager). Du kan använda CLI 1.0 eller 2.0 ([installera](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). I den här självstudiekursen används CLI 2.0 för att skapa det virtuella nätverket (Resource Manager), eftersom 2.0 måste användas för att skapa peering. Kör följande bash CLI skript från din lokala dator med CLI 2.0.4 eller senare installerat. Alternativen på körs bash CLI-skript på Windows-klient, finns [kör Windows Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du kan också köra skriptet med Shell för Azure-molnet. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på den **prova** knappen i skriptet som anropar ett moln-gränssnitt som loggar du kan logga in på ditt Azure-konto med. Om du vill köra skriptet klickar du på den **kopiera** knappen och klistra in innehållet i molnet gränssnittet, tryck på `Enter`.
+5. Skapa en resursgrupp och ett virtuellt nätverk (Resource Manager). Du kan använda CLI 1.0 eller 2.0 ([installera](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). I den här självstudiekursen används CLI 2.0 för att skapa det virtuella nätverket (Resource Manager), eftersom 2.0 måste användas för att skapa peering. Kör följande bash CLI skript från din lokala dator med CLI 2.0.4 eller senare installerat. Alternativen på körs bash CLI-skript på Windows-klient, finns [installerar Azure CLI på Windows](/cli/azure/install-azure-cli-windows). Du kan också köra skriptet med Shell för Azure-molnet. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på den **prova** knappen i skriptet som anropar ett moln-gränssnitt som loggar du kan logga in på ditt Azure-konto med. Om du vill köra skriptet klickar du på den **kopiera** knappen och klistra in innehållet i molnet gränssnittet, tryck på `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash

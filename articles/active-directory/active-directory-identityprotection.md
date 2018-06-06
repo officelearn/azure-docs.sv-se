@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713192"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -206,7 +208,7 @@ En översikt över den relaterade användarupplevelsen finns:
 
 - På den **Azure AD Identity Protection** blad i den **konfigurera** klickar du på **inloggning riskprincipen**.
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1014.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1014.png "risk användarprincip")
 
 
 
@@ -306,25 +308,25 @@ Dialogrutan relaterade innehåller två olika metoder för att återställa ett 
 ### <a name="user-risk-security-policy"></a>Användaren risk säkerhetsprincip
 En säkerhetsprincip för användaren risk är en princip för villkorlig åtkomst som utvärderar risknivå till en specifik användare och tillämpar reparation och minskning åtgärder baserat på fördefinierade villkor och regler.
 
-![Användarprincip ridk](./media/active-directory-identityprotection/1009.png "ridk användarprincip")
+![Användaren riskprincipen](./media/active-directory-identityprotection/1009.png "risk användarprincip")
 
 Azure AD Identity Protection hjälper dig att hantera minskning och reparationen av användare som har flaggats för risken genom att du kan:
 
 * Ange de användare och grupper som principen gäller för:
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1010.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1010.png "risk användarprincip")
 * Ange användaren risk nivån tröskelvärdet (låg, medel eller hög) som utlöser principen:
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1011.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1011.png "risk användarprincip")
 * Ange kontrollerna som tillämpas när principen utlöser:
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1012.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1012.png "risk användarprincip")
 * Växla tillståndet för principen:
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/403.png "MFA-registrering")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/403.png "MFA-registrering")
 * Granska och utvärdera effekten av en ändring innan du aktiverar det:
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1013.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1013.png "risk användarprincip")
 
 Om du väljer en **hög** tröskelvärdet minskar antalet gånger som en princip utlöses och minimera de negativa effekterna för användarna.
 Men det omfattar inte **låg** och **medel** användare som har flaggats för risk från principen som inte kan skydda identiteter eller enheter som har tidigare eller misstänks vara hotad.
@@ -347,7 +349,7 @@ En översikt över den relaterade användarupplevelsen finns:
 
 - På den **Azure AD Identity Protection** blad i den **konfigurera** klickar du på **risk användarprincip**.
 
-    ![Användarprincip ridk](./media/active-directory-identityprotection/1009.png "ridk användarprincip")
+    ![Användaren riskprincipen](./media/active-directory-identityprotection/1009.png "risk användarprincip")
 
 ### <a name="mitigating-user-risk-events"></a>Minimera riskhändelser för användaren
 Administratörer kan ange en säkerhetsprincip för användaren risken att blockera användare vid inloggning beroende på vilken risknivå av.
@@ -366,7 +368,7 @@ Vi rekommenderar att du behöver Azure Multi-Factor authentication för använda
 * Ger stark autentisering med ett antal alternativ för enkel verifiering
 * Spelar en viktig roll i att förbereda din organisation vill skydda och återställa från kontot kompromisser
 
-![Användarprincip ridk](./media/active-directory-identityprotection/1019.png "ridk användarprincip")
+![Användaren riskprincipen](./media/active-directory-identityprotection/1019.png "risk användarprincip")
 
 Mer information finns i [vad är Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 

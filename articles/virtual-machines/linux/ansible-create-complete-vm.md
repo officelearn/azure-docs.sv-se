@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716466"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en miljö med fullständiga Linux virtuella datorer i Azure med Ansible
 Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en komplett Linux-miljö och ge support för resurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
@@ -37,6 +38,8 @@ Om du vill hantera Azure-resurser med Ansible, behöver du följande:
 
 
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
+Nu ska vi titta på varje avsnitt i en Ansible playbook och skapa enskilda Azure-resurser. Fullständig playbook finns [det här avsnittet av artikeln](#complete-ansible-playbook).
+
 Följande avsnitt i en Ansible playbook skapar ett virtuellt nätverk med namnet *myVnet* i den *10.0.0.0/16* adressutrymmet:
 
 ```yaml
@@ -115,14 +118,14 @@ Det sista steget är att skapa en virtuell dator och använda de resurser som sk
     vm_size: Standard_DS1_v2
     admin_username: azureuser
     ssh_password_enabled: false
-    ssh_public_keys: 
+    ssh_public_keys:
       - path: /home/azureuser/.ssh/authorized_keys
         key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
     network_interfaces: myNIC
     image:
       offer: CentOS
       publisher: OpenLogic
-      sku: '7.3'
+      sku: '7.5'
       version: latest
 ```
 
@@ -176,18 +179,18 @@ Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_crea
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
       network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 
-Ansible måste distribuera alla resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/vm#az_vm_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Ansible måste distribuera alla resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

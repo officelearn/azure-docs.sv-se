@@ -13,19 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726541"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till Azure med hjälp av PowerShell
 
 Om du utvärderar virtuella datorer i Azure som värd för din arbetsbelastning, kan du exportera en befintlig Amazon Web Services (AWS) EC2 Windows VM-instans sedan överför den virtuella hårddisken (VHD) till Azure. När den virtuella Hårddisken överförs kan du skapa en ny virtuell dator i Azure från den virtuella Hårddisken. 
 
-Det här avsnittet beskriver flyttar en enda virtuell dator från AWS till Azure. Om du vill flytta virtuella datorer från AWS till Azure i skala, se [migrera virtuella datorer i Amazon Web Services (AWS) till Azure med Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+Den här artikeln beskriver flyttar en enda virtuell dator från AWS till Azure. Om du vill flytta virtuella datorer från AWS till Azure i skala, se [migrera virtuella datorer i Amazon Web Services (AWS) till Azure med Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn 
  
@@ -45,7 +46,7 @@ Du kan ladda upp både generaliserad och specialiserade VHD till Azure. Varje ty
 
 ## <a name="export-and-download-the-vhd"></a>Exportera och ladda ned den virtuella Hårddisken 
 
-Exportera EC2-instansen till en virtuell Hårddisk i ett Amazon S3-bucket. Följ stegen som beskrivs i avsnittet Amazon dokumentationen [och exportera en instans som en virtuell dator med hjälp av VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instansen till en VHD-fil. 
+Exportera EC2-instansen till en virtuell Hårddisk i ett Amazon S3-bucket. Följ stegen i Amazon dokumentationsartikel [exporterar en instans som en virtuell dator med hjälp av VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instansen till en VHD-fil. 
 
 Exporterade VHD-filen sparas i en Amazon S3-bucket som du anger. Den grundläggande syntaxen för export av den virtuella Hårddisken visas nedan, bara ersätta platshållartexten i <brackets> med din information.
 

@@ -3,22 +3,20 @@ title: SQL-frågan mätvärden för Azure SQL DB-API Cosmos | Microsoft Docs
 description: Lär dig mer om hur du instrumentera och felsöka frågeprestanda SQL Azure DB som Cosmos-begäranden.
 keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 00e50c3b2f4dc50e43aac03b162bc637f0821656
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798703"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -174,7 +172,7 @@ Mer information om partitionering och partitionsnycklar finns [partitionering i 
 Se [prestandatips](performance-tips.md) och [prestandatester](performance-testing.md) att få bästa möjliga prestanda för klientsidan från Azure Cosmos DB. Detta inkluderar med de senaste SDK: er, konfigurera plattformsspecifika konfigurationer som Standardantal anslutningar, frekvensen för skräpinsamling, samt med lightweight anslutningsalternativ som direkt/TCP. 
 
 
-#### <a name="max-item-count"></a>Max antal
+#### <a name="max-item-count"></a>Max antal objekt
 För frågor med värdet för `MaxItemCount` kan ha en betydande inverkan på Frågetid för slutpunkt till slutpunkt. Varje onödig kommunikation till servern returnerar inga fler än antalet objekt i `MaxItemCount` (standard 100 objekt). Ange detta till ett högre värde (-1 är högsta och rekommenderade) förbättrar din övergripande varaktighet för frågan genom att begränsa antalet sändningar mellan servern och klienten, särskilt för frågor med stora resultatuppsättningar.
 
 ```cs

@@ -8,17 +8,18 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 06/01/2018
+ms.openlocfilehash: 5250b10c2d9645e25c5b6f6f0f34daa50608e51b
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736652"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrera din PostgreSQL-databas med hjälp av export och import
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en skriptfil och [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) att importera data till måldatabasen från filen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att gå igenom den här instruktioner:
 - En [Azure-databas för PostgreSQL server](quickstart-create-server-database-portal.md) med brandväggsregler som tillåter åtkomst och databasen under den.
 - [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) kommandoradsverktyget installerad
@@ -47,4 +48,5 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill migrera en PostgreSQL-databas med hjälp av dump och återställning finns [migrera din PostgreSQL-databas med hjälp av dump och återställning](howto-migrate-using-dump-and-restore.md)
+- Om du vill migrera en PostgreSQL-databas med hjälp av dump och återställning finns [migrera din PostgreSQL-databas med hjälp av dump och Återställ](howto-migrate-using-dump-and-restore.md).
+- Mer information om hur du migrerar databaser till Azure-databas för PostgreSQL, finns det [databasen Migreringsguide](http://aka.ms/datamigration). 

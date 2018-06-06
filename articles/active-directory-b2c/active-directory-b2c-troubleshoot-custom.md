@@ -1,21 +1,21 @@
 ---
-title: Application Insights för att felsöka principer för anpassad - Azure AD B2C | Microsoft Docs
-description: hur du konfigurerar Application Insights för att spåra körningen av anpassade principer
+title: Application Insights för felsökning av anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: hur du konfigurerar Application Insights för att spåra körningen av anpassade principer.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 3e27976b02ee75083b07ca2e4f0c06e19502d1f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: ef39ea51fb7d12e27ce689d01517c520ab6d8684
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710608"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Insamling av loggar
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller steg för att samla in loggar från Azure AD B2C s
 
 Azure AD B2C stöder en funktion för att skicka data till Application Insights.  Application Insights är ett sätt att diagnostisera undantag och visualisera prestandaproblem i programmet.
 
-### <a name="setup-application-insights"></a>Setup Application Insights
+### <a name="setup-application-insights"></a>Installera Application Insights
 
 1. Gå till [Azure-portalen](https://portal.azure.com). Se till att du är i klienten med din Azure-prenumeration (inte din Azure AD B2C-klient).
 1. Klicka på **+ ny** i den vänstra navigeringsmenyn.

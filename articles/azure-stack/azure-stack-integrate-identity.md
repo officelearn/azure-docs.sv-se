@@ -10,11 +10,12 @@ ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801481"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integration av Azure Stack datacenter - identitet
 Du kan distribuera Azure-stacken använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantörer. Innan du distribuerar Azure stacken måste du göra valet. Distribution med AD FS är kallas även distribuera Azure-stacken i frånkopplat läge.
@@ -86,14 +87,14 @@ Använda en dator i ditt datacenternätverk som kan kommunicera med den privileg
 
 2. Öppna en upphöjd Windows PowerShell-session (Kör som administratör) och ansluta till IP-adressen för privilegierade slutpunkten. Använd autentiseringsuppgifter för **CloudAdmin** att autentisera.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 3. Nu när du är ansluten till Privilegierade slutpunkten kör du följande kommando: 
 
-   ```powershell
+   ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -131,20 +132,20 @@ Använda en dator som kan kommunicera med den privilegierade slutpunkten i Azure
 
 1. Öppna en upphöjd Windows PowerShell-session och Anslut till Privilegierade slutpunkten.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu när du är ansluten till Privilegierade slutpunkten, kör följande kommando med parametrar som är lämpliga för din miljö:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Kör följande kommando för att uppdatera ägaren av providern standardabonnemang med parametrarna som är lämpliga för din miljö:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -169,7 +170,7 @@ För följande procedur, måste du använda en dator som är ansluten till den b
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande kommando med parametrar som är lämpliga för din miljö:
 
-   ```powershell
+   ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -184,20 +185,20 @@ Använda en dator som kan kommunicera med den privilegierade slutpunkten i Azure
 
 1. Öppna en upphöjd Windows PowerShell-session och Anslut till Privilegierade slutpunkten.
 
-   ```powershell
+   ```PowerShell  
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu när du är ansluten till Privilegierade slutpunkten, kör följande kommando med parametrar som är lämpliga för din miljö:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
 3. Kör följande kommando för att uppdatera ägaren av providern standardabonnemang med parametrarna som är lämpliga för din miljö:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -244,7 +245,7 @@ Följ dessa steg om du vill köra kommandon manuellt:
 
 2. För att aktivera Windows Forms-baserad autentisering, öppna en Windows PowerShell-session som en användare med förhöjd behörighet och kör följande kommando:
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
@@ -252,13 +253,13 @@ Följ dessa steg om du vill köra kommandon manuellt:
 
    **För AD FS 2016**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
    **För AD FS 2012/2012 R2**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
    ```
 
@@ -270,13 +271,13 @@ Följ dessa steg om du vill köra kommandon manuellt:
    > [!note]  
    > Det här steget gäller inte när du använder Windows Server 2012 eller 2012 R2 AD FS. Det är säkert att hoppa över det här kommandot och fortsätter med integrationen.
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. Om du vill aktivera uppdaterings-tokens, öppna en upphöjd Windows PowerShell-session och kör följande kommando:
+5. Azure-stacken portaler och verktygsuppsättning (Visual Studio) kräver uppdaterings-tokens. De måste konfigureras med hjälp av part. Öppna en upphöjd Windows PowerShell-session och kör följande kommando:
 
-   ```powershell
+   ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
@@ -304,14 +305,14 @@ Om det inträffar ett fel som lämnar miljön i ett tillstånd där du inte län
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande kommandon:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Kör följande cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Reset-DatacenterIntegationConfiguration
    ```
 
@@ -320,7 +321,7 @@ Om det inträffar ett fel som lämnar miljön i ett tillstånd där du inte län
    > [!IMPORTANT]
    > Du måste konfigurera den ursprungliga ägaren av prenumerationen för standard-provider
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -330,14 +331,14 @@ Om någon av cmdletarna misslyckas du kan samla in ytterligare loggfiler med hj�
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande kommandon:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Kör följande cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

@@ -1,11 +1,11 @@
 ---
-title: "Distribuera Azure filsynkronisering (förhandsversion) | Microsoft Docs"
-description: "Lär dig hur du distribuerar Azure filsynkronisering från början till slut."
+title: Distribuera Azure filsynkronisering (förhandsversion) | Microsoft Docs
+description: Lär dig hur du distribuerar Azure filsynkronisering från början till slut.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a450d3c00627a9b20ff2fe31c4dba49b33352ec1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738389"
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Distribuera Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -56,13 +57,16 @@ Utför följande steg för varje server som du tänker använda med synkroniseri
     4. I den **Förbättrad säkerhetskonfiguration i Internet Explorer** dialogrutan **av** för **administratörer** och **användare**:  
         ![Förbättrad säkerhetskonfiguration i Internet Explorer popup-fönster med ”av” markerad](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-2. Se till att du kör minst PowerShell 5.1.\* (PowerShell 5.1 är standard i Windows Server 2016). Du kan kontrollera att du kör PowerShell 5.1. \* genom att titta på värdet för den **PSVersion** -egenskapen för den **$PSVersionTable** objekt:
+2. Om du använder Windows Server 2012 R2 kan du se till att du kör minst PowerShell 5.1. \*. Du kan på ett säkert sätt hoppa över kontrollen på Windows Server 2016 PowerShell 5.1 är den standard version out-of-box. Du kan kontrollera att du kör PowerShell 5.1 på Windows Server 2012 R2. \* genom att titta på värdet för den **PSVersion** -egenskapen för den **$PSVersionTable** objekt:
 
     ```PowerShell
     $PSVersionTable.PSVersion
     ```
 
     Om din PSVersion-värdet är mindre än 5.1. \*, som kommer att vara fallet med de flesta installationer av Windows Server 2012 R2, kan du lätt uppgradera genom att hämta och installera [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Ladda ned och installera för Windows Server 2012 R2 är lämpligt paket **Win8.1AndW2K12R2 KB\*\*\*\*\*\*\*-x64.msu**.
+
+    > [!Note]  
+    > Azure filsynkronisering stöder ännu inte PowerShell 6 på Windows Server 2012 R2 eller Windows Server 2016.
 
 3. [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Vi rekommenderar att du använder den senaste versionen av Azure PowerShell-moduler.
 
@@ -92,6 +96,9 @@ När du loggar in uppmanas du att ange följande information:
 
 När du har valt rätt information, Välj **registrera** att slutföra registreringen av servern. Som en del av registreringen efterfrågas ett ytterligare inloggning.
 
+> [!Note]  
+> En server kan endast registreras med en synkroniseringstjänsten för lagring i taget.
+
 ## <a name="create-a-sync-group"></a>Skapa en grupp för synkronisering
 En synkronisering grupp definierar sync-topologin för en uppsättning filer. Slutpunkter inom en synkronisering grupp hålls synkroniserade med varandra. En grupp för synkronisering måste innehålla minst en molnslutpunkt som representerar en Azure-filresurs, och slutpunkten för en server, som representerar en sökväg på Windows Server. Skapa en sync-grupp i den [Azure-portalen](https://portal.azure.com/)går du till lagring-synkroniseringstjänsten och välj sedan **+ Sync grupp**:
 
@@ -102,7 +109,7 @@ Ange följande information för att skapa en grupp för synkronisering med en mo
 - **Synkronisera gruppnamn**: namnet på sync-grupp som ska skapas. Det här namnet måste vara unika inom synkroniseringstjänsten lagring, men kan vara vilket namn som är logiska för dig.
 - **Prenumerationen**: prenumeration där du har distribuerat Storage Sync-tjänsten i [distribuera lagring synkroniseringstjänsten](#deploy-the-storage-sync-service).
 - **Lagringskontot**: Om du väljer **Välj lagringskonto**, ett annat fönster visas där du väljer det lagringskonto som har Azure-filresursen som du vill synkronisera med.
-- **Azure-filresurs**: namnet på Azure-filresursen som du vill synkronisera.
+- **Azure-filresursen**: namnet på Azure-filresursen som du vill synkronisera.
 
 Om du vill lägga till en serverslutpunkt, gå till den nyligen skapade sync-gruppen och välj sedan **Lägg till serverslutpunkt**.
 

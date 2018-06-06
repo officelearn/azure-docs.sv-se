@@ -3,7 +3,7 @@ title: Azure Active Directory inloggningsaktivitet rapporten API-exempel | Micro
 description: Hur du kommer igång med Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
-ms.author: dhanyahk;markvi
+ms.component: compliance-reports
+ms.date: 05/31/2018
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c76ac75acdb1645ee6cc5b496aadccbd1daf2d79
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 466755d7d1cc7fbf4006826ac849b74ba306bae9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698585"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory inloggningsaktivitet rapporten API-exempel
-Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
+Den här artikeln är en del av en samling artiklar om Azure Active Directory reporting API.  
 Azure AD-rapportering ger dig en API som gör att du kan komma åt inloggningsaktivitet data med hjälp av koden eller relaterade verktyg.  
-Omfattningen av det här avsnittet är att ge dig exempelkod för den **aktivitet API inloggning**.
+Omfånget för den här artikeln är att ge dig exempelkod för den **aktivitet API inloggning**.
 
 Se:
 
@@ -33,58 +35,69 @@ Se:
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du kan använda exemplen i det här avsnittet, måste du slutföra de [krav för att få åtkomst till Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
+Innan du kan använda exemplen i den här artikeln, måste du slutföra de [krav för att få åtkomst till Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>PowerShell-skript
-    # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
-    $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.microsoftonline.com/"
-    $tenantdomain   = "<tenantDomain>"
-    $daterange            # For example, contoso.onmicrosoft.com
 
-    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
-    # or, AddMinutes(-5)
+```powershell
 
-    Write-Output $7daysago
-
-    # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-
-    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
-
-    if ($oauth.access_token -ne $null) {
+# This script will require the Web Application and permissions setup in Azure Active Directory
+$clientID       = "<appid>"             # ApplicationId
+$clientSecret   = "<key>"         # Should be a ~44 character string insert your info here
+$loginURL       = "https://login.windows.net/"
+$tenantdomain   = "<domain>"            # For example, contoso.onmicrosoft.com
+$msgraphEndpoint = "https://graph.microsoft.com"
+$countOfSignInDocsToBeSavedInAFile = 2000
+    
+# Get an Oauth 2 access token based on client id, secret and tenant domain
+$body       = @{grant_type="client_credentials";resource=$msgraphEndpoint;client_id=$clientID;client_secret=$clientSecret}
+$oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    
+if ($oauth.access_token -ne $null) {
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-
-    $url = "https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&`$filter=signinDateTime ge $7daysago"
-
+    
+    $url = "$msgraphEndpoint/beta/auditLogs/signIns"
+    Write-Output "Fetching data using Uri: $url"
     $i=0
-
+    $docCount=0
     Do{
-        Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-        Write-Output "Save the output to a file SigninActivities$i.json"
-        Write-Output "---------------------------------------------"
-        $myReport.Content | Out-File -FilePath SigninActivities$i.json -Force
-        $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
-        $i = $i+1
-    } while($url -ne $null)
+        $jsonReport = ($myReport.Content | ConvertFrom-Json).value
+        $fetchedRecordCount = $jsonReport.Count
+        $docCount = $docCount + $fetchedRecordCount
+        $totalFetchedRecordCount = $totalFetchedRecordCount + $fetchedRecordCount
+        Write-Output "Fetched $fetchedRecordCount records and saved into SignIns$i.json"
+        if($docCount -le $countOfSignInDocsToBeSavedInAFile)
+        {
+            $myReport.Content | Out-File -FilePath SignIns$i.json -append  -Force       
+        }
+        else
+        {           
+            $docCount=0
+            $i = $i+1
+        }
+            
+        #Get url from next link
+        $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'         
+    }while($url -ne $null)
+    Write-Output "Total Fetched record count is : $totalFetchedRecordCount"
+                
+} else {
+    Write-Host "ERROR: No Access Token"
+}
 
-    } else {
-
-        Write-Host "ERROR: No Access Token"
-    }
+```
 
 
 
 
 ## <a name="executing-the-script"></a>Körning av skriptet
-När du har redigerat skriptet körs och kontrollera att de förväntade data från revision loggar rapporten returneras.
+När du har redigerat skriptet körs och kontrollera att de förväntade data från inloggningssidan loggar rapporten returneras.
 
-Skriptet returnerar utdata från rapporten i JSON-format. Det skapar också en `SigninActivities.json` fil med samma utdata. Du kan experimentera genom att ändra skriptet för att returnera data från andra rapporter och kommentera ut utdataformat som du inte behöver.
+Skriptet returnerar utdata från rapporten i JSON-format. Det skapar också en `SignIns.json` fil med samma utdata. Du kan experimentera genom att ändra skriptet för att returnera data från andra rapporter och kommentera ut utdataformat som du inte behöver.
 
 ## <a name="next-steps"></a>Nästa steg
-* Vill du anpassa exemplen i det här avsnittet? Kolla in den [Azure Active Directory inloggningsaktivitet API-referens för](active-directory-reporting-api-sign-in-activity-reference.md). 
+* Vill du anpassa exemplen i den här artikeln? Kolla in den [Azure Active Directory inloggningsaktivitet API-referens för](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
 * Om du vill se en fullständig översikt över med Azure Active Directory reporting API, se [komma igång med Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).
 * Om du vill veta mer om Azure Active Directory reporting finns i [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 

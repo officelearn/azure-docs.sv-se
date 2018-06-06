@@ -3,7 +3,7 @@ title: Så här aktiverar eller inaktiverar du en roll | Microsoft Docs
 description: Lär dig mer om att aktivera roller för privilegierade identiteter med Azure Privileged Identity Management-programmet.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c12ba7ed076d531c75b5f9a473d124b94a6f0362
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 057960d09a0a47544fa1295dafa4dc387c018ea6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698296"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft online services som Office 365 eller Microsoft Intune.  

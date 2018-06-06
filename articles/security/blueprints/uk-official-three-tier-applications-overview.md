@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757203"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation
 
@@ -109,12 +110,12 @@ Tillgänglighetsuppsättningar
 - (1) Ange biz nivå VM - 2 virtuella datorer
 - (1) ange data-Tier VM - 2 virtuella datorer
 
-Belastningsutjämnare
+Load Balancer
 - (1) web nivå belastningsutjämnare
 - (1) biz nivå belastningsutjämnare
 - (1) data nivå belastningsutjämnare
 
-Lagring
+Storage
 - (14) totala Storage-konton
   - Active Directory Domain Controller Tillgänglighetsuppsättning
     - (2) primära lokalt Redundant lagring (LRS) konton - 1 för varje virtuell dator  
@@ -148,7 +149,7 @@ Lagring
 
 **Internet-Gateway och offentliga IP-adressen**: internet-gateway exponerar programtjänster för användare via internet. Trafik att komma åt dessa tjänster skyddas med en [Programgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjudande Layer 7 Routning och belastningsutjämning med web application firewall (Brandvägg)-skydd.
 
-**Hantering av VNet**: detta [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) innehåller resurser som implementerar hantering och övervakning av funktioner för de arbetsbelastningar som körs i produktion VNet.
+**Hantering av VNet**: detta [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) innehåller resurser som implementerar hantering och övervakning av funktioner för de arbetsbelastningar som körs i produktion VNet.
 
 **Jumpbox**: kallas även en [skyddsmiljö värden](https://en.wikipedia.org/wiki/Bastion_host), vilket är en säker virtuell dator i nätverket som administratörer använder för att ansluta till virtuella datorer i produktion VNet. Jumpboxen har en NSG som endast tillåter fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i NSG: N för att tillåta fjärråtkomst fjärrskrivbord (RDP)-trafik. Hantering av produktionsresurser är via RDP med hjälp av en skyddad Jumpbox-VM.
 

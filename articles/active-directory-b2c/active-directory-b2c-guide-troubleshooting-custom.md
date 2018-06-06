@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Anpassade Felsökningsprinciper | Microsoft Docs'
-description: Mer information om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory.
+title: Felsöka anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: Mer information om metoder för att lösa fel när du arbetar med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709622"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitet upplevelse Framework
 

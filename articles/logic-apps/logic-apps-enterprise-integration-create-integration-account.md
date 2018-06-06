@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 97cdc809a00078ee86a40fd4567ab2d3357ed3bd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726439"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Skapa och hantera integrationskonton för B2B-lösningar med logic apps
 
@@ -57,11 +58,11 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | Prenumeration | Ja | <*Azure-prenumeration-name*> | Namnet för Azure-prenumerationen ska användas | 
    | Resursgrupp | Ja | test-integrering-konto-rg | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) används för att organisera relaterade resurser. Skapa en ny resursgrupp med det angivna namnet för det här exemplet. | 
    | Prisnivå | Ja | Kostnadsfri | Den prisnivå som du vill använda. Det här exemplet väljer du **lediga**, men mer information finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md) och [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Plats | Ja | Västra USA | Regionen var du vill lagra din kontoinformation för integrering. Välj samma plats som din logikapp eller skapa en logikapp på samma plats som ditt konto för integrering. I det här exemplet | 
+   | Plats | Ja | Västra USA | Regionen var du vill lagra din kontoinformation för integrering. Välj samma plats som din logikapp eller skapa en logikapp på samma plats som ditt konto för integrering. | 
    | Log Analytics | Nej | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    ||||| 
 
-4. När du är klar, Välj **fäst på instrumentpanelen**, och välj **skapa**.
+4. När du är klar väljer du **Fäst på instrumentpanelen** och sedan **Skapa**.
 
    När Azure distribuerar integration kontot till den valda platsen, vilket vanligtvis slutförs inom en minut, öppnar Azure integration-konto.
 

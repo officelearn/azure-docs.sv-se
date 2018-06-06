@@ -3,23 +3,21 @@ title: SQL-frågor för Azure Cosmos DB | Microsoft Docs
 description: Lär dig mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos-databasen.
 keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
-documentationcenter: ''
 author: LalithaMV
 manager: kfile
 editor: monicar
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0fd1b57be07eda13655b5a6c0dcb5b412e8a248
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798329"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
@@ -380,136 +378,136 @@ Följande tabell visar resultatet av likheten jämförelser i SQL-API mellan tv�
             <strong>Odefinierad<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Null<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Booleskt värde<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Antal<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Sträng<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Objektet<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>matris<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
@@ -545,23 +543,23 @@ Den största skillnaden mellan att använda BETWEEN i SQL-API och ANSI SQL är a
 ### <a name="logical-and-or-and-not-operators"></a>Logisk (AND, OR och inte) operatorer
 Logiska operatorer fungerar med booleska värden. De logiska tabellerna sanningen för de här operatorerna visas i följande tabeller.
 
-| ELLER | True | False | Odefinierad |
+| ELLER | True | False | Odefinierat |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Odefinierad |
-| Odefinierad |True |Odefinierad |Odefinierad |
+| False |True |False |Odefinierat |
+| Odefinierat |True |Odefinierat |Odefinierat |
 
-| OCH | True | False | Odefinierad |
+| OCH | True | False | Odefinierat |
 | --- | --- | --- | --- |
-| True |True |False |Odefinierad |
+| True |True |False |Odefinierat |
 | False |False |False |False |
-| Odefinierad |Odefinierad |False |Odefinierad |
+| Odefinierat |Odefinierat |False |Odefinierat |
 
 | INTE |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Odefinierad |Odefinierad |
+| Odefinierat |Odefinierat |
 
 ### <a name="in-keyword"></a>I nyckelord
 IN-nyckelordet kan användas för att kontrollera om ett angivet värde matchar något värde i en lista. Den här frågan returnerar till exempel alla family dokument där id är ”WakefieldFamily” eller ”AndersenFamily”. 

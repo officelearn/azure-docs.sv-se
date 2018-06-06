@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725150"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual redigering i Azure Data Factory
 Azure Data Factory användargränssnittet experience (UX) kan du visuellt skapa och distribuera resurser för din data factory utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Det finns två tillvägagångssätt för att utföra visual redigering med UX:
@@ -46,8 +47,8 @@ Visual redigering med VSTS Git-integration stöder källkontrollen och samarbete
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurera en VSTS Git-lagringsplats med Azure Data Factory
 Du kan konfigurera en VSTS GIT-lagringsplats med en datafabrik via två metoder.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>Konfigurationen för 1: ska få igång sida
+#### <a name="method1"></a> Konfigurationen för 1: ska få igång sida
+
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera databasen**:
 
 ![Konfigurera en lagringsplats för VSTS kod](media/author-visually/configure-repo.png)
@@ -62,8 +63,8 @@ I rutan visas följande kod i VSTS databasen inställningar:
 |:--- |:--- |:--- |
 | **Typ av databasen** | Typ av VSTS kod databasen.<br/>**Obs**: GitHub stöds inte för närvarande. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Din Azure AD-klientnamn. | <your tenant name> |
-| **Visual Studio Team Services Account** | VSTS namnet på ditt konto. Du kan hitta kontonamnet VSTS på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt konto i VSTS](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | \<namnet på ditt konto > |
-| **ProjectName** | Ditt VSTS projektnamn. Du kan hitta din VSTS projektnamn på `https://{account name}.visualstudio.com/{project name}`. | \<ditt VSTS projektnamn > |
+| **Visual Studio Team Services-konto** | VSTS namnet på ditt konto. Du kan hitta kontonamnet VSTS på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt konto i VSTS](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | \<namnet på ditt konto > |
+| **Projektnamn** | Ditt VSTS projektnamn. Du kan hitta din VSTS projektnamn på `https://{account name}.visualstudio.com/{project name}`. | \<ditt VSTS projektnamn > |
 | **RepositoryName** | Din VSTS kod databasens namn. VSTS projekt innehålla Git databaser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan ingår i projektet. | \<databasen för VSTS kodnamnet > |
 | **Samarbete gren** | Din VSTS samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra det om du vill publicera resurser från en annan gren. | \<ditt samarbete gren namn > |
 | **Rotmappen** | Din rotmapp i VSTS samarbete grenen. | \<mappnamnet rot > |
@@ -75,6 +76,14 @@ I Azure Data Factory UX **redigering arbetsytan**, leta upp din data factory. V�
 En konfiguration visas. Mer information om inställningarna finns beskrivningar i <a href="#method1">konfigurationsmetoden 1</a>.
 
 ![Konfigurera inställningar för databasen koden för UX redigering](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git repo
+
+Hitta ikonen i det övre högra hörnet på sidan Översikt över Data Factory om du vill växla till en annan Git-lagringsplatsen, som visas i följande skärmbild. Om du inte ser ikonen Rensa din lokala webbläsarens cacheminne. Klicka på ikonen Ta bort kopplingen till aktuella lagringsplatsen.
+
+Du kan konfigurera Git-inställningar om du vill använda en annan lagringsplatsen när du tar bort associationen med aktuella lagringsplatsen. Du kan sedan importera befintliga Data Factory-resurser till den nya lagringsplatsen.
+
+![Ta bort kopplingen till den aktuella Git-lagringsplatsen.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Använda versionskontroll
 System version (även kallat _kontroll_) kan utvecklare samarbeta på koden och spåra ändringar som görs i koden bas. Källkontrollen är ett viktigt verktyg för flera utvecklare projekt.
@@ -110,7 +119,7 @@ Information om uttryck som stöds finns [uttryck och funktioner i Azure Data Fac
 
 ![Lägga till dynamiskt innehåll](media/author-visually/dynamic-content-2.png)
 
-## <a name="provide-feedback"></a>Skicka feedback
+## <a name="provide-feedback"></a>Ge feedback
 Välj **Feedback** att kommentera om funktioner eller för att meddela Microsoft om problem med verktyget:
 
 ![Feedback](media/author-visually/provide-feedback.png)

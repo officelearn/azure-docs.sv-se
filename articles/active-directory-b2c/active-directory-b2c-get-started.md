@@ -1,23 +1,23 @@
 ---
 title: Skapa en Azure Active Directory B2C-klient | Microsoft Docs
-description: Ett avsnitt om hur du skapar en Azure Active Directory B2C-klient
+description: Ett avsnitt om hur du skapar en Azure Active Directory B2C-klient.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 56e0ae7454e86911c894da88b5aa8ccc03a08af3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: d1031074885b0ca55d0b1647575354fcd0f49889
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712274"
 ---
-# <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>Skapa en Azure Active Directory B2C-klient i Azure-portalen
+# <a name="create-an-azure-active-directory-b2c-tenant"></a>Skapa en Azure Active Directory B2C-klient
 
 Den här snabbstarten hjälper dig att skapa en Microsoft Azure Active Directory (AD Azure) B2C-klient på bara några minuter. När du är klar har du en B2C-klient (även kallat en katalog) ska användas för att registrera B2C-program.
 
@@ -35,7 +35,7 @@ B2C-funktioner kan inte aktiveras i din befintliga klienter. Du måste skapa en 
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Grattis, du har skapat en Azure Active Directory B2C-klient. Du är en Global administratör för klienten. Du kan lägga till andra globala administratörer om det behövs. Växla till den nya innehavaren, klicka på den *hantera nya klient länken*.
+Grattis, du har skapat en Azure Active Directory B2C-klient. Du är en Global administratör för klienten. Du kan lägga till andra globala administratörer om det behövs. Växla till den nya innehavaren, klicka på *hantera den nya innehavaren*.
 
 ![Hantera din ny klient-länk](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

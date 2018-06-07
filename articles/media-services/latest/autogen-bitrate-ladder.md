@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638304"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koda med en automatiskt genererad bithastighet stege
 
@@ -27,18 +28,18 @@ Den här artikeln förklarar hur du använder Standard-kodare i Media Services f
 
 ### <a name="encoding-for-streaming"></a>Kodning för strömning
 
-Som namnet antyder, om du använder den **AdaptiveStreaming** förinställningen när du skapar en kodning transformering visas utdata som passar för leverans via strömningsprotokoll som HLS, DASH, CMAF osv. När du använder detta **AdaptiveStreaming** förinställts kodaren Intelligent bestämmer hur många video lager för att generera och på vilka bithastighet och upplösning. Utdata innehåller tillgångsinformation där AAC-kodat ljud och video H.264-kodade inte är överlagrad MP4-filer.
+När du använder den **AdaptiveStreaming** i **transformera**, du får ett utgående som passar för leverans via strömning protokoll som HLS och STRECK. När du använder den här förinställda tjänsten Intelligent bestämmer hur många video lager för att generera och på vilka bithastighet och upplösning. Utdata-innehållet finns där AAC-kodat ljud och video H.264-kodade inte är överlagrad MP4-filer.
 
 Om du vill se ett exempel på hur denna inställning används, se [överföra en fil](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Resultat
 
-Det här avsnittet innehåller tre exempel utdata video lager produceras av på grund av encoding med Media Services kodaren den **AdaptiveStreaming** förinställda. I samtliga fall innehåller utdata ljuddata MP4-fil med stereoljud kodade 128 kbit/s.
+Det här avsnittet innehåller tre exempel utdata video lager produceras av på grund av encoding med Media Services kodaren den **AdaptiveStreaming** förinställda. I samtliga fall innehåller resultatet en ljuddata MP4-fil med stereoljud kodade 128 kbit/s.
 
 ### <a name="example-1"></a>Exempel 1
 Källa med höjd ”1080” och ramhastighet ”29.970” ger 6 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bithastighet (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -50,7 +51,7 @@ Källa med höjd ”1080” och ramhastighet ”29.970” ger 6 video lager:
 ### <a name="example-2"></a>Exempel 2
 Källa med höjd ”720” och ramhastighet ”23.970” ger 5 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bithastighet (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -61,7 +62,7 @@ Källa med höjd ”720” och ramhastighet ”23.970” ger 5 video lager:
 ### <a name="example-3"></a>Exempel 3
 Källa med höjd ”360” och ramhastighet ”29.970” ger 3 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bithastighet (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
@@ -70,4 +71,4 @@ Källa med höjd ”360” och ramhastighet ”29.970” ger 3 video lager:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Överföra en fil](stream-files-dotnet-quickstart.md)
+> [Strömma en fil](stream-files-dotnet-quickstart.md)

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dddb29d2a796449d6a2c9b68e01e94f32d3022e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621997"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +69,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller beskrivningar för JSON-element som är specifika för Salesforce länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https://login.salesforce.com”. <br> -Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> -Om du vill kopiera data från domänen, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
@@ -81,7 +82,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för en dataset av typen **RelationalTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Salesforce. |Nej (om en **frågan** av **RelationalSource** har angetts) |
 
@@ -97,7 +98,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties aktiviteten å an
 
 I en Kopieringsaktivitet när källan är av typen **RelationalSource** (som omfattar Salesforce), följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) frågan. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **dataset** har angetts) |
 
@@ -288,15 +289,15 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | --- | --- |
 | Automatisk tal |Sträng |
 | Kryssruta |Boolesk |
-| Valuta |Dubbel |
+| Valuta |dubbla |
 | Date |DateTime |
 | Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Uppslagsrelation |Sträng |
 | Flerval listruta |Sträng |
-| Tal |Dubbel |
-| Procent |Dubbel |
+| Tal |dubbla |
+| Procent |dubbla |
 | Telefon |Sträng |
 | Listruta |Sträng |
 | Text |Sträng |

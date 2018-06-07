@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 22dbaa3d10d09456a972a7991583dc29b7941db1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618631"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i en Kopieringsaktivitet
 Den här artikeln beskrivs hur Azure Data Factory-kopieringsaktiviteten hanterar schemamappning och datatypmappningen från källdata till sink data när kopiera data.
@@ -150,17 +151,17 @@ Du kan hitta mappningen mellan inbyggd typ till tillfälliga typ i avsnittet ”
 
 Data Factory stöder följande datatyper av mellanliggande: du kan ange under värden när de tillhandahåller typinformation i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) konfiguration:
 
-* Byte[]
+* byte]
 * Boolesk
 * DateTime
-* Datetimeoffset
+* DateTimeOffset
 * Decimal
-* Dubbel
+* dubbla
 * GUID
 * Int16
 * Int32
 * Int64
-* Ogift
+* Enkel
 * Sträng
 * Tidsintervall
 

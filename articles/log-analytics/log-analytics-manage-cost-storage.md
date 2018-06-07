@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637522"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolym och kvarhållning i logganalys
 Log Analytics utformats för att skala och stöd för att samla in, indexering och lagra stora mängder data per dag från alla datakällor i företaget eller distribueras i Azure.  Detta kan vara en primär drivrutin för din organisation är kostnadseffektiviteten slutligen den underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en logg Analytisc arbetsyta inte är bara baserat på mängden data som samlas in, och hur länge du väljer att lagra data som genereras av dina anslutna källor.  
@@ -36,7 +37,7 @@ Kostnaden för att data kan vara betydande beroende på följande faktorer:
 > [!NOTE]
 > Finns i dokumentationen för varje lösning eftersom det ger dig en uppfattning av hur mycket data som samlas in.   
 
-Om du är på den *lediga* planen data begränsas till 7 dagar kvarhållning. För den *fristående* eller *betald* nivån data som samlas in är tillgänglig under de senaste 31 dagarna. Den *lediga* plan har 500 MB dagliga införandet gränsen och om du hittar du konsekvent överskrider de belopp som tillåts volym kan du kan ändra din arbetsyta till en betald plan för att samla in data utöver den här gränsen. 
+Kunder med ett Enterprise-avtal som signerats före den 1 juli 2018 eller som redan har skapat en logganalys-arbetsytan i en prenumeration kan du fortfarande ha åtkomst till den *lediga* plan. Om din prenumeration inte är kopplad till en befintlig EA-registrering av *lediga* nivå är inte tillgänglig när du skapar en arbetsyta i en ny prenumeration efter den 2 April 2018.  Data är begränsad till 7 dagar kvarhållning för den *lediga* nivå.  För den *fristående* eller *betald* nivån data som samlas in är tillgänglig under de senaste 31 dagarna. Den *lediga* nivå har 500 MB dagliga införandet gränsen och om du hittar du konsekvent överskrider de belopp som tillåts volym kan du kan ändra din arbetsyta till en betald plan för att samla in data utöver den här gränsen. 
 
 > [!NOTE]
 > Avgifter kan tillkomma om du vill välja en längre period för betald skiktet. Du kan ändra Plantyp av när som helst och mer information om priser, se [prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/). 
@@ -54,7 +55,7 @@ Du kan granska din datavolym månadens härifrån. Detta omfattar alla data tas 
  
 Log Analytics avgifter läggs till fakturan Azure. Du kan se information om din Azure debiterar under avsnittet faktureringen av Azure-portalen eller i den [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
-## <a name="daily-cap"></a>Dagliga linjeslut
+## <a name="daily-cap"></a>Dagligt tak
 När du skapar en logganalys-arbetsytan från Azure portal och du väljer den *lediga* plan, är den inställd på 500 MB per dag gränsen. Det finns ingen gräns för de prisnivå planerna. Du kan konfigurera en daglig kapacitet och begränsa dagliga införandet för din arbetsyta men försiktig som inte bör målet vara att träffa den dagliga gränsen.  Annars förlorar du data för resten av dag, vilket kan påverka andra Azure-tjänster och lösningar vars funktioner beror på aktuell information är tillgänglig i arbetsytan.  Du kan se och ta emot aviseringar därför när hälsa villkoren för resurser som stödjer IT-tjänster påverkas.  Dagliga fästpunkten är avsedd att användas som ett sätt att hantera den oväntade mängden data från dina hanterade resurser och hålla sig inom gränsen, eller när du vill begränsa bara oplanerad avgifter för din arbetsyta.  
 
 När den dagliga gränsen har uppnåtts, stoppar insamling av fakturerbar datatyper för resten av dagen. En varning banderoll visas överst på sidan för den valda logganalys-arbetsytan och en åtgärden händelse skickas till den *åtgärden* tabell **LogManagement** kategori. Insamling av data återupptar när återställningstiden definierats *dagliga gränsen anges till*. Vi rekommenderar att du definierar en aviseringsregel baserat på den här åtgärden händelsen som konfigurerats för att meddela när den dagliga data gränsen har nåtts. 

@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 110297fd60b4a25f959b451f2952f32d66cb8c3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620256"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - ändringsloggen för .NET-API
 > [!NOTE]
@@ -70,8 +71,8 @@ Funktionen tillägg:
 ## <a name="version-480"></a>Version 4.8.0
 ### <a name="feature-additions"></a>Funktionen tillägg
 * Följande valfria egenskaper har lagts till kopia aktivitetstyp att aktivera justering av kopiera prestanda:
-  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
-  * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+  * [parallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+  * [cloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>Version 4.7.0
 ### <a name="feature-additions"></a>Funktionen tillägg
@@ -80,7 +81,7 @@ Funktionen tillägg:
   * Kan du använda PolyBase för att kopiera data till SQL Data Warehouse.
 
 ## <a name="version-461"></a>Version 4.6.1
-### <a name="bug-fixes"></a>Buggfixar
+### <a name="bug-fixes"></a>Felkorrigeringar
 * Åtgärdar HTTP-begäran för att lista aktivitet windows.
   * Tar bort resursgruppens namn och data factory-namnet från nyttolasten i begäran.
 
@@ -137,7 +138,7 @@ Funktionen tillägg:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Version 4.0.1
-### <a name="breaking-changes"></a>Gör ändringar
+### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 Följande klasser har bytt namn. De nya namn var de ursprungliga namnen på klasser innan 4.0.0 släpper.
 
 | Namn i 4.0.0 | Namn i 4.0.1 |
@@ -150,7 +151,7 @@ Följande klasser har bytt namn. De nya namn var de ursprungliga namnen på klas
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Version 4.0.0
-### <a name="breaking-changes"></a>Gör ändringar
+### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 * Följande klasser/gränssnitt har ändrats.
 
 | Gamla namnet | Nytt namn |

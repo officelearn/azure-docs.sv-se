@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640565"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
 
@@ -41,7 +42,7 @@ Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa de
 
 När JIT (Just-In-Time) är aktiverat begränsar Security Center inkommande trafik till dina virtuella Azure-datorer genom att skapa en NSG-regel. Du väljer portar på den virtuella datorn som inkommande trafik ska låsas. Dessa portar som styrs av den bara i Tidslösning.
 
-När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva begäran har godkänts och Security Center automatiskt konfigurerar Nätverkssäkerhetsgrupper (NSG: er) för att tillåta inkommande trafik till de markerade portarna för den tid angett du. När tid har gått ut, återställer Security Center de NSG: er till sitt tidigare tillstånd.
+När en användare begär åtkomst till en virtuell dator, Security Center kontrollerar att användaren har [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter som ger skrivbehörighet för den virtuella datorn. Om de har behörighet att skriva begäran har godkänts och Security Center automatiskt konfigurerar Nätverkssäkerhetsgrupper (NSG: er) för att tillåta inkommande trafik till de markerade portarna för den tid angett du. När tid har gått ut, återställer Security Center de NSG: er till sitt tidigare tillstånd. Dessa anslutningar som redan har skapat som avbryts inte, men.
 
 > [!NOTE]
 > Security Center just-in-time-åtkomst för VM stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager. Mer information om klassiskt och Resource Manager distributionsmodellerna finns [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).

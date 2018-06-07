@@ -1,11 +1,11 @@
 ---
-title: "Support och tillbakadragning princip Installationshandbok för Azure-Gästoperativsystem | Microsoft Docs"
-description: "Innehåller information om vad Microsoft stöder när det gäller att Azure-Gästoperativsystem som används av molntjänster."
+title: Support och tillbakadragning princip Installationshandbok för Azure-Gästoperativsystem | Microsoft Docs
+description: Innehåller information om vad Microsoft stöder när det gäller att Azure-Gästoperativsystem som används av molntjänster.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608570"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure-Gästoperativsystem support och tillbakadragning princip
 Information om den här sidan gäller för Azure gästoperativsystemet ([Gästoperativsystem](cloud-services-guestos-update-matrix.md)) för molntjänster worker och webbtjänst roller (PaaS). Den gäller inte för virtuella datorer (IaaS).
@@ -33,9 +34,7 @@ Principen är
 
 Ibland kan kan fler än två familjer eller versioner stödjas. Officiell Gästoperativsystem supportinformation visas på den [versioner för gästoperativsystem till Azure och SDK-Kompatibilitetsmatris](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>När en gäst-OS-familjen eller version är inaktiverad
-En ny Gästoperativsystem **familj** introduceras stund efter lanseringen av en ny officiella version av operativsystemet Windows Server. När en ny gäst-OS-familj introduceras Microsoft dra tillbaka den äldsta gäst-OS-familjen.
-
+## <a name="when-a-guest-os-version-is-retired"></a>När en gäst-OS-version är inaktiverad
 Nya Gästoperativsystem **versioner** introduceras om varje månad för att få de senaste uppdateringarna för MSRC. På grund av de månatliga regelbundet är en gäst-OS-version normalt inaktiverad cirka 60 dagar efter versionen. Den här aktiviteten för att hålla minst två gäst-OS-versioner för varje familj som är tillgängliga för användning.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Bearbeta under en gäst-OS-familjen pensionering

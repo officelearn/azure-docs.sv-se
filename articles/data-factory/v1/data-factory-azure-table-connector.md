@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2c560bf9eeac5f9aed1024bd87d450f7aee7ce05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 996b1e5cbc477bf8a67a8cbb118961aaedf151fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621514"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +60,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **AzureTable** har följande egenskaper.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Azure Table databasinstansen som den länkade tjänsten refererar till. |Ja. När ett tabellnamn har angetts utan ett azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från tabellen som uppfyller frågan till målet. |
 
@@ -78,7 +79,7 @@ Egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varier
 
 **AzureTableSource** stöder följande egenskaper i typeProperties avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Använd anpassad fråga för att läsa data. |Azure-tabellen frågesträngen. Se exemplen i nästa avsnitt. |Nej. När ett tabellnamn har angetts utan ett azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från tabellen som uppfyller frågan till målet. |
 | azureTableSourceIgnoreTableNotFound |Ange om swallow undantag av tabellen inte finns. |SANT<br/>FALSKT |Nej |
@@ -98,7 +99,7 @@ Om Azure Table kolumnen är av typen datetime:
 
 **AzureTableSink** stöder följande egenskaper i typeProperties avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Standard partitionsnyckelvärde som kan användas av sink. |Ett strängvärde. |Nej |
 | azureTablePartitionKeyName |Ange namnet på den kolumn som används som partitionsnycklar. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumnnamn. |Nej |
@@ -478,7 +479,7 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det intervall som stöds för den DateTime som börjar från midnatt, 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar vid den 31 December 9999. |
-| Edm.Double |dubbla |En 64-bitars flytande punktvärdet. |
+| Edm.Double |double |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |

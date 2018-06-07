@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619651"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 
@@ -86,7 +87,7 @@ Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) i ett virtuellt n�
 
 | Riktning | Transportprotokoll | Källa | Portintervall för källa | Mål | Målport intervall | Kommentarer |
 |---|---|---|---|---|---|---|
-| Inkommande | TCP | Internet | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt nätverk med Azure Resource Manager) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Data Factory-tjänsten använder dessa portar för att kommunicera med noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket. |
+| Inkommande | TCP | Internet | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt nätverk med Azure Resource Manager) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Data Factory-tjänsten använder dessa portar för att kommunicera med noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket. <br/><br/> Om du anger en NSG eller inte konfigurerar Data Factory alltid en NSG på nivån av nätverkskort (NIC) kopplade till virtuella datorer som är värdar för Azure-SSIS-IR. Bara inkommande trafik från Data Factory IP-adresser tillåts. Även om du öppnar portarna för Internet-trafiken blockeras trafik från IP-adresser som inte är Data Factory IP-adresser på NIC-nivå. |
 | Utgående | TCP | VirtualNetwork | * | Internet | 443 | Noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket använda den här porten för att komma åt Azure-tjänster, till exempel Azure Storage och Händelsehubbar i Azure. |
 | Utgående | TCP | VirtualNetwork | * | Internet- eller Sql | 1433, 11000 11999, 14000 14999 | Noderna i Azure-SSIS-integrering-körningsmiljön i det virtuella nätverket använda dessa portar för att komma åt SSISDB med Azure SQL Database-server som värd. (Detta gäller inte för SSISDB hos SQL-hanterade databasinstans (förhandsversion).) |
 ||||||||

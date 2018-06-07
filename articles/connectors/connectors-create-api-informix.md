@@ -1,25 +1,22 @@
 ---
-title: "Lägg till Informix-koppling i dina Logic Apps | Microsoft Docs"
-description: "Översikt över Informix koppling med REST API-parametrar"
-services: 
-documentationcenter: 
+title: Ansluta till databasen för IBM Informix - Azure Logic Apps | Microsoft Docs
+description: 'Hantera resurser med IBM Informix REST API: er och Azure Logic Apps'
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609396"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-koppling
 Microsoft-anslutaren för Informix ansluter Logic Apps till resurser som lagras i en IBM Informix-databas. Informix-kopplingen innehåller ett Microsoft-klienten att kommunicera med fjärrdatorer för Informix-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Informix för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-plattformar och versioner (i det här avsnittet).
@@ -53,7 +50,7 @@ Skapa en logikapp för någon åtgärd består av många steg utförs via Micros
 Du kan lägga till en åtgärd i logikappen, att lista tabeller i en Informix-databas. Den här åtgärden gör kopplingen för att bearbeta en Informix schema-instruktionen, exempelvis `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `InformixgetTables`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -83,7 +80,7 @@ Du kan lägga till en åtgärd i logikappen, att lista tabeller i en Informix-da
 ## <a name="create-the-connections"></a>Skapa anslutningar
 Den här anslutningen har stöd för anslutningar till databasen på lokalt och i molnet med hjälp av följande anslutningsegenskaper. 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | server |Krävs. Accepterar ett strängvärde som representerar en TCP/IP-adress eller ett alias i IPv4- eller IPv6-format, följt (-semikolonavgränsad) av ett TCP/IP-portnummer. |
 | databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix accepterar en 128 byte-sträng (databas kallas en IBM Informix databasnamnet (dbname)). |
@@ -123,7 +120,7 @@ Den här anslutningen har åtkomst till ett moln Informix-databas.
 Du kan skapa en logik app åtgärd för att hämta alla rader i tabellen Informix. Den här åtgärden gör kopplingen för att bearbeta en Informix SELECT-instruktion som `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn** (t.ex.) ”**InformixgetRows**”), **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -160,7 +157,7 @@ Du kan skapa en logik app åtgärd för att hämta alla rader i tabellen Informi
 Du kan skapa en logik app åtgärd för att lägga till en rad i en Informix-tabell. Den här åtgärden gör kopplingen för att bearbeta en Informix INSERT-instruktionen, exempelvis `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `InformixinsertRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -187,7 +184,7 @@ Du kan skapa en logik app åtgärd för att lägga till en rad i en Informix-tab
 Du kan skapa en logik app åtgärd för att hämta en rad i en Informix-tabell. Den här åtgärden gör kopplingen för att bearbeta en Informix väljer där instruktionen, exempelvis `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `InformixgetRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -215,7 +212,7 @@ Du kan skapa en logik app åtgärd för att hämta en rad i en Informix-tabell. 
 Du kan skapa en logik app-åtgärd om du vill ändra en rad i en Informix-tabell. Den här åtgärden gör kopplingen för att bearbeta en Informix UPDATE-instruktion som `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `InformixupdateRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -242,7 +239,7 @@ Du kan skapa en logik app-åtgärd om du vill ändra en rad i en Informix-tabell
 Du kan skapa en logik app åtgärd för att ta bort en rad i en Informix-tabell. Den här åtgärden gör kopplingen för att bearbeta en Informix DELETE-instruktion som `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `InformixdeleteRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd

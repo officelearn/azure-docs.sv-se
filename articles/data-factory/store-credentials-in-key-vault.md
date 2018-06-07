@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: 4a8c96bf9124feede2e5a28beb791636784dcad7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620674"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Spara autentiseringsuppgifter i Azure Key Vault
 
@@ -47,7 +48,7 @@ Om du vill referera en autentiseringsuppgift lagras i Azure Key Vault, måste du
 
 Följande egenskaper stöds för Azure Key Vault länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureKeyVault**. | Ja |
 | BaseUrl | Ange Azure Key Vault-URL. | Ja |
@@ -80,7 +81,7 @@ Välj de etablerade Azure Key Vault där dina autentiseringsuppgifter lagras. Du
 
 När du konfigurerar ett fält i den länkade tjänsten refererar till en hemlighet i nyckelvalvet stöds följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type i fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
 | secretName | Namnet på hemlighet i azure key vault. | Ja |

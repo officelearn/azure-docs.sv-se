@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d81b6fc89c90b769650505e845d6d6c6cd70049f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616934"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräknings-miljöer som du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länka dessa compute miljöer till ett Azure data factory.
@@ -97,7 +98,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 > 
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap                     | Beskrivning                              | Krävs |
+| Egenskap                      | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Typegenskapen bör anges till **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) information. | Ja      |
@@ -143,7 +144,7 @@ På begäran HDInsight länkade tjänsten kräver ett huvudnamn autentiseringen 
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap                 | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckeln.           | Ja      |
@@ -153,7 +154,7 @@ Använd service principal autentisering genom att ange följande egenskaper:
 
 Du kan också ange följande egenskaper för den detaljerade konfigurationen av HDInsight-kluster på begäran.
 
-| Egenskap               | Beskrivning                              | Krävs |
+| Egenskap                | Beskrivning                              | Krävs |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar kärnor (som core-site.xml) för HDInsight-kluster som ska skapas. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -221,7 +222,7 @@ Du kan också ange följande egenskaper för den detaljerade konfigurationen av 
 ### <a name="node-sizes"></a>Noden storlekar
 Du kan ange storleken på head, data och zookeeper-noder med följande egenskaper: 
 
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är: Standard_D3. Finns det **ange nod storlekar** information. | Nej       |
 | dataNodeSize      | Anger storleken på datanoden. Standardvärdet är: Standard_D3. | Nej       |
@@ -281,7 +282,7 @@ Du kan skapa en Azure HDInsight länkad tjänst för att registrera ditt eget kl
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Typegenskapen bör anges till **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
@@ -334,7 +335,7 @@ Se följande avsnitt om du har använt Azure Batch-tjänsten:
 
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Typegenskapen bör anges till **AzureBatch**. | Ja      |
 | Kontonamn       | Namnet på Azure Batch-kontot.         | Ja      |
@@ -370,7 +371,7 @@ Du kan skapa en Azure Machine Learning länkad tjänst för att registrera en Ma
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap               | Beskrivning                              | Krävs                                 |
+| Egenskap                | Beskrivning                              | Krävs                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Typ                   | Typegenskapen bör anges till: **AzureML**. | Ja                                      |
 | mlEndpoint             | URL för batchbedömningsjobbet.                   | Ja                                      |
@@ -413,13 +414,13 @@ Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka ett A
 
 ### <a name="properties"></a>Egenskaper
 
-| Egenskap             | Beskrivning                              | Krävs                                 |
+| Egenskap              | Beskrivning                              | Krävs                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | Kontonamn          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | Azure prenumerations-id                    | Nej (om den inte anges data factory-prenumeration används). |
-| resourceGroupName    | Azure resursgruppens namn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
+| resourceGroupName    | Azure-resursgruppsnamn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
 | servicePrincipalId   | Ange programmets klient-ID.     | Ja                                      |
 | servicePrincipalKey  | Ange programmets nyckeln.           | Ja                                      |
 | klient               | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja                                      |
@@ -473,7 +474,7 @@ Du kan skapa **Azure Databricks länkade tjänsten** att registrera Databricks a
 
 ### <a name="properties"></a>Egenskaper
 
-| Egenskap             | Beskrivning                              | Krävs                                 |
+| Egenskap              | Beskrivning                              | Krävs                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | namn                 | Namnet på den länkade tjänsten               | Ja   |
 | typ                 | Typegenskapen bör anges till: **AzureDatabricks**. | Ja                                      |

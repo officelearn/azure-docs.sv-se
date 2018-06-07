@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 931c6b2cc0230e4605089dfc1eb0764aa61ec7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620472"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av uppdateringen resurs aktivitet
 Den här artikeln kompletterar den huvudsakliga version av Azure Data Factory - Azure Machine Learning integration artikel: [skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan har gjort granska huvudsakliga artikeln innan du läser igenom den här artikeln. 
@@ -60,7 +61,7 @@ Följande JSON-fragment definierar en Azure Machine Learning Batch Execution-akt
 
 
 
-| Egenskap                      | Beskrivning                              | Krävs |
+| Egenskap                       | Beskrivning                              | Krävs |
 | :---------------------------- | :--------------------------------------- | :------- |
 | namn                          | Namnet på aktivitet i pipelinen     | Ja      |
 | description                   | Text som beskriver hur aktiviteten ska hantera.  | Nej       |

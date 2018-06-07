@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637777"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Samla in aviseringar från Nagios och Zabbix i logganalys från OMS-Agent för Linux 
 [Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från dessa verktyg till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar OMS-Agent för Linux för att samla in varningar från dessa system.
@@ -56,7 +57,7 @@ Utför följande steg för att samla in aviseringar på Nagios-servern.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Konfigurera Zabbix varningssamlingen
-Om du vill samla in aviseringar från en Zabbix-server, måste du ange en användare och lösenord i *klartext*.  Även om inte den bästa lösningen, rekommenderar vi att du skapar användaren och bevilja behörighet för att övervaka onlu.
+Om du vill samla in aviseringar från en Zabbix-server, måste du ange en användare och lösenord i *klartext*.  När det inte bästa rekommenderar vi att du skapar en Zabbix-användare med skrivskyddad behörighet att fånga relevanta larm.
 
 Utför följande steg för att samla in aviseringar på Nagios-servern.
 
@@ -73,7 +74,7 @@ Utför följande steg för att samla in aviseringar på Nagios-servern.
 
 2. Starta om omsagent-daemon
 
-    sudo del /opt/microsoft/omsagent/bin/service_control starta om
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Varning-poster
@@ -83,7 +84,7 @@ Du kan hämta avisering poster från Nagios och Zabbix med [logga sökningar](lo
 
 Varna poster som samlas in av Nagios har en **typen** av **avisering** och en **SourceSystem** av **Nagios**.  De har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |*Varning* |
 | SourceSystem |*Nagios* |
@@ -99,12 +100,12 @@ Varna poster som samlas in av Nagios har en **typen** av **avisering** och en **
 ### <a name="zabbix-alert-records"></a>Varning Zabbix-poster
 Varna poster som samlas in av Zabbix har en **typen** av **avisering** och en **SourceSystem** av **Zabbix**.  De har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Typ |*Varning* |
 | SourceSystem |*Zabbix* |
 | AlertName | Namnet på aviseringen. |
-| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>information<br>Varning<br>medel<br>Hög<br>katastrofåterställning  |
+| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte har klassificerats<br>information<br>Varning<br>genomsnittligt<br>Hög<br>katastrofåterställning  |
 | In AlertState | Status för aviseringen.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.  |
 | AlertTypeNumber | Anger om avisering kan skapa flera problem händelser.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.    |
 | Kommentarer | Ytterligare kommentarer för aviseringen. |

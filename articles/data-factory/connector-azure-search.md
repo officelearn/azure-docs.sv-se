@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c6e4e05623aae3aca1e782bc492690918a041993
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 280c91d6a871984959d587e9895166853e89cc45
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615690"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till en Azure Search-index med Azure Data Factory
 
@@ -44,7 +45,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Azure Search länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureSearch** | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
@@ -82,10 +83,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data till Azure Search, ange egenskapen type för datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **AzureSearchIndex** | Ja |
-| indexName | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
+| Indexnamn | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
 
 **Exempel:**
 
@@ -113,7 +114,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data till Azure Search, anger du datakällan i kopieringsaktiviteten till **AzureSearchIndexSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **AzureSearchIndexSink** | Ja |
 | WriteBehavior | Anger om du vill slå samman eller ersätta ett dokument som redan finns i indexet. Finns det [WriteBehavior egenskapen](#writebehavior-property).<br/><br/>Tillåtna värden är: **sammanfoga** (standard), och **överför**. | Nej |
@@ -130,7 +131,7 @@ AzureSearchSink innehåller följande två upsert beteenden (med hjälp av Azure
 
 Standardbeteendet är **sammanfoga**.
 
-### <a name="writebatchsize-property"></a>WriteBatchSize Property
+### <a name="writebatchsize-property"></a>Egenskapen WriteBatchSize
 
 Azure Search-tjänsten stöder skrivning dokument som en batch. En grupp kan innehålla 1 till 1 000 åtgärder. En åtgärd som hanterar ett dokument för att genomföra överföringen/merge-operation.
 
@@ -175,7 +176,7 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 | Sträng | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Dubbel | Y |
+| dubbla | Y |
 | Boolesk | Y |
 | DataTimeOffset | Y |
 | Strängmatris | N |

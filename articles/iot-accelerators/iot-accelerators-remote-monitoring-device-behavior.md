@@ -1,22 +1,19 @@
 ---
 title: Simulerade enhetsbeteende i fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: Den här artikeln beskriver hur du använder JavaScript för att definiera beteendet för en simulerad enhet i fjärranslutna övervakningslösning.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: cd6c3c20f8d776996a7089873e010430fd2b570b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 7e874723833eee239a55b937e3fd0bdfc52d762a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627679"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera enhetsbeteende för modellen
 
@@ -29,7 +26,7 @@ I den här artikeln kan du se hur du:
 
 >[!div class="checklist"]
 > * Kontrollera statusen för en simulerad enhet
-> * Definiera hur en simulerad enhet reponds till en metod anropa från fjärranslutna övervakningslösning
+> * Definiera hur en simulerad enhet reponds till en metod anropa från Fjärrövervaknings-lösning
 > * Felsök skripten
 
 ## <a name="state-behavior"></a>Tillstånd beteende
@@ -263,12 +260,12 @@ Den här artikeln beskrivs hur du definierar beteendet för dina egna anpassade 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Kontrollera statusen för en simulerad enhet
-> * Definiera hur en simulerad enhet reponds till en metod anropa från fjärranslutna övervakningslösning
+> * Definiera hur en simulerad enhet reponds till en metod anropa från Fjärrövervaknings-lösning
 > * Felsök skripten
 
 Nu du har lärt dig hur du anger beteendet för en simulerad enhet, föreslagna nästa steg är att lära dig hur du [skapa en simulerad enhet](iot-accelerators-remote-monitoring-test.md).
 
-Utvecklare om remote övervakningslösning, Läs mer:
+Utvecklare om lösningen Fjärrövervaknings, Läs mer:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

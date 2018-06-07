@@ -1,27 +1,28 @@
 ---
-title: "Guiden för data Factory Azure kopiera | Microsoft Docs"
-description: "Läs mer om hur du använder guiden Kopiera Data Factory Azure för att kopiera data från datakällor som stöds till sänkor."
+title: Guiden för data Factory Azure kopiera | Microsoft Docs
+description: Läs mer om hur du använder guiden Kopiera Data Factory Azure för att kopiera data från datakällor som stöds till sänkor.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621140"
 ---
-# <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory Copy Wizard
+# <a name="azure-data-factory-copy-wizard"></a>Guiden för Azure Data Factory kopiera
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). 
 
@@ -66,7 +67,7 @@ Följande skärmbild visar ett SQL-frågan med de `Text.Format` funktion och `Wi
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i Azure blob-mappen
-Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp som ska fastställas vid körning baserat på [systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{year}**, **{month}**, **{day}**, **{timme}**, **{minut}**, och  **{anpassade}** . Till exempel: inputfolder / {year} / {month} / {day}.
+Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp som ska fastställas vid körning baserat på [systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{year}**, **{month}**, **{day}**, **{timme}**, **{minut}**, och **{anpassade}**. Till exempel: inputfolder / {year} / {month} / {day}.
 
 Anta att du har definierat mappar i följande format:
 

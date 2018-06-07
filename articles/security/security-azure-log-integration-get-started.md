@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 05/25/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8ceffb666eb18ee7b087ad1e1dbc27b57388ee49
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641204"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log-integrering med Azure diagnostikloggning och vidarebefordran av Windows-händelser
 
-Azure Log integreringen ger kunder med en alternativ om en [Azure-Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) anslutningen är inte tillgänglig från leverantören säkerhetsincident och händelsen Management (SIEM). Azure Log-integrering tillgängliggör Azure loggar till din SIEM så att du kan skapa en enhetlig säkerhet instrumentpanel för alla tillgångar.
+Du bör endast använda Azure logganalys integration om en [Azure-Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) anslutningen är inte tillgänglig från leverantören säkerhetsincident och händelsen Management (SIEM).
 
-> [!NOTE]
-> Läs mer om Azure-Monitor [Kom igång med Azure-Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Mer information om status för en Azure-Monitor koppling försäljaren SIEM.
+Azure Log-integrering tillgängliggör Azure loggar till din SIEM så att du kan skapa en enhetlig säkerhet instrumentpanel för alla tillgångar.
+Mer information om status för en Azure-Monitor koppling försäljaren SIEM.
 
 > [!IMPORTANT]
 > Om ditt primära intresse samlar in loggar för virtuell dator, inkluderar det här alternativet i sitt lösning i de flesta SIEM-leverantörer. Med SIEM leverantörens connector är alltid bra alternativ.
@@ -118,7 +119,7 @@ När du har slutfört grundinställning är du redo att utföra efter installati
   > [!NOTE]
   > Du får inte feedback när kommandot slutförs. 
 
-4. Innan du kan övervaka ett system, måste namnet på lagringskontot som används för Azure-diagnostik. I Azure-portalen går du till **virtuella datorer**. Leta efter den virtuella datorn som du övervakar. I den **egenskaper** väljer **diagnostikinställningar**.  Markera **Agent**. Anteckna namnet på lagringskontot som har angetts. Du behöver det här namnet på tjänstkontot för ett senare steg.
+4. Innan du kan övervaka ett system, måste namnet på lagringskontot som används för Azure-diagnostik. I Azure-portalen går du till **virtuella datorer**. Leta efter en Windows-dator som ska övervakas. I den **egenskaper** väljer **diagnostikinställningar**.  Markera **Agent**. Anteckna namnet på lagringskontot som har angetts. Du behöver det här namnet på tjänstkontot för ett senare steg.
 
   ![Skärmbild av Azure Diagnostics inställningsfönstret](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -134,14 +135,14 @@ När du har slutfört grundinställning är du redo att utföra efter installati
   4. Logga in i Azure.
   5. Kontrollera att du kan se det lagringskonto som du har konfigurerat för Azure-diagnostik: 
 
-    ![Skärmbild av storage-konton i Lagringsutforskaren](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Skärmbild av storage-konton i Lagringsutforskaren](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. Några alternativ visas under storage-konton. Under **tabeller**, bör du se en tabell som kallas **WADWindowsEventLogsTable**.
 
   Om övervakning inte aktiverad när den virtuella datorn skapades, kan du aktivera den, enligt beskrivningen ovan.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Integrera Azure diagnostikloggning
+## <a name="integrate-windows-vm-logs"></a>Integrera Windows VM-loggar
 
 I det här steget konfigurerar du den dator som kör tjänsten Azure Log-integrering för att ansluta till lagringskontot som innehåller loggfilerna.
 
@@ -178,7 +179,7 @@ Om du vill hämta nyckel för säkerhetslagring, gör du följande:
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exempel: 
+  Exempel:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -207,8 +208,37 @@ Om du stöter på problem under installationen och konfigurationen, kan du skapa
 
 Ett annat alternativ är den [Azure Log Integration MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). I MSDN-forum kan gemenskapen stödja genom att besvara frågor och dela tips och råd om hur du hämtar mest av Azure Log-integrering. Azure Log-integrering teamet övervakar även det här forumet. De hjälper när de kan.
 
+## <a name="integrate-azure-activity-logs"></a>Integrera Azure aktivitetsloggar
+
+Azure-aktivitetsloggen är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Azure Security Center-aviseringar ingår även i den här loggfilen.
+> [!NOTE]
+> Innan du försöker stegen i den här artikeln, bör du granska den [Kom igång](security-azure-log-integration-get-started.md) artikel och slutför stegen.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Stegen för att integrera Azure aktivitetsloggar
+
+1. Öppna Kommandotolken och kör det här kommandot:  ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. Kör det här kommandot:  ```azlog createazureid```
+
+    Det här kommandot uppmanas du att din Azure-inloggning. Kommandot skapar sedan ett Azure Active Directory tjänstens huvudnamn i Azure AD-klienter som är värdar för Azure-prenumerationer som den inloggade användaren är administratör, en medadministratör eller en ägare. Kommandot misslyckas om den inloggade användaren är endast gästanvändaren i Azure AD-klient. Autentisering till Azure sker via Azure AD. Skapa ett huvudnamn för tjänsten för Azure Log integrering skapar Azure AD-identitet som har behörighet att läsa från Azure-prenumerationer.
+3.  Kör följande kommando för att auktorisera Azure Log-integrering tjänstens huvudnamn som skapats i föregående steg åtkomst till Läs aktivitetsloggen för prenumerationen. Du måste vara en ägare på prenumerationen för att köra kommandot.
+
+    ```Azlog.exe authorize subscriptionId``` Exempel:
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  Kontrollera följande mappar för att bekräfta att de Azure Active Directory audit JSON loggfilerna skapas i dem:
+    - C:\Users\azlog\AzureResourceManagerJson
+    - C:\Users\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> Specifika anvisningar för att hämta informationen i JSON-filerna till din säkerhetsinformation och Händelsehanteringssystem (SIEM), försäljaren SIEM.
+
+Community-hjälp är tillgänglig via den [Azure Log Integration MSDN-Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Detta forum kan andra i Azure Log-integrering webbgruppen att stödja varandra med frågor, svar, tips och råd. Dessutom övervakar det här forumet teamet Azure Log-integrering och hjälper när den kan.
+
+Du kan även öppna en [supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj loggen Integration som tjänsten som du begär support.
+
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Log-integrering finns i följande artiklar:
+
+Mer information om Azure Log-integrering finns i följande artiklar: innan du utför stegen i den här artikeln måste du granska få igång artikel och slutför stegen.
 
 * [Azure Log-integrering för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324). Download Center innehåller information, systemkrav och Installationsinstruktioner för Azure Log-integrering.
 * [Introduktion till Azure logganalys Integration](security-azure-log-integration-overview.md). Den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.

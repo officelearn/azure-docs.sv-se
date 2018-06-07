@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01a785eab1b31b2943184267a3c6496fefaf44cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639086"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure-Monitor
 Många grupper behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har gruppmedlemmar som arbetar enbart om hur du övervakar (supporttekniker, devops engineers) eller om du använder en leverantör av hanterade tjänster, kanske du vill bevilja dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt vill använda en inbyggd övervakning RBAC roll till en användare i Azure eller skapa egna anpassade roll för en användare behöver begränsade behörigheter för övervakning. Sedan diskuterar det säkerhetsaspekter för dina Azure-Monitor-relaterade resurser och hur du kan begränsa åtkomst till de data som de innehåller.
@@ -125,7 +126,7 @@ Alla tre av följande datatyper kan lagras i ett lagringskonto eller strömmas t
 
 * Använd ett enda, särskilt storage-konto för övervakningsdata. Om du behöver dela övervakningsdata i flera lagringskonton Dela aldrig användning av ett lagringskonto mellan övervakning och icke-övervakning av data, som det av misstag kan ge dem som bara behöver åtkomst till övervakningsdata (till exempel en SIEM från tredje part) åtkomst till icke-övervakning av data.
 * Använd ett enda, särskilt Service Bus eller Event Hub namnområde i alla diagnostikinställningar av samma skäl som ovan.
-* Begränsa åtkomsten till relaterade till prestandaövervakning storage-konton eller event hubs genom att hålla dem i en separat resursgrupp och [använda omfång](../role-based-access-control/overview.md#basics-of-access-management-in-azure) på din övervakning roller för att begränsa åtkomsten till endast resursgruppen.
+* Begränsa åtkomsten till relaterade till prestandaövervakning storage-konton eller event hubs genom att hålla dem i en separat resursgrupp och [använda omfång](../role-based-access-control/overview.md#scope) på din övervakning roller för att begränsa åtkomsten till endast resursgruppen.
 * Tilldela behörigheten ListKeys för storage-konton eller händelsehubbar definitionsområdet prenumerationen aldrig när en användare bara behöver åtkomst till övervakningsdata. I stället ge dessa behörigheter till användare på en resurs eller resursgrupp (om du har en särskild övervakning resursgrupp) omfång.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Begränsa åtkomsten till relaterade till prestandaövervakning storage-konton

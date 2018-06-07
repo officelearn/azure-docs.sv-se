@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 8ae1402b6821d1b42fa8f2bf9c2f6453a5ce7109
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618495"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -130,10 +131,10 @@ Följande mall för en kopia aktivitet innehåller en fullständig lista över e
 
 ### <a name="syntax-details"></a>Information om syntax
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för en kopieringsaktiviteten måste anges till: **kopia** | Ja |
-| Indata | Ange den dataset som du skapade som pekar till källdata. Kopieringsaktiviteten stöder bara en enda inmatning. | Ja |
+| inmatningar | Ange den dataset som du skapade som pekar till källdata. Kopieringsaktiviteten stöder bara en enda inmatning. | Ja |
 | utdata | Ange datamängden som du skapade som pekar på sink-data. Kopieringsaktiviteten stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper att konfigurera kopieringsaktiviteten. | Ja |
 | källa | Ange källtypen kopia och motsvarande egenskaper på hur du hämtar data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |

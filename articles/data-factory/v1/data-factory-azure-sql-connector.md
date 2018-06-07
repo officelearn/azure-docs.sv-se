@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bf47ad3f401abced4e74260dc9180413d69268c3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 683e8b1407042624d08aee1f0a2120990e2f702e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621718"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,7 +64,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 En Azure SQL länkade tjänsten länkar en Azure SQL database till din data factory. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure SQL-länkade tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **AzureSqlDatabase** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Database-instans för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
@@ -78,7 +79,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **AzureSqlTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på den tabell eller vy i Azure SQL Database-instans som den länkade tjänsten refererar till. |Ja |
 
@@ -95,7 +96,7 @@ Om du flyttar data från en Azure SQL database du ange typen av datakälla i kop
 ### <a name="sqlsource"></a>SqlSource
 I en Kopieringsaktivitet när källan är av typen **SqlSource**, följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `select * from MyTable`. |Nej |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
@@ -145,7 +146,7 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antalet rader) |Nej (standard: 10000) |
@@ -638,35 +639,35 @@ När data flyttas till och från Azure SQL Database, används följande mappning
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |Byte[] |
+| Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
-| flyttal |Dubbel |
-| Bild |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |byte] |
+| Flyttal |dubbla |
+| Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Ogift |
-| rowversion |Byte[] |
+| Verklig |Enkel |
+| ROWVERSION |byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
-| Text |Sträng, Char] |
+| text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| tidsstämpel |byte] |
 | tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| Unik identifierare |GUID |
+| varbinary |byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

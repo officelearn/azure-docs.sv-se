@@ -15,15 +15,18 @@ ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e75f2cceed83d577730cd29490f80011bdb0a508
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640990"
 ---
 # <a name="create-custom-roles-in-azure"></a>Skapa anpassade roller i Azure
 
-Om den [inbyggda roller](built-in-roles.md) inte uppfyller dina specifika behov kan du skapa egna anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resursen scope. Anpassade roller lagras i Azure Active Directory (Azure AD)-klient och kan delas mellan prenumerationer. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API. Den här artikeln beskrivs ett exempel på hur du kommer igång med att skapa anpassade roller med PowerShell och Azure CLI.
+Om den [inbyggda roller](built-in-roles.md) inte uppfyller dina specifika behov kan du skapa egna anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resursen scope. Anpassade roller lagras i Azure Active Directory (Azure AD)-klient och kan delas mellan prenumerationer. Varje klient kan ha upp till 2000 anpassade roller. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
+
+Den här artikeln beskrivs ett exempel på hur du kommer igång med att skapa anpassade roller med PowerShell och Azure CLI.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Skapa en anpassad roll om du vill öppna supportärenden med hjälp av PowerShell
 

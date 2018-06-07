@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641500"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
 
-Den här artikeln besvarar några vanliga frågor (FAQ) om [Azure Relay](https://azure.microsoft.com/services/service-bus/). För allmän Azure priser och support information, se [Azure stöder vanliga frågor och svar](https://azure.microsoft.com/en-in/support/faq/).
+Den här artikeln besvarar några vanliga frågor (FAQ) om [Azure Relay](https://azure.microsoft.com/services/service-bus/). Allmän Azure priser och support information finns i [Azure stöder vanliga frågor och svar](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-relay"></a>Vad är Azure Relay?
@@ -35,7 +36,7 @@ En [namnområde](relay-create-namespace-portal.md) är en omfattningsbehållare 
 Tidigare Service Bus Relay tjänsten kallas nu [vidarebefordrande WCF](relay-wcf-dotnet-get-started.md). Du kan fortsätta att använda den här tjänsten som vanligt. Hybridanslutningar-funktionen är en uppdaterad version av en tjänst som har varit transplanteras från Azure BizTalk-tjänst. Vidarebefordrande WCF och Hybridanslutningar fortsätta att stödjas.
 
 ## <a name="pricing"></a>Prissättning
-Det här avsnittet besvarar några vanliga frågor om Relay priser struktur. Du kan också se [Azure svar](http://go.microsoft.com/fwlink/?LinkID=185083) för allmän Azure prisinformation. Fullständig information om priser Relay finns [Service Bus prisinformation][Pricing overview].
+Det här avsnittet besvarar några vanliga frågor om Relay priser struktur. Du kan också se den [Azure svar](https://azure.microsoft.com/support/faq/) för allmän Azure prisinformation. Fullständig information om priser Relay finns [Service Bus prisinformation][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hur du debiteras för Hybridanslutningar och WCF Relay?
 Fullständig information om Relay priser finns i [Hybridanslutningar och WCF-reläer] [ Pricing overview] tabellen på Service Bus informationssida med priser. Förutom de priser som anges på sidan, debiteras du för överföring av associerade data för utgående utanför datacentret där programmet har etablerats.
@@ -81,8 +82,8 @@ Reläer som öppnas med hjälp av den **netTCPRelay** WCF bindning behandlar med
 | Samtidiga lyssnare på ett relä |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
 | Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnrymd |- |5 000 |
 | Relay slutpunkter per namnområde för tjänsten |Namnrymd |- |10 000 |
-| Meddelandestorlek för [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) och [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) vidarebefordrar |Namnrymd |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelandestorlek för [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) och [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) vidarebefordrar |Namnrymd |Ingen gräns meddelandestorlek. |Obegränsat |
+| Meddelandestorlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) vidarebefordrar |Namnrymd |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelandestorlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) vidarebefordrar |Namnrymd |Ingen gräns meddelandestorlek. |Obegränsat |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Har Relay användning kvoter?
 Som standard för alla Molntjänsten anger Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Vi förstår att dina behov ibland kanske överskrider gränserna. Du kan kontakta kundtjänst när som helst, så att vi kan förstå dina behov och justera dessa gränser korrekt. För Service Bus är sammanställd användning kvoter följande:
@@ -108,7 +109,7 @@ Om du vill använda Azure-portalen för att migrera Azure Relay-namnområden fr�
 
 Om du vill använda PowerShell för att flytta ett namnområde från en Azure-prenumeration till en annan prenumeration, använder du följande kommandosekvens. Om du vill utföra den här åtgärden namnområdet måste redan vara aktivt och användaren som kör PowerShell-kommandon måste vara en administratörsanvändare på både käll- och prenumerationer.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Ja. Relay-klienten skickar anslutningar till tjänsten Azure Relay med fullstän
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

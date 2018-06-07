@@ -1,24 +1,19 @@
 ---
-title: Felsöka säkerhetskopiering med Azure-dator | Microsoft Docs
+title: Felsöka säkerhetskopiering med virtuella Azure-datorn
 description: Felsökning av säkerhetskopiering och återställning av virtuella Azure-datorer
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607267"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel påträffades när med Azure Backup med information som visas i tabellen nedan.
@@ -30,7 +25,7 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 | VM-agenten kan inte kommunicera med Azure Backup-tjänsten. -Kontrollera att den virtuella datorn är ansluten till nätverket och den Virtuella datoragenten är senaste och körs. Mer information finns i  http://go.microsoft.com/fwlink/?LinkId=800034 |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) om felsökning av VM ögonblicksbild problem.<br> Om den Virtuella datoragenten inte orsakar problem, och starta sedan om den virtuella datorn. Ett felaktigt tillstånd för virtuell dator kan ibland orsaka problem och starta om den virtuella datorn återställs den här ”dåligt tillstånd”. |
 | Den virtuella datorn är i felläge för etablering – starta om den virtuella datorn och kontrollera att den virtuella datorn är igång eller avställning för säkerhetskopiering | Detta inträffar när en av tillägget fel leder tillstånd för virtuell dator är i feltillstånd etablering. Gå till tilläggslista och om det finns ett misslyckade tillägg, ta bort den och försök att starta om den virtuella datorn. Om alla tillägg körs, kan du kontrollera om VM-agenttjänsten körs. Om inte, starta om tjänsten för VM-agent. | 
 | VMSnapshot tillägget misslyckades för hanterade diskar - försök sedan att utföra säkerhetskopieringen. Om problemet upprepas följer du anvisningarna 'http://go.microsoft.com/fwlink/?LinkId=800034'. Kontakta Microsoft support om det misslyckas ytterligare | Det här felet när Azure Backup-tjänsten inte kan utlösa en ögonblicksbild. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) om felsökning VM ögonblicksbild problem. |
-| Det gick inte att kopiera ögonblicksbilden av den virtuella datorn på grund av otillräckligt utrymme i storage-konto - Se till att lagringskontot har ledigt utrymme som är likvärdiga med data som finns på premium storage diskar som är kopplade till den virtuella datorn | Vid premium VMs kopiera vi ögonblicksbilden till storage-konto. Detta är att se till att säkerhetskopiering hanteringstrafik som arbetar på ögonblicksbild, inte antalet IOPS som är tillgängliga för det program som använder premiumdiskar. Microsoft rekommenderar att du allokerar högst 50% av det totala lagringsutrymmet konto så Azure Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från denna kopierade plats i lagringskontot till valvet. | 
+| Det gick inte att kopiera ögonblicksbilden av den virtuella datorn på grund av otillräckligt utrymme i storage-konto - Se till att lagringskontot har ledigt utrymme som är likvärdiga med data som finns på premium storage diskar som är kopplade till den virtuella datorn | Vid premium VMs VM säkerhetskopiering stacken V1 kopiera vi ögonblicksbilden till storage-konto. Detta är att se till att säkerhetskopiering hanteringstrafik som arbetar på ögonblicksbild, inte antalet IOPS som är tillgängliga för det program som använder premiumdiskar. Microsoft rekommenderar att du endast allokera 50% (17,5 TB) för kontot för totala lagringsutrymmet så Azure Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från denna kopierade plats i lagringskontot till valvet. | 
 | Det gick inte att utföra åtgärden eftersom den Virtuella datoragenten inte svarar |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. För virtuella Windows-datorer, kontrollera Tjänststatus för VM-agenten i services och om agenten ska visas i program på Kontrollpanelen. Försök att ta bort programmet från kontrollen panelen och installera om agenten som tidigare nämnts [under](#vm-agent). När du har installerat agenten, Utlös en ad hoc-säkerhetskopiering för att verifiera. |
 | Recovery services-tillägget åtgärden misslyckades. -Kontrollera att den senaste virtuella datorns agent finns på den virtuella datorn och agent-tjänsten körs. Försök utföra säkerhetskopieringen igen och kontakta Microsoft support om det misslyckas. |Det här felet returneras när VM-agenten är inaktuell. Läs ”uppdatering av VM-Agent” avsnittet nedan för att uppdatera den Virtuella datoragenten. |
 | Virtuell dator finns inte. -Kontrollera att den virtuella datorn finns eller välj en annan virtuell dator. |Detta händer när den primära virtuella datorn tas bort men säkerhetskopieringsprincipen fortsätter att söka efter en virtuell dator att utföra säkerhetskopiering. Åtgärda det här felet: <ol><li> Skapa den virtuella datorn med samma namn och samma resursgruppens namn [cloud service name]<br>(ELLER)<br></li><li>Sluta skydda den virtuella datorn utan att ta bort säkerhetskopierade data. [Mer information](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

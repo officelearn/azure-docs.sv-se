@@ -5,20 +5,17 @@ keywords: nosql-databas säkerhet, informationssäkerhet, datasäkerhet, databas
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611627"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure DB Cosmos database-säkerhet
 
@@ -73,10 +70,10 @@ Nu ska vi prova var och en i detalj.
 |Lokal replikering|Även inom ett datacenter, Azure Cosmos DB automatiskt replikerar data för hög tillgänglighet ger valet av [konsekvensnivåer](consistency-levels.md). Detta garanterar en 99,99% [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla enskild region och konton för alla flera region med en avvikelse konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.|
 |Automatisk onlinesäkerhetskopieringar|Azure DB Cosmos-databaser säkerhetskopieras regelbundet och lagras i en georedundant store. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).|
 |Återställa borttagna data|Automatisk onlinesäkerhetskopieringar kan användas för att återställa data som du kan ha bort upp till cirka 30 dagar efter händelsen av misstag. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md)|
-|Skydda och isolera känsliga data|Alla data i de regioner som anges i [vad är nytt?](#whats-new) nu krypterat i vila.<br><br>Personligt identifierbar information och andra känsliga data kan vara isolerad till specifika samlingar och skrivskyddad eller skrivskyddad åtkomst kan begränsas till specifika användare.|
+|Skydda och isolera känsliga data|Alla data i de regioner som anges i [vad är nytt?](#whats-new) nu krypterat i vila.<br><br>Personliga data och andra känsliga data kan vara isolerad till specifika samlingar och skrivskyddad eller skrivskyddad åtkomst kan begränsas till specifika användare.|
 |Övervakare för attacker|Med hjälp av [granskningsloggar loggnings- och](logging.md), du kan övervaka ditt konto för normalt och onormalt aktiviteten. Du kan visa vilka åtgärder som utfördes på dina resurser, som initierade åtgärden, när åtgärden utfördes status av åtgärden och mycket mer som visas i skärmbilden nedan.|
 |Svara på attacker|När du har kontaktat Azure-supporten om du vill rapportera ett potentiellt angrepp, inletts en process i steg 5 incidenter. Målet med steg 5-processen är att återställa normal drift säkerhet och åtgärder så snabbt som möjligt när ett problem upptäcks och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://aka.ms/securityresponsepaper).|
-|Geobegränsning|Azure Cosmos-DB säkerställer datastyrning och kompatibilitet för suveräna regioner (till exempel Tyskland Kina oss Gov).|
+|Geobegränsning|Azure Cosmos-DB garanterar datastyrning för suveräna regioner (till exempel Tyskland Kina oss Gov).|
 |Skyddade lokaler|Data i Azure Cosmos databasen lagras på SSD i Azures skyddade datacenter.<br><br>Läs mer i [globala Microsoft-datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS-kryptering|Alla klient-till-tjänst Azure Cosmos DB interaktioner är SSL/TLS 1.2-kompatibla. All inom datacentret och mellan datacenter replikering är också SSL/TLS 1.2 tillämpas.|
 |Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypterat i vila. Läs mer i [Azure Cosmos DB kryptering i vila](.\database-encryption-at-rest.md)|

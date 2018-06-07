@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: bbf69bdcc92316642f6b37d267cdea2aad920316
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640897"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI-exempel för Azure Media Services
 
@@ -32,7 +33,10 @@ Följande tabell innehåller länkar till exempel Azure CLI för Azure Media Ser
 | [Överför en fil](./scripts/cli-upload-file-asset.md)|Överför en lokal fil till en lagringsbehållare.|
 | [Publicera en tillgång](./scripts/cli-publish-asset.md)| Skapar en Strömningspositionerare och hämtar tillbaka strömning URL: er. |
 | **Transformerar** och **jobb**||
-| [Skapa transformeringar](./scripts/cli-create-transform.md)|Visar hur du skapar transformeringar. Transformeringar beskrivs ett enkelt arbetsflöde för aktiviteter för att bearbeta video eller ljud-filer (kallas ofta ”recept”).<br/> Du bör alltid kontrollera om en transformering med önskat namn och ”recept” finns redan. Om den finns, återanvända den. |
+| [Skapa transformeringar](./scripts/cli-create-transform.md)|Visar hur du skapar transformeringar. Transformeringar beskriver ett enkelt arbetsflöde av uppgifter för att bearbeta video- eller ljudfiler (kallas ofta ”recept”).<br/> Du bör alltid kontrollera om det redan finns en transformering med önskat namn och ”recept”. Om den finns, återanvända den. |
 | [Skapa jobb](./scripts/cli-create-jobs.md)|Skickar ett jobb till en enkel kodning transformering med hjälp av HTTPs-URL.|
 | [Skapa EventGrid](./scripts/cli-create-event-grid.md)|Skapar ett konto nivån händelse rutnätet prenumeration för jobbet tillstånd ändras.|
 
+## <a name="see-also"></a>Se också
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

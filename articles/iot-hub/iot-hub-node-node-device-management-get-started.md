@@ -1,24 +1,19 @@
 ---
-title: "Kom igång med Azure IoT Hub enhetshantering (nod) | Microsoft Docs"
-description: "Hur du använder IoT-hubb enhetshantering för att initiera en omstart av fjärranslutna enheter. Du kan använda Azure IoT-SDK för Node.js för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-appen som anropar metoden direkt."
-services: iot-hub
-documentationcenter: .net
+title: Kom igång med Azure IoT Hub enhetshantering (nod) | Microsoft Docs
+description: Hur du använder IoT-hubb enhetshantering för att initiera en omstart av fjärranslutna enheter. Du kan använda Azure IoT-SDK för Node.js för att implementera en simulerad enhetsapp som innehåller en direkt metod och en service-appen som anropar metoden direkt.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: 0aeba8560de46ae2032304f133b66ad0a70f1354
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635958"
 ---
 # <a name="get-started-with-device-management-node"></a>Komma igång med hantering av enheter (nod)
 

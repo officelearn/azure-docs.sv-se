@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc4af39a659a9c3c910c835265886b79ad5cf62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5787f944211c5dd6c0c83e7dc10170d8a0cd9a23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616618"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +55,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Amazon Redshift länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AmazonRedshift** | Ja |
 | server |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
@@ -96,7 +97,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från Amazon Redshift, **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i Amazon Redshift. | Nej (om ”fråga” i aktivitetskälla har angetts) |
@@ -126,7 +127,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Amazon Redshift, anger du källa i kopieringsaktiviteten till **AmazonRedshiftSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej (om ”tabellnamn” i datamängden har angetts) |
@@ -217,9 +218,9 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | CHAR |Sträng |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| DUBBEL PRECISION |Dubbel |
+| DUBBEL PRECISION |dubbla |
 | HELTAL |Int32 |
-| VERKLIG |Ogift |
+| VERKLIG |Enkel |
 | SMALLINT |Int16 |
 | TEXT |Sträng |
 | TIDSSTÄMPEL |DateTime |

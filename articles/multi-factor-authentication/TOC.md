@@ -54,6 +54,7 @@
 ### [Bygga in i anpassade appar (SDK)](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [Rapportering](../active-directory/authentication/howto-mfa-reporting.md)
+### [Datainsamling](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [Användarhandbok för MFA](./end-user/multi-factor-authentication-end-user.md)
 

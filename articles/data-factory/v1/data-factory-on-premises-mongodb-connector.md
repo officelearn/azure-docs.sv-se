@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621453"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +65,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för **OnPremisesMongoDB** länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesMongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
@@ -82,7 +83,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **MongoDbCollection** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
@@ -93,7 +94,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnitt i aktiviteten 
 
 När källan är av typen **MongoDbSource** följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från mytable prefix. |Nej (om **samlingsnamn** av **dataset** har angetts) |
 
@@ -298,7 +299,7 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 | Binär |byte] |
 | Boolesk |Boolesk |
 | Date |DateTime |
-| NumberDouble |Dubbel |
+| NumberDouble |dubbla |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectId |Sträng |

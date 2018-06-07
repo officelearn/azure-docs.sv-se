@@ -1,24 +1,20 @@
 ---
 title: Skapa en Azure IoT-hubb med en mall (.NET) | Microsoft Docs
-description: "Hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb med ett C#-program."
-services: iot-hub
-documentationcenter: .net
+description: Hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb med ett C#-program.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a447b40c-c728-487e-875d-db554db5adc3
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 3f84ab26c43f33827479faed46db1de246920ae5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635550"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT-hubb med hjälp av Azure Resource Manager-mall (.NET)
 
@@ -215,7 +211,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i följande artiklar:
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

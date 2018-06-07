@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5e71714f94cf148895585e8de88eaf995f0791fb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638338"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Standardformat för Media Encoder och codec-rutiner
 Det här dokumentet innehåller en lista över de vanligaste import och export-filformat som du kan använda med Media Encoder Standard.
@@ -54,8 +55,8 @@ eller
 
 Stöd för explicit/användardefinierat kanalmappning anges inom en snar framtid.
 
-## <a name="input-video-codecs"></a>Inkommande Video-codec
-| Inkommande Video-codec | Stöds |
+## <a name="input-video-codecs"></a>Inkommande video-codec
+| Inkommande video-codec | Stöds |
 | --- | --- | --- | --- |
 | AVC 8-/ 10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
 | Avid DNxHD (i MXF) |Ja |
@@ -75,6 +76,7 @@ Stöd för explicit/användardefinierat kanalmappning anges inom en snar framtid
 | Apple ProRes Proxy |Ja |
 | Apple ProRes 4444 |Ja |
 | Apple ProRes 4444 XQ |Ja |
+| HEVC/H.265| Centrala profil|
 
 ## <a name="input-audio-codecs"></a>Inkommande ljud-codec
 | Inkommande ljud-codec | Stöds |

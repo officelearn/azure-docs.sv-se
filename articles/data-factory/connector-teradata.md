@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 287fc502a0a538660da86e028a81fba04bcac903
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4360ff12a435afc4347fa97bba4506ccd81618aa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618988"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +56,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Teradata länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Teradata** | Ja |
 | server | Namnet på Teradata-server. | Ja |
@@ -94,7 +95,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från Teradata, **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i Teradata-databasen. | Nej (om ”fråga” i aktivitetskälla har angetts) |
@@ -123,7 +124,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Teradata, anger du källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tabellnamn” i datamängden har angetts) |
@@ -167,14 +168,14 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Datatypen för Teradata | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Byte[] |
-| Mottagna byte |Byte[] |
+| Blob |byte] |
+| Mottagna byte |byte] |
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
 | Decimal |Decimal |
-| Dubbel |Dubbel |
+| dubbla |dubbla |
 | Bild |Sträng |
 | Integer |Int32 |
 | Intervall dag |TimeSpan |
@@ -190,18 +191,18 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Intervall för andra |TimeSpan |
 | Intervall år |Sträng |
 | Intervall år, månad |Sträng |
-| Tal |Dubbel |
+| Tal |dubbla |
 | Period(Date) |Sträng |
 | Period(Time) |Sträng |
 | Tid (Time med tidszon) |Sträng |
-| Period(Timestamp) |Sträng |
+| Period(timestamp) |Sträng |
 | Tid (tidsstämpel med tidszon) |Sträng |
 | SmallInt |Int16 |
 | Tid |TimeSpan |
 | Tid med tidszon |Sträng |
 | Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
-| VarByte |Byte[] |
+| VarByte |byte] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
 | Xml |Sträng |

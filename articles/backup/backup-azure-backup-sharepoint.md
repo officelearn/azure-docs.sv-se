@@ -1,24 +1,19 @@
 ---
-title: DPM/Azure Backup server skydd av en SharePoint-servergrupp till Azure | Microsoft Docs
-description: "Den här artikeln innehåller en översikt över DPM-/ Azure Backup server skydd av en SharePoint-grupp till Azure"
+title: DPM/Azure Backup server skydd av en SharePoint-servergrupp till Azure
+description: Den här artikeln innehåller en översikt över DPM-/ Azure Backup server skydd av en SharePoint-grupp till Azure
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606661"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-grupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopiera andra datakällor. Azure-säkerhetskopiering ger flexibilitet i schemat för säkerhetskopiering att skapa varje dag, varje vecka, månad eller årlig säkerhetskopiering pekar och ger alternativ för kvarhållning av princip för säkerhetskopiering punkter. DPM ger möjlighet att lagra lokal diskkopior för snabb återställningstiden mål (RTO) och för att lagra kopior till Azure för ekonomiska och långsiktig kvarhållning.
@@ -33,7 +28,7 @@ Azure Backup för DPM har stöd för följande scenarier:
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du måste bekräfta innan du säkerhetskopierar en SharePoint-grupp till Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du går vidare kontrollerar du att du uppfyller alla de [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) att skydda arbetsbelastningar. Vissa krav omfattar: skapa ett säkerhetskopieringsvalv, hämta autentiseringsuppgifter för valv, installera Azure Backup-agenten och registrera DPM-/ Azure Backup-servern med valvet.
 
 ### <a name="dpm-agent"></a>DPM-agenten

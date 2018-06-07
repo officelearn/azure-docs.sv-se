@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55fde1a1a61f8ec0479cd264b2ce4dd37789c5a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b87ed8b9d9b43de81bfe4173d117d9f1e2bd7abd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622014"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Flytta data från en OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +62,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Den länkade tjänstens egenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för OData länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OData** |Ja |
 | url |URL för OData-tjänsten. |Ja |
@@ -146,7 +147,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **ODataResource** (som omfattar OData dataset) har följande egenskaper
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | sökväg |Sökvägen till OData-resurs |Nej |
 
@@ -157,7 +158,7 @@ Egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varier
 
 När datakällan är av typen **RelationalSource** (som omfattar OData) följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Exempel | Krävs |
+| Egenskap  | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
 
@@ -171,13 +172,13 @@ När du flyttar data från OData, används följande mappningar från OData-type
 
 | OData-datatyp | .NET-typ |
 | --- | --- |
-| Edm.Binary |Byte[] |
-| Edm.Boolean |Booleskt |
-| Edm.Byte |Byte[] |
+| Edm.Binary |byte] |
+| Edm.Boolean |bool |
+| Edm.Byte |byte] |
 | Edm.DateTime |DateTime |
 | Edm.Decimal |Decimal |
-| Edm.Double |Dubbel |
-| Edm.Single |Ogift |
+| Edm.Double |dubbla |
+| Edm.Single |Enkel |
 | Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |

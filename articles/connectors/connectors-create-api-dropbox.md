@@ -1,25 +1,22 @@
 ---
-title: Dropbox-anslutningen i Azure Logic Apps | Microsoft Docs
-description: "Skapa logikappar med Azure App service. Ansluta till Dropbox att hantera dina filer. Du kan utföra olika åtgärder, till exempel ladda upp, uppdatera, hämta och ta bort filer i Dropbox."
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Ansluta till Dropbox - Azure Logikappar | Microsoft Docs
+description: 'Ladda upp och hantera filer med Dropbox REST API: er och Azure Logic Apps'
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7ac72cf5b18fa19bc0294abc67bf0a7089774a89
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: b383dd89536ac8a67943b1b4ebf57229102f76cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609638"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Kom igång med Dropbox-koppling
 Ansluta till Dropbox att hantera dina filer. Du kan utföra olika åtgärder, till exempel ladda upp, uppdatera, hämta och ta bort filer i Dropbox.

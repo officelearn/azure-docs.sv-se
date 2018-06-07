@@ -1,26 +1,23 @@
 ---
-title: "Kom igång med U-SQL-katalogen | Microsoft Docs"
-description: "Lär dig hur du använder U-SQL-katalogen för att dela koden och data."
+title: Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
+description: Lär dig hur du använder U-SQL-katalogen för att dela koden och data.
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: saveenr
-editor: cgronlun
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/09/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: b39b5250cc042c393216784128ffc4e2f1288f04
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+manager: saveenr
+editor: jasonwhowell
+ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
+ms.topic: conceptual
+ms.date: 05/09/2017
+ms.openlocfilehash: 35a39733987eba7060049db7005c1f6bc0058e63
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624360"
 ---
-# <a name="get-started-with-the-u-sql-catalog"></a>Kom igång med U-SQL-katalogen
+# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
 
 ## <a name="create-a-tvf"></a>Skapa en Tabellvärdesfunktion
 

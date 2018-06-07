@@ -1,5 +1,5 @@
 ---
-title: Översikt av Azure Blockchain arbetsstationen meddelanden
+title: Blockchain arbetsstationen meddelanden integration översikt över Azure
 description: Översikt över användning av meddelanden i Azure Blockchain arbetsstationen.
 services: azure-blockchain
 keywords: ''
@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4a2e85cc619d17745be9d8f72af5f99049ce7c6b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f45396c3af285026e16ce641bd37bf0eadcee56d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607608"
 ---
-# <a name="azure-blockchain-workbench-messages-overview"></a>Översikt av Azure Blockchain arbetsstationen meddelanden
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain arbetsstationen messaging integrering
 
 Förutom att tillhandahålla en REST-API ger Azure Blockchain arbetsstation också messaging-baserade integrering. Arbetsstationen publicerar redovisning till Central händelser via Azure händelse rutnät, aktiverar underordnade konsumenter att mata in data eller utföra åtgärder baserat på dessa händelser. För de klienter som kräver reliable messaging levererar Azure Blockchain arbetsstationen meddelanden till en Azure Service Bus-slutpunkt.
 
 Utvecklare har också uttryckt intresse för möjligheten att låta externa system kommunicerar initiera transaktioner för att skapa användare, skapa kontrakt och uppdatera kontrakt på en redovisning. När den här funktionen inte visas för närvarande i förhandsversion, ett exempel som ger den här funktionen finns på [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
 
-
 ## <a name="event-notifications"></a>Händelseaviseringar
 
-Händelsemeddelanden kan användas för att meddela användare och underordnade system av händelser som sker i arbetsstationen och blockchain-nätverket som den är ansluten till. Händelsemeddelanden kan användas direkt i koden eller används med verktyg som Logic Apps och flödet för att utlösa flödet av data till underordnade system.
+Händelsemeddelanden kan användas för att meddela användare och underordnade system av händelser som sker i Blockchain arbetsstationen och blockchain-nätverket som den är ansluten till. Händelsemeddelanden kan användas direkt i koden eller används med verktyg som Logic Apps och flödet för att utlösa flödet av data till underordnade system.
 
 Se [meddelande referens](#notification-message-reference) mer information om olika meddelanden som kan tas emot.
 
@@ -60,14 +60,14 @@ Service Bus-ämnen kan användas för att meddela användare om händelser som s
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Använda Service Bus-meddelanden med Logic Apps
 
 1. Skapa en ny **Azure Logikapp** i Azure-portalen.
-2.  När du öppnar appen Azure logik i portalen, uppmanas du att välja en utlösare. Typen **Service Bus** i sökrutan och väljer lämpliga för typ av interaktion utlösaren som du vill ha med Service Bus. Till exempel **Service Bus - när ett meddelande tas emot i en avsnittet prenumeration (automatisk komplettering)**.
+2. När du öppnar appen Azure logik i portalen, uppmanas du att välja en utlösare. Typen **Service Bus** i sökrutan och väljer lämpliga för typ av interaktion utlösaren som du vill ha med Service Bus. Till exempel **Service Bus - när ett meddelande tas emot i en avsnittet prenumeration (automatisk komplettering)**.
 3. Ange anslutningsinformation för Service Bus när Arbetsflödesdesignern visas.
 4. Välj din prenumeration och ange ämnet för **arbetsstationen externa**.
 5. Utveckla logik för ditt program som använder meddelandet från den här utlösaren.
 
 ## <a name="notification-message-reference"></a>Referens för meddelande
 
-Beroende på OperationName har meddelanden något av följande meddelandetyper av.
+Beroende på den **OperationName**, meddelanden har något av följande meddelandetyper av.
 
 ### <a name="accountcreated"></a>AccountCreated
 
@@ -75,8 +75,8 @@ Anger att ett nytt konto har ombetts att lägga till den angivna kedjan.
 
 | Namn    | Beskrivning  |
 |----------|--------------|
-| UserId  | ID för den användare som har skapats |
-| ChainIdentifier | Adressen till den användare som har skapats i blockchain nätverket. I Ethereum, skulle detta vara användarens ”på kedja” adress. |
+| UserId  | ID för den användare som har skapats. |
+| ChainIdentifier | Adressen till den användare som har skapats i blockchain nätverket. I Ethereum, skulle detta vara användarens **-kedjan** adress. |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -93,15 +93,15 @@ Anger att en begäran har gjorts att infoga eller uppdatera ett kontrakt i en di
 | Namn | Beskrivning |
 |-----|--------------|
 | ChainID | En unik identifierare för kedjan kopplad till begäran.|
-  Block-ID | Unik identifierare för ett block på redovisningen.|
-  ContractId | En unik identifierare för kontraktet.|
-  ContractAddress |       Adressen till kontraktet på redovisningen.|
-  TransactionHash  |     Hash för transaktionen på redovisningen.|
-  OriginatingAddress |   Adressen till avsändaren av transaktionen.|
-  actionName       |     Namnet på åtgärden.|
-  IsUpdate        |      Identifierar om det här är en uppdatering.|
-  Parametrar       |     En lista över objekt som anger vilken namn, värde och data parametrar som skickas till en åtgärd.|
-  TopLevelInputParams |  I scenarier där ett kontrakt är ansluten till ett eller flera avtal, är dessa parametrar från det översta kontraktet. |
+| Block-ID | Unik identifierare för ett block på redovisningen.|
+| ContractId | En unik identifierare för kontraktet.|
+| ContractAddress |       Adressen till kontraktet på redovisningen.|
+| TransactionHash  |     Hash för transaktionen på redovisningen.|
+| OriginatingAddress |   Adressen till avsändaren av transaktionen.|
+| actionName       |     Namnet på åtgärden.|
+| IsUpdate        |      Identifierar om det här är en uppdatering.|
+| Parametrar       |     En lista över objekt som anger vilken namn, värde och data parametrar som skickas till en åtgärd.|
+| TopLevelInputParams |  I scenarier där ett kontrakt är ansluten till ett eller flera avtal, är dessa parametrar från det översta kontraktet. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -241,6 +241,65 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 {
     public int ContractId { get; set; }
     public string ChainIdentifier { get; set; }
+}
+```
+
+## <a name="classes-used-by-message-types"></a>Klasser som används av meddelandetyper
+
+### <a name="messagemodelbase"></a>MessageModelBase
+
+Grundläggande modellen för alla meddelanden.
+
+| Namn          | Beskrivning                          |
+|---------------|--------------------------------------|
+| OperationName | Namnet på åtgärden.           |
+| begärande-ID     | En unik identifierare för begäran. |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### <a name="contractinputparameter"></a>ContractInputParameter
+
+Innehåller namn, värde och en parametertyp.
+
+| Namn  | Beskrivning                 |
+|-------|-----------------------------|
+| Namn  | Namnet på parametern.  |
+| Värde | Värdet för parametern. |
+| Typ  | Typen för parametern.  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### <a name="contractproperty"></a>ContractProperty
+
+Innehåller ID, namn, värde och typ för en egenskap.
+
+| Namn  | Beskrivning                |
+|-------|----------------------------|
+| Id    | ID för egenskapen.    |
+| Namn  | Namnet på egenskapen.  |
+| Värde | Värdet på egenskapen. |
+| Typ  | Typ av egenskapen.  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
 }
 ```
 

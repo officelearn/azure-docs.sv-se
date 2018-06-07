@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635924"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 
@@ -42,7 +43,7 @@ Du kan skapa en anpassad avbildning från en allokerad virtuell dator och däref
 
     ![Skapa anpassad avbildning menyobjekt](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. På den **anpassad bild** rutan Ange ett namn och beskrivning för den anpassade avbildningen. Den här informationen visas i listan över databaser när du skapar en virtuell dator.
+1. På den **anpassad bild** rutan Ange ett namn och beskrivning för den anpassade avbildningen. Den här informationen visas i listan över databaser när du skapar en virtuell dator. Den anpassade avbildningen innehåller OS-disken och alla datadiskar som är kopplade till den virtuella datorn.
 
     ![Skapa anpassad avbildning fönsterruta](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

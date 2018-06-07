@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621742"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +70,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure SQL Data Warehouse länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **AzureSqlDW** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
@@ -82,7 +83,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **AzureSqlDWTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på den tabell eller vy i Azure SQL Data Warehouse-databas som den länkade tjänsten refererar till. |Ja |
 
@@ -97,7 +98,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 ### <a name="sqldwsource"></a>SqlDWSource
 När datakällan är av typen **SqlDWSource**, följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
@@ -143,7 +144,7 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten att köra så att data för ett visst segment har rensats bort. Mer information finns i [repeterbarhet avsnittet](#repeatability-during-copy). |En frågesats. |Nej |
 | allowPolyBase |Anger om du vill använda PolyBase (i förekommande fall) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data till SQL Data Warehouse.** Se [Använd PolyBase för att läsa in data till Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information. |True <br/>FALSKT (standard) |Nej |
@@ -308,8 +309,8 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | TinyInt | TinyInt |
 | bitar | bitar |
 | Decimal | Decimal |
-| numeriskt | Decimal |
-| flyttal | flyttal |
+| Numerisk | Decimal |
+| Flyttal | Flyttal |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
@@ -355,7 +356,7 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |Dubbel |
+| Flyttal |dubbla |
 | Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
@@ -369,7 +370,7 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
-| Text |Sträng, Char] |
+| text |Sträng, Char] |
 | time |TimeSpan |
 | tidsstämpel |byte] |
 | tinyint |Mottagna byte |

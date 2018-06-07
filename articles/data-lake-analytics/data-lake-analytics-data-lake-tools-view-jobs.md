@@ -1,26 +1,23 @@
 ---
-title: Använd jobbet webbläsare och jobbet för Azure Data Lake Analytics-jobb | Microsoft Docs
-description: 'Lär dig hur du använder webbläsaren för jobbet och jobbet för Azure Data Lake Analytics-jobb. '
+title: Använd jobbet webbläsare och jobbet för Azure Data Lake Analytics-jobb
+description: Den här artikeln beskriver hur du använder webbläsaren för jobbet och jobbet för Azure Data Lake Analytics-jobb.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623238"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Använd jobbet webbläsare och jobbet för Azure Data lake Analytics-jobb
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använd jobbet webbläsare och visa jobb för Azure Data Lake Analytics
 Azure Data Lake Analytics-tjänsten arkiveras skickade jobb i en [frågearkivet](#query-store). Du lära dig hur du använder webbläsaren för jobbet och jobbet i Azure Data Lake-verktyg för Visual Studio för att hitta historiska Jobbinformationen i den här artikeln. 
 
 Som standard arkiveras Data Lake Analytics-tjänsten jobben i 30 dagar. Förfallotid perioden kan konfigureras från Azure portal genom att konfigurera en anpassad princip. Du kan inte komma åt jobbinformation efter förfallodatumet. 
@@ -54,7 +51,7 @@ Jobbet innehåller:
     * Slutför: Jobbet slutförs (till exempel Slutför filen).
       
       Jobbet kan misslyckas i varje fas. Till exempel kompileringsfel i förbereda fas, timeout-fel i fasen i kö och körningsfel i körs fasen osv.
-  * Grundläggande Information
+  * Grundläggande information
     
       Grundläggande jobbinformation visas i den nedre delen av panelen jobbsammanfattning.
     

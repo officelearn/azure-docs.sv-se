@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/25/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636740"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till logganalys med HTTP-Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka data till logganalys från en REST API-klient.  Det beskriver hur du formatera data som samlas in av skript eller program, inkludera den i en begäran och har den begäran som auktoriserad genom logganalys.  Exempel för för PowerShell, C# och Python.
@@ -40,7 +41,7 @@ Alla data i logganalys-databasen lagras som en post med en viss posttyp.  Du kan
 Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran som innehåller data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
 ### <a name="request-uri"></a>Förfrågans URI
-| Attribut | Egenskap |
+| Attribut | Egenskap  |
 |:--- |:--- |
 | Metod |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
@@ -51,7 +52,7 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 |:--- |:--- |
 | CustomerID |Den unika identifieraren för logganalys-arbetsytan. |
 | Resurs |Resursnamnet API: / api/logs. |
-| API-Version |Versionen av API: et för användning med denna begäran. Det är för närvarande 2016-04-01. |
+| API-version |Versionen av API: et för användning med denna begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
 | Sidhuvud | Beskrivning |
@@ -59,7 +60,7 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC SHA256-huvud. |
 | Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
+| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Det får inte vara null och det måste innehålla ett giltigt datum. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
 
 ## <a name="authorization"></a>Auktorisering
 Alla förfrågningar till Log Analytics HTTP Data Collector API måste innehålla ett authorization-huvud. För att autentisera en begäran, måste du registrera begäran med primärt eller den sekundära nyckeln för den arbetsyta som begäran kommer ifrån. Sedan överföra signaturen som en del av begäran.   
@@ -136,7 +137,7 @@ Lägger till ett suffix till egenskapsnamnet för att identifiera en egenskapens
 |:--- |:--- |
 | Sträng |_S |
 | Boolesk |_b |
-| Dubbel |_D |
+| dubbla |_D |
 | Datum/tid |_Tätt |
 | GUID |_g |
 
@@ -188,7 +189,7 @@ Den här tabellen innehåller en fullständig uppsättning statuskoder som tjän
 | 403 |Förbjudna |InvalidAuthorization |Det gick inte att autentisera begäran. Kontrollera att arbetsytans ID och anslutningen är giltig. |
 | 404 |Kunde inte hittas | | Antingen den URL som är felaktig eller begäran är för stor. |
 | 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran senare. |
-| 500 |Internt serverfel |UnspecifiedError |Tjänsten påträffade ett internt fel. Försök att utföra begäran. |
+| 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök att utföra begäran. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök att utföra din begäran. |
 
 ## <a name="query-data"></a>Frågedata

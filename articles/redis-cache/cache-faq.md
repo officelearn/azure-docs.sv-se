@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640480"
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache.
@@ -82,7 +83,7 @@ Vanliga frågor om i det här avsnittet beskriver vanliga övervakning och fels�
 * [Vilka Azure Cache-erbjudande är rätt för mig?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-redis-cache"></a>Vad är Azure Redis Cache?
-Azure Redis-Cache är baserad på populära öppen källkod [Redis-cache](http://redis.io). Det ger dig tillgång till en säker, dedikerad Redis-cache, hanteras av Microsoft och som är tillgänglig från alla program i Azure. En detaljerad översikt finns i [Azure Redis-Cache](https://azure.microsoft.com/services/cache/) produktsidan på Azure.com.
+Azure Redis Cache baseras på den populära [Redis-cachen](http://redis.io) med öppen källkod. Det ger dig tillgång till en säker, dedikerad Redis-cache, hanteras av Microsoft och som är tillgänglig från alla program i Azure. En detaljerad översikt finns i [Azure Redis-Cache](https://azure.microsoft.com/services/cache/) produktsidan på Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a>Hur kan jag igång med Azure Redis-Cache?
 Det finns flera sätt som du kan komma igång med Azure Redis-Cache.
@@ -140,7 +141,7 @@ Vi kan upprätta följande slutsatser från den här tabellen:
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102 000 kr |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Premium cache-storlekar** | |**CPU-kärnor per Fragmentera** | **Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Förfrågningar per andra (RPS) icke-SSL, per Fragmentera** |**Förfrågningar per andra (RPS) SSL per Fragmentera** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -174,7 +175,7 @@ Mer information om att tänka på när du använder Azure Redis-Cache med andra 
 
 - [Azure Government - databaser i Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache)
 - [Azure Kina Cloud - Azure Redis-Cache](https://www.azure.cn/documentation/services/redis-cache/)
-- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+- [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Redis-Cache med PowerShell i Azure offentliga moln, Kina Azure-molnet och Microsoft Azure Tyskland finns [hur du ansluter till andra moln - Azure Redis-Cache PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
@@ -385,7 +386,7 @@ Den här informationen rekommenderar vi starkt att kunder värdet minimikonfigur
 
 Hur du konfigurerar den här inställningen:
 
-* ASP.NET använder den [”minIoThreads” Konfigurationsinställningen] [ "minIoThreads" configuration setting] under den `<processModel>` konfigurationselementet i web.config. Om du kör inuti Azure WebSites, visas inte den här inställningen via konfigurationsalternativen. Men du måste fortfarande att kunna konfigurera den här inställningen programmässigt (se nedan) från Application_Start-metoden i global.asax.cs.
+* ASP.NET använder den [”minIoThreads” eller ”minWorkerThreads” Konfigurationsinställningen] [ "minIoThreads" configuration setting] under den `<processModel>` konfigurationselementet i web.config. Om du kör inuti Azure WebSites, visas inte den här inställningen via konfigurationsalternativen. Men du måste fortfarande att kunna konfigurera den här inställningen programmässigt (se nedan) från Application_Start-metoden i global.asax.cs.
 
   > [!NOTE] 
   > Värdet som anges i den här konfigurationselement är en *per kärnor* inställningen. Till exempel om du har en dator med 4 kärnor och vill inställningen minIOThreads till 200 vid körning, du skulle använda `<processModel minIoThreads="50"/>`.

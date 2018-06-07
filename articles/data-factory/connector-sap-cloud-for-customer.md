@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7003e68fcbceb4e45477f4f13dfa75b920405ace
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617662"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kund (C4C) med hjälp av Azure Data Factory
 
@@ -42,7 +43,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för SAP-molnet för länkad kundservice:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SapCloudForCustomer**. | Ja |
 | url | URL till SAP C4C OData-tjänsten. | Ja |
@@ -82,7 +83,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från SAP-molnet för kunden, **SapCloudForCustomerResource**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **SapCloudForCustomerResource** |Ja |
 | sökväg | Ange sökväg till SAP C4C OData-entiteten. |Ja |
@@ -113,7 +114,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP-molnet för kunden, anger du datakällan i kopieringsaktiviteten till **SapCloudForCustomerSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SapCloudForCustomerSource**  | Ja |
 | DocumentDB | Ange anpassade OData-frågan som läser data. | Nej |
@@ -156,7 +157,7 @@ Exempelfråga för att hämta data för en viss dag: `"query": "$filter=CreatedO
 
 Om du vill kopiera data till SAP-molnet för kunden, anger du sink i kopieringsaktiviteten till **SapCloudForCustomerSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SapCloudForCustomerSink**  | Ja |
 | WriteBehavior | Åtgärden Skriv beteende. Det gick att ”infoga”, ”uppdatera”. | Nej. Standard ”infoga”. |
@@ -208,11 +209,11 @@ När du kopierar data från SAP-molnet för kunden, används följande mappninga
 | SAP C4C OData-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | Edm.Binary | byte] |
-| Edm.Boolean | Booleskt |
+| Edm.Boolean | bool |
 | Edm.Byte | byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | Dubbel |
+| Edm.Double | dubbla |
 | Edm.Single | Enkel |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

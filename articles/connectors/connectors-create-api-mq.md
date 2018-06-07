@@ -1,25 +1,22 @@
 ---
-title: "Lär dig hur du använder MQ-anslutningen i Azure Logic Apps | Microsoft Docs"
-description: "Ansluta till en lokal eller Azure MQ-server från logik app arbetsflödet att bläddra, ta emot och skicka meddelanden till WebSphere MQ"
-services: logic-apps
+title: Ansluta till servern för MQ - Azure Logic Apps | Microsoft Docs
+description: Skicka och hämta meddelanden med en Azure eller lokalt MQ-server och Azure Logic Apps
 author: valthom
-manager: anneta
-documentationcenter: 
-editor: 
-tags: connectors
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: valthom
 ms.date: 06/01/2017
-ms.author: valthom; ladocs
-ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 0877d0e9394d1a54eae5482001bd53da0e1a83b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609456"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Ansluta till en IBM MQ-server från logikappar med MQ-koppling 
 
@@ -48,7 +45,7 @@ MQ-koppling inkluderar följande åtgärder. Det finns inga utlösare.
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**. 
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**. 
 2. Ange den **namn**, till exempel MQTestApp, **prenumeration**, **resursgruppen**, och **plats** (använda den plats där den lokala Data Gateway-anslutningen har konfigurerats). Välj **fäst på instrumentpanelen**, och välj **skapa**.  
 ![Skapa Logikapp](media/connectors-create-api-mq/Create_Logic_App.png)
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622507"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -308,12 +309,12 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs egenskaperna JSON:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn | Namnet på aktiviteten |Ja |
 | description |Text som beskriver aktiviteten är det som används för |Nej |
 | typ | Måste anges till: **SqlServerStoredProcedure** | Ja |
-| Indata | Valfri. Om du anger en inkommande datauppsättning, måste det vara tillgänglig (statusen ”klar”) för aktiviteten lagrad procedur att köra. Inkommande dataset kan inte användas i den lagrade proceduren som en parameter. Den används endast för att kontrollera beroendet innan du startar aktiviteten lagrad procedur. |Nej |
+| inmatningar | Valfri. Om du anger en inkommande datauppsättning, måste det vara tillgänglig (statusen ”klar”) för aktiviteten lagrad procedur att köra. Inkommande dataset kan inte användas i den lagrade proceduren som en parameter. Den används endast för att kontrollera beroendet innan du startar aktiviteten lagrad procedur. |Nej |
 | utdata | Du måste ange en datamängd för utdata för en lagrad procedur-aktivitet. Utdatauppsättningen anger den **schema** för aktiviteten lagrad procedur (varje timme, varje vecka, månad, etc.). <br/><br/>Datamängd för utdata måste använda en **länkade tjänsten** som refererar till en Azure SQL Database eller ett Azure SQL Data Warehouse eller en SQL Server-databas som du vill använda den lagrade proceduren för att köra. <br/><br/>Datamängd för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för senare bearbetning av en annan aktivitet ([länkning aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Dock skriver Data Factory inte automatiskt utdata från en lagrad procedur denna DataSet. Det är den lagrade proceduren som skriver till en SQLtabell som datamängd för utdata som pekar på. <br/><br/>I vissa fall datamängd för utdata kan vara en **dummy dataset**, som används bara för att ange schemat för att köra aktiviteten lagrad procedur. |Ja |
 | storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL database eller Azure SQL Data Warehouse eller SQL Server-databas som representeras av den länkade tjänst som använder utdatatabellen. |Ja |
 | storedProcedureParameters |Ange värden för parametrarna för lagrade procedurer. Om du måste överföra null för en parameter, använder du syntax: ”param1”: null (alla gemen). Se följande exempel mer information om hur du använder den här egenskapen. |Nej |

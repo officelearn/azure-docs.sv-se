@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: a4a7c59e93b860245d67695de90fbae2becac3e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639783"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>Åtkomst till Azure Media Services API med CLI 2.0
  
@@ -35,7 +36,7 @@ Skapa ett nytt Azure Media Services-konto, enligt beskrivningen i [denna Snabbst
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på den [Azure-portalen](http://portal.azure.com) och starta **CloudShell** att köra CLI-kommandon som visas i nästa steg.
+Logga in i [Azure Portal](http://portal.azure.com) och starta **CloudShell** för att köra CLI-kommandon som visas i nästa steg.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -46,4 +47,8 @@ Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI vers
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Överföra en fil](stream-files-dotnet-quickstart.md)
+> [Strömma en fil](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>Se också
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

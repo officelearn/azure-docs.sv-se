@@ -1,24 +1,20 @@
 ---
-title: "Azure Backup-Server skyddar Systemtillstånd och återställer till utan operativsystem | Microsoft Docs"
-description: "Använda Azure Backup Server att säkerhetskopiera din Systemtillstånd och bare metal recovery (BMR) skydd."
+title: Azure Backup-Server skyddar Systemtillstånd och återställer till utan operativsystem
+description: Använda Azure Backup Server att säkerhetskopiera din Systemtillstånd och bare metal recovery (BMR) skydd.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607216"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Säkerhetskopiera systemtillståndet och återställa till utan operativsystem med Azure Backup Server
 
@@ -33,7 +29,7 @@ Azure Backup Server säkerhetskopierar Systemtillstånd och bare metal recovery 
 
 I följande tabell sammanfattas vad du kan säkerhetskopiera och återställa. Detaljerad information om appversioner som kan skyddas med Systemtillstånd och BMR finns [vad är Azure Backup Server säkerhetskopiera?](backup-mabs-protection-matrix.md).
 
-|Säkerhetskopiering|Problem|Återställa från säkerhetskopia för Azure Backup-Server|Återställa från säkerhetskopia av systemtillståndet|BMR|
+|Backup|Problem|Återställa från säkerhetskopia för Azure Backup-Server|Återställa från säkerhetskopia av systemtillståndet|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Fildata**<br /><br />Regelbunden säkerhetskopiering<br /><br />BMR/systemtillstånd|Förlorade fildata|Y|N|N|
 |**Fildata**<br /><br />Azure Backup-Server-säkerhetskopiering av fildata<br /><br />BMR/systemtillstånd|Saknad eller skadad operativsystem|N|Y|Y|
@@ -59,7 +55,7 @@ Du kan anpassa den enhet som Backup-servern använder för systemtillståndet. G
 
 Observera att om skydd servern är i ett kluster, är det möjligt att en enhet för kluster markeras som enhet med mest ledigt utrymme. Om ägarskap som enheten har växlats till en annan nod och en system tillstånd säkerhetskopiering körs, enheten är inte tillgängligt och säkerhetskopieringen misslyckas. I det här scenariot, ändra PSDataSourceConfig.xml att peka till en lokal enhet.
 
-Windows Server Backup skapar sedan en mapp som kallas WindowsImageBackup i roten av mappen återställning. Eftersom Windows Server Backup skapar säkerhetskopian placeras alla data i den här mappen. När säkerhetskopieringen är klar överförs filen till datorn reservserver. Observera följande information:
+Windows Server Backup skapar sedan en mapp som kallas WindowsImageBackup i roten av mappen återställning. Eftersom Windows Server Backup skapar säkerhetskopian placeras alla data i den här mappen. När säkerhetskopieringen är klar överförs filen till datorn reservserver. Notera följande information:
 
 * Den här mappen och dess innehåll rensas inte när säkerhetskopieringen eller överföringen är klar. Det bästa sättet att tänka på detta är att området är som har reserverats för nästa gång en säkerhetskopia är klar.
 * Mappen skapas varje gång en säkerhetskopia görs. Tid och datum tidsstämpel samma tid för din senaste säkerhetskopia av systemtillståndet.
@@ -220,9 +216,9 @@ Kör Windows Serverbackup:
 
 5.  På den **bekräftelse** väljer **återställa**. Starta om servern efter återställningen.
 
-6.  Du kan också köra återställningen av systemtillstånd i en kommandotolk. Gör detta genom att starta Windows Server Backup på den dator som du vill återställa. Ange om du vill ha version-Identiferare vid en kommandotolk:```wbadmin get versions -backuptarget \<servername\sharename\>```
+6.  Du kan också köra återställningen av systemtillstånd i en kommandotolk. Gör detta genom att starta Windows Server Backup på den dator som du vill återställa. Ange om du vill ha version-Identiferare vid en kommandotolk: ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-    Använd versions-ID för att starta återställningen av systemtillstånd. Ange följande i Kommandotolken:```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+    Använd versions-ID för att starta återställningen av systemtillstånd. Ange följande i Kommandotolken: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     Bekräfta att du vill starta återställningen. Du kan se processen i Kommandotolkens fönster. En återställningslogg skapas. Starta om servern efter återställningen.
 

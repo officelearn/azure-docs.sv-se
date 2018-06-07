@@ -1,29 +1,28 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Python | Microsoft Docs
-description: 'Lär dig hur du använder Python för att skapa ett Data Lake Store-konto och skicka jobb. '
+title: Hantera Azure Data Lake Analytics använder Python
+description: Den här artikeln beskriver hur du använder Python för att hantera Data Lake Analytics-konton, datakällor, användare och jobb.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: matt1883
 ms.author: saveenr
-ms.custom: devcenter
-ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4df5d4294708f2b475adf3fff87b122f261f8fc8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623136"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics använder Python
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-## <a name="python-versions"></a>Python versions
+Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Python.
+
+## <a name="supported-python-versions"></a>Python-versioner som stöds
 
 * Använda en 64-bitars version av Python.
 * Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)**. 

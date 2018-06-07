@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 729974d37351c12f551e165567bb11467a0dd963
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25329d65861dc31e67bba146e15a6446a6449e83
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620596"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten lagrad procedur för SQL Server i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +70,7 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs egenskaperna JSON:
 
-| Egenskap                  | Beskrivning                              | Krävs |
+| Egenskap                   | Beskrivning                              | Krävs |
 | ------------------------- | ---------------------------------------- | -------- |
 | namn                      | Namnet på aktiviteten                     | Ja      |
 | description               | Text som beskriver aktiviteten är det som används för | Nej       |

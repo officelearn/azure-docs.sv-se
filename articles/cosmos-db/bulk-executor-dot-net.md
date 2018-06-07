@@ -6,19 +6,20 @@ services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611168"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använda BulkExecutor .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB
 
-Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB BulkExecutor .NET-bibliotek att importera och uppdatera dokument till Azure Cosmos DB samlingar. Läs om BulkExecutor bibliotek och hur du kan utnyttja omfattande genomströmning och lagring i [BulkExecutor biblioteket – översikt](bulk-executor-overview.md) artikel. Den här kursen får du via ett exempelprogram för .NET massbearbetning importerar slumpmässigt genererat dokument till en Azure DB som Cosmos-samling. När du har importerat visar den du hur du kan massimportera uppdatera data som importeras genom att ange korrigeringsprogram som åtgärder att utföra på specifika dokumentfält.
+Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB BulkExecutor .NET-bibliotek att importera och uppdatera dokument till Azure Cosmos DB samlingar. Läs om BulkExecutor bibliotek och hur du kan utnyttja omfattande genomströmning och lagring i [BulkExecutor biblioteket – översikt](bulk-executor-overview.md) artikel. Den här kursen får du via ett .NET-program som Massredigera import slumpmässigt genererade dokument till en Azure DB som Cosmos-samling. När du har importerat visar den du hur du kan massimportera uppdatera data som importeras genom att ange korrigeringsprogram som åtgärder att utföra på specifika dokumentfält.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,7 +39,7 @@ Nu ska vi växla till att arbeta med kod genom att hämta vissa exempel .NET-pro
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Klonade lagringsplatsen innehåller två samplingarna ”BulkImportSample” och ”BulkUpdateSample”. Du kan öppna antingen exempelprogrammen, uppdatera anslutningssträngarna i App.config-fil med ditt konto Azure Cosmos DB-anslutningssträngar, skapa lösningen och köra den. 
+Den klonade lagringsplatsen innehåller två samplingarna ”BulkImportSample” och ”BulkUpdateSample”. Du kan öppna antingen exempelprogrammen, uppdatera anslutningssträngarna i App.config-fil med ditt konto Azure Cosmos DB-anslutningssträngar, skapa lösningen och köra den. 
 
 ”BulkImportSample” programmet genererar slumpmässiga dokument och bulk importerar dem till Azure Cosmos DB. ”BulkUpdateSample” program samtidigt uppdaterar importerade dokument genom att ange korrigeringsprogram som åtgärder att utföra på specifika dokumentfält. I nästa avsnitt ska du granska koden i var och en av dessa exempelappar.
 
@@ -159,7 +160,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync API. I det här exemple
 
    |**Parametern**  |**Beskrivning** |
    |---------|---------|
-   |NumberOfDocumentsUpdated (long)    |   Totalt antal dokument som har uppdaterats av de som angetts för massuppdatering API-anrop.      |
+   |NumberOfDocumentsUpdated (long)    |   Det totala antalet dokument som har uppdaterats av de som angetts för massuppdatering API-anrop.      |
    |TotalRequestUnitsConsumed (double)   |    Totalt antal begäranden enheter (RU) används av Massuppdatering API-anrop.    |
    |TotalTimeTaken (TimeSpan)   | Den totala tid som flesta uppdatera API-anrop för att köras. |
     
@@ -167,11 +168,11 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync API. I det här exemple
 
 Tänk på följande för bättre prestanda när du använder BulkExecutor bibliotek:
 
-* Kör ditt program från en virtuell Azure-dator som är i samma region som din Cosmos DB kontot Skriv region för bästa prestanda.  
+* Kör ditt program från en Azure-dator som är i samma region som din Cosmos DB kontot Skriv region för bästa prestanda.  
 
-* Det är bäst att skapa en instans av ett objekt för hela programmet i en enskild virtuell dator som motsvarar en viss samling Cosmos DB BulkExecutor.  
+* Det rekommenderas att skapa en instans av ett objekt för hela programmet i en enskild virtuell dator som motsvarar en viss samling Cosmos DB BulkExecutor.  
 
-* Eftersom en enda API massåtgärder förbrukar en stor del av den klientdatorn CPU: N och IO. Detta sker genom att skapa flera uppgifter internt bör du undvika att skapa flera samtidiga uppgifter i din programprocessen varje körs samtidigt åtgärden API-anrop. Om ett enda bulk åtgärden API-anrop som körs på en enskild virtuell dator kan inte använda din hela samlingen genomströmning (om din samling genomströmning > 1 miljon RU/s), dess bättre att skapa separata virtuella datorer för att samtidigt köra grupp åtgärden API-anrop.  
+* Eftersom en enda API massåtgärder förbrukar en stor del av den klientdatorn CPU: N och IO. Detta sker genom att skapa flera uppgifter internt bör du undvika att skapa flera samtidiga uppgifter i din programprocessen varje körs samtidigt åtgärden API-anrop. Om ett enda bulk åtgärden API-anrop som körs på en enskild virtuell dator kan inte använda din hela samlingen genomströmning (om din samling genomströmning > 1 miljon RU/s), är det bättre att skapa separata virtuella datorer för att samtidigt köra grupp åtgärden API-anrop.  
 
 * Kontrollera InitializeAsync() anropas efter att ett BulkExecutor-objekt för att hämta partitionsöversikten för mål-DB Cosmos samling.  
 
@@ -181,7 +182,7 @@ Tänk på följande för bättre prestanda när du använder BulkExecutor biblio
     <gcServer enabled="true" />
   </runtime>
   ```
-* Biblioteket avger spår som kan samlas på en loggfil eller i konsolen. Om du vill aktivera både lägger du till följande programmets App.Config.
+* Biblioteket avger spårningar som kan samlas in på en loggfil eller i konsolen. Om du vill aktivera både lägger du till följande programmets App.Config.
 
   ```xml
   <system.diagnostics>

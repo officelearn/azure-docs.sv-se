@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616013"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +66,7 @@ En länkad tjänst i Data Factory har definierats i JSON-format på följande s�
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs |
+Egenskap  | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på den länkade tjänsten. Se [Azure Data Factory - namngivningsregler](naming-rules.md). |  Ja |
 typ | Typ av den länkade tjänsten. Till exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
@@ -122,7 +123,7 @@ En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs |
+Egenskap  | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på datamängden. Se [Azure Data Factory - namngivningsregler](naming-rules.md). |  Ja |
 typ | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [Dataset typer](#dataset-type). | Ja |
@@ -188,7 +189,7 @@ Den **struktur** avsnittet är valfritt. Den definierar schemat för datauppsät
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-Egenskap | Beskrivning | Krävs
+Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, Guid, Datetime, Datetimeoffset och Timespan** | Nej

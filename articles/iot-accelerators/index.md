@@ -1,19 +1,19 @@
 ---
 title: Dokumentation för Azure IoT-lösningsacceleratorer – självstudier, API-referens | Microsoft Docs
 description: Dokumentationen för Azure IoT-lösningsacceleratorer innehåller vägledning för att komma igång, instruktionsartiklar, självstudier och API-referens.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626980"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Dokumentation för IoT-lösningsacceleratorer
 
@@ -30,10 +30,10 @@ Kom igång snabbt med IoT-lösningsacceleratorer för att bygga dina IoT-lösnin
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Översikt över IoT-lösningsacceleratorer</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Distribuera en lösningsaccelerator</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Lösningar du kan använda direkt</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Övervakningskapacitet</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Lösningar du kan använda direkt</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Övervakningskapacitet</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Reglerar hanteringsfunktioner</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Kapacitet för enhetshantering</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Kapacitet för enhetshantering</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ Kom igång snabbt med IoT-lösningsacceleratorer för att bygga dina IoT-lösnin
                     <div class="cardText">
                         <p>Lär dig hur du ansluter dina enheter till en lösningsaccelerator</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Översikt över enhetsmodell</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Anpassa dina simulerade enheter</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Ansluta fysisk enhet</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Översikt över enhetsmodell</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Anpassa dina simulerade enheter</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Ansluta fysisk enhet</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ Kom igång snabbt med IoT-lösningsacceleratorer för att bygga dina IoT-lösnin
                 <div class="card">
                     <div class="cardText">
                         <h3>Resurser</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Säkerhetsarkitektur</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">Metodtips för säkerhet</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Skydda distributionen av IoT</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Säkerhet från grunden</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Säkerhetsarkitektur</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Metodtips för säkerhet</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Skydda distributionen av IoT</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Säkerhet från grunden</a></p>
                    </div>
                 </div>
             </div>

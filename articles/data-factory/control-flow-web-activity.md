@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6d14d84610d97e487e3bf4286267623681c4eb75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619243"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webbaktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
@@ -64,7 +65,7 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 ## <a name="type-properties"></a>Typegenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten web | Sträng | Ja
 typ | Måste anges till **WebActivity**. | Sträng | Ja

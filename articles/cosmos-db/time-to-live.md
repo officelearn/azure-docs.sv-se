@@ -2,30 +2,27 @@
 title: Ut data i Azure Cosmos DB med time to live | Microsoft Docs
 description: Med TTL tillhandahåller Microsoft Azure Cosmos DB möjligheten att låta dokument automatiskt bort från systemet efter en viss tidsperiod.
 services: cosmos-db
-documentationcenter: ''
 keywords: Time to live-
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615129"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Data i Azure Cosmos DB samlingar automatiskt med time to live-att gälla
-Program kan skapa och lagra stora mängder data. Vissa av dessa data, t.ex. datorn genereras data, loggar och användaren händelsesessionen information är bara användbara för en bestämd tidsperiod. När data blir överflödiga enligt behov av programmet som det är säkert att rensa data och minska lagringsbehov för ett program.
+Program kan skapa och lagra stora mängder data. Vissa av dessa data, t.ex. datorn genereras data, loggar och användaren händelsesessionen information är bara användbara för en bestämd tidsperiod. När data blir överskott enligt behov av programmet som det är säkert att rensa data och minska lagringsbehov för ett program.
 
 Med ”time to live” eller TTL, tillhandahåller Microsoft Azure Cosmos DB möjligheten att låta dokument automatiskt rensas bort från databasen efter en viss tidsperiod. Standard time to live kan ställas på samlingsnivå och åsidosätts på grundval av per dokument. När TTL-värde har angetts som standard samlingen eller på en dokumentnivå bort Cosmos DB automatiskt dokument som finns efter den tid i sekunder, eftersom de senast ändrades.
 
-Time to live i Cosmos-DB-använder en förskjutning mot när dokumentet senast ändrades. Om du vill används den `_ts` fält som finns på alla dokument. Fältet _ts är en unix-format epok tidsstämpel som representerar datumet och tiden. Den `_ts` varje gång ett dokument ändras uppdateras fältet. 
+Time to live i Azure DB som Cosmos-använder en förskjutning mot när dokumentet senast ändrades. Om du vill används den `_ts` som finns på alla dokument. Fältet _ts är en unix-format epok tidsstämpel som representerar datumet och tiden. Den `_ts` varje gång ett dokument ändras uppdateras fältet. 
 
 ## <a name="ttl-behavior"></a>TTL-beteende
 TTL-funktionen styrs av TTL-egenskaper på två nivåer - samlingsnivå och dokumentnivå. Värdena anges i sekunder och behandlas som ett dokument från den `_ts` dokumentet senast ändrad.
@@ -33,8 +30,8 @@ TTL-funktionen styrs av TTL-egenskaper på två nivåer - samlingsnivå och doku
 1. DefaultTTL för samlingen
    
    * Om de saknas (eller inställt på null) dokument tas inte bort automatiskt.
-   * Om finns, och värdet är ”-” 1 = oändlig – dokument inte ut som standard
-   * Om finns, och värdet är ett nummer (”n”) – dokument gälla sekunder ”n” efter senaste ändring
+   * Om finns, och värdet är ”1” = oändlig – dokument inte ut som standard
+   * Om finns, och värdet har angetts till något nummer (”n”) – dokument gälla sekunder ”n” efter senaste ändring
 2. TTL-värde för dokument: 
    
    * Egenskapen gäller endast om DefaultTTL finns för den överordnade samlingen.
@@ -47,8 +44,8 @@ Ovanstående logiken kan visas i matrisen följande:
 |  | DefaultTTL saknas ej på samlingen | DefaultTTL = -1 på en samling | DefaultTTL = ”n” på en samling |
 | --- |:--- |:--- |:--- |
 | TTL-värde saknas i dokumentet |Inget att åsidosätta på dokumentnivå eftersom både dokumentet och samling har något begrepp om TTL-värde. |Inga dokument i den här samlingen upphör att gälla. |Dokument i den här samlingen upphör att gälla efter intervall n tiden. |
-| TTL = -1 i dokumentet |Inget att åsidosätta på dokumentnivå eftersom samlingen inte definierar egenskapen DefaultTTL som ett dokument kan åsidosätta. TTL-värde i ett dokument är icke tolkad av systemet. |Inga dokument i den här samlingen upphör att gälla. |Dokumentet med TTL =-1 i den här samlingen upphör aldrig att gälla. Alla dokument upphör att gälla efter ”n” intervall. |
-| TTL = n i dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värde i ett dokument är icke tolkad av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument kommer att ärva intervallet-1 och aldrig går ut. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver ”n” intervall från samlingen. |
+| TTL = -1 i dokumentet |Inget att åsidosätta på dokumentnivå eftersom samlingen inte definierar egenskapen DefaultTTL som ett dokument kan åsidosätta. TTL-värde i ett dokument feltolkade av systemet. |Inga dokument i den här samlingen upphör att gälla. |Dokumentet med TTL =-1 i den här samlingen upphör aldrig att gälla. Alla dokument upphör att gälla efter ”n” intervall. |
+| TTL = n i dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värde i ett dokument feltolkade av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument kommer att ärva intervallet-1 och aldrig går ut. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver ”n” intervall från samlingen. |
 
 ## <a name="configuring-ttl"></a>Konfigurera TTL-värde
 Time to live-är inaktiverat som standard i alla Cosmos DB samlingar och på alla dokument som standard. TTL-värdet kan ställas in via programmering eller i Azure-portalen i den **inställningar** avsnittet för samlingen. 
@@ -83,7 +80,7 @@ Du kan konfigurera en standardtid för live på en samlingsnivå. Om du vill ang
 ## <a name="setting-ttl-on-a-document"></a>Inställningen TTL-värde på ett dokument
 Du kan ange specifika TTL-värde på dokumentnivå utöver att ställa in en standard-TTL för en samling. Detta åsidosätter standardvärdet i mängden.
 
-* Om du vill ange TTL-värdet för ett dokument, måste du ange ett positivt tal som är noll som anger tiden, i sekunder att gå ut dokumentet när senast ändrade tidsstämpeln för dokumentet (`_ts`).
+* Om du vill ange TTL-värdet för ett dokument, måste du ange ett positivt tal från noll som anger tiden, i sekunder att gå ut dokumentet när senast ändrade tidsstämpeln för dokumentet (`_ts`).
 * Om ett dokument har inget fält med TTL-värde, gäller standard i mängden.
 * Om TTL-värdet är inaktiverat på samlingsnivå ignoreras TTL-fältet på dokumentet förrän TTL aktiveras igen på samlingen.
 
@@ -150,7 +147,7 @@ Om du vill inaktivera TTL helt på en samling och stoppa bakgrunden från söker
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>TTL-värde och ett index interaktion
-Lägga till eller ändra inställningen TTL-värde på en samling ändrar underliggande indexet. När TTL-värdet ändras från av till på omindexerade samlingen. När du ändrar indexprincip när indexerings-läget är konsekvent, ser inte användare en ändring i indexet. När indexering läge är anges till lazy indexet alltid fånga och om TTL-värdet har ändrats indexet återskapas från början. När TTL-värdet ändras och index-läget är inställt på lazy returnerar frågor under index återskapas inte fullständig eller korrekta resultat.
+Lägga till eller ändra inställningen TTL-värde på en samling ändrar underliggande indexet. När TTL-värdet ändras från av till på omindexerade samlingen. När du ändrar indexprincip när indexerings-läget är konsekvent, ser inte användare en ändring i indexet. När indexering läge har angetts till lazy indexet fånga alltid och om TTL-värdet har ändrats indexet återskapas från början. När TTL-värdet ändras och index-läget är inställt på lazy returnerar frågor under index återskapas inte fullständig eller korrekta resultat.
 
 Om du behöver exakt data som returneras, ändras inte TTL-värdet när indexering läget är inställt på lazy. Helst bör du valt konsekvent index för att säkerställa konsekvent frågeresultat. 
 
@@ -169,7 +166,7 @@ Nej, det är ingen inverkan på RU kostnader för borttagningar av utgångna dok
 
 **Funktionen TTL endast gäller för hela dokument eller kan jag upphöra att gälla egenskapsvärden för enskilda dokument?**
 
-TTL-värde gäller för hela dokumentet. Om du vill att gälla bara en del av ett dokument, sedan rekommenderas det att du extrahera delen från det huvudsakliga dokumentet till ett separat ”länkade” dokument och sedan använda TTL-värde med det extraherade dokumentet.
+TTL-värde gäller för hela dokumentet. Om du vill att gälla bara en del av ett dokument, sedan rekommenderas det att du extrahera delen från huvudsakliga dokumentet till ett separat ”länkade” dokument och sedan använda TTL-värde med det extraherade dokumentet.
 
 **Har funktionen TTL eventuella särskilda krav för fulltextindexering?**
 

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 2780438e715b6f6cb04d820c02d09f14e14b480f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638508"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Vidarebefordra Azure Media Services-händelser till en anpassad webbplats-slutpunkten med hjälp av CLI
 
@@ -27,7 +28,7 @@ När du slutför stegen som beskrivs i den här artikeln ser du att händelsedat
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på den [Azure-portalen](http://portal.azure.com) och starta **CloudShell** att köra CLI-kommandon som visas i nästa steg.
+Logga in i [Azure Portal](http://portal.azure.com) och starta **CloudShell** för att köra CLI-kommandon som visas i nästa steg.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -184,4 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Reagerar på händelser](reacting-to-media-services-events.md)
+[Reagerar på händelser](reacting-to-media-services-events.md)## Se även
+
+## <a name="see-also"></a>Se också
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

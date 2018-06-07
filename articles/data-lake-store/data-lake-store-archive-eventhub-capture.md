@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624669"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Använd Azure Data Lake Store att samla in data från Händelsehubbar
 
@@ -56,12 +57,12 @@ I det här avsnittet skapar du en mapp i kontot där du vill samla in data från
 
     c. Under **tilldela behörigheter**, klickar du på **Välj behörigheter**. Ange **behörigheter** till **köra**. Ange **lägga till** till **den här mappen och alla underordnade**. Ange **lägga till som** till **en behörighetspost för åtkomst och en standard behörighetspost**.
 
-> [!IMPORTANT]
-> När du skapar en ny mapp hierarkin för insamling av data som tagits emot av Händelsehubbar i Azure, är detta ett enkelt sätt att kontrollera åtkomst till målmappen.  Dock kan lägger till behörigheter till alla underordnade till en mapp på översta nivån med många underordnade filer och mappar ta lång tid.  Om din rotmapp innehåller ett stort antal filer och mappar, kan det vara snabbare att lägga till **kör** behörigheter för `Microsoft.EventHubs` individuellt till varje mappen i sökvägen till mappen slutdestinationen. 
+    > [!IMPORTANT]
+    > När du skapar en ny mapp hierarkin för insamling av data som tagits emot av Händelsehubbar i Azure, är detta ett enkelt sätt att kontrollera åtkomst till målmappen.  Dock kan lägger till behörigheter till alla underordnade till en mapp på översta nivån med många underordnade filer och mappar ta lång tid.  Om din rotmapp innehåller ett stort antal filer och mappar, kan det vara snabbare att lägga till **kör** behörigheter för `Microsoft.EventHubs` individuellt till varje mappen i sökvägen till mappen slutdestinationen. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Tilldela behörigheter för Data Lake Store roten](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "tilldela behörigheter för Data Lake Store-rot")
 
-    Click **OK**.
+    Klicka på **OK**.
 
 4. Tilldela behörigheter för mappen under Data Lake Store-konto där du vill samla in data.
 

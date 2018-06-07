@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619260"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,7 +192,7 @@ För närvarande kan du kopiera data mellan två lokala datalager med hjälp av 
 
 Konfigurera den **enableStaging** inställning i en Kopieringsaktivitet för att ange om du vill att data ska samlas i Blob storage innan du läser in den i ett dataarkiv som mål. När du anger **enableStaging** till `TRUE`, ange ytterligare egenskaper som anges i nästa tabell. Om du inte har något du behöver skapa ett Azure Storage eller lagring delade åtkomst signatur-länkad tjänst för Förproduktion.
 
-| Egenskap | Beskrivning | Standardvärde | Krävs |
+| Egenskap  | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via en interimistisk mellanlagring store. |False |Nej |
 | **linkedServiceName** |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkade tjänst som refererar till instansen av lagring som du använder som ett tillfälligt fristående Arkiv. <br/><br/> Du kan inte använda lagring med en signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
@@ -249,8 +250,8 @@ Vi rekommenderar att du gör följande för att anpassa prestandan för din Data
      * [Stegvis kopia](#staged-copy)
      * [Automatisk värdbaserade Integration Runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Automatisk värdbaserade Integration Runtime](#considerations-for-self-hosted-integration-runtime)
-   * [Source](#considerations-for-the-source)
-   * [Sink](#considerations-for-the-sink)
+   * [Källa](#considerations-for-the-source)
+   * [sink](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
    * [Komprimering](#considerations-for-compression)
    * [Kolumnmappningen](#considerations-for-column-mapping)

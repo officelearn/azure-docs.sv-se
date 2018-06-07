@@ -4,7 +4,7 @@ description: Stegvisa anvisningar om hur du distribuerar Cloud Foundry loggregat
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609009"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycket för molnet Foundry systemövervakning
 
@@ -55,9 +56,9 @@ Kontrollera att Rubygems är installerade innan du installerar klienten UAA komm
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Skapa en logganalys-arbetsytan i Azure
 
-Du kan skapa logganalys-arbetsytan manuellt eller genom att använda en mall. Läsa in förkonfigurerade OMS-vyer och aviseringar när du är klar munstycket distributionen.
+Du kan skapa logganalys-arbetsytan manuellt eller genom att använda en mall. Mallen kommer att distribuera en installation av förkonfigurerade OMS KPI-vyer och aviseringar för OMS-konsolen. 
 
-Skapa arbetsytan manuellt:
+#### <a name="to-create-the-workspace-manually"></a>Skapa arbetsytan manuellt:
 
 1. Sök i listan över tjänster i Azure Marketplace i Azure-portalen och välj sedan logganalys.
 2. Välj **skapa**, och välj sedan alternativ för följande objekt:
@@ -70,7 +71,22 @@ Skapa arbetsytan manuellt:
 
 Mer information finns i [Kom igång med logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Du kan också skapa logganalys-arbetsytan med OMS-mall. Med den här metoden mallen läses in förkonfigurerade OMS-vyer och aviseringar automatiskt. Mer information finns i [Azure logganalys lösning för molnet Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Skapa OMS-arbetsytan via mallen OMS övervakning från Azure-marknadsplatsen:
+
+1. Öppna Azure-portalen.
+2. Klicka på tecknet ”+” eller ”skapa en resurs” i det övre vänstra hörnet.
+3. Skriv ”moln Foundry” i fönstret och välj ”OMS Foundry övervakning Molnlösning”.
+4. OMS Cloud-Foundry övervakning lösning främre mallsida som har lästs in, klickar du på ”Skapa” för att starta bladet mallen.
+5. Ange de obligatoriska parametrarna:
+    * **Prenumerationen**: Välj en Azure-prenumeration för OMS-arbetsyta, vanligtvis samma med molnet Foundry distribution.
+    * **Resursgruppen**: Välj en befintlig resursgrupp eller skapa en ny för OMS-arbetsytan.
+    * **Resursgruppsplats**: Välj platsen för resursgruppen.
+    * **OMS_Workspace_Name**: Ange ett Arbetsytenamn på, om inte finns på arbetsytan mallen skapas en ny.
+    * **OMS_Workspace_Region**: Välj plats för arbetsytan.
+    * **OMS_Workspace_Pricing_Tier**: Välj OMS-arbetsyta SKU. Finns det [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
+    * **Juridiska villkor**: Klicka på juridiska villkor, klicka på ”Skapa” vid accepterande av juridiska villkor.
+- Klicka på ”Skapa” för att distribuera mallen när alla parametrar har angetts. När distributionen är klar visas status på fliken meddelande.
+
 
 ## <a name="deploy-the-nozzle"></a>Distribuera munstycket
 
@@ -78,9 +94,9 @@ Det finns ett par olika sätt att distribuera munstycket: som en panel PCF eller
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Distribuera munstycket som en panel PCF Ops Manager
 
-Om du har distribuerat PCF med hjälp av Ops Manager, följer du stegen för att [installera och konfigurera munstycket för PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Munstycket installeras som en panel med Ops Manager.
+Följ stegen för att [installera och konfigurera Azure Log Analytics munstycket för PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Detta är en förenklad metod, PCF Ops manager panelen automatiskt att konfigurera och push munstycket. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Distribuera munstycket som ett CF-program
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Distribuera manuellt munstycket som ett CF-program
 
 Om du inte använder PCF Ops Manager kan du distribuera munstycket som ett program. I följande avsnitt beskrivs den här processen.
 
@@ -163,6 +179,10 @@ Kontrollera att OMS munstycket programmet körs.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Visa data i OMS-portalen
 
+Om du har distribuerat OMS övervakningslösning via mallen marknadsplatsen gå till Azure-portalen och finns OMS-lösning. Du hittar lösningen i den resursgrupp som du angav i mallen. Klicka på lösningen, bläddra till ”OMS-konsolen”, förkonfigurerade vyer visas med högsta molnet Foundry system KPI: er, programdata, aviseringar och VM hälsa mått. 
+
+Om du har skapat OMS-arbetsytan manuellt, följer du stegen nedan för att skapa vyer och aviseringar:
+
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vy
 
 Bläddra till OMS-portalen **Vydesigner** > **importera** > **Bläddra**, och välj en av filerna omsview. Välj exempelvis *moln Foundry.omsview*, och spara vyn. Nu visas en sida vid sida på den **översikt** sidan. Välj den för att se visualiserade mått.
@@ -178,13 +198,13 @@ Du kan [skapa aviseringar](https://docs.microsoft.com/azure/log-analytics/log-an
 | Sökfråga                                                                  | Generera avisering baserat på | Beskrivning                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Antalet resultat < 1   | **BBS. Domain.CF appar** anger om domänen cf appar är uppdaterad. Det innebär att CF App begäranden från molnet Controller synkroniseras till bbs. LRPsDesired (Diego önskad AIs) för körning. Inga data tas emot innebär cf apps-domän inte är uppdaterad under den angivna tidsperioden. |
-| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Antalet resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera ohälsosamt Diego celler identifieras under den angivna tidsperioden. |
+| Typ = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d > 1            | Antalet resultat > 0   | 0 betyder felfri för Diego celler och 1 innebär feltillstånd. Ange aviseringen om flera ohälsosamt Diego celler identifieras under den angivna tidsperioden. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Antalet resultat > 0 | 1 innebär att systemet är felfri och 0 innebär att systemet inte är felfri. |
-| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Antalet resultat > 0   | Konsuln skickar med jämna mellanrum dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare upptäcker att konsuln ned. |
-| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Antalet resultat > 0 | Delta antal meddelanden som utelämnats avsiktligt av Doppler på grund av ligger. |
-| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Antalet resultat > 0   | Loggregator avger **LGR** att indikera problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för högt. |
+| Typ = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Antalet resultat > 0   | Konsuln skickar med jämna mellanrum dess hälsostatus. 0 innebär att systemet är felfri och 1 innebär att vägen sändare upptäcker att konsuln ned. |
+| Typ = CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages” eller Name_s="doppler.shedEnvelopes”) Delta_d > 0 | Antalet resultat > 0 | Delta antal meddelanden som utelämnats avsiktligt av Doppler på grund av ligger. |
+| Typ = CF_LogMessage_CL SourceType_s = LGR MessageType_s = fel                      | Antalet resultat > 0   | Loggregator avger **LGR** att indikera problem med hur loggning. Ett exempel på sådana problem är när meddelandet loggutdata är för högt. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Antalet resultat > 0   | När munstycket tar emot en avisering om långsam konsumenten från loggregator, skickas den **slowConsumerAlert** ValueMetric till logganalys. |
-| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Antalet resultat > 0   | Om antalet förlorade händelser delta når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
+| Typ = CF_CounterEvent_CL Job_s = munstycket Name_s = förlorade händelser Delta_d > 0              | Antalet resultat > 0   | Om antalet förlorade händelser delta når ett tröskelvärde, innebär det att munstycket kan ha problem med att köra. |
 
 ## <a name="scale"></a>Skala
 
@@ -226,6 +246,6 @@ Azure Log Analytics munstycket är öppna ursprung. Skicka frågor och feedback 
 
 ## <a name="next-step"></a>Nästa steg
 
-Förutom molnet Foundry mått som beskrivs i munstycket, kan du använda OMS-agenten och få insikter om användningsdata för VM-nivå (till exempel Syslog, prestanda, aviseringar, inventering). OMS-agent installeras som en Bosh kan läggas till dina CF virtuella datorer.
+Från PCF2.0, är VM prestandamått överförda till Azure log analytics munstycket genom systemet mått vidarebefordrare och integrerade i OMS-arbetsyta. Du inte längre behöver OMS-agent för den Virtuella prestandamåtten. Du kan emellertid fortfarande använda OMS-agenten att samla in information för Syslog. OMS-agent installeras som en Bosh kan läggas till dina CF virtuella datorer. 
 
 Mer information finns i [distribuera OMS-agent till molnet Foundry distributionen](https://github.com/Azure/oms-agent-for-linux-boshrelease).

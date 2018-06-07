@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622772"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,12 +73,12 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för PostgreSQL länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-server. |Ja |
 | databas |Namnet på PostgreSQL-databas. |Ja |
-| schema |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
+| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |
@@ -88,7 +89,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **RelationalTable** (som omfattar PostgreSQL dataset) har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i PostgreSQL-databasinstansen som den länkade tjänsten refererar till. TableName är skiftlägeskänslig. |Nej (om **frågan** av **RelationalSource** har angetts) |
 
@@ -99,7 +100,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När datakällan är av typen **RelationalSource** (som omfattar PostgreSQL), följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **dataset** har angetts) |
 
@@ -317,35 +318,35 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | tecknet [(n)] |char [(n)] |Sträng |
 | tecknet varierande [(n)] |varchar [(n)] |Sträng |
 | CID | |Sträng |&nbsp;
-| cidr | |Sträng |&nbsp;
+| CIDR | |Sträng |&nbsp;
 | cirkel | |Byte [], sträng |&nbsp;
 | datum | |DateTime |&nbsp;
 | DateRange | |Sträng |&nbsp;
-| dubbel precision |FLOAT8 |Dubbel |
+| dubbel precision |FLOAT8 |dubbla |
 | inet | |Byte [], sträng |&nbsp;
 | intarry | |Sträng |&nbsp;
 | int4range | |Sträng |&nbsp;
 | int8range | |Sträng |&nbsp;
 | heltal |int, int4 |Int32 |
 | intervallet [fält] [(p)] | |Tidsintervall |&nbsp;
-| json | |Sträng |&nbsp;
-| jsonb | |Byte[] |&nbsp;
+| JSON | |Sträng |&nbsp;
+| jsonb | |byte] |&nbsp;
 | raden | |Byte [], sträng |&nbsp;
 | lseg | |Byte [], sträng |&nbsp;
 | macaddr | |Byte [], sträng |&nbsp;
 | Money | |Decimal |&nbsp;
 | numeriska [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Sträng |&nbsp;
-| oid | |Int32 |&nbsp;
+| OID | |Int32 |&nbsp;
 | sökväg | |Byte [], sträng |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | punkt | |Byte [], sträng |&nbsp;
 | polygon | |Byte [], sträng |&nbsp;
-| Verklig |FLOAT4 |Ogift |
+| Verklig |FLOAT4 |Enkel |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serie |serial4 |Int32 |
-| Text | |Sträng |&nbsp;
+| text | |Sträng |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
 Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

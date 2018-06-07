@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f1a2ec3bdf77e6f4f433c88b470e108b734fc4c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 67a91f8b61c1a0783d2075a13cc8cf2701496c88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622388"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (Azure VM) med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +73,7 @@ Du skapar en länkad tjänst av typen **OnPremisesSqlServer** att länka en loka
 
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SQL Server som är länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Typegenskapen bör anges till: **OnPremisesSqlServer**. |Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till lokal SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
@@ -129,7 +130,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **SqlServerTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på den tabell eller vy i SQL Server-databasinstansen som den länkade tjänsten refererar till. |Ja |
 
@@ -146,7 +147,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 ### <a name="sqlsource"></a>SqlSource
 När datakällan i en Kopieringsaktivitet är av typen **SqlSource**, följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. Kan referera till flera tabeller från databasen som refereras av inkommande dataset. Om inget annat anges, SQL-instruktionen som körs: Välj från mytable prefix. |Nej |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
@@ -164,7 +165,7 @@ Om du inte anger sqlReaderQuery eller sqlReaderStoredProcedureName, används de 
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antalet rader) |Nej (standard: 10000) |
@@ -654,35 +655,35 @@ Mappningen är densamma som SQL-Server-Datatypsmappningen för ADO.NET.
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |Byte[] |
+| Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
-| flyttal |Dubbel |
-| Bild |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |byte] |
+| Flyttal |dubbla |
+| Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Ogift |
-| rowversion |Byte[] |
+| Verklig |Enkel |
+| ROWVERSION |byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
-| Text |Sträng, Char] |
+| text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| tidsstämpel |byte] |
 | tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| Unik identifierare |GUID |
+| varbinary |byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

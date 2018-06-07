@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus Relay för WCF-kursen | Microsoft Docs"
-description: "Skapa en klient- och program med hjälp av WCF Relay."
+title: Azure Service Bus Relay för WCF-kursen | Microsoft Docs
+description: Skapa en klient- och program med hjälp av WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642316"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure vidarebefordrande WCF-självstudier
 
-Den här självstudiekursen beskrivs hur du skapar en enkel vidarebefordrande WCF-klient och en tjänst med hjälp av Azure Relay. För en liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), se [komma igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Den här självstudiekursen beskrivs hur du skapar en enkel vidarebefordrande WCF-klient och en tjänst med hjälp av Azure Relay. För en liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md), se [komma igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Gå igenom den här kursen får du en förståelse av de steg som krävs för att skapa ett vidarebefordrande WCF-klienten och tjänsten program. En tjänst är en konstruktion som Exponerar en eller flera slutpunkter som Exponerar en eller flera tjänsteåtgärder som deras ursprungliga motsvarigheter i WCF. Slutpunkten för en tjänst anger en adress där tjänsten ligger, en bindning som innehåller den information som en klient måste använda för att kommunicera med tjänsten och ett kontrakt som definierar de funktioner som tjänsten levererar till sina klienter. Den största skillnaden mellan WCF- och WCF Relay är att slutpunkten exponeras i molnet i stället för lokalt på datorn.
 
@@ -30,7 +31,7 @@ När du har gått igenom alla teman i den här självstudiekursen, kommer du att
 
 I de tre sista stegen beskriver vi hur du skapar ett klientprogram, konfigurerar detta och skapar och använder en klient som har åtkomst till värdens funktioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -48,7 +49,7 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Skapa en relay-kontrakt med ett gränssnitt
 
 1. Öppna Visual Studio som administratör genom att högerklicka på programmet i **Start**-menyn och välja **Kör som administratör**.
-2. Skapa ett nytt konsolprogramsprojekt. Klicka på **Arkiv**-menyn, välj **Nytt** och klicka sedan på **Projekt**. Klicka på **Visual C#** i dialogrutan **Nytt projekt** (om **Visual C#** inte visas, tittar du under **Andra språk**). Klicka på den **Konsolapp (.NET Framework)** mall, och ger den namnet **EchoService**. Klicka på **OK** för att skapa projektet.
+2. Skapa ett nytt konsolappsrojekt. Klicka på **Arkiv**-menyn, välj **Nytt** och klicka sedan på **Projekt**. Klicka på **Visual C#** i dialogrutan **Nytt projekt** (om **Visual C#** inte visas, tittar du under **Andra språk**). Klicka på den **Konsolapp (.NET Framework)** mall, och ger den namnet **EchoService**. Klicka på **OK** för att skapa projektet.
 
     ![][2]
 
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen visades hur du skapar en Relay i Azure-klient och en tjänst med hjälp av funktionerna i Service Bus Relay WCF. För en liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), se [komma igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Den här självstudiekursen visades hur du skapar en Relay i Azure-klient och en tjänst med hjälp av funktionerna i Service Bus Relay WCF. För en liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md), se [komma igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Mer information om Azure Relay finns i följande avsnitt.
 

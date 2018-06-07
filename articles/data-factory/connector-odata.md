@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617169"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopiera data från OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,12 +49,12 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för länkad OData-tjänst:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **OData** |Ja |
 | url | Rot-URL för OData-tjänsten. |Ja |
 | AuthenticationType | Typ av autentisering som används för att ansluta till OData-källan.<br/>Tillåtna värden är: **anonym**, **grundläggande**, och **Windows**. Observera OAuth inte stöds. | Ja |
-| userName | Ange användarnamnet om du använder grundläggande eller Windows-autentisering. | Nej |
+| Användarnamn | Ange användarnamnet om du använder grundläggande eller Windows-autentisering. | Nej |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
@@ -130,10 +131,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange egenskapen type för datauppsättningen till för att kopiera data från OData **ODataResource**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **ODataResource** | Ja |
-| sökväg | Sökvägen till OData-resurs. | Nej |
+| sökväg | Sökvägen till OData-resurs. | Ja |
 
 **Exempel**
 
@@ -163,7 +164,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från OData anger källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | OData-frågealternativ att filtrera data. Exempel ”:? $select = namn, beskrivning och $top = 5”.<br/><br/>Observera vid senaste OData-koppling kopierar data från den kombinerade URL: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Referera till [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
@@ -206,13 +207,13 @@ När du kopierar data från OData, används följande mappningar från OData-dat
 
 | OData-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
-| Edm.Boolean | Booleskt |
-| Edm.Byte | Byte[] |
+| Edm.Binary | byte] |
+| Edm.Boolean | bool |
+| Edm.Byte | byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | Dubbel |
-| Edm.Single | Ogift |
+| Edm.Double | dubbla |
+| Edm.Single | Enkel |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

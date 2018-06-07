@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621631"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Flytta data från en HTTP-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,12 +48,12 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en HTTP-d
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller beskrivning för JSON-element som är specifika för HTTP länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ | Egenskapen type måste anges till: `Http`. | Ja |
 | url | Bas-URL till webbservern | Ja |
 | AuthenticationType | Anger vilken autentiseringstyp. Tillåtna värden är: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
-| enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering om datakällan är HTTPS-webbserver | Nej, standard är SANT |
+| enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering om datakällan är HTTPS-webbserver. När HTTPS-server använder självsignerade certifikat kan du ange detta till false. | Nej, standard är SANT |
 | gatewayName | Namnet på Data Management Gateway för att ansluta till en lokal http-källa. | Ja om du kopierar data från en lokal http-källa. |
 | encryptedCredential | Krypterade autentiseringsuppgifter till HTTP-slutpunkten. Genereras automatiskt när du konfigurerar autentiseringsinformation i guiden Kopiera eller ClickOnce popup-dialogruta. | Nej. Gäller bara när du kopierar data från en lokal HTTP-server. |
 
@@ -62,7 +63,7 @@ Se [flytta data mellan lokala källor och molnet med Data Management Gateway](da
 
 Ange `authenticationType` som `Basic`, `Digest`, eller `Windows`, och ange följande egenskaper utöver HTTP-anslutningen generiska de introduceras ovan:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | användarnamn | Användarnamn för att få åtkomst till HTTP-slutpunkten. | Ja |
 | lösenord | Lösenord för användare (användarnamn). | Ja |
@@ -90,7 +91,7 @@ Ange `authenticationType` som `Basic`, `Digest`, eller `Windows`, och ange följ
 
 Om du vill använda grundläggande autentisering, `authenticationType` som `ClientCertificate`, och ange följande egenskaper utöver HTTP-anslutningen generiska de introduceras ovan:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | embeddedCertData | Base64-kodade innehåll binära data i filen Personal Information Exchange (PFX). | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
 | certThumbprint | Tumavtryck för certifikat som har installerats på gateway-datorns certifikatarkiv. Gäller bara när du kopierar data från en lokal http-källa. | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
@@ -149,14 +150,14 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **Http** har följande egenskaper
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Ange vilken typ av datauppsättningen. måste anges till `Http`. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. Om sökvägen inte anges används den URL som angavs i definitionen länkade tjänsten. <br><br> Du kan använda för att skapa dynamiska URL [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md), t.ex. ”relativeUrl” ”: $$Text.Format ('/ min/rapporten? månad = {0:yyyy}-{0:MM} & fmt = csv', SliceStart)”. | Nej |
 | requestMethod | HTTP-metod. Tillåtna värden är **hämta** eller **efter**. | Nej. Standardvärdet är `GET`. |
 | additionalHeaders | Ytterligare HTTP-begärans sidhuvud. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
+| Format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 ### <a name="example-using-the-get-default-method"></a>Exempel: med metoden GET (standard)
@@ -209,7 +210,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnitt i aktiviteten 
 
 För närvarande när datakällan i en Kopieringsaktivitet är av typen **HttpSource**, följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Tidsgräns (TimeSpan) för HTTP-begäran att få svar. Tidsgränsen är det inget svar timeout inte att läsa svarsdata. | Nej. Standardvärde: 00:01:40 |
 

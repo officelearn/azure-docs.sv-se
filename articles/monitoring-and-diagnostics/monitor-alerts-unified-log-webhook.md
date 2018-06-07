@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638678"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för log Varningsregler
 När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -30,9 +31,9 @@ Webhook-åtgärder kan du anropa en extern process via en enkel HTTP POST-begär
 
 Webhook-åtgärder kräver egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
-| Webhooksadressen |URL till webhooken. |
+| Webhook-URL |URL till webhooken. |
 | Anpassad JSON-nyttolast |Anpassad nyttolast skickar med webhooken, när det här alternativet väljs under skapande av varning. Information som finns på [Hantera aviseringar via Azure-aviseringar ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
@@ -44,14 +45,14 @@ Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Namnet på regeln. |
-| Allvarsgrad |#severity |Allvarlighetsgrad för aviseringen Eldad loggen. |
+| Severity |#severity |Allvarlighetsgrad för aviseringen Eldad loggen. |
 | AlertThresholdOperator |#thresholdoperator |Tröskelvärdet operator för regeln.  *Större än* eller *mindre än*. |
 | AlertThresholdValue |#thresholdvalue |Tröskelvärde för regeln. |
-| LinkToSearchResults |#linktosearchresults |Länka till logganalys loggen sökning som returnerar poster från frågan som skapade aviseringen. |
+| LinkToSearchResults |#linktosearchresults |Länka till Analytics-portalen som returnerar posterna från frågan som skapade aviseringen. |
 | ResultCount |#searchresultcount |Antalet poster i sökresultaten. |
-| Sök intervall sluttid |#searchintervalendtimeutc |Sluttid för frågan i UTC-format. |
-| Intervall för sökning |#searchinterval |Tidsfönstret för regeln. |
-| Sök intervall StartTime |#searchintervalstarttimeutc |Starttid för frågan i UTC-format. 
+| Sök intervall sluttid |#searchintervalendtimeutc |Sluttiden för frågan i UTC, format - mm/dd/åååå hh: mm: ss tid. |
+| Intervall för sökning |#searchinterval |Tidsfönstret för aviseringen regeln för format -: mm: ss. |
+| Sök intervall StartTime |#searchintervalstarttimeutc |Starttid för frågan i UTC, format - mm/dd/åååå hh: mm: ss tid... 
 | searchQuery |#searchquery |Loggen sökfråga används av regeln. |
 | SearchResults |”IncludeSearchResults”: true|Poster som returneras av frågan som en JSON-tabellen, begränsat till de första 1 000 posterna. Om ”IncludeSearchResults”: true läggs till i anpassad JSON webhook definition som en egenskap för på den översta nivån. |
 | WorkspaceID |#workspaceid |ID för logganalys-arbetsytan. |
@@ -74,6 +75,7 @@ Nyttolasten i det här exemplet skulle matchas till något som liknar följande 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Eftersom alla variabler i en anpassad webhook måste anges i JSON-hölje som ”#searchinterval”, har också gällande webhooken variabla data i hölje som ”00: 05:00”.
 
 Se till att inkludera sökresultat i en anpassad nyttolast genom **IncudeSearchResults** har angetts som en översta egenskap i json-nyttolast. 
 

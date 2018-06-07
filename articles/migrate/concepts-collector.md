@@ -4,14 +4,15 @@ description: En översikt över insamlaren installation och hur du konfigurerar 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32554b2f297c2079374a5edd7739af7320bc1234
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640235"
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -187,37 +188,37 @@ Vi rekommenderar också att följande steg för att skydda din enhet
 
 Du kan uppgradera insamlaren till den senaste versionen utan att hämta ägg igen.
 
-1. Ladda ned senaste [uppgraderingspaket](https://aka.ms/migrate/col/latestupgrade).
+1. Ladda ned senaste [uppgraderingspaket](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
 2. För att säkerställa att hämtade snabbkorrigeringen är säker, öppna kommandofönstret administratör och kör följande kommando för att generera hash för ZIP-filen. Genererade hash-värdet ska vara identiskt med hash-algoritmen som nämns mot en viss version:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+    (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Kopiera zip-filen till den Azure migrera insamlaren virtuell datorn (insamlaren installation).
 4. Högerklicka på zip-filen och välj extrahera alla.
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
 
 ### <a name="list-of-updates"></a>Listan över uppdateringar
 
+#### <a name="upgrade-to-version-10911"></a>Uppgradera till version 1.0.9.11
+
+Hash-värden för uppgraderingen [paketet 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### <a name="upgrade-to-version-1097"></a>Uppgradera till version 1.0.9.7
 
-För uppgradering till version 1.0.9.7 download [paketet](https://aka.ms/migrate/col/upgrade_9_7)
+Hash-värden för uppgraderingen [paketet 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
 **Algoritm** | **Hash-värde**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### <a name="upgrade-to-version-1095"></a>Uppgradera till version 1.0.9.5
-
-För uppgradering till version 1.0.9.5 download [paketet](https://aka.ms/migrate/col/upgrade_9_5)
-
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Nästa steg
 

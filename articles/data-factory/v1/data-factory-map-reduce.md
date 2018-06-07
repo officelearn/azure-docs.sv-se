@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f625a8a5bc5c477e785ec645b37b0604052d11b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621266"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce program från Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -182,7 +183,7 @@ Pipeline i det här exemplet tar inte alla indata. Du kan ange en datamängd fö
 ### <a name="pipeline"></a>Pipeline
 Pipeline i det här exemplet har endast en aktivitet som är av typen: HDInsightMapReduce. Några viktiga egenskaper i JSON är: 
 
-| Egenskap | Anteckningar |
+| Egenskap  | Anteckningar |
 |:--- |:--- |
 | typ |Typen måste anges till **HDInsightMapReduce**. |
 | Klassnamn |Namnet på klassen är: **wordcount** |

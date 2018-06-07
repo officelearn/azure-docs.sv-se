@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: bf776ba8aaeca361250f39fb2c62233ee1dfbd5b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638773"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -30,12 +31,12 @@ Innan du börjar måste du [skapa ett lagringskonto](../storage/storage-create-s
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-Om du vill arkivera dina diagnostikloggar med någon av metoderna nedan kan du ange en **diagnostikinställningen** för en viss resurs. Diagnostikinställningen för en resurs definierar kategorier av loggar och mått data som skickas till ett mål (storage-konto, Händelsehubbar namnområde eller logganalys). Den definierar även bevarandeprincip (antal dagar att behålla) för händelser för varje logg kategori och mått data som lagras i ett lagringskonto. Om en bevarandeprincip har angetts till noll lagras händelser för den logg kategorin på obestämd tid (dvs, oändligt). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip kommer att tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort
+Om du vill arkivera dina diagnostikloggar med någon av metoderna nedan kan du ange en **diagnostikinställningen** för en viss resurs. Diagnostikinställningen för en resurs definierar kategorier av loggar och mått data som skickas till ett mål (storage-konto, Händelsehubbar namnområde eller logganalys). Den definierar även bevarandeprincip (antal dagar att behålla) för händelser för varje logg kategori och mått data som lagras i ett lagringskonto. Om en bevarandeprincip har angetts till noll lagras händelser för den logg kategorin på obestämd tid (dvs, oändligt). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip kommer att tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar för loggar som ska tas bort från ditt lagringskonto. 
 
 > [!NOTE]
-> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -69,14 +70,14 @@ Den nya inställningen visas i din lista över inställningar för den här resu
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Resurs-ID |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställningen. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
 | Kategorier |Nej |Kommaavgränsad lista över loggen kategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
 | RetentionEnabled |Nej |Booleskt värde som anger om en bevarandeprincip är aktiverade på den här resursen. |
-| RetentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid. |
+| retentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Arkivera diagnostikloggar via Azure CLI 2.0
 
@@ -118,7 +119,7 @@ Till exempel kan en blobbnamnet vara:
 
 > insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 
-Varje PT1H.json blobb innehåller en JSON-blob av händelser som inträffade inom en timme som anges i blob-URL (till exempel h = 12). Under den aktuella timman läggs händelser till filen PT1H.json när de inträffar. Minuten (m = 00) är alltid 00, eftersom diagnostiska logghändelser delas upp i enskilda blobbar per timme.
+Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minuten (m = 00) är alltid 00, eftersom diagnostiska logghändelser delas upp i enskilda blobbar per timme.
 
 Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det här formatet:
 
@@ -149,7 +150,7 @@ Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det
 | --- | --- |
 | time |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
 | resourceId |Resurs-ID för resursen påverkas. |
-| operationName |Namnet på åtgärden. |
+| operationName |Åtgärdens namn. |
 | category |Loggen kategori för händelsen. |
 | properties |En uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver information om händelsen. |
 

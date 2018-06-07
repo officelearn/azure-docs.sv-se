@@ -1,28 +1,25 @@
 ---
-title: "Utöka U-SQL-skript med Python i Azure Data Lake Analytics | Microsoft Docs"
-description: "Lär dig hur du kör Python-kod i U-SQL-skript"
+title: Utöka U-SQL-skript med Python i Azure Data Lake Analytics
+description: Lär dig hur du kör Python-kod i U-SQL-skript med hjälp av Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625088"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Självstudier: Kom igång med att utöka U-SQL med Python
+# <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Utöka U-SQL-skript med Python-kod i Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar, kontrollera Python-tillägg installeras i ditt Azure Data Lake Analytics-konto.
 
@@ -104,7 +101,7 @@ För närvarande visas ett undantag i Python-kod som ett allmänt vertex fel. U-
 ### <a name="input-and-output-size-limitations"></a>Indata och utdata storleksbegränsningar
 Varje nod har en begränsad mängd minne som tilldelats den. Denna gräns är för närvarande 6 GB för en AU. Eftersom inkommande och utgående DataFrames måste finnas i minnet i Python-kod, får inte den totala storleken för ingående och utgående överskrida 6 GB.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Med hjälp av U-SQL-fönstrets funktioner för Azure Data Lake Analytics-jobb](data-lake-analytics-use-window-functions.md)

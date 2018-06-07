@@ -1,26 +1,25 @@
 ---
-title: Kvotgränserna för Azure Data Lake Analytics
-description: Lär dig hur du justerar och öka kvotgränserna i Azure Data Lake Analytics (ADLA)-konton.
+title: Justera kvoter och gränser i Azure Data Lake Analytics
+description: Lär dig hur du justerar och öka kvoter och gränser i Azure Data Lake Analytics (ADLA)-konton.
 services: data-lake-analytics
-keywords: Azure Data Lake Analytics
-documentationcenter: ''
-author: omidm1
-editor: omidm1
-ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.topic: article
-ms.workload: big-data
-ms.date: 03/15/2018
+author: omidm1
 ms.author: omidm
-ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+editor: jasonwhowell
+manager: kfile
+ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
+ms.topic: conceptual
+ms.date: 03/15/2018
+ms.openlocfilehash: e493c45ef49d370bbf7d007e039b4102aaa3cdf0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623986"
 ---
-# <a name="azure-data-lake-analytics-quota-limits"></a>Kvotgränserna för Azure Data Lake Analytics
+# <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Justera kvoter och gränser i Azure Data Lake Analytics
 
-Lär dig hur du justerar och öka kvotgränserna i Azure Data Lake Analytics (ADLA)-konton. Känna till dessa begränsningar kan hjälpa dig förstå din U-SQL-jobbet beteende. Alla kvotgränserna är mjuka, så du kan öka de maximala gränserna genom att kontakta Azure-supporten.
+Lär dig hur du justerar och öka kvoter och gränser i Azure Data Lake Analytics (ADLA)-konton. Känna till dessa begränsningar kan hjälpa dig förstå din U-SQL-jobbet beteende. Alla kvotgränserna är mjuka, så du kan öka de maximala gränserna genom att kontakta Azure-supporten.
 
 ## <a name="azure-subscriptions-limits"></a>Azure-prenumerationer gränser
 

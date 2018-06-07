@@ -10,13 +10,14 @@ ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e11100118f599b4fee6362625aff05c50bb07c87
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fd1b03d2ce0b814f453ae4d87a136f28479662d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624105"
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrera Data Lake Store med andra Azure-tjänster
 Azure Data Lake Store kan användas tillsammans med andra Azure-tjänster för att aktivera ett bredare spektrum av scenarier. I följande artikel Listar de tjänster som Data Lake Store kan integreras med.

@@ -1,19 +1,21 @@
 ---
-title: 'Azure Stack nätverk: Skillnader och överväganden'
+title: Azure-stacken nätverk skillnader och överväganden | Microsoft Docs
 description: Läs mer om skillnader och överväganden när du arbetar med nätverk i Azure-stacken.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606434"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Överväganden för Azure-stacken nätverk
 
@@ -21,7 +23,7 @@ ms.lasthandoff: 05/16/2018
 
 Azure Stack nätverk innehåller många av funktionerna som tillhandahålls av Azure-nätverk. Det finns dock några huvudsakliga skillnader som du bör känna till innan du distribuerar ett Azure Stack-nätverk.
 
-Den här artikeln innehåller en översikt över unika överväganden för Azure-stacken nätverks- och dess funktioner. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
+Den här artikeln innehåller en översikt över unika överväganden för Azure-stacken nätverk och dess funktioner. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
 
 ## <a name="cheat-sheet-networking-differences"></a>Cheat blad: nätverk skillnader
 

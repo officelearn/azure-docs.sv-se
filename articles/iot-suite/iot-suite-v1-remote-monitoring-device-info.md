@@ -1,12 +1,12 @@
 ---
-title: "Enhetens information metadata i fjärranslutna övervakningslösning | Microsoft Docs"
-description: "En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur."
-services: 
+title: Enhetens information metadata i fjärranslutna övervakningslösning | Microsoft Docs
+description: En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 5ada9413b1bb0923df96cfd93c3a0a875e80dd28
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636104"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Enhetens information metadata i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -129,6 +130,6 @@ Du kan utforska några av de andra funktionerna och funktioner i IoT Suite förk
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dynamic-telemetry]: iot-suite-v1-dynamic-telemetry.md
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md

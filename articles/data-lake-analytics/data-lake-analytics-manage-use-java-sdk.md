@@ -1,30 +1,28 @@
 ---
-title: "Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Java | Microsoft Docs"
-description: "Använd Azure Data Lake Analytics Java SDK för att utveckla program"
+title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Java
+description: Den här artikeln beskriver hur du använder Azure Java SDK för att skriva appar som hanterar Data Lake Analytics-jobb, datakällor och användare.
 services: data-lake-analytics
-documentationcenter: 
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624241"
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>Hantera Azure Data Lake Analytics med hjälp av Java SDK
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-I den här kursen kan du utveckla en Java-konsolprogram som utför vanliga åtgärder för Azure Data Lake.
+Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med Azure Java SDK. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Java Development Kit (JDK) 8** (med Java version 1.8).
 * **IntelliJ** eller en annan lämplig Java development environment. Anvisningarna i det här dokumentet använder IntelliJ
 * Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md). Reply URI och nyckel är tillgänglig från portalen när du har skapat programmet och nyckeln genereras.

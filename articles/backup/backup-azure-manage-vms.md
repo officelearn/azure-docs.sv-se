@@ -1,24 +1,19 @@
 ---
-title: "Hantera Resource Manager distribuerade virtuella datorsäkerhetskopieringar | Microsoft Docs"
-description: "Lär dig att hantera och övervaka säkerhetskopiering för Resource Manager distribuerade virtuella datorer"
+title: Hantera säkerhetskopiering för Resource Manager distribuerade virtuella datorer
+description: Lär dig att hantera och övervaka säkerhetskopiering för Resource Manager distribuerade virtuella datorer
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606349"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 
@@ -192,8 +187,8 @@ Att återuppta skydd för den virtuella datorn
 
     ![Har skyddat VM](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Ta bort säkerhetskopierade data
-Du kan ta bort den säkerhetskopiera informationen som är kopplad till en virtuell dator under den **stoppa säkerhetskopiering** jobb, eller när som helst efter säkerhetskopieringen jobbet har slutförts. Det kan även vara bra att vänta dagar eller veckor innan du tar bort återställningspunkterna. Till skillnad från återställa återställningspunkter, när du tar bort säkerhetskopierade data, kan du välja specifika återställningspunkterna för att ta bort. Om du väljer att ta bort dina säkerhetskopierade data kan du ta bort alla återställningspunkter som är associerad med objektet.
+## <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
+Du kan ta bort den säkerhetskopiera informationen som är kopplad till en virtuell dator under den **stoppa säkerhetskopiering** jobb, eller när som helst efter säkerhetskopieringen jobbet har slutförts. Det kan vara en fördel att vänta dagar eller veckor innan du tar bort återställningspunkterna. Till skillnad från återställning av återställningspunkter när du tar bort säkerhetskopierade data, kan du inte välja specifika återställningspunkter som ska tas bort. Om du väljer att ta bort säkerhetskopierade data, tar du bort alla återställningspunkter som är associerade med objektet.
 
 Följande procedur förutsätter att jobbet för den virtuella datorn har stoppats eller inaktiverats. När jobbet som är inaktiverat på **återuppta säkerhetskopiering** och **ta bort säkerhetskopiering** alternativ är tillgängliga i valvet objektet instrumentpanelen.
 

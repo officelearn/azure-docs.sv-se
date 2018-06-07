@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622320"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 
@@ -102,8 +103,8 @@ En **moln data movement enhet (dmu här)** är ett mått som representerar en en
 
 | Kopiera scenario | Standard DMUs bestäms av tjänsten |
 |:--- |:--- |
-| Kopiera data mellan filbaserade lagrar | Mellan 2 och 16 beroende på antalet och storleken på filerna. |
-| Alla andra copy-scenarier | 2 |
+| Kopiera data mellan filbaserade lagrar | Mellan 4 och 16 beroende på antalet och storleken på filerna. |
+| Alla andra copy-scenarier | 4 |
 
 Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 2, 4, 8, 16, 32. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
 
@@ -206,7 +207,7 @@ För närvarande kan du kopiera data mellan två lokala datalager med hjälp av 
 ### <a name="configuration"></a>Konfiguration
 Konfigurera den **enableStaging** inställning i en Kopieringsaktivitet för att ange om du vill att data ska samlas i Blob storage innan du läser in den i ett dataarkiv som mål. När du anger **enableStaging** att värdet är TRUE, ange ytterligare egenskaper som anges i nästa tabell. Om du inte har något du behöver skapa ett Azure Storage eller lagring delade åtkomst signatur-länkad tjänst för Förproduktion.
 
-| Egenskap | Beskrivning | Standardvärde | Krävs |
+| Egenskap  | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via en interimistisk mellanlagring store. |False |Nej |
 | **linkedServiceName** |Ange namnet på en [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) länkade tjänst som refererar till instansen av lagring som du använder som ett tillfälligt fristående Arkiv. <br/><br/> Du kan inte använda lagring med en signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |

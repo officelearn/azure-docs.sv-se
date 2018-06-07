@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640208"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du extrahera informationen från bilder i kognitiva Sök scenarier
 
@@ -44,7 +45,7 @@ Ange den **parsingMode** parameter till `json` (att indexera varje blob som ett 
 2000 bildpunkter normaliserade bilder maximala bredd och höjd Standardvärdet baseras på de maximala storlekar som stöds av den [OCR kunskaper](cognitive-search-skill-ocr.md) och [bild analys kunskaper](cognitive-search-skill-image-analysis.md). Om du ökar de maximala gränserna, misslyckas bearbetning på stora bilder.
 
 
-Du anger imageAction i din [indexeraren definition](ref-create-indexer.md) på följande sätt:
+Du anger imageAction i din [indexeraren definition](https://docs.microsoft.com/rest/api/searchservice/create-indexer) på följande sätt:
 
 ```json
 {
@@ -217,7 +218,7 @@ Om du vill omvandla normaliserade koordinater till den ursprungliga koordinatsys
 ```
 
 ## <a name="see-also"></a>Se också
-+ [Skapa indexerare (REST)](ref-create-indexer.md)
++ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analysera avbildningen kunskaper](cognitive-search-skill-image-analysis.md)
 + [OCR kunskaper](cognitive-search-skill-ocr.md)
 + [Text merge kunskaper](cognitive-search-skill-textmerger.md)

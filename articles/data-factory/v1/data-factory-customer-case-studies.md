@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 89e01eaddcc2ecb8408e0f8fbdee8d1019c69822
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8264f896b7c6cac8fc46616ab3ee579c5acb8b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621657"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - kundfallstudier
 Data Factory är en molnbaserad information management-tjänst som automatiserar rörelser och transformering av data. Kunder mellan många branscher använder Data Factory och andra Azure-tjänster för att skapa deras analytics pipelines och lösa sina affärsproblem.  Lär dig direkt från våra kunder hur och varför de använder Data Factory.
@@ -32,7 +33,7 @@ Data Factory är en molnbaserad information management-tjänst som automatiserar
 ## <a name="ziosk"></a>Ziosk
 [Vilka spel du vill gå med den burger? Ziosk kanske redan vet.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
-## <a name="alaska-airlines"></a>Alaska Airlines
+## <a name="alaska-airlines"></a>Alaska flygbolagen
 [Flygbolag använder surfplattor molntjänster kan erbjuda mer intressant relä underhållning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
 ## <a name="tacoma-public-schools"></a>Tacoma offentliga skolorna

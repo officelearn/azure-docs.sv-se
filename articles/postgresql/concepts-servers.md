@@ -1,6 +1,6 @@
 ---
-title: "Server begrepp i Azure-databas för PostgreSQL"
-description: "Den här artikeln innehåller information och riktlinjer för att konfigurera och hantera Azure-databas för PostgreSQL-servrar."
+title: Server begrepp i Azure-databas för PostgreSQL
+description: Den här artikeln innehåller information och riktlinjer för att konfigurera och hantera Azure-databas för PostgreSQL-servrar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640021"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database för PostgreSQL-servrar
+# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL-servrar
 Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Vad är en Azure-databas för PostgreSQL-servern?
@@ -45,13 +46,22 @@ Följande element att säkerställa säker åtkomst till databasen:
 | **TCP/IP** | Protokollet stöds via TCP/IP och över sockets för Unix-domän. |
 | **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till servern och dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Hur hanterar ett server?
+## <a name="managing-your-server"></a>Hantera servern
 Du kan hantera Azure-databas för PostgreSQL-servrar med hjälp av den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).
+
+När du skapar en server måste ställa du in autentiseringsuppgifterna för admin-användare. Administratören är den högsta privilegium användare som du har på servern. Det hör till rollen azure_pg_admin. Den här rollen har inte fullständiga superanvändare behörigheter. 
+
+Attributet PostgreSQL superanvändare har tilldelats azure_superuser som tillhör hanterade tjänsten. Du har inte åtkomst till den här rollen.
+
+En Azure-databas för PostgreSQL-servern har två standarddatabaser: 
+- **postgres** -en standarddatabas som du kan ansluta till en gång servern skapas.
+- **azure_maintenance** -databasen som används för att avgränsa de processer som tillhandahåller hanteringstjänster från användaråtgärder. Du har inte åtkomst till den här databasen.
+
 
 ## <a name="server-parameters"></a>Serverparametrar
 Serverparametrar PostgreSQL Kontrollera konfigurationen av servern. I Azure-databas för PostgreSQL listan över parametrar som kan visas och redigeras med hjälp av Azure-portalen eller Azure CLI. 
 
-Som en hanterad tjänst för Postgres konfigurerbara parametrarna i Azure-databas för PostgreSQL är en delmängd av parametrarna i en lokal instans av Postgres (Mer information om Postgres parametrar finns i [PostgreSQL dokumentationen](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Din Azure-databas för PostgreSQL server aktiveras med standardvärden för varje parameter skapas. Starta om parametrar som kräver en server eller superanvändare åtkomst för att ändringarna ska börja gälla kan inte konfigureras av användaren.
+Som en hanterad tjänst för Postgres konfigurerbara parametrarna i Azure-databas för PostgreSQL är en delmängd av parametrarna i en lokal instans av Postgres (Mer information om Postgres parametrar finns i [PostgreSQL dokumentationen](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Din Azure-databas för PostgreSQL server aktiveras med standardvärden för varje parameter skapas. Vissa parametrar som kräver en server startas om eller superanvändare åtkomst för att ändringarna ska börja gälla kan inte konfigureras av användaren.
 
 
 ## <a name="next-steps"></a>Nästa steg

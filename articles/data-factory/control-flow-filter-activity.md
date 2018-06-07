@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 40b409964d139641a06186114fb5e06c19971a36
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0ec6aa9d226231802cd753c7216e9988b85ae5bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617468"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktiviteten i Azure Data Factory
 Du kan använda en Filter-aktivitet i en pipeline för att tillämpa ett filteruttryck till en matris som indata. 
@@ -40,7 +41,7 @@ Du kan använda en Filter-aktivitet i en pipeline för att tillämpa ett filteru
 
 ## <a name="type-properties"></a>Typegenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den `Filter` aktivitet. | Sträng | Ja
 typ | Måste anges till **filter**. | Sträng | Ja

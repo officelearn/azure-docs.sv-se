@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622031"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory-Kopieringsaktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,14 +80,14 @@ Följande avsnitt innehåller information om de JSON-egenskaper som används fö
 ## <a name="db2-linked-service-properties"></a>DB2 länkade tjänstens egenskaper
 I följande tabell visas JSON-egenskaper som är specifika för en DB2 länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
-| **server** |Namnet på DB2-servern. |Ja |
+| **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
+| **Server** |Namnet på DB2-servern. |Ja |
 | **Databasen** |Namnet på DB2-databasen. |Ja |
-| **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
+| **Schemat** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
 | **AuthenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
-| **username** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
+| **Användarnamn** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
 | **Lösenord** |Lösenordet för användarkontot. |Nej |
 | **gatewayName** |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
@@ -95,7 +96,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. Den **typeProperties** avsnittet för en dataset av typen **RelationalTable**, som innehåller DB2-dataset har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsliga. |Nej (om den **frågan** -egenskapen för en kopia aktivitet av typen **RelationalSource** har angetts) |
 
@@ -104,7 +105,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera k
 
 För Kopieringsaktiviteten när källan är av typen **RelationalSource** (som omfattar DB2), följande egenskaper är tillgängliga i den **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **Frågan** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
@@ -311,42 +312,42 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Ogift |
-| Dubbel |Dubbel |
-| flyttal |Dubbel |
+| Real |Enkel |
+| dubbla |dubbla |
+| Flyttal |dubbla |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| numeriskt |Decimal |
+| Numerisk |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |Byte[] |
+| Xml |byte] |
 | Char |Sträng |
 | VarChar |Sträng |
 | LongVarChar |Sträng |
 | DB2DynArray |Sträng |
-| Binär |Byte[] |
-| VarBinary |Byte[] |
-| LongVarBinary |Byte[] |
+| Binär |byte] |
+| VarBinary |byte] |
+| LongVarBinary |byte] |
 | Bild |Sträng |
 | VarGraphic |Sträng |
 | LongVarGraphic |Sträng |
 | CLOB |Sträng |
-| Blob |Byte[] |
+| Blob |byte] |
 | DbClob |Sträng |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Ogift |
-| Dubbel |Dubbel |
-| flyttal |Dubbel |
+| Real |Enkel |
+| dubbla |dubbla |
+| Flyttal |dubbla |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| numeriskt |Decimal |
+| Numerisk |Decimal |
 | Date |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |Byte[] |
+| Xml |byte] |
 | Char |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner

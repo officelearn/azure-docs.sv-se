@@ -1,25 +1,22 @@
 ---
-title: "Lägg till Office 365 Outlook connector i dina Logic Apps | Microsoft Docs"
-description: "Skapa logikappar med Office 365-kopplingen för att aktivera samverkan med Office 365. Exempel: skapa, redigera och uppdatera kontakter och Kalender-objekt."
-services: 
-documentationcenter: 
+title: Ansluta till Office 365 Outlook - Azure Logikappar | Microsoft Docs
+description: 'Hantera e-post, kontakter och kalender med Office 365 REST API: er och Azure Logic Apps'
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d455f4d9081c1fd448a0d0524c209be305e203be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609978"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Kom igång med Office 365 Outlook connector
 Office 365 Outlook connector kan interaktion med Outlook i Office 365. Använd den här anslutningen för att skapa, redigera och uppdatera kontakter och kalenderobjekt, och också få, skicka och svara på e-post.

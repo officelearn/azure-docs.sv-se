@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 354aadd4377e054bc9c10561bbda8fc8009a98a7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640106"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -117,9 +118,9 @@ Det finns flera verktyg som arbetar tillsammans för att övervaka olika aspekte
 
 [Nätverk Watcher](../network-watcher/network-watcher-monitoring-overview.md) ger scenariobaserade övervakning och diagnostik för scenarier för olika nätverk i Azure. Data lagras i Azure mätvärden och diagnostikfunktionerna för ytterligare analys. Den fungerar med följande lösningar för att övervaka olika aspekter av nätverket.
 
-[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) är en molnbaserad nätverk övervakningslösning som övervakar anslutning över offentliga moln, Datacenter och lokala miljöer.
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) är en molnbaserad nätverk övervakningslösning som övervakar anslutning över offentliga moln, Datacenter och lokala miljöer.
 
-[Övervakare för ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) är en NPM-funktion som övervakar slutpunkt till slutpunkt-anslutning och prestanda över Azure ExpressRoute-kretsar.
+[Övervakare för ExpressRoute](../expressroute/how-to-npm.md) är en NPM-funktion som övervakar slutpunkt till slutpunkt-anslutning och prestanda över Azure ExpressRoute-kretsar.
 
 [DNS-Analytics](../log-analytics/log-analytics-dns.md) är en lösning som innehåller säkerhet, prestanda och åtgärder relaterade insights, baserat på DNS-servrarna.
 

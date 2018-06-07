@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c37ab34b241e59f70b6417036506dd132ce9aa43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6826d87e5613ce4892e9fd839c66ec26282ad188
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622133"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hive aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -73,12 +74,12 @@ HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipeline
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namnet på aktiviteten |Ja |
 | description |Text som beskriver aktiviteten är det som används för |Nej |
 | typ |HDinsightHive |Ja |
-| Indata |Indata som används av Hive-aktiviteten |Nej |
+| inmatningar |Indata som används av Hive-aktiviteten |Nej |
 | utdata |Utdata som produceras av aktiviteten Hive |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerat som en länkad tjänst i Data Factory |Ja |
 | Skriptet |Ange infogat för Hive-skript |Nej |

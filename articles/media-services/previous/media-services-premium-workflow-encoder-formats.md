@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 36d4e897952e7ecb0297cc8c0ba159f728fd1213
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68ba76ee18b3acc1c2825a217641c21a799132c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638596"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Arbetsflöde för Media Encoder Premium format och codec
 > [!NOTE]
@@ -53,6 +54,7 @@ I följande avsnitt visas codec och -filformat som har stöd för den här medie
 * AVC 8-/ 10-bitars, upp till 4:2:2, inklusive AVCIntra
 * Avid DNxHD (i MXF)
 * DVCPro/DVCProHD (i MXF)
+* HEVC/H.265, Main och Main 10 profil
 * JPEG2000
 * MPEG-2 (upp till 422 profil och högnivå, inklusive varianter, till exempel XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
 * MPEG-1

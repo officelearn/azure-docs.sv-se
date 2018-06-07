@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1bf030d7eaba5c8aa608c504f65c5ebf291eab3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619702"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,13 +38,13 @@ Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka ett A
 
 Följande tabell innehåller beskrivningar för allmänna egenskaper som används i JSON-definitionen. 
 
-| Egenskap                 | Beskrivning                              | Krävs                                 |
+| Egenskap                  | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **Typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
+| **typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | **Kontonamn**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Nej                                       |
-| **subscriptionId**       | Azure prenumerations-ID                    | Nej (om den inte anges data factory-prenumeration används). |
-| **resourceGroupName**    | Azure resursgruppens namn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nej                                       |
+| **prenumerations-ID**       | Azure prenumerations-ID                    | Nej (om den inte anges data factory-prenumeration används). |
+| **resourceGroupName**    | Azure-resursgruppsnamn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 Länkad Azure Data Lake Analytics-tjänsten kräver ett huvudnamn autentiseringen av tjänsten att ansluta till Azure Data Lake Analytics-tjänsten. Om du vill använda huvudnamn autentiseringen av tjänsten registrera en Programenhet i Azure Active Directory (Azure AD) och bevilja åtkomst till både Data Lake Analytics och Data Lake Store används. Detaljerade anvisningar finns i [tjänst-till-tjänst autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
@@ -56,7 +57,7 @@ Ge service principal behörighet till din Azure Data Lake Anatlyics med hjälp a
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap                 | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckeln.           | Ja      |
@@ -120,13 +121,13 @@ Följande JSON-fragment definierar en pipeline med en Data Lake Analytics U-SQL-
 
 I följande tabell beskrivs namn och beskrivningar av egenskaper som är specifika för den här aktiviteten. 
 
-| Egenskap            | Beskrivning                              | Krävs |
+| Egenskap             | Beskrivning                              | Krävs |
 | :------------------ | :--------------------------------------- | :------- |
 | namn                | Namnet på aktivitet i pipelinen     | Ja      |
 | description         | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                | För Data Lake Analytics U-SQL-aktivitet, aktivitetstypen är **DataLakeAnalyticsU SQL**. | Ja      |
 | linkedServiceName   | Länkade tjänsten Azure Data Lake Analytics. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel.  |Ja       |
-| scriptPath          | Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. | Ja      |
+| ScriptPath          | Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. | Ja      |
 | scriptLinkedService | Länkad tjänst som länkar den **Azure Data Lake Store** eller **Azure Storage** som innehåller skriptet till data factory | Ja      |
 | degreeOfParallelism | Maximalt antal noder samtidigt används för att köra jobbet. | Nej       |
 | prioritet            | Anger vilka jobb av alla köas ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej       |

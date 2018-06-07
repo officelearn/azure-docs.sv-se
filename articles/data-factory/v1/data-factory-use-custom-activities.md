@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 88095c7b3c31c5111f1e1d1e5b157403359053bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622821"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,7 +97,7 @@ Metoden som använder fyra parametrar:
 - **linkedServices**. Den här egenskapen är en enumerable lista över datalager som är länkade tjänster som refereras av in-/ utdata-datauppsättningar för aktiviteten.   
 - **datauppsättningar**. Den här egenskapen är en enumerable lista över datauppsättningar in-/ utdata för aktiviteten. Du kan använda den här parametern för att få platser och scheman som definierats av inkommande och utgående datauppsättningar.
 - **aktiviteten**. Denna egenskap representerar den aktuella aktiviteten. Den kan användas för att få åtkomst till utökade egenskaper som är associerade med den anpassade aktiviteten. Se [åtkomst utökade egenskaper](#access-extended-properties) mer information.
-- **logger**. Det här objektet kan du skriva debug kommentarer som yta i användarinloggning för pipeline.
+- **loggaren**. Det här objektet kan du skriva debug kommentarer som yta i användarinloggning för pipeline.
 
 Metoden returnerar en ordlista som kan användas för att kedja anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats ännu, så returneras en tom ordlista från metoden.  
 

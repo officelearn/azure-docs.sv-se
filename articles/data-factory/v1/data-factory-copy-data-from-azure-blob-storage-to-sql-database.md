@@ -1,25 +1,26 @@
 ---
-title: "Kopiera data från Blob Storage till SQL Database - Azure | Microsoft Docs"
-description: "Den här kursen visar hur du använder Kopieringsaktiviteten i ett Azure Data Factory-pipelinen för att kopiera data från Blob storage till SQL-databas."
+title: Kopiera data från Blob Storage till SQL Database - Azure | Microsoft Docs
+description: Den här kursen visar hur du använder Kopieringsaktiviteten i ett Azure Data Factory-pipelinen för att kopiera data från Blob storage till SQL-databas.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3135c8bf6316125a164c06630bc7607a92621b26
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6575a68423df97d7727401b79ded44545a43afca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621113"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL-databas med hjälp av Data Factory
 > [!div class="op_single_selector"]
@@ -95,7 +96,7 @@ Nu kan förbereda Azure blob storage och Azure SQL-databas för kursen genom att
     ```
 2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](http://storageexplorer.com/) till att skapa behållaren **adftutorial** och för att ladda upp filen **emp.txt** till behållaren.
 
-    ![Azure Storage Explorer. Kopiera data från Blob storage till SQL-databas](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+    ![Azure Lagringsutforskaren. Kopiera data från Blob storage till SQL-databas](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL Database.  
 
     ```SQL

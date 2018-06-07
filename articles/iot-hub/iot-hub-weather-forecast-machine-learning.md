@@ -1,25 +1,21 @@
 ---
 title: Väder prognos med data från IoT-hubb Azure Machine Learning | Microsoft Docs
 description: Använd Azure Machine Learning att förutsäga risken för regn baserat på din IoT-hubb som samlar in från en sensor temperatur- och fuktighetskonsekvens data.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: väder prognos machine learning
-ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637675"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognos använder sensordata från IoT-hubb i Azure Machine Learning
 
@@ -80,10 +76,10 @@ Du lär dig hur du använder Azure Machine Learning att väder prognos (risken f
 
 ### <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
+1. I [Azure Portal](https://portal.azure.com/) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 1. Ange följande information för jobbet.
 
-   **Jobbnamnet**: namnet på jobbet. Namnet måste vara globalt unikt.
+   **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt.
 
    **Resursgruppen**: använda samma resursgrupp som använder din IoT-hubb.
 
@@ -98,7 +94,7 @@ Du lär dig hur du använder Azure Machine Learning att väder prognos (risken f
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
 1. Öppna Stream Analytics-jobbet.
-1. Under **jobbet topologi**, klickar du på **indata**.
+1. Under **Jobbtopologi** klickar du på **Indata**.
 1. I den **indata** rutan klickar du på **Lägg till**, och ange följande information:
 
    **Ett inmatat alias**: unika alias för indata.
@@ -113,10 +109,10 @@ Du lär dig hur du använder Azure Machine Learning att väder prognos (risken f
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
-1. Under **jobbet topologi**, klickar du på **utdata**.
+1. Under **Jobbtopologi** klickar du på **Utdata**.
 1. I den **utdata** rutan klickar du på **Lägg till**, och ange följande information:
 
-   **Kolumnalias**: unika alias för utdata.
+   **Utdataalias**: Utdatas unika alias.
 
    **Sink**: Välj **Blob Storage**.
 
@@ -149,9 +145,9 @@ Du lär dig hur du använder Azure Machine Learning att väder prognos (risken f
 
 1. Klicka på **Skapa**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan i Stream Analytics-jobbet
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
-1. Under **jobbet topologi**, klickar du på **frågan**.
+1. Under **Jobbtopologi** klickar du på **Fråga**.
 1. Ersätt den befintliga koden med följande kod:
 
    ```sql
@@ -163,17 +159,17 @@ Du lär dig hur du använder Azure Machine Learning att väder prognos (risken f
    From machinelearning
    ```
 
-   Ersätt `[YourInputAlias]` med indata alias för jobbet.
+   Ersätt `[YourInputAlias]` med inmatat alias för jobbet.
 
    Ersätt `[YourOutputAlias]` med utdataalias för jobbet.
 
 1. Klicka på **Spara**.
 
-### <a name="run-the-stream-analytics-job"></a>Kör Stream Analytics-jobbet
+### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-Klicka på i Stream Analytics-jobbet **starta** > **nu** > **starta**. När jobbet har startar jobbets status har ändrats från **stoppad** till **kör**.
+I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
-![Kör Stream Analytics-jobbet](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Köra Stream Analytics-jobbet](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Använda Microsoft Azure Lagringsutforskaren för att visa väder prognos
 

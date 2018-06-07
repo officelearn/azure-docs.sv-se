@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639443"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -332,7 +333,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 * Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [detta](media-services-manage-live-encoder-enabled-channels.md#states) avsnitt.
 * Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Se till att ha den strömningsslutpunkt från vilken du vill strömma innehåll i den **kör** tillstånd.
-* Kodning förinställningen använder begreppet ”max bildfrekvens” på 30 fps. Om indata är 60fps 59.97i, inkommande ramarna är bort/de-interlaced till 30/29,97 fps. Om indata är 50fps/50i, är inkommande ramarna bort/de-interlaced till 25 bildrutor per sekund. Om indata är 25 bildrutor förblir utdata 25 bildrutor per sekund.
+* Kodning förinställningen använder begreppet ”max bildfrekvens” på 30 fps. Om indata är 60fps 59.94i, inkommande ramarna är bort/de-interlaced till 30/29,97 fps. Om indata är 50fps/50i, är inkommande ramarna bort/de-interlaced till 25 bildrutor per sekund. Om indata är 25 bildrutor förblir utdata 25 bildrutor per sekund.
 * Glöm inte att stoppa din kanaler när du är klar. Om du inte gör fortsätter fakturering.
 
 ## <a name="known-issues"></a>Kända problem

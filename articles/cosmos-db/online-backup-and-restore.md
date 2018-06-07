@@ -3,22 +3,19 @@ title: Online säkerhetskopiering och återställning med Azure Cosmos DB | Micr
 description: Lär dig mer om att utföra automatisk säkerhetskopiering och återställning i en Azure Cosmos-DB-databas.
 keywords: säkerhetskopiering och återställning, säkerhetskopiering online
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615044"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos-DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering tas utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan storage-tjänst och dessa säkerhetskopieringar replikeras globalt för återhämtning mot regionala katastrofer. Automatisk säkerhetskopiering är avsedda för situationer när du av misstag tar bort Cosmos-DB-behållaren och senare behöver återställa data eller en lösning för katastrofåterställning.  
@@ -28,7 +25,7 @@ Den här artikeln börjar med en snabb sammanfattning dataredundans och tillgän
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Hög tillgänglighet med Cosmos-DB - en sammanfattning
 Cosmos DB är avsedd att vara [globalt distribuerade](distribute-data-globally.md) – du kan skala genomströmning över flera Azure-regioner tillsammans med principen som drivs redundans och transparent flera API: er. Azure Cosmos-DB erbjuder [99,99% tillgänglighet SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla enskild region och konton för alla flera region med en avvikelse konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen. Alla skrivningar i Azure Cosmos DB genomförs varaktigt till lokala diskar genom att ett kvorum av replikerna i ett lokalt Datacenter innan bekräftades till klienten. Observera att den höga tillgängligheten för Cosmos DB förlitar sig på lokal lagring och inte är beroende av någon extern lagringstekniker. Dessutom, om ditt konto är kopplat till mer än en Azure-region, replikeras din skrivningar samt andra regioner. Om du vill skala din genomflöde och komma åt data på låg latens, kan du ha många läsa regioner som är kopplad till ditt konto som du vill. I varje skrivskyddade region sparas varaktigt (replikerade) data i en replik.  
 
-Enligt beskrivningen i följande diagram, en enskild Cosmos-DB-behållare är [vågrätt partitionerade](partition-data.md). En ”partition” markeras med en cirkel i följande diagram och varje partition görs högtillgänglig via en replik. Det här är den lokala distributionsplatsen i ett enda Azure-region (betecknas med X-axeln). Dessutom kan distribueras varje partition (med dess motsvarande replikuppsättningen) sedan globalt över flera regioner som är kopplad till ditt konto (till exempel i den här bilden till tre regioner – östra USA, västra USA och centrala Indien). ”Ange partitionen” är ett globalt distribuerade entitet som består av flera kopior av dina data i varje region (betecknas med Y-axeln). Du kan tilldela prioritet till de regioner som är kopplad till ditt konto och Cosmos DB att transparent redundansväxla till nästa område händelse av katastrof. Du kan också manuellt simulerar redundans för att testa tillgängligheten för slutpunkt till slutpunkt för ditt program.  
+Enligt beskrivningen i följande diagram, en enskild Cosmos-DB-behållare är [vågrätt partitionerade](partition-data.md). En ”partition” markeras med en cirkel i följande diagram och varje partition görs högtillgänglig via en replik. Det här är den lokala distributionsplatsen i ett enda Azure-region (betecknas med X-axeln). Dessutom kan distribueras varje partition (med dess motsvarande replikuppsättningen) sedan globalt över flera regioner som är kopplad till ditt konto (till exempel i den här bilden till tre regioner – östra USA, västra USA och centrala Indien). ”Ange partitionen” är ett globalt distribuerade entitet som består av flera kopior av dina data i varje region (betecknas med Y-axeln). Du kan tilldela prioritet till de regioner som är kopplad till ditt konto och transparent Cosmos DB växlar till nästa region händelse av katastrof. Du kan också manuellt simulerar redundans för att testa tillgängligheten för slutpunkt till slutpunkt för ditt program.  
 
 Följande bild illustrerar hög grad av redundans med Cosmos DB.
 
@@ -37,7 +34,7 @@ Följande bild illustrerar hög grad av redundans med Cosmos DB.
 ![Hög grad av redundans med Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Fullständig, automatisk, online-säkerhetskopieringar
-OJ, bort jag min behållare eller databasen! Med Cosmos DB, inte bara data, men säkerhetskopior av dina data görs också mycket överflödiga och flexibel till regionala katastrofer. Dessa säkerhetskopior av automatiserad tas för närvarande cirka var fjärde timme och lagras senaste 2 säkerhetskopior vid alla tidpunkter. Om data är skadad eller av misstag har släppts ta [kontakta Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar. 
+OJ, bort jag min behållare eller databasen! Med Cosmos DB, inte bara data, men säkerhetskopior av dina data görs också mycket överflödiga och flexibel till regionala katastrofer. Dessa säkerhetskopior av automatiserad tas för närvarande cirka var fjärde timme och lagras senaste två säkerhetskopior vid alla tidpunkter. Om data är skadad eller av misstag har släppts Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar. 
 
 Säkerhetskopieringar tas utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Cosmos DB tar säkerhetskopian i bakgrunden utan att använda din etablerade RUs eller påverka prestandan och utan att påverka tillgängligheten för din databas. 
 
@@ -57,7 +54,7 @@ För SQL-API, om du vill behålla dina egna ögonblicksbilder, du kan använda e
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Återställa en databas från en onlinesäkerhetskopiering
-Om du av misstag tar bort den databas eller en samling kan du [filen ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [kontakta Azure support](https://azure.microsoft.com/support/options/) att återställa data från den senaste automatiska säkerhetskopieringen. Om du behöver återställa databasen på grund av data felärende (inklusive fall där dokument i en samling tas bort), se [hantering datafel](#handling-data-corruption) som du måste vidta ytterligare åtgärder för att förhindra skadade data skriver över befintliga säkerhetskopior. För en specifik ögonblicksbild av säkerhetskopian ska återställas kräver Cosmos DB att data var tillgängliga under säkerhetskopiering för den ögonblicksbilden.
+Om du av misstag tar bort den databas eller en samling kan du [filen ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [kontakta Azure support](https://azure.microsoft.com/support/options/) att återställa data från den senaste automatiska säkerhetskopieringen. Azure-supporten är tillgänglig för valda planer endast som Standard, utvecklare kan stöd är inte tillgänglig med grundläggande planen. Mer information om olika supportplaner, se [Azure-supportplaner](https://azure.microsoft.com/en-us/support/plans/) sidan. Om du behöver återställa databasen på grund av data felärende (inklusive fall där dokument i en samling tas bort), se [hantering datafel](#handling-data-corruption) som du måste vidta ytterligare åtgärder för att förhindra skadade data skriver över befintliga säkerhetskopior. För en specifik ögonblicksbild av säkerhetskopian ska återställas kräver Cosmos DB att data var tillgängliga under säkerhetskopiering för den ögonblicksbilden.
 
 ## <a name="handling-data-corruption"></a>Hantering av skadade data
 Azure Cosmos-DB behåller senaste två säkerhetskopieringar för varje partition i databaskontot. Den här modellen fungerar bra när en behållare (insamling av dokument, diagram, tabell) eller en databas av misstag tas bort eftersom en av de senaste versionerna kan återställas. Men i fall när ett problem med skadade data kan innebära att användare, Azure Cosmos DB kan vara ovetande om skadade data, och det är möjligt att skadan kan ha över befintliga säkerhetskopior. Så snart skadade identifieras användaren bör ta bort behållaren skadat (tabell-samling/diagram) så att säkerhetskopieringar skyddas från att skrivas över med skadade data.

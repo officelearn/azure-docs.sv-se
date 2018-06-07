@@ -9,73 +9,82 @@ editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 56d69297e9b52144f1ff4880983da0128115f4a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e52cee2cb642de6e54270c597e6ed99f7162d0ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641466"
 ---
-# <a name="azure-security-services-and-technologies"></a>Säkerheten i Azure-tjänster och teknik
+# <a name="security-services-and-technologies-available-on-azure"></a>Säkerhetstjänster och tekniker som är tillgängliga på Azure
 
-I vår diskussioner med aktuella och framtida Azure-kunder uppmanas vi ofta ”har du en lista över alla relaterade tjänster och teknik som Azure har att erbjuda”?
+I vår diskussioner med aktuella och framtida Azure-kunder tillfrågas vi ofta ”har du en lista över alla säkerhetsrelaterade tjänster och teknik som Azure har att erbjuda”?
 
-När du utvärderar molnalternativ service provider, är det bra att ha den här informationen.
+När du utvärderar molnalternativ service provider är det bra att ha denna information. Därför har vi angett listan för att komma igång.
 
-Följande är vårt första arbete med att tillhandahålla en lista. Över tiden, den här listan ändrar och växer, precis som Azure. Kategoriseras i listan och listan över kategorier kommer också att växa med tiden. Se till att markera den här sidan med jämna mellanrum att hålla dig uppdaterad på vår säkerhetsrelaterade tjänster och teknik.
+Över tiden, den här listan ändrar och växer, precis som Azure. Se till att markera den här sidan med jämna mellanrum att hålla dig uppdaterad på vår säkerhetsrelaterade tjänster och teknik.
 
-## <a name="azure-security---general"></a>Azure Security - Allmänt
+## <a name="general-azure-security"></a>Allmänna Azure-säkerhet
+|Tjänst|Beskrivning|
+|--------|--------|
+|[Azure&nbsp;säkerhet&nbsp;Center](../security-center/security-center-intro.md)| En arbetsbelastning skydd molnlösning som möjliggör säkerhetshantering och avancerade skydd via hybrid cloud arbetsbelastningar.|
+|[Azure Key Vault](../key-vault/key-vault-overview.md)| En säker hemligheter store för lösenord, anslutningssträngar och annan information som du behöver för att hålla dina appar fungerar. |
+|[Log Analytics](../log-analytics/log-analytics-overview.md)|En övervakningstjänsten som samlar in telemetri och andra data och ger en språk och analytics frågemotor för att leverera åtgärdsinformation för dina appar och resurser. Kan användas fristående eller med andra tjänster, till exempel Security Center. |
+|[Utveckling och testning i Azure-labb](../devtest-lab/devtest-lab-overview.md)|En tjänst som hjälper utvecklare och testare att snabbt skapa miljöer i Azure under minimera skräp och kontrollera kostnaden.  |
 
-* [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
-* [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
-* [Azure Disk Encryption](azure-security-disk-encryption.md)
-* [Log Analytics](../log-analytics/log-analytics-overview.md)
-* [Utveckling och testning i Azure-labb](https://azure.microsoft.com/documentation/services/devtest-lab/)
+<!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
-## <a name="azure-storage-security"></a>Azure Storage-säkerhet
+## <a name="storage-security"></a>Lagringssäkerhet
+|Tjänst|Beskrivning|
+|------|--------|
+| [Azure&nbsp;lagring&nbsp;Service&nbsp;kryptering](../storage/common/storage-service-encryption.md)|En säkerhetsfunktion som automatiskt krypterar dina data i Azure-lagring.   |
+|[StorSimple krypterade Hybrid lagring](../storsimple/storsimple-ova-overview.md)| En integrerad lagringslösning som hanterar lagringsuppgifter mellan lokala enheter och lagring i Azure-molnet.|
+|[Azure klientsidan kryptering](../storage/common/storage-client-side-encryption.md)| En lösning för kryptering på klientsidan som krypterar data i klientprogram före överföringen till Azure Storage; dekrypterar också data när laddades ned. |
+| [Azure Storage signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto.  |
+|[Azure Lagringskontonycklar](../storage/common/storage-create-storage-account.md)| En kontroll åtkomstmetod för Azure storage som används för autentisering när lagringskontot används. |
+|[Azure-filresurser med SMB 3.0-kryptering](../storage/files/storage-files-introduction.md)|En säkerhetsteknik för nätverket som aktiverar automatisk nätverkskryptering för Server Message Block (SMB)-protokoll för fildelning. |
+|[Azure Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Loggning och mått av teknik för data i ditt lagringskonto. |
 
-* [Azure Storage Service-kryptering](../storage/common/storage-service-encryption.md)
-* [StorSimple krypterade Hybrid lagring](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Azure klientsidan kryptering](../storage/common/storage-client-side-encryption.md)
-* [Azure Storage signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Azure Lagringskontonycklar](../storage/common/storage-create-storage-account.md)
-* [Azure-filresurser med SMB 3.0-kryptering](../storage/files/storage-dotnet-how-to-use-files.md)
-* [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
+<!------>
 
-## <a name="azure-database-security"></a>Azure Database-säkerhet
+## <a name="database-security"></a>Databassäkerhet
+|Tjänst|Beskrivning|
+|------|--------|
+| [Azure&nbsp;SQL&nbsp;brandväggen](../sql-database/sql-database-firewall-configure.md)|Ett nätverk funktionen för åtkomstkontroll som skyddar mot nätverksbaserade attacker i databasen. |
+|[Azure&nbsp;SQL&nbsp;Cell&nbsp;nivå kryptering](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| En säkerhetsteknik för databasen som erbjuder kryptering på en detaljerad nivå.  |
+| [Azure&nbsp;SQL&nbsp;krypterad anslutning](../sql-database/sql-database-control-access.md)|För att erbjuda säkerhet, kontrollerar SQL Database åtkomsten med hjälp av brandväggsregler som begränsar anslutning efter IP-adress, autentiseringsmekanismer kräver att användare bevisar sin identitet och auktoriseringsmekanismer begränsar användare till specifika åtgärder och data. |
+| [Azure SQL alltid kryptering](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Skyddar känslig data, till exempel kreditkortsnummer eller nationella ID-nummer (till exempel USA personnummer), lagras i Azure SQL Database eller SQL Server-databaser.  |
+| [Azure&nbsp;SQL&nbsp;Transparent datakryptering](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| En databas säkerhetsfunktion som krypterar lagring av en hel databas. |
+| [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)|En databas granskning funktion som spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto.  |
 
-* [Azure SQL-brandvägg](../sql-database/sql-database-firewall-configure.md)
-* [Azure SQL Cell kryptering](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Kryptering för Azure SQL-anslutning](../sql-database/sql-database-control-access.md)
-* [Azure SQL-autentisering](../sql-database/sql-database-control-access.md)
-* [Azure SQL alltid kryptering](https://msdn.microsoft.com/library/mt163865.aspx)
-* [Kryptering på Azure SQL kolumn](https://msdn.microsoft.com/library/ms179331.aspx)
-* [Azure SQL Transparent datakryptering](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
-## <a name="azure-identity-and-access-management"></a>Azure identitets- och åtkomsthantering
-
-* [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
-* [Azure Active Directory](../active-directory/active-directory-whatis.md)
-* [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
-* [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
+## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
+|Tjänst|Beskrivning|
+|------|--------|
+| [Azure&nbsp;rollen&nbsp;baserat&nbsp;åtkomstkontroll](../active-directory/role-based-access-control-configure.md)|En funktionen för åtkomstkontroll som utformats för att ge användare åtkomst till de resurser som de som krävs för att få åtkomst till baserat på deras roller i organisationen.  |
+| [Azure Active Directory](../active-directory/active-directory-whatis.md)|En molnbaserad autentisering-databas som stöder en flera innehavare, molnbaserad katalog och flera identity management-tjänster i Azure.  |
+| [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|En identity management-tjänsten som möjliggör kontroll över hur kunder registrering, inloggning, och hantera sina profiler när du använder Azure-baserade program.   |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| En molnbaserad och hanterade version av Active Directory Domain Services. |
+| [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Etablera en säkerhet som använder flera olika former av autentisering och verifiering innan åtkomst till skyddad information. |
 
 ## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
+|Tjänst|Beskrivning|
+|------|--------|
+| [Azure&nbsp;säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)| En Azure-baserad tjänst som används för att säkerhetskopiera och återställa data i Azure-molnet. |
+| [Azure&nbsp;plats&nbsp;återställning](../site-recovery/site-recovery-overview.md)|En onlinetjänst som replikerar arbetsbelastningar som körs på fysiska och virtuella datorer (VM) från en primär plats till en sekundär plats för att aktivera återställning av tjänster efter ett fel. |
 
-* [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
-* [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
-
-## <a name="azure-networking"></a>Azure-nätverk
-
-* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
-* [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-* [Azure Programgateway](../application-gateway/application-gateway-introduction.md)
-* [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-* [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
-* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Azure Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
+## <a name="networking"></a>Nätverk
+|Tjänst|Beskrivning|
+|------|--------|
+| [Nätverket&nbsp;säkerhet&nbsp;grupper](../virtual-network/virtual-networks-nsg.md)| En nätverksbaserad åtkomstfunktion använda 5-tuppel för att tillåta eller neka beslut.  |
+| [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| En nätverksenhet som används som en VPN-slutpunkten för att tillåta anslutningar mellan lokala åtkomst till virtuella Azure-nätverk.  |
+| [Azure Programgateway](../application-gateway/application-gateway-introduction.md)|Ett avancerat webbprogram belastningsutjämnare som kan vidarebefordra baserat på URL: en och utföra SSL-avlastning. |
+| [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|En TCP/UDP-programmet Utjämning av nätverksbelastning. |
+| [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| En dedikerad WAN-länken mellan lokala nätverk och virtuella Azure-nätverk. |
+| [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| Globala DNS belastningsutjämning.|
+| [Azure Application Proxy](../active-directory/active-directory-application-proxy-get-started.md)| En autentisering frontend används för att säkra fjärråtkomst för webbprogram finns lokalt. |

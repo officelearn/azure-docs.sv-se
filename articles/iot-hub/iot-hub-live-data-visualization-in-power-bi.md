@@ -1,25 +1,21 @@
 ---
 title: Realtidsdata visualisering av sensordata från Azure IoT-hubb – Power BI | Microsoft Docs
 description: Använd Power BI om du vill visualisera temperatur- och fuktighetskonsekvens data som samlas in från sensorn och skickas till din Azure IoT-hubb.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: realtid datavisualisering, realtidsdata visualiseringen sensor datavisualisering
-ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 12ac0596d70ae068ba17713d1251fbf117824f67
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3c54fe635fe0f8988c321684a815e9896922587
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634353"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT-hubb med Power BI
 
@@ -52,10 +48,10 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 
 ### <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. I den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
+1. I [Azure Portal](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 1. Ange följande information för jobbet.
 
-   **Jobbnamnet**: namnet på jobbet. Namnet måste vara globalt unikt.
+   **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt.
 
    **Resursgruppen**: använda samma resursgrupp som använder din IoT-hubb.
 
@@ -70,7 +66,7 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
 1. Öppna Stream Analytics-jobbet.
-1. Under **jobbet topologi**, klickar du på **indata**.
+1. Under **Jobbtopologi** klickar du på **Indata**.
 1. I den **indata** rutan klickar du på **Lägg till**, och ange följande information:
 
    **Ett inmatat alias**: unika alias för indata.
@@ -84,10 +80,10 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
-1. Under **jobbet topologi**, klickar du på **utdata**.
+1. Under **Jobbtopologi** klickar du på **Utdata**.
 1. I den **utdata** rutan klickar du på **Lägg till**, och ange följande information:
 
-   **Kolumnalias**: unika alias för utdata.
+   **Utdataalias**: Utdatas unika alias.
 
    **Sink**: Välj **Power BI**.
 1. Klicka på **auktorisera**, och sedan logga in på ditt Power BI-konto.
@@ -102,18 +98,18 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 
    ![Lägga till utdata till Stream Analytics-jobbet i Azure](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan i Stream Analytics-jobbet
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
-1. Under **jobbet topologi**, klickar du på **frågan**.
-1. Ersätt `[YourInputAlias]` med indata alias för jobbet.
+1. Under **Jobbtopologi** klickar du på **Fråga**.
+1. Ersätt `[YourInputAlias]` med inmatat alias för jobbet.
 1. Ersätt `[YourOutputAlias]` med utdataalias för jobbet.
 1. Klicka på **Spara**.
 
    ![Lägg till en fråga till ett Stream Analytics-jobb i Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>Kör Stream Analytics-jobbet
+### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-Klicka på i Stream Analytics-jobbet **starta** > **nu** > **starta**. När jobbet har startar jobbets status har ändrats från **stoppad** till **kör**.
+I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
 ![Kör ett Stream Analytics-jobb i Azure](media/iot-hub-live-data-visualization-in-power-bi/6_run-stream-analytics-job-azure.png)
 
@@ -124,26 +120,26 @@ Klicka på i Stream Analytics-jobbet **starta** > **nu** > **starta**. När jobb
 1. Gå till arbetsytan grupp som du angav när du skapade utdata för Stream Analytics-jobbet.
 1. Klicka på **strömning datauppsättningar**.
 
-   Du bör se listan datamängden som du angav när du skapade utdata för Stream Analytics-jobbet.
-1. Under **åtgärder**, klicka på den första ikonen om du vill skapa en rapport.
+   Du bör se den listade datauppsättningen som du angav när du skapade utdata för Stream Analytics-jobbet.
+1. Under **ÅTGÄRDER** klickar du på den första ikonen för att skapa en rapport.
 
    ![Skapa en Microsoft Power BI-rapport](media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
-1. Skapa ett linjediagram för att visa realtid temperatur över tid.
+1. Skapa ett linjediagram för att visa realtidstemperatur över tid.
    1. På sidan Skapa, lägger du till ett linjediagram.
-   1. På den **fält** rutan Expandera tabellen som du angav när du skapade utdata för Stream Analytics-jobbet.
-   1. Dra **EventEnqueuedUtcTime** till **axel** på den **visualiseringar** fönstret.
-   1. Dra **temperatur** till **värden**.
+   1. I rutan **Fält** expanderar du tabellen du angav när du skapade utdata för Stream Analytics-jobbet.
+   1. Dra **EventEnqueuedUtcTime** till **Axel** i fönstret **Visualiseringar**.
+   1. Dra **temperatur** till **Värden**.
 
       Nu skapas ett linjediagram. X-axeln visar datum och tid i UTC-tidszonen. Y-axeln visar temperatur från sensorn.
 
       ![Lägg till ett linjediagram för temperatur i en Microsoft Power BI-rapport](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 
-1. Skapa en annan linjediagram om du vill visa realtid fuktighet över tid. Om du vill göra detta, följer du stegen ovan och placera **EventEnqueuedUtcTime** på x-axeln och **fuktighet** på y-axeln.
+1. Skapa ett annat linjediagram om du vill visa realtidsfuktighet över tid. Om du vill göra detta, följer du stegen ovan och placera **EventEnqueuedUtcTime** på x-axeln och **fuktighet** på y-axeln.
 
    ![Lägg till ett linjediagram för fuktighet i en Microsoft Power BI-rapport](media/iot-hub-live-data-visualization-in-power-bi/9_add-line-chart-for-humidity-to-power-bi-report-microsoft.png)
 
-1. Klicka på **spara** att spara rapporten.
+1. Klicka på **Spara** för att spara rapporten.
 1. Klicka på **filen** > **publicera till webben**.
 1. Klicka på **skapa inbäddningskod**, och klicka sedan på **publicera**.
 

@@ -9,15 +9,16 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621759"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -33,7 +34,7 @@ Följande tabell innehåller en lista över compute-miljöer som stöds av Data 
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQLServer](#sql-server-linked-service) | [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight-versioner som stöds i Data Factory
 Azure HDInsight har stöd för flera Hadoop-klusterversioner som du kan distribuera när som helst. Varje version som stöds skapar en viss version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter i distributionen. 
@@ -120,7 +121,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 > 
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap                     | Beskrivning                              | Krävs |
+| Egenskap                      | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Ange typegenskapen till **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antal arbetare och data som noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna förutom antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor. Ett 4-arbetsnoden klustret tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Mer information om Standard_D3 nivån finns [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
@@ -143,7 +144,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 Detaljerade konfiguration av HDInsight-kluster på begäran, kan du ange följande egenskaper:
 
-| Egenskap               | Beskrivning                              | Krävs |
+| Egenskap                | Beskrivning                              | Krävs |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar kärnor (core-site.xml) för HDInsight-kluster som ska skapas. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -196,7 +197,7 @@ Detaljerade konfiguration av HDInsight-kluster på begäran, kan du ange följan
 ### <a name="node-sizes"></a>Noden storlekar
 Om du vill ange storleken på head, data och ZooKeeper-noder, använder du följande egenskaper: 
 
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är **Standard_D3**. Mer information finns i [ange nod storlekar](#specify-node-sizes). | Nej       |
 | dataNodeSize      | Anger storleken på datanoden. Standardvärdet är **Standard_D3**. | Nej       |
@@ -214,7 +215,7 @@ Om du vill skapa D4 storlek huvudnoderna och arbetsnoder ange **Standard_D4** so
 
 Om du anger ett felaktigt värde för dessa egenskaper, kan du se följande meddelande:
 
-  Det gick inte att skapa kluster. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Message: 'PreClusterCreationValidationFailure'. 
+  Det gick inte att skapa kluster. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Meddelande: 'PreClusterCreationValidationFailure'. 
   
 Om du ser det här meddelandet, kontrollera att du använder cmdlet och API-namn från tabellen i [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md).  
 
@@ -256,7 +257,7 @@ Du kan skapa en länkad HDInsight-tjänst för att registrera ditt eget kluster 
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Ange typegenskapen till **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
@@ -304,7 +305,7 @@ Ett annat alternativ är att tillhandahålla den **batchUri** slutpunkt. Exempel
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Ange typegenskapen till **AzureBatch**. | Ja      |
 | Kontonamn       | Namnet på Batch-kontot.         | Ja      |
@@ -331,7 +332,7 @@ Du kan skapa en Machine Learning länkad tjänst för att registrera en Machine 
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap   | Beskrivning                              | Krävs |
+| Egenskap    | Beskrivning                              | Krävs |
 | ---------- | ---------------------------------------- | -------- |
 | Typ       | Ange typegenskapen till **AzureML**. | Ja      |
 | mlEndpoint | URL för batchbedömningsjobbet.                   | Ja      |
@@ -342,11 +343,11 @@ Du kan skapa en Data Lake Analytics länkad tjänst om du vill länka en beräkn
 
 I följande tabell beskrivs de allmänna egenskaper som används i JSON-definitionen:
 
-| Egenskap                 | Beskrivning                              | Krävs                                 |
+| Egenskap                  | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Ange typegenskapen till **AzureDataLakeAnalytics**. | Ja                                      |
 | Kontonamn          | Namnet på Data Lake Analytics-kontot.  | Ja                                      |
-| dataLakeAnalyticsUri | The Data Lake Analytics URI.           | Nej                                       |
+| dataLakeAnalyticsUri | Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | Azure prenumerations-ID.                    | Nej<br /><br />(Om den inte anges används data factory-prenumeration.) |
 | resourceGroupName    | Azure resursgruppens namn.                | Nej<br /><br /> (Om den inte anges används resursgruppen data factory.) |
 
@@ -361,7 +362,7 @@ Registrera en entitet för program i Azure Active Directory (AD Azure) om du vil
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap                 | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Programmets klient-ID.     | Ja      |
 | servicePrincipalKey | Programmets nyckel.           | Ja      |
@@ -389,10 +390,10 @@ Använd service principal autentisering genom att ange följande egenskaper:
 #### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 För autentisering av användare autentiseringsuppgifter för Data Lake Analytics, anger du följande egenskaper:
 
-| Egenskap          | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | Auktorisering | I Data Factory-redigeraren, Välj den **auktorisera** knappen. Ange autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL till den här egenskapen. | Ja      |
-| sessionId     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
+| Sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**
 ```json
@@ -454,8 +455,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 
 Mer information om Data Factory-klasser som används i det här kodexemplet finns:
-* [AzureDataLakeStoreLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
-* [AzureDataLakeAnalyticsLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+* [AzureDataLakeStoreLinkedService-klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+* [AzureDataLakeAnalyticsLinkedService-klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
 * [AuthorizationSessionGetResponse-klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)
 
 Lägg till en referens till Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll för den **WindowsFormsWebAuthenticationDialog** klass. 

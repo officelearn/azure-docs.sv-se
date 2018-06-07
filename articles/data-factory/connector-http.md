@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616951"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiera data från http-slutpunkten med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,11 +55,11 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för HTTP-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **HTTP-servern**. | Ja |
 | url | Bas-URL till webbservern | Ja |
-| enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering vid anslutning till HTTP-slutpunkten. | Nej, standard är SANT |
+| enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering vid anslutning till HTTP-slutpunkten. När HTTPS-server använder självsignerade certifikat kan du ange detta till false. | Nej, standard är SANT |
 | AuthenticationType | Anger vilken autentiseringstyp. Tillåtna värden är: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
@@ -66,9 +67,9 @@ Följande egenskaper stöds för HTTP-länkade tjänsten:
 
 Egenskapen ”authenticationType” **grundläggande**, **sammanfattad**, eller **Windows**, och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| userName | Användarnamnet för åtkomst av HTTP-slutpunkten. | Ja |
+| Användarnamn | Användarnamnet för åtkomst av HTTP-slutpunkten. | Ja |
 | lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
@@ -99,7 +100,7 @@ Egenskapen ”authenticationType” **grundläggande**, **sammanfattad**, eller 
 
 Om du vill använda ClientCertificate-autentisering för egenskapen ”authenticationType” **ClientCertificate**, och ange följande egenskaper tillsammans med de allmänna egenskaper som beskrivs i föregående avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på datorn Self-hosted integrering Runtime certifikatarkivet. Gäller endast när automatisk värdbaserade Integration Runtime har angetts i connectVia. | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
@@ -162,14 +163,14 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange egenskapen type för datauppsättningen till för att kopiera data från HTTP **HttpFile**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **HttpFile** | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används den URL som angavs i definitionen länkade tjänsten. | Nej |
 | requestMethod | HTTP-metod.<br/>Tillåtna värden är **hämta** (standard) eller **efter**. | Nej |
 | additionalHeaders | Ytterligare HTTP-begärans sidhuvud. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| format | Om du vill **hämta data från HTTP-slutpunkt som-är** utan parsning den och kopiera till en filbaserad lagring, hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa innehållet i HTTP-svar vid kopiering format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej |
+| Format | Om du vill **hämta data från HTTP-slutpunkt som-är** utan parsning den och kopiera till en filbaserad lagring, hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa innehållet i HTTP-svar vid kopiering format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 **Exempel 1: använder Get-metoden (standard)**
@@ -219,7 +220,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från HTTP, anger du källa i kopieringsaktiviteten till **HttpSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **HttpSource** | Ja |
 | httpRequestTimeout | Tidsgräns (TimeSpan) för HTTP-begäran att få svar. Tidsgränsen är det inget svar timeout inte att läsa svarsdata.<br/> Standardvärdet är: 00:01:40  | Nej |

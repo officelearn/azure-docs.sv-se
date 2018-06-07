@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 42c0c000ef661a1a256ebf49cd099a4cae2185c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5ce6b46a49e3fba8f60311ad82d3e1b77ad6d993
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619311"
 ---
 # <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Enterprise-versionen av körningsmiljön Azure SSIS-integrering
 
@@ -34,8 +35,8 @@ Vissa av dessa funktioner måste du installera ytterligare komponenter för att 
 | **Enterprise-funktioner** | **Beskrivningar** |
 |---|---|
 | CDC-komponenter | CDC källan, kontroll-aktivitet och delningslisten omvandling förinstallerat på Azure-SSIS IR Enterprise Edition. För att ansluta till Oracle, måste du också installera CDC Designer och tjänsten på en annan dator. |
-| Oracle-kopplingar | Oracle Anslutningshanteraren, källa och mål förinstallerat på Azure-SSIS IR Enterprise Edition. Du måste också installera drivrutinen anropa OCI (Oracle Interface) och om det behövs konfigurerar du Oracle Transport nätverket underlag (TNS) på Azure-SSIS-IR. Mer information finns i [anpassad installation för Azure-SSIS-integrering runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Teradata-kopplingar | Du måste installera Anslutningshanteraren Teradata, källa och mål samt API: et Teradata parallella transportören (TPT) och Teradata ODBC-drivrutinen på Azure-SSIS IR Enterprise Edition. Mer information finns i [anpassad installation för Azure-SSIS-integrering runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Oracle-kopplingar | Oracle Anslutningshanteraren, källa och mål förinstallerat på Azure-SSIS IR Enterprise Edition. Du måste också installera drivrutinen anropa OCI (Oracle Interface) och om det behövs konfigurerar du Oracle Transport nätverket underlag (TNS) på Azure-SSIS-IR. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Teradata-kopplingar | Du måste installera Anslutningshanteraren Teradata, källa och mål samt API: et Teradata parallella transportören (TPT) och Teradata ODBC-drivrutinen på Azure-SSIS IR Enterprise Edition. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | SAP BW-kopplingar | Anslutningshanteraren för SAP BW, källa och mål förinstallerat på Azure-SSIS IR Enterprise Edition. Du måste också installera drivrutinen för SAP BW på Azure-SSIS-IR. Dessa kopplingar stöd för SAP BW 7.0 eller tidigare versioner. För att ansluta till senare versioner av SAP BW eller andra SAP-produkter som du kan köpa och installera SAP-kopplingar från tredje parts ISV: er på Azure-SSIS-IR. Mer information om hur du installerar ytterligare komponenter finns [anpassad installation för Azure-SSIS-integrering runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Analysis Services-komponenter               | Data Mining Model utbildning mål, målet bearbetning av dimensionen Partition bearbetning mål samt Data Mining frågan Transformation, förinstallerat på Azure-SSIS IR Enterprise Edition. Alla dessa komponenter stöder SQL Server Analysis Services (SSAS), men endast Partition bearbetning målet har stöd för Azure Analysis Services (AAS). Om du vill ansluta till SSAS kan du också behöva [konfigurera Windows-autentiseringsuppgifter i SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Förutom de här komponenterna förinstallerat Analysis Services köra DDL aktiviteten och aktiviteten Analysis Services-bearbetning av Data Mining frågan uppgiften också på Azure-SSIS IR Standard/Enterprise Edition. |
 | Fuzzy gruppering och Fuzzy Lookup omvandlingar  | Omvandlingarna Fuzzy Grouping och Fuzzy Lookup är förinstallerat på Azure-SSIS IR Enterprise Edition. Komponenterna har stöd för både SQL Server och Azure SQL Database för att lagra referensdata. |

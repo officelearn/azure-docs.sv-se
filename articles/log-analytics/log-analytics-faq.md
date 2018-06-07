@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637182"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om logganalys i Microsoft Azure. Om du har några ytterligare frågor om logganalys går du till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och dina frågor. När en fråga är vanliga vi lägga till den i den här artikeln så att den finns snabbt och enkelt.
@@ -96,7 +97,7 @@ A. Nej, det går inte för närvarande att läsa från valfri tabeller eller beh
 
 A. Log Analytics-tjänsten är byggt på Azure. Log Analytics IP-adresser som tillhör den [IP-intervall i Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Eftersom tjänstdistributioner görs ändra faktiska IP-adresserna för logganalys-tjänsten. DNS-namn för att tillåta genom brandväggen finns dokumenterade i [systemkrav](log-analytics-concept-hybrid.md#prerequisites).
+Eftersom tjänstdistributioner görs ändra faktiska IP-adresserna för logganalys-tjänsten. DNS-namn för att tillåta genom brandväggen finns dokumenterade i [krav på](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>FRÅGOR. Jag använder ExpressRoute för att ansluta till Azure. Använder Mina logganalys trafik min ExpressRoute-anslutningen?
 

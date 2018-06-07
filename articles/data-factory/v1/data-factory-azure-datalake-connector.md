@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d83e71efa89746d7744893281ffe0ac1169fa08b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621480"
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Kopiera data till och från Data Lake Store med hjälp av Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +71,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **AzureDataLakeStore** länka dina Data Lake Store-data till din data factory. I följande tabell beskrivs JSON-element som är specifika för Data Lake Store länkade tjänster. Du kan välja mellan tjänstens huvudnamn och autentiseringsuppgifter för användarautentisering.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **typ** | Egenskapen type måste anges till **AzureDataLakeStore**. | Ja |
 | **dataLakeStoreUri** | Information om Azure Data Lake Store-konto. Den här informationen har någon av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
@@ -91,7 +92,7 @@ Om du vill använda huvudnamn autentiseringen av tjänsten registrera en entitet
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckeln. | Ja |
@@ -118,7 +119,7 @@ Använd service principal autentisering genom att ange följande egenskaper:
 ### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 Du kan också använda användarautentisering för autentiseringsuppgifter för att kopiera från eller till Data Lake Store genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i den Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL till den här egenskapen. | Ja |
 | **Sessions-ID** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
@@ -237,7 +238,7 @@ Om du vill ange en datamängd som representerar indata i ett Data Lake Store som
 
 Den **typeProperties** avsnittet för en dataset av typen **AzureDataLakeStore** innehåller följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **folderPath** |Sökvägen till behållaren och mappen i Data Lake Store. |Ja |
 | **fileName** |Namnet på filen i Azure Data Lake Store. Den **fileName** egenskapen är valfri och är skiftlägeskänsliga. <br/><br/>Om du anger **fileName**, aktiviteten (inklusive kopia) fungerar på filen.<br/><br/>När **fileName** anges kopia innehåller alla filer i **folderPath** i inkommande datamängden.<br/><br/>När **fileName** har inte angetts för en datamängd för utdata och **preserveHierarchy** har inte angetts i aktiviteten sink namnet på den genererade filen har formatet Data. _GUID_.txt'. Till exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nej |
@@ -281,14 +282,14 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnitt i en aktivitet
 
 **AzureDataLakeStoreSource** stöder följande egenskap i den **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **Rekursiva** |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT (standardvärdet), FALSKT |Nej |
 
 
 **AzureDataLakeStoreSink** stöder följande egenskaper på den **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **copyBehavior** |Anger beteendet kopia. |<b>PreserveHierarchy</b>: bevarar fil hierarkin i målmappen. Den relativa sökvägen för källfilen till källmappen är identisk med den relativa sökvägen för filen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen skapas i den första nivån i målmappen. Mål-filer som skapas med namn som genererats automatiskt.<br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil-eller blob anges är kopplade filnamnet det angivna namnet. Annars är filnamnet automatiskt genererade. |Nej |
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a572824225c0d83af698c4ff18d6b297b1ebb729
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620487"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +47,7 @@ Följande diagram visar relationerna mellan pipeline, aktivitet, datamängd och 
 
 ![Förhållandet mellan pipeline, aktivitet, dataset, länkade tjänster](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
-## <a name="dataset-json"></a>Dataset JSON
+## <a name="dataset-json"></a>Datauppsättnings-JSON
 En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 
 ```json
@@ -79,7 +80,7 @@ En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:   
 
-| Egenskap | Beskrivning | Krävs | Standard |
+| Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | namn |Namnet på datamängden. Se [Azure Data Factory - namngivningsregler](data-factory-naming-rules.md) för namngivningsregler. |Ja |Ej tillämpligt |
 | typ |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
@@ -192,12 +193,12 @@ structure:
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
 | Kultur |. NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| format |Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
+| Format |Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt.
 
@@ -235,7 +236,7 @@ Datamängd för utdata skapas varje timme i pipeline start- och sluttider. Det f
 
 Följande tabell beskriver egenskaper som kan användas i avsnittet tillgänglighet:
 
-| Egenskap | Beskrivning | Krävs | Standard |
+| Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för dataset sektorn produktion.<br/><br/><b>Stöd för frekvens</b>: minut, timma, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvens.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datamängden som segmenterat timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
@@ -321,7 +322,7 @@ Om ett DataSet-objekt produceras av Data Factory, bör det markeras som **extern
 | Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tid att fördröja kontrollera tillgängligheten för externa data för den angivna sektorn. Du kan till exempel fördröja en kontroll av varje timme med den här inställningen.<br/><br/>Inställningen gäller bara för den aktuella tiden.  Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startas valideringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Sektorer med **sektorn sluttid** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar måste anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). Ange 1:04:00:00 för 1 dag och 4 timmar. |Nej |0 |
-| retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
+| RetryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
 | retryTimeout |Tidsgräns för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen ha slutförts inom 10 minuter. Om det tar längre tid än 10 minuter att utföra valideringen timeout för och försök igen.<br/><br/>Om alla försök för timeout validering sektorn är markerat som **orsakade**. |Nej |00:10:00 (10 minuter) |
 | maximumRetry |Antal gånger för att kontrollera tillgänglighet för externa data. Det högsta tillåtna värdet är 10. |Nej |3 |
 

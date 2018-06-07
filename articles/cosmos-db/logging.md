@@ -2,23 +2,20 @@
 title: Azure DB Cosmos-diagnostikloggning | Microsoft Docs
 description: Använd den här självstudiekursen för att komma igång med Azure Cosmos DB loggning.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612222"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -47,9 +44,9 @@ Azure-aktivitetsloggen är en prenumerationslogg som ger inblick i prenumeration
 
 Aktivitetsloggen skiljer sig från diagnostikloggar. Aktivitetsloggen ger data om åtgärder på en resurs från utsidan (den _kontrollplan_). I Azure DB som Cosmos-kontexten skapa kontrollplan operations inkludera samling, lista nycklar, ta bort nycklar, lista databas och så vidare. Diagnostik orsakat av en resurs och ange information om handhavandet av den här resursen (den _dataplan_). Några exempel på plan dataåtgärder i diagnostiska loggen är Delete, Insert och ReadFeed.
 
-Aktivitetsloggar (kontroll plan operations) kan vara bättre till sin natur och kan innehålla den fullständiga e-postadressen anroparen anroparen IP-adress, resurs, åtgärdsnamn, TenantId och mer. Aktivitetsloggen innehåller flera [kategorier](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) av data. Fullständig information om scheman av dessa kategorier finns [Azure-aktivitetsloggen Händelseschema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Diagnostikloggar kan dock vara begränsad till sin natur som personligt identifierbar information data ofta tas bort från de här loggarna. Du kanske IP-adressen för anroparen, men den senaste octant tas bort.
+Aktivitetsloggar (kontroll plan operations) kan vara bättre till sin natur och kan innehålla den fullständiga e-postadressen anroparen anroparen IP-adress, resurs, åtgärdsnamn, TenantId och mer. Aktivitetsloggen innehåller flera [kategorier](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) av data. Fullständig information om scheman av dessa kategorier finns [Azure-aktivitetsloggen Händelseschema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Diagnostikloggar kan dock vara begränsad till sin natur som personliga data ofta tas bort från de här loggarna. Du kanske IP-adressen för anroparen, men den senaste octant tas bort.
 
-### <a name="azure-metrics"></a>Azure mått
+### <a name="azure-metrics"></a>Azure-mått
 
 [Azure mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) viktigaste typ av Azure telemetridata (kallas även _prestandaräknare_) som genereras av mest Azure-resurser. Mått kan du visa information om dataflöde, lagring, konsekvens, tillgänglighet och svarstiden för dina Azure DB som Cosmos-resurser. Mer information finns i [övervakning och felsökning med mått i Azure Cosmos DB](use-metrics.md).
 
@@ -445,7 +442,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **Tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **Resurs-ID** | **Resurs** | Azure DB som Cosmos-konto som loggar är aktiverad.|
 | **Kategori** | **Kategori** | För Azure Cosmos DB loggar **DataPlaneRequests** är bara tillgängliga värde. |
-| **OperationName** | **OperationName** | Namnet på åtgärden. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs-, ReadFeed, ta bort, ersätta, Execute, SqlQuery, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs-, ReadFeed, ta bort, ersätta, Execute, SqlQuery, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **ActivityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|

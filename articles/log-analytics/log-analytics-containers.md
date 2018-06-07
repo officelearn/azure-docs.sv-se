@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638355"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -528,7 +529,7 @@ Du kan kontrollera att lösningen behållaren övervakning är korrekt inställd
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
-Om du använder Windows-agenter installeras följande management pack på varje dator med en agent när du lägger till den här lösningen. Ingen konfiguration eller underhåll krävs för det management pack.
+Från OMS-portalen navigerar du till den *lösningar galleriet* och lägga till den **lösning för övervakning av behållare**. Om du använder Windows-agenter installeras följande management pack på varje dator med en agent när du lägger till den här lösningen. Ingen konfiguration eller underhåll krävs för det management pack.
 
 - *ContainerManagement.xxx* installerats i C:\Program Files\Microsoft övervakning Agent\Agent\Health State\Management servicepack
 
@@ -563,6 +564,7 @@ Etiketter som läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodL
 
 ## <a name="monitor-containers"></a>Övervaka behållare
 När du har aktiverat i logganalys-portalen lösningen i **behållare** panelen visar sammanfattningsinformation om behållaren-värdar och behållare som körs på värdar.
+
 
 ![Behållare sida vid sida](./media/log-analytics-containers/containers-title.png)
 

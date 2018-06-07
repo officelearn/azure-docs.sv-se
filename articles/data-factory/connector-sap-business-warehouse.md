@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 900f6a2a8e75cc43a3cfaa0c9e7b8d91f57ea20d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5af46017dede0deac92ff5a7f35f17e083590d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618614"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,13 +60,13 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för SAP Business Warehouse (BW) länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SapBw** | Ja |
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
 | systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: två siffror decimaltal representeras som en sträng. | Ja |
 | clientId | Klient-ID för klienten i systemets SAP-W.<br/>Tillåtna värdet: tre siffror decimaltal representeras som en sträng. | Ja |
-| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
 | lösenord | Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
 
@@ -124,7 +125,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP BW anger källa i kopieringsaktiviteten för **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Anger MDX-fråga för att läsa data från SAP BW-instans. | Ja |
@@ -170,20 +171,20 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 | ACCP | Int |
 | CHAR | Sträng |
 | CLNT | Sträng |
-| CURR | Decimal |
+| AKTUELLT DATUM | Decimal |
 | CUKY | Sträng |
 | DEC | Decimal |
-| FLTP | Dubbel |
+| FLTP | dubbla |
 | INT1 | Mottagna byte |
 | INT2 | Int16 |
 | INT4 | Int |
 | LANG | Sträng |
 | LCHR | Sträng |
-| LRAW | Byte[] |
+| LRAW | byte] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| RAW | Byte[] |
-| RAWSTRING | Byte[] |
+| RÅDATA | byte] |
+| RAWSTRING | byte] |
 | STRÄNG | Sträng |
 | ENHET | Sträng |
 | DATS | Sträng |

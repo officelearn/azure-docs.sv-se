@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f349158873acca9d50d4d6e5fdfa3539f26207fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640670"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
@@ -143,4 +144,4 @@ Exemplet ovan förutsätter att det finns ett normaliserat bilder fält. För at
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
 + [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
-+ [Skapa indexerare (REST)](ref-create-indexer.md)
++ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

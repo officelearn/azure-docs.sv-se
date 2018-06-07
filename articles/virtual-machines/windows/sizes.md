@@ -3,7 +3,7 @@ title: Windows VM-storlekar i Azure | Microsoft Docs
 description: Listar de olika storlekarna som är tillgängliga för Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 05/22/2018
 ms.author: jonbeck
-ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d4e1b56ba695f3305d1be023c4352a3c4bcfe27d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658357"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för virtuella Windows-datorer i Azure
 
@@ -28,12 +29,13 @@ Den här artikeln beskriver tillgängliga storlekar och alternativ för Azure vi
 
 | Typ                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Generellt syfte](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
+| [Generellt syfte](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2 | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
-| [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Förhållandet mellan hög minne till CPU. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Förhållandet mellan hög minne till CPU. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md)        | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer för tunga grafisk återgivning och redigera video samt modellen utbildning och inferencing (IV) med djup learning. Tillgängligt med en eller flera GPU-kort.       |
-| [Databehandling med höga prestanda](sizes-hpc.md) | H, A8-11          | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
+| [Databehandling med höga prestanda](sizes-hpc.md) | H       | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
+
 
 <br> 
 
@@ -43,21 +45,19 @@ Den här artikeln beskriver tillgängliga storlekar och alternativ för Azure vi
 - Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
 
 
-
 ## <a name="rest-api"></a>REST-API
 
 Information om hur du använder REST-API för att fråga storlekar på VM finns i:
 
-- [Visa en lista med tillgängliga virtuella datorstorlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)
-- [Visa en lista med tillgängliga virtuella datorstorlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)
-- [Visa en lista med tillgängliga virtuella datorstorlekar i en tillgänglighetsuppsättning](
-https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)
+- [Visa en lista med tillgängliga virtuella datorstorlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [Visa en lista med tillgängliga virtuella datorstorlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [Visa en lista med tillgängliga virtuella datorstorlekar i en tillgänglighetsuppsättning](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
 Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
 
-## <a name="benchmark-scores"></a>Benchmark-resultat
+## <a name="benchmark-scores"></a>Benchmark-poäng
 
 Lär dig mer om compute prestanda för virtuella Windows-datorer med hjälp av den [CoreMark benchmark poäng](compute-benchmark-scores.md).
 
@@ -70,6 +70,7 @@ Läs mer om de olika VM-storlekar som är tillgängliga:
 - [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
+- Kontrollera den [föregående generation](sizes-previous-gen.md) för Standard A Dv1 (D1 4 och D11 14 v1), och A8 A11 serien
 
 
 

@@ -9,23 +9,23 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212678"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642231"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Skapa ditt första tillståndskänsliga tillförlitliga C# Service Fabric-program
 
 Lär dig hur du distribuerar ditt första Azure Service Fabric-program för .NET i Windows på bara några minuter. När du är klar har du ett lokala kluster som körs med ett tillförlitligt tjänstprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha [konfigurerat utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Processen innefattar hur du installerar Service Fabric-SDK och Visual Studio 2017 eller 2015.
 
@@ -68,12 +68,15 @@ En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reli
 
 Nu när du har ett program ska du köra, distribuera och felsöka det genom att utföra följande steg.
 
-1. Tryck på F5 i Visual Studio för att distribuera programmet för felsökning.
+1. I Visual Studio väljer **F5** distribuera programmet för felsökning.  Klicka på **Ja** om ett meddelande visas där du ombeds att ge 'ServiceFabricAllowedUsers' gruppera Läs- och körbehörighet till katalogen Visual Studio-projekt.
 
     >[!NOTE]
     >Första gången du kör och distribuerar programmet lokalt, skapar Visual Studio ett lokalt kluster för felsökning. Det kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
-
-    När klustret är klart får du ett meddelande från programmet Local Cluster Manager i systemfältet som ingår i SDK.
+    
+     När klustret är klart får du ett meddelande från programmet Local Cluster Manager i systemfältet som ingår i SDK.
+     
+    >[!NOTE]
+    >Den här övningen reqires en 5 nod (vs. 1 nod) klustret. Du kan kontrollera detta på följande sätt: starta verktyget Service Fabric Explorer genom att högerklicka på den **Klusterhanterare för Service Fabric lokala** system fack-program och klicka sedan på **växla klustret läge**. Klicka på **5 nod** om 1 nod är markerat.
     
     ![Meddelande från Local Cluster Manager i systemfältet][4]
 
@@ -107,7 +110,7 @@ Nu när du har ett program ska du köra, distribuera och felsöka det genom att 
 
     ![Brytpunkt i den tillståndskänsliga tjänstens RunAsync-metod][7]
 
-7. Högerklicka på **Local Cluster Manager** i systemfältet och välj **Hantera lokalt kluster** för att starta verktyget Service Fabric Explorer.
+7. Starta verktyget Service Fabric Explorer genom att högerklicka på den **Klusterhanterare för Service Fabric lokala** fack systemprogram och sedan välja **hantera lokala klustret**.
 
     ![Starta Service Fabric Explorer från Local Cluster Manager][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Nu när du har ett program ska du köra, distribuera och felsöka det genom att 
 
     ![Stoppa en nod i Service Fabric Explorer][sfx-stop-node]
 
-    Under ett ögonblick kan du se din brytpunkt i Visual Studio när beräkningen som du gjorde på en nod smidigt växlar över till en annan.
+    Under ett ögonblick kan du se din brytpunkt i Visual Studio när beräkningen som du gjorde på en nod smidigt växlar över till en annan. Tryck på **F5** att fortsätta.
 
 9. Gå sedan tillbaka till loggboken Diagnostik och notera meddelandena. Räknaren har fortsatt att öka, även om händelserna egentligen kommer från en annan nod.
 

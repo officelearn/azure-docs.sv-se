@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651213"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till den virtuella StorSimple-matrisen
 
@@ -206,10 +207,9 @@ StorSimple använder deduplicering och data komprimering för att ytterligare mi
 
 StorSimple Dataskyddsfunktioner kan du skapa säkerhetskopieringar på begäran. Dessutom garanterar ett schema för säkerhetskopiering av standard att data säkerhetskopieras varje dag. Säkerhetskopieringar vidtas i form av inkrementell ögonblicksbilder som lagras i molnet. Ögonblicksbilder som registrerar bara ändringarna sedan den senaste säkerhetskopieringen kan skapas och återställs snabbt. Dessa ögonblicksbilder kan vara ytterst viktigt i katastrofåterställning eftersom de ersätta sekundära lagringssystem (till exempel bandsäkerhetskopiering) och att du kan återställa data till ditt datacenter eller till en annan om det behövs.
 
-## <a name="gdpr-compliance"></a>BNPR kompatibilitet
-[Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR innehåller många krav om hur du samlar in, lagra och använda dina personuppgifter. BNPR regler gäller för företag, myndigheter och andra organisationer som fungerar i Europa och samla in och analysera data som är knutna till Europa boende.
+## <a name="managing-personal-information"></a>Hantering av personlig information
 
-Enhetshanteraren StorSimple för virtuella serien är BNPR som är kompatibla. Det finns två viktiga instanser där personlig information samlas in och visas i tjänsten:
+Enhetshanteraren StorSimple för virtuella serie samlar in personlig information i två viktiga instanser:
  - Varning användarinställningar där e-postadresserna för användarna har konfigurerats. Den här informationen kan tas bort av administratören. 
  - Användare som kan komma åt data på resurserna. En lista över användare som har åtkomst till resursdata visas och kan exporteras. Den här listan tas också bort när resurserna tas bort.
 

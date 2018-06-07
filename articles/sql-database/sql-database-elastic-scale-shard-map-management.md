@@ -1,19 +1,20 @@
 ---
 title: Skala ut en Azure SQL database | Microsoft Docs
-description: "Hur du använder ShardMapManager, klientbibliotek för elastisk databas"
+description: Hur du använder ShardMapManager, klientbibliotek för elastisk databas
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647001"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med hanteraren Fragmentera karta
 Använda en Fragmentera kartan manager för att enkelt skala ut databaser i SQL Azure. Fragmentera kartan manager är en särskild databas som underhåller globala mappningsinformation om alla shards (databaser) i en Fragmentera. Metadata kan programmet att ansluta till rätt databas baserat på värdet för den **horisontell partitionering nyckeln**. Dessutom kan varje Fragmentera i uppsättningen innehåller mappningar som spårar lokala Fragmentera data (kallas även **shardlets**). 
@@ -52,8 +53,8 @@ Elastisk skalbarhet stöder följande typer som horisontell partitionering nyckl
 | GUID |UUID |
 | byte  |byte |
 | datetime | tidsstämpel |
-| TimeSpan | Varaktighet|
-| datetimeoffset |offsetdatetime |
+| TimeSpan | varaktighet|
+| DateTimeOffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lista och intervallet Fragmentera maps
 Fragmentera maps kan konstrueras med **listor över enskilda horisontell partitionering nyckeln värden**, eller så kan de vara konstruerade med **intervallen för horisontell partitionering nyckeln värden**. 

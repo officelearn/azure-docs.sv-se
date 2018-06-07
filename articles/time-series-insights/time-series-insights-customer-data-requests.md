@@ -1,15 +1,19 @@
 ---
 title: Kundinformation begära funktioner i Azure tid serien insikter
+description: Översikt över funktioner kundens data.
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
-ms.openlocfilehash: d99febdf88fdbf66c45c2ba9b0ab274db1fde185
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: time-series-insights
+ms.openlocfilehash: fbbb203d4ad0568a061043317e0444d2551d1aef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652142"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kunden datafunktioner för begäran
 

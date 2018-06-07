@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652254"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exempel på vanliga Stream Analytics användningsmönster fråga
 
@@ -117,7 +118,7 @@ Ange till exempel en sträng beskrivning för att se hur många bilar av samma s
         Make,
         TumblingWindow(second, 10)
 
-**Förklaring**: den **FALLET** satsen gör att vi kan ange en annan beräkning, baserat på vissa kriterier (i vårt fall antalet bilar i fönstret sammanställd).
+**Förklaring**: den **FALLET** uttryck jämför ett uttryck som en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör vehicle med ett antal 1 returnerade en annan sträng beskrivning än vehicle gör med ett antal än 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Frågan exempel: skicka data till flera utdata
 **Beskrivning**: skicka data till flera mål i utdata från ett enda utskriftsjobb.
@@ -173,7 +174,7 @@ Till exempel analysera data för en avisering om tröskelvärdesbaserad och arki
         [Count] >= 3
 
 **Förklaring**: den **INTO** satsen instruerar Stream Analytics som utdata att skriva data till från den här satsen.
-Den första frågan är en direktlagringsdisk data togs emot för utdata som vi namnet **ArchiveOutput**.
+Den första frågan är en direktlagringsdisk av alla data att utdata som heter **ArchiveOutput**.
 Den andra frågan har några enkla aggregering och filtrering och skickar resultatet till en underordnad aviseringar system.
 
 Observera att du kan också återanvända resultaten av cte (cte-referenser) (som **WITH** instruktioner) i flera instruktioner i utdata. Det här alternativet har den ytterligare fördelen med att öppna färre läsare till Indatakällan.
@@ -418,7 +419,7 @@ Till exempel 2 på varandra följande bilar från samma Se angett avgift väg in
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Frågan exempel: identifiera varaktigheten för ett villkor
 **Beskrivning**: ta reda på hur länge ett villkor inträffade.
-Anta exempelvis att en bugg resulterade i alla bilar med en felaktig vikt (ovanför 20 000 pund). Vi vill beräkningslängd programfelet.
+Anta exempelvis att en bugg resulterade i alla bilar med en felaktig vikt (ovanför 20 000 pund) och varaktighet för det programfelet måste beräknas.
 
 **Indata**:
 
@@ -506,8 +507,8 @@ Till exempel generera en händelse var femte sekund som rapporter nyligen upptä
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Frågan exempel: korrelera två typer av händelser inom samma dataström
-**Beskrivning**: ibland behöver vi generera varningar baserat på flera händelsetyper som uppstått i ett visst tidsintervall.
-Till exempel i IoT scenario för hem ugnar vill vi Generera en avisering när fläkt temperatur är mindre än 40 och högsta effekt under de senaste 3 minuterna var mindre än 10.
+**Beskrivning**: ibland aviseringar behöver genereras baserat på flera händelsetyper som uppstått i ett visst tidsintervall.
+Till exempel i en IoT-scenariot för hem ugnar måste en avisering skapas när fläkt är mindre än 40 och högsta effekt under de senaste 3 minuterna är mindre än 10.
 
 **Indata**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Förklaring**: den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensor för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan för att hitta värdet för power i fönstret senaste relevanta för den aktuella händelsen. Och sedan om villkoren är uppfyllda, en varning ska genereras för enheten.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Frågan exempel: bearbeta händelser som är oberoende av enheten klockan skeva (underströmmar)
+**Beskrivning**: händelser kan sen ankomst eller fel ordning på grund av att jämföra mellan händelse producenter klockan skeva mellan partitioner eller Nätverksfördröjningen. I följande exempel enhet klockan för TollID 2 är tio sekunder efter TollID 1 och enheten klockan för TollID 3 är fem sekunder efter TollID 1. 
+
+
+**Indata**:
+| LicensePlate | Kontrollera | Tid | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Utdata**:
+| TollID | Antal |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Lösningen**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Förklaring**: den [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) satsen tittar på varje enhet tidslinjen separat med underströmmar. Utdata-händelser för varje TollID skapas de beräknade, vilket innebär att händelserna som är i ordning med avseende på varje TollID i stället för som ordnas om som om alla enheter som fanns på samma klockan.
 
 
 ## <a name="get-help"></a>Få hjälp

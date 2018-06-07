@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643132"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Linux-operativsystem i Service Fabric-kluster
 
@@ -61,9 +62,9 @@ Korrigering orchestration appen består av följande delkomponenter:
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Se till att ditt virtuella Azure-datorer kör Ubuntu 16.04
 Vid tidpunkten för med det här dokumentet, Ubuntu 16.04 (`Xenial Xerus`) är den enda versionen som stöds.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Kontrollera att service fabric linux-kluster har version 6.1.x och senare
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Kontrollera att service fabric linux-kluster har version 6.2.x och senare
 
-Korrigering av orchestration app linux använder vissa funktioner i runtime som endast är tillgängliga i service fabric runtime-versionen 6.1.x och högre.
+Korrigering av orchestration app linux använder vissa funktioner i runtime som endast är tillgängliga i service fabric runtime-versionen 6.2.x och högre.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Aktivera tjänsten reparera manager (om det inte redan körs)
 
@@ -118,7 +119,9 @@ För Ubuntu [obevakad uppgraderingar](https://help.ubuntu.com/community/Automati
 
 ## <a name="download-the-app-package"></a>Hämta app-paket
 
-Hämta programmet från den [Hämta länk](https://go.microsoft.com/fwlink/?linkid=867984).
+Program tillsammans med installationsskript kan hämtas från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Program i sfpkg format kan hämtas från [sfpkg länk](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Detta är praktiskt för [Azure Resource Manager baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -319,6 +322,10 @@ FRÅGOR. **Efter uppgraderingen korrigering orchestration app vill rensa oanvän
 
 A. Ja, rensa händer som en del av stegen efter installationen. 
 
+FRÅGOR. **Korrigering Orchestration-app för korrigering min dev-kluster (kluster med en nod)?**
+
+A. Nej, korrigering orchestration appen kan inte användas för korrigering kluster med en nod. Den här begränsningen är utformad som [service fabric systemtjänster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) eller kund appar kommer att få driftstopp och reparera jobb för korrigering skulle därför aldrig godkännas av reparera manager.
+
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>En nod som inte kommer tillbaka på upp tillstånd
@@ -360,5 +367,8 @@ Korrigering orchestration appen samlar in telemetri om du vill spåra användnin
 ### <a name="version-010"></a>Version 0.1.0
 - Privata förhandsversionen
 
-### <a name="version-200-latest"></a>Version 2.0.0 (senaste)
+### <a name="version-200"></a>Version 2.0.0
 - Offentliga utgåvan
+
+### <a name="version-201-latest"></a>Version 2.0.1 (senaste)
+- Kompileras appen med senaste Service Fabric-SDK

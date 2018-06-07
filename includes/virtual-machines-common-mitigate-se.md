@@ -5,16 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34677367"
 ---
-**Dokumentera senaste uppdatering**: 3 April 3:00 PM PST.
+**Dokumentera senaste uppdatering**: 21 maj 2018 3:00 PM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  
 
@@ -23,6 +24,8 @@ Microsoft har distribuerats åtgärder för alla våra molntjänster. Den infras
 Dessutom Azure utökar användningen av [minne bevarar Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) när det är möjligt, pausa den virtuella datorn i upp till 30 sekunder medan värden uppdateras eller den virtuella datorn flyttas till en värd som redan uppdaterade.  Bevara Underhåll ytterligare minne mindre påverkan för kunden och eliminerar behovet av omstarter.  Azure kommer att använda dessa metoder när du gör systemomfattande uppdateringar till värden.
 
 > [!NOTE] 
+På den 21 maj 2018 Google projektet noll och Microsoft har meddelat om en ny underklass till spekulativ sida-kanal fjärrkörning kallas spekulativ Store kringgå. Ytterligare skydd på djupet åtgärder har distribuerats via Microsoft-molninfrastruktur som åtgärdar direkt spekulativ exekvering säkerhetsproblem. Mer information finns här: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
+>
 > Sen februari 2018 Intel Corporation publicerade uppdaterade [mikrokod Revision vägledning](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) statusen för sina mikrokod-versioner som förbättrar stabiliteten och skyddar mot de senaste säkerhetsrisker som visas av [Google projektet noll](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Ändringar gjorda av Azure [3 januari 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) påverkas inte av Intels mikrokod uppdateringen. Microsoft placera redan starkt åtgärder som skyddar Azure-kunder från andra virtuella Azure-datorer.  
 >
 > Intels mikrokod adresser variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) eller gren mål injection) att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 

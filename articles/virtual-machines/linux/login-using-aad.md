@@ -12,13 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652880"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en virtuell Linux-dator i Azure med Azure Active Directory-autentisering (förhandsgranskning)
 
@@ -50,7 +51,7 @@ Följande Linux-distributioner stöds för närvarande under förhandsgranskning
 
 Följande Azure-regioner stöds för närvarande under förhandsgranskning av den här funktionen:
 
-- Alla offentliga Azure-regioner
+- Alla globala Azure-regioner
 
 >[!IMPORTANT]
 > Om du vill använda den här förhandsgranskningsfunktionen bara distribuera en stöds Linux distro och i en Azure-regionen stöds. Funktionen stöds inte i Azure Government eller suveräna moln.
@@ -112,6 +113,9 @@ az role assignment create \
     --scope $vm
 ```
 
+> [!NOTE]
+> Om din AAD-domän och användarnamn för inloggningsdomänen inte matchar, måste du ange objekt-ID för ditt konto med den *--id för tilldelad objektet*, inte bara användarnamn för *--tilldelades*. Du kan hämta objekt-ID för ditt konto med [az ad användarlistan](/cli/azure/ad/user#az-ad-user-list).
+
 Se mer information om hur RBAC kan användas för att hantera åtkomst till resurserna i Azure-prenumeration med hjälp av den [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure-portalen](../../role-based-access-control/role-assignments-portal.md), eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Du kan också konfigurera Azure AD för att kräva multifaktorautentisering för en viss användare att logga in på den virtuella Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
@@ -167,6 +171,10 @@ Om du har slutfört steg autentisering i en webbläsare, kan du omedelbart ombed
 - Kontrollera att du har angett i Kommandotolken SSH-inloggning namn är korrekt. Ett skrivfel i namnet inloggning kan orsaka ett matchningsfel mellan inloggning namn som du angav i SSH-Kommandotolken och det konto som du har loggat in till Azure AD med. Till exempel du har angett *azuresuer@contoso.onmicrosoft.com* i stället för *azureuser@contoso.onmicrosoft.com*.
 - Om du har flera användarkonton kan du kontrollera att du inte anger ett annat användarkonto i webbläsarfönstret när du loggar in till Azure AD.
 - Linux är en skiftlägeskänslig operativsystem. Det är skillnad mellan 'Azureuser@contoso.onmicrosoft.com'och'azureuser@contoso.onmicrosoft.com', vilket kan orsaka ett matchningsfel. Se till att du anger UPN med rätt skiftlägeskänslighet SSH i Kommandotolken.
+
+## <a name="preview-feedback"></a>Förhandsgranska feedback
+
+Dela din feedback om den här preview funktion eller rapporten problem som används i den [Feedbackforum för Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Nästa steg
 

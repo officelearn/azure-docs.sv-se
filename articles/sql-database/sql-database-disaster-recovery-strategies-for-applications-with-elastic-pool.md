@@ -6,15 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645539"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategi för katastrofåterställning för program som använder SQL-databas elastiska pooler
 Vi har lärt dig att molntjänster inte felsäker och oåterkalleligt incidenter inträffa under åren. SQL-databasen innehåller flera funktioner som kan ge för Företagskontinuitet för programmet när dessa händelser inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöd för samma typ av funktioner för katastrofåterställning. Den här artikeln beskriver flera DR strategier för elastiska pooler som utnyttjar funktionerna för verksamhetskontinuitet dessa SQL-databas.
@@ -33,7 +34,7 @@ Den här artikeln beskrivs DR strategier som omfattar ett antal scenarier från 
 
 För att uppfylla kravet på enkelhet, distribuera alla klient-databaser i en elastisk pool i Azure-region önskat och distribuera management databaser som georeplikerad enskilda databaser. Använd geo-återställning som levereras utan extra kostnad för katastrofåterställning av klienter. För att säkerställa tillgängligheten för hantering av databaser, geo-replikering dem till en annan region med hjälp av en automatisk redundans gruppera (i förhandsvisning) (steg 1). Pågående kostnaden för katastrofberedskapskonfigurationen i det här scenariot är lika med den totala kostnaden för de sekundära databaserna. Den här konfigurationen visas i nästa diagrammet.
 
-![Figur 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
+![Bild 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 Om ett avbrott uppstår i den primära regionen kan illustreras återställningsstegen för att ta tillämpningsprogrammet online med nästa diagrammet.
 

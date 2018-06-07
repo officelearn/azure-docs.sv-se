@@ -4,7 +4,7 @@ description: Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656201"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -539,9 +540,10 @@ Vi får ganska vissa scenarier där du som kund vill flytta en distribuerad virt
 Om du använder hanterade diskar kan du migrera till Premium-lagring genom att:
 
 1. Frigör virtuell dator
-2. Om det behövs, ändra storlek på den virtuella datorn till en storlek som har stöd för Premium-lagring (till exempel DS eller GS)
-3. Ändra kontotyp hanterade disken till Premium (SSD)
-4. Starta den virtuella datorn
+1. Om det behövs, ändra storlek på den virtuella datorn till en storlek som har stöd för Premium-lagring (till exempel DS eller GS)
+1. Ändra kontotyp hanterade disken till Premium (SSD)
+1. Ändra cachelagring av datadiskar som rekommenderas i kapitel [cachelagring för virtuella datorer och datadiskar][dbms-guide-2.1]
+1. Starta den virtuella datorn
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Distribution av virtuella datorer för SAP i Azure
 Microsoft Azure tillhandahåller flera olika sätt att distribuera virtuella datorer och associerade diskar. Därmed är det viktigt att förstå skillnaderna eftersom förberedelser för de virtuella datorerna kan variera beroende på hur för distributionen. I allmänhet titta vi i scenarier som beskrivs i följande kapitel.

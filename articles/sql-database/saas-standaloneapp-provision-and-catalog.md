@@ -1,20 +1,21 @@
 ---
-title: "Självstudier för flera innehavare SaaS - Azure SQL Database | Microsoft Docs"
-description: "Etablera och katalogen nya klienter som använder fristående programmönster"
+title: Självstudier för flera innehavare SaaS - Azure SQL Database | Microsoft Docs
+description: Etablera och katalogen nya klienter som använder fristående programmönster
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: SaaS
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646161"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogen nya klienter som använder program per klient SaaS mönster
 
@@ -70,7 +71,7 @@ Lär dig hur du etablerar den katalog som används för att registrera alla klie
 * **Etablera katalogdatabasen** med en mall för hantering av Azure-resurs. Databasen har initierats genom att importera en bacpac-fil.  
 * **Registrera klienten exempelappar** som du har distribuerat tidigare.  Varje klient har registrerats med en nyckel som konstrueras utifrån en hash av innehavarens namn.  Innehavarens namn lagras också i en tabell, tillägg i katalogen.
 
-1. I PowerShell ISE öppnar *...\Learning Modules\UserConfig.psm* och uppdatera den  **\<användare\>**  värdet med värdet som du använde när du distribuerar tre exempelprogrammen.  **Spara filen**.  
+1. I PowerShell ISE öppnar *...\Learning Modules\UserConfig.psm* och uppdatera den **\<användare\>** värdet med värdet som du använde när du distribuerar tre exempelprogrammen.  **Spara filen**.  
 1. I PowerShell ISE öppnar *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* och ange **$Scenario = 1**. Distribuera klient-katalogen och registrera de fördefinierade innehavarna.
 
 1. Lägga till en brytpunkt genom att placera markören på raden, `& $PSScriptRoot\New-Catalog.ps1`, och tryck sedan på **F9**.
@@ -87,7 +88,7 @@ När skriptet har slutförts kommer att finnas i katalogen och alla exempel klie
 Nu titta på de resurser som du skapade.
 
 1. Öppna den [Azure-portalen](https://portal.azure.com/) och bläddra resursgrupper.  Öppna den **wingtip-sa-katalog -\<användare\>**  resurs gruppen och notera katalogserver och databasen.
-1. Öppna databasen i portalen och välj *Data explorer* i den vänstra menyn.  Klicka på kommandot inloggning och ange sedan lösenordet =  **P@ssword1** .
+1. Öppna databasen i portalen och välj *Data explorer* i den vänstra menyn.  Klicka på kommandot inloggning och ange sedan lösenordet = **P@ssword1**.
 
 
 1. Utforska schemat för den *tenantcatalog* databas.  

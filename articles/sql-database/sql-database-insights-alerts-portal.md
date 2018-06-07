@@ -6,14 +6,15 @@ manager: craigg
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: aamalvea
-ms.openlocfilehash: 0c543ccf1d2104a83f7610bc870334b460ec40fb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648031"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Använd Azure-portalen för att skapa aviseringar för Azure SQL Database och datalagret
 
@@ -36,7 +37,7 @@ Du kan konfigurera och få information om aviseringen regler med hjälp av
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en aviseringsregel på ett mått med Azure-portalen
 1. I den [portal](https://portal.azure.com/), leta upp den resurs som du är intresserad av övervakning och markera den.
@@ -82,7 +83,7 @@ När du har skapat en avisering, kan du välja den och:
 | SQL-databas | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL-databas | deadlock | Deadlocks | Totalt | 10 minuter |
+| SQL-databas | deadlock | Dödlägen | Totalt | 10 minuter |
 | SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Minnesintern OLTP lagring percent(Preview) | Medel | 5 minuter |
 | SQL-databas | workers_percent | Procentsatsen för arbetare | Medel | 5 minuter |

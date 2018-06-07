@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666018"
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -39,24 +40,24 @@ Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om d
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du skriva kod för enheten kan du distribuera din fjärråtkomst övervakning solution accelerator och lägger till en ny fysisk enhet i lösningen.
+Innan du skriva kod för enheten kan du distribuera din Fjärrövervaknings lösningsaccelerator och lägger till en ny fysisk enhet i lösningen.
 
-### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera din fjärråtkomst övervakning solution accelerator
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera din Fjärrövervaknings solution accelerator
 
-Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) lösningsaccelerator. Om du inte redan har etablerats fjärråtkomst övervakning solution accelerator i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [Fjärrövervaknings](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) lösningsaccelerator. Om du inte redan har etablerats Fjärrövervaknings solution accelerator i ditt Azure-konto, se [distribuera Fjärrövervaknings solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
-När distributionsprocessen för fjärranslutna övervakningslösning är klar klickar du på **starta** att öppna lösningen instrumentpanelen i webbläsaren.
+När distributionsprocessen för övervakning av fjärråtkomst-lösningen är klar klickar du på **starta** att öppna lösningen instrumentpanelen i webbläsaren.
 
 ![Infopanelen lösning](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägg till din enhet i fjärranslutna övervakningslösning
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägga till din enhet i Fjärrövervaknings-lösning
 
 > [!NOTE]
 > Om du redan har lagt till en enhet i din lösning kan du hoppa över det här steget. Nästa steg kräver dock anslutningssträngen enhet. Du kan hämta anslutningssträngen för en enhet från den [Azure-portalen](https://portal.azure.com) eller med hjälp av den [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
 
 För en enhet kan ansluta till solution accelerator, måste den identifiera sig för IoT-hubb med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller dessa autentiseringsuppgifter när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
 
-Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför följande steg på den **enheter** sida i lösningen:
+Lägg till en enhet i din lösning för övervakning av fjärråtkomst, utför följande steg på den **enheter** sida i lösningen:
 
 1. Välj **+ ny enhet**, och välj sedan **fysiska** som den **enhetstyp**:
 
@@ -70,7 +71,7 @@ Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför föl
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
-Du har nu lagt till en fysisk enhet till fjärråtkomst övervakning solution accelerator och anges sin enhet anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enheten anslutningssträngen för att ansluta till din lösning.
+Du har nu lagt till en fysisk enhet Fjärrövervaknings solution accelerator och anges sin enhet anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enheten anslutningssträngen för att ansluta till din lösning.
 
 Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En solution accelerator enhetsmodell anger följande om en enhet:
 

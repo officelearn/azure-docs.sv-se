@@ -1,22 +1,22 @@
 ---
 title: Hur du övervakar och minska begränsning i Azure tid serien insikter | Microsoft Docs
 description: Den här artikeln beskriver hur du övervaka, diagnostisera och minska problem med prestanda som orsakar svarstid och begränsning i Azure tid serien insikter.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a7720934870818a4e13d3d6b5d391d9bd3cddcd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653679"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minska begränsning för att minska svarstiden i Azure tid serien insikter
 När mängden inkommande data överskrider din miljö konfiguration, kan det uppstå fördröjningar eller begränsning i Azure tid serien insikter.
@@ -41,7 +41,7 @@ Aviseringar kan hjälpa dig att diagnostisera och åtgärda problem med nätverk
 
 2. Klicka på **Lägg till mått avisering**.  
 
-    ![Lägg till metrisk varning](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Lägg till mått varning](media/environment-mitigate-latency/add-metric-alert.png)
 
 Därifrån kan konfigurera du aviseringar via följande mått:
 

@@ -2,23 +2,18 @@
 title: Använda signaturer för delad åtkomst (SAS) i Azure Storage | Microsoft Docs
 description: Lär dig använda signaturer för delad åtkomst (SAS) för att delegera åtkomst till Azure Storage-resurser, inklusive blobbar, köer, tabeller och filer.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
 manager: jeconnoc
-editor: tysonn
-ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4f20e79ea6cb2d9d403f4451f595516d5c2e9373
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650748"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -62,7 +57,7 @@ Dessutom behöver du använda en SAS för att autentisera källobjektet i en kop
 ## <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
 Du kan skapa två typer av signaturer för delad åtkomst:
 
-* **Service SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [hur du skapar en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) för detaljerad information om hur du skapar service SAS-token.
+* **Tjänst-SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [hur du skapar en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) för detaljerad information om hur du skapar service SAS-token.
 * **Konto-SAS.** Den konto SAS delegater åtkomsten till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst-SAS finns också tillgängliga via en konto-SAS. Med konto-SAS, kan du dessutom delegera åtkomst till åtgärder som gäller för en viss tjänst som **Get/Set-tjänstegenskaper** och **få statistik för tjänsten**. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobbbehållare, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Se [hur du skapar ett konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx) för detaljerad information om hur du skapar kontot SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>Så här fungerar en signatur för delad åtkomst
@@ -85,8 +80,8 @@ Konto-SAS och tjänsten SAS-token innehåller några vanliga parametrar och tar 
 * **Starttid.** Det här är den tid då SAS börjar gälla. Starttiden för en signatur för delad åtkomst är valfritt. Om en starttid utelämnas är SAS gälla omedelbart. Starttiden måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z`.
 * **Förfallotiden.** Detta är den tid då SAS inte är giltig längre. Bästa praxis rekommenderar att du antingen ange en förfallotiden för en SAS eller koppla den till en princip för lagrade åtkomst. Förfallotid måste anges i UTC (Coordinated Universal Time) med en särskild UTC beteckning (”Z”), till exempel `1994-11-05T13:15:30Z` (se mer nedan).
 * **Behörigheter.** Behörigheter som anges på SAS visar vilka åtgärder som klienten kan utföra mot storage-resursen med hjälp av SAS. Tillgängliga behörigheter skiljer sig för en konto-SAS och en tjänst-SAS.
-* **IP.** En valfri parameter som anger en IP-adress eller ett intervall med IP-adresser utanför Azure (finns i avsnittet [konfiguration av Routning sessionstillstånd](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) för Express Route) som du vill acceptera förfrågningar från.
-* **Protocol.** En valfri parameter som anger vilket protokoll som tillåts för en begäran. Möjliga värden är HTTPS- och HTTP (`https,http`), vilket är standardvärdet eller HTTPS endast (`https`). Observera att HTTP endast inte är tillåtna värdet.
+* **IP-ADRESSEN.** En valfri parameter som anger en IP-adress eller ett intervall med IP-adresser utanför Azure (finns i avsnittet [konfiguration av Routning sessionstillstånd](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) för Express Route) som du vill acceptera förfrågningar från.
+* **Protokoll.** En valfri parameter som anger vilket protokoll som tillåts för en begäran. Möjliga värden är HTTPS- och HTTP (`https,http`), vilket är standardvärdet eller HTTPS endast (`https`). Observera att HTTP endast inte är tillåtna värdet.
 * **Signatur.** Signaturen har skapats från de andra parametrar som angetts som en del token och sedan krypteras. Den används för att autentisera SAS.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parametrar för en tjänst-SAS-token

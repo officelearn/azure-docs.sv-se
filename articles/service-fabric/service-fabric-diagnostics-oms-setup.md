@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642673"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Ställ in Log Analytics för ett kluster
 
@@ -50,7 +51,7 @@ Om du använder Windows, fortsätter du med följande steg för att ansluta OMS 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ansluta Log Analytics-arbetsyta i klustret 
 
-1. Arbetsytan måste vara anslutna till diagnostikdata från klustret. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Välj **ServiceFabric\<nameOfWorkspace\>**  och gå till dess översiktssidan. Därifrån kan du ändra inställningar för lösning, arbetsytan inställningar, och åtkomst till OMS-portalen.
+1. Arbetsytan måste vara anslutna till diagnostikdata från klustret. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Välj **ServiceFabric\<nameOfWorkspace\>**  och gå till dess översiktssidan. Därifrån kan ändra du inställningar för lösning, arbetsytan inställningar och åtkomst OMS-arbetsytan.
 
 2. På den vänstra navigeringsmenyn under **arbetsytan datakällor**väljer **lagringskonton loggar**.
 

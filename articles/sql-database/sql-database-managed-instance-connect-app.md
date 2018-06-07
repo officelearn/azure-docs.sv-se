@@ -5,17 +5,18 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647841"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ansluta programmet till hanterade Azure SQL Database-instans
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
 Idag finns det flera alternativ när du bestämmer hur och var du är värd för ditt program. 
  
@@ -39,10 +40,10 @@ Det finns två alternativ för att ansluta Vnet:
 - [Azure Virtual Network-peering](../virtual-network/virtual-network-peering-overview.md) 
 - VNet-till-VNet VPN-gateway ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-Alternativet peering är det bättre eftersom peering använder Microsoft stamnät network så ur anslutning finns det någon märkbar skillnad i fördröjning mellan virtuella datorer i peerkoppla VNet och i samma virtuella nätverk. VNet-peering är begränsad till nätverk i samma region, även om cross-region peering är aktiverat i vissa regioner som en förhandsgranskning.  
+Alternativet peering är det bättre eftersom peering använder Microsoft stamnät network så ur anslutning finns det någon märkbar skillnad i fördröjning mellan virtuella datorer i peerkoppla VNet och i samma virtuella nätverk. VNet-peering är begränsad till nätverk i samma region.  
  
 > [!IMPORTANT]
-> VNet peerkopplingar skapas mellan region får inte ha samma nivå av tillgänglighet och tillförlitlighet som peerkopplingar i en allmän tillgänglighet version. Peerkopplingar mellan virtuella nätverk kan ha begränsad kapacitet och kanske inte är tillgänglig i alla Azure-regioner. Den senaste meddelanden på tillgänglighet och status för den här funktionen, kontrollera den [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) uppdateringar. 
+> VNet-peering scenario för hanterade instansen är begränsad till nätverk i samma region på grund av att [begränsningarna för globala virtuella nätverk peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Ansluta ett lokalt program 
 

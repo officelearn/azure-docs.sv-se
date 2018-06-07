@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: Säkerhet och efterlevnad
       items:
-        - name: Hantera RBAC
+        - name: Använd rollbaserad åtkomstkontroll
           href: azure-stack-manage-permissions.md
-        - name: Skapa tjänsthuvudnamn
+        - name: Använda tjänstens huvudnamn
           href: Azure-stack-create-service-principals.md
     - name: Använda tjänster
       items:
@@ -107,7 +107,7 @@
           items:
             - name: Installera Azure Stack PowerShell
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Ladda ned verktyg
+            - name: Hämta Azure Stack-verktyg
               href: azure-stack-powershell-download.md
             - name: Konfigurera PowerShell – användare
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: 'Resursprovidern API: er som stöds av profiler'
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Använda principmodul
+        - name: Använda Azure Stack principmodul
           href: azure-stack-policy-module.md
         - name: Använd mallar
           items:
             - name: Mallöversikt
               href: azure-stack-arm-templates.md
-            - name: Utveckla mallar
+            - name: Överväganden för
               href: azure-stack-develop-templates.md
             - name: Kontrollera mallar
               href: azure-stack-validate-templates.md

@@ -6,23 +6,24 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 1079adb6ef8a206506823fdee6721aabbf857b4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cd3952e92d09eef7c8b6fd8ec9352bd54dde0389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649983"
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco använder Azure SQL Database till snabbt etablera och skala för tusentals hyresgäster i molnet
-![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
+![Umbraco-logotyp](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco är ett populärt öppen källkod innehållshantering system (CMS) som kan utföra allt från små kampanj eller broschyr platser för komplexa program för Fortune 500 företag och globala media webbplatser. 
 
 > ”Har vi helt en stor community med utvecklare som använder systemet, med mer än 100 000 utvecklare på våra forum och mer än 350 000 platser som är aktiv, kör Umbraco”.
 > 
-> — Morten Christensen, Technical Lead, Umbraco
+> – Morten Christensen, tekniska Lead Umbraco
 > 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
@@ -87,7 +88,7 @@ När utvecklare Umbraco ursprungligen bestämt dig för att flytta till en SaaS-
 
 > ”elastiska pooler är ett perfekt val för våra SaaS-erbjudande eftersom vi kan reglerar kapacitet upp eller ner efter behov. Det är enkelt att etablera, och med vår installationen vi hålla användning maximala ”.
 > 
-> — Morten Christensen, Technical Lead, Umbraco
+> – Morten Christensen, tekniska Lead Umbraco
 > 
 > 
 

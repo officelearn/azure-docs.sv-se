@@ -1,22 +1,22 @@
 ---
-title: "Utforska data med hjälp av Azure tid serien Insights explorer | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder Azure tid serien Insights explorer i webbläsaren för att snabbt visa en global big data och verifiera din IoT-miljö."
-services: time-series-insights
+title: Utforska data med hjälp av Azure tid serien Insights explorer | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure tid serien Insights explorer i webbläsaren för att snabbt visa en global big data och verifiera din IoT-miljö.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651785"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure tid serien insikter explorer
 Den här artikeln innehåller olika funktioner och alternativ som är tillgängliga i tid serien insikter explorer webbapp. Du kan använda tid serien insikter explorer i webbläsaren för att skapa visualiseringar av dina data.
@@ -60,7 +60,7 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |I     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander måste vara av samma typ eller vara NULL-konstanten.        |
-         |HAS     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
+         |HAR     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
 
       - **Exempel på frågor**
       

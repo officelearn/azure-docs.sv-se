@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 8a9b0b2c0541504954c4a1352180552cc650a31f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 715b6e55b053b3f999f3bd938c14d72a8e20ad1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646889"
 ---
 # <a name="data-dependent-routing"></a>Databeroende routning
 **Data beroende routning** är möjligheten att använda data i en fråga för att vidarebefordra begäran till en lämplig databas. Detta är ett grundläggande mönster när du arbetar med delat databaser. Kontexten för begäran kan även användas för routning av begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program som använder data beroende routning är begränsad åtkomst till en enskild databas per begäran. För Azure SQL Database elastisk verktyg för den här routning sker med hjälp av **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klass.

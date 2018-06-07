@@ -1,6 +1,6 @@
 ---
 title: Testa redundans till Azure i Azure Site Recovery | Microsoft Docs
-description: "Lär dig mer om att köra ett redundanstest från lokal till Azure med Azure Site Recovery-tjänsten."
+description: Lär dig mer om att köra ett redundanstest från lokal till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643659"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
 
@@ -40,7 +41,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 
     - Site Recovery-försök att skapa testa virtuella datorer i ett undernät med samma namn och samma IP-adress som angetts i den **beräknings- och nätverksinställningar** inställningarna för den virtuella datorn.
     - Om ett undernät med samma namn är inte tillgänglig i virtuella Azure-nätverket används för att testa redundans testet VM skapas i det första undernätet i alfabetisk ordning.
-    - Om samma IP-adress inte finns i undernätet, får den virtuella datorn en annan tillgänglig IP-adress i undernätet. [Läs mer](#creating-a-network-for-test-failover).
+    - Om samma IP-adress inte finns i undernätet, får den virtuella datorn en annan tillgänglig IP-adress i undernätet. [Läs mer](#create-a-network-for-test-failover).
 4. Om du växlar över till Azure och datakryptering är aktiverat i **krypteringsnyckeln**, Välj det certifikat som utfärdades när du har aktiverat kryptering under installationen av providern. Du kan ignorera det här steget kryptering är inte aktiverad.
 5. Följa redundansförloppet på den **jobb** fliken. Du ska kunna se testdatorn för replikering i Azure-portalen.
 6. Om du vill initiera en RDP-anslutning till Azure VM, behöver du [lägga till en offentlig IP-adress](https://aka.ms/addpublicip) för gränssnitt för den virtuella datorn. 
@@ -67,7 +68,7 @@ Redundanskluster kräver ett extra steg som tar vanligtvis cirka 8 till 10 minut
 * Hyper-V-dator skyddas som fysiska servrar
 * VMware VM där följande drivrutiner inte startdrivrutiner:
     * storvsc
-    * vmbus
+    * VMBus
     * storflt
     * Intelide
     * ATAPI

@@ -1,11 +1,11 @@
 ---
-title: "Hög tillgänglighet som konfigurerats med STONITH för SAP HANA i Azure (stora instanser) | Microsoft Docs"
-description: "Skapa hög tillgänglighet för SAP HANA i Azure (stora instanser) i SUSE med hjälp av STONITH"
+title: Hög tillgänglighet som konfigurerats med STONITH för SAP HANA i Azure (stora instanser) | Microsoft Docs
+description: Skapa hög tillgänglighet för SAP HANA i Azure (stora instanser) i SUSE med hjälp av STONITH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656371"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hög tillgänglighet som angetts i SUSE med hjälp av STONITH
 Det här dokumentet innehåller detaljerade steg-för-steg-instruktioner att ställa in en hög tillgänglighet på SUSE operativsystemet med STONITH enheten.
 
-**FRISKRIVNING:** *handboken härleds genom att testa uppsättningen in i miljön Microsoft HANA stora instanser som har fungerar. Eftersom Microsoft Service Management-teamet för HANA stora instanser inte har stöd för operativsystem, kan du behöver kontakta SUSE för felsökningsinformation eller information på operativsystemet lager. Microsoft service management-teamet konfigurera STONITH enhet och fullständigt stöder och kan vara inblandade för felsökning av problem med STONITH enheter.*
+**FRISKRIVNING:** *handboken härleds genom att testa inställningarna i Microsoft HANA stora instanser-miljön, som fungerar korrekt. Eftersom Microsoft Service Management-teamet för HANA stora instanser inte har stöd för operativsystem, kan du behöver kontakta SUSE för felsökningsinformation eller information på operativsystemet lager. Microsoft service management-teamet konfigurera STONITH enhet och fullständigt stöder och kan vara inblandade för felsökning av problem med STONITH enheter.*
 ## <a name="overview"></a>Översikt
 Om du vill konfigurera hög tillgänglighet via SUSE kluster uppfylla följande krav.
 ### <a name="pre-requisites"></a>Förutsättningar
@@ -32,10 +33,10 @@ Om du vill konfigurera hög tillgänglighet via SUSE kluster uppfylla följande 
 - HANA stora instanser servrarna är anslutna till SMT-servern för att hämta korrigeringsfiler-paket
 - Operativsystemet har senaste korrigeringsprogram som är installerade
 - NTP (tidsserver) har konfigurerats
-- Läs och förstå den senaste versionen av SUSE dokumentation om hög tillgänglighet ställa in
+- Läs och förstå den senaste versionen av SUSE dokumentationen på konfiguration för hög tillgänglighet
 
-### <a name="set-up-details"></a>Konfigurera information
-- I den här guiden används vi ställa in följande:
+### <a name="setup-details"></a>Konfigurera information
+Den här guiden använder följande inställningar:
 - Operativsystem: SLES 12 SP1 för SAP
 - HANA stora instanser: 2xS192 (fyra sockets, 2 TB)
 - HANA Version: HANA 2.0 SP1
@@ -50,7 +51,7 @@ När du ställer in HANA stora instanser med HSR kan du begära Microsoft Servic
 - Kundens namn (till exempel Microsoft)
 - SID - HANA System-ID (till exempel H11)
 
-När du har konfigurerat STONITH enheten Microsoft Service Management-teamet tillhandahåller du enhetsnamnet uppstår och IP-adress för iSCSI-lagring som du kan använda för att konfigurera STONITH har angetts. 
+När du har konfigurerat STONITH enheten tillhandahåller Microsoft Service Management-teamet du uppstår enhetens namn och IP-adress för iSCSI-lagring som du kan använda för att konfigurera STONITH installation. 
 
 Följande steg måste följas för att ställa in den slutpunkt till slutpunkt hög tillgänglighet med hjälp av STONITH:
 
@@ -64,7 +65,7 @@ Följande steg måste följas för att ställa in den slutpunkt till slutpunkt h
 8.  Testa redundans-processen
 
 ## <a name="1---identify-the-sbd-device"></a>1.   Identifiera uppstår-enhet
-Det här avsnittet beskrivs om att avgöra uppstår enheten för dina in när Microsoft service management-teamet har konfigurerats på STONITH. **Det här avsnittet gäller endast för den befintliga kunden**. Om du är en ny kund Microsoft service management-teamet tillhandahåller uppstår enhetsnamn för dig och du kan hoppa över det här avsnittet.
+Det här avsnittet beskrivs om att avgöra uppstår enheten för din konfiguration när Microsoft service management-teamet har konfigurerats på STONITH. **Det här avsnittet gäller endast för den befintliga kunden**. Om du är en ny kund Microsoft service management-teamet tillhandahåller uppstår enhetsnamn för dig och du kan hoppa över det här avsnittet.
 
 1.1 ändra */etc/iscsi/initiatorname.isci* till 
 ``` 
@@ -134,12 +135,12 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 skapa klustret
-3.2.1 du kan använda *ha kluster-initiering* kommando eller använda guiden yast2 för att skapa klustret. Vi använde i det här fallet yast2 guiden. Du utför det här steget **endast på den primära noden**.
+3.2.1 du kan använda *ha kluster-initiering* kommando eller använda guiden yast2 för att skapa klustret. I det här fallet används guiden yast2. Du utför det här steget **endast på den primära noden**.
 
 Följ yast2 > hög tillgänglighet > klustret ![yast-kontroll-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Klicka på **Avbryt** som vi redan har installerat halk2 paketet.
+Klicka på **Avbryt** eftersom halk2-paketet har redan installerats.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -163,7 +164,7 @@ Autentiseringen utförs med IP-adresser och Förproduktion shared nycklar i Csyn
 Klicka på **nästa**
 ![yast-kluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-Startar var inaktiverat i standardalternativet, ändra den till ”on” så pacemaker har startats på Start. Du kan göra valet baserat på din konfiguration krav.
+Startar var inaktiverat i standardalternativet, ändra den till ”on” så pacemaker har startats på Start. Du kan göra valet baserat på dina krav för installationen.
 Klicka på **nästa** och klusterkonfigurationen har slutförts.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Ställa in Softdog Watchdog
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Konfigurera egenskaper för klustret och resurser 
 Det här avsnittet beskrivs hur du konfigurerar klusterresurserna.
-Vi har konfigurerats i följande resurs, resten (vid behov) kan konfigureras genom att referera till SUSE HA guiden i det här exemplet. Utföra config i **en av noderna** endast. Gör på den primära noden.
+I det här exemplet, ställa in följande resurs kan resten konfigureras (vid behov) genom att referera till SUSE HA guiden. Utföra config i **en av noderna** endast. Gör på den primära noden.
 
 - Starttjänsten för kluster
 - STONITH enhet
@@ -342,7 +343,7 @@ Stoppa tjänsten pacemaker nu på **node2** och resurser som flyttas över till 
 
 
 ## <a name="9-troubleshooting"></a>9. Felsökning
-Det här avsnittet beskrivs några felscenarier, vilket kan uppstå under Ställ in. Du kan inte nödvändigtvis att få dessa problem.
+Det här avsnittet beskrivs några felscenarier, vilket kan uppstå under installationen. Du kan inte nödvändigtvis att få dessa problem.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Klusternoden inte online
 Om någon av noderna inte visas i hanteraren för redundanskluster, kan du prova följande om du vill ta den online.
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 visar inte grafisk vy
-Vi använde yast2 grafiska skärmen för att ställa in kluster med hög tillgänglighet i det här dokumentet. Om yast2 inte öppna med grafiska fönstret som visas och utlösa Qt fel, följer du anvisningarna som följande. Om det öppnas med grafiska fönster, kan du hoppa över stegen.
+Skärmen yast2 grafiska används för att ställa in kluster med hög tillgänglighet i det här dokumentet. Om yast2 inte öppna med grafiska fönstret som visas och utlösa Qt fel, följer du anvisningarna som följande. Om det öppnas med grafiska fönster, kan du hoppa över stegen.
 
 **Fel**
 
@@ -381,7 +382,7 @@ Vi använde yast2 grafiska skärmen för att ställa in kluster med hög tillgä
 
 Om yast2 inte öppnas med grafisk vy, följer du följande steg.
 
-Installera de nödvändiga paketen. Du måste vara inloggad som användare ”rot” och har SMT ställts in för att ladda ned och installera paket.
+Installera de paket som behövs. Du måste vara inloggad som användare ”rot” och har SMT ställts in för att ladda ned och installera paket.
 
 Installera paketen med yast > program > programvaruhantering > beroenden > alternativet ”installation rekommenderas paket...”. Följande skärmbild visar förväntade skärmar.
 >[!NOTE]
@@ -397,7 +398,7 @@ Granska ändringarna och tryck på OK
 
 Paketet installationen fortsätter ![yast utför installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-Klicka på nästa
+Klicka på Nästa
 
 ![yast-installation-report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
@@ -534,7 +535,7 @@ Efter den föregående korrigeringsfilen ska nod2 hämta läggas till i klustret
 ![hög tillgänglighet-kluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="10-general-documentation"></a>10. Allmän dokumentation
-Du hittar mer information om SUSE HA ställts in i följande artiklar: 
+Du hittar mer information om SUSE HA installation i följande artiklar: 
 
 - [Prestanda för SAP HANA SR optimerade Scenario](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
 - [Storage-baserade avgränsningar](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)

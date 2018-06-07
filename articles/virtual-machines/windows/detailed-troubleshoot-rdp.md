@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657833"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerad felsökning av problem med anslutning till fjärrskrivbord till virtuella Windows-datorer i Azure
 Den här artikeln innehåller detaljerad felsökning för att diagnostisera och åtgärda komplexa Remote Desktop-fel för Windows-baserade virtuella Azure-datorer.
@@ -112,7 +113,7 @@ Om du vill kontrollera om slutpunkten är orsaken till problemet genom att ta bo
 ## <a name="source-4-network-security-groups"></a>Datakällan 4: Nätverkssäkerhetsgrupper
 Nätverkssäkerhetsgrupper kan mer detaljerad kontroll över tillåtna inkommande och utgående trafik. Du kan skapa regler som utsträckning undernät och molntjänster i Azure-nätverk.
 
-Använd [Kontrollera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva regler för nätverkssäkerhetsgrupper för att säkerställa inkommande ”Tillåt” NSG regel finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [med effektiva säkerhetsregler för att felsöka VM infrastrukturtrafiken rör](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Använd [Kontrollera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska effektiva regler för nätverkssäkerhetsgrupper för att säkerställa inkommande ”Tillåt” NSG regel finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [med effektiva säkerhetsregler för att felsöka VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Källa 5: Windows-baserade Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

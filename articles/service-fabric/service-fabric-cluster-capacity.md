@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 170836fb4ef617e7bcbf2e15ebb644855a427b9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641891"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
@@ -37,60 +38,58 @@ Fastställ antalet nodtyper klustret måste börja med.  Varje nodtyp mappas til
 * Har ditt program flera tjänster och någon av dem måste vara public eller mot internet? Vanliga program innehåller en frontend-gateway-tjänst som tar emot indata från en klient och en eller flera backend-tjänster som kommunicerar med frontend-tjänster. Så i detta fall kan få du med minst två nodtyper.
 * Har dina tjänster (som utgör ditt program) annan infrastrukturbehov som större RAM-minne eller högre CPU-cykler? Låt oss anta att det program som du vill distribuera innehåller en frontend-tjänst och en backend tjänst. Frontend-tjänsten kan köras på mindre virtuella datorer (VM-storlekar som D2) som har portar är öppna till internet.  Backend-tjänsten, men beräkning intensiva och behöver köras på större virtuella datorer (med VM-storlekar som D4 D6, D15) som inte är internet riktas.
   
-  Även om du kan välja att publicera alla tjänster på en nodtyp i det här exemplet rekommenderar vi att du ska placera dem i ett kluster med två nodtyper.  Därmed kan varje nodtyp har olika egenskaper, till exempel internet-anslutning eller VM-storlek. Antal virtuella datorer kan skalas oberoende av varandra, samt.  
-* Eftersom du inte förutsäga framtida med fakta som du känner av och besluta om antalet nodtyper som dina program måste börja med. Du kan alltid lägga till eller ta bort nodtyper senare. Service Fabric-klustret måste ha minst en nodtyp.
+  Även om du kan välja att publicera alla tjänster på en nodtyp i det här exemplet rekommenderar vi att du ska placera dem i ett kluster med två nodtyper.  Detta gör att varje nodtyp har olika egenskaper, till exempel internet-anslutning eller VM-storlek. Antal virtuella datorer kan skalas oberoende av varandra, samt.  
+* Eftersom du inte förutsäga framtida med fakta som du känner till och Välj antalet nodtyper som dina program måste börja med. Du kan alltid lägga till eller ta bort nodtyper senare. Service Fabric-klustret måste ha minst en nodtyp.
 
 ## <a name="the-properties-of-each-node-type"></a>Egenskaperna för varje nodtyp
-Den **nodtypen** kan ses som motsvarande roller i molntjänster. Nodtyper definiera storlek på Virtuella datorer, hur många virtuella datorer och deras egenskaper. Varje nodtyp som definieras i Service Fabric-klustret har konfigurerats som en separat virtuella datorns skaluppsättning. Skaluppsättning för virtuell dator är en Azure compute-resurs som används för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp är en distinkta skala ange kan skalas upp eller ned separat, har olika uppsättningar av öppna portar och har olika kapacitetsdata.
+Den **nodtypen** kan ses som motsvarande roller i molntjänster. Nodtyper definiera storlek på Virtuella datorer, hur många virtuella datorer och deras egenskaper. Varje nodtyp som definieras i ett Service Fabric-kluster som mappar till en [virtuella datorns skaluppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
+Varje nodtyp är en distinkta skala ange kan skalas upp eller ned separat, har olika uppsättningar av öppna portar och har olika kapacitetsdata. Mer information om relationerna mellan nodtyper och skaluppsättningar för den virtuella datorn hur till RDP till någon av instanserna, hur du öppnar nya portarna och så vidare, se [nodtyper för Service Fabric-kluster](service-fabric-cluster-nodetypes.md).
 
-Läs [dokumentet](service-fabric-cluster-nodetypes.md) för mer information om relationen mellan nodtyper till virtuella datorer, hur till RDP till någon av instanserna, öppna nya portar osv.
-
-Klustret kan ha fler än en nodtyp, men den primära nodtypen (den första som du definierar i portalen) måste ha minst fem datorer för kluster som används för produktionsarbetsbelastningar (eller minst tre virtuella datorer för testkluster). Om du skapar klustret med en Resource Manager-mall, leta efter **är primära** attribut under noden typdefinition. Den primära nodtypen är nodtypen Service Fabric systemtjänster placering.  
+Ett Service Fabric-kluster kan bestå av fler än en nodtyp. I så fall består klustret av en primära nodtypen och en eller flera icke-primär nodtyper.
 
 ### <a name="primary-node-type"></a>Primära nodtypen
-Du måste välja en av dem vara primär för ett kluster med flera nodtyper. Här följer en primära nodtypen egenskaper:
 
-* Den **minsta storlek på virtuella datorer** för den primära noden typen bestäms av den **hållbarhetsnivån** du väljer. Standardvärdet för hållbarhet skiktet är Brons. Rulla nedåt för mer information om hållbarhetsnivån är och värdena kan det ta.  
-* Den **minsta antal virtuella datorer** för den primära noden typen bestäms av den **tillförlitlighetsnivån** du väljer. Standardvärdet för tillförlitlighetsnivån är Silver. Rulla nedåt för mer information om tillförlitlighetsnivån är och det kan ta värdena. 
+Service Fabric-systemtjänster (till exempel Klusterhanterare för tjänsten eller Image Store-tjänsten) placeras på den primära nodtypen. 
 
+![Skärmbild av ett kluster med två nodtyper][SystemServices]
 
-* Service Fabric-systemtjänster (till exempel Klusterhanterare för tjänsten eller Image Store-tjänsten) placeras på den primära nodtypen och så tillförlitlighet och hållbarhet i klustret bestäms av värdet för nivå av tillförlitlighet och hållbarhet nivå värdet som du väljer för den primära nodtypen.
+* Den **minsta storlek på virtuella datorer** för den primära noden typen bestäms av den **hållbarhetsnivån** du väljer. Standard-hållbarhetsnivån är Brons. Se [hållbarhet egenskaper i klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) för mer information.  
+* Den **minsta antal virtuella datorer** för den primära noden typen bestäms av den **tillförlitlighetsnivån** du väljer. Standard-tillförlitlighetsnivån är Silver. Se [tillförlitlighetsegenskaper i klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) för mer information.  
 
-![Skärmbild av ett kluster med två nodtyper ][SystemServices]
+Från Azure Resource Manager-mallen som den primära nodtypen har konfigurerats med den `isPrimary` attributet den [nod typdefinition](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Icke-primära nodtypen
-Det finns en primära nodtypen och resten av dem är icke-primär för ett kluster med flera nodtyper. Här är en icke-primära nodtypen egenskaper:
 
-* Den minimala storleken för virtuella datorer för den här nodtypen bestäms av hållbarhetsnivån som du väljer. Standardvärdet för hållbarhet skiktet är Brons. Rulla nedåt för mer information om hållbarhetsnivån är och värdena kan det ta.  
-* Det minsta antalet virtuella datorer för den här nodtypen kan vara en. Dock bör du välja det här talet baserat på antalet repliker av/programtjänsterna som körs i den här nodtypen. Antal virtuella datorer i en nodtyp kan ökas när du har distribuerat klustret.
+Det finns en primära nodtypen i ett kluster med flera nodtyper och resten är icke-primär.
+
+* Den **minsta storlek på virtuella datorer** för icke-primära noden typer bestäms av den **hållbarhetsnivån** du väljer. Standard-hållbarhetsnivån är Brons. Se [hållbarhet egenskaper i klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) för mer information.  
+* Den **minsta antal virtuella datorer** för icke-primära nodtyper är en. Dock bör du välja det här talet baserat på antalet repliker av program/tjänster som du vill köra i den här nodtypen. Antal virtuella datorer i en nodtyp kan ökas när du har distribuerat klustret.
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>Hållbarhet egenskaper i klustret
 Hållbarhetsnivån används för att ange att systemet de privilegier som din virtuella dator har med underliggande Azure-infrastrukturen. I den primära nodtypen kan den här behörigheten Service Fabric att pausa alla VM nivån infrastruktur förfrågningar (till exempel omstart VM, VM avbildningsåterställning eller VM-migrering) som påverkar kvorum kraven för systemtjänsterna och tillståndskänsliga tjänster. I icke-primär nodtyper kan den här behörigheten Service Fabric att pausa alla VM nivån infrastruktur förfrågningar (till exempel omstart VM, VM avbildningsåterställning och VM-migrering) som påverkar kvorum kraven för dina tillståndskänsliga tjänster.
 
-Den här behörigheten uttrycks i följande värden:
-
-* Guld - jobb kan pausas under en period på två timmar per UD infrastrukturen. Guld hållbarhet kan endast aktiveras fullständig nod VM SKU: er som L32s, GS5, G5, DS15_v2, D15_v2. I allmänhet VM-storlekar som anges i http://aka.ms/vmspecs som är markerade som ”instans är isolerad till maskinvara som är dedikerad till en kund” i noteringen, fullständig nod virtuella datorer.
-* Silver - infrastruktur-jobb kan pausas för en varaktighet på 10 minuter per UD och är tillgänglig på alla standard virtuella datorer med enkel kärna och senare.
-* Brons - inga privilegier. Detta är standardinställningen. Endast använda den här nivån av hållbarhet för nodtyper som kör _endast_ tillståndslösa arbetsbelastningar. 
+| Hållbarhetsnivån  | Minsta antal virtuella datorer | Stöds Virtuella SKU: er                                                                  | Uppdateringar som du gör i din VMSS                               | Uppdateringar och underhåll som initieras av Azure                                                              | 
+| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Guld             | 5                              | Fullständig nod-SKU: er som är dedikerad till en kund (till exempel L32s, GS5, G5, DS15_v2, D15_v2) | Kan vänta tills godkänts av Service Fabric-kluster | Kan pausas i 2 timmar per UD att ge ytterligare tid för repliker efter tidigare fel |
+| Silver           | 5                              | Virtuella datorer med enkel kärna eller högre                                                        | Kan vänta tills godkänts av Service Fabric-kluster | Det går inte att fördröjas några betydande tidsperiod                                                    |
+| Brons           | 1                              | Alla                                                                                | Kommer inte att skjutas upp med Service Fabric-kluster           | Det går inte att fördröjas några betydande tidsperiod                                                    |
 
 > [!WARNING]
-> Nodetypes får körs med Brons hållbarhet hämta _inga privilegier_. Det innebär att infrastrukturen jobb som påverkar din tillståndslösa arbetsbelastningar inte stoppats eller fördröjd. Det är möjligt att sådan jobb fortfarande kan påverka dina arbetsbelastningar, orsaka driftsavbrott eller andra problem. För alla slags produktion arbetsbelastning körs med minst Silver rekommenderas. Du måste behålla det minsta antalet fem noder för alla nodtyper som har en hållbarhet guld eller Silver. 
-> 
-
-Du får välja hållbarhet nivå för var och en av dina nodtyper. Du kan välja en nodtyp att ha en hållbarhet nivå av guld eller silver och den andra har Brons i samma kluster. **Du måste behålla det minsta antalet fem noder för alla nodtyper som har en hållbarhet guld eller silver**. 
+> Nodtyper som körs med Brons hållbarhet hämta _inga privilegier_. Det innebär att infrastrukturen jobb som påverkar din tillståndslösa arbetsbelastningar inte kommer stoppas eller fördröjda, vilket kan påverka din arbetsbelastning. Använd endast Brons för nodtyper som kör endast tillståndslösa arbetsbelastningar. Kör Silver eller ovan rekommenderas för produktionsarbetsbelastningar. 
+>
 
 **Fördelarna med att använda Silver eller guld hållbarhet nivåer**
  
-- Minskar antalet steg i en åtgärd för skalan (det vill säga nodinaktiveringen och ta bort ServiceFabricNodeState anropas automatiskt)
+- Minskar antalet steg i en åtgärd för skalan (det vill säga nodinaktiveringen och ta bort ServiceFabricNodeState anropas automatiskt).
 - Minskar risken för dataförluster på grund av en kund-initierad lokalt VM SKU ändring eller de Azure-infrastrukturen åtgärder.
-     
+
 **Nackdelarna med att använda Silver eller guld hållbarhet nivåer**
  
-- Distributioner så att virtuella datorns skaluppsättning och andra relaterade Azure-resurser) kan vara fördröjd, kan tar för lång tid eller blockeras helt efter problem i klustret eller på infrastrukturnivå. 
+- Distributioner till din virtuella skala anges och andra relaterade Azure-resurser kan vara fördröjd kan tar för lång tid eller blockeras helt efter problem i klustret eller på infrastrukturnivå. 
 - Ökar antalet [replik Livscykelhändelser](service-fabric-reliable-services-lifecycle.md) (till exempel primära växlingar) på grund av automatiserad nod avaktiveringar under Azure-infrastrukturen.
 - Tar noder out-of-service för tidsperioder när programuppdateringar för Azure-plattformen eller maskinvara Underhåll aktiviteter som utförs. Du kan se noder med status inaktiverar/inaktiverad under dessa aktiviteter. Detta minskar kapaciteten på klustret tillfälligt, men inte ska påverka tillgängligheten för ditt kluster eller ett program.
 
-### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Rekommendationer för när du ska använda Silver eller guld hållbarhet nivåer
+### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>Rekommendationer för när du ska använda Silver eller guld hållbarhet nivåer
 
 Använda Silver eller guld hållbarhet för alla nodtyper som värd för tillståndskänsliga tjänster som du förväntar dig att skala i (minska VM-instanser) ofta, och du föredrar att distributionsåtgärder förskjutas och kapacitet minskas för att förenkla dessa skala i åtgärder. Skalbar-scenarier (lägga till instanser för virtuella datorer) play inte till valet av hållbarhetsnivån, endast skala-modulen utför.
 
@@ -110,10 +109,11 @@ Använda Silver eller guld hållbarhet för alla nodtyper som värd för tillst�
     > Ändrar storlek på VM-SKU för skalningsuppsättningar i virtuella datorer inte körs på minst Silver hållbarhet inte rekommenderas. Ändra storlek på VM-SKU är skadliga data på plats-infrastruktur. Det är möjligt att det kan leda till dataförlust tillståndskänsliga tjänster eller orsaka andra oförutsedda driftsproblem, även för tillståndslösa arbetsbelastningar utan någon möjlighet att fördröja eller övervaka den här ändringen. 
     > 
     
-- Det minsta antalet fem noder för alla skaluppsättning för virtuell dator som har hållbarhet guld eller Silver aktiverad för underhåll
+- Underhålla det minsta antalet fem noder för alla skaluppsättning för virtuell dator som har hållbarhet nivå av guld eller Silver aktiverad.
+- Varje VM-skala med hållbarhet nivå Silver eller guld måste mappas till en egen nodtyp i Service Fabric-klustret. Mappa flera Virtuella förhindrar skaluppsättningar till en enda nod samordning mellan Service Fabric-kluster och Azure-infrastrukturen fungerar korrekt.
 - Inte ta bort slumpmässiga VM-instanser måste alltid använda virtual machine scale set skala ned funktionen. Borttagning av slumpmässiga VM-instanser har en potentiell skapar obalans i VM-instans som är fördelade på UD och FD. Detta att sänka system möjligheten att korrekt belastningsutjämna bland service instanser/Service replikerna.
 - Om du använder Autoskala, anger du regler så att skala (att ta bort av VM-instanser) görs endast en nod i taget. Det är inte säkert att skala ned mer än en instans i taget.
-- Om skalning av primära nodtypen skala du aldrig den ned över vilka tillförlitlighetsnivån tillåter.
+- Om du tar bort eller det frigjorts virtuella datorer på den primära nodtypen, ska du aldrig minska antalet allokerade virtuella datorer under tillförlitlighetsnivån kräver. Dessa åtgärder kommer att blockeras på obestämd tid i en skala som angetts med Silver eller guld hållbarhet nivå.
 
 ## <a name="the-reliability-characteristics-of-the-cluster"></a>Tillförlitlighetsegenskaper i klustret
 Tillförlitlighetsnivån används för att ange antalet repliker av systemtjänster som du vill köra i det här klustret på den primära nodtypen. Det mer antalet repliker mer tillförlitlig systemtjänsterna är i klustret.  

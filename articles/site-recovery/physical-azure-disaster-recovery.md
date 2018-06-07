@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643319"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Ställ in haveriberedskap för lokala fysiska servrar till Azure
 
@@ -27,18 +28,25 @@ Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Win
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en server
 
+[Granska arkitekturen](concepts-hyper-v-to-azure-architecture.md) för den här katastrofåterställning.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
-- Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](physical-azure-architecture.md).
+- Se till att du förstår de [arkitektur och komponenter](physical-azure-architecture.md) för det här scenariot.
 - Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
 - Se till att de servrar som du vill replikera följer [krav för Azure VM](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Förbered Azure. Du behöver en Azure-prenumeration, Azure-nätverk och ett lagringskonto.
 - Förbered ett konto för automatisk installation av mobilitetstjänsten på varje server som du vill replikera.
 
-> [!NOTE]
-> Innan du börjar bör du Observera att fysiska servrar efter en redundansväxling till Azure inte kan flyttas tillbaka till lokala fysiska datorer. Du kan bara växla tillbaka till virtuella VMware-datorer. 
+Observera att innan du börjar:
+
+- Efter en redundansväxling till Azure kan inte kunde inte tillbaka till fysiska datorer för lokala fysiska servrar. Du kan bara växla tillbaka till virtuella VMware-datorer. 
+- Den här självstudiekursen ställer in katastrofåterställning för fysisk server till Azure med enklaste inställningar. Om du vill lära dig om andra alternativ kan du läsa igenom våra guider för hur man:
+    - Ställ in den [replikeringskälla](physical-azure-set-up-source.md), inklusive konfigurationsservern Site Recovery.
+    - Ställ in den [replikeringsmål](physical-azure-set-up-target.md).
+    - Konfigurera en [replikeringsprincipen](vmware-azure-set-up-replication.md), och [Aktivera replikering](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Konfigurera ett Azure-konto

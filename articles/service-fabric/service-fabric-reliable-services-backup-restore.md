@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643040"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Säkerhetskopiera och återställa Reliable Services och Reliable Actors
 Azure Service Fabric är en plattform för hög tillgänglighet som replikerar tillståndet över flera noder för att upprätthålla hög tillgänglighet.  Även om en nod i klustret misslyckas därför fortsätter tjänster att vara tillgängliga. Den här inbyggda redundans som tillhandahålls av plattformen kan vara tillräcklig för vissa, i vissa fall är det lämpligt att tjänsten för att säkerhetskopiera data (till en extern butik).
@@ -153,7 +154,7 @@ Om den innehåller en fullständig säkerhetskopiering, till exempel först inkr
 > 
 
 ## <a name="deleted-or-lost-service"></a>Borttagna eller förlorade service
-Om en tjänst har tagits bort, måste du först återskapa tjänsten innan data kan återställas.  Det är viktigt att skapa tjänsten med samma konfiguration, till exempel partitioneringsschema så att data kan återställas utan problem.  När tjänsten är igång API för att återställa data (`OnDataLossAsync` ovan) måste anropas för varje partition för den här tjänsten. Ett sätt att uppnå detta är med hjälp av `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` för varje partition.  
+Om en tjänst har tagits bort, måste du först återskapa tjänsten innan data kan återställas.  Det är viktigt att skapa tjänsten med samma konfiguration, till exempel partitioneringsschema så att data kan återställas utan problem.  När tjänsten är igång API för att återställa data (`OnDataLossAsync` ovan) måste anropas för varje partition för den här tjänsten. Ett sätt att uppnå detta är med hjälp av [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) för varje partition.  
 
 Från och med nu är implementering samma som scenariot ovan. Varje partition måste återställa den senaste relevanta säkerhetskopieringen från extern butik. En begränsning är att partitions-ID kan ha nu ändrats, eftersom partition ID: N skapas dynamiskt i körningsmiljön. Tjänsten måste därför att lagra lämplig information och tjänsten partitionsnamnet att identifiera den senaste korrekta säkerhetskopian att återställa från en för varje partition.
 

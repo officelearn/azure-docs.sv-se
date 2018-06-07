@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646464"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
@@ -123,7 +124,7 @@ Varje plats hämtar en anpassad webbprogram till deras händelser och sälja bil
 Central **händelser hubb** webbsidan innehåller en lista med länkar till innehavare i en viss distribution. Använd följande steg för att uppleva den **händelser hubb** webbsidan och en enskild webbapp:
 
 1. Öppna den **händelser hubb** i webbläsaren:
-    - http://events.wingtip-mt. &lt;användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
+    - http://events.wingtip-mt.&lt; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
 
     ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +136,7 @@ Central **händelser hubb** webbsidan innehåller en lista med länkar till inne
 
 För att styra distributionen av inkommande begäranden Wingtip appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller innehavarens namn i Webbadressen. Varje URL innehåller också värdet för din specifika användare. Varje URL följs formatet visas med hjälp av följande steg:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt; användare&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Appen händelser Parsar klientnamn från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
 2. Appen sedan hashar innehavarens namn för att skapa en nyckel för att komma åt en katalog med hjälp av [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md).

@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c9386f7dd0ba390a5f089be058c7f3edd6e33cf9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652380"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en virtuell dator skaluppsättningen i Azure-portalen
-När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
+När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
 
-Den här artikeln visar hur du skapar automatiska regler i Azure-portalen som övervaka prestanda för VM-instanser i en skaluppsättning. Reglerna Autoskala öka eller minska antalet VM-instanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) eller [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md).
+Den här artikeln visar hur du skapar automatiska regler i Azure-portalen som övervaka prestanda för VM-instanser i en skaluppsättning. Reglerna Autoskala öka eller minska antalet VM-instanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](tutorial-autoscale-powershell.md) eller [Azure CLI 2.0](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -32,7 +33,7 @@ Du behöver en befintlig virtuell dator för att skapa regler för automatiska s
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Skapa en regel för att automatiskt skala ut
-Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå. Om den här ökade belastningen är konsekvent, i stället för bara en kort begäran, kan du konfigurera automatiska regler för att öka antalet VM-instanser i skaluppsättning. När dessa VM-instanser som skapas och dina program distribueras börjar skaluppsättning distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, t.ex CPU eller disk, hur länge belastningen program måste uppfylla ett visst tröskelvärde och ange hur många VM-instanser som ska läggas till skalan.
+Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
 
 1. Öppna Azure portal och välj **resursgrupper** på menyn till vänster på instrumentpanelen.
 2. Välj den resursgrupp som innehåller din skaluppsättning, och välj sedan din skaluppsättningen i listan över resurser.
@@ -48,17 +49,17 @@ Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå
     
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Aggregation tid*     | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Medel        |
-    | *Måttnamnet*          | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel |
+    | *Aggregation tid*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
+    | *Måttnamnet*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
     | *Tid grain statistik* | Definierar hur mätvärdena som samlats in i varje tidsenhet ska aggregeras för analys.                             | Medel        |
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 70             |
-    | *Varaktighet*             | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter     |
+    | *Varaktighet*             | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 10 minuter     |
     | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                        | Öka procent med |
-    | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                            | 20             |
-    | *Ned (minuter)*  | Hur lång tid ska gå innan regeln tillämpas igen så att automatiska åtgärder har tid att börja gälla. | 5 minuter      |
+    | *Instansantal*       | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 20             |
+    | *Ned (minuter)*  | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter      |
 
-    I följande exempel visas en regel som skapas i Azure-portalen som matchar de här inställningarna:    
+    I följande exempel visas en regel som skapas i Azure-portalen som matchar de här inställningarna:
 
     ![Skapa en regel för Autoskala för att öka antalet VM-instanser](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
 
@@ -66,7 +67,7 @@ Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå
 
 
 ## <a name="create-a-rule-to-automatically-scale-in"></a>Skapa en regel för att skala automatiskt i
-På en kväll eller helger minska program-begäran. Om det här minskar belastningen är konsekvent under en viss tidsperiod, kan du konfigurera automatiska regler för att minska antalet VM-instanser i skaluppsättning. Den här åtgärden för skala minskar kostnaden för att köra skaluppsättningen eftersom du bara köra antalet instanser som krävs för att uppfylla den aktuella begäran.
+På kvällar eller helger, kan efterfrågan på ditt program minska. Om den här minskade belastningen är konsekvent över en tidsperiod, kan du konfigurera regler för automatisk skalning för att minska antalet virtuella datorinstanser i skalningsuppsättningen. Den här åtgärden för skala in minskar kostnaden för att köra din skalningsuppsättningen eftersom du bara köra de antal instanser som krävs för att uppfylla den aktuella efterfrågan.
 
 1. Välja att **lägga till en regel** igen.
 2. Skapa en regel som minskar antalet VM-instanser i en skala som anges när Genomsnittlig CPU-belastningen sedan sjunker under 30% över 10-minutersperiod. När regeln utlöser minskade antalet VM-instanser med 20%.
@@ -78,7 +79,7 @@ På en kväll eller helger minska program-begäran. Om det här minskar belastni
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                      | Mindre än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 30             |
     | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                         | Minska procent med |
-    | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                             | 20             |
+    | *Instansantal*       | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                             | 20             |
 
 3. För att skapa regeln, Välj **Lägg till**
 

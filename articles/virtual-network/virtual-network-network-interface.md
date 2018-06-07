@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656891"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -52,7 +53,7 @@ När du skapar en virtuell dator med hjälp av Azure portal, skapar portalen ett
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverkskortet. Du kan bara tilldela ett virtuellt nätverk som finns i samma prenumeration och plats som nätverksgränssnittet ett nätverksgränssnitt. När ett nätverksgränssnitt har skapats kan ändra du inte det virtuella nätverket som den är tilldelad till. Den virtuella datorn som du lägger till nätverksgränssnitt för måste även finnas på samma plats och prenumeration som nätverksgränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverket som du har valt. Du kan ändra undernätet nätverksgränssnittet tilldelas när den har skapats.|
     |Privata IP-adresstilldelning|Ja| I den här inställningen väljer du tilldelningsmetod för IPv4-adress. Välj bland följande tilldelning: **dynamiska:** när du väljer det här alternativet, tilldelar Azure automatiskt nästa tillgängliga adress från adressutrymmet till undernätet som du har valt. **Statiskt:** när du väljer det här alternativet måste du manuellt tilldelar en tillgänglig IP-adress inom adressutrymmet för det undernät som du har valt. Statiska och dynamiska adresser ändras inte tills du ändrar dem eller nätverksgränssnittet har tagits bort. Du kan ändra metoden tilldelning när nätverksgränssnittet har skapats. Azure DHCP-servern tilldelar den här adressen till nätverksgränssnittet i operativsystemet för den virtuella datorn.|
-    |Nätverkssäkerhetsgrupp|Nej| Lämna inställd på **ingen**, Välj en befintlig [nätverkssäkerhetsgruppen](security-overview.md), eller [skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md). Nätverkssäkerhetsgrupper gör att du kan filtrera nätverkstrafik till och från ett nätverksgränssnitt. Du kan använda noll eller en säkerhetsgrupp för nätverk till ett nätverksgränssnitt. Noll eller en säkerhetsgrupp för nätverk kan också användas till undernätet för nätverksgränssnittet har tilldelats. När en nätverkssäkerhetsgrupp används för ett nätverksgränssnitt och undernätet nätverksgränssnittet har tilldelats, sker ibland oväntade resultat. Om du vill felsöka nätverkssäkerhetsgrupper som tillämpas på nätverksgränssnitt och undernät, se [felsöka nätverkssäkerhetsgrupper](virtual-network-nsg-troubleshoot-portal.md#nsg).|
+    |Nätverkssäkerhetsgrupp|Nej| Lämna inställd på **ingen**, Välj en befintlig [nätverkssäkerhetsgruppen](security-overview.md), eller [skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md). Nätverkssäkerhetsgrupper gör att du kan filtrera nätverkstrafik till och från ett nätverksgränssnitt. Du kan använda noll eller en säkerhetsgrupp för nätverk till ett nätverksgränssnitt. Noll eller en säkerhetsgrupp för nätverk kan också användas till undernätet för nätverksgränssnittet har tilldelats. När en nätverkssäkerhetsgrupp används för ett nätverksgränssnitt och undernätet nätverksgränssnittet har tilldelats, sker ibland oväntade resultat. Om du vill felsöka nätverkssäkerhetsgrupper som tillämpas på nätverksgränssnitt och undernät, se [felsöka nätverkssäkerhetsgrupper](diagnose-network-traffic-filter-problem.md).|
     |Prenumeration|Ja|Välj en av dina Azure [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Den virtuella datorn som du kan koppla ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma prenumeration.|
     |Privat IP-adress (IPv6)|Nej| Om du markerar den här kryssrutan, har en IPv6-adress tilldelats nätverksgränssnitt, förutom IPv4-adress som tilldelats till nätverksgränssnittet. Finns det [IPv6](#IPv6) i den här artikeln viktig information om du använder IPv6 med nätverksgränssnitt. Du kan inte välja en tilldelningsmetod för IPv6-adress. Om du vill tilldela en IPv6-adress tilldelas med metoden dynamisk.
     |IPv6-namn (visas bara när den **privat IP-adress (IPv6)** är markerad) |Ja, om den **privat IP-adress (IPv6)** är markerad.| Det här namnet har tilldelats en sekundär IP-konfiguration för nätverksgränssnittet. Läs mer om IP-konfigurationer i [Visa inställningar för nätverksgränssnittet](#view-network-interface-settings).|

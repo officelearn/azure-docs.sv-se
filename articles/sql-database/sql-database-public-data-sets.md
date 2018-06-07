@@ -6,14 +6,15 @@ author: douglaslMS
 manager: craigg
 ms.custom: reference
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: douglasl
-ms.openlocfilehash: d6fd83f2a6648d3ba6c3ef55b832820d62ed5690
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: be93dbff39c47ed1d8834efa3ef6c033525b4bea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648922"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga datauppsättningar för testning och prototyper
 
@@ -26,7 +27,7 @@ Bläddra i listan över offentliga datauppsättningar för data som du kan anvä
 | [Amerikanska myndigheter data](https://www.census.gov/data.html) | Över 190,000 datauppsättningar som omfattar jordbruket, klimatförändringar, konsumenten, ekosystem, education, energi, ekonomi, hälsa, lokala myndigheter, tillverkning, sjöfartsorganisationen, oceanen, allmän säkerhet och vetenskap och forskning i USA | Filer med olika storlekar i olika format, inklusive HTML-, XML-, CSV, JSON, Excel och många andra. Du kan filtrera tillgängliga datauppsättningar av filformatet. |
 | [USA inventering data](https://www.census.gov/data.html) | Statistisk information om befolkningen i USA | Uppgifter som är i olika format. |
 | [Earth vetenskap data från NASA](https://earthdata.nasa.gov/) | Över 32000 datasamlingar som omfattar jordbruket, luften, biosfärreservat, klimatförändringar, cryosphere, mänsklig dimensioner, hydrosphere, mark yta, oceans, sun earth interaktioner, och mer. | Uppgifter som är i olika format. |
-| [Flygbolag svarta fördröjningar och andra data som transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "The U.S. Avdelning transport har (punkt) som administreras av transport statistik (BTS) spårar prestanda i tid för nationella flygplan drivs av stora flygbolag. Sammanfattningsinformation för antalet i tid, fördröjd, avbrutna och distribueras flygplan visas... i översikt över tabeller som anslås på den här webbplatsen ”. | Filerna finns i CSV-format. |
+| [Flygbolag svarta fördröjningar och andra data som transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | ”USA Avdelning transport har (punkt) som administreras av transport statistik (BTS) spårar prestanda i tid för nationella flygplan drivs av stora flygbolag. Sammanfattningsinformation för antalet i tid, fördröjd, avbrutna och distribueras flygplan visas... i översikt över tabeller som anslås på den här webbplatsen ”. | Filerna finns i CSV-format. |
 | [Trafik skadades - oss Fatality analys Reporting System (FARS)](http://www.nhtsa.gov/FARS) | ”FARS är att tillhandahålla NHTSA Congress nationell inventering och American offentliga årlig data om allvarliga skador haft i fordon trafik krascher”. | ”Skapa dina egna fatality data köras online med hjälp av FARS frågan System. Eller hämta alla FARS data från 1975 presentera från FTP-platsen ”. |
 | [Giftiga kemiska data - EPA toxicitet prognosmodell (ToxCast™) data](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | ”Miljövårdsmyndighetens allra senaste, offentligt tillgänglig hög genomströmning toxicitet data på tusentals kemikalier. Informationen genereras via den EPA ToxCast research arbete ”. | Uppgifter som är tillgängliga i olika format, inklusive kalkylblad, R-paket och MySQL-databasfiler. |
 | [Giftiga kemiska data - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | ”2014 Tox21 data challenge är utformade för att förstå potentialen av kemikalier och föreningar testas via toxikologi i 2000-talet initiativet att störa biologiska vägar på ett sätt som kan resultera i Giftverkningar forskare”. | Uppgifter som är tillgängliga i LEENDEN och SDF format. Data innehåller ”assay aktivitetsdata och kemiska strukturer på Tox21 mängden ~ 10 000 föreningar (Tox21 10K)”. |

@@ -4,13 +4,14 @@ description: En översikt över assessment beräkningar i tjänsten Azure migrer
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639154"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -68,12 +69,12 @@ Operativsystem som angetts som *andra* i vCenter Server | Migrera Azure kan inte
 
 ## <a name="sizing"></a>Storleksändring
 
-När en dator markeras som redo för Azure, storlek Azure migrera den virtuella datorn och dess diskar för Azure. Om sizing kriteriet som angetts i egenskaperna för bedömning är att göra prestandabaserad storlek, anser Azure migrera prestandahistorik för datorn att identifiera en VM-storlek i Azure. Den här metoden är användbart i scenarier där du har tilldelat den lokala virtuella datorn över men användningen är låg och du vill få rätt storlek på virtuella datorer i Azure för att spara kostnader.
+När en dator markeras som redo för Azure, storlek Azure migrera den virtuella datorn och dess diskar för Azure. Om sizing kriteriet som angetts i egenskaperna för bedömning är att göra prestandabaserad storlek, anser Azure migrera prestandahistorik för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbart i scenarier där du har tilldelat den lokala virtuella datorn över men användningen är låg och du vill få rätt storlek på virtuella datorer i Azure för att spara kostnader.
 
 > [!NOTE]
 > Azure migrera samlar in prestandahistorik över lokala virtuella datorer från vCenter-servern. För att säkerställa exakt rätt storlek för att inställningen statistik i vCenter-servern är inställd på nivå 3 och vänta minst en dag före lanseras identifiering av de lokala virtuella datorerna. Om inställningen statistik i vCenter Server är under nivå 3, samlas inte prestandadata för disk och nätverk.
 
-Om du inte vill överväga historik för minnesprestanda för VM-storlek och vill göra den virtuella datorn som-är till Azure, kan du ange storlek kriterium som *som lokala* och Azure migrera sedan ändra de virtuella datorerna baserat på lokalt konfiguration av utan att överväga användningsdata. Ändra storlek på disken i det här fallet kommer fortfarande att baseras på prestandadata.
+Om du inte vill överväga historik för minnesprestanda för VM-storlek och vill göra den virtuella datorn som-är till Azure, kan du ange storlek kriterium som *som lokala* och Azure migrera sedan ändra de virtuella datorerna baserat på lokalt konfiguration av utan att överväga användningsdata. Ändra storlek på disken i det här fallet ska ske baserat på vilken lagringstyp som du anger i egenskaperna assessment (disken som Standard eller Premium)
 
 ### <a name="performance-based-sizing"></a>Prestandabaserad storlek
 
@@ -102,25 +103,13 @@ Prestandabaserad förstoras Azure migrera börjar med diskar som är kopplade ti
     - Om det finns flera tillgängliga Azure VM-storlekar rekommenderas den billigaste.
 
 ### <a name="as-on-premises-sizing"></a>Som lokalt storlek
-Om sizing kriteriet är *som lokalt storlek*, Azure migrerar inte anser prestandahistorik för de virtuella datorerna och allokerar virtuella datorer baserat på den lokala allokerade storleken. Det emellertid tänka prestandahistorik över diskarna att rekommenderar Standard eller Premium diskar för disk-storlek.  
-- **Lagring**: migrera Azure mappar varje disk som är ansluten till datorn som en disk i Azure.
-
-    > [!NOTE]
-    > Azure migrera stöder endast hanterade diskar för utvärdering.
-
-    - För att få gällande disk-i/o per sekund (IOPS) och genomströmning (MBps), multiplicerar Azure migrera IOPS för disk och dataflöde med bekvämlighet faktorn. Baserat på effektiva IOPS och genomströmning värden, identifierar Azure migrera om disken som ska mappas till en standard- eller premium disk i Azure.
-    - Om Azure migrerar inte hittar en disk med nödvändiga IOPS & genomströmning, markerar datorn som lämpar sig inte för Azure. [Lär dig mer](../azure-subscription-service-limits.md#storage-limits) om Azure begränsar per disk- och VM.
-    - Om den hittar en uppsättning lämpliga diskar väljer Azure migrera de som stöd för redundans lagringsmetod och den plats som anges i inställningarna för utvärdering.
-    - Om det finns flera tillgängliga diskar, väljs med lägst kostnad.
-    - Om prestandadata för diskar i tillgänglig, alla diskar som är mappade till standarddiskar i Azure.
-- **Nätverket**: för varje nätverkskort, ett nätverkskort i Azure rekommenderas.
-- **Beräkna**: Azure migrera tittar på antal kärnor och minnesstorleken för den lokala virtuella datorn och rekommenderar en Azure-dator med samma konfiguration. Om det finns flera tillgängliga Azure VM-storlekar rekommenderas den billigaste. Användningsdata för CPU och minne för anses inte för som lokalt storlek.
+Om sizing kriteriet är *som lokalt storlek*, Azure migrerar inte anser prestandahistorik för virtuella datorer och diskar och allokerar en VM-SKU i Azure baserad på den lokala allokerade storleken. På liknande sätt för disk sizing söker i lagringstyp som angetts i egenskaperna för assessment (Standard/Premium) och rekommenderar disktyp därefter. Standardtypen för lagring är premiumdiskar.
 
 ### <a name="confidence-rating"></a>Säkerhetsomdöme
 
 Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
 
-För prestandabaserade storleksändringar av virtuella datorer behöver Azure Migrate användningsdata för CPU och minne. Dessutom för storleksändring av varje disk som är ansluten till den virtuella datorn, den måste läsning och skrivning IOPS och genomflöde. Precis som för varje nätverkskort som är kopplat till den virtuella datorn så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls förtroende klassificering för att bedöma enligt nedan:
+Förtroende-klassificering av en bedömning är mer användbar för bedömningar sizing kriterium som ' prestandabaserad storlek. För prestandabaserad storlek måste Azure migrera användningsdata för processor, minne på den virtuella datorn. För varje disk som är ansluten till den virtuella datorn måste dessutom den IOPS för disk- och genomflöde. På samma sätt för varje nätverkskort som är kopplad till en virtuell dator, behöver Azure migrera nätverket in/ut prestandabaserad storlek. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
@@ -131,7 +120,7 @@ För prestandabaserade storleksändringar av virtuella datorer behöver Azure Mi
    81 %–100 % | 5 stjärnor
 
 En utvärdering kanske inte har tillgång till alla datapunkter på grund av någon av följande orsaker:
-- Inställningen statistik i vCenter Server är inte inställt på nivå 3. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga IOPS/dataflöde på disken, migrera Azure kan inte identifiera om disken behöver en premium disk i Azure rekommenderar därför i det här fallet Azure migrera standarddiskar för alla diskar.
+- Statistikinställningen i vCenter Server har inte angetts till nivå 3. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
 - Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period, innan identifieringen drog igång. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen.
 - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vCenter Server inte att ha prestandadata för den perioden.
 - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.

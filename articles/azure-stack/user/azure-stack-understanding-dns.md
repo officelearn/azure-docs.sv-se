@@ -6,19 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724266"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduktion till IDN: er för Azure-Stack
 
@@ -30,9 +31,9 @@ IDN: er är en Azure-stacken nätverk funktion som gör det möjligt för dig at
 
 Med IDN: er i Azure-stacken får du följande funktioner utan att ange anpassade poster i DNS-server:
 
-* Delade tjänster för DNS-namnmatchning för klienternas arbetsbelastningar.
-* Auktoritära DNS-tjänsten för namnmatchning och DNS-registrering i innehavarens virtuella nätverk.
-* Recursive DNS-tjänsten för matchning av Internet namn från innehavaren virtuella datorer. Klienter som inte längre behöver ange anpassade DNS-poster för att lösa Internet-namn (till exempel www.bing.com.)
+- Delade tjänster för DNS-namnmatchning för klienternas arbetsbelastningar.
+- Auktoritära DNS-tjänsten för namnmatchning och DNS-registrering i innehavarens virtuella nätverk.
+- Recursive DNS-tjänsten för matchning av Internet namn från innehavaren virtuella datorer. Klienter som inte längre behöver ange anpassade DNS-poster för att lösa Internet-namn (till exempel www.bing.com.)
 
 Du kan fortfarande sätta egna DNS och använda anpassade DNS-servrar. Emellertid med IDN: er kan du matcha Internet-DNS-namn och ansluta till andra virtuella datorer i samma virtuella nätverk, behöver du inte skapar anpassade DNS-poster.
 
@@ -48,10 +49,10 @@ Eftersom föregående bild visas Azure skapar en A-post i DNS för DNS-namnetike
 
 Azure-stacken stöder bara IDn för interna namnregistrering, så det går inte att göra följande:
 
-* Skapa en DNS-post i en befintlig värdbaserade DNS-zon (till exempel local.azurestack.external.)
-* Skapa en DNS-zon (t.ex Contoso.com).
-* Skapa en post under dina egna anpassade DNS-zon.
-* Stöd för köp av domännamn.
+- Skapa en DNS-post i en befintlig värdbaserade DNS-zon (till exempel local.azurestack.external.)
+- Skapa en DNS-zon (t.ex Contoso.com).
+- Skapa en post under dina egna anpassade DNS-zon.
+- Stöd för köp av domännamn.
 
 ## <a name="next-steps"></a>Nästa steg
 

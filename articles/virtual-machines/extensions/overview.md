@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653271"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Tillägg för virtuell Azure-dator och funktioner
 Virtuell Azure-dator (VM)-tillägg är små program som innehåller efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, kan du använda befintliga avbildningar och sedan anpassa dem som en del av din distribution, hämtar du out-of-business av anpassade skapande av avbildningen.
@@ -52,7 +53,7 @@ Tillägg installera program, som alla program som det finns vissa krav för till
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur Linux-Agent och tillägg fungerar finns [Azure VM-tillägg och funktioner för Linux](features-linux.md).
-* Mer information om hur Windows-Gästagenten och tillägg fungerar finns [Azure VM-tillägg och funktioner för Linux](features-windows.md).  
+* Mer information om hur Windows-Gästagenten och tillägg fungerar finns [Azure VM-tillägg och funktioner för Windows](features-windows.md).  
 * Om du vill installera Windows Gästagenten [översikt över Azure Windows virtuella Agent ](agent-windows.md).  
 * Om du vill installera Linux-agenten finns [översikt över Azure Linux virtuella datorer Agent ](agent-linux.md).  
 

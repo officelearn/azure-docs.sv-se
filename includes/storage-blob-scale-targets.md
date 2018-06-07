@@ -1,6 +1,6 @@
 | Resurs | Mål |
 |----------|---------------|
-| Maxstorlek på enskild blob-behållare | 500 TiB |
+| Maxstorlek på enskild blob-behållare | Samma som den maximala lagringskapaciteten för kontot |
 | Max antal block i en blockblobb eller lägga till blob | 50 000 block |
 | Maxstorlek på ett block i en blockblobb | 100 MiB |
 | Maxstorlek på en blockblob | 50 000 x 100 MiB (uppskattat 4,75 TiB) |

@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Service Bus-köer i Node.js | Microsoft Docs"
-description: "Lär dig hur du använder Service Bus-köer i Azure från en Node.js-app."
+title: Hur du använder Service Bus-köer i Node.js | Microsoft Docs
+description: Lär dig hur du använder Service Bus-köer i Azure från en Node.js-app.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5b309534f7aef602610cfdb6aa784d180551e1ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc291c3a453b4dec5e6c47ab4a7f2e2ac2b9967
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641449"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Hur du använder Service Bus-köer med Node.js
 
@@ -64,8 +65,6 @@ var azure = require('azure');
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Azure Service Bus-anslutningar
 Azure-modulen läser miljövariabeln `AZURE_SERVICEBUS_CONNECTION_STRING` att få information som krävs för att ansluta till Service Bus. Om den här miljövariabeln inte har angetts måste du ange kontoinformationen vid anrop av `createServiceBusService`.
-
-Ett exempel på hur miljövariablerna i en konfigurationsfil för ett Azure Cloud Service, se [Node.js molntjänst med lagring][Node.js Cloud Service with Storage].
 
 Ett exempel på Ange miljövariabler i den [Azure-portalen] [ Azure portal] en Azure-webbplats finns [Node.js-Webbapp med lagring] [ Node.js Web Application with Storage].
 
@@ -190,6 +189,5 @@ Mer information om köer finns i följande resurser.
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648276"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med Intelligent insikter
 
@@ -34,8 +35,8 @@ Intelligent insikter identifierar automatiskt prestandaproblem med SQL Database 
 | [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Arbetsbelastningen ökning eller kontinuerlig anhopning av arbetsbelastningen på databasen identifierades, vilket gör SQL Database prestandaproblem. |
 | [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Anställda som har begärt minne ger måste vänta tills minnesallokering för statistiskt stora mängder tid. Eller så finns det en ökad anhopning av de anställda som har begärt minne beviljar, som påverkar prestanda för SQL-databasen. |
 | [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning upptäcktes, som påverkar prestanda för SQL-databasen. |
-| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Den maximala graden av parallellitet alternativet (MAXDOP) har ändrats och det påverkar frågan körning effektiviteten. |
-| [Pagelatch Contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch konkurrens identifierades som påverkar prestanda för SQL-databasen. Flera trådar försöker samtidigt komma åt sidorna buffert samma data i minnet. Detta resulterar i ökad väntetiden som påverkar prestanda för SQL-databasen. |
+| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Den maximala graden av parallellitet alternativet (MAXDOP) har ändrats och det påverkar frågan körning effektiviteten. |
+| [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch konkurrens identifierades som påverkar prestanda för SQL-databasen. Flera trådar försöker samtidigt komma åt sidorna buffert samma data i minnet. Detta resulterar i ökad väntetiden som påverkar prestanda för SQL-databasen. |
 | [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | En saknas index problemet upptäcktes, som påverkar prestanda för SQL-databasen. |
 | [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | En ny fråga identifierades som påverkar prestandan för SQL-databas. |
 | [Onormal vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Väntetiden för ovanliga databas har upptäckts som påverkar prestanda för SQL-databasen. |
@@ -126,7 +127,7 @@ Det enklaste och säkraste sättet att åtgärda problemet är att hålla transa
 
 Fler förslag finns [hur du löser blockerande problem som orsakas av Lås eskalering i SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
-## <a name="increased-maxdop"></a>Increased MAXDOP
+## <a name="increased-maxdop"></a>Ökad MAXDOP
 
 ### <a name="what-is-happening"></a>Vad händer
 

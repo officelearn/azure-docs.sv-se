@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650119"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera en databas i Azure SQL Database
 
@@ -40,7 +41,7 @@ Du skapa inte säkerhetskopior på Azure SQL DB och det beror på att du inte be
 
 |Prestandanivå|Kvarhållningsperioden i dagar|
 |---|:---:|
-|Grundläggande|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -97,7 +98,7 @@ En brandvägg förhindrar åtkomst till servern från en extern entitet genom at
 
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Serverbrandväggsreglerna för nivån kan antingen skapas via portalen eller genom SSMS. För mer information om hur du ställer in en server och databas-nivå brandväggsregler, se: [skapa brandväggsregler i SQL-databas](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
-#### <a name="service-endpoints"></a>slutpunkter
+#### <a name="service-endpoints"></a>Tjänstslutpunkter
 SQL-databasen är som standard konfigurerad att ”Tillåt alla Azure-tjänster” – vilket innebär att en virtuell dator i Azure kan försöka att ansluta till databasen. Dessa försök fortfarande behöver få autentiseras. Men om du inte vill att databasen ska vara tillgängliga för alla Azure IP-adresser, kan du inaktivera ”Tillåt alla Azure-tjänster”. Du kan också konfigurera [VNET Tjänsteslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Slutpunkter (SE) kan du exponera viktiga Azure-resurser endast till ditt eget virtuella privata nätverk i Azure. Då kan att du i stort sett offentlig åtkomst till resurser. Trafiken mellan det virtuella nätverket till Azure finns kvar i Azure stamnät nätverket. Utan att SE dig Tvingad tunneltrafik paketroutning. Det virtuella nätverket tvingar internet-trafik för din organisation och Azure Service-trafik att gå igenom samma flöde. Med Tjänsteslutpunkter kan du optimera detta sedan paket-flöde direkt från det virtuella nätverket till tjänsten i Azure stamnät nätverk.

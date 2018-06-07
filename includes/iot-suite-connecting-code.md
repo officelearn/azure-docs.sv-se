@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a2405eb9698b326693b873edf1cc1396eecadafa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666021"
 ---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Ange beteende för IoT-enheten
 
 Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange formatet på de meddelanden som enheten utbyter med IoT Hub.
 
-1. Lägg till följande variabeldeklarationer efter `#include`-instruktionerna. Ersätta platshållarvärdena `[Device Id]` och `[Device connection string]` med de värden som du antecknade för den fysiska enheten läggs till fjärranslutna övervakningslösning:
+1. Lägg till följande variabeldeklarationer efter `#include`-instruktionerna. Ersätta platshållarvärdena `[Device Id]` och `[Device connection string]` med de värden som du antecknade för den fysiska enheten läggs till Fjärrövervaknings-lösningen:
 
     ```c
     static const char* deviceId = "[Device Id]";

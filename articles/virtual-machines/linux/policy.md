@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653801"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Tillämpa principer för virtuella Linux-datorer med Azure Resource Manager
 En organisation kan tillämpa olika konventioner och regler i hela företaget med hjälp av principer. Tillämpning av önskat beteende kan du minimera risken när bidrar till att organisationen. I den här artikeln beskriver vi hur du kan använda principer för Azure Resource Manager för att definiera önskat beteende för virtuella datorer i din organisation.
@@ -211,4 +212,4 @@ Du kanske vill förbjuda användningen av vissa typer av tillägg. Till exempel 
 ## <a name="next-steps"></a>Nästa steg
 * När du definierar en regel (som visas i föregående exempel) behöver du skapar principdefinitionen och kopplar den till ett omfång. Omfattningen kan vara en prenumeration, resursgrupp eller resurs. Om du vill tilldela principer finns [Använd Azure-portalen för att tilldela och hantera resursprinciper](../../azure-policy/assign-policy-definition.md), [Använd PowerShell för att tilldela principer](../../azure-policy/assign-policy-definition-ps.md), eller [Använd Azure CLI för att tilldela principer](../../azure-policy/assign-policy-definition-cli.md).
 * En introduktion till resursprinciper finns [vad är Azure principen?](../../azure-policy/azure-policy-introduction.md).
-* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

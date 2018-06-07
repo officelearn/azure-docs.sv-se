@@ -1,13 +1,13 @@
 ---
-title: "SAP ASCS/SCS instansen multi-SID hög tillgänglighet med Windows Server Failover Clustering och delad disk i Azure | Microsoft Docs"
-description: "Flera SID hög tillgänglighet för en SAP ASCS/SCS-instans med Windows Server Failover Clustering och delad disk på Azure"
+title: SAP ASCS/SCS instansen multi-SID hög tillgänglighet med Windows Server Failover Clustering och delad disk i Azure | Microsoft Docs
+description: Flera SID hög tillgänglighet för en SAP ASCS/SCS-instans med Windows Server Failover Clustering och delad disk på Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656738"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -224,7 +225,7 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 
 Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [nätverk gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresursen**som visas i det här diagrammet.
 
@@ -248,7 +249,7 @@ Fullständig liggande med två system med hög tillgänglighet SAP skulle se ut 
 
 ![SAP hög tillgänglighet multi-SID-installation med två SAP system SID][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Förbereda infrastrukturen för ett scenario för SAP multi-SID
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Förbereda infrastrukturen för ett scenario för SAP multi-SID
 
 För att förbereda infrastrukturen måste installera du en ytterligare SAP ASCS/SCS-instans med följande parametrar:
 

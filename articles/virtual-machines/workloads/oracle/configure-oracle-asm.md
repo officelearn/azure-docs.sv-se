@@ -1,13 +1,13 @@
 ---
-title: "Ställa in Oracle ASM på en virtuell Azure Linux-dator | Microsoft Docs"
-description: "Snabbt Oracle ASM upp och körs i Azure-miljön."
+title: Ställa in Oracle ASM på en virtuell Azure Linux-dator | Microsoft Docs
+description: Snabbt Oracle ASM upp och körs i Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656117"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Ställa in Oracle ASM på en virtuell Azure Linux-dator  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
-Virtuella datorer i Azure ger en fullständigt konfigurerbara och flexibel datormiljö. Den här självstudiekursen beskriver distributionen av grundläggande Azure virtuella datorer i kombination med installation och konfiguration av Oracle Automated Storage Management (ASM).  Lär dig att:
+Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. Den här självstudiekursen beskriver distributionen av grundläggande Azure virtuella datorer i kombination med installation och konfiguration av Oracle Automated Storage Management (ASM).  Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa och ansluta till en virtuell dator i Oracle-databas
@@ -200,7 +201,7 @@ Den här självstudien standardanvändaren är *rutnätet* och standardgruppen �
    ```
 
 3. Formatera disk */dev/sdc* genom att köra följande kommando och svara på dem med:
-   - *n*för nya partitionen
+   - *n* för nya partitionen
    - *p* för primär partition
    - *1* att välja den första partitionen
    - Tryck på `enter` för standard första cylinder

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653509"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager
 Azure Resource Manager erbjuder en mängd fantastiska funktioner, är det viktigt att du har planerat din migrering resa att göra det för att gå smidigt. Utgifter tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter. 
 
 > [!NOTE] 
-> Följande riktlinjer bidragit kraftigt till Azure Customer Advisory team och Molnlösning arkitekter som arbetar med kunder på migrera stora enviornments. Som det här dokumentet kommer att fortsätta få uppdaterade när nya mönster av lyckade framkommer, så kontrollera tillbaka från tid till tid om det finns några nya rekommendationer.
+> Följande riktlinjer bidragit kraftigt till Azure Customer Advisory team och Molnlösning arkitekter som arbetar med kunder på migrera stora miljöer. Som det här dokumentet kommer att fortsätta få uppdaterade när nya mönster av lyckade framkommer, så kontrollera tillbaka från tid till tid om det finns några nya rekommendationer.
 
 Det finns fyra allmänna faser transporten migrering:
 
@@ -51,10 +52,10 @@ Beroende på dina tekniska krav storlek geografiska områden och operativa metod
 
 ### <a name="patterns-of-success"></a>Mönster för att lyckas
 
-Lyckad kunder ha detaljerade planer där dessa frågor diskuteras, dokumenteras och omfattas.  Kontrollera migreringen planer brett förmedlas till sponsorer och intressenter.  Förse dig med kunskap om migreringsalternativ; Vi rekommenderar starkt att du läsa igenom det här dokumentet som nedan.
+Lyckad kunder ha detaljerade planer där föregående frågorna beskrivs, dokumenteras och omfattas.  Kontrollera migreringen planer brett förmedlas till sponsorer och intressenter.  Förse dig med kunskap om migreringsalternativ; Vi rekommenderar starkt att du läsa igenom det här dokumentet som nedan.
 
 * [Översikt över plattformar som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Tekniska ingående om plattformen stöds från klassiska till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Använda PowerShell för att migrera IaaS-resurser från klassiska till Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Använda CLI för att migrera IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -79,7 +80,7 @@ Lyckad kunder ha detaljerade planer där dessa frågor diskuteras, dokumenteras 
   Utföra ett laboratorietest för ditt exakt scenario (beräkning, nätverk och lagring) är det bästa sättet att säkerställa en smidig migrering. Detta bidrar till:
 
   - Ett helt separata labb eller en befintlig icke-produktionsmiljö vill testa. Vi rekommenderar en helt separata labb som kan migreras flera gånger och förstörande kan ändras.  Skript för att samla in/hydrat metadata från de verkliga prenumerationerna i listan nedan.
-  - Det är en bra idé att skapa labbet i en separat prenumeration. Orsaken är att labbet torn flera gånger, och med en separat, isolerade prenumeration minskar risken att något verkliga kommer av misstag tas bort.
+  - Det är en bra idé att skapa labbet i en separat prenumeration. Det beror på att labbet torn flera gånger, och med en separat, isolerade prenumeration minskar risken att något riktigt att av misstag tas bort.
 
   Detta kan åstadkommas med hjälp av verktyget AsmMetadataParser. [Läs mer om det här verktyget här](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -205,7 +206,7 @@ Kom ihåg varför du startade den här Classic till Azure Resource Manager migre
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över plattformar som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Tekniska ingående om plattformen stöds från klassiska till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Använda PowerShell för att migrera IaaS-resurser från klassiska till Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassiska till Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

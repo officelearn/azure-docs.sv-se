@@ -13,25 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652312"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över Autoskala med en virtuell dator i Azure skala anger
-En skaluppsättning för virtuell dator i Azure kan automatiskt öka eller minska antalet VM-instanser som kör programmet. Det här beteendet för automatisk och elastiska minskar de hanteringskostnader för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar minimalt acceptabel prestanda för en positiv kundupplevelse. När dessa definierade tröskelvärden uppfylls vidta Autoskala regler åtgärder för att justera kapaciteten för din skaluppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapacitet för din skaluppsättning på fast gånger. Den här artikeln innehåller en översikt av vilka mått som är tillgängliga och vilka åtgärder Autoskala kan utföra.
+En skaluppsättning för virtuell dator i Azure kan automatiskt öka eller minska antalet VM-instanser som kör programmet. Det här beteendet för automatisk och elastiska minskar de hanteringskostnader för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar acceptabel prestanda för en positiv kundupplevelse. När dessa definierade tröskelvärden uppfylls vidta Autoskala regler åtgärder för att justera kapaciteten för din skaluppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapacitet för din skaluppsättning på fast gånger. Den här artikeln innehåller en översikt av vilka mått som är tillgängliga och vilka åtgärder Autoskala kan utföra.
 
 
 ## <a name="benefits-of-autoscale"></a>Fördelarna med Autoskala
-Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå. Om den här ökade belastningen är konsekvent, i stället för bara en kort begäran, kan du konfigurera automatiska regler för att öka antalet VM-instanser i skaluppsättning.
+Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen.
 
-När dessa VM-instanser som skapas och dina program distribueras börjar skaluppsättning distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, t.ex CPU eller minne, hur länge belastningen program måste uppfylla ett visst tröskelvärde och ange hur många VM-instanser som ska läggas till skalan.
+När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, t.ex CPU eller minne, hur länge belastningen program måste uppfylla ett visst tröskelvärde och ange hur många VM-instanser som ska läggas till skalan.
 
-På en kväll eller helger minska program-begäran. Om det här minskar belastningen är konsekvent under en viss tidsperiod, kan du konfigurera automatiska regler för att minska antalet VM-instanser i skaluppsättning. Den här åtgärden för skala minskar kostnaden för att köra skaluppsättningen eftersom du bara köra antalet instanser som krävs för att uppfylla den aktuella begäran.
+På kvällar eller helger, kan efterfrågan på ditt program minska. Om den här minskade belastningen är konsekvent över en tidsperiod, kan du konfigurera regler för automatisk skalning för att minska antalet virtuella datorinstanser i skalningsuppsättningen. Den här åtgärden för skala in minskar kostnaden för att köra din skalningsuppsättningen eftersom du bara köra de antal instanser som krävs för att uppfylla den aktuella efterfrågan.
 
 
 ## <a name="use-host-based-metrics"></a>Använda värdbaserad mått
@@ -64,7 +65,7 @@ Följande värdbaserad mått är tillgängliga för användning när du skapar a
 
 | Måttnamn               |
 |---------------------------|
-| Processorprocentandel            |
+| Procent CPU            |
 | Nätverk in                |
 | Nätverk ut               |
 | Lästa byte på disk           |
@@ -115,7 +116,7 @@ Tillägget Azure diagnostics är en agent som körs i en VM-instans. Agenten öv
 
 Om du vill använda Azure diagnostics-tillägget, måste du skapa Azure storage-konton för VM-instanser, installera agenten Azure-diagnostik och sedan konfigurera de virtuella datorerna till dataströmmen specifika prestandaräknare till lagringskontot.
 
-Mer information finns i artiklarna om att aktivera Azure-diagnostiktillägget på en [virtuell Linux-dator](../virtual-machines/linux/diagnostic-extension.md) eller en [virtuell Windows-dator](../virtual-machines/windows/ps-extensions-diagnostics.md).
+Mer information finns i artiklarna om att aktivera Azure-diagnostiktillägget på en [virtuell Linux-dator](../virtual-machines/extensions/diagnostics-linux.md) eller en [virtuell Windows-dator](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Programnivå mått med App Insights

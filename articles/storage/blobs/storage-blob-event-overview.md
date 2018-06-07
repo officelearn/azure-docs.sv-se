@@ -8,11 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650136"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -30,7 +31,7 @@ BLOB storage-händelser finns i [Blob storage-konton](../common/storage-create-s
 ## <a name="available-blob-storage-events"></a>Tillgängliga Blob storage-händelser
 Används av rutnätet händelse [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) händelse meddelanden till prenumeranter.  BLOB storage händelseprenumerationer kan innehålla två typer av händelser:  
 
-> |Händelsenamnet|Beskrivning|
+> |Händelsenamn|Beskrivning|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Utlöses när en blob skapas eller ersättas via den `PutBlob`, `PutBlockList`, eller `CopyBlob` åtgärder|
 > |`Microsoft.Storage.BlobDeleted`|Utlöses när en blob tas bort via en `DeleteBlob` åtgärden|
@@ -39,14 +40,14 @@ Används av rutnätet händelse [händelseprenumerationer](../../event-grid/conc
 BLOB storage-händelser innehåller den information som du måste svara för ändringar i dina data.  Du kan identifiera en händelse för Blob storage eftersom egenskapen eventType börjar med ”Microsoft.Storage”.  
 Mer information om användningen av händelse rutnätet händelseegenskaper dokumenteras i [händelse rutnätet Händelseschema](../../event-grid/event-schema.md).  
 
-> |Egenskap|Typ|Beskrivning|
+> |Egenskap |Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |Avsnittet|sträng|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
 > |Ämne|sträng|Resurssökvägen till objektet som är föremål för händelsen, i formatet samma utökade Azure Resource Manager som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC relativa.  Det här formatet innehåller ett bevara blob-namn.|
 > |EventTime|sträng|Datum/tid som händelsen skapades i ISO 8601-format|
 > |Händelsetyp|sträng|”Microsoft.Storage.BlobCreated” eller ”Microsoft.Storage.BlobDeleted”|
 > |Id|sträng|Unik identifierare om den här händelsen|
-> |dataVersion|sträng|Schemaversion av dataobjektets primärnycklar.|
+> |dataVersion|sträng|Dataobjektets schemaversion.|
 > |metadataVersion|sträng|Schemaversionen översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|
 > |data.contentType|sträng|Innehållstypen för blob, som returneras i Content-Type-huvudet från blob|
@@ -118,7 +119,7 @@ Om du vill matcha händelser från BLOB som skapats i en specifik behållare som
 
 Om du vill matcha händelser från BLOB som skapats i en specifik behållare som delar ett blob-suffix, använda en `subjectEndsWith` filter som ”.log” eller ”.jpg”
 
-Mer information finns i [händelse rutnätet begrepp](../../event-grid/concepts.md#filters).
+Mer information finns i [händelse rutnätet begrepp](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Metoder för förbrukning av händelser
 Program som hanterar Blob storage-händelser bör följa några rekommenderade metoder:

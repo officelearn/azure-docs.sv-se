@@ -58,10 +58,10 @@ Det här kommandot ger resultat som liknar följande tabell:
 
 | användar-ID | användarnamn | partition | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | partition1 | CA |
-| 3 | Christine | partition1 | WA |
-| 2 | Jessie | partition2 | NM |
-| 4 | Stefan | partition2 | TX |
+| 1 | Chris | Partition1 | CA |
+| 3 | Christina | Partition1 | WA |
+| 2 | Jessie | Partition2 | NM |
+| 4 | Stefan | Partition2 | TX |
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Hämta entiteter för en specifik partition
 
@@ -74,8 +74,8 @@ Resultatet liknar följande tabell:
 
 | användar-ID | användarnamn | partition | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | partition1 | CA |
-| 3 | Christine | partition1 | WA |
+| 1 | Chris | Partition1 | CA |
+| 3 | Christina | Partition1 | WA |
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Hämta entiteter för ett specifikt värde i en viss kolumn
 
@@ -94,7 +94,7 @@ Den här frågan returnerar en post.
 |----|----|
 | användar-ID | 1 |
 | användarnamn | Chris |
-| PartitionKey | partition1 |
+| PartitionKey | Partition1 |
 | RowKey      | CA |
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med ett anpassat filter 
@@ -113,7 +113,7 @@ Den här frågan returnerar en post.
 |----|----|
 | användar-ID | 1 |
 | användarnamn | Chris |
-| PartitionKey | partition1 |
+| PartitionKey | Partition1 |
 | RowKey      | CA |
 
 ### <a name="updating-entities"></a>Uppdatera entiteter 
@@ -148,7 +148,7 @@ Resultaten visar Jessie2 posten.
 |----|----|
 | användar-ID | 2 |
 | användarnamn | Jessie2 |
-| PartitionKey | partition2 |
+| PartitionKey | Partition2 |
 | RowKey      | NM |
 
 ### <a name="deleting-table-entities"></a>Ta bort tabellentiteter
@@ -168,7 +168,7 @@ Ta bort en enda enhet, hämta en referens till entiteten och skicka det till **t
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
 $userToDelete = Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter 
+    -customFilter $filter
 $userToDelete | Remove-AzureStorageTableRow -table $storageTable 
 
 # Retrieve entities from table and see that Jessie2 has been deleted.

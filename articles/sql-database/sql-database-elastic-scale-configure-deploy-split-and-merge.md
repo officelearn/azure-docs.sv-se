@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 90f758bf5bc979dc4bc173b08dadaceeaa077317
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646940"
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuera en tjänst för att dela/sammanslå
 Dela merge-verktyget kan du flytta data mellan delat databaser. Se [flytta data mellan databaser som skalats ut moln](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -33,8 +34,8 @@ Filerna placeras i en katalog med namnet **Microsoft.Azure.SqlDatabase.ElasticSc
 2. Kontrollera att din Azure SQL DB-server tillåter Azure-tjänster att ansluta till den. I portalen i den **brandväggsinställningar**, se till att den **Tillåt åtkomst till Azure-tjänster** inställningen **på**. Klicka på ikonen ”spara”.
    
    ![Tillåtna tjänster][1]
-3. Skapa ett Azure Storage-konto som ska användas för diagnostik utdata. Gå till Azure-portalen. I fältet till vänster klickar du på **skapar du en resurs**, klickar du på **Data + lagring**, sedan **lagring**.
-4. Skapa en Azure-molntjänst som innehåller delning-kopplingstjänsten.  Gå till Azure-portalen. I fältet till vänster klickar du på **skapar du en resurs**, sedan **Compute**, **Molntjänsten**, och **skapa**. 
+3. Skapa ett Azure Storage-konto som ska användas för diagnostik utdata. Gå till Azure Portal. I fältet till vänster klickar du på **skapar du en resurs**, klickar du på **Data + lagring**, sedan **lagring**.
+4. Skapa en Azure-molntjänst som innehåller delning-kopplingstjänsten.  Gå till Azure Portal. I fältet till vänster klickar du på **skapar du en resurs**, sedan **Compute**, **Molntjänsten**, och **skapa**. 
 
 ## <a name="configure-your-split-merge-service"></a>Konfigurera din delade kopplingstjänsten
 ### <a name="split-merge-service-configuration"></a>Dela kopplingstjänsten konfiguration

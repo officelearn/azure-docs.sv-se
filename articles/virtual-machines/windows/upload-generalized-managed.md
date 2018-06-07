@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657479"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -36,7 +37,7 @@ Om du vill använda ett exempelskript finns [exempel på skript för att överf�
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>Generalisera den Virtuella källdatorn med hjälp av Sysprep
 
-Sysprep tar bort alla dina personlig information, bland annat och förbereder datorn som ska användas som en bild. Mer information om Sysprep finns [så att använda Sysprep: en introduktion](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [Sysprep översikt](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -47,12 +48,12 @@ Se till att serverroller som körs på datorn som stöds av Sysprep. Mer informa
 
 1. Logga in på Windows-dator.
 2. Öppna Kommandotolken som administratör. Ändra katalogen till **%windir%\system32\sysprep**, och kör sedan `sysprep.exe`.
-3. I den **systemförberedelseverktyget** dialogrutan **ange System Out of Box Experience (OOBE)**, och se till att den **Generalize** är markerad.
+3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
 4. I **avstängningsalternativ**väljer **avstängning**.
 5. Klicka på **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. När Sysprep har slutförts stängs den virtuella datorn. Starta inte om den virtuella datorn.
+6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
 
 ## <a name="get-the-storage-account"></a>Hämta storage-konto
@@ -145,7 +146,7 @@ New-AzureRmImage `
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Nu när du har skapat en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Det här exemplet skapar en virtuell dator med namnet *myVM* från den *myImage*i den *myResourceGroup*.
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Det här exemplet skapar en virtuell dator med namnet *myVM* från den *myImage*i den *myResourceGroup*.
 
 
 ```powershell

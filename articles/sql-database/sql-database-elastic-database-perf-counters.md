@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 017b2bfdbcff7d0971dd0aaf00a66291d7bec987
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9c134ee96f7749529ab665df041cfc51c979acde
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647331"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestandaräknare för karthanteraren för shard
 Du kan avbilda prestanda för en [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md), särskilt när du använder [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -56,7 +57,8 @@ Prestandaräknare kommer att uppdateras av alla cache-åtgärder som utförs på
 * Prestandaräknaren instanser skapas per process. Alla program kraschar eller borttagning av en Fragmentera mappning från cacheminnet leder borttagning av prestandaräknare instanser.  
 
 ### <a name="see-also"></a>Se också
-[Översikt över funktioner för elastisk databas](sql-database-elastic-scale-introduction.md)  
+
+  [Översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

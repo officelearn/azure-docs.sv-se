@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 233cba790aff60121bd1fdf43667ac48a5ef668d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644944"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -29,10 +30,10 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |32<br/><br/> Som standard kan SQL Data Warehouse köra maximalt 32 samtidiga frågor och köer återstående frågor.<br/><br/>Minska antalet samtidiga frågor när användare tilldelas högre resursklasser eller när SQL Data Warehouse har en lägre [data warehouse enhet](memory-and-concurrency-limits.md) inställningen. Några frågor som DMV frågor är alltid att kunna köras. |
 | [TempDB](sql-data-warehouse-tables-temporary.md) |Maximal GB |399 GB per DW100. Vid DWU1000 storlek tempdb därför till 3,99 TB. |
 
-## <a name="database-objects"></a>objekt i databasen
+## <a name="database-objects"></a>Databasobjekt
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| Databas |Maxstorlek |240 TB komprimerat på disk<br/><br/>Här är oberoende av utrymme i tempdb- eller loggfil och därför detta utrymme har reserverats för permanenta tabeller.  Det grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till ungefär 1 PB när alla tabeller som är grupperade columnstore (standard tabelltyp). |
+| Databas |Maxstorlek | Gen1: 240 TB komprimerat på disken. Här är oberoende av utrymme i tempdb- eller loggfil och därför detta utrymme har reserverats för permanenta tabeller.  Det grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till ungefär 1 PB när alla tabeller som är grupperade columnstore (standard tabelltyp). <br/><br/> Gen2: 240TB för rowstore och obegränsad lagring för columnstore-tabeller |
 | Tabell |Maxstorlek |60 TB komprimerat på disk |
 | Tabell |Tabeller per databas |10 000 |
 | Tabell |Kolumner per tabell |1 024 kolumner |

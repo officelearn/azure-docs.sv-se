@@ -7,19 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646787"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasinformation identifiering och klassificering
 Identifiering av data & klassificering (för närvarande i förhandsversion) ger avancerade funktioner finns inbyggda i Azure SQL Database för **identifiera**, **klassificera**, **etiketter**  &  **skyddar** känsliga data i databasen.
 Identifiera och klassificera dina mest känsliga data (business, finansiella, hälsovård, personligt identifierbar information, etc.) kan en nyckelroll i din organisations information protection-status. Den kan fungera som infrastrukturen för:
-* Hjälper att uppfylla data sekretess standarder och regelefterlevnad krav, t.ex BNPR.
+* Hjälper att uppfylla data sekretess normer och regelefterlevnad krav.
 * Olika säkerhetsscenarier, till exempel övervakning (granskning) och aviseringar om avvikande tillgång till känsliga data.
 * Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller känsliga data.
 

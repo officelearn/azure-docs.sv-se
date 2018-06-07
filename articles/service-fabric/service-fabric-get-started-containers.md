@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366536"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643217"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
 > [!div class="op_single_selector"]
@@ -28,15 +28,22 @@ ms.locfileid: "34366536"
 
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-En utvecklingsdator som kör:
-* Visual Studio 2015 eller Visual Studio 2017.
-* [Service Fabric SDK och verktyg](service-fabric-get-started.md).
-*  Docker för Windows. [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
+## <a name="prerequisites"></a>Förutsättningar
+* En utvecklingsdator som kör:
+  * Visual Studio 2015 eller Visual Studio 2017.
+  * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
+  *  Docker för Windows. [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
 
-Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-cluster-creation-via-portal.md) eller [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric).
+* Ett Windows-kluster med tre eller fler noder som körs på Windows Server med behållare. 
 
-Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
+  Den här artikeln måste version (build) av Windows Server med behållare som körs på klusternoderna matcha på utvecklingsdatorn. Detta beror på att du skapar docker-avbildning på utvecklingsdatorn och det finns begränsningar för kompatibilitet mellan versioner av behållaren OS och värd-OS som har distribuerats. Mer information finns i [Windows Server-behållare OS- och OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
+  
+  För att avgöra vilken version av Windows Server med behållare som du behöver för ditt kluster genom att köra den `ver` från en kommandotolk på utvecklingsdatorn:
+
+  * Om versionen innehåller *x.x.14323.x*, sedan [skapa ett kluster](service-fabric-cluster-creation-via-portal.md) att se till att välja *Windows Server 2016 Datacenter med behållare* för operativsystemet eller [försök Service Fabric gratis](https://aka.ms/tryservicefabric) med en part-kluster.
+  * Om versionen innehåller *x.x.16299.x*, sedan [skapa ett kluster](service-fabric-cluster-creation-via-portal.md) att se till att välja *WindowsServerSemiAnnual Datacenter-Core-1709-med-behållare* för den operativsystemet på datorn. Du kan inte använda en part-kluster.
+
+* Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
 
 > [!NOTE]
 > Distribution av behållare till ett Service Fabric-kluster i Windows 10 eller på ett kluster med Docker CE stöds inte. Den här genomgången testar lokalt med Docker-motorn på Windows 10 och distribuerar slutligen behållartjänsterna till ett Windows Server-kluster i Azure som kör Docker EE. 
@@ -316,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om processisoleringsläget används delar alla behållare som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-behållare och behållarvärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardinställningen för standardisoleringsläget är `process` på Windows Server-värddatorer och `hyperv` på Windows 10-värddatorer. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om processisoleringsläget används delar alla behållare som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-behållare och behållarvärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är arbetsprocesser på Windows Server-värdar. På Windows 10-värdar stöds bara Hyper-V-isoleringsläge, så behållaren som körs i Hyper-V-isoleringsläge oavsett dess inställningen för läge för isolering. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -387,19 +394,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server-behållare OS- och OS-kompatibilitet
+
+Windows Server-behållare är inte kompatibla i alla versioner av värdens operativsystem. Exempel:
+ 
+- Windows Server-behållare som skapats med hjälp av Windows Server version 1709 fungerar inte på en värd som kör Windows Server version 2016. 
+- Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar i Hyper-v-isoleringsläge endast på en värd som kör Windows Server version 1709. 
+- Med Windows Server-behållare som skapats med hjälp av Windows Server 2016, kan det vara nödvändigt för att säkerställa att revision av OS-behållaren och värdens operativsystem är samma när den körs i isoleringsläge på en värd som kör Windows Server 2016.
+ 
+Läs mer i [Windows behållaren versionskompatibilitet](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+Överväg att kompatibiliteten för värdens operativsystem och din behållare OS när du skapar och distribuerar behållare i Service Fabric-klustret. Exempel:
+
+- Kontrollera att du distribuerar behållare med ett operativsystem som är kompatibel med Operativsystemet på klusternoderna.
+- Kontrollera att isoleringsläge som angetts för appen behållare är konsekventa med stöd för OS-behållaren på den nod där den distribueras.
+- Överväg hur Operativsystemet uppgraderas till klusternoderna eller behållare kan påverka deras kompatibilitet. 
+
+Vi rekommenderar följande metoder för att se till att behållare distribueras på rätt sätt på din Service Fabric-kluster:
+
+- Använd explicit avbildningen märkning med Docker-avbildningar för att ange vilken version av Windows Server Operativsystemet som en behållare som skapas från. 
+- Använd [OS-märkning](#specify-os-build-specific-container-images) i din programmanifestfilen se till att ditt program är kompatibla mellan olika versioner av Windows Server och uppgraderingar.
+
+> [!NOTE]
+> Du kan distribuera behållare baserat på Windows Server 2016 lokalt på en Windows 10-värd med Service Fabric version 6.2 och senare. På Windows 10 kör behållare i Hyper-V-isoleringsläge, oavsett isoleringsläge i programmanifestet. Läs mer i [konfigurera isoleringsläge](#configure-isolation-mode).   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>Ange specifika behållaravbildningar för operativsystemet 
 
-Windows Server-behållare (isolerat läge) kanske inte är kompatibla med senare versioner av operativsystemet. Som exempel kanske inte Windows Server-behållare som har skapats med Windows Server 2016 fungerar på Windows Server version 1709. Om klusternoderna uppdateras till den senaste versionen kan det därför hända att behållartjänster som skapats med tidigare versioner av operativsystemet slutar att fungera. Du kan kringgå detta med version 6.1 och senare av körningsversionen genom att Service Fabric har stöd för att ange flera operativsystemsavbildningar per behållare och tagga dem med operativsystemsversionerna (går att hämta genom att köra `winver` i en Windows-kommandotolk). Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera behållaravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
+Windows Server-behållare får inte vara kompatibla mellan olika versioner av Operativsystemet. Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar inte i Windows Server version 1709 i arbetsprocesser. Om klusternoderna uppdateras till den senaste versionen, misslyckas därför behållartjänster som skapats med tidigare versioner av Operativsystemet. Om du vill kringgå det här med version 6.1 av körningsmiljön och nyare, Service Fabric har stöd för att ange flera operativsystemsavbildningar per behållare och tagga dem med build-versioner av Operativsystemet i programmanifestet. Du kan hämta OS-versionen genom att köra `winver` vid en kommandotolk i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera behållaravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 Versionen för Windows Server 2016 är 14393, och versionen för Windows Server version 1709 är 16299. Tjänstmanifestet fortsätter att ange endast en avbildning per behållartjänst, vilket följande visar:
 

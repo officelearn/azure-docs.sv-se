@@ -12,22 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641922"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
-> [!NOTE]
-> Distribuera behållare till ett Service Fabric-kluster i Windows 10 eller med Docker CE stöds inte. 
->   
-
-> [!NOTE]
-> Service Fabric version 6.1 har förhandsversionsstöd för Windows Server version 1709. Den öppna nätverks- och Service Fabric DNS-tjänsten fungerar inte med Windows Server version 1709. 
-> 
 
 ## <a name="introduction"></a>Introduktion
 Azure Service Fabric är en [orchestrator](service-fabric-cluster-resource-manager-introduction.md) av tjänster i ett kluster på datorer med års användnings- och optimering i massiv skala tjänster på Microsoft. Tjänster kan utvecklas på många sätt, från att använda den [Service Fabric programmeringsmodeller](service-fabric-choose-framework.md) till att distribuera [gäst körbara filer](service-fabric-guest-executables-introduction.md). Som standard Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och den högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaren bilder. Allt kan du blanda tjänster i processer och tjänster i behållare i samma program.   
@@ -44,10 +38,6 @@ Behållare är en virtualiseringsteknik som virtualiserar det underliggande oper
 
 ## <a name="container-types-and-supported-environments"></a>Behållartyper av och miljöer som stöds
 Service Fabric stöder behållare på Linux- och Windows och stöder även Hyper-V-isoleringsläge på denna. 
-
-> [!NOTE]
-> Distribuera behållare till ett Service Fabric-kluster i Windows 10 stöds inte för närvarande. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Docker behållare på Linux
 Docker ger avancerade API: er för att skapa och hantera behållare ovanpå Linux kernel-behållare. Docker-Hubbnamnrymd är en central databas för att lagra och hämta avbildningar för behållaren.

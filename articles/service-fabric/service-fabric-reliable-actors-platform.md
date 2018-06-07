@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: b2369f9468c54f10d01203841b6d7ba44b7ba2de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642860"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabric-plattformen
 Den här artikeln förklarar hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors som körs i ett ramverk som är värd för en implementering av en tillståndskänslig tillförlitlig tjänst kallas den *aktören tjänsten*. Tjänsten aktören innehåller alla komponenter som krävs för att hantera livscykeln och meddelandet sändning för din aktörer:
@@ -41,9 +42,6 @@ I Reliable Services tjänsten ärver den `StatefulService` klass. Den här klass
 * Tjänsten säkerhetskopiering och återställning.
 * Delade funktioner för alla aktörer, till exempel strömbrytare.
 * RPC-anrop på tjänsten aktören och på varje enskild aktören.
-
-> [!NOTE]
-> Tillståndskänsliga tjänster stöds inte i Java-/ Linux.
 
 Mer information finns i [implementera servicenivå funktioner i tjänsten aktören](service-fabric-reliable-actors-using.md).
 

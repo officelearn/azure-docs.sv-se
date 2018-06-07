@@ -11,36 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 737f8d49d8254806891d3177cde59187cd8e1f2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640191"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>Visa aktivitetsloggar för rollbaserad åtkomst kontrollen ändras
 
-När någon försöker göra ändringar i rolldefinitioner eller rolltilldelningar inom dina prenumerationer ändringarna får loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) i den administrativa kategorin. Du kan visa aktivitetsloggar om du vill se alla ändringar för rollbaserad åtkomst-åtkomstkontroll (RBAC) under de senaste 90 dagarna.
+Ibland behöver du information om ändringar för rollbaserad åtkomstkontroll (RBAC), såsom för granskning eller felsökning. När någon försöker göra ändringar i rolltilldelningar eller rolldefinitioner i dina prenumerationer ändringarna får loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Du kan visa aktivitetsloggar om du vill se alla RBAC ändringar under de senaste 90 dagarna.
 
 ## <a name="operations-that-are-logged"></a>Åtgärder som är inloggad
 
 Här följer RBAC-relaterade åtgärder som loggas i aktivitetsloggen:
 
-- Skapa eller uppdatera anpassad rolldefinition
-- Ta bort anpassad rolldefinition
 - Skapa rolltilldelning
 - Ta bort rolltilldelning
+- Skapa eller uppdatera anpassad rolldefinition
+- Ta bort anpassad rolldefinition
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Det enklaste sättet att komma igång är att visa aktivitetsloggar med Azure-portalen. Följande skärmbild visar ett exempel på en aktivitetslogg som har filtrerats för att visa den **administrativa** kategori tillsammans med rolldefinition och tilldelning-rollens åtgärder. Den innehåller också en länk för att hämta loggarna som en CSV-fil.
+Det enklaste sättet att komma igång är att visa aktivitetsloggar med Azure-portalen. Följande skärmbild visar ett exempel på en aktivitetslogg som har filtrerats för att visa rolltilldelning och åtgärder för definition av rollen. Den innehåller också en länk för att hämta loggarna som en CSV-fil.
 
 ![Aktivitetsloggar med hjälp av portalen – skärmbild](./media/change-history-report/activity-log-portal.png)
 
-Mer information finns i [visa händelser i aktivitetsloggen](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Aktivitetsloggen i portalen har flera filter. Här följer de RBAC-relaterade filter:
+
+|Filter  |Värde  |
+|---------|---------|
+|Händelsekategori     | <ul><li>Administrativ</li></ul>         |
+|Åtgärd     | <ul><li>Skapa rolltilldelning</li> <li>Ta bort rolltilldelning</li> <li>Skapa eller uppdatera anpassad rolldefinition</li> <li>Ta bort anpassad rolldefinition</li></ul>      |
+
+
+Läs mer om aktivitetsloggar [visa händelser i aktivitetsloggen](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -99,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure logganalys](../log-analytics/log-analytics-overview.md) är ett annat verktyg som du kan använda för att samla in och analysera rollbaserad åtkomst kontrollen ändras för alla dina Azure-resurser. Logganalys har följande fördelar:
+[Azure logganalys](../log-analytics/log-analytics-overview.md) är ett annat verktyg som du kan använda för att samla in och analysera RBAC ändringar för alla dina Azure-resurser. Logganalys har följande fördelar:
 
 - Skriva komplexa frågor och logik
 - Integrera med aviseringar, Power BI och andra verktyg

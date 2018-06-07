@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8173a5abbbeea38bc831b7cc76898714cd4dd4d4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670215"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: oplanerad maskinvara underhåll och oplanerade driftstopp planerat underhåll.
@@ -20,7 +21,7 @@ Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: 
 * **Oplanerat maskinvaruunderhåll** inträffar när Azure-plattformen förutser att maskinvaran eller plattformskomponenter som är associerade med en fysisk dator är på väg att få problem. När plattformen förutser ett problem skickar den en händelse om oplanerat maskinvaruunderhåll för att minska påverkan på virtuella datorer som finns på maskinvaran i fråga. Azure använder direktmigreringsteknik för att migrera de virtuella datorerna från maskinvaran som fått problem till en felfri fysisk dator. Direktmigrering är en åtgärd för att skydda virtuella datorer, som endast pausar den virtuella datorn en kort stund. Minne, öppna filer och nätverksanslutningar bevaras, men prestanda kan försämras före och/eller efter händelsen. I de fall då det inte går att använda direktmigrering uppstår ett oväntat driftavbrott på den virtuella datorn (se nedan).
 
 
-* **Oväntade driftavbrott** är ovanliga och inträffar om det uppstår problem på maskinvaran eller den fysiska infrastrukturen som den virtuella datorn finns på. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När sådant fel identifieras migrerar Azure-plattformen automatiskt (heals) den virtuella datorn till en felfri fysisk dator i samma datacenter. Återställningsprocessen medför driftavbrott (omstart) på virtuella datorer och i vissa fall förlust av den temporära enheten. Anslutna operativsystems- och datadiskar bevaras alltid. 
+* **Ett oväntat avbrott** när maskinvaran eller den fysiska infrastrukturen för den virtuella datorn misslyckades oväntat. Detta kan inkludera fel i lokala nätverk, lokala diskfel eller andra nivån rack-fel. När identifierat, migrerar Azure-plattformen automatiskt (heals) den virtuella datorn till en felfri fysisk dator i samma datacenter. Återställningsprocessen medför driftavbrott (omstart) på virtuella datorer och i vissa fall förlust av den temporära enheten. Anslutna operativsystems- och datadiskar bevaras alltid. 
 
   Virtuella datorer kan även uppstå avbrottstid i händelse av ett strömavbrott eller katastrof som påverkar ett helt datacenter eller även en hel region. För dessa scenarier kan Azure tillhandahåller skyddsalternativ inklusive [tillgänglighet zoner](../articles/availability-zones/az-overview.md) och [länkas regioner](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -83,7 +84,7 @@ Om belastningsutjämnaren inte konfigureras för att jämna ut trafiken mellan f
 
 [Tillgänglighet zoner](../articles/availability-zones/az-overview.md), anger ett alternativ till tillgänglighet, expandera kontrollnivån som du måste hantera tillgängligheten för program och data på din virtuella dator. En tillgänglighetszon är en fysiskt separat zon i en Azure-region. Det finns tre tillgänglighet zoner per Azure-region som stöds. Varje zon tillgänglighet har en distinkt power käll-, nätverks- och kylning och är logiskt åtskild från andra tillgänglighet zoner i Azure-regionen. Du kan bygga dina lösningar för att använda replikerade virtuella datorer i zoner för att skydda dina appar och data från förlust av ett datacenter. Om en zon äventyras, sedan replikerade appar och data är omedelbart tillgängliga i en annan zon. 
 
-![Tillgänglighet zoner](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![Tillgänglighetszoner](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
 Lär dig mer om hur du distribuerar en [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) eller [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM i en zon för tillgänglighet.
 

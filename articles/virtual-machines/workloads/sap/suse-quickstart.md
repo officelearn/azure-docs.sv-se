@@ -1,13 +1,13 @@
 ---
-title: "Testa SAP NetWeaver på Microsoft Azure SUSE Linux Virtual Machines | Microsoft Docs"
-description: "Testa SAP NetWeaver på Microsoft Azure virtuella SUSE Linux-datorer"
+title: Testa SAP NetWeaver på Microsoft Azure SUSE Linux Virtual Machines | Microsoft Docs
+description: Testa SAP NetWeaver på Microsoft Azure virtuella SUSE Linux-datorer
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657663"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Köra SAP NetWeaver på virtuella SUSE Linux-datorer i Microsoft Azure
 Den här artikeln beskrivs olika saker att tänka på när du kör SAP NetWeaver på Microsoft Azure SUSE Linux virtuella datorer (VM). Från och med 19 maj, 2016 stöds officiellt SAP NetWeaver på SUSE Linux virtuella datorer i Azure. All information om Linux-versioner, SAP kernel-versioner och andra krav finns i SAP Obs 1928533 ”SAP-program i Azure: produkter som stöds och Azure VM typer”.
@@ -69,7 +70,7 @@ Det är fortfarande möjligt att använda standard SLES avbildningar för SAP-in
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Installera WALinuxAgent på en virtuell dator SUSE
 Agenten kallas WALinuxAgent är en del av SLES avbildningar i Azure Marketplace. Information om hur du installerar den manuellt (till exempel när du överför en SLES OS virtuell hårddisk (VHD) från lokala) finns i:
 
-* [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
+* [openSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 

@@ -6,14 +6,15 @@ author: bonova
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 4722399525b376e232f2bc7802a570836da79e29
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92e4180f1efe62d2dae9778f70e25f1bb0273b7f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649891"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Operativsystemet Query Store i Azure SQL-databas
 Query Store i Azure är en helt hanterad databasfunktion som samlar in kontinuerligt och Detaljerad historisk information om alla frågor. Du kan se om Query Store som liknar ett flygplan svarta data lådan som avsevärt förenklar frågeprestanda felsökning av både för molnet och lokala kunder. Den här artikeln förklarar vissa aspekter av operativsystem Query Store i Azure. Med den här före insamlade fråga efter data snabbt diagnostisera och lösa problem med prestanda och därmed ägna mer tid åt att fokusera på verksamheten. 

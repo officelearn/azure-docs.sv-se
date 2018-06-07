@@ -14,17 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657578"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Lagringsutforskaren viktig information
 
 Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.0.0 versionen och viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
+
+## <a name="version-110"></a>Version 1.1.0
+2018-05/09
+
+### <a name="download-azure-storage-explorer-110"></a>Hämta Azure Lagringsutforskaren 1.1.0
+- [Azure Lagringsutforskaren 1.1.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren 1.1.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren 1.1.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Ny
+* Lagringsutforskaren stöder nu användning av Azurite. Obs: anslutningen till Azurite är hårdkodad till standardslutpunkterna för utveckling.
+* Lagringsutforskaren stöder nu åtkomstnivåer för endast Blob och GPV2 Storage-konton. Mer information om åtkomstnivåer [här](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* En starttid krävs inte längre vid generering av en SAS.
+
+### <a name="fixes"></a>Korrigeringar
+* Hämtning av prenumerationer för konton som tillhör amerikanska myndigheter bröts. Problemet har åtgärdats. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* Förfallotiden för åtkomstprinciper som korrekt sparades inte. Problemet har åtgärdats. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* När du genererar en SAS-URL för ett objekt i en behållare har inte namnet på objektet som läggs till URL: en. Problemet har åtgärdats. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* När du skapar en SAS är utgången tider som är tidigare ibland standardvärdet. Det berodde på Lagringsutforskaren med senaste används start-och förfallotid som standardvärden. Varje gång du öppnar dialogrutan SAS skapas nu en ny uppsättning standardvärden. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* När du kopierar mellan Lagringskonton, skapas en 24-timmarsformat SAS. Om kopian varade mer än 24 timmar, skulle kopian misslyckas. Vi har gjort SAS till senaste 1 veckan för att minska risken för en kopia misslyckas på grund av ett utgånget SAS. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* För vissa aktiviteter fungerar att klicka på ”Avbryt” alltid inte. Problemet har åtgärdats. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* För vissa aktiviteter var överföringshastigheten fel. Problemet har åtgärdats. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* ”Föregående” stavningen i menyn Visa var fel. Det är nu korrekt stavat. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Den sista sidan i Windows installer hade en ”” nästa. Det har ändrats till en ”Slutför”. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Fliken fokus kunde inte visas för knappar i dialogrutor när du använder HC svart tema. Det är nu visas. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* Versaler och gemener i ”löses” för åtgärder i aktivitetsloggen var fel. Det är rätt. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* När du tar bort en entitet från en tabell, visas en felikon i dialogrutan där du uppmanas att bekräfta. Dialogrutan använder nu en varningsikon. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Kända problem
+* Om du använder VS för Mac och tidigare har skapat en anpassad AAD-konfiguration, kanske du inte logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det inte låsa upp du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ännu inte helt har genomfört alla lagring API: er. Därmed är kan det finnas oväntade fel eller problem när du använder Azurite för utveckling lagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från mappen OneDrive fungerar inte på grund av ett fel i NodeJS. Programfelet har åtgärdats men har ännu inte har integrerats i Electron.
+* När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317). 
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
+* Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
+* Electron-gränssnittet som används av Lagringsutforskaren har problem med vissa maskinvaruacceleration GPU (graphics bearbetning unit). Om Lagringsutforskaren visas en tom (tom) huvudfönstret, kan du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växel:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* För Linux-användare, behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Du behöver kontrollera GCC är uppdaterad – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu 14.04:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 och 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 och 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 och 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Version 1.0.0
 2018-04/16
@@ -44,7 +130,7 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
 * Förbättrad åtkomst och stöd för skärmläsare. Om du förlitar dig om dessa funktioner finns i vår [hjälpmedel dokumentationen](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) för mer information.
 * Lagringsutforskaren använder nu Electron 1.8.3
 
-### <a name="breaking-changes"></a>Gör ändringar
+### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 * Lagringsutforskaren har ändrats till ett nytt autentiseringsbibliotek. Som en del av växla till biblioteket behöver du re-logga in på dina konton och ange nytt filtrerade prenumerationer
 * Den metod som används för att kryptera känsliga data har ändrats. Det kan resultera i en del av din Snabbåtkomst objekten som ska läggas till igen och/eller vissa av du kopplade resurser som ska kopplas.
 
@@ -95,31 +181,6 @@ Den här artikeln innehåller viktig information om Azure Lagringsutforskaren 1.
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 och 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 och 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 och 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Version 0.9.6
 2018-02/28

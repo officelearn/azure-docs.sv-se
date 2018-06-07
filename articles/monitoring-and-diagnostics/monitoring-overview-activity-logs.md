@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638994"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 
@@ -50,7 +51,7 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 * **Tjänstens hälsa** -den här kategorin innehåller posten för alla service hälsa incidenter som har inträffat i Azure. Ett exempel på typen av händelse visas i den här kategorin är ”SQL Azure i östra USA upplever driftstopp”. Hälsa av tjänsten-händelser finns i fem sorter: åtgärd krävs stödd återställning, Incident, underhåll, Information eller säkerhet, och visas endast om du har en resurs i den prenumeration som skulle påverkas av händelsen.
 * **Varning** -den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringar. Ett exempel på typen av händelse visas i den här kategorin är ”processor på myVM har varit över 80 under de senaste fem minuterna”. En mängd Azure system har en aviseringar begrepp – du kan definiera en regel av något slag och ett meddelande när villkor matchar regeln. Varje gång en stöds Azure aviseringstyp 'aktiveras,' eller villkoren är uppfyllda för att generera ett meddelande, en post på aktiveringen skickas även till den här kategorin för aktivitetsloggen.
 * **Autoskala** -den här kategorin innehåller posten för alla händelser relaterade till åtgärden Autoskala motorns baserat på automatiska inställningar du har definierat i din prenumeration. Ett exempel på typen av händelse visas i den här kategorin är ”Autoskala skalas upp misslyckades”. Använda autoskalning kan du automatiskt skala ut eller skala antalet instanser i en stöds resurstyp baserat på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren är uppfyllda för att skala upp eller ned, start- och lyckades eller misslyckades händelser registreras i den här kategorin.
-* **Rekommendation** -den här kategorin innehåller rekommendation händelser från vissa typer av resurser, till exempel webbplatser och SQL-servrar. Dessa händelser ger rekommendationer för hur du bättre utnyttja dina resurser. Du får bara händelser för den här typen om du har resurser som genererar rekommendationer.
+* **Rekommendation** -den här kategorin innehåller rekommendation händelser från Azure Advisor.
 * **Säkerhet** -den här kategorin innehåller posten för alla aviseringar som genereras av Azure Security Center. Ett exempel på typen av händelse visas i den här kategorin är ”misstänkta dubbla tilläggsfilen utförs”.
 * **Principen och Resource Health** -dessa kategorier innehåller inte några händelser, de är reserverad för framtida användning.
 
@@ -60,7 +61,7 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 ## <a name="what-you-can-do-with-the-activity-log"></a>Vad du kan göra med aktivitetsloggen
 Här följer några av de saker som du kan göra med aktivitetsloggen:
 
-![Azure-aktivitetsloggen](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure-aktivitetslogg](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Fråga efter och visa den i den **Azure-portalen**.
@@ -103,7 +104,7 @@ En **loggen profil** styr hur din aktivitetsloggen exporteras. Med en logg-profi
 * Hur länge aktivitetsloggen ska behållas i ett Lagringskonto.
     - En kvarhållning av noll dagar innebär loggar behålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
     - Om bevarandeprinciper har angetts men lagring loggar i ett Storage-konto har inaktiverats (till exempel om endast Händelsehubbar eller logganalys alternativen är markerade), har bevarandeprinciper ingen effekt.
-    - Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort.
+    - Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar för loggar som ska tas bort från ditt lagringskonto.
 
 Du kan använda ett lagringsutrymme konto eller händelse hubb namnområde som inte är i samma prenumeration som en avger loggar. Den användare som konfigurerar inställningen måste ha RBAC lämplig åtkomst till båda prenumerationer.
 
@@ -141,13 +142,13 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Namn |Ja |Namnet på loggen profilen. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
-| RetentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| retentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
 | Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
 
 #### <a name="remove-a-log-profile"></a>Ta bort en logg-profil

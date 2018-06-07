@@ -1,13 +1,13 @@
 ---
-title: "Översikt över en Oracle-katastrofåterställning i Azure-miljön | Microsoft Docs"
-description: "En katastrofåterställning för en Oracle-databas 12c-databas i Azure-miljön"
+title: Översikt över en Oracle-katastrofåterställning i Azure-miljön | Microsoft Docs
+description: En katastrofåterställning för en Oracle-databas 12c-databas i Azure-miljön
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.openlocfilehash: aede44d964994bd2ef9b46a133b1f1ee303ef309
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb319c4ba9bbfba584803b35a0db0763fcf97b86
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657869"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveriberedskap för en Oracle-databas 12c-databas i en Azure-miljö
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 12/08/2017
 
 En kund har en Oracle databasen set in på den primära platsen. En DR-plats finns i en annan region. Kunden använder Oracle Data Guard för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och andra ändamål. 
 
-### <a name="topology"></a>topologi
+### <a name="topology"></a>Topologi
 
 Här följer en sammanfattning av Azure installationen:
 
@@ -61,7 +62,7 @@ Det finns två tillvägagångssätt för den här installationen.
 
 Vi rekommenderar inte direkta anslutningar eftersom de exponera TCP-portar för allmänheten.
 
-#### <a name="topology"></a>topologi
+#### <a name="topology"></a>Topologi
 
 Nedan följer en sammanfattning av Azure installationen:
 
@@ -80,7 +81,7 @@ Nedan följer en sammanfattning av Azure installationen:
 ### <a name="approach-2-site-to-site-vpn"></a>Metod 2: Plats-till-plats VPN
 Plats-till-plats VPN är en bättre metod. Mer information om hur du konfigurerar en VPN-anslutning finns [skapa ett virtuellt nätverk med en plats-till-plats VPN-anslutning med hjälp av CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
-#### <a name="topology"></a>topologi
+#### <a name="topology"></a>Topologi
 
 Nedan följer en sammanfattning av Azure installationen:
 

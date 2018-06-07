@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666916"
 ---
 ## <a name="create-a-module-identity"></a>Skapa en modulidentitet
 
@@ -43,7 +44,16 @@ I det här avsnittet skapar du en .NET-konsolapp som skapar en enhetsidentitet o
     const string moduleID = "myFirstModule";
     ```
 
-5. Lägg till följande metoder i klassen **Program**:
+5. Lägg till följande kod i den **Main** klass.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Lägg till följande metoder i klassen **Program**:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ I det här avsnittet skapar du en .NET-konsolapp som skapar en enhetsidentitet o
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Kör det här programmet och notera enhetsnyckeln och modulnyckeln.
+7. Kör det här programmet och notera enhetsnyckeln och modulnyckeln.
 
 > [!NOTE]
 > IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [utvecklarhandboken för IoT Hub][lnk-devguide-identity].

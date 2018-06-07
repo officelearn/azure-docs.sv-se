@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 5ce83198e1d2afb713044879724df88ad2696548
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3d1a9045ed89bd3e5714762add7cb9568c46e44f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648249"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd Intelligent insikter Azure SQL Database prestanda diagnostik loggen
 
@@ -81,7 +82,7 @@ Prestandaproblem som identifierats information för utdata i diagnostiken loggfi
 | Ökning av arbetsbelastning | <li>Antal frågor vars körning ökade</li><li>Fråga hash-värden för frågor med största bidrar till ökad arbetsbelastning</li> |
 | Minnesbelastning | <li>Minnes-Clerk under</li> |
 | Låsning | <li>Påverkas frågan hashvärden</li><li>Blockerar frågan hashvärden</li> |
-| Increased MAXDOP | <li>Frågan hashvärden</li><li>Väntetiden för CXP</li><li>Vänta gånger</li> |
+| Ökad MAXDOP | <li>Frågan hashvärden</li><li>Väntetiden för CXP</li><li>Vänta gånger</li> |
 | Pagelatch konkurrens | <li>Fråga hash-värden för frågor som orsakar konkurrens</li> |
 | Index som saknas | <li>Frågan hashvärden</li> |
 | Ny fråga | <li>Fråga hash för de nya frågorna</li> |

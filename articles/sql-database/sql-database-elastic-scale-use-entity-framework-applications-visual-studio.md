@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: fba872b01d4ddf0bb4e6aa8d0217042617688b8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2eafd4b23da8f21f1a4b3ffcf29e50b65882d6c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646770"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Klientbibliotek för elastisk databas med Entity Framework
 Det här dokumentet beskrivs ändringarna i ett Entity Framework-program som behövs för att integrera med den [elastisk Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på fastställdes [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md) och [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först - ny databas](http://msdn.microsoft.com/data/jj193542.aspx) självstudier för EF fungerar som exemplet körs i hela dokumentet. Exempelkoden åtföljer det här dokumentet är en del av verktygen för elastisk databas uppsättning exempel i Visual Studio-kodexempel.
@@ -177,10 +178,10 @@ Koden exemplen ovan visar de standard konstruktorn skriver krävs för ditt prog
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection bool) |Anslutningen måste vara en funktion av Fragmentera kartan och nyckeln data beroende routning. Du behöver för att hoppa över automatisk anslutning skapande av EF och i stället använda Fragmentera kartan för att broker anslutningen. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection bool) |Anslutningen är en funktion av Fragmentera kartan och nyckeln data beroende routning. Fasta databasrollen namn eller anslutningssträngen fungerar inte som de hoppa över verifieringen av Fragmentera kartan. |
 | MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection DbCompiledModel, bool) |Anslutningen skapas med mallen för den angivna Fragmentera karta och horisontell partitionering nyckeln. Kompilerade modellen överförs till grundläggande c'tor. |
-| MyContext (DbConnection bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext (DbConnection bool) |Anslutningen måste härledas från Fragmentera kartan och nyckeln. Det går inte att ange indata (såvida inte dessa indata har redan använder Fragmentera kartan och nyckeln). Booleskt skickas vidare. |
+| MyContext (DbConnection bool) |ElasticScaleContext (ShardMap TKey, bool) |DbContext (DbConnection bool) |Anslutningen måste härledas från Fragmentera kartan och nyckeln. Det går inte att ange indata (såvida inte dessa indata har redan använder Fragmentera kartan och nyckeln). Booleskt skickas vidare. |
 | MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection DbCompiledModel, bool) |Anslutningen måste härledas från Fragmentera kartan och nyckeln. Det går inte att ange indata (såvida inte dessa indata använde Fragmentera kartan och nyckel). Kompilerade modellen skickas vidare. |
-| MyContext (ObjectContext bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext bool) |Konstruktorn new måste se till att alla anslutningen i ObjectContext skickas som indata dirigeras till en anslutning som hanteras av elastisk skalbarhet. En detaljerad beskrivning av ObjectContexts är utanför omfattningen för det här dokumentet. |
-| MyContext (DbConnection DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection DbCompiledModel, bool;) |Anslutningen måste härledas från Fragmentera kartan och nyckeln. Anslutningen kan inte anges som en inmatning (såvida inte dessa indata har redan använder Fragmentera kartan och nyckeln). Modellen och booleskt värde skickas till konstruktorn basklass. |
+| MyContext (ObjectContext bool) |ElasticScaleContext (ShardMap TKey ObjectContext, bool) |DbContext (ObjectContext bool) |Konstruktorn new måste se till att alla anslutningen i ObjectContext skickas som indata dirigeras till en anslutning som hanteras av elastisk skalbarhet. En detaljerad beskrivning av ObjectContexts är utanför omfattningen för det här dokumentet. |
+| MyContext (DbConnection DbCompiledModel, bool) |ElasticScaleContext (ShardMap TKey DbCompiledModel, bool) |DbContext (DbConnection DbCompiledModel, bool;) |Anslutningen måste härledas från Fragmentera kartan och nyckeln. Anslutningen kan inte anges som en inmatning (såvida inte dessa indata har redan använder Fragmentera kartan och nyckeln). Modellen och booleskt värde skickas till konstruktorn basklass. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Fragmentera schemat distribution via EF migrering
 Schemahantering av automatiska är i syfte att underlätta tillhandahålls av Entity Framework. I samband med program med elastiska Databasverktyg som du vill behålla den här funktionen för att automatiskt etablera schemat till nyligen skapade shards när databaserna läggs till delat programmet. Det primära användningsfallet är att öka kapaciteten på datanivå för delat program som använder EF. Förlita dig på EFS funktioner för schemahantering av minskar databasen administration arbete med ett delat program som bygger på EF. 

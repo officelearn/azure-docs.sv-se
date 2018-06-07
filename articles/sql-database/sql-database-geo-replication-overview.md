@@ -6,15 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 39c61fd3b2f03c99d74fded22927f319cc7f4cdd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0c27aec90dad6eb3aeb46871d20202870eba886d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647653"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Översikt: Redundans grupper och aktiv geo-replikering
 Aktiv geo-replikering kan du konfigurera upp till fyra läsbara sekundära databaser på samma eller olika data center platser (regioner). Sekundära databaser är tillgängliga för frågor och växling vid fel om det finns ett avbrott för data center eller oförmåga att ansluta till den primära databasen. Växling vid fel måste initieras manuellt med hjälp av användaren. Efter växling vid fel har den nya primärt slutpunkten för en annan anslutning. 

@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 08059da95baa9e70b8dba2dd847d0b28669778b7
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a381d428f1ecf07836151e6c7d9c88c6fc99736e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643200"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Provideråtgärder i Azure Resource Manager resurs
 
@@ -1041,6 +1042,8 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Compute/virtualMachines/extensions/write | Skapar ett nytt tillägg för virtuell dator eller uppdaterar ett befintligt |
 > | Åtgärd | Microsoft.Compute/virtualMachines/generalize/action | Ställer in statusen för den virtuella datorn på Generaliserad och förbereder den virtuella datorn för avbildning |
 > | Åtgärd | Microsoft.Compute/virtualMachines/instanceView/read | Hämtar detaljerad körningsstatus för den virtuella datorn och dess resurser |
+> | DataAction | Microsoft.Compute/virtualMachines/login/action | Logga in på en virtuell dator som vanlig användare |
+> | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Logga in på en virtuell dator med behörighet som Windows-administratör eller Linux-rotanvändare |
 > | Åtgärd | Microsoft.Compute/virtualMachines/performMaintenance/action | Utför underhållsåtgärd på den virtuella datorn. |
 > | Åtgärd | Microsoft.Compute/virtualMachines/powerOff/action | Stänger av den virtuella datorn. Observera att den virtuella datorn kommer att fortsätta debiteras. |
 > | Åtgärd | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Läser måttdefinitioner för den virtuella datorn |
@@ -1715,6 +1718,8 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/listKeys/action | Lista nycklar för ett databaskonto |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/metricDefinitions/read | Läser databasen konto mått definitioner. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/metrics/read | Läser databasen konto mått. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/offlineRegion/action | Offline en del av ett databaskonto.  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/onlineRegion/action | Online en del av ett databaskonto. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/operationResults/read | Lässtatus för asynkron åtgärd |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/percentile/metrics/read | Läsa måtten för svarstid |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/percentile/read | Läs percentiler av replikeringsfördröjningar |
@@ -2097,6 +2102,43 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Föråldrad: Använd /providers/Microsoft.Maps) Skapa ny plats baserat Services-konto primär eller sekundär nyckel |
 > | Åtgärd | Microsoft.LocationBasedServices/accounts/write | (Föråldrad: Använd /providers/Microsoft.Maps) Skapa eller uppdatera en plats baserat Services-konto. |
 > | Åtgärd | Microsoft.LocationBasedServices/register/action | (Föråldrad: Använd /providers/Microsoft.Maps) Registrera providern |
+
+## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Åtgärdstyp | Åtgärd | Beskrivning |
+> | --- | --- | --- |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Läsa data från tabellen avisering |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Läsa data från tabellen AzureActivity |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Läsa data från tabellen AzureMetrics |
+> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Läsa data från tabellen CommonSecurityLog |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Läsa data från tabellen ComputerGroup |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Läser data från alla * _CL tabell |
+> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Läsa data från tabellen ETWEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Läsa data från tabellen händelse |
+> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Läsa data från tabellen pulsslag |
+> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Läsa data från tabellen LinuxAuditLog |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Läsa data från tabellen igen |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Läsa data från tabellen Perf |
+> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Läsa data från tabellen ProtectionStatus |
+> | DataAction | Microsoft.LogAnalytics/logs/read | Läsa data från loggar |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Läsa data från tabellen ReservedAzureCommonFields |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Läsa data från tabellen ReservedCommonFields |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Läsa data från tabellen SecurityAlert |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Läsa data från tabellen SecurityBaseline |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Läsa data från tabellen SecurityBaselineSummary |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Läsa data från tabellen SecurityDetection |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Läsa data från tabellen SecurityEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Läsa data från tabellen ServiceFabricOperationalEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Läsa data från tabellen ServiceFabricReliableActorEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Läsa data från tabellen ServiceFabricReliableServiceEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Läsa data från tabellen Syslog |
+> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Läsa data från tabellen SysmonEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Läsa data från tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Läsa data från tabellen UpdateSummary |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Läsa data från tabellen användning |
+> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Läsa data från tabellen W3CIISLog |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Läsa data från tabellen WindowsFirewall |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -3655,6 +3697,10 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Storage/operations/read | Avsöker status för en asynkron åtgärd. |
 > | Åtgärd | Microsoft.Storage/register/action | Registrerar prenumerationen för lagringsresursprovidern och gör det möjligt att skapa lagringskonton. |
 > | Åtgärd | Microsoft.Storage/skus/read | Listar SKU:erna som stöds av Microsoft.Storage. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Returnerar resultatet av att lägga till blobinnehåll |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Ta bort bevarande av juridiska skäl för blobbehållare |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en behållare |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete | Ta bort oföränderlighetsprincipen för blobbehållaren |
@@ -3683,6 +3729,11 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över Microsofts lagringsmåttdefinitioner. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returnerar resultatet av att ta bort en kö |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returnerar resultatet av att lägga till ett meddelande |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returnerar resultatet av att bearbeta ett meddelande |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returnerar resultatet av att skriva ett meddelande |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returnerar resultatet av att skriva en kö |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/read | Returnerar egenskaper för kötjänst eller statistik. |
@@ -3994,7 +4045,6 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Web/classicmobileservices/Read | Hämta klassiska Mobile Services. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Delete | Tar bort en Gateway med anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Join/Action | Ansluter till en Gateway med anslutning. |
-> | Åtgärd | Microsoft.Web/connectiongateways/Liststatus/Action | Visa Status för anslutningen Gateways. |
 > | Åtgärd | Microsoft.Web/connectionGateways/ListStatus/Action | Visar status för en Gateway med anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Move/Action | Flyttar en Gateway med anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Read | Hämta listan över anslutningen Gateways. |
@@ -4017,6 +4067,7 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Web/geoRegions/Read | Hämta listan över geografiska regionerna. |
 > | Åtgärd | Microsoft.Web/hostingenvironments/capacities/Read | Hämta värd miljöer kapacitet. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/Delete | Ta bort Apptjänst-miljö |
+> | Åtgärd | Microsoft.Web/hostingenvironments/detectors/Read | Hämta värd miljöer detektorerna. |
 > | Åtgärd | Microsoft.Web/hostingenvironments/Diagnostics/Read | Hämta värd miljöer diagnostik. |
 > | Åtgärd | Microsoft.Web/hostingenvironments/inboundnetworkdependenciesendpoints/Read | Hämta nätverksslutpunkter av alla inkommande beroenden. |
 > | Åtgärd | Microsoft.Web/hostingenvironments/metricdefinitions/Read | Hämta värd miljöer Måttdefinitioner. |
@@ -4096,14 +4147,17 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Web/sites/backup/Action | Skapa en ny säkerhetskopia av web app |
 > | Åtgärd | Microsoft.Web/Sites/Backup/Read | Hämta Web Apps säkerhetskopiering. |
 > | Åtgärd | Microsoft.Web/Sites/Backup/Write | Uppdatera Web Apps säkerhetskopiering. |
+> | Åtgärd | Microsoft.Web/Sites/Backups/Action | Identifierar en befintlig app-säkerhetskopia som kan återställas från en blobb i Azure storage. |
 > | Åtgärd | Microsoft.Web/Sites/Backups/delete | Ta bort Web Apps säkerhetskopior. |
 > | Åtgärd | Microsoft.Web/Sites/Backups/List/Action | Lista över Web Apps säkerhetskopiering. |
 > | Åtgärd | Microsoft.Web/sites/backups/Read | Hämta egenskaperna för ett webbprogram säkerhetskopiering |
 > | Åtgärd | Microsoft.Web/Sites/Backups/Restore/Action | Återställa Web Apps säkerhetskopior. |
+> | Åtgärd | Microsoft.Web/Sites/Backups/Write | Uppdatera Web Apps säkerhetskopieringar. |
 > | Åtgärd | Microsoft.Web/Sites/config/delete | Ta bort Web Apps Config. |
 > | Åtgärd | Microsoft.Web/sites/config/list/Action | Visa en lista med Web App känsliga säkerhetsinställningar, till exempel publicera autentiseringsuppgifter, app-inställningar och anslutningssträngar |
 > | Åtgärd | Microsoft.Web/sites/config/Read | Hämta konfigurationsinställningar för webbprogram |
 > | Åtgärd | Microsoft.Web/sites/config/Write | Uppdatera Web App konfigurationsinställningar |
+> | Åtgärd | Microsoft.Web/Sites/containerlogs/Action | Hämta zippade loggar för behållaren för webbprogrammet. |
 > | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/delete | Ta bort Web Apps kontinuerlig Web jobb. |
 > | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/Read | Hämta Web Apps kontinuerlig Webjobs. |
 > | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/Start/Action | Starta Web Apps kontinuerlig Web jobb. |
@@ -4113,6 +4167,7 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | Microsoft.Web/Sites/Deployments/log/Read | Hämta Web Apps distributioner loggen. |
 > | Åtgärd | Microsoft.Web/Sites/Deployments/Read | Hämta Web Apps distributioner. |
 > | Åtgärd | Microsoft.Web/Sites/Deployments/Write | Uppdatera Web Apps distributioner. |
+> | Åtgärd | Microsoft.Web/Sites/detectors/Read | Hämta Web Apps detektorerna. |
 > | Åtgärd | microsoft.web/sites/diagnostics/analyses/execute/Action | Kör Web Apps diagnostik analys. |
 > | Åtgärd | Microsoft.Web/Sites/Diagnostics/analyses/Read | Hämta Web Apps diagnostik analys. |
 > | Åtgärd | Microsoft.Web/Sites/Diagnostics/aspnetcore/Read | Hämta Web Apps diagnostik för ASP.NET Core app. |
@@ -4276,6 +4331,7 @@ Resurs-provideråtgärder utvecklas alltid. Om du vill hämta de senaste åtgär
 > | Åtgärd | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
 > | Åtgärd | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.Web/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read | Hämtar tillgängliga mått för Webbprogramplats |
+> | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/delete | Ta bort Web Apps fack offentliga certifikat. |
 > | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/Read | Hämta Web Apps fack offentliga certifikat. |
 > | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/Write | Skapa eller uppdatera Web Apps fack offentliga certifikat. |
 > | Åtgärd | Microsoft.Web/sites/slots/publish/Action | Publicera en Webbprogramplats |

@@ -1,13 +1,13 @@
 ---
-title: "Azure Windows VM-storlek – lagring | Microsoft Docs"
-description: "Listar de olika optimerade lagringsstorlekar tillgänglig för Windows-datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien."
+title: Azure Windows VM-storlek – lagring | Microsoft Docs
+description: Listar de olika optimerade lagringsstorlekar tillgänglig för Windows-datorer i Azure. Visar information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredd för storlekar i den här serien.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/11/2018
 ms.author: jonbeck
-ms.openlocfilehash: d45e6595fcf1db82e108e632712f42fbb518aa79
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 99a777b1689ae0641729709e30c4880479243d71
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658187"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Storage optimerat storlekar för virtuella datorer
 
@@ -34,6 +35,7 @@ ms.lasthandoff: 01/12/2018
 - [Minnesoptimerad](sizes-memory.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
+- [Tidigare versioner](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.

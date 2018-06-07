@@ -5,25 +5,25 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650510"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Vidarebefordra Blob storage-händelser till en anpassad webbplats slutpunkt med PowerShell
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure PowerShell för att prenumerera på Blob storage-händelser, utlösa en händelse och visa resultatet. 
 
-Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att förenkla exemplet som visas i den här artikeln, skickas händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med ett tredjepartsverktyg från [Hookbin](https://hookbin.com/).
+Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och åtgärder. Men för att förenkla den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
-> [!NOTE]
-> **Hookbin** är inte avsedd för användning med hög genomströmning. Här används verktyget endast i instruktionssyfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget. Dessutom, Tänk på att **Hookbin** hämtar [särskild behandling](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) efter Azure händelse rutnät. För att underlätta testningen händelse rutnätet skickar händelser det utan att kräva en rätt svar på begäranden för verifiering av prenumerationen (som skulle hända [annars](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
+När du är klar kan se du att händelsedata som har skickats till webbappen.
 
-När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
+![Visa resultat](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Konfiguration
 
@@ -82,23 +82,41 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. Hookbin är ett tredjepartsverktyg som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**. Kopiera URL som bin och Ersätt `<bin URL>` i skriptet nedan.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten tar vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbprogrammet](https://github.com/dbarkol/azure-event-grid-viewer) som visar meddelanden om händelser. Distribuerade lösningen innehåller en apptjänstplan, en App Service webbapp och källkod från GitHub.
+
+Ersätt `<your-site-name>` med ett unikt namn för ditt webbprogram. Webbprogramnamnet måste vara unikt eftersom den ingår i DNS-posten.
 
 ```powershell
-$binEndPoint = "<bin URL>"
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
 ```
+
+Distributionen kan ta några minuter att slutföra. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare, navigerar du till: `https://<your-site-name>.azurewebsites.net`
+
+Du bör se platsen med inga meddelanden som visas.
 
 ## <a name="subscribe-to-your-storage-account"></a>Prenumerera på ditt lagringskonto
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från Hookbin som slutpunkt för händelseavisering. 
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar på storage-konto som du har skapat och överför URL: en från ditt webbprogram som slutpunkt för händelseavisering. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
-  -Endpoint $binEndPoint `
+  -Endpoint $endpoint `
   -ResourceId $storageId
 ```
+
+Visa ditt webbprogram igen och Observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ikonen ögat att utöka informationen om händelsen. Händelsen rutnätet skickar händelsen validering så att slutpunkten kan kontrollera att den vill ta emot händelsedata. Webbprogrammet inkluderar den kod för att verifiera prenumerationen.
+
+![Visa prenumeration händelse](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Utlösa en händelse från Blob Storage
 
@@ -113,7 +131,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till slutpunktsadress du skapade tidigare. Du kan också klicka på Uppdatera i webbläsaren du har öppen. Du kan se den händelse du just skickade. 
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Visa ditt webbprogram om du vill se den händelse som du har skickat.
 
 ```json
 [{

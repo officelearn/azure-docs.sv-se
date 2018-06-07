@@ -1,11 +1,11 @@
 ---
-title: "Kör en Cassandra kluster på Linux i Azure från Node.js"
-description: "Hur du kör ett Cassandra kluster på Linux i Azure Virtual Machines från en Node.js-app"
+title: Kör en Cassandra kluster på Linux i Azure från Node.js
+description: Hur du kör ett Cassandra kluster på Linux i Azure Virtual Machines från en Node.js-app
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652846"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Kör en Cassandra kluster på Linux i Azure med Node.js
 
@@ -169,7 +170,7 @@ Klicka på högerpilen, lämna standardvärdena på skärmen #3. Klicka på knap
 #### <a name="step-1-upload-tarballs"></a>STEG 1: Ladda upp tarballs
 Använder scp eller pscp, kopierar du tidigare hämtade programvaran till ~/downloads katalogen med hjälp av följande kommandoformat:
 
-##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gzlocaladmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
+##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Upprepa ovanstående kommando för JRE samt som Cassandra bitar.
 
 #### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>STEG 2: Förbered katalogstrukturen och extrahera Arkiv
@@ -279,7 +280,7 @@ Redigera cassandra.yaml på varje virtuell konfiguration som krävs av alla virt
 
 <table>
 <tr><th>Fältnamn   </th><th> Värde  </th><th>    Kommentarer </th></tr>
-<tr><td>klusternamn </td><td>    “CustomerService”    </td><td> Använda namn som motsvarar din distribution</td></tr>
+<tr><td>klusternamn </td><td>    ”CustomerService”    </td><td> Använda namn som motsvarar din distribution</td></tr>
 <tr><td>listen_address    </td><td>[lämna det tomt]    </td><td> Ta bort ”localhost” </td></tr>
 <tr><td>rpc_addres   </td><td>[lämna det tomt]    </td><td> Ta bort ”localhost” </td></tr>
 <tr><td>frö    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Lista över alla IP-adresser som är avsedda som frö.</td></tr>
@@ -355,7 +356,7 @@ Ovanstående procedur kan utföras med hjälp av Azure portal; Använd Windows-d
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -451,14 +452,14 @@ Använd följande steg för att testa klustret:
 Du bör se något liknande följande resultat:
 
 <table>
-  <tr><th> customer_id </th><th> firstname </th><th> Efternamn </th></tr>
-  <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
-  <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
+  <tr><th> customer_id </th><th> Förnamn </th><th> Efternamn </th></tr>
+  <tr><td> 1 </td><td> John </td><td> Berg </td></tr>
+  <tr><td> 2 </td><td> Jane </td><td> Berg </td></tr>
 </table>
 
 Keyspace skapade i steg 4 använder SimpleStrategy med en replication_factor 3. SimpleStrategy rekommenderas för enda data center distributioner medan NetworkTopologyStrategy för flera data center distributioner. En replication_factor 3 ger tolerans för nodfel.
 
-## <a id="tworegion"></a>Flera regioner distributionsprocessen
+## <a id="tworegion"> </a>Flera regioner distributionsprocessen
 Du utnyttja den enda region distributionen har slutförts och upprepa samma steg för att installera andra region. Den viktigaste skillnaden mellan enstaka och flera region distributionen är VPN-tunnel konfiguration för kommunikation mellan region. du börjar med nätverksinstallation, etablera virtuella datorer och konfigurera Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Steg 1: Skapa virtuella nätverk på 2 Region
@@ -526,15 +527,15 @@ Skapa avbildningen Ubuntu enligt beskrivningen i region #1 distribution genom at
 
 | Datornamn | Undernät | IP-adress | Tillgänglighetsuppsättning | DC/Rack | Startvärde för? |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
+| HK-c1-Öst-oss |data |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
 | hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
 | hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack = rack2 |Ja |
 | hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Ja |
-| hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
-| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
-| hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
-| hk-w1-east-us |webb |10.2.1.4 |hk-w-aset-1 |Gäller inte |Gäller inte |
-| hk-w2-east-us |webb |10.2.1.5 |hk-w-aset-1 |Gäller inte |Gäller inte |
+| HK-c6-Öst-oss |data |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
+| HK-c7-Öst-oss |data |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
+| HK-c8-Öst-oss |data |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
+| HK-w1-Öst-oss |webb |10.2.1.4 |hk-w-aset-1 |Gäller inte |Gäller inte |
+| HK-w2-Öst-oss |webb |10.2.1.5 |hk-w-aset-1 |Gäller inte |Gäller inte |
 
 Följ samma anvisningar som region #1 men använda 10.2.xxx.xxx adressutrymme.
 
@@ -564,10 +565,10 @@ Nu har Cassandra distribuerats till 16 noder med 8 noder i varje Azure-region. D
 
 Du bör se en skärm som liknar den nedan:
 
-| customer_id | firstname | Efternamn |
+| customer_id | Förnamn | Efternamn |
 | --- | --- | --- |
-| 1 |John |Doe |
-| 2 |Jane |Doe |
+| 1 |John |Berg |
+| 2 |Jane |Berg |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Steg 3: Kör du följande i region Öst när du har loggat in hk-w1-Öst-oss:
 1. Köra $CASS_HOME/bin/cqlsh 10.2.2.101 9160
@@ -577,15 +578,15 @@ Du bör se en skärm som liknar den nedan:
 
 Du bör se samma skärm som visas för regionen Väst:
 
-| customer_id | firstname | Efternamn |
+| customer_id | Förnamn | Efternamn |
 | --- | --- | --- |
-| 1 |John |Doe |
-| 2 |Jane |Doe |
+| 1 |John |Berg |
+| 2 |Jane |Berg |
 
 Köra några fler infogningar och se att de replikeras till Väst-oss ingår i klustret.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Cassandra Testklustret från Node.js
-Använder en Linux virtuella datorer som skapats i skiktet ”web” tidigare kan köra du en enkel Node.js-skript för att läsa tidigare infogade data
+Använder en av de virtuella Linux-datorer skapas i skiktet ”web” tidigare kan köra du en enkel Node.js-skript för att läsa tidigare infogade data
 
 **Steg 1: Installera Node.js och Cassandra-klienten**
 

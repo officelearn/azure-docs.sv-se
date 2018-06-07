@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641177"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **lediga**, **grundläggande**, eller **Standard** prisnivåer.
@@ -30,7 +31,7 @@ Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och a
 > En tjänst har etablerats på en specifik nivå. Hoppa över nivåer för att få kapacitet innebär att etablera en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU- eller nivå](search-sku-tier.md). Mer information om hur du justerar inom en tjänst som du redan har etablerat finns [skala resursen nivåer för fråga och indexering arbetsbelastningar](search-capacity-planning.md).
 >
 
-## <a name="subscription-limits"></a>Prenumerationsbegränsningar
+## <a name="subscription-limits"></a>Prenumerationsgränser
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
 ## <a name="storage-limits"></a>Lagringsgränser
@@ -92,13 +93,16 @@ Kom ihåg att utesluta icke-frågbar data från begäran om du vill behålla sto
 
 Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, datakällor, kunskaper och indexerare.
 
+Resurs-intensiva åtgärder, till exempel bildanalys i Azure blob-indexering eller naturligt språk bearbetning i kognitiva sökningen har kortare maximala körs tider så att andra indexering jobb ryms. Om en indexering jobbet inte kan slutföras inom den maximala tiden som tillåts, kan du försöka köra den enligt ett schema. Schemaläggaren håller reda på status för indexering. Om ett schemalagt indexering jobb avbryts av någon anledning, välja indexeraren där den senast avbröts vid nästa schemalagda körning.
+
 | Resurs | Ledigt&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
 | Maximal kunskaper <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |
 | Maximal indexering belastning per anrop |10 000 dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Begränsas bara av maximum dokument |Gäller inte |
-| Maximal körtid | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
+| Maximal körtid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
+| Maximal körtid för kognitiva Sök kunskaper eller blob indexera avbildningen analysera <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |
 | BLOB-indexeraren: maximala blob, storlek i MB |16 |16 |128 |256 |256 |Gäller inte  |
 | BLOB-indexeraren: maximala antalet tecken innehåll extraheras från ett blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Gäller inte |
 
@@ -109,6 +113,8 @@ Grundläggande tjänster som skapats efter sen 2017 har ökat högst 15 index, d
 <sup>3</sup> S3 HD-tjänster inte har stöd för indexering.
 
 <sup>4</sup> maximalt 30 kunskaper per kunskaper.
+
+<sup>5</sup> kognitiva Sök arbetsbelastningar och analys av avbildning i Azure blob-indexering har kortare körs tider än vanlig textindexering. Bildanalys och bearbetning av naturligt språk är beräkningsmässigt beräkningsintensiva använder oproportionerligt mängder tillgängliga processorkraft. Körtid har minskats till att ge möjlighet att köra ge andra jobb i kön.  
 
 ## <a name="queries-per-second-qps"></a>Frågor per sekund (QPS)
 
@@ -123,7 +129,7 @@ Uppskattningar är mer förutsägbar i tjänster som körs på dedicerade resurs
 * Maximalt 32 fälten i satsen $orderby
 * Maximal Sök är termen 32 766 byte (32 KB minus 2 byte) för UTF-8-kodat text
 
-<sup>1</sup> i Azure Search brödtexten i en begäran regleras en övre gräns på 16 MB, införa en praktisk gräns på innehållet i enskilda fält eller samlingar som inte annars är begränsad av teoretisk gränser (se [data som stöds typer](https://msdn.microsoft.com/library/azure/dn798938.aspx) mer information om fältet sammansättning och begränsningar).
+<sup>1</sup> i Azure Search brödtexten i en begäran regleras en övre gräns på 16 MB, införa en praktisk gräns på innehållet i enskilda fält eller samlingar som inte annars är begränsad av teoretisk gränser (se [data som stöds typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) mer information om fältet sammansättning och begränsningar).
 
 ## <a name="api-response-limits"></a>API-svar gränser
 * Maximal 1000 dokument som returneras per sida i sökresultat

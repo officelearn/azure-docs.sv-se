@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642632"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Varför en mikrotjänster-lösning för att bygga program?
 Som programutvecklare finns det inget i hur vi tror att om ett program i komponentdelar factoring. Är det centrala paradigmet Objektorientering, programvara abstraktioner och Komponentindelning. Idag är tenderar det här factorization att ske i form av klasser och gränssnitt mellan delade bibliotek och tekniklager. En riskbedömning utförs vanligtvis med en backend-store, affärslogik på mellannivå och en frontend användargränssnittet (UI). Vad *har* ändrats under de senaste åren är att vi, som utvecklare skapar distribuerade program som är för molnet och styrs av företaget.
@@ -162,7 +163,7 @@ Det är viktigt att betona igen som du har **starta och stoppa på någon av des
 - Minskade kostnader antingen på grund av konsolidering och borttagning av befintlig maskinvara eller kör program på tätare. 
 - Konsekvent distribution kontrakt mellan Utvecklingsavdelningen och åtgärder.
 
-Kostnad minskning är att förstå och på Microsoft tillhandahåller många befintliga program är som container bara om du vill spara miljontals kronor. Konsekvent distribution är svårare att utvärdera, men som lika viktiga. Det innebär att utvecklare kan fortfarande vara fritt och välja tekniken som paket dem, men åtgärder endast accepterar ett enskilt sätt att distribuera och hantera dessa program. Det minskar åtgärder från behöva hantera komplexa många olika tekniker eller tvingas att bara välja vissa utvecklare. I princip alla program är behållare i självständiga distributions-avbildningar.
+Kostnad minskning är att förstå och på Microsoft tillhandahåller många befintliga program är som container bara om du vill spara miljontals kronor. Konsekvent distribution är svårare att utvärdera, men som lika viktiga. Det innebär att utvecklare kan fortfarande vara frihet att välja den teknik som passar dem, men åtgärder endast accepterar ett enskilt sätt att distribuera och hantera dessa program. Det minskar åtgärder från behöva hantera komplexa många olika tekniker eller tvingas att bara välja vissa utvecklare. I princip alla program är behållare i självständiga distributions-avbildningar.
 
 Många organisationer stoppa här. De har redan fördelarna med behållare och Service Fabric ger fullständig hantering från distribution, uppgraderingar, versionshantering, återställningar, hälsa övervakning osv.
 

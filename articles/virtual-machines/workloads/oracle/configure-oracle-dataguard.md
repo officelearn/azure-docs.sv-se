@@ -1,13 +1,13 @@
 ---
-title: "Implementera Oracle Data Guard på en virtuell Azure Linux-dator | Microsoft Docs"
-description: "Snabbt Oracle Data Guard upp och körs i Azure-miljön."
+title: Implementera Oracle Data Guard på en virtuell Azure Linux-dator | Microsoft Docs
+description: Snabbt Oracle Data Guard upp och körs i Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 822e18db4d01210d741addad4c820f51adc8f26a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f77a34fe4157e6c7ec763701e59db3330a1003c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657945"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle Data Guard på en virtuell Azure Linux-dator 
 
-Azure CLI för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här artikeln beskriver hur du använder Azure CLI för att distribuera en Oracle-databas 12c-databas från Azure Marketplace-avbildning. Den här artikeln visar sedan du steg för steg hur du installerar och konfigurerar Data Guard på en Azure-dator (VM).
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här artikeln beskriver hur du använder Azure CLI för att distribuera en Oracle-databas 12c-databas från Azure Marketplace-avbildning. Den här artikeln visar sedan du steg för steg hur du installerar och konfigurerar Data Guard på en Azure-dator (VM).
 
 Innan du börjar bör du kontrollera att Azure CLI är installerad. Mer information finns i [Azure CLI installationsguiden](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -572,7 +573,7 @@ cdb1_stby=
   )
 ```
 
-Start SQL*Plus:
+Starta SQL * Plus:
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -616,7 +617,7 @@ DGMGRL>
 
 Du kan ansluta till vänteläge databasen nu.
 
-Start SQL*Plus:
+Starta SQL * Plus:
 
 ```bash
 
@@ -658,7 +659,7 @@ Switchover succeeded, new primary is "cdb1"
 
 Återigen ska du nu kunna ansluta till den primära databasen.
 
-Start SQL*Plus:
+Starta SQL * Plus:
 
 ```bash
 

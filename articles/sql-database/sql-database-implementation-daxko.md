@@ -6,17 +6,18 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 3779b32aa1397b2ca0e05e2627241c0bfb7a8622
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b7c1d4f1b8ca0f8899ebff8178a481c7dd1d5779
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648895"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI används Azure för att öka takten dess utvecklingscykeln och förbättra dess kundtjänst och prestanda
-![Daxko/CSI Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
+![Daxko/CSI-logotyp](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI programvara inför en utmaning: dess kundbas för lämplighet och fritid växer snabbt, tack vare genomförandet av dess omfattande företagsprogram lösning, men behåller med IT-infrastruktur behov för växande kunden Base testning företagets IT-personal. Företaget har allt mer begränsad av ökande operations kostnader, särskilt för att hantera växande databaserna. Arbetet som operations värre, klippa ut till Utvecklingsresurser för nya initiativ som nya mobilitet för företagets program.
 
@@ -68,7 +69,7 @@ SpectrumNG använder webbroller. Eftersom programmet är flera innehavare, anvä
 
 För webbnivå av sin tjänst utnyttjar CSI program Azure automatisk skalning, baserat på dag och tid. Tillgängliga resurser ökas automatiskt för senare användning under kontorstid, enligt tidszonen för varje regionala datacenter. Resurser även är inställda att skala helger, när kundens behov är lägre.
 
-![Daxko/CSI Architecture](./media/sql-database-implementation-daxko/figure1.png)
+![Daxko/CSI-arkitektur](./media/sql-database-implementation-daxko/figure1.png)
 
 Bild 1. En arbetsroll för cloud services ritar strukturerade data från Azure SQL Database och halvstrukturerade data från tabellagring. SpectrumNG användarna samverkar med att webbroll services-data via ett moln.
 

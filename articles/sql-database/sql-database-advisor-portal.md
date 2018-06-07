@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644203"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa rekommendationer
 
@@ -101,8 +102,10 @@ Du kan ställa in Azure SQL-databasen för att implementera rekommendationer aut
     ![Rekommenderat index](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observera att **DROP_INDEX** alternativet just nu är inkompatibel med program med hjälp av partition växlar och index-tips och bör inte vara aktiverat i dessa fall.
+> Observera att **DROP_INDEX** alternativet just nu är inte kompatibel med program med hjälp av partition växlar och index-tips och inte är aktiverat i dessa fall.
 >
+
+Klicka på Verkställ när du har valt önskade konfigurationen.
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Manuellt köra rekommenderade T-SQL-skript
 Markera varje rekommendation och klicka på **Visa skript**. Köra detta skript mot databasen för att använda rekommendationen manuellt.

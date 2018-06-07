@@ -9,12 +9,13 @@ ms.service: sql-database
 ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
-ms.topic: article
-ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.openlocfilehash: 2680ee2354a8cf76491a8a3b63e14d91b4c6cbd6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645835"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -158,7 +159,7 @@ När du har slutfört konfigurationen poolen, kan du på Verkställ, namn i pool
 
 Du kan övervaka användningen av en elastisk pool och databaserna i poolen i Azure-portalen. Du kan också göra en uppsättning ändringar i den elastiska poolen och skicka alla ändringar på samma gång. De här förändringarna innefattar att lägga till eller ta bort databaser, ändra inställningarna elastisk pool eller ändra databasinställningarna.
 
-Om du vill börja övervaka din elastisk pool, hitta och öppna en elastisk pool i portalen. En skärm som ger en översikt över statusen för den elastiska poolen visas först. Detta omfattar:
+Om du vill börja övervaka din elastisk pool, hitta och öppna en elastisk pool i portalen. En skärm som ger en översikt över statusen för den elastiska poolen visas först. Det här omfattar:
 
 * Övervakning av diagram som visar resurser användning av den elastiska poolen
 * Senaste aviseringarna och rekommendationer om de är tillgängliga för den elastiska poolen

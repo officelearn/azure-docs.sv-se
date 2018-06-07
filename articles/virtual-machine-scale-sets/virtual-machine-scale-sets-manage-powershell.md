@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 39cd7fa2232329716ba16abf92ba4a5f2cc15487
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652788"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en virtuell dator-skala med Azure PowerShell
-Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
+Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
 
 För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information finns i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala med Azure PowerShell](quick-create-powershell.md).
 
@@ -36,7 +37,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
-Du kan visa en lista över VM-instans i en skaluppsättning [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). I följande exempel visa en lista med alla VM-instanser i skaluppsättningen namngivna *myScaleSet* och i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
+Du kan visa en lista över VM-instans i en skaluppsättning [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). I följande exempel visar alla VM-instanser i skaluppsättningen namngivna *myScaleSet* och i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -49,10 +50,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ```
 
 
-## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skaluppsättning
+## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
 Föregående kommandona visade information om din skaluppsättning och VM-instanser. Du kan ändra kapacitet för att öka eller minska antalet instanser i skaluppsättning. Skala automatiskt skapar eller tar bort antalet virtuella datorer som krävs och sedan konfigurerar de virtuella datorerna för att ta emot trafik för programmet.
 
-Skapa först ett scale set-objekt med [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), ange ett nytt värde för `sku.capacity`. Om du vill tillämpa ändringen kapacitet, Använd [uppdatering AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Följande exempel uppdateringar *myScaleSet* i den *myResourceGroup* resursgrupp till en kapacitet på *5* instanser. Ange egna värden på följande sätt:
+Skapa först ett skalningsuppsättningsobjekt med [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) och ange sedan ett nytt värde för `sku.capacity`. Om du vill tillämpa kapacitetsändringen, använder du [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Följande exempel uppdateringar *myScaleSet* i den *myResourceGroup* resursgrupp till en kapacitet på *5* instanser. Ange egna värden på följande sätt:
 
 ```powershell
 # Get current scale set
@@ -60,28 +61,28 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
-Om tar några minuter att uppdatera kapaciteten för din skala har angetts. Om du minskar kapaciteten för en skala ange de virtuella datorerna med högsta instans-ID tas bort först.
+Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du minskar kapaciteten för en skala ange de virtuella datorerna med högsta instans-ID tas bort först.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skaluppsättning
-Om du vill stoppa en eller flera virtuella datorer i en skaluppsättning använder [stoppa AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Den `-InstanceId` parametern kan du ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skaluppsättning. Avgränsa varje instans-ID om du vill stoppa flera virtuella datorer med ett kommatecken.
+Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder du [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Avgränsa varje instans-ID om du vill stoppa flera virtuella datorer med ett kommatecken.
 
-Följande exempel stoppar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
+Följande exempel stoppar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
 
 ```powershell
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-Som standard stoppade virtuella datorer har frigjorts och till inte datorkostnader. Om du vill att den virtuella datorn kvar i ett etablerat tillstånd när stoppats, lägga till den `-StayProvisioned` parametern till det föregående kommandot. Stoppade virtuella datorer som finns kvar etablerade avgifter reguljära beräkning.
+Som standard frigörs stoppade virtuella datorer och uppbär inga beräkningskostnader. Om du vill att den virtuella datorn är kvar i etablerat tillstånd när den stoppats, lägger du till parametern `-StayProvisioned` till det föregående kommandot. Stoppade virtuella datorer som fortsätter att vara etablerade, kostar vanliga beräkningsavgifter.
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skaluppsättning
-Starta en eller flera virtuella datorer i en skaluppsättning med [Start AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Den `-InstanceId` parametern kan du ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID för startas alla virtuella datorer i skaluppsättning. Avgränsa varje instans-ID för att starta flera virtuella datorer med ett kommatecken.
+Om du vill starta en eller flera virtuella datorer i en skalningsuppsättning, använder du [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen. Avgränsa varje instans-ID för att starta flera virtuella datorer med ett kommatecken.
 
-Följande exempel startar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
+Följande exempel startar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
 
 ```powershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -89,9 +90,9 @@ Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skaluppsättning
-Om du vill starta om en eller flera virtuella datorer i en skaluppsättning använder [Retart AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Den `-InstanceId` parametern kan du ange en eller flera virtuella datorer startas om. Om du inte anger ett instans-ID för alla virtuella datorer i skaluppsättning har startats om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett kommatecken.
+Om du vill starta om en eller flera virtuella datorer i en skalningsuppsättning, använder du [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett kommatecken.
 
-I följande exempel startar om instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
+I följande exempel startar om instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
 
 ```powershell
 Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -101,7 +102,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 ## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skaluppsättning
 Ta bort en eller flera virtuella datorer i en skaluppsättning med [ta bort AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). Den `-InstanceId` parametern kan du ange en eller flera virtuella datorer ska tas bort. Om du inte anger ett instans-ID för tas alla virtuella datorer i skaluppsättning bort. Avgränsa varje instans-ID för att ta bort flera virtuella datorer med ett kommatecken.
 
-I följande exempel tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
+I följande exempel tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange egna värden på följande sätt:
 
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"

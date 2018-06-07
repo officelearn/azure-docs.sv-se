@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser i Azure | Microsoft Docs"
-description: "SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser"
+title: SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser i Azure | Microsoft Docs
+description: SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658663"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser på Azure
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 11/17/2017
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Konfiguration med hög tillgänglighet SAP multi-SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -198,7 +199,7 @@ ms.lasthandoff: 11/17/2017
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett system med hög tillgänglighet SAP på Azure med Failover-kluster WSFC (Windows Server) och skalbar filserver som ett alternativ för klustring SAP ASCS/SCS instanser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs följande artiklar innan du startar installationen:
 
@@ -236,12 +237,12 @@ Installera en SAP ASCS/SCS-instans i *både* ASCS/SCS klusternoderna. Installera
 
 Installera instansen i verktyget SAP SWPM installationen genom att gå till:
 
-**\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP**(eller **Java**) > **distribuerade System** > **ASCS/SCS-instans**
+**\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP** () eller **Java**) > **distribuerade System** > **ASCS/SCS-instans**
 
 > [!IMPORTANT]
 > För närvarande stöds filresurs scenariot inte av verktyget SAP SWPM installation. Du *kan inte använda* följande installationssökvägen:
 >
-> **\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP**(eller **Java**) > **System med hög tillgänglighet** >...
+> **\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP** () eller **Java**) > **System med hög tillgänglighet** >...
 >
 
 ### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>Ta bort SAPMNT och skapa en filresurs för SAPLOC
@@ -390,7 +391,7 @@ Om du vill använda det nya namnet för SAP ASCS/SCS virtuell värd och SAP glob
 ### <a name="update-sap-default-profile"></a>Uppdatera SAP standardprofil
 
 
-| Parameternamn | Värdet för parametern |
+| Parameternamn | Parametervärde |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | rdisp/mshost | **PR1 ascs** |
@@ -398,7 +399,7 @@ Om du vill använda det nya namnet för SAP ASCS/SCS virtuell värd och SAP glob
 
 ### <a name="update-the-sap-ascsscs-instance-profile"></a>Uppdatera SAP ASCS/SCS instans profil
 
-| Parameternamn | Värdet för parametern |
+| Parameternamn | Parametervärde |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
@@ -407,7 +408,7 @@ Om du vill använda det nya namnet för SAP ASCS/SCS virtuell värd och SAP glob
 | SAPLOCALHOST | **PR1 ascs** |
 | Restart_Program_03 = local$(_EN) pf=$(_PF) | **Starta**_Program_03 = local$(_EN) pf=$(_PF) |
 | GW/netstat_once | **0** |
-| Placera/encni/set_so_keepalive  | **true** |
+| Placera/encni/set_so_keepalive  | **SANT** |
 | tjänsten/ha_check_node | **1** |
 
 > [!IMPORTANT]
@@ -569,7 +570,7 @@ Konfigurera en SAP klusterresurs avsökningsport SAP-SID-IP-med hjälp av PowerS
 
 Installera en sätta replikering Server (ERS)-instans i *både* ASCS/SCS klusternoderna. Följ den här installationssökvägen på menyn SWPM:
 
-**\<Produkten >** > **\<DBMS >** > **Installation** > **instanser av ytterligare SAP-System**  >  **Sätta replikering Server-instans**
+**\<Produkten >** > **\<DBMS >** > **Installation** > **instanser av ytterligare SAP System**  >  **Sätta replikering Server-instans**
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP programservrar
 

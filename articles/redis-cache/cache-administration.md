@@ -1,6 +1,6 @@
 ---
 title: Hur man administrerar Azure Redis-Cache | Microsoft Docs
-description: "Lär dig att utföra administrationsuppgifter, till exempel omstart och schema-uppdateringar för Azure Redis-Cache"
+description: Lär dig att utföra administrationsuppgifter, till exempel omstart och schema-uppdateringar för Azure Redis-Cache
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3b62b41fb7b9d7ff6f40191c48d00c1f0a941e48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639460"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Hur man administrerar Azure Redis-Cache
 Det här avsnittet beskriver hur du utför administrationsuppgifter som [omstart](#reboot) och [schemalägga uppdateringar](#schedule-updates) för Azure Redis-Cache-instanser.
@@ -91,10 +92,8 @@ Den **schemalägga uppdateringar** bladet låter dig ange en underhållsperiod f
 
 Om du vill ange en underhållsperiod de önskade dagarna och ange Starttimme för underhåll fönster för varje dag och klickar på **OK**. Observera att fönstret Underhåll i UTC. 
 
-> [!NOTE]
-> Standardunderhållsfönstret för uppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera i PowerShell med hjälp av den `MaintenanceWindow` parameter för den [ny AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Mer information finns i [kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-> 
-> 
+Standard- och minimivärden, underhållsperiod för uppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera i PowerShell med hjälp av den `MaintenanceWindow` parameter för den [ny AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Mer information finns i [kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 
 ## <a name="schedule-updates-faq"></a>Schemalägg uppdateringar vanliga frågor och svar
 * [När uppdateringar, sker om jag inte använder schema-uppdateringar?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: giladm
-ms.openlocfilehash: 3d5a4ad3f4046dfdfe6eb3f7ddd931ccb240b1a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648861"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanteras instans Auditing
 
@@ -102,7 +103,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanteras inst
 
     Om inget anges `RETENTION_DAYS` standardvärdet är 0 (obegränsat kvarhållning).
 
-    För ytterligare information:
+    Ytterligare information:
     - [Granska skillnaderna mellan hanterade instans, Azure SQL Database och SQL Server](#subheading-3)
     - [SKAPA SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)

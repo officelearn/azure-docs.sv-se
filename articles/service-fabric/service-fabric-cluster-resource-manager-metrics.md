@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643346"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastningen i Service Fabric med
 *Mått* är de resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Exempelvis kan du titta på minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat syfte är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.
@@ -32,11 +33,12 @@ Anta att du vill börja skriva och distribuera din tjänst. Nu vet du inte vilka
   - ReplicaCount - antal totala tillståndskänslig repliker på noden
   - Antal - antalet för alla service-objekt (tillståndslösa och tillståndskänsliga) på noden
 
-| Mått | Läs in tillståndslös instans | Tillståndskänsliga sekundära belastning | Tillståndskänsliga primära belastning |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Antal |1 |1 |1 |
+| Mått | Läs in tillståndslös instans | Tillståndskänsliga sekundära belastning | Tillståndskänsliga primära belastning | Vikt |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| Antal |1 |1 |1 |0 |
+
 
 För grundläggande arbetsbelastningar anger mätvärdena som standard en hyfsad fördelning av arbete i klustret. I följande exempel, låt oss se vad som händer när vi skapar två tjänster och förlitar sig på standard-mätvärden för belastningsutjämning. Den första tjänsten är en tillståndskänslig service med tre partitioner och ett mål replikuppsättningen storleken på tre. Andra tjänsten är en tillståndslös tjänst med en partition och instansantal av tre.
 

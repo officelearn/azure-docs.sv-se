@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657289"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visa och ändra värdnamn
 Om du vill att dina rollinstanser refereras efter värdnamn, måste du ange värde för värddatorns namn i tjänstkonfigurationsfilen för varje roll. Det gör du genom att lägga till önskade värdnamnet som den **vmName** attribut för den **rollen** element. Värdet för den **vmName** attributet används som bas för värdnamnet för varje rollinstans. Till exempel om **vmName** är *webrole* och det finns tre instanser av rollen, värdnamn av instanserna blir *webrole0*, *webrole1*, och *webrole2*. Du behöver inte ange ett värdnamn för virtuella datorer i konfigurationsfilen, eftersom värdnamnet för en virtuell dator har fyllts i baserat på namnet på virtuella datorn. Mer information om hur du konfigurerar en Microsoft Azure-tjänst finns [Konfigurationsschemat för Azure-tjänsten (.cscfg-filen)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Visa värdnamn
 Du kan visa värdnamn för virtuella datorer och rollinstanser i en molntjänst med hjälp av verktygen nedan.
-
-### <a name="azure-portal"></a>Azure Portal
-Du kan använda den [Azure-portalen](http://portal.azure.com) visa värdnamn för virtuella datorer på bladet översikt för en virtuell dator. Tänk på att bladet visar ett värde för **namn** och **värdnamn**. Även om de är från början samma, ändrar ändra värdnamnet inte namnet på den virtuella datorn eller instansen.
-
-Rollinstanser kan även visas i Azure-portalen, men när du listar instanser i en molnbaserad tjänst värdnamnet visas inte. Du ser ett namn för varje instans, men det här namnet representerar inte värdnamnet.
 
 ### <a name="service-configuration-file"></a>Tjänstkonfigurationsfil
 Du kan hämta tjänstkonfigurationsfilen för en distribuerad tjänst från den **konfigurera** bladet för tjänsten i Azure-portalen. Du kan sedan söka efter den **vmName** attributet för den **rollnamn** element att se värdnamnet. Tänk på att det här värdnamnet används som bas för värdnamnet för varje rollinstans. Till exempel om **vmName** är *webrole* och det finns tre instanser av rollen, värdnamn av instanserna blir *webrole0*, *webrole1*, och *webrole2*.
@@ -46,7 +42,7 @@ Följ dessa instruktioner från en REST-klient:
 
 1. Se till att du har ett klientcertifikat för att ansluta till Azure-portalen. För att erhålla ett klientcertifikat följer du stegen som visas i [så här: hämta och importera Publiceringsinställningar och prenumerationsinformation](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Ange en rubrikpost med namnet x-ms-version med värdet 2013-11-01.
-3. Skicka en begäran i följande format: https://management.core.windows.net/ \<subscrition-id\>/services/hostedservices/\<Tjänstenamn\>? bädda in detail = true
+3. Skicka en begäran i följande format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Leta efter den **värdnamn** element för varje **RoleInstance** element.
 
 > [!WARNING]

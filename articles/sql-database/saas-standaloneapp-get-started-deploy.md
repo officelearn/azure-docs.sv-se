@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644730"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enskild klient fristående program som använder Azure SQL Database
 
@@ -43,9 +44,9 @@ Distribuera appen för de tre angivna klienterna:
 1. Klicka på varje blå **till Azure** för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden. ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
     <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso samklang Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz en**
 
 2. Ange parametervärden som krävs för varje distribution.
 
@@ -73,16 +74,16 @@ Appen demonstreras handelsplatser som värd för händelser.  Handelsplatser är
 
 1. Öppna sidan händelser för var och en av de tre innehavarna i separata flikar i webbläsaren:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt; användaren&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt; användaren&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt; användaren&gt;. trafficmanager.net
 
     (I varje URL ersätter &lt;användaren&gt; med din distribution användaren värde.)
 
    ![Händelser](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Att kontrollera distributionen av inkommande begäranden, appen använder [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Varje klient-specifik app-instansen innehåller klientnamnet på som en del av namnet på en domän i URL-Adressen. Alla de URL: er omfattar ditt specifika **användaren** värde. URL: er gör du följande format:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt; venuename&gt;.&lt; användaren&gt;. trafficmanager.net
 
 Varje klient databasen **plats** ingår i appinställningarna för den motsvarande distribuerade appen.
 

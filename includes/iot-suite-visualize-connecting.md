@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666032"
 ---
 ## <a name="view-device-telemetry"></a>Visa enhetstelemetri
 
@@ -32,7 +33,7 @@ Du kan visa telemetri som skickas från enheten på den **enheter** sida i lösn
 
 ## <a name="act-on-your-device"></a>Fungerar på din enhet
 
-Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fjärranslutna övervakningslösning. Till exempel i fjärranslutna övervakningslösning **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
+Om du vill anropa metoder på dina enheter, använder den **enheter** sida i Fjärrövervaknings-lösning. Till exempel i lösningen Fjärrövervaknings **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
 
 1. Välj **enheter** att navigera till den **enheter** sida i lösningen.
 
@@ -57,4 +58,4 @@ Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fj�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Artikeln [anpassa fjärråtkomst övervakning solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) beskrivs några sätt att anpassa solution accelerator.
+Artikeln [anpassa Fjärrövervaknings solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) beskrivs några sätt att anpassa solution accelerator.

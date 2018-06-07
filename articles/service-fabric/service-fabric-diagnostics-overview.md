@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643183"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervaknings- och diagnostikfunktionerna för Azure Service Fabric
 
@@ -46,9 +47,6 @@ Service Fabric ger en omfattande uppsättning händelser direkt. Dessa [Service 
 Vi rekommenderar att du använder EventStore för snabb analys och för att få en ögonblicksbild uppfattning av hur klustret fungerar och om saker händer som förväntat. För att samla in loggar och händelser som genereras av klustret, normalt bör du använda den [Azure Diagnostics tillägget](service-fabric-diagnostics-event-aggregation-wad.md). Detta kan integreras med Service Fabric Analytics, OMS Log Analytics Service Fabric specifika lösning som innehåller en anpassad instrumentpanel för övervakning av Service Fabric-kluster och du kan fråga din klusterhändelser och konfigurera aviseringar. Läs mer om detta i [händelseanalys med OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Du kan läsa mer om hur du övervakar klustret på [plattform nivån händelse och logga generation](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Prestandaövervakning
 Övervaka infrastrukturen underliggande är en viktig del av förstå statusen för klustret och utnyttjande av nätverksresurser. Mäter systemets prestanda beror på flera faktorer, som mäts vanligtvis via en OEM-tillverkare (Key Performance Indicator). Service Fabric relevanta KPI: er kan mappas till mått som kan samlas in från noder i klustret som prestandaräknare.

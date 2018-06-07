@@ -1,21 +1,21 @@
 ---
-title: "Hur du lägger till en referens datauppsättning Azure tid serien Insights-miljö"
-description: "Den här artikeln beskriver hur du lägger till en referens datauppsättning för att utöka data i Azure tid serien Insights-miljö."
-services: time-series-insights
+title: Hur du lägger till en referens datauppsättning Azure tid serien Insights-miljö
+description: Den här artikeln beskriver hur du lägger till en referens datauppsättning för att utöka data i Azure tid serien Insights-miljö.
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653645"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens för datauppsättning för tid serien insikter miljön med hjälp av Azure portal
 
@@ -63,7 +63,7 @@ Referensdata är inte ansluten retroaktivt. Detta innebär att endast aktuella o
 
    ![Lägg till referensdata](media/add-reference-data-set/parse_data.png)
 
-9. Granska varje kolumn för att se datatypen antas och ändra datatypen om det behövs.  Välj typsymbolen data i kolumnrubriken:  **#**  för double (numeriska data) **T | F** för ett booleskt värde, eller **Abc** sträng.
+9. Granska varje kolumn för att se datatypen antas och ändra datatypen om det behövs.  Välj typsymbolen data i kolumnrubriken: **#** för double (numeriska data) **T | F** för ett booleskt värde, eller **Abc** sträng.
 
    ![Välj datatyper på kolumnrubrikerna.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -81,7 +81,7 @@ Referensdata är inte ansluten retroaktivt. Detta innebär att endast aktuella o
 
    ![Markera kolumnerna som nyckel.](media/add-reference-data-set/set_primary_key.png)
 
-   Alternativt, Välj den  **+**  för att lägga till en sekundär nyckelkolumn som en sammansatt primär nyckel. Om du behöver återställa markeringen välja tomt värde från listrutan att ta bort den sekundära nyckeln.
+   Alternativt, Välj den **+** för att lägga till en sekundär nyckelkolumn som en sammansatt primär nyckel. Om du behöver återställa markeringen välja tomt värde från listrutan att ta bort den sekundära nyckeln.
 
 15.  Om du vill överföra data, Välj den **överför rader** knappen.
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653441"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -93,9 +94,9 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Obs: Ställ in på vad du behöver den ska.
 15. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - avetablering
-    # <a name="export-histsize0"></a>Exportera HISTSIZE = 0
-    # <a name="logout"></a>logga ut
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Klicka på **åtgärd -> stängs ned** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
 
 - - -
@@ -128,7 +129,7 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
         # sudo zypper update
 5. Installera Azure Linux-agenten.
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper installera WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Det gör du genom att öppna ”/ boot/grub/menu.lst” i en textredigerare och se till att standard-kärnan innehåller följande parametrar:
    
      konsolen = ttyS0 earlyprintk = ttyS0 rootdelay = 300
@@ -150,9 +151,9 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Obs: Ställ in på vad du behöver den ska.
 11. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - avetablering
-    # <a name="export-histsize0"></a>Exportera HISTSIZE = 0
-    # <a name="logout"></a>logga ut
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Kontrollera Azure Linux-agenten körs vid start:
     
         # sudo systemctl enable waagent.service

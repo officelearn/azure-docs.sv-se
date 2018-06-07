@@ -1,35 +1,35 @@
 ---
 title: Azure Log-integrering med Azure Active Directory-granskningsloggar | Microsoft Docs
-description: "Lär dig att installera tjänsten Azure Log-integrering och integrera loggar från Azure-granskningsloggar"
+description: Lär dig att installera tjänsten Azure Log-integrering och integrera loggar från Azure-granskningsloggar
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/16/2018
+ms.date: 05/25/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 201e34cf9e9c917f1f79964facce136e7c0c2fd3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642469"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrera Azure Active Directory-granskningsloggar
 
 Granskningshändelser för Azure Active Directory (AD Azure) hjälper dig att identifiera Privilegierade åtgärder som har inträffat i Azure Active Directory. Du kan se vilka typer av händelser som du kan följa genom att granska [Azure Active Directory-granskningsrapporthändelser](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active Directory-granskningsloggar
 
 > [!NOTE]
-> Innan du försöker stegen i den här artikeln, bör du granska den [Kom igång](security-azure-log-integration-get-started.md) artikel och slutför stegen.
-
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active Directory-granskningsloggar
+> Innan du försöker stegen i den här artikeln, bör du granska den [Kom igång](security-azure-log-integration-get-started.md) artikel och slutföra de relevanta steg.
 
 1. Öppna Kommandotolken och kör det här kommandot:
 

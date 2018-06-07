@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645505"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -46,7 +47,7 @@ En beskrivning av den *blockerande period* för klienter som använder ADO.NET f
 ### <a name="transient-fault-error-codes"></a>Felkoder för tillfälligt fel
 Följande fel är tillfälligt och bör göras i programlogiken: 
 
-| Felkod | Allvarsgrad | Beskrivning |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod: %d.<br/><br/>Du får detta felmeddelande när tjänsten är igång på grund av andra failover-problem, maskinvarufel eller uppgraderingar av maskinvara eller programvara. Felkoden (%d) som är inbäddad i meddelandet för fel 40197 tillhandahåller ytterligare information om vilken typ av fel eller växling vid fel som inträffat. Några exempel på koder är inbäddade i meddelandet för fel 40197 felet är 40020, 40143, 40166 och 40540.<br/><br/>Ansluta till SQL Database-server automatiskt ansluter till en felfri kopia av databasen. Programmet måste fånga 40197, felloggen inbäddade felkoden (%d) i meddelandet för att felsöka och försök ansluta till SQL-databas tills resurserna som är tillgängliga, och anslutningen har upprättats igen. |
@@ -60,7 +61,7 @@ Följande fel är tillfälligt och bör göras i programlogiken:
 ## <a name="database-copy-errors"></a>Kopiera databasfel
 Följande fel inträffade kan kopiera en databas i Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](sql-database-copy.md).
 
-| Felkod | Allvarsgrad | Beskrivning |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 40635 |16 |Klienten med IP-adressen (%.&#x2a;ls) är tillfälligt inaktiverad. |
 | 40637 |16 |Skapa databaskopian är för närvarande inaktiverad. |
@@ -88,7 +89,7 @@ Relaterade ämnen:
 
 * Mer information finns här: [gränserna för Azure SQL Database](sql-database-service-tiers-dtu.md).
 
-| Felkod | Allvarsgrad | Beskrivning |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 10928 |20 |Resurs-ID: %d. %S-gränsen för databasen är %d och har nåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 10929 |20 |Resurs-ID: %d. Minsta garantin %s är %d, högsta gränsen är %d och användningen av databasen är %d. Servern är för tillfället för upptagen för att stödja större än %d begäranden för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Annars, försök igen senare.<br/><br/>Resurs-ID anger den resurs som har nått gränsen. För trådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur man löser problemet finns:<br/>• [Gränserna för azure SQL Database](sql-database-service-tiers-dtu.md). |
@@ -135,7 +136,7 @@ Relaterade ämnen:
 ## <a name="general-errors"></a>Allmänt fel
 Följande fel omfattas inte i alla tidigare kategorier.
 
-| Felkod | Allvarsgrad | Beskrivning |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) är inte ett giltigt namn eftersom det innehåller ogiltiga tecken. |
 | 18452 |14 |Inloggningen misslyckades. Inloggningen kommer från en icke betrodd domän och kan inte användas med Windows authentication.%.&#x2a;ls (Windows-inloggningar inte stöds i den här versionen av SQL Server.) |

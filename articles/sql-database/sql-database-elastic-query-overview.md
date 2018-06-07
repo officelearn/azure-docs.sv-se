@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 6367418fb07b2ab5b425609540c653678a207ebc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 43a25d30fbec9327e24230165abd73260397ff14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646481"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>SQL-databas elastisk frågan översikt över Azure (förhandsversion)
 Funktionen elastisk fråga (under förhandsgranskning) kan du köra en Transact-SQL-fråga som sträcker sig över flera databaser i Azure SQL Database. Det gör att du kan utföra flera databaser frågor till fjärrtabeller och ansluta Microsoft och tredje parts verktyg (Excel, PowerBI, Tableau, etc.) att fråga på datanivåer med flera databaser. Med den här funktionen kan du skala upp frågor till stora mängder datanivåer i SQL-databas och visualisera resultat i business intelligence (BI) rapporter.

@@ -1,24 +1,25 @@
 ---
-title: "Konfigurera ett fristående Azure Service Fabric-kluster | Microsoft Docs"
-description: "Skapa ett fristående kluster för utveckling med tre noder som körs på samma dator. När du har slutfört den här konfigurationen kan du skapa ett kluster med flera datorer."
+title: Konfigurera ett fristående Azure Service Fabric-kluster | Microsoft Docs
+description: Skapa ett fristående kluster för utveckling med tre noder som körs på samma dator. När du har slutfört den här konfigurationen kan du skapa ett kluster med flera datorer.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643472"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Skapa ditt första fristående Service Fabric-kluster
 Du kan skapa ett fristående Service Fabric-kluster på valfria virtuella datorer eller datorer som kör Windows Server 2012 R2 eller Windows Server 2016, lokalt eller i molnet. Den här snabbstarten beskriver hur du skapar ett fristående kluster för utveckling på bara några minuter.  När du är klar har du ett kluster med tre noder som körs på en enskild dator som du kan distribuera appar till.
@@ -66,7 +67,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualisera klustret med hjälp av Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret, som du kommer åt med en webbläsare genom att navigera till [http://localhost:19080/Explorer](http://localhost:19080/Explorer). 
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret som du kommer åt med en webbläsare genom att gå till [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). 
 
 Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan. Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden.
 

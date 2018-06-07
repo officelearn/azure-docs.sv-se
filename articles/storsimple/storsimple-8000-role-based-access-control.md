@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652077"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Rollbaserad åtkomstkontroll för StorSimple
 
@@ -30,7 +31,7 @@ Den här artikeln gäller StorSimple 8000-serien enheter som kör uppdatering 3.
 
 RBAC kan tilldelas baserat på rollerna. Rollerna kontrollera vissa behörighetsnivåer baserat på tillgängliga resurser i miljön. Det finns två typer av roller som StorSimple användare kan välja mellan: inbyggt eller anpassat.
 
-* **Inbyggda roller** -inbyggda roller kan vara ägare, deltagare, reader eller administratör för användaråtkomst. Mer information finns i [inbyggda roller för Azure rollbaserad åtkomstkontroll](../role-based-access-control/overview.md#built-in-roles).
+* **Inbyggda roller** -inbyggda roller kan vara ägare, deltagare, reader eller administratör för användaråtkomst. Mer information finns i [inbyggda roller för Azure rollbaserad åtkomstkontroll](../role-based-access-control/built-in-roles.md).
 
 * **Anpassade roller** -om inbyggda roller inte uppfyller dina behov, kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll, börja med en inbyggd roll, redigera den och sedan importera den igen i miljön. Hämtning och överföra rollen som hanteras med hjälp av Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad åtkomstkontroll](../role-based-access-control/custom-roles.md).
 
@@ -153,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Lägga till användare i den anpassade rollen
 
-Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När åtkomst, Tänk att åtkomst till den överordnade noden ärvs av underordnade. Mer information finns på [resurs hierarkin och åtkomst arv](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När åtkomst, Tänk att åtkomst till den överordnade noden ärvs av underordnade. Mer information finns på [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 1. Gå till **åtkomstkontroll (IAM)**. Klicka på **+ Lägg till** i bladet Access control.
 

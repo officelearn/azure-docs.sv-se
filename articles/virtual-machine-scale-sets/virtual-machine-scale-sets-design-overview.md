@@ -1,9 +1,9 @@
 ---
-title: "Utformning för Skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs"
-description: "Lär dig mer om designöverväganden för din Azure Virtual Machine-Skalningsuppsättningar"
+title: Utformning för Skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs
+description: Lär dig mer om designöverväganden för din Azure Virtual Machine-Skalningsuppsättningar
 keywords: Anger om Linux-dator, virtuella datorn
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652407"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Designöverväganden för Skalningsuppsättningar
 Den här artikeln beskrivs överväganden vid utformning för Skalningsuppsättningar i virtuella datorer. Information om vilka virtuella datorer är avser [översikt över virtuella datorer skala anger](virtual-machine-scale-sets-overview.md).
@@ -30,24 +31,21 @@ I allmänhet är skaluppsättningar användbara för att distribuera hög tillg�
 
 ### <a name="scale-set-specific-features"></a>Scale set-specifika funktioner
 
-- När du har angett skaluppsättning konfiguration kan du uppdatera egenskapen ”kapacitet” för att distribuera flera virtuella datorer parallellt. Detta är mycket enklare än att skriva ett skript för att dirigera distribuera många enskilda virtuella datorer parallellt.
+- När du har angett skaluppsättning konfiguration kan du uppdatera den *kapacitet* egenskapen för att distribuera flera virtuella datorer parallellt. Den här processen är bättre än att skriva ett skript för att dirigera distribuera många enskilda virtuella datorer parallellt.
 - Du kan [använda Azure Autoskala för att skala automatiskt en skalningsuppsättning](./virtual-machine-scale-sets-autoscale-overview.md) men inte enskilda virtuella datorer.
 - Du kan [avbildningsåterställning skaluppsättning för virtuella datorer](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) men [inte enskilda virtuella datorer](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Du kan [overprovision](./virtual-machine-scale-sets-design-overview.md) skaluppsättning för virtuella datorer för ökad tillförlitlighet och snabbare distributionstider. Du kan göra detta med enskilda virtuella datorer om du skriver anpassade kod för att göra detta.
+- Du kan [overprovision](./virtual-machine-scale-sets-design-overview.md) skaluppsättning för virtuella datorer för ökad tillförlitlighet och snabbare distributionstider. Du kan inte overprovision enskilda virtuella datorer om du skriver anpassade kod för att utföra den här åtgärden.
 - Du kan ange en [uppgradera princip](./virtual-machine-scale-sets-upgrade-scale-set.md) att göra det lättare att distribuera uppgraderingar över virtuella datorer i en skaluppsättning. Med enskilda virtuella datorer, måste du samordnar uppdateringar själv.
 
 ### <a name="vm-specific-features"></a>VM-specifika funktioner
 
 Vissa funktioner är för närvarande bara tillgängliga i virtuella datorer:
 
-- Du kan koppla datadiskar till specifika enskilda virtuella datorer, men bifogade datadiskar konfigureras för alla virtuella datorer i en skaluppsättning.
-- Du kan koppla icke-tom datadiskar till enskilda virtuella datorer men inte virtuella datorer i en skaluppsättning.
-- Du kan ögonblicksbilder för en enskild VM men inte en virtuell dator i en skaluppsättning.
-- Du kan göra en avbildning från en enskild VM men inte från en virtuell dator i en skaluppsättning.
-- Du kan migrera en enskild VM från interna diskar till hanterade diskar, men du kan inte göra detta för virtuella datorer i en skaluppsättning.
-- Du kan tilldela enskilda VM-nätverkskort IPv6 offentliga IP-adresser men inte för virtuella datorer i en skaluppsättning. Du kan tilldela IPv6 offentliga IP-adresser till belastningsutjämnare framför antingen enskilda virtuella datorer eller skaluppsättning för virtuella datorer.
+- Du kan göra en avbildning från en enskild VM, men inte från en virtuell dator i en skaluppsättning.
+- Du kan migrera en enskild VM från interna diskar till hanterade diskar, men du kan inte migrera VM-instanser i en skaluppsättning.
+- Du kan tilldela enskilda VM virtuella nätverkskort (NIC) IPv6 offentliga IP-adresser, men det går inte att göra det för VM-instanser i en skaluppsättning. Du kan tilldela IPv6 offentliga IP-adresser till belastningsutjämnare framför antingen enskilda virtuella datorer eller skaluppsättning för virtuella datorer.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Med Azure hanterade diskar
 Skaluppsättningar kan skapas med [Azure hanterade diskar](../virtual-machines/windows/managed-disks-overview.md) i stället för traditionella Azure storage-konton. Hanterade diskar ger följande fördelar:

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654291"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -30,7 +31,7 @@ N-serien VM specifikationerna, lagringskapacitet, och diskinformation finns [GPU
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Installera CUDA drivrutiner för NC, NCv2, NCv3 och ND-serien virtuella datorer
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Installera CUDA drivrutiner på N-serien virtuella datorer
 
 Här följer stegen för att installera drivrutiner för CUDA från NVIDIA CUDA Toolkit på N-serien virtuella datorer. 
 
@@ -155,7 +156,7 @@ Om drivrutinen är installerad visas utdata som liknar följande. Observera att 
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning eller skaluppsättningen för virtuell dator. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
+RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning eller i en enda placering grupp i en skaluppsättning för virtuell dator. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
 
 ### <a name="distributions"></a>Distributioner
 
@@ -167,7 +168,7 @@ Distribuera RDMA-kompatibla N-serien virtuella datorer från en av avbildningarn
 
 * **CentOS-baserade 7.4 HPC** -RDMA drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>Installera drivrutiner för rutnät för NV-serien virtuella datorer
+## <a name="install-grid-drivers-on-nv-series-vms"></a>Installera drivrutiner för RUTNÄTET på NV-serien virtuella datorer
 
 Göra en SSH-anslutning för varje virtuell dator för att installera drivrutiner för NVIDIA RUTNÄTET på NV-serien virtuella datorer, och följ anvisningarna för Linux-distribution. 
 
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Skapa sedan en post för uppdateringen skriptet i `/etc/rc.d/rc3.d` så anropas skriptet som rot på Start.
+Skapa sedan en post för ditt skript för att uppdatera i `/etc/rc.d/rc3.d` så anropas skriptet som rot på Start.
 
 ## <a name="troubleshooting"></a>Felsökning
 

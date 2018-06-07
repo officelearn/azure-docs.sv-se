@@ -1,22 +1,22 @@
 ---
-title: "Så här skalar du Azure tid serien Insights miljön | Microsoft Docs"
-description: "Den här artikeln beskriver hur du skalar Azure tid serien Insights miljön. Använda Azure portal för att lägga till eller ta bort inom en prisnivå SKU."
-services: time-series-insights
+title: Så här skalar du Azure tid serien Insights miljön | Microsoft Docs
+description: Den här artikeln beskriver hur du skalar Azure tid serien Insights miljön. Använda Azure portal för att lägga till eller ta bort inom en prisnivå SKU.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7e603cc9c130de6b65ae1935ac974557f5e74737
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651999"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du tid serien insikter miljön
 

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642819"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Windows-operativsystemet i Service Fabric-kluster
 
@@ -316,6 +317,10 @@ A. Den tid som krävs av korrigering orchestration appen beror oftast på följa
 FRÅGOR. **Varför ser vissa uppdateringar i Windows Update resultaten via REST-API, men inte under Windows Update-historiken på datorn?**
 
 A. Vissa produktuppdateringar visas endast i sina respektive uppdatering/korrigering historiken. Till exempel visas uppdateringar för Windows Defender inte i Windows Update-historiken på Windows Server 2016.
+
+FRÅGOR. **Korrigering Orchestration-app för korrigering min dev-kluster (kluster med en nod)?**
+
+A. Nej, korrigering orchestration appen kan inte användas för korrigering kluster med en nod. Den här begränsningen är utformad som [service fabric systemtjänster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) eller kund appar kommer att få driftstopp och reparera jobb för korrigering skulle därför aldrig godkännas av reparera manager.
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 

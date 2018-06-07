@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a40ca715c15540bf7048fae8b5dde152890eb1c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648334"
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -78,7 +79,7 @@ SQL Database-granskning spårar databasaktiviteter och hjälper dig att upprätt
 Hotidentifiering kompletterar granskning genom att tillhandahålla ett extra lager av säkerhet för tillgångsinformation är inbyggda i Azure SQL Database-tjänsten som identifierar onormal och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du meddelas om misstänkta aktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasen åtkomstmönster. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ange information om misstänkt aktivitet och rekommenderar åtgärd att undersöka och minska risken. Hotidentifiering kostnader $15/server/månad. Det är gratis för de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat Detection](sql-database-threat-detection.md).
  
 ## <a name="compliance"></a>Efterlevnad
-Förutom ovanstående egenskaper och funktioner som kan hjälpa ditt program uppfylla olika säkerhetskrav, Azure SQL Database även deltar i reguljära granskningar och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
+Förutom ovanstående egenskaper och funktioner som kan hjälpa ditt program uppfylla olika säkerhetskrav, Azure SQL Database även deltar i reguljära granskningar och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter/compliance/complianceofferings/).
 
 
 ## <a name="security-management"></a>Säkerhetshantering

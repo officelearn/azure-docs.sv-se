@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658680"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
 
@@ -65,7 +66,7 @@ Skriv i sökrutan överst i portalen *nätverkssäkerhetsgrupper*. När **nätve
 ### <a name="view-details-of-a-network-security-group"></a>Visa information om en nätverkssäkerhetsgrupp
 
 1. Skriv i sökrutan överst i portalen *nätverkssäkerhetsgrupper*. När **nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
-2. Välj nätverkssäkerhetsgruppen i listan som du vill visa information om. Under **inställningar** du kan visa den **inkommande säkerhetsregler** och **utgående säkerhetsregler**, **nätverksgränssnitt** och  **Undernät** nätverkssäkerhetsgruppen som är kopplad till. Du kan också aktivera eller inaktivera **diagnostikloggar** och visa **effektiva säkerhetsregler**. Läs mer i [diagnostikloggar](virtual-network-nsg-manage-log.md) och [visa effektiva säkerhetsregler](virtual-network-nsg-troubleshoot-portal.md).
+2. Välj nätverkssäkerhetsgruppen i listan som du vill visa information om. Under **inställningar** du kan visa den **inkommande säkerhetsregler** och **utgående säkerhetsregler**, **nätverksgränssnitt** och  **Undernät** nätverkssäkerhetsgruppen som är kopplad till. Du kan också aktivera eller inaktivera **diagnostikloggar** och visa **effektiva säkerhetsregler**. Läs mer i [diagnostikloggar](virtual-network-nsg-manage-log.md) och [visa effektiva säkerhetsregler](diagnose-network-traffic-filter-problem.md).
 3. Mer information om vanliga Azure inställningarna finns i följande artiklar:
     *   [Aktivitetslogg](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
-ms.openlocfilehash: f3ace9d178fdfa90130e4436722e1e36cedc7e50
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a911ed9777e1a63e1fc1776fb6a8c1ab98bc6820
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647511"
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -46,7 +47,7 @@ Mått som används för att mäta och identifiera problem med databasprestanda b
 
 Identifiera SQL-databas prestandaförsämringar registreras i loggen diagnostik med intelligent poster som består av följande egenskaper:
 
-| Egenskap             | Information              |
+| Egenskap              | Information              |
 | :------------------- | ------------------- |
 | Information om databas | Metadata om en databas som en förklaring upptäcktes, som en resurs-URI. |
 | Observerade tidsintervall | Start- och sluttid för perioden för den identifierade information. |
@@ -59,7 +60,7 @@ Identifiera SQL-databas prestandaförsämringar registreras i loggen diagnostik 
 
 Prestandaproblem som har registrerats i loggen diagnostik är flaggade med något av tre tillstånd i livscykeln för ett problem: ”aktiv”, ”verifiera” och ”Slutför”. När en prestanda problem upptäcks och länge den har bedömer som finns med SQL-databas inbyggd intelligens problemet har flaggats som ”aktiv”. När problemet anses minskas, kontrolleras och problemet statusen ändras till ”verifiera”. När SQL-databas inbyggd intelligens anser problemet löst, har problemet status flaggats som ”Slutför”.
 
-## <a name="use-intelligent-insights"></a>Use Intelligent Insights
+## <a name="use-intelligent-insights"></a>Använd Intelligent insikter
 
 Intelligent Insights är en smart prestanda diagnostik logg. Kan integreras med andra produkter för användning och sådana specifika program är Azure Log Analytics, Azure Event Hubs och Azure storage eller tredje parts produkter. 
 

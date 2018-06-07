@@ -7,15 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: eb7e87934269a5e1ba453e20f6f409a10dfbda5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644356"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställa en enskild klient till en databas per klient SaaS-program
 
@@ -64,7 +65,7 @@ För att visa dessa scenarion för återställning ”av misstag” ta bort en h
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Öppna appen händelser om du vill granska aktuella händelser
 
-1. Öppna händelser navet (http://events.wtp.&lt; användaren&gt;. trafficmanager.net), och välj **Contoso samklang Hall**.
+1. Öppna händelser navet (http://events.wtp.&lt; användare&gt;. trafficmanager.net), och välj **Contoso samklang Hall**.
 
    ![Händelser Hub](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 

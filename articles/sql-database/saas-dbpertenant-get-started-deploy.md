@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645369"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-appar som använder databasen per klient-mönstret med SQL-databas
 
@@ -120,14 +121,14 @@ Central **händelser hubb** sidan innehåller en lista med länkar till innehava
 
 Wingtip programmet använder [ *Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) att styra distributionen av inkommande begäranden. URL till sidan händelser för en viss klient används följande format:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/fabrikamjazzclub
 
     Delar av det föregående formatet beskrivs i följande tabell.
 
     | URL: en del        | Beskrivning       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | De händelser som delarna av Wingtip appen.<br /><br /> *-dpt* särskiljer den *databas per klient* implementeringen av Wingtip biljetter från andra implementeringar. Exempel är den *fristående* app per klient (*-sa*) eller *multitenant databasen* (*- huvudmålservern*) implementeringar. |
-    | .*&lt;user&gt;* | *af1* i exemplet. |
+    | .  *&lt;användare&gt;* | *af1* i exemplet. |
     | .trafficmanager.net/ | Traffic Manager bas-URL. |
     | fabrikamjazzclub | Identifierar klient med namnet Fabrikam Jazz en. |
     | &nbsp; | &nbsp; |

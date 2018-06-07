@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640973"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiva sökning
 
@@ -53,15 +54,15 @@ I så fall kanske du vill berätta för indexeraren att ignorera felen. Gör det
 ## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Tips 4: Tittar på utökade dokument under huven 
 Utökade dokument är tillfällig strukturer som skapades under berikande och tar bort när bearbetningen är klar.
 
-Om du vill samla in en ögonblicksbild av den utökade dokument som skapades under indexering, lägger du till ett fält med namnet ```enriched``` till ditt index. Indexeraren Dumpar automatiskt i fältet en strängrepresentation av alla enrichments för dokumentet.
+Om du vill ta en ögonblicksbild av det berikade dokumentet som skapades under indexeringen lägger du till ett fält som heter ```enriched``` i ditt index. Indexeraren placerar automatiskt en strängrepresentation i fältet för alla berikanden för det dokumentet.
 
-Den ```enriched``` innehåller en sträng som är en logisk representation av utökade dokumentet i minnet i JSON.  Fältvärdet är dock ett giltigt JSON-dokument. Citattecken är undantagna så måste du ersätta `\"` med `"` för att visa dokumentet som formaterats i JSON. 
+Fältet ```enriched``` innehåller en sträng som är en logisk representation av det berikade dokumentet i minnet i JSON.  Fältets värde är emellertid ett giltigt JSON-dokument. Kvoter är undantagna, så du behöver aldrig ersätta `\"` med `"` för att visa dokumenten som formaterad JSON. 
 
 Utökade fält är avsett för felsökning, för att hjälpa dig att förstå det innehåll som uttryck utvärderas mot logiska formen. Du bör inte beror på det här fältet för indexering syften.
 
 Lägg till en ```enriched``` fältet som en del av din Indexdefinition för felsökning:
 
-#### <a name="request-body-syntax"></a>Begäran brödtext Syntax
+#### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json
 {
   "fields": [
@@ -98,7 +99,7 @@ För portal-baserade indexering (enligt beskrivningen i Snabbstart), om du välj
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Tips 7: Öka indexeringsflöde
 
-För [parallella indexering](search-howto-reindex.md#parallel-indexing), placera dina data i flera behållare eller flera virtuella mappar i samma behållare. Skapa sedan flera datasource och indexeraren värdepar. Alla indexerare kan använda samma kunskaper och skriva till målet samma sökindexet så att appen Sök inte behöver vara medveten om den här partitionering.
+För [parallella indexering](search-howto-large-index.md), placera dina data i flera behållare eller flera virtuella mappar i samma behållare. Skapa sedan flera datasource och indexeraren värdepar. Alla indexerare kan använda samma kunskaper och skriva till målet samma sökindexet så att appen Sök inte behöver vara medveten om den här partitionering.
 Mer information finns i [indexering stora datauppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Se också

@@ -1,50 +1,52 @@
 # [Dokumentation för Analysis Services](index.md)
 
 # Översikt
-## [Vad är Azure Analysis Services?](analysis-services-overview.md)
 
+## [Vad är Analysis Services?](analysis-services-overview.md)
 
-# Kom igång
-## [Skapa en server på Azure-portalen](analysis-services-create-server.md)
-## [Skapa en server med Azure PowerShell](analysis-services-create-powershell.md)
-## [Distribuera en modell från Visual Studio](analysis-services-deploy.md)
-## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
+# Snabbstarter
+
+## [Skapa en server – portalen](analysis-services-create-server.md)
+## [Skapa en server – PowerShell](analysis-services-create-powershell.md)
+## [Konfigurera serverbrandväggen – portalen](analysis-services-qs-firewall.md)
+
+# Självstudier
+
+## [1 – Lägg till en exempelmodell från portalen](analysis-services-create-sample-model.md) 
+## [2 – Konfigurera roller för serveradministratör och användare](tutorials/analysis-services-tutorial-roles.md)
+## [3 – Anslut med Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Begrepp
+
+## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
 ## [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md)
-## [Datakällor som stöds](analysis-services-datasource.md)
+## [Klientbibliotek](analysis-services-data-providers.md)
+## [Efterlevnadsnivå](analysis-services-compat-level.md)
 ## [Ansluta till lokala datakällor](analysis-services-gateway.md)
 ## [Ansluta till servrar](analysis-services-connect.md)
-## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
-## [Efterlevnadsnivå](analysis-services-compat-level.md)
 ## [Hög tillgänglighet](analysis-services-bcdr.md)
+## [Datakällor som stöds](analysis-services-datasource.md)
 
 # Så här gör du 
-## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
-## [Importera en Power BI Desktop-fil](analysis-services-import-pbix.md)
-## [Säkerhetskopiering och återställning](analysis-services-backup.md)
-## [Uppdatera med REST API](analysis-services-async-refresh.md)
-## [Konfigurera utskalning](analysis-services-scale-out.md)
-## Automatisera administrativa uppgifter
+
+## Server
+### [Säkerhetskopiering och återställning](analysis-services-backup.md)
+### [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
+### [Konfigurera utskalning](analysis-services-scale-out.md)
+### [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
+### [Hantera en server](analysis-services-manage.md)
+### [Övervaka servermått](analysis-services-monitor.md)
+### [Konfigurera diagnostisk loggning](analysis-services-logging.md)
 ### [Skapa tjänstens huvudnamn – Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md)
-## Serverhantering
-### [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
-### [Hantera en server](analysis-services-manage.md)
-### [Hantera databasanvändare](analysis-services-database-users.md)
-### [Hantera serveradministratörer](analysis-services-server-admins.md)
-### [Övervaka servermått](analysis-services-monitor.md)
-### [Konfigurera diagnostisk loggning](analysis-services-logging.md)
-### [Använda gateway för datakällor på virtuella nätverk](analysis-services-vnet-gateway.md)
-## Anslut
-### [Hämta klientbibliotek](analysis-services-data-providers.md)
-### [Anslut till Excel](analysis-services-connect-excel.md)
-### [Anslut med Power BI](analysis-services-connect-pbi.md)
-### [Skapa en ODC-fil](analysis-services-odc.md)
-## Självstudier
-### [1 – Lägga till en exempelmodell](analysis-services-create-sample-model.md)
-### [Datamodellering – Adventure Works självstudiekurs](tutorials/aas-adventure-works-tutorial.md)
+
+## Modell
+### [Importera en Power BI Desktop-fil](analysis-services-import-pbix.md)
+### [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
+### [Distribuera från Visual Studio (SSDT)](analysis-services-deploy.md)
+### [Uppdatera med REST API](analysis-services-async-refresh.md)
+### [Datamodellering i Visual Studio – självstudie för Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Skapa ett projekt för tabellmodeller](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Hämta data](tutorials/aas-lesson-2-get-data.md)
 #### [3 - Markera som datumtabell](tutorials/aas-lesson-3-mark-as-date-table.md) 
@@ -62,14 +64,25 @@
 #### [Kompletterande lektion – Dynamisk säkerhet](tutorials/aas-supplemental-lesson-dynamic-security.md)
 #### [Kompletterande lektion – Ojämna hierarkier](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
+## Säkerhet
+### [Hantera databasanvändare](analysis-services-database-users.md)
+### [Hantera serveradministratörer](analysis-services-server-admins.md)
+
+## Anslut
+### [Anslut till Excel](analysis-services-connect-excel.md)
+### [Anslut med Power BI](analysis-services-connect-pbi.md)
+### [Skapa en ODC-fil](analysis-services-odc.md)
+
 # Referens
-## [Azure PowerShell](analysis-services-powershell.md)
+
+## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabellmodellskriptspråk (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resurser
+
 ## [Exempel](analysis-services-samples.md)
 ## [Analysis Services-teamblogg](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
@@ -80,4 +93,13 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+
+
+
+
+
+
+
+
+
 

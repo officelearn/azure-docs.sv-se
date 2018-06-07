@@ -1,9 +1,9 @@
 ---
-title: "Cloud Foundry på Azure"
-description: "Cloud Foundry på Azure"
+title: Cloud Foundry på Azure
+description: Cloud Foundry på Azure
 services: multiple
 author: czeumault
-manager: carolz
+manager: jeconnoc
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
@@ -11,17 +11,19 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: b36e04e00d4942539b121a83e320f1e92aac6ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 307f9988246f94c26e63bf8a26052890867aabbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608992"
 ---
 <div class="content">
     <h1>Cloud Foundry på Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
     <div class="intro" style="min-width: 200px">
-    <img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">Cloud Foundry är en plattform som en-tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk.  Lär dig hur du använder Cloud Foundry på Azure med våra snabbstarter och självstudier.
+    <img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">
+Cloud Foundry är en plattform som en tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk.  Lär dig hur du använder Cloud Foundry på Azure med våra snabbstarter och självstudier.
         </div>
     </div>
 <h2>Snabbstarter på 5 minuter</h2>
@@ -34,6 +36,7 @@ ms.lasthandoff: 10/11/2017
 <h2>Resurser</h2>
 <p>Se följande länkar för ytterligare referensmaterial och verktyg för att arbeta med Cloud Foundry på Azure.<p>
 <a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry på Azure</a><br/>
+<a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Integrera Cloud Foundry med Azure</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Installera Cloud Foundry på Azure</a><br/>
 <a href="https://github.com/Microsoft/vsts-cloudfoundry">Visual Studio Team Services-plugin för Cloud Foundry</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Microsoft Log Analytics Nozzle för Cloud Foundry</a><br/>

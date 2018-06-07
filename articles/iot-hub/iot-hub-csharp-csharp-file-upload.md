@@ -1,24 +1,20 @@
 ---
 title: Överföra filer från enheter till Azure IoT-hubb med .NET | Microsoft Docs
 description: Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för .NET. Överförda filer lagras i ett Azure storage blob-behållaren.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807500"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Ladda upp filer från enheten till molnet med IoT-hubben med hjälp av .NET
 
@@ -29,7 +25,7 @@ Den här kursen bygger på koden i den [meddelanden moln till enhet med IoT-hubb
 - Ange en enhet på ett säkert sätt med en Azure blob-URI för att överföra en fil.
 - Använd IoT-hubb filen överför meddelanden för att utlösa bearbetning av filen i din app-serverdelen.
 
-Den [Kom igång med IoT-hubb](iot-hub-csharp-csharp-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-csharp-csharp-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Den [meddelanden processen enhet till moln](iot-hub-csharp-csharp-process-d2c.md) självstudiekursen beskriver ett sätt att på ett tillförlitligt sätt lagra meddelanden från enhet till moln i Azure blob storage. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
+Den [Kom igång med IoT-hubb](iot-hub-csharp-csharp-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-csharp-csharp-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Den [meddelanden processen enhet till moln](tutorial-routing.md) självstudiekursen beskriver ett sätt att på ett tillförlitligt sätt lagra meddelanden från enhet till moln i Azure blob storage. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp
@@ -97,7 +93,7 @@ I det här avsnittet kan du ändra appen för enheter som du skapade i [meddelan
     ```
 
 > [!NOTE]
-> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [Hantering av tillfälligt fel].
 
 ## <a name="receive-a-file-upload-notification"></a>Ta emot ett meddelande om överföringen
 
@@ -111,7 +107,7 @@ I det här avsnittet kan du skriva en .NET-konsolapp som tar emot filen överfö
 
 1. I den **NuGet Package Manager** fönster, söka efter **Microsoft.Azure.Devices**, klickar du på **installera**, och Godkänn användningsvillkoren.
 
-    Den här åtgärden hämtar, installerar och lägger till en referens till den [Azure IoT service SDK NuGet-paketet] i den **ReadFileUploadNotification** projekt.
+    Den här åtgärden hämtar, installerar och lägger till en referens till den [Azure IoT service SDK NuGet-paket] i den **ReadFileUploadNotification** projekt.
 
 1. I den **Program.cs** lägger du till följande uttryck överst i filen:
 
@@ -166,7 +162,7 @@ Du är nu redo att köra programmen.
 
 1. Högerklicka på lösningen i Visual Studio och välj **ange Startprojekt**. Välj **flera Startprojekt**och välj den **starta** åtgärd för **ReadFileUploadNotification** och **SimulatedDevice**.
 
-1. Tryck på **F5**. Båda programmen ska starta. Du bör se överföringen slutförts i ett konsolprogram och överför meddelandet tas emot av andra konsolprogram. Du kan använda den [Azure-portalen] eller Visual Studio Server Explorer för att söka efter förekomst av den överförda filen i ditt Azure Storage-konto.
+1. Tryck på **F5**. Båda programmen ska starta. Du bör se överföringen slutförts i ett konsolprogram och överför meddelandet tas emot av andra konsolprogram. Du kan använda den [Azure Portal] eller Visual Studio Server Explorer för att söka efter förekomst av den överförda filen i ditt Azure Storage-konto.
 
     ![][50]
 
@@ -190,12 +186,12 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 <!-- Links -->
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 
-[hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure IoT service SDK NuGet-paketet]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Hantering av tillfälligt fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure IoT service SDK NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

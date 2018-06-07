@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Databehandling med höga prestanda
           href: sizes-hpc.md
+        - name: Tidigare generationer
+          href: sizes-previous-gen.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
         - name: Benchmark-poäng
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Använda en mall
           href: create-ssh-secured-vm-from-template.md
+        - name: Använda REST-API
+          href: create-vm-rest-api.md
         - name: Kopiera eller klona en virtuell dator
           href: copy-vm.md
     - name: Säkra virtuella datorer
@@ -188,7 +192,12 @@
         - name: Tagga en virtuell dator
           href: tag.md
         - name: Köra skript på en virtuell dator
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Anpassat skripttillägg
+              href: ../extensions/custom-script-linux.md
+            - name: Kör kommando
+              href: run-command.md
         - name: Använd Fjärrskrivbord
           href: use-remote-desktop.md
         - name: Ansluta virtuell dator till Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Använda internt DNS
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: Använd VM-tillägg
-      items:
-        - name: Översikt över VM-tillägg
-          href: extensions-features.md
-        - name: Anpassat skripttillägg
-          href: extensions-customscript.md
-        - name: OMS-agenttillägg
-          href: extensions-oms.md
-        - name: Linux-diagnostiktillägg
-          href: diagnostic-extension.md
-        - name: Network Watcher-agent
-          href: extensions-nwa.md
-        - name: VMAccess-tillägg
-          href: using-vmaccess-extension.md
-        - name: Begränsa installation av tillägg
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer

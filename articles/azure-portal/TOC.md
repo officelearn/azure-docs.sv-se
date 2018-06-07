@@ -15,6 +15,7 @@
 ### [Skapa Azure-instrumentpaneler programmässigt](azure-portal-dashboards-create-programmatically.md)
 ## Hantera
 ### [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
+### [Exportera eller ta bort användarinställningar](azure-portal-export-delete-settings.md)
 ### [Använd portalen för att hantera resurser](../azure-resource-manager/resource-group-portal.md)
 ### [Hantera åtkomst med rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
 ### [Dela instrumentpaneler med rollbaserad åtkomstkontroll](azure-portal-dashboard-share-access.md)

@@ -1,104 +1,116 @@
-- name: Dokumentation om Azure-fakturering
+- name: Dokumentation om Azure Cost Management
   href: index.md
-- name: Kom igång
+- name: Förstå Azure-faktureringen
+  expanded: true
+  items:
+    - name: Förstå fakturan
+      href: billing-understand-your-bill.md
+    - name: Hämta faktura och användningsdata
+      href: billing-download-azure-invoice-daily-usage-date.md
+    - name: Avgifter för tjänster från tredje part
+      href: billing-understand-your-azure-marketplace-charges.md
+    - name: Förklaring av användningsvillkor
+      href: billing-understand-your-usage.md
+    - name: Förklaring av fakturavillkor
+      href: billing-understand-your-invoice.md
+- name: Hantera kostnader
   items:
     - name: Undvik oväntade kostnader
       href: billing-getting-started.md
-    - name: Skapa tjänster som ingår i det kostnadsfria kontot
-      href: billing-create-free-services-included-free-account.md
-    - name: Undvik avgifter för det kostnadsfria kontot
-      href: billing-avoid-charges-free-account.md
+    - name: Ställa in faktureringsvarningar
+      href: billing-set-up-alerts.md
+    - name: Beräkna priser
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Använda resurstaggar
+      href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+    - name: Förstå utgiftsgränser
+      href: billing-spending-limit.md
+    - name: Håll kostnaderna nere med Reserved VM Instances
+      items:
+        - name: Vad är reserverade instanser?
+          href: billing-save-compute-costs-reservations.md
+        - name: Köp en reserverad instans
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Så här tillämpas rabatter
+          href: billing-understand-vm-reservation-charges.md
+        - name: Programvarukostnader som inte ingår
+          href: billing-reserved-instance-windows-software-costs.md
+        - name: Användning för Betala per användning
+          href: billing-understand-reserved-instance-usage.md
+        - name: Användning för Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Hantera reserverade instanser
+          href: billing-manage-reserved-vm-instance.md
+- name: Hantera kontot
+  items:
+    - name: Kostnadsfritt konto
+      items:
+        - name: Skapa kostnadsfria tjänster
+          href: billing-create-free-services-included-free-account.md
+        - name: Undvik avgifter
+          href: billing-avoid-charges-free-account.md
+        - name: Kontrollera användning
+          href: billing-check-free-service-usage.md
+        - name: Uppgradera prenumeration
+          href: billing-upgrade-azure-subscription.md
+        - name: Förstå mätarmappning
+          href: billing-understand-free-service-meter-mapping.md
+    - name: Redigera profil
+      href: billing-how-to-change-azure-account-profile.md
     - name: Bevilja åtkomst till fakturering
       href: billing-manage-access.md
+    - name: Länka partner-ID
+      href: billing-partner-admin-link-started.md
+    - name: Visa faktureringskonton
+      href: billing-view-all-accounts.md
+    - name: Lös passerat betalningsdatum
+      href: billing-azure-subscription-past-due-balance.md
     - name: Logga in med Office 365-konto
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: Registrera dig för Office 365 med ett Azure-konto
       href: billing-use-existing-azure-account-for-office-365-subscription.md
-    - name: Ordna resurser med hanteringsgrupper
-      href: billing-enterprise-mgmt-group-overview.md
-    - name: Spara med Azure Reserved Instances
-      href: billing-save-compute-costs-reservations.md
-      items:
-        - name: Förskottsbetala för Virtual Machines med Reserved Instances
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-        - name: Hantera Reserved Instances
-          href: billing-manage-reserved-vm-instance.md
-        - name: Förstå tillämpningen av rabatter för Reserved Instances
-          href: billing-understand-vm-reservation-charges.md
-        - name: Förstå användningen av reserverade instanser för Betala per användning
-          href: billing-understand-reserved-instance-usage.md
-        - name: Förstå användningen av reserverade instanser för Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
-        - name: Windows-kostnader för Reserved Instances
-          href: billing-reserved-instance-windows-software-costs.md
+- name: Hantera prenumeration
+  items:
+    - name: Återaktivera prenumeration
+      href: billing-subscription-become-disable.md
+    - name: Överför ägarskap
+      href: billing-subscription-transfer.md
+    - name: Avbryt prenumerationen
+      href: billing-how-to-cancel-azure-subscription.md
+    - name: Ändra kreditkort
+      href: billing-how-to-change-credit-card.md
+    - name: Ändra administratör
+      href: billing-add-change-azure-subscription-administrator.md
+    - name: Byt prenumerationserbjudande
+      href: billing-how-to-switch-azure-offer.md
+    - name: Betala med faktura
+      href: billing-how-to-pay-by-invoice.md
+    - name: Skapa hanteringsgrupper
+      href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
+    - name: Flytta Azure-resurser
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+    - name: Skapa Enterprise prenumerationer
+      href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
+    - name: Exportera prenumerationsinformation
+      href: billing-export-subscriptions.md
+    - name: Länka Azure AD-klient
+      href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Begränsningar och kvoter
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
-- name: Gör så här för att
+- name: Felsöka
   items:
-    - name: Övervaka användning och kostnader
-      items:
-        - name: Hämta faktura och användning
-          href: billing-download-azure-invoice-daily-usage-date.md
-        - name: Kontrollera användningen av kostnadsfria tjänster
-          href: billing-check-free-service-usage.md
-        - name: Förstå fakturan
-          href: billing-understand-your-bill.md
-        - name: Förstå villkoren på din faktura
-          href: billing-understand-your-invoice.md
-        - name: Förstå villkoren för din användning
-          href: billing-understand-your-usage.md
-        - name: Förstå externa tjänstavgifter
-          href: billing-understand-your-azure-marketplace-charges.md
-        - name: Förstå den kostnadsfria tjänsten för mätningsmappning
-          href: billing-understand-free-service-meter-mapping.md
-        - name: Förstå utgiftsgränser
-          href: billing-spending-limit.md
-        - name: Ställa in faktureringsvarningar
-          href: billing-set-up-alerts.md
-        - name: Lös passerat betalningsdatum
-          href: billing-azure-subscription-past-due-balance.md
-    - name: Hantera prenumerationer
-      items:
-        - name: Hitta prenumeration eller hanteringsgrupp
-          href: billing-enterprise-mgmt-grp-find.md
-        - name: Hantera administratörsroller
-          href: billing-add-change-azure-subscription-administrator.md
-        - name: Överför äganderätten till prenumerationen
-          href: billing-subscription-transfer.md
-        - name: Återaktivera en inaktiverad prenumeration
-          href: billing-subscription-become-disable.md
-        - name: Uppgradera från en kostnadsfri prenumeration
-          href: billing-upgrade-azure-subscription.md
-        - name: Byt prenumerationserbjudande
-          href: billing-how-to-switch-azure-offer.md
-        - name: Länka Azure AD-klient
-          href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
-        - name: Avbryt prenumerationen
-          href: billing-how-to-cancel-azure-subscription.md
-    - name: Hantera kontot
-      items:
-        - name: Redigera profil
-          href: billing-how-to-change-azure-account-profile.md
-        - name: Uppdatera betalningsinformation
-          href: billing-how-to-change-credit-card.md
-        - name: Betala för prenumerationer med faktura
-          href: billing-how-to-pay-by-invoice.md
-        - name: Länka partner-ID
-          href: billing-partner-admin-link-started.md
-        - name: Visa faktureringskonton
-          href: billing-view-all-accounts.md
-    - name: Felsöka
-      items:
-        - name: Registreringsproblem
-          href: 'https://support.microsoft.com/en-us/help/4042959'
-        - name: Nekat kort
-          href: 'https://support.microsoft.com/en-us/help/4042960'
-        - name: Inloggningsproblem
-          href: 'https://support.microsoft.com/en-us/help/4042961'
-        - name: Inga prenumerationer hittades
-          href: billing-no-subscriptions-found.md
-        - name: Företagskostnadsvy inaktiverad
-          href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Inga prenumerationer hittades
+      href: billing-no-subscriptions-found.md
+    - name: Nekat kort
+      href: 'https://support.microsoft.com/en-us/help/4042960'
+    - name: Inloggningsproblem
+      href: 'https://support.microsoft.com/en-us/help/4042959'
+    - name: Inloggningsproblem
+      href: 'https://support.microsoft.com/en-us/help/4042961'
+    - name: Företagskostnadsvy inaktiverad
+      href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Kontakta supporten
+      href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Referens
   items:
     - name: Översikt över API för Azure-fakturering
@@ -129,11 +141,3 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Kodexempel för API för RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Resurser
-  items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Kontakta supporten
-      href: ../azure-supportability/how-to-create-azure-support-request.md
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,10 +1,10 @@
 ---
 title: Datasynkronisering offline i Azure Mobile Apps | Microsoft Docs
-description: "Konceptuell referens- och översikt över funktionen för synkronisering av offlinedata för Azure Mobile Apps"
+description: Konceptuell referens- och översikt över funktionen för synkronisering av offlinedata för Azure Mobile Apps
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597985"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Datasynkronisering offline i Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Vad är datasynkronisering offline?
@@ -42,7 +43,7 @@ Följande kurser visar hur du lägger till offlinesynkronisering till dina mobil
 * [Xamarin-iOS: aktivera offlinesynkronisering]
 * [Xamarin Android: Aktivera offlinesynkronisering]
 * [Xamarin.Forms: Aktivera offlinesynkronisering](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Uwp: aktivera offlinesynkronisering]
+* [Universella Windows-plattformen: Aktivera offlinesynkronisering]
 
 ## <a name="what-is-a-sync-table"></a>Vad är en tabell med synkronisering?
 För att komma åt slutpunkten ”/ tabeller” Azure Mobile klienten SDK tillhandahålla gränssnitt som `IMobileServiceTable` (.NET klient SDK) eller `MSTable` (iOS-klient). API: erna ansluta direkt till serverdelen för Mobilappen för Azure och misslyckas om klientenheten inte har en nätverksanslutning.
@@ -52,14 +53,14 @@ Stöd för användning offline, din app ska i stället använda den *sync tabell
 ## <a name="what-is-a-local-store"></a>Vad är ett lokalt Arkiv?
 Ett lokalt Arkiv är persistencelager på klientenheten. Azure Mobile Apps klient-SDK: Ange en standardimplementering lokalt Arkiv. Den är baserad på SQLite i Windows, Xamarin och Android. På iOS, är den baserad på grundläggande information.
 
-Om du vill använda implementeringen SQLite-baserade på Windows Phone eller Windows Store 8.1 som du behöver installera tillägget SQLite. Mer information finns i [Uwp: aktivera offlinesynkronisering]. Android och iOS levereras med en version av SQLite i enhetens operativsystem, så det inte är nödvändigt att referera till en egen version av SQLite.
+Om du vill använda implementeringen SQLite-baserade på Windows Phone eller Microsoft Store som du behöver installera tillägget SQLite. Mer information finns i [Universella Windows-plattformen: Aktivera offlinesynkronisering]. Android och iOS levereras med en version av SQLite i enhetens operativsystem, så det inte är nödvändigt att referera till en egen version av SQLite.
 
 Utvecklare kan också implementeras sina egna lokalt Arkiv. Du kan till exempel definiera ett lokalt arkiv som använder SQLCipher för kryptering om du vill lagra data i ett krypterat format på den mobila klienten.
 
 ## <a name="what-is-a-sync-context"></a>Vad är en kontext som synkronisering?
 A *sync kontexten* är associerad med ett objekt för mobila (t.ex `IMobileServiceClient` eller `MSClient`) och spårar ändringar som görs med synkronisering tabeller. Kontexten sync upprätthåller en *åtgärden kön*, vilket håller en sorterad lista över CUD åtgärder (skapa, uppdatera, ta bort) som senare skickas till servern.
 
-Ett lokalt arkiv som har associerats med kontexten synkronisering med en initieringsmetoden `IMobileServicesSyncContext.InitializeAsync(localstore)` i den [.NET klient-SDK].
+Ett lokalt arkiv som har associerats med kontexten synkronisering med en initieringsmetoden `IMobileServicesSyncContext.InitializeAsync(localstore)` i den [Klient-.NET SDK].
 
 ## <a name="how-sync-works"></a>Hur offline synkronisering fungerar
 När du använder sync tabeller, kontrollerar klientkoden när lokala ändringar synkroniseras med en mobilappsserverdel i Azure. Inget skickas till serverdelen tills det finns ett anrop till *push* lokala ändringar. På liknande sätt kan det lokala arkivet fylls med nya data när det finns ett anrop till *pull* data.
@@ -92,12 +93,12 @@ När du använder sync tabeller, kontrollerar klientkoden när lokala ändringar
 * [iOS: aktivera offlinesynkronisering]
 * [Xamarin-iOS: aktivera offlinesynkronisering]
 * [Xamarin Android: Aktivera offlinesynkronisering]
-* [Uwp: aktivera offlinesynkronisering]
+* [Universella Windows-plattformen: Aktivera offlinesynkronisering]
 
 <!-- Links -->
-[.NET klient-SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Klient-.NET SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
 [Android: Aktivera offlinesynkronisering]: app-service-mobile-android-get-started-offline-data.md
 [iOS: aktivera offlinesynkronisering]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin-iOS: aktivera offlinesynkronisering]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Aktivera offlinesynkronisering]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Uwp: aktivera offlinesynkronisering]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Universella Windows-plattformen: Aktivera offlinesynkronisering]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

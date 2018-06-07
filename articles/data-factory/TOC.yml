@@ -374,17 +374,17 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Kör SSIS-paket i Azure
       items:
-        - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
+        - name: Anslut Azure-SSIS IR till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Aktivera Azure AD-autentisering för integreringskörning i Azure-SSIS
+        - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Konfigurera hög prestanda för Azure-SSIS-integreringskörning
+        - name: Konfigurera höga prestanda för Azure-SSIS IR
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Etablera Enterprise Edition för Azure-SSIS Integration Runtime
+        - name: Etablera Enterprise Edition för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Anpassa konfiguration för Azure-SSIS-integreringskörning
+        - name: Anpassa konfiguration för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Utveckla licensierade komponenter för Azure-SSIS-integreringskörning
+        - name: Installera licensierade komponenter för Azure-SSIS IR
           href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Köra SSIS-paket med aktiviteten Kör SSIS-paket
           href: how-to-invoke-ssis-package-ssis-activity.md

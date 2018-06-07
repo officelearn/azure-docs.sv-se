@@ -1,26 +1,24 @@
 ---
-title: "Dokumentation om Azure Data Lake Analytics – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du gör stordataanalyser med Data Lake Analytics. Självstudier visar hur du kör batch-, realtids- och interaktiva analyser, och hur du skriver U-SQL-frågor."
+title: Dokumentation om Azure Data Lake Analytics – självstudier, API-referens
+description: Lär dig hur du gör stordataanalyser med Azure Data Lake Analytics. Självstudier visar hur du kör batch-, realtids- och interaktiva analyser, och hur du skriver U-SQL-frågor.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624224"
 ---
-# <a name="data-lake-analytics-documentation"></a>Dokumentation om Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Dokumentation om Azure Data Lake Analytics
 
-Lär dig hur du använder Data Lake Analytics för att köra stordataanalysjobb som skalas för enorma datauppsättningar. Självstudier och annan dokumentation visar hur du skapar och hanterar batch-, realtids- och interaktiva analysjobb och hur du frågar med hjälp av U-SQL-språket.
+Lär dig hur du använder Azure Data Lake Analytics för att köra stordataanalysjobb som skalas för enorma datauppsättningar. Självstudier och annan dokumentation visar hur du skapar och hanterar batch-, realtids- och interaktiva analysjobb och hur du frågar med hjälp av U-SQL-språket.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +96,6 @@ Lär dig hur du använder Data Lake Analytics för att köra stordataanalysjobb 
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 
@@ -125,7 +122,7 @@ Lär dig hur du använder Data Lake Analytics för att köra stordataanalysjobb 
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>

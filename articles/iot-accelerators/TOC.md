@@ -3,13 +3,13 @@
 
 # Översikt
 ## [Koncept för IoT-arkitektur](iot-accelerators-what-is-azure-iot.md)
-## [Jämför Azure IoT-alternativ](../iot-suite/iot-suite-options.md)
+## [Jämför Azure IoT-alternativ](iot-accelerators-options.md)
 ## [Översikt över lösningsacceleratorer](iot-accelerators-what-are-solution-accelerators.md)
 
 # Kom igång
 ## Fjärrövervakning
 ### [Distribuera lösningsacceleratorn](iot-accelerators-remote-monitoring-deploy.md)
-### [Hantera lösningsacceleratorn](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [Hantera lösningsacceleratorn](iot-accelerators-remote-monitoring-explore.md)
 
 ## Fjärrövervakning (tidigare version)
 ### [Vad är lösningsacceleratorer?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -35,16 +35,16 @@
 ##### [C i Windows](../iot-suite/iot-suite-v1-connecting-devices.md)
 ##### [C i Linux](../iot-suite/iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](../iot-suite/iot-suite-v1-connecting-devices-node.md)
-#### [Anslut en logikapp till fjärrövervakningslösningen](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
+#### [Ansluta en logikapp till fjärrövervakningslösningen](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
 #### [Anpassa en lösningsaccelerator](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
-#### [Använd dynamisk telemetri med fjärrövervakningslösningen](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
+#### [Använda dynamisk telemetri med fjärrövervakningslösningen](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
 #### [Skapa en anpassad regel i fjärrövervakningslösningen](../iot-suite/iot-suite-v1-custom-rule.md)
 #### [Enhetsinformation i fjärrövervakningslösningen](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
 
 
 ## Förutsägande underhåll
-### [Översikt över lösningsaccelerator för förutsägande underhåll](../iot-suite/iot-suite-predictive-overview.md)
-### [Genomgång av lösningsacceleratorn förutsägande underhåll](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
+### [Genomgång av lösningsacceleratorn förutsägande underhåll](iot-accelerators-predictive-walkthrough.md)
 
 ## Ansluten fabrik
 ### [Vad är en ansluten fabrik?](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
 ### [Distribuera användningen av CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Distribuera lokalt](iot-accelerators-remote-monitoring-deploy-local.md)
-### [Visualisera data med Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
+### [Visualisera data med Time Series Insights](iot-accelerators-time-series-insights.md)
 ### [Integrera med Data Lake](iot-accelerators-integrate-data-lake.md)
 ### Ansluta en fysisk enhet
 #### [C i Windows](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js (generisk)](iot-accelerators-connecting-devices-node.md)
 #### [Node.js på Raspberry Pi](iot-accelerators-connecting-pi-node.md)
 #### [C på Raspberry Pi](iot-accelerators-connecting-pi-c.md)
-#### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [MX Chip AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Begrepp
 #### [Information om implementering av fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [Anpassa ansluten fabrik](iot-accelerators-connected-factory-customize.md)
 ### [Använda OPC-utgivaren för ansluten fabrik](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Konfigurera ansluten fabrik](iot-accelerators-connected-factory-configure.md)
-## [Behörigheter på azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
+## [Behörigheter på azureiotsuite.com](iot-accelerators-permissions.md)
 
 # Referens
 ## [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Säkerhetsarkitektur](../iot-suite/iot-security-architecture.md)
-## [Metodtips för säkerhet](../iot-suite/iot-security-best-practices.md)
-## [Skydda distributionen av IoT](../iot-suite/iot-suite-security-deployment.md)
-## [Säkerhet från grunden](../iot-suite/securing-iot-ground-up.md)
+## [Säkerhetsarkitektur](iot-security-architecture.md)
+## [Metodtips för säkerhet](iot-security-best-practices.md)
+## [Skydda distributionen av IoT](iot-accelerators-security-deployment.md)
+## [Säkerhet från grunden](securing-iot-ground-up.md)
 
 # Relaterat
 ## Lösningar 
-### [Förinställda lösningar för IoT Suite](/azure/iot-suite) 
+### [IoT-lösningsacceleratorer](/azure/iot-suite) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Plattformstjänster 
 ### [IoT Hub](/azure/iot-hub) 

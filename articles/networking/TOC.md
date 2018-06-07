@@ -43,11 +43,9 @@
 ### [Skapa en dedikerad privat anslutning (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Hantering
+### [Översikt över nätverksövervakning](network-monitoring-overview.md)
+### [Kontrollera resursanvändningen mot Azure gränser](check-usage-against-limits.md)
 ### [Visa nätverkstopologi](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Hantera paketinsamling](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Fastställ nästa routningshopp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Kontrollera ip-flöden för en virtuell dator](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Översikt över nätverksövervakning](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Exempelskript
 ### [Azure CLI](cli-samples.md)

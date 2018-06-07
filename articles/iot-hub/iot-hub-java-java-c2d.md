@@ -1,24 +1,20 @@
 ---
 title: Moln till enhet meddelanden med Azure IoT Hub (Java) | Microsoft Docs
 description: Hur du skickar meddelanden moln till enhet till en enhet från en Azure IoT-hubb med hjälp av Azure IoT-SDK för Java. Du kan ändra en simulerad enhetsapp för att ta emot meddelanden moln till enhet och ändra en backend-app för att skicka meddelanden moln till enhet.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 4c748f01a83c7f569953f7c7f2fc5631ca0efd17
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 410a156d60aa9b17da9c36e043082c291eea4849
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808119"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden moln till enhet med IoT-hubb (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -45,7 +41,7 @@ I slutet av den här kursen kan köra du två Java-konsolappar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* En fullständig fungerande version av den [Kom igång med IoT-hubb](iot-hub-java-java-getstarted.md) eller [processen IoT-hubb meddelanden från enhet till moln](iot-hub-java-java-process-d2c.md) kursen.
+* En fullständig fungerande version av den [Kom igång med IoT-hubb](iot-hub-java-java-getstarted.md) eller [processen IoT-hubb meddelanden från enhet till moln](tutorial-routing.md) kursen.
 * Senaste [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
@@ -89,7 +85,7 @@ I det här avsnittet kan du ändra den simulerade enhetsapp som du skapade i [Ko
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande moln till enhet
 
-I det här avsnittet skapar du en Java-konsolapp som skickar moln till enhet meddelanden i appen simulerade enheten. Du behöver enhets-ID på den enhet som du lade till i den [Kom igång med IoT-hubb] kursen. Du måste också anslutningssträngen IoT-hubb för din hubb hittar du i den [Azure-portalen].
+I det här avsnittet skapar du en Java-konsolapp som skickar moln till enhet meddelanden i appen simulerade enheten. Du behöver enhets-ID på den enhet som du lade till i den [Kom igång med IoT-hubb] kursen. Du måste också anslutningssträngen IoT-hubb för din hubb hittar du i den [Azure Portal].
 
 1. Skapa ett Maven-projekt som kallas **skicka c2d meddelanden** med följande kommando vid en kommandotolk. Observera att det här kommandot är ett långt kommando:
 
@@ -165,7 +161,7 @@ I det här avsnittet skapar du en Java-konsolapp som skickar moln till enhet med
     ```
 
     > [!NOTE]
-    > Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+    > Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [Hantering av tillfälligt fel].
 
 
 9. Skapa appen **simulated-device** med hjälp av Maven genom att köra följande kommando i Kommandotolken i mappen simulated-device:
@@ -198,9 +194,9 @@ Nu är det dags att köra programmen.
 
 I den här självstudiekursen beskrivs hur du skickar och tar emot meddelanden moln till enhet. 
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Fjärrövervaknings solution accelerator].
 
-Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
+Mer information om hur du utvecklar lösningar med IoT-hubb finns i [Utvecklarhandbok för IoT-hubb].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
@@ -209,11 +205,11 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 
 [Kom igång med IoT-hubb]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[IoT-hubb Utvecklarhandbok]: iot-hub-devguide.md
+[Utvecklarhandbok för IoT-hubb]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure-portalen]: https://portal.azure.com
-[Azure IoT-Fjärrövervaknings lösningsaccelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Hantering av tillfälligt fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure Portal]: https://portal.azure.com
+[Azure IoT Fjärrövervaknings solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

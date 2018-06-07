@@ -4,7 +4,7 @@ description: Beskriver Docker och tillägg för virtuella datorer i Azure och hu
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 674bc870bbbf4e076fbd1d88fcc3bf299eccde84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 76497f58678e5ecfbab7d263b3adb4c475763cd8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653594"
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Med Docker VM-tillägget med Azure-portalen
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-[Docker](https://www.docker.com/) är en av de mest populära virtualisering metoder som använder [Linux behållare](http://en.wikipedia.org/wiki/LXC) i stället för virtuella datorer som ett sätt att isolera data och databehandling i delade resurser. Du kan använda Docker VM-tillägget som hanteras av [Azure Linux-agenten] att skapa en Docker virtuell dator som är värd för valfritt antal behållare för dina program på Azure.
+[Docker](https://www.docker.com/) är en av de mest populära virtualisering metoder som använder [Linux behållare](http://en.wikipedia.org/wiki/LXC) i stället för virtuella datorer som ett sätt att isolera data och databehandling i delade resurser. Du kan använda Docker VM-tillägget som hanteras av [Azure Linux-Agent] att skapa en Docker virtuell dator som är värd för valfritt antal behållare för dina program på Azure.
 
 > [!NOTE]
-> Det här avsnittet beskriver hur du skapar en Docker-VM från Azure-portalen. Information om hur du skapar en virtuell dator Docker på kommandoraden finns [använda Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]. En utförlig beskrivning av behållare och deras fördelar finns på [Docker hög nivå Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Det här avsnittet beskriver hur du skapar en Docker-VM från Azure-portalen. Information om hur du skapar en virtuell dator Docker på kommandoraden finns [Hur du använder Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]. En utförlig beskrivning av behållare och deras fördelar finns på [Docker hög nivå Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
@@ -46,7 +47,7 @@ Det första steget kräver en Azure-dator från en Linux-avbildning som har stö
 ## <a name="create-docker-certificates"></a>Skapa Docker-certifikat
 Se till att Docker är installerat på klientdatorn när den virtuella datorn har skapats. (Mer information finns i [Docker Installationsinstruktioner](https://docs.docker.com/installation/#installation).)
 
-Skapa certifikat och nyckel för Docker kommunikation enligt [kör Docker med https] och placera dem i den **`~/.docker`** på klientdatorn.
+Skapa certifikat och nyckel för Docker kommunikation enligt [Med Docker med https] och placera dem i den **`~/.docker`** på klientdatorn.
 
 > [!NOTE]
 > Docker VM-tillägget i portalen kräver för närvarande autentiseringsuppgifter som är base64-kodad.
@@ -130,7 +131,7 @@ När du har slutfört ovanstående steg nu har du en fullt fungerande Docker-vä
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-Du är redo att gå till den [Docker användarhandboken] och använda Docker-VM. Om du vill automatisera skapar Docker-värdar på Azure Virtual Machines via kommandoradsgränssnittet [använda Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]
+Du är redo att gå till den [Docker-användarhandboken] och använda Docker-VM. Om du vill automatisera skapar Docker-värdar på Azure Virtual Machines via kommandoradsgränssnittet [Hur du använder Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]:#createvm
@@ -153,9 +154,9 @@ Du är redo att gå till den [Docker användarhandboken] och använda Docker-VM.
 
 
 <!--Link references-->
-[använda Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux-agenten]:../../extensions/agent-linux.md
+[Hur du använder Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure Linux-Agent]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
-[kör Docker med https]:http://docs.docker.com/articles/https/
-[Docker användarhandboken]:https://docs.docker.com/userguide/
+[Med Docker med https]:http://docs.docker.com/articles/https/
+[Docker-användarhandboken]:https://docs.docker.com/userguide/

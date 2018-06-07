@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Skapa en pool i ett virtuellt nätverk
           href: batch-virtual-network.md
+        - name: Montera en Azure-filresurs
+          href: pool-file-shares.md
         - name: Använda beräkningsintensiva virtuella datorer
           href: batch-pool-compute-intensive-sizes.md
         - name: Använda Linux-beräkningsnoder

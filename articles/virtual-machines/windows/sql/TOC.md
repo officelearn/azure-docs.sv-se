@@ -5,7 +5,7 @@
 ## [Skapa en virtuell SQL-dator – portalen](quickstart-sql-vm-create-portal.md)
 ## [Skapa en virtuell SQL-dator – PowerShell](quickstart-sql-vm-create-powershell.md)
 
-# Koncept
+# Begrepp
 ## Bästa praxis
 ### [Metodtips för prestanda](virtual-machines-windows-sql-performance.md)
 ### [Säkerhetsöverväganden](virtual-machines-windows-sql-security.md)
@@ -19,7 +19,8 @@
 #### [Konfigurera Azure Key Vault-integrering](virtual-machines-windows-ps-sql-keyvault.md)
 ## Säkerhetskopiering och återställning
 ### [Säkerhetskopiering och återställning](virtual-machines-windows-sql-backup-recovery.md)
-### [Automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup.md)
+### [Automatiserad säkerhetskopiering för SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automatiserad säkerhetskopiering för SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Använda Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Instruktionsguider

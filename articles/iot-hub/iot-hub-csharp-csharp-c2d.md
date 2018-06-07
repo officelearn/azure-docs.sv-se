@@ -1,24 +1,20 @@
 ---
 title: Moln till enhet meddelanden med Azure IoT Hub (.NET) | Microsoft Docs
 description: Hur du skickar meddelanden moln till enhet till en enhet från en Azure IoT-hubb med Azure IoT-SDK för .NET. Du ändrar en enhetsapp för att ta emot meddelanden moln till enhet och ändra en backend-app för att skicka meddelanden moln till enhet.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631895"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från moln till enheten med IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -42,7 +38,7 @@ I slutet av den här kursen kan du köra två .NET konsolappar:
 * **SendCloudToDevice**, som skickar ett moln till enhet-meddelande till appen enheten via IoT-hubb och tar emot dess leverans bekräftelse.
 
 > [!NOTE]
-> IoT-hubben har SDK stöd för många vilka plattformar och språk (inklusive C, Java och Javascript) via [Azure IoT-enhet SDK]. Stegvisa instruktioner om hur du ansluter enheten till den här självstudiekursen kod och vanligtvis Azure IoT Hub finns i [IoT-hubb Utvecklarhandbok].
+> IoT-hubben har SDK stöd för många vilka plattformar och språk (inklusive C, Java och Javascript) via [Azure IoT-enhet SDK]. Stegvisa instruktioner om hur du ansluter enheten till den här självstudiekursen kod och vanligtvis Azure IoT Hub finns i [Utvecklarhandbok för IoT-hubb].
 > 
 > 
 
@@ -85,7 +81,7 @@ I det här avsnittet ska du ändra appen för enheter som du skapade i [Kom igå
         ReceiveC2dAsync();
 
 > [!NOTE]
-> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [Hantering av tillfälligt fel].
 > 
 > 
 
@@ -100,7 +96,7 @@ I det här avsnittet kan du skriva en .NET-konsolapp som skickar moln till enhet
     Den här åtgärden öppnar den **hantera NuGet-paket** fönster.
 3. Sök efter **Microsoft.Azure.Devices**, klickar du på **installera**, och Godkänn användningsvillkoren. 
    
-    Detta hämtar, installerar och lägger till en referens till den [Azure IoT service SDK NuGet-paketet].
+    Detta hämtar, installerar och lägger till en referens till den [Azure IoT service SDK NuGet-paket].
 
 4. Lägg till följande `using`-instruktion högst upp i filen **Program.cs**:
    
@@ -169,16 +165,16 @@ I det här avsnittet kan du ändra den **SendCloudToDevice** app att begära fee
    ![Appen tar emot meddelandet][22]
 
 > [!NOTE]
-> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+> Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [Hantering av tillfälligt fel].
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen beskrivs hur du skickar och tar emot meddelanden moln till enhet. 
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Fjärrövervaknings solution accelerator].
 
-Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
+Mer information om hur du utvecklar lösningar med IoT-hubb finns i [Utvecklarhandbok för IoT-hubb].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -187,13 +183,13 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 
 <!-- Links -->
 
-[Azure IoT service SDK NuGet-paketet]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure IoT service SDK NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Hantering av tillfälligt fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
-[IoT-hubb Utvecklarhandbok]: iot-hub-devguide.md
+[Utvecklarhandbok för IoT-hubb]: iot-hub-devguide.md
 [Kom igång med IoT-hubb]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT-Fjärrövervaknings lösningsaccelerator]: https://docs.microsoft.com/azure/iot-suite/
+[Azure IoT Fjärrövervaknings solution accelerator]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT-enhet SDK]: iot-hub-devguide-sdks.md

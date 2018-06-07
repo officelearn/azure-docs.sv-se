@@ -10,17 +10,18 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643438"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Skapa, uppdatera statistik på tabellerna i Azure SQL Data Warehouse
 Rekommendationer och exempel för att skapa och uppdatera frågan optimering statistik på tabellerna i Azure SQL Data Warehouse.
 
 ## <a name="why-use-statistics"></a>Varför använda statistik?
-Ju mer Azure SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot den. Samla in statistik på dina data och läsa in informationen i SQL Data Warehouse är en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnad-baserade optimering. Den jämför kostnaden för olika frågeplaner och väljer plan med lägst kostnad, som i de flesta fall är den plan som kör den snabbaste. Till exempel om optimering uppskattar att datumet du filtrerar i frågan returnerar en rad, kan det välja ett annat schema än om den beräknar som det valda datumet returnerar 1 miljoner rader.
+Ju mer Azure SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot den. Samla in statistik på dina data och läsa in informationen i SQL Data Warehouse är en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnad-baserade optimering. Den jämför kostnaden för olika frågeplaner och väljer sedan planen med den lägsta kostnaden, som i de flesta fall är den plan som körs snabbast. Till exempel om optimering uppskattar att datumet du filtrerar i frågan returnerar en rad, kan det välja ett annat schema än om den beräknar som det valda datumet returnerar 1 miljoner rader.
 
 ## <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 När automatiskt skapar statistik är valt AUTO_CREATE_STATISTICS kan SQL Data Warehouse analyserar inkommande användarfrågor där kolumn statistik skapas för kolumner som saknar statistik. Frågeoptimeringen skapar statistik på enskilda kolumner i frågan predikat eller Anslut till villkoret för att förbättra kardinalitet uppskattningar för frågeplanen. Automatisk generering av statistik är för tillfället aktiverat som standard.
@@ -49,11 +50,14 @@ Automatisk generering av statistik skapas synkront så riskerar en liten försä
 > Skapandet av statistik loggas också i [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) av en annan användare.
 > 
 
-När automatisk statistik skapas de ska vara i formatet: _WA_Sys_< 8 siffror kolumn-id hexadecimalt > _ < 8 siffror tabell-id i hexadecimalt >. Du kan visa statistik som redan har skapats genom att köra följande kommando:
+När automatisk statistik skapas de ska vara i formatet: _WA_Sys_< 8 siffror kolumn-id hexadecimalt > _ < 8 siffror tabell-id i hexadecimalt >. Du kan visa statistik som redan har skapats genom att köra den [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) kommando:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+Det första argumentet är en tabell som innehåller statistik som ska visas. Detta kan inte vara en extern tabell. Det andra argumentet är namnet på målet index, statistik eller en kolumn som du vill visa statistik.
+
+
 
 ## <a name="updating-statistics"></a>Uppdatera statistik
 

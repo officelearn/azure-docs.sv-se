@@ -1,24 +1,20 @@
 ---
 title: Moln till enhet meddelanden med Azure IoT Hub (nod) | Microsoft Docs
 description: Hur du skickar meddelanden moln till enhet till en enhet från en Azure IoT-hubb med hjälp av Azure IoT-SDK för Node.js. Du kan ändra en simulerad enhetsapp för att ta emot meddelanden moln till enhet och ändra en backend-app för att skicka meddelanden moln till enhet.
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: javascript
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 01150db589b2210e38ed6fd4e45429c1500d9588
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 640a7740e3451a8bd07fdea6a82af2f5cae4c25f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637471"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Skicka meddelanden moln till enhet med IoT-hubb (nod)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -87,7 +83,7 @@ I det här avsnittet kan du ändra den simulerade enhetsapp som du skapade i [Ko
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande moln till enhet
-I det här avsnittet skapar du en Node.js-konsolapp som skickar moln till enhet meddelanden i appen simulerade enheten. Du behöver enhets-ID på den enhet som du lade till i den [Kom igång med IoT-hubb] kursen. Du måste också anslutningssträngen IoT-hubb för din hubb hittar du i den [Azure-portalen].
+I det här avsnittet skapar du en Node.js-konsolapp som skickar moln till enhet meddelanden i appen simulerade enheten. Du behöver enhets-ID på den enhet som du lade till i den [Kom igång med IoT-hubb] kursen. Du måste också anslutningssträngen IoT-hubb för din hubb hittar du i den [Azure Portal].
 
 1. Skapa en tom mapp som kallas **sendcloudtodevicemessage**. I den **sendcloudtodevicemessage** mapp, skapa en package.json-fil med följande kommando vid en kommandotolk. Acceptera alla standardvärden:
    
@@ -174,16 +170,16 @@ Nu är det dags att köra programmen.
     ![Kör appen för att skicka kommandot moln till enhet][img-send-command]
    
    > [!NOTE]
-   > Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+   > Den här självstudiekursen implementerar inte några återförsöksprincip sätt. I produktionskod, bör du implementera försök principer (till exempel exponentiell backoff), enligt förslaget i MSDN-artikel [Hantering av tillfälligt fel].
    > 
    > 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen beskrivs hur du skickar och tar emot meddelanden moln till enhet. 
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Fjärrövervaknings solution accelerator].
 
-Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
+Mer information om hur du utvecklar lösningar med IoT-hubb finns i [Utvecklarhandbok för IoT-hubb].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
@@ -193,10 +189,10 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 
 [Kom igång med IoT-hubb]: iot-hub-node-node-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[IoT-hubb Utvecklarhandbok]: iot-hub-devguide.md
+[Utvecklarhandbok för IoT-hubb]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure-portalen]: https://portal.azure.com
-[Azure IoT-Fjärrövervaknings lösningsaccelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Hantering av tillfälligt fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure Portal]: https://portal.azure.com
+[Azure IoT Fjärrövervaknings solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

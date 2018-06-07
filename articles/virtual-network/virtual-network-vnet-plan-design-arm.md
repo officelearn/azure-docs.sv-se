@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656915"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -26,7 +27,7 @@ Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, me
 
 ## <a name="naming"></a>Namngivning
 
-Alla Azure-resurser ha ett namn. Namnet måste vara unika inom ett område som kan variera för varje resurstyp av. Till exempel namnet på ett virtuellt nätverk måste vara unika inom en [resursgruppen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan flera gånger i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure [region](https://azure.microsoft.com/regions/#services). Definiera en namngivningskonvention som du kan använda konsekvent när naming resurser är användbart när du hanterar flera nätverksresurser över tid. Förslag finns [namngivningskonventioner](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Alla Azure-resurser ha ett namn. Namnet måste vara unika inom ett område som kan variera för varje resurstyp av. Till exempel namnet på ett virtuellt nätverk måste vara unika inom en [resursgruppen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan flera gånger i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure [region](https://azure.microsoft.com/regions/#services). Definiera en namngivningskonvention som du kan använda konsekvent när naming resurser är användbart när du hanterar flera nätverksresurser över tid. Förslag finns [namngivningskonventioner](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
 ## <a name="regions"></a>Regioner
 
@@ -38,7 +39,7 @@ Alla Azure-resurser skapas i en Azure-region och prenumeration. En resurs kan ba
 
 ## <a name="subscriptions"></a>Prenumerationer
 
-Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration upp till den [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumeration styrning](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
+Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration upp till den [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumeration styrning](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentering
 
@@ -81,7 +82,7 @@ Du kan visa exempel Designer för att implementera en DMZ mellan Azure och inter
 ### <a name="traffic-routing"></a>Routning av nätverkstrafik
 
 Azure skapar flera standardvägar för utgående trafik från ett undernät. Du kan åsidosätta Azures standard routning genom att skapa en routingtabell och koppla det till ett undernät. Vanliga orsaker för åsidosättning av Azures standard routning är:
-- Eftersom du vill att trafik mellan undernät att strömma genom en NVA. Mer information om hur du [konfigurera routningstabeller för att tvinga trafik genom en NVA](tutorial-create-route-table-portal.md)
+- Eftersom du vill att trafik mellan undernät att strömma genom en NVA. Mer information om hur du [konfigurera routningstabeller för att tvinga trafik genom en NVA](tutorial-create-route-table-portal.md).
 - Eftersom du vill tvinga alla internet-bunden trafik genom en NVA eller lokalt, via en Azure VPN-gateway. Att tvinga internet-trafik lokalt för granskning och loggning kallas ofta Tvingad tunneltrafik. Mer information om hur du konfigurerar [Tvingad tunneltrafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 Om du behöver implementera anpassad routning bör du bekanta dig med [routning i Azure](virtual-networks-udr-overview.md).
@@ -92,24 +93,28 @@ Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk som använde
 
 ### <a name="peering"></a>Peering
 
-När du använder [virtuellt nätverk peering](virtual-network-peering-overview.md), virtuella nätverk kan vara i samma eller olika, Azure-regioner som stöds. Virtuella nätverk kan vara i de samma eller olika Azure-prenumerationerna, förutsatt att båda prenumerationer har tilldelats samma Azure Active Directory-klienten. Innan du skapar en peering, bör du bekanta dig med alla peering [kraven och begränsningarna](virtual-network-manage-peering.md#requirements-and-constraints). Bandbredden mellan resurser i peerkoppla virtuella nätverk är densamma som om resurserna som fanns i samma virtuella nätverk.
+När du använder [virtuellt nätverk peering](virtual-network-peering-overview.md), virtuella nätverk kan vara i samma eller olika, Azure-regioner som stöds. Virtuella nätverk kan vara i de samma eller olika Azure-prenumerationerna, förutsatt att båda prenumerationer har tilldelats samma Azure Active Directory-klienten. Innan du skapar en peering, bör du bekanta dig med alla peering [kraven och begränsningarna](virtual-network-manage-peering.md#requirements-and-constraints). Bandbredden mellan resurser i virtuella nätverk är peerkopplat i samma region är samma som om resurserna som fanns i samma virtuella nätverk.
 
 ### <a name="vpn-gateway"></a>VPN gateway
 
 Du kan använda en Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att ansluta ett virtuellt nätverk till ditt lokala nätverk med hjälp av en [plats-till-plats VPN](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), eller att använda en dedikerad anslutning med Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Du kan kombinera peering och en VPN-gateway för att skapa [NAV och ekrar nätverk](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)där ekrar virtuella nätverk ansluter du till ett virtuellt nätverk med nav och navet ansluter till ett lokalt nätverk, till exempel.
+Du kan kombinera peering och en VPN-gateway för att skapa [NAV och ekrar nätverk](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)där ekrar virtuella nätverk ansluta till ett virtuellt nätverk med nav och navet ansluter till ett lokalt nätverk, t.ex.
 
 ### <a name="name-resolution"></a>Namnmatchning
 
-Resurser i ett virtuellt nätverk går inte att matcha namnen på de resurser i peered virtuella nätverk med Azures [inbyggda DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Att matcha namn i ett peered virtuellt nätverk [Distribuera DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), eller använda Azure DNS [privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Matcha namn mellan resurser i ett virtuellt nätverk och lokala nätverk måste du även distribuera DNS-servern.
+Resurser i ett virtuellt nätverk går inte att matcha namnen på de resurser i ett peered virtuellt nätverk med Azures [inbyggda DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Att matcha namn i ett peered virtuellt nätverk [Distribuera DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), eller använda Azure DNS [privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Matcha namn mellan resurser i ett virtuellt nätverk och lokala nätverk måste du även distribuera DNS-servern.
 
 ## <a name="permissions"></a>Behörigheter
 
-Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) till resurser. Behörigheter som har tilldelats en [omfång](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) i följande hierarki: prenumeration, hanteringsgruppen, resursgruppen och enskild resurs. Mer information om hierarkin finns [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla deras relaterade funktioner, till exempel peering, nätverkssäkerhetsgrupper, slutpunkter och vägtabeller, kan du tilldela medlemmar i din organisation inbyggt [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), eller [Network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roller och sedan tilldela rollen till en lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktionerna för virtuellt nätverk, skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldela särskilda behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [ undernät och Tjänsteslutpunkter](virtual-network-manage-subnet.md#permissions), [nätverksgränssnitt](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md#permissions), [nätverks- och säkerhetsgrupper](manage-network-security-group.md#permissions), eller [routningstabeller](manage-route-table.md#permissions) till rollen.
+Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) till resurser. Behörigheter som har tilldelats en [omfång](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: prenumeration, hanteringsgruppen, resursgruppen och enskild resurs. Mer information om hierarkin finns [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla deras relaterade funktioner, till exempel peering, nätverkssäkerhetsgrupper, slutpunkter och vägtabeller, kan du tilldela medlemmar i din organisation inbyggt [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), eller [Network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roller och sedan tilldela rollen till en lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktionerna för virtuellt nätverk, skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldela särskilda behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [ undernät och Tjänsteslutpunkter](virtual-network-manage-subnet.md#permissions), [nätverksgränssnitt](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks- och säkerhetsgrupper](manage-network-security-group.md#permissions), eller [routningstabeller](manage-route-table.md#permissions) till rollen.
 
 ## <a name="policy"></a>Princip
 
-Azure princip kan du skapa, tilldela och hantera principdefinitioner. Principdefinitioner tillämpa olika regler och effekter över dina resurser, så att resurserna som uppfyller organisationens normer och servicenivåavtal. Azure princip körs en utvärdering av dina resurser, söka efter resurser som inte är kompatibla med principdefinitioner som du har. Du kan till exempel har en princip som tillåter generering av virtuella nätverk i en viss resursgrupp. En annan princip kan kräva att alla undernät har en nätverkssäkerhetsgrupp som är kopplade till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
+Azure princip kan du skapa, tilldela och hantera principdefinitioner. Principdefinitioner tillämpa olika regler över dina resurser, så att resurserna som uppfyller organisationens normer och servicenivåavtal. Azure princip körs en utvärdering av dina resurser, söka efter resurser som inte är kompatibla med principdefinitioner som du har. Du kan till exempel definiera och tillämpa en princip som tillåter generering av virtuella nätverk i en specifik resursgrupp eller region. En annan princip kan kräva att alla undernät har en nätverkssäkerhetsgrupp som är kopplade till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
 
 Principer tillämpas på följande hierarki: prenumeration, hanteringsgrupp och resursgruppen. Lär dig mer om [Azure princip](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera ett virtuellt nätverk [Principmall](policy-samples.md) prover.
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om alla aktiviteter, inställningar och alternativ för en [virtuellt nätverk](manage-virtual-network.md), [undernät och tjänsten endpoint](virtual-network-manage-subnet.md), [nätverksgränssnittet](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md), [nätverks- och säkerhetsgrupp](manage-network-security-group.md), eller [routningstabellen](manage-route-table.md).

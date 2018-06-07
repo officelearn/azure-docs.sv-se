@@ -5,15 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650068"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).

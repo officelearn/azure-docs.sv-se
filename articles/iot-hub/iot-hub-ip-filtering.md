@@ -1,24 +1,19 @@
 ---
 title: Azure IoT-hubb IP-anslutningsfilter | Microsoft Docs
 description: Hur du använder IP-filtrering för som blockerar anslutningar från särskilda IP-adresser för dina Azure IoT-hubb. Du kan blockera anslutningar från enskilda eller intervall med IP-adresser.
-services: iot-hub
-documentationcenter: ''
 author: BeatriceOltean
-manager: timlt
-editor: ''
-ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 0229b8b16de1fa04d953c90895b29e4fbad60ec3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fa44fd21eadb910ce90523b46332505c7303751e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635975"
 ---
 # <a name="use-ip-filters"></a>IP-filter
 
@@ -28,7 +23,7 @@ Säkerhet är en viktig del av alla IoT-lösning baserad på Azure IoT Hub. Ibla
 
 Det finns två specifika användningsfall när det är praktiskt att blockera IoT-hubbslutpunkter för vissa IP-adresser:
 
-- IoT-hubb bör endast ta emot trafik från ett angivet IP-adresser och avvisa allt annat. Till exempel du använder din IoT-hubb med [Azure Express Route] att skapa privata anslutningar mellan en IoT-hubb och lokal infrastruktur.
+- IoT-hubb bör endast ta emot trafik från ett angivet IP-adresser och avvisa allt annat. Till exempel du använder din IoT-hubb med [Azure Expressroute] att skapa privata anslutningar mellan en IoT-hubb och lokal infrastruktur.
 - Behöver du avvisa trafik från IP-adresser som har identifierats som misstänkt av IoT hub-administratör.
 
 ## <a name="how-filter-rules-are-applied"></a>Hur filter regler
@@ -103,7 +98,7 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 <!-- Links -->
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure Express Route]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
+[Azure Expressroute]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md

@@ -204,11 +204,17 @@
 ##### [Tyst installation](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Anpassad startsida](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Översätt infogade länkar](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [Jokertecken](active-directory-application-proxy-wildcard.md)
+##### [Ta bort personliga data](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### Publicera genomgångar
 ##### [Fjärrskrivbord](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 
@@ -303,7 +309,7 @@
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
-##### [Konfigurera VPN-anslutning](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [Konfigurera VPN-anslutning](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Konfigurera SharePoint och Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)

@@ -14,6 +14,8 @@
   items:
     - name: Utforska TSI JavaScript-klientbibliotek
       href: tutorial-explore-js-client-lib.md
+    - name: Skapa en TSI-miljö
+      href: tutorial-create-populate-tsi-environment.md
 - name: Begrepp
   items:
     - name: Planera din miljö
@@ -56,6 +58,8 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: Hantera resurser med hjälp av mallar
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: Forma JSON för frågor
+      href: how-to-shape-query-json.md
 - name: Referens
   items:
     - name: Fråge-API

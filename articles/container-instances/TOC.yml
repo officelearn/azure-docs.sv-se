@@ -51,6 +51,8 @@
           href: container-instances-exec.md
         - name: Övervaka användning av processor och minne
           href: container-instances-monitor.md
+        - name: Loggning med Azure Log Analytics
+          href: container-instances-log-analytics.md
     - name: Köra arbetsbelastningar
       items:
         - name: Köra behållarbaserade uppgifter

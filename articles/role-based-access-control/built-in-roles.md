@@ -11,23 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640548"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela användare, grupper och tjänstens huvudnamn. Rolltilldelningar är hur du styr åtkomst till resurser i Azure. Du kan inte ändra inbyggda roller, men du kan skapa egna [anpassade roller](custom-roles.md) så att den passar de specifika behoven i din organisation.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela användare, grupper och tjänstens huvudnamn. Rolltilldelningar är hur du styr åtkomst till resurser i Azure. Om inbyggda roller inte uppfyller de specifika behoven i din organisation, kan du skapa egna [anpassade roller](custom-roles.md).
 
 Inbyggda roller är alltid under utveckling. För att få de senaste definitionerna för rollen, Använd [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) eller [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Beskrivningar av inbyggd roll
-Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka på rollnamnet att se en lista över `actions` och `notActions` för varje roll.
+Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka på rollnamnet att se en lista över `actions`, `notActions`, `dataActions`, och `notDataActions` för varje roll.
 
 
 | Inbyggd roll | Beskrivning |
@@ -83,6 +84,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Nya Relic APM konto deltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
 | [Läsare och åtkomst till Data](#reader-and-data-access) | Kan du visa allt men inte kan du ta bort eller skapa ett lagringskonto eller resurs. Full åtkomst till alla data som finns i ett lagringskonto via åtkomst till lagringskontonycklar kan dessutom. |
 | [Redis-Cache deltagare](#redis-cache-contributor) | Låter dig hantera Redis-cacheminnen, men ger dig inte tillgång till dem. |
+| [Resursen princip deltagare (förhandsgranskning)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
 | [Schemaläggaren jobbet samlingar deltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Sök Service deltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
 | [Säkerhet Admin](#security-admin) | I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redigera säkerhetsprinciper, Visa aviseringar och rekommendationerna, stänga aviseringar och rekommendationer |
@@ -94,13 +96,17 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [SQL DB-deltagare](#sql-db-contributor) | Kan du hantera SQL-databaser, men inte åtkomst till dem. Du kan också hantera deras säkerhetsrelaterade principer eller sina överordnade SQL-servrar. |
 | [SQL-säkerhetsansvarig](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
-| [Storage-konto deltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
+| [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
 | [Storage-konto administratören rolltjänst](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
+| [Storage-Blob deltagare (förhandsgranskning)](#storage-blob-data-contributor-preview) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-behållare och data |
+| [Blob för lagring-dataläsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-behållare och data |
+| [Lagring kön deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
+| [Kön för lagring-dataläsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
 | [Stöd för begäran deltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [Administratör för användaråtkomst](#user-access-administrator) | Låter dig hantera användaråtkomst till Azure-resurser. |
 | [Administratören för virtuella datorer inloggning](#virtual-machine-administrator-login) | –  Användare med den här rollen kan logga in på en virtuell dator som Windows-administratör eller Linux-rotanvändare. |
-| [Virtual Machine-deltagare](#virtual-machine-contributor) | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte virtuellt nätverk eller lagringskonto som de är anslutna till. |
+| [Virtuell datordeltagare](#virtual-machine-contributor) | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte virtuellt nätverk eller lagringskonto som de är anslutna till. |
 | [Användarinloggning för virtuell dator](#virtual-machine-user-login) | Användare med den här rollen kan logga in på en virtuell dator som en vanlig användare. |
 | [Web Plan deltagare](#web-plan-contributor) | Låter dig hantera webbplaner för webbplatser, men ger dig inte tillgång till dem. |
 | [Webbplatsen deltagare](#website-contributor) | Låter dig hantera webbplatser (men inte webbplaner), men ger dig inte tillgång till dem. |
@@ -1035,6 +1041,20 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="resource-policy-contributor-preview"></a>Deltagare för resursprincip (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Åtgärder** |  |
+> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | Microsoft.Authorization/policyassignments/* | Skapa och hantera principtilldelningar |
+> | Microsoft.Authorization/policydefinitions/* | Skapa och hantera principdefinitioner |
+> | Microsoft.Authorization/policysetdefinitions/* | Skapa och hantera principen anger |
+> | Microsoft.PolicyInsights/* |  |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
 ## <a name="scheduler-job-collections-contributor"></a>Scheduler-jobbsamlingsdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1388,6 +1408,58 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapar åtkomstnycklarna för det angivna lagringskontot. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Storage Blob Data-deltagare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-behållare och data |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Åtgärder** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en behållare |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en behållare eller behållarlista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobbehållare |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
+
+## <a name="storage-blob-data-reader-preview"></a>Storage Blob Data-läsare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter läsåtkomst till Azure Storage Blob-behållare och data |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Åtgärder** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en behållare eller behållarlista |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+
+## <a name="storage-queue-data-contributor-preview"></a>Lagringsködata-deltagare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Åtgärder** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returnerar resultatet av att ta bort en kö |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returnerar resultatet av att skriva en kö |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returnerar resultatet av att skriva ett meddelande |
+
+## <a name="storage-queue-data-reader-preview"></a>Lagringsködata-läsare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Åtgärder** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
+
 ## <a name="support-request-contributor"></a>Supportförfrågningsdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1437,6 +1509,9 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Network/loadBalancers/read | Hämtar en belastningsutjämnardefinition |
 > | Microsoft.Network/networkInterfaces/read | Hämtar en definition av nätverksgränssnitt.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Logga in på en virtuell dator som vanlig användare |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Logga in på en virtuell dator med behörighet som Windows-administratör eller Linux-rotanvändare |
 
 ## <a name="virtual-machine-contributor"></a>Virtuell datordeltagare
 > [!div class="mx-tableFixed"]
@@ -1495,6 +1570,8 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Network/loadBalancers/read | Hämtar en belastningsutjämnardefinition |
 > | Microsoft.Network/networkInterfaces/read | Hämtar en definition av nätverksgränssnitt.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Logga in på en virtuell dator som vanlig användare |
 
 ## <a name="web-plan-contributor"></a>Webbplan-deltagare
 > [!div class="mx-tableFixed"]

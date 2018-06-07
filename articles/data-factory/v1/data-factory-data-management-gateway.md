@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621191"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -45,7 +46,7 @@ Data management gateway innehåller följande funktioner:
 * Hantera åtkomst till lokala datakällor på ett säkert sätt.
   * Inga ändringar som krävs för att företagets brandvägg. Gateway blir bara utgående HTTP-baserade anslutningar för att öppna internet.
   * Kryptera autentiseringsuppgifterna för ditt lokala datalager med ditt certifikat.
-* Flytta data effektivt – data överförs parallellt, motståndskraftiga mot tillfälliga nätverksproblem med automatiskt försök logik.
+* Flytta data effektivt data överförs parallellt, motståndskraftiga mot tillfälliga nätverksproblem med automatiskt försök logik.
 
 ### <a name="command-flow-and-data-flow"></a>Kommandot trafikflöde och dataflöde
 När du använder en kopieringsaktiviteten för att kopiera data mellan lokalt och i molnet använder aktiviteten en gateway för att överföra data från lokala datakällan till molnet och vice versa.
@@ -123,7 +124,7 @@ Att skapa en gateway i portalen och hämta nyckeln från den **konfigurera** sid
     ![Återskapa nyckel](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Klicka på knappen Kopiera bredvid nyckeln. Nyckeln kopieras till Urklipp.
 
-    ![Kopiera nyckeln](media/data-factory-data-management-gateway/copy-gateway-key.png)
+    ![Kopiera nyckel](media/data-factory-data-management-gateway/copy-gateway-key.png)
 
 ### <a name="system-tray-icons-notifications"></a>Ikoner i Systemstatusfältet / meddelanden
 Följande bild visar några av Systemstatusfältet som visas.
@@ -183,7 +184,7 @@ Det finns tre konfigurationsalternativ:
 
 * **Använd inte proxyservern**: Gateway inte använder alla proxy uttryckligen för att ansluta till molntjänster.
 * **Använd system proxy**: Gateway använder Proxyinställningen som är konfigurerade i diahost.exe.config och diawp.exe.config.  Om ingen proxyserver har konfigurerats i diahost.exe.config och diawp.exe.config ansluter gateway till Molntjänsten direkt utan att gå via proxy.
-* **Använda anpassade proxy**: konfigurera HTTP-proxyn använder för gateway istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config.  Adress och Port krävs.  Användarnamn och lösenord är valfria beroende på inställningen för autentisering av din proxyserver.  Alla inställningar är krypterad med Autentiseringscertifikatet för gatewayen och lagras lokalt på värddatorn för gateway.
+* **Använda anpassade proxy**: konfigurera HTTP-proxyn använder för gateway istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config.  Adress och Port krävs.  Användarnamn och lösenord är valfria beroende på dina inställningar för autentisering av proxyserver s.  Alla inställningar är krypterad med Autentiseringscertifikatet för gatewayen och lagras lokalt på värddatorn för gateway.
 
 Data management gateway-värdtjänsten startas om automatiskt när du sparar de uppdaterade proxyinställningarna.
 
@@ -207,7 +208,7 @@ Du kan visa och uppdatera HTTP-proxy med verktyget Configuration Manager.
 Om du väljer **använder system-proxy** inställningen för HTTP-proxyn använder gateway Proxyinställningen i diahost.exe.config och diawp.exe.config.  Om ingen proxyserver har angetts i diahost.exe.config och diawp.exe.config ansluter gateway till Molntjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost.exe.config.  
 
 1. Skapa en säker kopia av C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config att säkerhetskopiera den ursprungliga filen i Utforskaren.
-2. Starta Notepad.exe kör som administratör och öppna filen ”C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Du hittar Standardetiketten för system.net som visas i följande kod:
+2. Starta Notepad.exe kör som administratör och öppna textfil C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Du hittar Standardetiketten för system.net som visas i följande kod:
 
          <system.net>
              <defaultProxy useDefaultCredentials="true" />
@@ -230,13 +231,13 @@ Om du väljer **använder system-proxy** inställningen för HTTP-proxyn använd
 > Glöm inte att uppdatera **både** diahost.exe.config och diawp.exe.config.  
 
 
-Förutom dessa punkter måste du också kontrollera att Microsoft Azure finns i ditt företags godkända. Listan över giltiga Microsoft Azure-IP-adresser kan hämtas från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Förutom dessa punkter måste du också kontrollera att Microsoft Azure finns i ditt företag s godkända. Listan över giltiga Microsoft Azure-IP-adresser kan hämtas från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Möjliga problem för brandväggar och proxyservrar serverproblem
 Om du stöter på fel liknande följande dem, är det troligen på grund av felaktig konfiguration av servern brandvägg eller proxyserver, vilket blockerar gateway ansluter till Data Factory för att autentisera sig själv. Se föregående avsnitt för att se till att brandväggen och proxyservern konfigureras korrekt.
 
 1. När du försöker registrera gatewayen som du får följande fel: ”Det gick inte att registrera gateway-nyckeln. Innan du försöker registrera gateway-nyckeln igen, bekräfta att data management gateway är i anslutet tillstånd och Data Management Gateway-värdtjänsten har startats ”.
-2. När du öppnar Configuration Manager kan se du status som ”frånkopplad” eller ”ansluter”. När du visar Windows-händelseloggar, under ”Loggboken” > ”program och tjänstloggar” > ”Data Management Gateway” felmeddelanden visas till exempel följande fel: `Unable to connect to the remote server`
+2. När du öppnar Configuration Manager kan du se statusen som frånkopplad eller ansluta. när du visar Windows-händelseloggar, under Loggboken > program- och tjänstloggar > Data Management Gateway felmeddelanden visas till exempel följande fel: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Öppna port 8050 för kryptering av autentiseringsuppgifter
@@ -364,11 +365,11 @@ Följande tabell innehåller beskrivningar av kolumner i den **Gateway-noder** l
 Namn | Namnet på den logiska gateway och noder som är kopplade till gatewayen. Noden är ett lokalt Windows-dator som gatewayen har installerats på den. Mer information om att ha fler än en nod (upp till fyra noder) i en enda logiska gateway finns [Data Management Gateway - hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).    
 Status | Status för logiska gatewayen och gateway-noder. Exempel: Online/Offline/begränsad/etc. Information om dessa statusar finns [gatewaystatusen](#gateway-status) avsnitt. 
 Version | Visar vilken version av den logiska gatewayen och varje gateway-noden. Versionen av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logiska gateway-inställningarna endast noder med samma versionsnummer som funktionen logiska gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (bara om automatisk uppdatering misslyckas). 
-Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
+Ledigt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
 Processoranvändning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Nätverk (In/ut) | Nätverksanvändning för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Samtidiga jobb (kör / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära realtid ögonblicksbild. Gränsen innebär högsta samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörningen i avancerade scenarier, om nätverks-CPU/minne är outnyttjad, men aktiviteter uppnådd tidsgräns. Den här funktionen finns också med en enda nod gateway (även om funktionen skalbarhet och tillgänglighet inte är aktiverad).  
-Roll | Det finns två typer av roller i en gateway med flera noder – Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher nod som används för att hämta uppgifter/jobb från molntjänster och skicka dem till olika arbetsnoder (inklusive sig själv).
+Roll | Det finns två typer av roller i en gateway med flera noder Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher nod som används för att hämta uppgifter/jobb från molntjänster och skicka dem till olika arbetsnoder (inklusive sig själv).
 
 I den här sidan kan se du vissa inställningar som gör bättre när det finns två eller flera noder (skalbar scenariot) i gateway. Se [Data Management Gateway - hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md) mer information om hur du konfigurerar en gateway med flera noder.
 
@@ -489,12 +490,12 @@ Det här avsnittet beskrivs hur du skapar och registrera en gateway med hjälp a
 3. Använd den **ny AzureRmDataFactoryGateway** för att skapa en logisk gateway på följande sätt:
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
     ```
     **Exempel-kommando och utdata**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
 
     Name              : MyGateway
     Description       : gateway for walkthrough

@@ -4,7 +4,7 @@ description: Beskriver Docker och tillägg för virtuella datorer i Azure och vi
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: eaff75e3-d929-4931-a4a1-8c377a8e7302
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 91f7ea54afce0e94953d4bb01bbb1b33f167fe22
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a8672ab6a37eb383d35ad71384bb47cc3767a6d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653152"
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Använd tillägget för virtuella datorer med Docker genom kommandoradsgränssnittet för Azure (Azure CLI)
 > [!IMPORTANT] 
@@ -157,8 +158,8 @@ Docker-daemon på värden är konfigurerad för att lyssna efter och autentisera
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* Du är redo att gå till den [Docker användarhandboken] och använda Docker-VM. Om du vill skapa en Docker-aktiverad virtuell dator i den nya portalen finns [använda Docker VM-tillägget med portalen].
-* Azure Docker VM-tillägg stöder också Docker Compose som använder en deklarativ YAML-fil att ta en utvecklare modelleras program över alla miljöer och skapa en konsekvent distribution. Se [Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare på en virtuell dator i Azure].  
+* Du är redo att gå till den [Docker-användarhandboken] och använda Docker-VM. Om du vill skapa en Docker-aktiverad virtuell dator i den nya portalen finns [använda Docker VM-tillägget med portalen].
+* Azure Docker VM-tillägg stöder också Docker Compose som använder en deklarativ YAML-fil att ta en utvecklare modelleras program över alla miljöer och skapa en konsekvent distribution. Se [Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare på en virtuell Azure-dator].  
 
 <!--Anchors-->
 [Subheading 1]:#subheading-1
@@ -176,8 +177,8 @@ Docker-daemon på värden är konfigurerad för att lyssna efter och autentisera
 [Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
-[använda Docker VM-tillägget med portalen]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Använda Docker VM-tillägget med portalen]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Docker användarhandboken]:https://docs.docker.com/userguide/
+[Docker-användarhandboken]:https://docs.docker.com/userguide/
 
-[Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare på en virtuell dator i Azure]:../docker-compose-quickstart.md
+[Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare på en virtuell Azure-dator]:../docker-compose-quickstart.md

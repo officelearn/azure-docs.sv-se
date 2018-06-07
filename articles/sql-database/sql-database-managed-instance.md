@@ -7,14 +7,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648133"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -47,7 +48,7 @@ Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarie
 
 I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du kan använda för att identifiera att programmet fungerar med hanterade instans och hämta viktiga egenskaper.
 
-|Egenskap|Värde|Kommentar|
+|Egenskap |Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) Microsoft Corporation som 2018.|Det här värdet är densamma som SQL-databasen.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är densamma som SQL-databasen.|

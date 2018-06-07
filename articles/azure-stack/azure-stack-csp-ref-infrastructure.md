@@ -1,11 +1,11 @@
 ---
-title: "Användning rapporteringssystem för molntjänst-Providers för Azure-Stack | Microsoft Docs"
-description: "Azure-stacken innehåller den infrastruktur som behövs för att spåra användning när det inträffar och vidarebefordrar det till Azure."
+title: Användning rapporteringssystem för molntjänst-Providers för Azure-Stack | Microsoft Docs
+description: Azure-stacken innehåller den infrastruktur som behövs för att spåra användning när det inträffar och vidarebefordrar det till Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 4ac808e0e85b1daeb54a3f2fd7bec0a7c10aa13e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823494"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Användning rapporteringssystem för molntjänst-Providers
 
@@ -65,4 +66,4 @@ Följande termer och begrepp är används för användning och fakturering i Azu
 ## <a name="next-steps"></a>Nästa steg
 
  - Läs mer om CSP-programmet i [leverantör programmet](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](/azure-stack-billing-and-chargeback.md).
+ - Läs mer om hur du hämtar information om användning från Azure-stacken i [användnings- och fakturering i Azure-stacken](azure-stack-billing-and-chargeback.md).

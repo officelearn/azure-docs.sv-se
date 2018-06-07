@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 43c0b7c87f9ee1cd33da3d617747c11dc120e51a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823630"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuera ett Kubernetes kluster till Azure-stacken
 
@@ -31,7 +32,7 @@ I följande artikel ser ut på att använda en lösningsmall för Azure Resource
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes och behållare
 
-Du kan installera tjänster för Azure-behållaren (ACS) Kubernetes på Azure-stacken. [Kubernetes](https://kubernetes.io) är ett system för öppen källkod för att automatisera distribution, skala och hantera program i behållare. En [behållare](https://www.docker.com/what-container) finns i en bild, som en virtuell dator. Till skillnad från en virtuell dator är det bild för behållaren innehåller resurser som behövs för att köra ett program, till exempel koden runtime att köra kod, vissa bibliotek och inställningar.
+Du kan installera Kubernetes med hjälp av Azure Resource Manager-mallar som genereras av Azure Container insamlingstjänsten (ACS)-motorn på Azure-stacken. [Kubernetes](https://kubernetes.io) är ett system för öppen källkod för att automatisera distribution, skala och hantera program i behållare. En [behållare](https://www.docker.com/what-container) finns i en bild, som en virtuell dator. Till skillnad från en virtuell dator innehåller behållaren avbildningen bara de resurser som behövs för att köra ett program, till exempel koden runtime att köra kod, vissa bibliotek och inställningar.
 
 Du kan använda Kubernetes till:
 
@@ -53,21 +54,23 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure-st
 
 3. Kontrollera att du har en giltig prenumeration i Azure-stacken klient-portalen och att du har tillräckligt med offentliga IP-adresser tillgängliga att lägga till nya program.
 
+    Klustret kan inte distribueras till en Azure-stacken **administratör** prenumeration. Du måste använda en användare **-prenumeration. 
+
 ## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
 
-1. Logga in till den globala [Azure-portalen](http://www.poartal.azure.com).
-2. Kontrollera att du har loggat in med Azure AD-klient som är associerade med Azure-stacken.
+1. Logga in till den globala [Azure-portalen](http://portal.azure.com).
+2. Kontrollera att du har loggat in med Azure AD-klient som är associerade med Azure Stack-instans.
 3. Skapa ett Azure AD-program.
 
     a. Välj **Azure Active Directory** > **+ App registreringar** > **nya Appregistrering**.
 
     b. Ange en **namn** av programmet.
 
-    c. Välj **webbapp / API**
+    c. Välj **webbapp / API**.
 
     d. Ange `http://localhost` för den **inloggnings-URL**.
 
-    c. Klicka på **Skapa**
+    c. Klicka på **Skapa**.
 
 4. Anteckna den **program-ID**. Du behöver ID när klustret skapas. ID som refereras till som **klient-ID för tjänstens huvudnamn**.
 
@@ -77,7 +80,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure-st
 
     b. Välj **upphör aldrig att gälla** för **Expires**.
 
-    c. Välj **Spara**. Se Observera strängen som nyckel. Du behöver strängen som nyckel när du skapar klustret. Nyckeln är referenser som den **tjänstens huvudnamn Klienthemlighet**.
+    c. Välj **Spara**. Se Observera strängen som nyckel. Du behöver strängen som nyckel när du skapar klustret. Nyckeln hänvisas till som den **tjänstens huvudnamn Klienthemlighet**.
 
 
 
@@ -103,52 +106,52 @@ Ge service principal åtkomst till din prenumeration så att säkerhetsobjekt ka
 
 1. Öppna den [Stack Azure portal](https://portal.local.azurestack.external).
 
-2. Välj **+ ny** > **Compute** > **Kubernetes klustret**.
+2. Välj **+ ny** > **Compute** > **Kubernetes klustret**. Klicka på **Skapa**.
 
-    ![Distribuera lösningsmall](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template.png)
+    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. Välj **parametrar** i den distribuera Lösningsmall.
+3. Välj **grunderna** i den skapar Kubernetes kluster.
 
-    ![Distribuera lösningsmall](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template-parameters.png)
+    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Ange den **Linux användarnamn**. Användarnamn för Linux virtuella datorer som ingår i klustret Kubernetes och DVM.
+2. Ange den **Linux VM administratörsanvändarnamnet**. Användarnamn för Linux virtuella datorer som ingår i klustret Kubernetes och DVM.
 
-3. Ange den **offentliga SSH-nyckeln** används för alla Linux-datorer som skapats som en del av Kubernetes klustret och DVM godkännande.
+3. Ange den **offentlig SSH-nyckel** används för alla Linux-datorer som skapats som en del av Kubernetes klustret och DVM godkännande.
 
-4. Ange den **klient endpoint**. Är detta Azure Resource Manager-slutpunkten för att ansluta för att skapa resursgruppen för Kubernetes klustret. Du måste hämta slutpunkten för ett integrerat system från Azure Stack-operator. För den Azure Stack Development Kit (ASDK), som du kan använda `https://management.local.azurestack.external`.
-
-5. Ange den **klient-ID** för klienten. Om du behöver hjälp med att hitta det här värdet finns [hämta klient-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
-
-6. Ange den **master profil DNS-prefix** som är unikt för regionen. Detta måste vara en region-unikt namn som `k8s-12345`. Försök att välja det samma som resursgruppen namn som bästa praxis.
+4. Ange den **Master profil DNS-Prefix för** som är unikt för regionen. Detta måste vara en region-unikt namn som `k8s-12345`. Försök att välja det samma som resursgruppen namn som bästa praxis.
 
     > [!Note]  
     > Använd ett DNS-prefix för nya och unika master profil för varje kluster.
 
-7. Ange antalet agenter i klustret. Det här värdet kallas den **Agentantal Pool profil**. Det kan vara mellan 1 och 32
+5. Ange den **Agentantal Pool profil**. Antalet innehåller antalet agenter i klustret. Det kan vara mellan 1 och 4.
 
-8. Ange den **service principal program-ID** används molnprovidern Kubernetes Azure.
+6. Ange den **tjänstens huvudnamn ClientId** används molnprovidern Kubernetes Azure.
 
-9. Ange den **service principal klienthemlighet** som du skapade när du skapar huvudnamn tjänstprogram.
+7. Ange den **tjänstens huvudnamn Klienthemlighet** som du skapade när du skapar huvudnamn tjänstprogram.
 
-10. Ange den **Kubernetes Azure Cloud providerversion**. Det här är version för Kubernetes Azure-providern. Azure-stacken släpper en anpassad Kubernetes version för varje version av Azure-stacken.
+8. Ange den **Kubernetes Azure Cloud providerversion**. Det här är version för Kubernetes Azure-providern. Azure-stacken släpper en anpassad Kubernetes version för varje version av Azure-stacken.
 
-12. Välj **OK**.
+9. Välj din **prenumeration** -ID.
 
-### <a name="specify-the-solution-values"></a>Ange värdena för lösning
+10. Ange namnet på en ny resursgrupp eller välj en befintlig resursgrupp. Resursnamnet måste vara alfanumeriska och gemener.
 
-1. Välj den **prenumeration**.
+11. Välj den **plats** av resursgruppen. Det här är den region som du väljer för din Azure Stack-installation.
 
-2. Ange namnet på en ny resursgrupp eller välj en befintlig resursgrupp. Resursnamnet måste vara alfanumeriska och gemener.
+### <a name="specify-the-azure-stack-settings"></a>Ange inställningar för Azure-stacken
 
-3. Ange platsen för en resursgrupp som **lokala**.
+1. Välj den **Azure Stack stämpel inställningar**.
 
-4. Välj **skapa.**
+    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+
+2. Ange den **klient Arm Endpoint**. Är detta Azure Resource Manager-slutpunkten för att ansluta för att skapa resursgruppen för Kubernetes klustret. Du måste hämta slutpunkten för ett integrerat system från Azure Stack-operator. För den Azure Stack Development Kit (ASDK), som du kan använda `https://management.local.azurestack.external`.
+
+3. Ange den **klient-ID** för klienten. Om du behöver hjälp med att hitta det här värdet finns [hämta klient-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Ansluta till ditt kluster
 
-Du är nu redo att ansluta till klustret. Du behöver den **kubectl**, Kubernetes för klienten. Du hittar instruktioner för att ansluta till och hantera klustret i Azure Container Services-dokumentationen.   
+Du är nu redo att ansluta till klustret. Huvudmålservern kan hittas i din klusterresursgrupp och heter `k8s-master-<sequence-of-numbers>`. Använda en SSH-klient för att ansluta till huvudservern. Du kan använda i bakgrunden **kubectl**, Kubernetes kommandoradsverktyget klienten att hantera ditt kluster. Instruktioner finns i [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 
-Instruktioner finns i [Anslut till klustret](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough#connect-to-the-cluster).
+Du kan också hitta den **Helm** Pakethanteraren användbart för att installera och distribuera appar i klustret. Anvisningar för hur du installerar och använder Helm med klustret finns [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716082"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809581"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med logganalys
 
@@ -94,7 +94,7 @@ Nu när du har lagt till OMS-agent head vill till logganalys-portalen för att v
 
 10. Klicka på ett diagram för behållaren mått att visa ytterligare information. Du kan också fråga på prestandaräknardata på samma sätt som klusterhändelser och filtrera på noder, perf räknarens namn och värden med hjälp av frågespråket Kusto.
 
-![OMS perf räknaren fråga](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
+![OMS perf räknaren fråga](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 

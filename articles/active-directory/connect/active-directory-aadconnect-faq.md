@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dbe6f5f6f3aa128b3180c1b7aecb17853aa6a0aa
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801406"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808612"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Vanliga frågor om Azure Active Directory Connect
 
@@ -42,6 +42,16 @@ Ja. När du har installerat agenten måste slutföra du registreringen med följ
 Ja, det här scenariot stöds. Referera till [flera domäner](active-directory-aadconnect-multiple-domains.md)
  
 **F: kan du ha flera kopplingar för samma Active Directory-domän i Azure AD connect?**</br> Ingen, flera kopplingar för samma AD-domänen stöds inte. 
+
+**F: kan jag flytta Azure AD Connect-databasen från den lokala databasen till en fjärransluten SQL Server?**</br> Ja, följande steg ger allmänna riktlinjer för hur du gör detta.  Vi arbetar på ett mer detaljerad dokument som blir snart tillgänglig.
+
+
+   1. Säkerhetskopiera LocalDB ”ADSync” databasen det enklaste sättet att göra detta är att använda SQL Server Management Studio installerat på samma dator som Azure AD Connect. Ansluta till ”(localdb)\.\ADSync” – sedan säkerhetskopiera databasen ADSync
+   2. Återställa databasen ”ADSync” till fjärr-SQL-instans
+   3. Installera Azure AD Connect mot den befintliga [fjärranslutna SQL-databas](active-directory-aadconnect-existing-database.md) länken visar de steg som krävs när du migrerar till med hjälp av en lokal SQL-databas. Om du migrerar till att använda en fjärransluten SQL-databas i steg 5 i den här processen kommer också måste du ange ett befintligt tjänstkonto som använder Windows-synkroniseringstjänsten. Den här motorn synkroniseringstjänstkontot som beskrivs här:</br></br>
+   **Använd ett befintligt tjänstkonto**– som standard som Azure AD Connect använder ett virtuellt tjänstkonto för Sync services för att använda. Om du använder en fjärransluten SQLServer eller använder en proxyserver som kräver autentisering, måste du använda ett hanterat tjänstkonto eller använda ett tjänstkonto i domänen och känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas. Se [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account).</br></br> Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter. Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md).
+
+Om du vill behålla saker enkla rekommenderas det att användaren installerar Azure AD Connect är en SA i SQL. (Men med nya versioner kan du nu använda delegerad SQL-administratör enligt [här](active-directory-aadconnect-sql-delegation.md).
 
 ## <a name="network"></a>Nätverk
 **F: Jag har en brandvägg, nätverksenhet eller något annat som begränsar de maximala tiden anslutningarna kan vara öppen i nätverket. Hur lång tid ska min klientsidan timeout tröskelvärdet vara när du använder Azure AD Connect?**  

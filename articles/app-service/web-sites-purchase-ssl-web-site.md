@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807466"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -26,7 +27,7 @@ Den här kursen visar hur du skyddar ditt webbprogram genom att köpa ett SSL-ce
 
 ## <a name="step-1---log-in-to-azure"></a>Steg 1 – Logga in på Azure
 
-Logga in på Azure portal http://portal.azure.com
+Logga in på Azure Portal på http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Steg 2 – beställning SSL-certifikat
 
@@ -196,13 +197,24 @@ Klicka på **genererar nya nycklar** för att starta processen. Den här process
 
 Omgenerering ditt certifikat samlar certifikatet med ett nytt certifikat som utfärdats av certifikatutfärdaren.
 
+## <a name="renew-the-certificate"></a>Förnya certifikatet
+
+Aktivera automatisk förnyelse av ditt certifikat när som helst klicka på **inställningar för automatisk förnya** i sidan för hantering av certifikat. Välj **på** och på **spara**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Om du vill manuellt förnya certifikatet i stället, klickar du på **manuell förnya** i stället.
+
+> [!NOTE]
+> Det förnyade certifikatet är inte automatiskt kopplat till din app om du förnyas manuellt eller den förnyas automatiskt. Om du vill binda den till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Varför är min SSL-certifikat inte auto-förnyas?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Varför är min certifikatet inte auto-förnyas?
 
-Om SSL-certifikat har konfigurerats för automatisk förnyelse, men det inte förnyas automatiskt, kan du har en väntande domänverifiering. Observera följande: 
+Om SSL-certifikat har konfigurerats för automatisk förnyelse, men det inte förnyas automatiskt, kan du har en väntande domänverifiering. Tänk på följande: 
 
-- GoDaddy, vilket genererar apptjänstcertifikat kräver verifiering av domän vart tre år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera den e-posten eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
-- Apptjänst certifikat före mars 31 2017 måste Omverifiering av domän vid tiden för nästa förnyelse (även om automatisk förnyelse har aktiverats för certifikatet). Detta är ett resultat av ändring i principen för GoDaddy. Kontrollera din e-post och genomföra denna domänverifiering för en om du vill fortsätta automatisk förnyelse av certifikat för App Service. 
+- GoDaddy, vilket genererar apptjänstcertifikat kräver verifiering av domän vartannat år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera den e-posten eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
+- På grund av en ändring i principen för GoDaddy måste alla App Service-certifikat som utfärdats före den 1 mars 2018 Omverifiering av domän vid tiden för nästa förnyelse (även om automatisk förnyelse har aktiverats för certifikatet). Kontrollera din e-post och genomföra denna domänverifiering för en om du vill fortsätta automatisk förnyelse av certifikat för App Service. 
 
 ## <a name="more-resources"></a>Fler resurser
 

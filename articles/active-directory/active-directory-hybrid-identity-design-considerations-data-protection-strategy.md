@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 71a49b3d1ce22906a534a71f745685981b93f594
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801906"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824176"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för din hybrididentitetslösning dataskydd
 I den här uppgiften definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -117,22 +117,21 @@ När användaren autentiseras med hjälp av Azure AD, är det viktigt att utvär
 
 Varje interaktion i diagrammet på bild X representerar en access control-scenario som kan omfattas av Azure AD. Nedan finner du en beskrivning av varje scenario:
 
-1. Villkorlig åtkomst till program som finns lokalt: du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS i Windows Server 2012 R2. Mer information om hur du konfigurerar lokal villkorlig åtkomst finns i [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](active-directory-conditional-access-azure-portal.md).
+  1. Villkorlig åtkomst till program som finns lokalt: du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS i Windows Server 2012 R2. Mer information om hur du konfigurerar lokal villkorlig åtkomst finns i [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](active-directory-conditional-access-azure-portal.md).
 
-2. Åtkomstkontroll på Azure-portalen: Azure kan du styra åtkomst till portalen genom att använda rollbaserad åtkomstkontroll (RBAC)). Den här metoden kan företag att begränsa antalet åtgärder som en enskild person kan göra i Azure-portalen. Genom att använda RBAC för att styra åtkomsten till portalen kan kan IT-administratörer delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
+  2. Åtkomstkontroll på Azure-portalen: Azure kan du styra åtkomst till portalen genom att använda rollbaserad åtkomstkontroll (RBAC)). Den här metoden kan företag att begränsa antalet åtgärder som en enskild person kan göra i Azure-portalen. Genom att använda RBAC för att styra åtkomsten till portalen kan kan IT-administratörer delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
 
-    * Gruppbaserade rolltilldelning: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som organisationen har gjort i verktygsuppsättning och processer för att hantera grupper. Du kan också använda funktionen för hantering av delegerad grupp i Azure AD Premium.
-    * Använda inbyggda roller i Azure: du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet att utföra de uppgifter som de behöver för att utföra sitt arbete.
-    * Detaljerade åtkomst till resurser: du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
+   - Gruppbaserade rolltilldelning: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som organisationen har gjort i verktygsuppsättning och processer för att hantera grupper. Du kan också använda funktionen för hantering av delegerad grupp i Azure AD Premium.
+   - Använda inbyggda roller i Azure: du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet att utföra de uppgifter som de behöver för att utföra sitt arbete.
+   -  Detaljerade åtkomst till resurser: du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
 
-> [!NOTE]
-> Om du skapar program och vill anpassa åtkomstkontrollen för dem, är det också möjligt att använda Azure AD Application roller för auktorisering. Granska det [WebApp-RoleClaims-DotNet exempel](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) på hur du skapar din app om du vill använda den här funktionen.
->
->
+   > [!NOTE]
+   > Om du skapar program och vill anpassa åtkomstkontrollen för dem, är det också möjligt att använda Azure AD Application roller för auktorisering. Granska det [WebApp-RoleClaims-DotNet exempel](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) på hur du skapar din app om du vill använda den här funktionen.
 
-3. Villkorlig åtkomst för Office 365-program med Microsoft Intune: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter åtkomst till tjänsterna. Mer information finns i [Enhetsprinciper för villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md).
 
-4. Villkorlig åtkomst för Saas-appar: [funktionen](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda regler för multifaktorautentisering för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de använder programmet från en IP-adress som i i organisationens nätverk.
+  3. Villkorlig åtkomst för Office 365-program med Microsoft Intune: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter åtkomst till tjänsterna. Mer information finns i [Enhetsprinciper för villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md).
+
+  4. Villkorlig åtkomst för Saas-appar: [funktionen](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda regler för multifaktorautentisering för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de använder programmet från en IP-adress som i i organisationens nätverk.
 
 Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för åtkomstkontroll använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje scenario som kräver att du kan styra åtkomst till resurser.
 

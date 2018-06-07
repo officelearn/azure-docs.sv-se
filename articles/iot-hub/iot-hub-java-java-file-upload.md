@@ -1,24 +1,20 @@
 ---
 title: Överföra filer från enheter till Azure IoT-hubb med Java | Microsoft Docs
 description: Hur du överför filer från en enhet till molnet med Azure IoT-enhet SDK för Java. Överförda filer lagras i ett Azure storage blob-behållaren.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807585"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT-hubb
 
@@ -29,7 +25,7 @@ Den här kursen bygger på koden i den [meddelanden moln till enhet med IoT-hubb
 - Ange en enhet på ett säkert sätt med en Azure blob-URI för att överföra en fil.
 - Använd IoT-hubb filen överför meddelanden för att utlösa bearbetning av filen i din app-serverdelen.
 
-Den [Kom igång med IoT-hubb](iot-hub-java-java-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-java-java-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Den [meddelanden processen enhet till moln](iot-hub-java-java-process-d2c.md) självstudiekursen beskriver ett sätt att på ett tillförlitligt sätt lagra meddelanden från enhet till moln i Azure blob storage. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
+Den [Kom igång med IoT-hubb](iot-hub-java-java-getstarted.md) och [meddelanden moln till enhet med IoT-hubben](iot-hub-java-java-c2d.md) självstudiekurser visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. Den [meddelanden processen enhet till moln](tutorial-routing.md) självstudiekursen beskriver ett sätt att på ett tillförlitligt sätt lagra meddelanden från enhet till moln i Azure blob storage. Men i vissa fall kan du enkelt mappa data enheterna skickar till relativt liten enhet till moln meddelanden som accepterar IoT-hubb. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp

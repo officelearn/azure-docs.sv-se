@@ -2,7 +2,7 @@
 title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: Hur Application Insights passar in i devOps-cykel
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808486"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver Application Insights?
@@ -104,7 +105,7 @@ I båda fallen visar aviseringen inte bara symptom den identifieras, men ger dig
 
 Kunden Samtec säger: ”under de senaste funktionen cutover påträffades under skalas databasen som träffa resurs gränsen och orsakar timeout. Proaktiv identifiering aviseringar har tagits emot bokstavligt som vi triaging problemet mycket nära realtid som annonseras. Den här aviseringen tillsammans med Azure-plattformen aviseringar hjälp oss nästan omedelbart åtgärda problemet. Total avbrottstid < 10 minuter ”.
 
-## <a name="live-metrics-stream"></a>Direktsänd dataström mått
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 Distribuera den senaste versionen kan vara en angelägna upplevelse. Om det finns problem vill du veta om dem direkt, så att du kan säkerhetskopiera om det behövs. Direktsänd dataström med mått ger nyckelvärden med en fördröjning på ca en sekund.
 
 ![Live mått](./media/app-insights-devops/040.png)

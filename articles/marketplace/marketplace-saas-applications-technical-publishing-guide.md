@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809479"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS-program tekniska publiceringsguide
 
@@ -50,7 +51,7 @@ SaaS-program finns i både Azure-skyltfönster i följande tabell beskrivs de ak
 | **PowerBI / Dynamics** | Ja | Ja (Azure AD-integrering) |  
 | **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
-Mer information om Marketplace-skyltfönster och en beskrivning av varje publiceringsalternativ finns i [Marketplace Publisher Guide](https://aka.ms/sellerguide) och [publiceringsalternativ](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Mer information om Marketplace-skyltfönster och en beskrivning av varje publiceringsalternativ finns i [Marketplace Publisher Guide](https://aka.ms/sellerguide) och [publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Affärskrav
 SaaS erbjuder affärsbehov kan utföras parallellt med de tekniska kraven. De flesta affärsbehov och information som samlas in när du skapar SaaS-erbjudandet i partnerportalen molnet. Kraven är följande: 
@@ -61,7 +62,7 @@ SaaS erbjuder affärsbehov kan utföras parallellt med de tekniska kraven. De fl
 * Ställa in sekretesspolicy och användningsvillkor
 * Definiera supportkontakter  
 
-Mer information du hittar du i avsnittet [krav för marketplace-publicering](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Mer information du hittar du i avsnittet [krav för marketplace-publicering](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
@@ -71,11 +72,11 @@ Om du vill starta, rekommenderar vi att du har en prenumeration som är dedikera
 
 Bästa dokumentationen för Azure Active Directory, exempel och vägledning finns på följande platser: 
 
-* [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory-Guide för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integrera med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrera program med Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Plan för Azure - säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -124,7 +125,7 @@ I följande tabell beskrivs var och en av de publishing Huvudsteg:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera försök  
 
-Microsoft verifierar alla Marketplace-användare med Azure AD, därför när en autentiserad användare klickar på via din utvärderingsversion registrering i Marketplace och omdirigeras till din utvärderingsversion miljö, du kan etablera användaren direkt till en utvärderingsversion utan en ytterligare inloggning steg. Den token som din app som tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns [exempel token](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft verifierar alla Marketplace-användare med Azure AD, därför när en autentiserad användare klickar på via din utvärderingsversion registrering i Marketplace och omdirigeras till din utvärderingsversion miljö, du kan etablera användaren direkt till en utvärderingsversion utan en ytterligare inloggning steg. Den token som din app som tar emot från Azure AD under autentiseringen innehåller värdefulla användarinformation som du kan använda för att skapa ett användarkonto i din app så att du kan automatisera etablering upplevelse och öka sannolikheten för konvertering. Mer information om token finns [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Använda Azure AD för att aktivera 1-Klicka autentisering till din app eller utvärderingsversion gör följande:  
 * Förenklar kundupplevelsen från Marketplace till test.  
@@ -140,15 +141,15 @@ Du kan certifiera din Azure AD-integrering på några olika sätt, beroende på 
 
 Om du redan har stöd för Azure AD, gör du följande:
 1.  Registrera ditt program i Azure-portalen
-2.  Aktivera supportfunktionen för flera innehavare i Azure AD för att hämta en testperiod för en enda klickning. Mer information hittar du [här](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Aktivera supportfunktionen för flera innehavare i Azure AD för att hämta en testperiod för en enda klickning. Mer information hittar du [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Om du är nybörjare på Azure AD federerad enkel inloggning gör du följande: 
 1.  Registrera ditt program i Azure-portalen
-2.  Utveckla enkel inloggning med Azure AD med hjälp av [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Aktivera stöd för flera innehavare funktion i AAD för att hämta en enda klickning utvärderingsversionen mer information hittar du [här](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Utveckla enkel inloggning med Azure AD med hjälp av [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Aktivera stöd för flera innehavare funktion i AAD för att hämta en enda klickning utvärderingsversionen mer information hittar du [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **För stöd för en innehavare program, använder du något av följande alternativ:**  
-* Lägga till användare i din katalog som gästanvändare med [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Lägga till användare i din katalog som gästanvändare med [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Etablera manuellt försök för kunder med hjälp av kontakta mig
 * Utveckla en per-kund Test-enhet
 * Skapa en flera innehavare demo exempelapp med enkel inloggning

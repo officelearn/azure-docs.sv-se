@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bde8e68eeb63e76a0dde40a09eededde8a545a83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595095"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824276"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
@@ -187,9 +187,9 @@ Kontot också tilldelas behörigheter till filer, registernycklar och andra obje
 ### <a name="azure-ad-service-account"></a>Azure AD-tjänstkonto
 Ett konto i Azure AD har skapats för användning av sync-tjänsten. Det här kontot kan identifieras av dess namn.
 
-![AD-kontot](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD-kontot](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-Namnet på kontot som används på servern kan identifieras i den andra delen av användarnamnet. Servernamnet är FABRIKAMCON i bilden. Om du har mellanlagring servrar har varje server ett eget konto.
+Namnet på kontot som används på servern kan identifieras i den andra delen av användarnamnet. I bilden är namnet på DC1. Om du har mellanlagring servrar har varje server ett eget konto.
 
 Kontot har skapats med ett långt komplexa lösenord som inte upphör. Det har beviljats en särskild roll **synkronisering Katalogkonton** som har endast behörighet att utföra uppgifter för directory-synkronisering. Den här särskilda inbyggda rollen kan inte ges utanför Azure AD Connect-guiden. Azure-portalen visar det här kontot med rollen **användaren**.
 

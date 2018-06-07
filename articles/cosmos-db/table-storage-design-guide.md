@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 41a62c0c77b177179907d8e4a7631af889cd8bd6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798822"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824595"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Designguide för Azure Storage-tabellen: Utforma skalbar och Performant tabeller
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -523,7 +523,7 @@ Aktivera överensstämmelse beteende mellan partitionsgränser eller lagring sys
 #### <a name="context-and-problem"></a>Kontext och problem
 EGTs aktivera atomiska transaktioner mellan flera enheter som delar samma partitionsnyckel. För bättre prestanda och skalbarhet som du kan välja att lagra entiteter som har konsekvenskontroll krav i separata partitioner eller i ett separat lagringssystem: i ett sådant scenario, du kan inte använda EGTs för att upprätthålla enhetliga. Du kan till exempel ha ett krav att underhålla slutliga konsekvensen mellan:  
 
-* Enheter som lagras i två olika partitioner i samma tabell, i olika tabeller i i olika lagringskonton.  
+* Entiteter som lagras i två olika partitioner i samma tabell, i olika tabeller eller i olika lagringskonton.  
 * En entitet som lagras i tabelltjänsten och en blob som lagras i Blob-tjänsten.  
 * En entitet som lagras i tabelltjänsten och en fil i ett filsystem.  
 * En entitet arkivet i tabelltjänsten indexerat ännu med Azure Search-tjänsten.  
@@ -1059,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projektion av serversidan
-En enda entitet kan ha upp till 255 egenskaper och upp till 1 MB i storlek. När du frågar tabellen och hämta entiteter kanske inte behöver alla egenskaper och kan undvika att överföra data i onödan (om du vill minska svarstiden och kostnaden). Du kan använda serversidan projektion Överför bara de egenskaper som du behöver. Följande exempel är hämtar bara den **e-post** egenskapen (tillsammans med **PartitionKey**, **RowKey**, **tidsstämpel**, och **ETag**) från de enheter som väljs av frågan.  
+En enda entitet kan ha upp till 255 egenskaper och upp till 1 MB i storlek. När du frågar tabellen och hämta entiteter kanske inte behöver alla egenskaper och kan undvika att överföra data i onödan (om du vill minska svarstiden och kostnaden). Du kan använda serversidan projektion Överför bara de egenskaper som du behöver. I följande exempel hämtar bara den **e-post** egenskapen (tillsammans med **PartitionKey**, **RowKey**, **tidsstämpel**, och **ETag**) från de enheter som väljs av frågan.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

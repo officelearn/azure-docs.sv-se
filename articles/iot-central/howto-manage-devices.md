@@ -1,18 +1,19 @@
 ---
 title: Hantera enheter i din Azure IoT centralt program | Microsoft Docs
 description: Som operatör, Lär dig att hantera enheter i din Azure IoT centralt program.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807483"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i din Azure IoT centralt program
 
@@ -76,8 +77,33 @@ För bulk-registrera enheter i ditt program:
 
     [![Massinläsning importresultat](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Om enheten importerar misslyckas kan det finnas ett fel som visas i rutnätet för enheten. En loggfil som avbildar alla fel genereras och kan hämtas genom att klicka på ett felmeddelande.
+Om enheten importerar misslyckas, visas ett felmeddelande visas i rutnätet för enheten. En loggfil som avbildar alla fel genereras och kan hämtas genom att klicka på ett felmeddelande.
 
+## <a name="export-devices"></a>Exportera enheter
+
+För att etablera enheter ansluter till IoT Central måste anslutningssträngen för den enhet som har genererats av IoT Central. Du kan använda exportfunktionen för att hämta anslutningssträngarna och andra egenskaper för enheterna i grupp från ditt program. Exportera skapar en CSV-fil med enhetens identitet, enhetsnamn och primära anslutningssträngen för de valda enheterna.
+
+Att Massredigera export enheter från ditt program:
+1. Välj **Explorer** på den vänstra navigeringsmenyn.
+
+1. En den vänstra panelen mall väljer du enheten som du vill exportera enheterna.
+
+1. Välj de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
+
+    [![Exportera](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Exportprocessen startar och du kan följa statusen överst i rutnätet. 
+
+1. När exporten har slutförts visas ett meddelande att hämta den genererade filen tillsammans med en länk.
+
+1. Klicka på den **meddelande** att ladda ned filen till en lokal mapp på disken.
+
+    [![Exportera lyckades](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. Den exporterade CSV-filen har följande information:
+    1. Namn
+    1. Enhets-ID
+    1. Primär anslutningssträngen
 
 
 ## <a name="delete-a-device"></a>Ta bort en enhet

@@ -12,28 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ceabefa47b7627b8a9f952d487f78a96e338838d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824752"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
 
 ## <a name="what-are-metrics"></a>Vad är mått?
 Azure-Monitor kan du använda telemetri för att få insyn i prestanda och hälsotillståndet för dina arbetsbelastningar i Azure. Viktigaste är Azure telemetridata mätvärdena (kallas även prestandaräknare) sänds av mest Azure-resurser. Azure-Monitor finns flera sätt att konfigurera och använda de här måtten för övervakning och felsökning.
-
-## <a name="what-can-you-do-with-metrics"></a>Vad kan du göra med mått?
-Mått är en del av telemetri och gör att du kan göra följande:
-
-* **Spåra prestanda** för din resurs (till exempel en VM, webbplats eller logik app) genom att rita upp dess mått i en portal diagram och fästa diagrammet på en instrumentpanel.
-* **Få ett meddelande om ett problem** som påverkar prestandan för din resurs när en måttet överskrider ett visst tröskelvärde.
-* **Konfigurera automatiska åtgärder**, till exempel autoskalning en resurs eller startar en runbook när en måttet överskrider ett visst tröskelvärde.
-* **Utföra avancerade analyser** eller rapportering på prestanda eller användning trender för din resurs.
-* **Arkivera** prestanda eller hälsa historiken för din resurs **för efterlevnad och granskning** syften.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Vad är egenskaper hos mått?
 Mått har följande egenskaper:
@@ -43,19 +35,17 @@ Mått har följande egenskaper:
 * Du kan komma åt **93 dagar tidigare** för varje mått. Du kan snabbt se senaste och en månadsvis trender i prestanda eller hälsotillståndet för din resurs.
 * Vissa mått kan ha namn-värdepar attribut kallas **dimensioner**. Dessa kan du ytterligare segmentera och utforska ett mått på ett bättre sätt.
 
-Du kan också:
+## <a name="what-can-you-do-with-metrics"></a>Vad kan du göra med mått?
+Mått kan du utföra följande uppgifter:
 
-* Konfigurera ett mått **avisering regel som skickar ett meddelande eller tar automatisk åtgärd** om måttet överskrider tröskelvärdet som du har angett. Autoskala är en automatisk specialåtgärd som gör att du kan skala upp din resurs för att uppfylla inkommande begäranden eller läses in på webbplatsen eller datorresurser. Du kan konfigurera en regel för automatiska inställningen att skala in eller ut baserat på ett mått som passerar ett tröskelvärde.
 
-* **Väg** alla mått Application Insights eller Log Analytics för att aktivera omedelbara analytics, Sök och anpassade aviseringar på mått data från dina resurser. Du kan också strömma mått till en Händelsehubb, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställa in Event Hub strömning med diagnostikinställningar.
-
-* **Arkivera mått till lagring** längre bevarande eller använda dem för offline-rapportering. Du kan vidarebefordra dina till Azure Blob storage när du konfigurerar inställningar för diagnostik för din resurs.
-
-* Enkelt identifiera, komma åt, och **visa alla** via Azure portal när du väljer en resurs och rita mått i ett diagram.
-
-* **Använda** mätvärden via den nya Azure övervakaren REST API: er.
-
-* **Frågan** mått med hjälp av PowerShell-cmdlets eller plattformsoberoende REST API.
+- Konfigurera ett mått **avisering regel som skickar ett meddelande eller tar automatisk åtgärd** om måttet överskrider tröskelvärdet som du har angett. Åtgärder styrs via [åtgärdsgrupper](monitoring-action-groups.md). Exempel åtgärder omfattar e-post, telefon och SMS-meddelanden, anropar en webhook startar en runbook och mycket mer. **Autoskala** är en automatisk specialåtgärd som du kan anpassa du är en resurs uppåt och nedåt för att hantera belastningen men Håll kostnaderna lägre när inte under belastning. Du kan konfigurera en regel för automatiska inställningen att skala in eller ut baserat på ett mått som passerar ett tröskelvärde.
+- **Väg** alla mått till *Programinsikter* eller *logganalys* så att instant analytics, Sök och anpassade aviseringar på mått data från dina resurser. Du kan också strömma med en *Händelsehubb*, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställa in Event Hub strömning med diagnostikinställningar.
+- **Arkivera** prestanda eller hälsa historiken för din resurs för kompatibilitet granskning eller rapportering offline.  Du kan vidarebefordra dina till Azure Blob storage när du konfigurerar inställningar för diagnostik för din resurs.
+- Använd den **Azure-portalen** för att identifiera, komma åt och visa alla när du väljer en resurs och rita mått i ett diagram. Du kan spåra prestandan för din resurs (till exempel en VM, en webbplats eller en logikapp) genom att fästa diagrammet på instrumentpanelen.  
+- **Utföra avancerade analyser** eller rapportering på prestanda eller användning trender för din resurs.
+- **Frågan** mått med hjälp av PowerShell-cmdlets eller plattformsoberoende REST API.
+- **Använda** mätvärden via den nya Azure övervakaren REST API: er.
 
   ![Routning av mätvärden i Azure-Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
@@ -107,9 +97,9 @@ Går du till den **diagnostikinställningarna** bladet under den **övervakaren*
 Du kan konfigurera detta via Resource Manager-mallar [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), eller [REST API: er](https://msdn.microsoft.com/library/dn931943.aspx).
 
 > [!NOTE]
-> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 

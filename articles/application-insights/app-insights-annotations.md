@@ -1,6 +1,6 @@
 ---
-title: "Viktiga kommentarer för Application Insights | Microsoft Docs"
-description: "Lägg till distribution eller skapa markörer till metrics explorer-diagram i Application Insights."
+title: Viktiga kommentarer för Application Insights | Microsoft Docs
+description: Lägg till distribution eller skapa markörer till metrics explorer-diagram i Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
 ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807806"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar i mått diagram i Application Insights
 Anteckningar på [Metrics Explorer](app-insights-metrics-explorer.md) diagram visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon inverkan på programmets prestanda. De kan skapas automatiskt av den [Visual Studio Team Services bygg system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Du kan också skapa anteckningar om du vill flagga alla händelser som du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).

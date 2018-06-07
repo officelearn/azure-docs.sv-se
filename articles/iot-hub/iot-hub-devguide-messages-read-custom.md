@@ -1,29 +1,25 @@
 ---
 title: Förstå Azure IoT Hub anpassade slutpunkter | Microsoft Docs
 description: Utvecklarhandbok - använder regler för routning för att vidarebefordra meddelanden från enhet till moln till anpassade slutpunkter.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b035c7ef6dfe56c4b4534e081e70d95ea7c14847
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808034"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
 
 IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-cloud] till IoT-hubb service-riktade slutpunkter baserat på Egenskaper. Regler för routning ger dig möjlighet att skicka meddelanden när de behöver gå utan att behöva ytterligare tjänster eller anpassad kod. Varje regel för vidarebefordran av du konfigurerar har följande egenskaper:
 
-| Egenskap      | Beskrivning |
+| Egenskap       | Beskrivning |
 | ------------- | ----------- |
 | **Namn**      | Unika namn som identifierar regeln. |
 | **Källa**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
@@ -71,7 +67,7 @@ Den [processen IoT Hub-enhet till moln meddelanden med hjälp av vägar] [ lnk-d
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-query-language]: iot-hub-devguide-query-language.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md

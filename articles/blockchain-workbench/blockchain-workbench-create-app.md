@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808068"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Skapa en blockchain program i Azure Blockchain arbetsstationen
 
@@ -237,7 +238,7 @@ Lägg till följande version pragma överst i `HelloBlockchain.sol` smart kontra
 
 ### <a name="base-class"></a>Basklass
 
-**WorkbenchBase** basklass aktiverar Blockchain arbetsstationen för att skapa en uppdatering kontraktet. Basklassen som krävs för Blockchain arbetsstationen specifika smart kontraktkod. Ditt kontrakt måste ärva från den **WorkbenchBase** basklassen.
+**WorkbenchBase** basklass aktiverar Blockchain arbetsstationen för att skapa och uppdatera kontraktet. Basklassen som krävs för Blockchain arbetsstationen specifika smart kontraktkod. Ditt kontrakt måste ärva från den **WorkbenchBase** basklassen.
 
 I `HelloBlockchain.sol` kontraktet kodfilen för smartkort, lägga till den **WorkbenchBase** klass i början av filen. 
 
@@ -374,7 +375,7 @@ Innan du avslutar funktionen anropa den `ContractUpdated()` funktion. Funktionen
 Om du vill lägga till ett blockchain program till Blockchain arbetsstationen överför konfiguration och smarta kontraktsfiler att definiera programmet.
 
 1. I en webbläsare, navigerar du till webbadressen Blockchain arbetsstationen. Till exempel `https://{workbench URL}.azurewebsites.net/` webbprogrammet skapas när du distribuerar Blockchain arbetsstationen. Information om hur du hittar din Blockchain arbetsstationen webbadress finns [Blockchain arbetsstationen Webbadress](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Logga in som administratör Blockchain arbetsstationen. Läs mer om hur du hanterar användare, [hantera användare i Azure Blockchain arbetsstationen](blockchain-workbench-manage-users.md).
+2. Logga in som en [Blockchain arbetsstationen administratören](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Välj **program** > **nya**. Den **nytt program** visas.
 4. Välj **överför kontraktet konfigurationen** > **Bläddra** att hitta den **HelloBlockchain.json** konfigurationsfil som du skapade. Konfigurationsfilen verifieras automatiskt. Välj den **visa** länken ska visa valideringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.
 5. Välj **överför kontraktet koden** > **Bläddra** att hitta den **HelloBlockchain.sol** smart kontraktet kodfilen. Kodfilen verifieras automatiskt. Välj den **visa** länken ska visa valideringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.

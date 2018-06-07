@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 9b4825be7ce7fb05b109310f21cd65cfe3819ae8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03c8bf129bcb8bf1b8af4bb7d189f1a38ba8f503
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809098"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Körningsmiljön Reliable Actors avger [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser och [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningsmiljön fungerar och hjälp med felsökning och övervakning av programprestanda.
@@ -170,5 +171,5 @@ När en klient anropar en metod via ett aktören proxy-objekt, resulterar det i 
 ## <a name="next-steps"></a>Nästa steg
 * [Hur Reliable Actors använda Service Fabric-plattformen](service-fabric-reliable-actors-platform.md)
 * [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exempelkod](https://github.com/Azure/servicefabric-samples)
+* [Exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [EventSource providrar på förhandsgranskning](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

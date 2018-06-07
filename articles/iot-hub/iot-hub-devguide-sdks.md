@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 31fed4ad1c9a790f771f8943775804976070fc0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 718bf82a921ec3b70939b7a70205a4c650702dd0
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633391"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823358"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda SDK: er för Azure IoT-hubb
 
@@ -55,6 +55,10 @@ Azure IoT Hub-enhet SDK för Python:
 * Installera från [pip][lnk-pip-device]
 * [Källkoden][lnk-python-sdk]
 
+Azure IoT Hub-enhet SDK för iOS: 
+* Installera från [CocoaPod][lnk-cocoa-device]
+* [Exempel][lnk-ios-sample]
+
 > [!NOTE]
 > Se Viktigt-filerna i GitHub-lagringsplatser för information om språk och plattformsspecifika paketet chefer för att installera binärfiler och beroenden på utvecklingsdatorn.
 > 
@@ -90,6 +94,10 @@ Azure IoT-hubb service SDK för Python:
 Azure IoT-hubb service SDK för C: 
 * Ladda ned från [lgh get, MBED, Arduino IDE eller Nuget][lnk-c-package]
 * [Källkoden][lnk-c-sdk]
+
+Azure IoT-hubb service SDK för iOS: 
+* Installera från [CocoaPod][lnk-cocoa-service]
+* [Exempel][lnk-ios-sample]
 
 > [!NOTE]
 > Se Viktigt-filerna i GitHub-lagringsplatser för information om språk och plattformsspecifika paketet chefer för att installera binärfiler och beroenden på utvecklingsdatorn.
@@ -139,3 +147,6 @@ Andra referensavsnitten i den här IoT-hubb Utvecklarhandbok inkluderar:
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-benefits-blog]: https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/
+[lnk-cocoa-device]: https://cocoapods.org/pods/AzureIoTHubClient
+[lnk-ios-sample]: https://github.com/Azure-Samples/azure-iot-samples-ios
+[lnk-cocoa-service]: https://cocoapods.org/pods/AzureIoTHubServiceClient

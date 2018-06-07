@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/06/2018
 ms.author: alkohli
-ms.openlocfilehash: eb50846bd838597a6f1e9a0b6550595866e05edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661016"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825075"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemkrav för Azure Import/Export
 
@@ -79,7 +79,7 @@ För importjobb bearbetas bara den första datavolymen på enheten. Datavolym m�
 
 ### <a name="supported-external-usb-adaptors"></a>Stöd för externa USB-adaptrar
 
-Nedan följer en lista över externa USB-adaptrar används för att kopiera data till interna hårddiskar. 
+När förbereder hårddiskar och kopiering av data med hjälp av verktyget WAImportExport, kan du använda följande (ut-the-shelp) externa USB-adaptrar: 
 - Anker 68UPSATAA - 02 för
 - Anker 68UPSHHDS-för
 - Startech SATADOCK22UE

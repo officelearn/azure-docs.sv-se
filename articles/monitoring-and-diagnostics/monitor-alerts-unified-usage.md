@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bb532f5e249947534ba44a41edfadac22ef9e217
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824922"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar via Azure-Monitor  
 
@@ -39,7 +40,7 @@ Aviseringen använder termen **loggen aviseringar** att beskriva aviseringar dä
 
 Detaljerad nästa finns stegvisa instruktioner för att använda Azure-aviseringar.
 
-## <a name="create-an-alert-rule-with-the-azure-portal"></a>Skapa en aviseringsregel med Azure-portalen
+## <a name="create-an-alert-rule-with-the-azure-portal"></a>Skapa en aviseringsregel med Azure Portal
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
     ![Övervakning](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
@@ -50,7 +51,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure-avisering
 
     ![Skapa regel](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Definiera villkoret för aviseringen genom att använda den **Välj resurser** länk och ange mål, genom att välja en resurs. Filter genom att välja den *prenumeration* , *resurstypen* , och väljer slutligen krävs *resurs*.
+4.  Definiera villkoret för aviseringen genom att använda den **Välj resurser** länk och ange mål, genom att välja en resurs. Filter genom att välja den * prenumeration, * resurstyp och slutligen välja krävs *resurs*.
 
     >[!NOTE]
 
@@ -67,7 +68,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure-avisering
 
     > Aktiviteten loggen aviseringar stöds också, men finns i förhandsgranskningen. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Mått aviseringar* : Kontrollera **resurstypen** är markerad med signaltyp som **mått**, en gång sedan lämplig **resurs** är valt klickar du på  *Utfärdat* vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
+5. * Mått aviseringar: Kontrollera **resurstypen** är markerad med signaltyp som **mått**, en gång sedan lämplig **resurs** är valt klickar du på *klar*vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
 
     ![Välj en resurs](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -83,9 +84,9 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure-avisering
 
     a. Välj en varaktighet från den **visa tidigare** listrutan visualisera en annan tidsperiod. Du kan välja dimensioner för mätvärdena som stöds att filtrera på tidsserier; välja dimensioner är valfri och upp till fem dimensioner kan användas. 
 
-    b. **Varna logik** kan väljas från visas alternativ för *villkoret*, *aggregering* och *tröskelvärdet*. Som förhandsgranskning av logik som visas villkoret i visualiseringen tillsammans med signal historik att indikera när aviseringen skulle ha utlösts tidigare. 
+    b. **Varna logik** kan väljas från visas alternativ för *villkoret*, * aggregering, och *tröskelvärdet*. Som förhandsgranskning av logik som visas villkoret i visualiseringen tillsammans med signal historik att indikera när aviseringen skulle ha utlösts tidigare. 
 
-    c. Ange varaktighet, väljer **Period** tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**.
+    c. Om du vill ange hur länge väljer **Period** tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**.
 
     ![Konfigurera signal logik för flerdimensionella mått](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -95,7 +96,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure-avisering
 
    > [!NOTE]
 
-   > Aviseringar visar kan importera analytics-fråga som signaltyp - **logg (sparad fråga)**enligt ovan bild. Så att användare kan perfekt frågan i Analytics och spara dem för framtida användning i varningar – mer information om hur du använder sparar frågan finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md) eller [delade frågan i application insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Aviseringar visar kan importera analytics-fråga som signaltyp - **logg (sparad fråga)** enligt ovan bild. Så att användare kan perfekt frågan i Analytics och spara dem för framtida användning i varningar – mer information om hur du använder sparar frågan finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md) eller [delade frågan i application insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Logga varningar*: när du valt frågan för aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönstret senaste sex timmar till föregående vecka.
 
@@ -125,14 +126,20 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
         ![Ignorera aviseringar för logg-aviseringar](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Ange en Ignorera avisering värde större än frekvensen för aviseringen för att se till att meddelanden har stoppats utan överlappande
+
 12. Som det tredje och sista steget, ange eventuella **grupp** måste aktiveras för varningsregeln när aviseringen är uppfyllt. Du kan välja alla befintliga grupp med varning eller skapa en ny grupp. Enligt markerad grupp, när aviseringen är utlösaren Azure kommer: skicka email(s), skicka SMS(s), anropa Webhook(s), åtgärda problemet med hjälp av Azure-Runbooks, push ITSM verktyget, osv. Lär dig mer om [åtgärdsgrupper](monitoring-action-groups.md).
 
     För **loggen aviseringar** viss ytterligare funktionalitet är tillgänglig att åsidosätta standardåtgärderna som:
 
-    - **E-postavisering**: åsidosätter *e-postämne* i e-post, skickas via grupp; om en eller flera e-åtgärden finns i gruppen för denna åtgärd. Du kan inte ändra innehållet i e-postmeddelandet och det här fältet är **inte** för e-postadress.
-    - **Inkludera anpassad Json-nyttolast**: åsidosätter webhook JSON som används av åtgärdsgrupper; om en eller flera webhook-åtgärden finns i gruppen för denna åtgärd. Användaren kan ange formatet för JSON som ska användas för alla webhooks som konfigurerats i associerade grupp; Mer information om webhook-format finns [webhook åtgärd för Log aviseringar](monitor-alerts-unified-log-webhook.md). Testa Webhook-alternativet har angetts för att kontrollera formatet och bearbetning av mål använder JSON-exemplet och det här alternativet som är märkta avsedd endast för **testning** syften.
+    - **E-postavisering**: åsidosätter *e-postämne* i e-post, skickas via grupp; om en eller flera e-post-åtgärder finns i gruppen för denna åtgärd. Du kan inte ändra innehållet i e-postmeddelandet och det här fältet är **inte** för e-postadress.
+    - **Inkludera anpassad Json-nyttolast**: åsidosätter webhook JSON som används av åtgärdsgrupper; om en eller flera webhook-åtgärder finns i gruppen för denna åtgärd. Användaren kan ange formatet för JSON som ska användas för alla webhooks som konfigurerats i associerade grupp; Mer information om webhook-format finns [webhook åtgärd för Log aviseringar](monitor-alerts-unified-log-webhook.md). Testa Webhook-alternativet har angetts för att kontrollera formatet och bearbetning av mål använder JSON-exemplet och det här alternativet som etiketter avsedd endast för **testning** syften.
 
         ![Åtgärden åsidosättningar för logg-aviseringar](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > För **Test Webhook** alternativet ska fungera, bör ha stöd för slutpunkten [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) och användarens kan använda CORS-proxy för att komma runt ”inget Access Control-Tillåt-ursprung huvud” problem
 
 13. Om alla fält är giltiga och med grön skalstreck den **skapa varningsregeln** på knappen och en avisering har skapats i Azure-Monitor - aviseringar. Alla aviseringar kan visas från aviseringar instrumentpanelen.
 
@@ -140,7 +147,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
     Inom några minuter aviseringen är aktiv och utlöser som beskrivits tidigare.
 
-## <a name="view-your-alerts-in-azure-portal"></a>Visa aviseringar i Azure-portalen
+## <a name="view-your-alerts-in-azure-portal"></a>Visa aviseringar i Azure Portal
 
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
 
@@ -151,7 +158,7 @@ För **loggen aviseringar** aviseringar kan baseras på:
 4. En lista över alla Eldad aviseringar visas som användaren kan välja för att visa detaljer
 5. Hjälp i söka efter specifika aviseringar; alternativen listrutan överst kan använda för att filtrera specifika *prenumeration, resursgrupp eller resurs*. Ytterligare för någon olöst Varna ett sätt att använda den *Filter avisering* alternativet för att hitta för angivna nyckelordet - specifika matchande aviseringar med *namn, aviseringen kriterier, resursgrupp, och målresurs*
 
-## <a name="managing-your-alerts-in-azure-portal"></a>Hantera aviseringar i Azure-portalen
+## <a name="managing-your-alerts-in-azure-portal"></a>Hantera aviseringar i Azure Portal
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
 2. Välj den **hantera regler** knappen i det översta fältet att navigera till regeln hantering - där alla Varningsregler skapade räknas; inklusive aviseringar som har inaktiverats.
 3. För att hitta för specifika Varningsregler kan antingen använda listrutan filter överst, vilket ger möjlighet att shortlist Varningsregler för specifika *prenumeration, resursgrupper och/eller resursen*. Alternativt med hjälp av sökfunktionen rutan ovanför listan varningsregeln markerat *filtrera aviseringar*, en kan ge nyckelord som matchas mot *avisering namn, villkor och målresurs*; om du vill visa endast regler för matchning.

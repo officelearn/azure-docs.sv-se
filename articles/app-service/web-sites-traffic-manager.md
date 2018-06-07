@@ -1,8 +1,8 @@
 ---
-title: "Kontrollera trafik för Azure App Service med Azure Traffic Manager"
-description: "Den här artikeln innehåller översiktsinformation för Azure Traffic Manager relateras till Azure App Service."
+title: Kontrollera trafik för Azure App Service med Azure Traffic Manager
+description: Den här artikeln innehåller översiktsinformation för Azure Traffic Manager relateras till Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824048"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Kontrollera trafik för Azure App Service med Azure Traffic Manager
 > [!NOTE]
@@ -30,13 +31,13 @@ ms.lasthandoff: 11/29/2017
 ## <a name="introduction"></a>Introduktion
 Du kan använda Azure Traffic Manager för att styra hur begäranden från webbklienter distribueras till appar i Azure App Service. Om Apptjänst slutpunkter som läggs till i en Azure Traffic Manager-profil, Azure Traffic Manager håller reda på status för din Apptjänst-appar (körs, stoppas eller borttagna) så att den kan avgöra vilken av dessa slutpunkter ska ta emot trafik.
 
-## <a name="routing-methods"></a>routningsmetoder
+## <a name="routing-methods"></a>Routningsmetoder
 Azure Traffic Manager använder fyra olika metoder. Dessa metoder beskrivs i följande lista som de gäller för Azure App Service.
 
-* **[Prioritet](#priority):** använda en primär app för all trafik och ange säkerhetskopieringar ifall primärt eller appar för säkerhetskopiering är inte tillgänglig.
-* **[Viktade](#weighted):** distribuerar trafik över en uppsättning appar, jämnt eller baserat på vikt, som du definierar.
-* **[Prestanda](#performance):** när du har appar i olika geografiska platser kan använda appen ”närmaste” vad gäller den lägsta Nätverksfördröjningen.
-* **[Geografisk](#geographic):** dirigera användarna till specifika appar baserat på vilka geografiska plats deras DNS-fråga som kommer från. 
+* **[Prioritet](../traffic-manager/traffic-manager-routing-methods.md#priority):** använda en primär app för all trafik och ange säkerhetskopieringar ifall primärt eller appar för säkerhetskopiering är inte tillgänglig.
+* **[Viktade](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribuerar trafik över en uppsättning appar, jämnt eller baserat på vikt, som du definierar.
+* **[Prestanda](../traffic-manager/traffic-manager-routing-methods.md#performance):** när du har appar i olika geografiska platser kan använda appen ”närmaste” vad gäller den lägsta Nätverksfördröjningen.
+* **[Geografisk](../traffic-manager/traffic-manager-routing-methods.md#geographic):** dirigera användarna till specifika appar baserat på vilka geografiska plats deras DNS-fråga som kommer från. 
 
 Mer information finns i [routningsmetoder för Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 

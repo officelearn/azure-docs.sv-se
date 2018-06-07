@@ -1,5 +1,5 @@
 ---
-title: Nyare mått aviseringar i Azure-Monitor stöds resurser | Microsoft Docs
+title: Resurser som stöds för nyare Azure övervaka mått aviseringar | Microsoft Docs
 description: Referens för support mått och loggfiler för nyare Azure nära realtid mått aviseringar.
 author: snehithm
 manager: kmadnani1
@@ -15,24 +15,15 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809836"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nyare mått aviseringar för Azure-tjänster i Azure-portalen
-Azure-Monitor stöder nu en ny avisering Måttyp. Nyare aviseringar skiljer sig från [klassiska mått aviseringar](insights-alerts-portal.md) på flera sätt:
-
-- **Förbättrad latens**: nyare mått aviseringar kan köras så ofta som var en minut. Äldre mått aviseringar körs alltid en frekvens på 5 minuter. Loggen aviseringar fortfarande har en längre tid än en minut fördröjningen på grund av tiden är tar att mata in loggarna. 
-- **Stöd för flerdimensionella mått**: du kan meddela om dimensionell mått så att du kan övervaka en enda ett intressant segment av måttet. 
-- **Mer kontroll över mått villkor**: du kan definiera bättre Varningsregler. Nyare aviseringar stöd för övervakning maximala, minsta, genomsnittlig och totala värden för mått. 
-- **Kombinerade övervakning av flera mått**: du kan övervaka flera mått (för närvarande högst två mått) med en enskild regel. En varning aktiveras om båda mått bryta mot sina respektive tröskelvärden för den angivna tidsperioden. 
-- **Bättre meddelandesystem**: alla nya aviseringar använder [åtgärdsgrupper](monitoring-action-groups.md), som är namngiven grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar. Använd inte åtgärdsgrupper klassiska mått aviseringar och äldre logganalys-aviseringar. 
-- **Mått från loggar** (begränsad förhandsversion): logga data hamnar i logganalys nu kan extraheras och konverteras till Azure-Monitor mått och sedan visas på samma sätt som andra mått. 
-
-Information om hur du skapar en avisering om nyare mått i Azure-portalen finns [skapa en aviseringsregel i Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). När den har skapats, kan du hantera aviseringen med hjälp av stegen som beskrivs i [Hantera aviseringar i Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Metoder som stöds mått och skapa nya mått aviseringar
+Azure övervakaren nu stöder en [nya mått aviseringstyp](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska mått aviseringar](insights-alerts-portal.md). Stöd för äldre aviseringar en [stora listan över mått](monitoring-supported-metrics.md). En (växande) delmängd av listan större stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portalen PowerShell, CLI, REST-stöd
 För närvarande kan du kan skapa nyare mått aviseringar endast i Azure-portalen [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) eller [Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md). Stöd för att konfigurera nya aviseringar med PowerShell och Azure-kommandoradsgränssnittet (Azure CLI 2.0) kommer snart.

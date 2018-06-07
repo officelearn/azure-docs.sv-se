@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808153"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based åtkomstkontroll
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure stacken stöder rollbaserad åtkomstkontroll (RBAC), samma [säkerhetsmodell för access management](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) som använder Microsoft Azure. Du kan använda RBAC för att hantera användare, grupp eller programåtkomst för prenumerationer, resurser och tjänster.
+Azure stacken stöder rollbaserad åtkomstkontroll (RBAC), samma [säkerhetsmodell för access management](https://docs.microsoft.com/azure/role-based-access-control/overview) som använder Microsoft Azure. Du kan använda RBAC för att hantera användare, grupp eller programåtkomst för prenumerationer, resurser och tjänster.
 
 ## <a name="basics-of-access-management"></a>Grunderna i åtkomsthantering
 
-Rollbaserad åtkomstkontroll ger detaljerad åtkomstkontroll som du kan använda för att skydda din miljö. Ge användare behörigheterna exakt som de behöver genom att tilldela rollen RBAC för ett visst område. Omfånget för rolltilldelningen kan vara en prenumeration, resursgrupp eller en enskild resurs. Läs den [rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) artikeln för att få mer detaljerad information om åtkomsthantering av.
+Rollbaserad åtkomstkontroll ger detaljerad åtkomstkontroll som du kan använda för att skydda din miljö. Ge användare behörigheterna exakt som de behöver genom att tilldela rollen RBAC för ett visst område. Omfånget för rolltilldelningen kan vara en prenumeration, resursgrupp eller en enskild resurs. Läs den [rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) artikeln för att få mer detaljerad information om åtkomsthantering av.
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
@@ -59,7 +60,7 @@ Du kan tilldela fler än en roll till en användare och varje roll kan vara asso
 * Du tilldelar rollen TestUser-A i läsare prenumeration-1.
 * Du tilldelar TestUser-A ägarrollen TestVM-1.
 
-Azure [rolltilldelningar](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
+Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
 
@@ -81,14 +82,14 @@ Du kan tilldela fler än en roll till en användare och varje roll kan vara asso
 * Du tilldelar rollen TestUser-A i läsare prenumeration-1.
 * Du tilldelar TestUser-A ägarrollen TestVM-1.
 
-Azure [rolltilldelningar](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
+Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
 
 ## <a name="set-access-permissions-for-a-user"></a>Ange åtkomstbehörighet för en användare
 
 Följande steg beskriver hur du konfigurerar behörigheter för en användare.
 
 1. Logga in med ett konto som har ägarbehörighet för till resursen som du vill hantera.
-2. I det vänstra navigeringsfönstret väljer **resursgrupper**.
+2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen som du vill ange behörigheter för.
 4. I navigeringsfönstret resurs grupp väljer **åtkomstkontroll (IAM)**. Den **åtkomstkontroll** vyn visar de objekt som har åtkomst till resursgruppen. Du kan filtrera resultaten och använder en menyrad att lägga till eller ta bort behörigheter.
 5. På den **åtkomstkontroll** menyn menyraden, Välj **+ Lägg till**.

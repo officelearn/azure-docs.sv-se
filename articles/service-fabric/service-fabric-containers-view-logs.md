@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824619"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggfiler för en tjänst för Service Fabric-behållare
 Azure Service Fabric är en behållare orchestrator och stöder både [behållare för Linux och Windows](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållaren loggar av en pågående behållartjänst eller en döda behållare så att du kan diagnostisera och felsöka problem.
@@ -34,6 +35,14 @@ Hitta kodpaketet i trädvyn på den *_lnxvm_0* nod genom att expandera **noder**
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Åtkomst till loggar i en behållare för döda eller krasch
 Från och med v6.2, du kan också hämta loggarna för en behållare för döda eller krasch med hjälp av [REST API: er](/rest/api/servicefabric/sfclient-index) eller [Service Fabric CLI (SFCTL)](service-fabric-cli.md) kommandon.
+
+### <a name="set-container-retention-policy"></a>Ange bevarandeprincip för behållare
+Service Fabric (version 6.1 eller senare) har stöd för bevarande av behållare som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml**, vilket visas i följande kodavsnitt:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla behållare med fel att bevaras. När den **ContainersRetentionCount** attributet har inte angetts, ingen behållare ska behållas. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in behållartjänsten på en viss nod när den här funktionen används för att förhindra att behållartjänsten flyttas till andra noder. Alla behållare som bevaras med den här funktionen måste tas bort manuellt.
 
 ### <a name="rest"></a>REST
 Använd den [hämta behållaren distribueras på noden](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) åtgärden att hämta loggarna för en krasch behållare. Ange namnet på den nod som körs på behållaren, programnamn, manifestet tjänstnamn och paketnamnet kod.  Ange `&Previous=true`. Svaret innehåller behållaren loggar för behållaren döda av koden paketet instansen.

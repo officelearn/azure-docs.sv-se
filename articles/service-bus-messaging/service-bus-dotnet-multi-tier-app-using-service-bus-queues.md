@@ -1,24 +1,21 @@
 ---
-title: ".NET-flernivåprogram med hjälp av Azure Service Bus | Microsoft Docs"
-description: "En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna."
+title: .NET-flernivåprogram med hjälp av Azure Service Bus | Microsoft Docs
+description: En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809462"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -58,25 +55,19 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
 
 I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
-## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
-Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
-
-1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här handledningen använder Visual Studio 2015, men det går lika bra med Visual Studio 2017.
-3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
-4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
-5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
-
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
-Nästa steg är att skapa ett *namnområde* och få en [nyckel till signatur för delad åtkomst (SAS)](service-bus-sas.md) för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
+
+Det första steget är att skapa en *namnområde*, och få en [delade signatur åtkomst (SAS)](service-bus-sas.md) nyckel för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Skapa en webbroll
+
 I det här avsnittet ska du skapa klientdelen för din app. Först skapar du de sidor som din app visar.
 Efter det lägger du till kod som skickar objekt till en Service Bus-kö och visar statusinformation om denna kö.
 
 ### <a name="create-the-project"></a>Skapa projektet
+
 1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
    
    I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.

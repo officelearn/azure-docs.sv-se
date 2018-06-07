@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: d81b6fc89c90b769650505e845d6d6c6cd70049f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616934"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824939"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräknings-miljöer som du kan använda för att bearbeta eller Transformera data. Det ger också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länka dessa compute miljöer till ett Azure data factory.
@@ -38,8 +38,6 @@ I den här typen av konfiguration hanteras datormiljön fullständigt av Azure D
 
 > [!NOTE]
 > På begäran-konfiguration stöds för närvarande endast för Azure HDInsight-kluster.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure på begäran länkad HDInsight-tjänst
 Azure Data Factory-tjänsten kan automatiskt skapa ett på begäran HDInsight-kluster för bearbetning av data. Klustret skapas i samma region som lagringskontot (linkedServiceName-egenskapen i JSON) som är associerade med klustret. Lagringskontot måste vara en generell Azure storage-standardkonto. 
@@ -49,11 +47,14 @@ Observera följande **viktiga** punkter om på begäran HDInsight länkade tjän
 * HDInsight-kluster på begäran skapas under din Azure-prenumeration. Du kan se i klustret i Azure-portalen när klustret är igång och körs. 
 * Jobb som körs på ett HDInsight-kluster på begäran finns i loggarna kopieras till storage-konto som är associerade med HDInsight-klustret. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword som definierats i din länkade tjänstdefinitionen används för att logga in i klustret för avancerad felsökning under livscykeln för klustret. 
 * Du debiteras endast för tiden när HDInsight-klustret är igång och jobb som körs.
+* Du kan inte använda en skriptåtgärd med den länkade tjänsten Azure HDInsight på begäran. Om du behöver installera andra beroenden, t.ex, Överväg att använda Azure Automation för att köra ett PowerShell.skript som gör följande:  
+  a. Skapa HDInsight-klustret.  
+  b. Kör en skriptåtgärd för att installera andra beroenden, t.ex.  
+  c. Kör Data Factory-pipelinen.  
+  d. Ta bort klustret.  
 
 > [!IMPORTANT]
 > Det tar vanligtvis **20 minuter** eller mer att etablera ett Azure HDInsight-kluster på begäran.
->
-> 
 
 ### <a name="example"></a>Exempel
 Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjänst. Data Factory-tjänsten skapar automatiskt en **Linux-baserade** HDInsight-kluster att bearbeta aktiviteten. 

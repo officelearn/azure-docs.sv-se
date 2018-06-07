@@ -1,8 +1,8 @@
 ---
 title: Automatisera Azure Application Insights-processer med Microsoft Flow
-description: "Lär dig hur du kan använda Microsoft Flow för att automatisera snabbt repeterbara processer med hjälp av Application Insights-anslutningen."
+description: Lär dig hur du kan använda Microsoft Flow för att automatisera snabbt repeterbara processer med hjälp av Application Insights-anslutningen.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -13,10 +13,11 @@ ms.topic: article
 ms.date: 06/25/2017
 ms.author: mbullwin
 ms.openlocfilehash: a1d2787626ed8fa71e3e4e9921ffb8a4680014cb
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807789"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights-processer med connector för Microsoft Flow
 

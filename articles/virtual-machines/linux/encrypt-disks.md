@@ -1,11 +1,11 @@
 ---
-title: "Kryptera diskar på en Linux-VM i Azure | Microsoft Docs"
-description: "Kryptera virtuella diskar på en Linux-VM för ökad säkerhet med hjälp av Azure CLI 2.0"
+title: Kryptera diskar på en Linux-VM i Azure | Microsoft Docs
+description: Kryptera virtuella diskar på en Linux-VM för ökad säkerhet med hjälp av Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c35cd220eab26300404a039467e1a0b35592f23d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824786"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Kryptera virtuella diskar på en Linux-VM
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med kryptografiska nycklar som skyddas i ett Azure Key Vault. Du styr dessa kryptografiska nycklar och granska deras användning. Den här artikeln beskrivs hur du krypterar virtuella diskar på en Linux-VM som använder Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+> [!NOTE]
+> Kontrollera att du har vfat drivrutin aktiverat i Linux-VM. Vissa metoder som TIS prestandamått be att inaktivera vfat drivrutinen. Drivrutinen krävs för att krypteringen ska fungera när processen är klar.
 
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver utföra aktiviteten följande avsnittet beskriver grundläggande kommandon för att kryptera virtuella diskar på den virtuella datorn. Mer detaljerad information och kontext för varje steg finns resten av dokumentet [startar här](#overview-of-disk-encryption).
@@ -146,6 +150,7 @@ Krav för diskkryptering och scenarier som stöds:
 * Alla resurser (till exempel Nyckelvalv lagringskonto och VM) måste finnas i samma Azure-region och prenumeration.
 * Standard A, D, DS, G, GS, etc., serie virtuella datorer.
 * Uppdaterar de kryptografiska nycklarna på en redan krypterade Linux-VM.
+* VFAT drivrutinen aktiveras i Linux-VM.
 
 Diskkryptering stöds inte i följande scenarier:
 

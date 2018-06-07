@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5a9bde85e894f2f4283348771dc5cacc7a08f23
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824663"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar
 För en viss resurs, kan det finnas andra resurser som måste finnas innan resursen har distribuerats. Till exempel måste en SQLServer finnas innan du försöker att distribuera en SQL-databas. Du definierar relationen genom att markera en resurs som är beroende av andra resursen. Du definierar ett samband med den **dependsOn** elementet eller genom att använda den **referens** funktion. 
@@ -28,7 +29,7 @@ Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i or
 ## <a name="dependson"></a>dependsOn
 Inom din mall kan dependsOn-element du definiera en resurs som beroende på en eller flera resurser. Värdet kan vara en kommaavgränsad lista över resurser. 
 
-I följande exempel visas en skaluppsättning för virtuell dator som är beroende av en belastningsutjämnare, virtuella nätverk och en loop som skapar flera lagringskonton. Dessa andra resurser visas inte i följande exempel, men de måste finnas någon annanstans i mallen.
+I följande exempel visas en skaluppsättning för virtuell dator som är beroende av en belastningsutjämnare, virtuella nätverk och en loop som skapar flera lagringskonton. Dessa andra resurser är inte visas i följande exempel, men de måste finnas någon annanstans i mallen.
 
 ```json
 {
@@ -59,10 +60,10 @@ När du definierar beroenden, kan du inkludera resursleverantörens namnrymd och
 ]
 ``` 
 
-Du kanske har använda dependsOn för att mappa relationer mellan dina resurser, är det viktigt att förstå varför du gör den. Till exempel för att dokumentera hur resurser är sammankopplade är dependsOn inte rätt metod. Du kan inte fråga vilka resurser som har definierats i elementet dependsOn efter distributionen. Genom att använda dependsOn kan påverka du eventuellt distributionen eftersom Resource Manager inte distribuerar i parallella två resurser som är beroende av. Dokumentera relationerna mellan resurser genom att i stället använda [resurslänkningen](/rest/api/resources/resourcelinks).
+Du kanske har använda dependsOn för att mappa relationer mellan dina resurser, är det viktigt att förstå varför du gör den. Till exempel för att dokumentera hur resurser är sammankopplade dependsOn är inte rätt metod. Du kan inte fråga vilka resurser som har definierats i elementet dependsOn efter distributionen. Genom att använda dependsOn kan påverka du eventuellt distributionen eftersom Resource Manager inte distribuera i parallella två resurser som är beroende av. Dokumentera relationerna mellan resurser genom att i stället använda [resurslänkningen](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Underordnade resurser
-Egenskapen resurser kan du ange underordnade resurser som är relaterade till resursen som definieras. Underordnade resurser kan bara vara definierade fem nivåers djup. Det är viktigt att Observera att en implicit beroende inte skapas mellan en resurs för underordnade och överordnade resursen. Om du behöver den underordnade resursen som ska distribueras när den överordnade resursen, måste du uttryckligen ange sambandet med egenskapen dependsOn. 
+Egenskapen resurser kan du ange underordnade resurser som är relaterade till resursen som definieras. Underordnade resurser kan bara vara definierade fem nivåers djup. Det är viktigt att Observera att du inte skapa en implicit beroende mellan en resurs för underordnade och överordnade resursen. Om du behöver den underordnade resursen som ska distribueras när den överordnade resursen, måste du uttryckligen ange sambandet med egenskapen dependsOn. 
 
 Varje överordnad resurs accepterar endast vissa typer av resurser som underordnade resurser. Godkända resurstyper har angetts i den [mallsschemat](https://github.com/Azure/azure-resource-manager-schemas) på den överordnade resursen. Namnet på resurstypen för underordnade innehåller till exempel namnet på resurstypen överordnade **Microsoft.Web/sites/config** och **Microsoft.Web/sites/extensions** finns både underordnade resurser av den **Microsoft.Web/sites**.
 
@@ -106,11 +107,19 @@ I följande exempel visas en SQLServer och SQL-databas. Observera att du har ang
 ]
 ```
 
-## <a name="reference-function"></a>referens-funktion
-Den [referera funktionen](resource-group-template-functions-resource.md#reference) gör att ett uttryck att erhålla dess värde från andra JSON namn och värdepar eller runtime-resurser. Referensuttryck deklarerar implicit att en resurs beror på en annan. Det allmänna formatet är:
+## <a name="reference-and-list-functions"></a>referens- och funktioner
+Den [referera funktionen](resource-group-template-functions-resource.md#reference) gör att ett uttryck att erhålla dess värde från andra JSON namn och värdepar eller runtime-resurser. Den [lista * funktioner](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) returvärden för en resurs från en liståtgärd.  Referens- och uttryck deklarerar implicit att en resurs beror på en annan, när den refererade resursen distribueras i samma mall och refereras till av sitt namn (inte resurs-ID). Om du skickar resurs-ID som referens eller en lista funktioner inte är en implicit referens skapas.
+
+Formatet på referens-funktionen är:
 
 ```json
 reference('resourceName').propertyPath
+```
+
+Det allmänna formatet för funktionen listKeys är:
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 I följande exempel visas en CDN-slutpunkt beror uttryckligen på CDN-profilen och beror implicit på ett webbprogram.
@@ -140,12 +149,12 @@ Använd följande riktlinjer när du bestämmer vilka beroenden för att ange:
 
 * Ange beroenden så lite som möjligt.
 * Ange en underordnad resurs som är beroende av den överordnade resursen.
-* Använd den **referens** funktion för att ange implicit beroenden mellan resurser som ska dela en egenskap. Lägg inte till ett explicit beroende (**dependsOn**) när du redan har definierat ett indirekt samband. Den här metoden minskar risken för att onödiga beroenden. 
-* Ange ett beroende när en resurs inte får vara **skapade** utan funktioner från en annan resurs. Ange inte ett beroende om endast interagera resurser efter distributionen.
+* Använd den **referens** fungerar och ange resursnamnet ange implicit beroenden mellan resurser som ska dela en egenskap. Lägg inte till ett explicit beroende (**dependsOn**) när du redan har definierat ett indirekt samband. Den här metoden minskar risken för att onödiga beroenden. 
+* Ange ett beroende när en resurs inte får vara **skapade** utan funktioner från en annan resurs. När du inte ange ett beroende om endast interagera resurser efter distributionen.
 * Låt beroenden cascade utan att ange dem explicit. Till exempel den virtuella datorn är beroende av ett virtuellt nätverksgränssnitt och virtuella nätverksgränssnittet beror på ett virtuellt nätverk och offentliga IP-adresser. Därför kan den virtuella datorn är distribuerad när alla tre resurser, men uttryckligen anger inte den virtuella datorn som är beroende av alla tre resurser. Den här metoden klargör beroendeordningen och gör det enklare att ändra mallen senare.
 * Om ett värde kan fastställas innan distribution, försök att distribuera resursen utan ett beroende. Om ett konfigurationsvärde måste namnet på en annan resurs, kanske du inte behöver ett beroende. Den här vägledningen fungerar inte alltid eftersom vissa resurser verifiera att den andra resursen. Om du får ett felmeddelande, lägger du till ett beroende. 
 
-Resource Manager identifierar cirkulärt tjänstberoende vid verifiering av mallen. Utvärdera din mall för att se om några beroenden behövs inte och kan tas bort om du får ett felmeddelande om att det finns ett cirkulärt beroende. Om du tar bort beroenden inte fungerar kan undvika du Cirkelberoenden genom att flytta vissa distributionsåtgärder till underordnade resurser som distribueras efter resurser som har cirkulärt beroende. Anta exempelvis att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
+Resource Manager identifierar cirkulärt tjänstberoende vid verifiering av mallen. Utvärdera din mall för att se om några beroenden inte behövs och kan tas bort om du får ett felmeddelande om att det finns ett cirkulärt beroende. Om att ta bort beroenden inte fungerar kan undvika du Cirkelberoenden genom att flytta vissa distributionsåtgärder till underordnade resurser som distribueras efter resurser som har cirkulärt beroende. Anta exempelvis att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
 1. vm1
 2. vm2

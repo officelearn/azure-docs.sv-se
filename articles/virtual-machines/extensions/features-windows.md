@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809734"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg för virtuell dator och funktioner i Windows
 
@@ -67,7 +68,7 @@ Tilläggspaket hämtas från databasen för Azure Storage-tillägget och tilläg
 > [!IMPORTANT]
 > Om du har blockerat åtkomsten till *168.63.129.1* med gäst-brandväggen, sedan tillägg misslyckas oavsett ovan.
 
-Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämtas skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup) sedan ytterligare brandvägg/nätverk Säkerhet grupp portar måste öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG Service taggar för [lagring](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämtas skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup) sedan ytterligare brandvägg/nätverk Säkerhet grupp portar måste öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG Service taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Gästagenten Windows har inte proxyserver som stöd att omdirigera trafik agentbegäranden via.
 
@@ -134,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i [Set AzureRmVMExtension referens](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+Den `Set-AzureRmVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i [Set AzureRmVMExtension referens](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -419,7 +420,7 @@ Du kan också ta bort ett tillägg i Azure-portalen på följande sätt:
 | Tillägget för anpassat skript för Windows |Kör skript mot en virtuell Azure-dator |[Tillägget för anpassat skript för Windows](custom-script-windows.md) |
 | DSC-tillägg för Windows |PowerShell DSC (Desired State Configuration)-tillägg |[DSC-tillägg för Windows](dsc-overview.md) |
 | Azure Diagnostics-tillägg |Hantera Azure-diagnostik |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Tillägget för Azure VM-åtkomst |Hantera användare och autentiseringsuppgifter |[Tillägg för virtuell dator åtkomst för Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Tillägget för Azure VM-åtkomst |Hantera användare och autentiseringsuppgifter |[Tillägg för virtuell dator åtkomst för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Nästa steg
 

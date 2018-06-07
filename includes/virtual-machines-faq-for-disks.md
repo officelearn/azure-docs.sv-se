@@ -1,6 +1,23 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826556"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS-VM och hanterade och ohanterade premiumdiskar
 
-Den här artikeln besvarar några vanliga frågor om Azure hanterade diskar och Azure Premium-lagring.
+Den här artikeln besvarar några vanliga frågor om Azure hanterade diskar och Azure Premium SSD-diskar.
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -46,7 +63,7 @@ Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. De
 
 **Kan jag göra en inkrementell ögonblicksbild av hanterade diskar?**
 
-Nej. Den aktuella kapaciteten för ögonblicksbild gör en fullständig kopia av hanterade diskar. Men planerar vi att stödja inkrementell ögonblicksbilder i framtiden.
+Nej. Den aktuella kapaciteten för ögonblicksbild gör en fullständig kopia av hanterade diskar.
 
 **Virtuella datorer i en tillgänglighetsuppsättning kan bestå av en kombination av hanterade och ohanterade diskar?**
 
@@ -66,7 +83,7 @@ Beroende på den region där den tillgänglighetsuppsättningen som använder ha
 
 **Hur är standard lagringskontot för diagnostik konfigurera?**
 
-Du kan konfigurera ett konto för privat lagring för diagnostik för Virtuella datorer. I framtiden kommer planerar vi att växla diagnostik samt till hanterade diskar.
+Du kan konfigurera ett konto för privat lagring för diagnostik för Virtuella datorer.
 
 **Vilken typ av rollbaserad åtkomstkontroll support är tillgänglig för hanterade diskar?**
 
@@ -86,7 +103,7 @@ Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ö
 
 **Ohanterad diskar stöds fortfarande?**
 
-Ja. Vi stöder ohanterade och hanterade diskar. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
+Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
 
 **Om jag skapa en 128 GB disk och sedan öka storleken till 130 GB jag debiteras för nästa diskens storlek (512 GB)?**
@@ -113,6 +130,39 @@ Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn
 * [Lista över mallar med hjälp av hanterade diskar](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>Standard SSD-diskar (förhandsgranskning)
+
+**Vad är Azure Standard SSD-diskar?**
+Standard SSD-diskar är standard diskar som backas upp av solid-state media, optimerade som kostnadseffektiv lagring för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer i IOPS. I Förhandsgranska är de tillgängliga i ett begränsat antal områden med begränsad hantering (tillgängligt genom Resource Manager-mallar).
+
+<a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar (förhandsgranskning)?**
+* Norra Europa
+
+**Hur skapar Standard SSD-diskar?**
+För närvarande kan du skapa Standard SSD-diskar med hjälp av Azure Resource Manager-mallar. Nedan visas de parametrar som behövs i Resource Manager-mall för att skapa Standard SSD-diskar:
+
+* *apiVersion* för Microsoft.Compute måste anges som `2018-04-01` (eller senare)
+* Ange *managedDisk.storageAccountType* som `StandardSSD_LRS`
+
+I följande exempel visas den *properties.storageProfile.osDisk* för en virtuell dator som använder Standard SSD-diskar:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med Datadiskar som Standard SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
+**Kan jag använda Standard SSD som ohanterad diskar?**
+Nej, Standard SSD-diskar är bara tillgängliga som hanterade diskar.
+
 ## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks 
 
 **Vilka ändringar som krävs i en befintlig Azure Backup service configuration före/efter migrering till hanterade diskar?**
@@ -127,9 +177,9 @@ Ja, säkerhetskopieringen fungerar sömlöst.
 
 Inga ändringar krävs. 
 
-**Är automatisk migrering av en befintlig VM Scale uppsättningar (VMSS) från ohanterade diskar till hanterade diskar stöds?**
+**Är automatisk migrering av en befintlig virtuell dator skala anger från ohanterade diskar till hanterade diskar stöds?**
 
-Nej. Du kan skapa en ny VMSS med hanterade diskar med hjälp av bilden från ditt gamla VMSS med ohanterad diskar. 
+Nej. Du kan skapa en ny skala med hanterade diskar med hjälp av bilden från ditt gamla skaluppsättningen med ohanterad diskar. 
 
 **Kan jag skapa en Disk som hanteras från en sida blob ögonblicksbild som togs innan du migrerar till hanterade diskar?**
 
@@ -139,9 +189,9 @@ Nej. Du kan exportera en ögonblicksbild av sidan blob som en sidblobb och sedan
 
 Ja, du kan välja att gå över till en virtuell dator med hanterade diskar.
 
-**Finns det någon effekt av migrering på virtuella Azure-datorer skyddas av Azure Site Recovery (ASR) via Azure Azure replikering?**
+**Finns det någon effekt av migrering på virtuella Azure-datorer skyddas av Azure Site Recovery via Azure Azure replikering?**
 
-Ja. ASR Azure till Azure-skydd för virtuella datorer med hanterade diskar är för närvarande endast tillgängligt som en förhandsversion av tjänst.
+Ja. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med hanterade diskar är för närvarande endast tillgängligt som en förhandsversion av tjänst.
 
 **Kan jag migrera virtuella datorer med ohanterad diskar som finns på lagringskonton som är eller krypterats till hanterade diskar?**
 
@@ -163,7 +213,7 @@ Nej.
 
 **Är Lagringstjänstens kryptering endast tillgänglig i vissa områden?**
 
-Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgänglig. Hanterade diskar är tillgänglig i alla offentliga regioner och Tyskland.
+Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgängliga. Hanterade diskar är tillgänglig i alla offentliga regioner och Tyskland.
 
 **Hur kan jag ta reda om hanterade disken krypteras?**
 
@@ -190,19 +240,19 @@ Nej. Men om du exporterar en virtuell Hårddisk till en krypterad storage-konto 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Premiumdiskar: hanterade och ohanterade
 
-**Om en virtuell dator använder en serie med storlek som har stöd för Premium-lagring, till exempel en DSv2 kan jag koppla premium- och datadiskar som standard?** 
+**Om en virtuell dator använder en serie med storlek som har stöd för Premium SSD-diskar, till exempel en DSv2 kan jag koppla premium- och datadiskar som standard?** 
 
 Ja.
 
-**Kan jag koppla premium- och datadiskar som standard till en rad med storleken som inte stöder Premium-lagring, till exempel D, Dv2, G eller F serien?**
+**Kan jag koppla premium- och datadiskar som standard till en rad med storleken som inte stöder Premium SSD-diskar, till exempel D, Dv2, G eller F serien?**
 
-Nej. Du kan koppla endast standard datadiskar till virtuella datorer som inte använder en serie med storlek som har stöd för Premium-lagring.
+Nej. Du kan koppla endast standard datadiskar till virtuella datorer som inte använder en serie med storlek som har stöd för Premium SSD-diskar.
 
 **Om jag skapa en disk för premium-data från en befintlig virtuell Hårddisk som är 80 GB, hur mycket som kostar?**
 
 En disk för premium-data som skapas från en virtuell Hårddisk på 80 GB behandlas som nästa tillgängliga premium diskens storlek är en P10 disk. Du är debiteras enligt P10 disk priser.
 
-**Finns det transaktionskostnader använda Premium Storage?**
+**Finns det transaktionskostnader att använda Premium SSD-diskar?**
 
 Det finns en fast kostnad för varje diskstorlek som hämtas etablerade med specifika gränser på IOPS och genomflöde. Övriga kostnader är utgående bandbredd och ögonblicksbild kapacitet, om tillämpligt. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
@@ -226,7 +276,7 @@ Den partitionstypen som Azure har stöd för en operativsystemdisk är master bo
 
 **Vad är den största blob sidstorlek som stöds?**
 
-Den största blob sidstorlek som har stöd för Azure är 8 TB (8191 GB). Vi stöder inte sidblobbar som är större än 4 TB (4,095 GB) ansluten till en virtuell dator som data eller operativsystemet diskar.
+Den största blob sidstorlek som har stöd för Azure är 8 TB (8191 GB). Maxmium blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemet diskar är 4 TB (4,095 GB).
 
 **Måste jag använda en ny version av Azure-verktyg för att skapa, bifoga, ändra storlek och överför diskar som är större än 1 TB?**
 

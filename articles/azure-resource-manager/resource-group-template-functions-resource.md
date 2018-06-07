@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824344"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -95,7 +96,7 @@ För att avgöra vilka resurstyper har en liståtgärd har du följande alternat
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Ange resursen med hjälp av antingen den [resourceId funktionen](#resourceid), eller formatet `{providerNamespace}/{resourceType}/{resourceName}`.
+Ange resursen med hjälp av antingen resursnamnet eller [resourceId funktionen](#resourceid). Använd resursnamnet när du använder den här funktionen i samma mall som distribuerar den refererade resursen.
 
 ### <a name="example"></a>Exempel
 
@@ -257,7 +258,7 @@ Varje resurstypen returnerar andra egenskaper för funktionen referens. Funktion
 
 Funktionen referens hämtar sitt värde från en runtime-tillståndet och kan därför inte användas i avsnittet variables. Den kan användas i utdata avsnitt i en mall eller [länkad mall](resource-group-linked-templates.md#link-or-nest-a-template). Den kan inte användas i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#link-or-nest-a-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall. 
 
-Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om den refererade resursen etableras inom samma mall. Du behöver inte också använda dependsOn-egenskapen. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
+Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om den refererade resursen är etablerad inom samma mall och du referera till resursen med namnet (inte resurs-ID). Du behöver inte också använda dependsOn-egenskapen. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
 
 Skapa en mall som returnerar objektet i avsnittet utdata om du vill se egenskapsnamn och värden för en resurstyp. Om du har en befintlig resurs av den typen returnerar mallen för objektet utan att distribuera nya resurser. 
 

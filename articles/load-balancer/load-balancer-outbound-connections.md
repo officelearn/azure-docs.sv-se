@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825007"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -140,7 +141,7 @@ Samma antal SNAT portar förallokerade för UDP och TCP respektive och konsumera
 >[!IMPORTANT]
 >Standard-SKU SNAT programmering per IP-transportprotokoll och härleds från belastningsutjämningsregel.  Om det bara finns en TCP-belastningsutjämningsregel är SNAT endast tillgängligt för TCP. Om du har bara en TCP regel för belastningsutjämning och behöver utgående SNAT för UDP, skapa en regel från samma klient till samma serverdelspoolen för UDP av belastningsutjämning.  Detta utlöser SNAT programmering för UDP.  En fungerande regeln eller hälsa avsökning krävs inte.  Grundläggande SKU SNAT program alltid SNAT för båda IP-transportprotokollet oavsett transportprotokoll som angetts i regeln för belastningsutjämning.
 
-Azure preallocates SNAT portar till IP-konfigurationen för nätverkskort på varje virtuell dator. När en IP-konfiguration läggs till i poolen, förallokerade SNAT portar för den här IP-konfigurationen som baseras på backend-poolstorleken. När utgående flöden skapas [klappa lätt](#pat) dynamiskt förbrukar (högst förallokerade) och släpper de här portarna när flödet stängs eller [timeout vid inaktivitet](#ideltimeout) inträffa.
+Azure preallocates SNAT portar till IP-konfigurationen för nätverkskort på varje virtuell dator. När en IP-konfiguration läggs till i poolen, förallokerade SNAT portar för den här IP-konfigurationen som baseras på backend-poolstorleken. När utgående flöden skapas [klappa lätt](#pat) dynamiskt förbrukar (högst förallokerade) och släpper de här portarna när flödet stängs eller [timeout vid inaktivitet](#idletimeout) inträffa.
 
 I följande tabell visas SNAT port preallocations för nivåerna för backend-pool storlekar:
 

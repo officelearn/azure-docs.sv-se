@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824578"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Ange program åtkomst till Azure-stacken
+# <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
@@ -29,7 +30,7 @@ Exempelvis kanske en konfiguration hanteringsverktyg som använder Azure Resourc
 
 Tjänstens huvudnamn är bättre att köra appen enligt dina autentiseringsuppgifter eftersom:
 
-* Du kan tilldela behörigheter till tjänsten huvudnamn som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till exakt vad appen behöver göra.
+* Du kan tilldela behörigheter till tjänsten huvudnamn som skiljer sig från din egen behörighet. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
 * Du behöver inte ändra appens autentiseringsuppgifterna ändrar dina ansvarsområden.
 * Du kan använda ett certifikat för att automatisera autentisering när du kör ett oövervakat skript.  
 
@@ -76,7 +77,7 @@ Skriptet körs på en virtuell dator för ERCS från Privilegierade slutpunkten.
 
 
 Krav:
-- En certifierad krävs.
+- Ett certifikat krävs.
 
 **Parametrar**
 

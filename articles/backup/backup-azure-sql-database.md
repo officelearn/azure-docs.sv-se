@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 160055e4fdc6a5dfa401eaa3dc44427d13af22a8
-ms.sourcegitcommit: 0a7c9629dea6f5eb52cc45a1e31112def210dfc2
+ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730908"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808510"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
 
@@ -47,6 +47,34 @@ Följande är kända begränsningar för förhandsversion.
 - [Distribuerade tillgänglighet grupper säkerhetskopiering har begränsningar](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
 - SQL Failover Cluster instanser (FCI) stöds inte.
 - Använd Azure-portalen för att konfigurera Azure Backup för att skydda SQL Server-databaser. Stöd för Azure PowerShell, CLI och REST API: er är inte tillgänglig.
+
+## <a name="supported-azure-geos"></a>Azure-regioner som stöds
+
+- Australien, sydöstra (ASE) 
+- Brasilien, södra (BRS)
+- Kanada, centrala (CNC)
+- Kanada, östra (CE)
+- USA, centrala (CUS)
+- Asien, östra (EA)
+- Australien, östra (AE) 
+- USA, östra (EUS)
+- USA, östra 2 (EUS2)
+- Japan, östra (JPE)
+- Japan, västra (JPW)
+- Indien, centrala (INC) 
+- Indien, södra (INS)
+- Korea, centrala (KRC)
+- Korea, södra (KRS)
+- USA, norra centrala (NCUS) 
+- Europa, norra (NE) 
+- USA, södra centrala (SCUS) 
+- Asien, sydöstra (SEA)
+- Storbritannien, södra (UKS) 
+- Storbritannien, västra (UKW) 
+- Europa, västra (WE) 
+- USA, västra (WUS)
+- USA, västra centrala (WCUS)
+- USA, västra 2 (WUS 2) 
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Operativsystem som stöds och versioner av SQLServer
 

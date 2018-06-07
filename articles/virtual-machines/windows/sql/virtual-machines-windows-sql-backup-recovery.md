@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 29abd62b0602686c912f022ec8870dcb6f1b39eb
-ms.sourcegitcommit: 0a7c9629dea6f5eb52cc45a1e31112def210dfc2
+ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730891"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809615"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
 
@@ -59,7 +59,7 @@ Mer information om hur du konfigurerar automatisk säkerhetskopiering för virtu
 - **SQL Server 2016/2017**: [automatisk säkerhetskopiering v2 för virtuella Azure-datorer ](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQLServer 2014**: [automatisk säkerhetskopiering för SQL Server 2014 virtuella datorer](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure-säkerhetskopiering av SQL virtuella datorer
+## <a id="azbackup"></a> Azure-säkerhetskopiering av SQL virtuella datorer (förhandsversion)
 
 [Azure-säkerhetskopiering](/azure/backup/) ger en Enterprise-klass säkerhetskopiering för SQL Server körs i virtuella Azure-datorer. Alla säkerhetskopior lagras och hanteras i Recovery Services-valvet. Det finns flera fördelar med den här lösningen, särskilt för företag:
 
@@ -128,7 +128,7 @@ Mer information finns i något av följande artiklar baserat på din version av 
 
 I följande tabell sammanfattas funktionerna med varje alternativ för säkerhetskopiering och återställning för SQL Server-datorer i Azure.
 
-|| **Automatisk säkerhetskopiering** | **Azure-säkerhetskopiering av SQL virtuella datorer** | **Manuell säkerhetskopiering** |
+|| **Automatisk säkerhetskopiering** | **Azure SQL-säkerhetskopiering** | **Manuell säkerhetskopiering** |
 |---|---|---|---|
 | Kräver ytterligare Azure-tjänst |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Konfigurera princip för säkerhetskopiering i Azure-portalen | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
@@ -139,11 +139,13 @@ I följande tabell sammanfattas funktionerna med varje alternativ för säkerhet
 | Kortsiktig säkerhetskopiering bevarandeprincip (dagar) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Långsiktig säkerhetskopiering bevarandeprincip (månader, år) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Inbyggt stöd för SQL Server alltid aktiverad |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Konsoliderade e-postaviseringar för fel |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Rollbaserad åtkomstkontroll |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Säkerhetskopieringen till Recovery Services-valvet |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Säkerhetskopiering till Azure Storage-konton | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Säkerhetskopiering till Azure Storage-konton | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisk) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatisk) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(kund hanteras) |
+| Hantering av lagring och säkerhetskopiering av filer | | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
 | Säkerhetskopieringen till anslutna diskar på den virtuella datorn |   |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Central anpassningsbara rapporter |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Konsoliderade e-postaviseringar för fel |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Anpassa övervakningen baserat på OMS |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Övervaka säkerhetskopieringsjobb med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Återställa databaser med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Nästa steg

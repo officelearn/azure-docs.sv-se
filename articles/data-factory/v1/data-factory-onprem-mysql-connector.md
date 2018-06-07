@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808102"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +43,7 @@ Gateway krävs även om MySQL-databasen finns i en Azure IaaS-virtuella (VM). Du
 > Se [felsökning av problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning /-gateway relaterade problem.
 
 ## <a name="supported-versions-and-installation"></a>Versioner som stöds och installation
-För Data Management Gateway att ansluta till MySQL-databas, måste du installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version 6.6.5 eller senare) på samma system som Data Management Gateway. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars Data Management Gateway. MySQL version 5.1 och senare stöds.
+För Data Management Gateway att ansluta till MySQL-databas, måste du installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version mellan 6.6.5 och 6.10.7) på samma system som Data Management Gateway. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars Data Management Gateway. MySQL version 5.1 och senare stöds.
 
 > [!TIP]
 > Om du klickar på fel i ”autentisering misslyckades eftersom Fjärrpartnern har stängt transport dataströmmen”., bör du uppgradera MySQL Connector/Net till en senare version.
@@ -66,12 +67,12 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för MySQL länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på MySQL-servern. |Ja |
 | databas |Namnet på MySQL-databas. |Ja |
-| schema |Namnet på schemat i databasen. |Nej |
+| Schemat |Namnet på schemat i databasen. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till MySQL-databas. |Ja |
 | lösenord |Ange lösenordet för det användarkonto som du angett. |Ja |
@@ -82,7 +83,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 
 Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **RelationalTable** (som omfattar MySQL dataset) har följande egenskaper
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i MySQL-databasinstans som den länkade tjänsten refererar till. |Nej (om **frågan** av **RelationalSource** har angetts) |
 
@@ -93,7 +94,7 @@ Medan egenskaper som är tillgängliga i den **typeProperties** avsnitt i aktivi
 
 När datakällan i en Kopieringsaktivitet är av typen **RelationalSource** (som omfattar MySQL), följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej (om **tableName** av **dataset** har angetts) |
 
@@ -304,37 +305,37 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | bigint osignerade |Decimal |
 | bigint |Int64 |
 | bitar |Decimal |
-| blob |Byte[] |
+| blob |byte] |
 | bool |Boolesk |
 | Char |Sträng |
 | datum |DateTime |
 | datetime |DateTime |
-| decimal |Decimal |
-| dubbel precision |Dubbel |
-| dubbla |Dubbel |
+| Decimal |Decimal |
+| dubbel precision |dubbla |
+| double |dubbla |
 | Enum |Sträng |
-| flyttal |Ogift |
+| flyt |Enkel |
 | int osignerade |Int64 |
 | int |Int32 |
 | heltal osignerade |Int64 |
 | heltal |Int32 |
-| lång varbinary |Byte[] |
+| lång varbinary |byte] |
 | lång varchar |Sträng |
-| longblob |Byte[] |
+| longblob |byte] |
 | LONGTEXT |Sträng |
-| mediumblob |Byte[] |
+| mediumblob |byte] |
 | mediumint osignerade |Int64 |
 | mediumint |Int32 |
 | mediumtext |Sträng |
 | numeriskt |Decimal |
-| Verklig |Dubbel |
+| Verklig |dubbla |
 | Ange |Sträng |
 | smallint osignerade |Int32 |
 | smallint |Int16 |
-| Text |Sträng |
+| text |Sträng |
 | time |TimeSpan |
 | tidsstämpel |DateTime |
-| tinyblob |Byte[] |
+| tinyblob |byte] |
 | tinyint osignerade |Int16 |
 | tinyint |Int16 |
 | tinytext |Sträng |

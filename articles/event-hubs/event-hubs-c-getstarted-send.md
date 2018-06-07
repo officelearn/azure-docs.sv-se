@@ -14,18 +14,19 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807823"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Händelsehubbar i Azure med hjälp av C
 
 ## <a name="introduction"></a>Introduktion
 Händelsehubbar är en mycket skalbar införandet system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i en händelsehubb kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalys eller lagringskluster.
 
-Mer information finns i [översikt av Händelsehubbar](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
+Mer information finns i [översikt av Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
 Den här självstudiekursen beskrivs hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i C. Mer information om att ta emot händelser, klickar du på det mottagande språket i den vänstra tabellen i innehållet.
 

@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration.
+---
+title: ta med fil
+description: ta med fil
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f4071f2555607b6035352a2aec38c986941c41a9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826539"
+---
+<a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | Åtkomstkontrollistor (ACL:er) för slutpunkt |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager
-Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration.
+Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -42,7 +59,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Offentliga IP-adresser – dynamisk |60 (grundläggande) |kontakta supporten |
 | Offentliga IP-adresser – statiska |20 (grundläggande) |kontakta supporten |
 | Offentliga IP-adresser – statiska |20 (standard) |kontakta supporten |
-| Punkt-till-plats-rotcertifikat per VPN-gateway |20 |20 |
+| Punkt-till-plats-rotcertifikat per VPN Gateway |20 |20 |
 
 ** Standard begränsningar gäller för prenumerationer som inte tidigare har dessa gränser ökat genom stöd
 

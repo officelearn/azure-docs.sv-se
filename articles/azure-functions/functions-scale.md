@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807541"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
@@ -43,10 +44,10 @@ Du kan skala mellan nivåer att tilldela olika mängden resurser på en App Serv
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
-När du använder en plan för förbrukning läggs instanser av Azure Functions värden dynamiskt och tas bort baserat på antalet inkommande händelser. Den här planen skalar automatiskt och du debiteras för beräkningsresurser bara när din funktion körs. På en plan för förbrukning köra en funktion för högst 10 minuter. 
+När du använder en plan för förbrukning läggs instanser av Azure Functions värden dynamiskt och tas bort baserat på antalet inkommande händelser. Den här planen skalar automatiskt och du debiteras för beräkningsresurser bara när din funktion körs. På en plan för förbrukning, en funktion körningen på grund av timeout efter en konfigurerbar tidsperiod. 
 
 > [!NOTE]
-> Standardvärdet för timeout för funktioner på en plan för förbrukning är 5 minuter. Värdet kan ökas till 10 minuter för funktionen appen genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
+> Standardvärdet för timeout för funktioner på en plan för förbrukning är 5 minuter. Kan du öka värdet för Funktionsapp högst 10 minuter genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
 
 Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering sammanställs över alla funktioner i en funktionsapp. Mer information finns i [Azure Functions sida med priser].
 
@@ -90,7 +91,7 @@ Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../
 
 ## <a name="how-the-consumption-plan-works"></a>Så här fungerar förbrukning planen
 
-I planen förbrukning skalas skala domänkontrollant automatiskt Processortid och minnesresurser genom att lägga till ytterligare instanser av funktioner värden baserat på antalet händelser som utlöses på dess funktioner. Varje instans av funktioner värden är begränsad till 1,5 GB minne.  En instans av värden är funktionen appen, vilket innebär alla funktioner i en funktion app dela resurser i en annan instans och skala på samma gång.
+I planen förbrukning skalas skala domänkontrollant automatiskt Processortid och minnesresurser genom att lägga till ytterligare instanser av funktioner värden baserat på antalet händelser som utlöses på dess funktioner. Varje instans av funktioner värden är begränsad till 1,5 GB minne.  En instans av värden är funktionen appen, vilket innebär alla funktioner i en funktion app dela resurser i en annan instans och skala på samma gång. Funktionen appar som delar samma förbrukning plan skalas oberoende av varandra.  
 
 När du använder förbrukningen värd plan som funktionen kodfiler lagras på Azure-filresurser för den funktionen main storage-konto. När du tar bort huvudsakliga lagringskontot för funktionen appen kodfiler funktionen tas bort och kan inte återställas.
 

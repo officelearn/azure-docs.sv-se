@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823443"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Lös inte att hitta fel för Azure-resurser
 
-Den här artikeln beskriver de fel som kan uppstå när en resurs som inte kan hittas under distributionen.
+Den här artikeln beskriver de fel som kan visas när en resurs kan inte hittas under distributionen.
 
 ## <a name="symptom"></a>Symtom
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Om du försöker använda den [referens](resource-group-template-functions-resource.md#reference) eller [listKeys](resource-group-template-functions-resource.md#listkeys) funktioner med en resurs som inte kan lösas, följande felmeddelande:
+Om du använder den [referens](resource-group-template-functions-resource.md#reference) eller [listKeys](resource-group-template-functions-resource.md#listkeys) funktioner med en resurs som inte kan lösas, följande felmeddelande:
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Om du försöker distribuera resursen som saknas i mallen kan du kontrollera om 
 }
 ```
 
-Men om du vill undvika ange beroenden som inte behövs. När du har onödiga beroenden förlänga varaktigheten för distributionen genom att förhindra att resurser som inte är beroende av varandra från att distribueras parallellt. Dessutom kan du skapa Cirkelberoenden som blockerar distributionen. Den [referens](resource-group-template-functions-resource.md#reference) funktionen skapas en implicit beroende på den refererade resursen när resursen distribueras i samma mall. Du kan därför ha flera beroenden än beroenden i den **dependsOn** egenskapen. Den [resourceId](resource-group-template-functions-resource.md#resourceid) funktionen inte skapa en implicit beroende eller verifiera att resursen finns.
+Men om du vill undvika inställningen beroenden som inte behövs. När du har onödiga beroenden förlänga varaktigheten för distributionen genom att förhindra att resurser som inte är beroende av varandra från att distribueras parallellt. Dessutom kan du skapa Cirkelberoenden som blockerar distributionen. Den [referens](resource-group-template-functions-resource.md#reference) funktion och [lista *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) funktioner skapar en implicit beroende på den refererade resursen när resursen distribueras i samma mall och refereras till av sitt namn (inte resurs-ID ). Du kan därför ha flera beroenden än beroenden i den **dependsOn** egenskapen. Den [resourceId](resource-group-template-functions-resource.md#resourceid) funktion inte skapa en implicit beroende eller verifiera att resursen finns. Den [referens](resource-group-template-functions-resource.md#reference) funktion och [lista *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) funktion inte skapa en implicit beroende när resursen refereras till av dess resurs-ID. Om du vill skapa en implicit beroende skicka namnet på den resurs som distribueras i samma mall.
 
-När du har beroende problem, som du behöver få insyn i ordningen för distribution av resursen. Visa ordningen på distributionsåtgärder:
+När du ser beroende problem som du behöver få insyn i ordningen för distribution av resursen. Visa ordningen på distributionsåtgärder:
 
 1. Välj distributionshistoriken för resursgruppen.
 
@@ -75,7 +76,7 @@ När du har beroende problem, som du behöver få insyn i ordningen för distrib
 
    ![Parallell distribution](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   Nästa bild visar tre storage-konton som inte har distribuerats parallellt. Andra lagringskontot beror på det första storage-kontot och tredje lagringskontot är beroende av andra lagringskontot. Första lagringskontot är igång, accepteras och slutförs innan nästa startas.
+   Nästa bild visar tre storage-konton som inte är distribuerat parallellt. Andra lagringskontot beror på det första storage-kontot och tredje lagringskontot är beroende av andra lagringskontot. Första lagringskontot är igång, accepteras och slutförs innan nästa startas.
 
    ![sekventiella distribution](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
@@ -92,7 +93,7 @@ När resursen finns i en annan resursgrupp än den som distribueras för att anv
 
 ## <a name="solution-3---check-reference-function"></a>Lösning 3 - referens kontrollfunktionen
 
-Leta efter ett uttryck som innehåller den [referens](resource-group-template-functions-resource.md#reference) funktion. De värden du anger variera beroende på om resursen är i samma mall, resursgruppen och prenumeration. Kontrollera att du använder parametervärdena som krävs för ditt scenario. Om resursen finns i en annan resursgrupp, ange fullständiga resurs-ID. Till exempel för att referera till ett lagringskonto i en annan resursgrupp, använder du:
+Leta efter ett uttryck som innehåller den [referens](resource-group-template-functions-resource.md#reference) funktion. De värden du anger variera beroende på om resursen är i samma mall, resursgruppen och prenumeration. Kontrollera att du är att tillhandahålla parametervärdena som krävs för ditt scenario. Om resursen finns i en annan resursgrupp, ange fullständiga resurs-ID. Till exempel för att referera till ett lagringskonto i en annan resursgrupp, använder du:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

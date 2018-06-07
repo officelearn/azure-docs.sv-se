@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824769"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: att upptäcka bedrägerier i realtid
 
@@ -35,7 +36,7 @@ Ett telekommunikation företag har stora mängder data för inkommande samtal. F
 
 I den här självstudiekursen kommer du simulera telefonsamtal data med hjälp av ett klientprogram som genererar exempel telefonsamtal metadata. Vissa av posterna som ger appen ser ut som bedrägliga anrop. 
 
-Innan du börjar bör du kontrollera att du har följande:
+Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
 * Anropet händelse generator app. Du kan få detta genom att hämta den [TelcoGenerator.zip filen](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center. Packa upp paketet till en mapp på datorn. Om du vill visa källan Platskod och kör appen i en felsökare kan du få app källkod från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
@@ -77,7 +78,7 @@ I den här proceduren du först skapa en event hub-namnområde och sedan lägga 
 7. Klicka på **Skapa**.
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Bevilja åtkomst till händelsehubben och få en anslutningssträng
 
-Innan en process kan skicka data till en händelsehubb, måste händelsehubben ha en princip som tillåter åtkomstbehörighet. Åtkomstprincipen producerar en anslutningssträng som innehåller auktoriseringsinformation om.
+Innan en process kan skicka data till en händelsehubb, måste händelsehubben ha en princip som tillåter åtkomstbehörighet. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
 
 1.  Klicka på i fönstret händelse namnområde **Händelsehubbar** och klicka sedan på namnet på den nya händelsehubben.
 
@@ -131,26 +132,26 @@ Innan du börjar TelcoGenerator app måste konfigurera du den så att den ska sk
 1.  Öppna ett kommandofönster och gå till mappen där appen TelcoGenerator är uppackade.
 2.  Ange följande kommando:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     Parametrarna är: 
 
     * Antal skivor per timme. 
-    * SIM-kort bedrägeri sannolikhet: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägliga anrop. Värdet.2 innebär som cirka 20% av anrop poster ser falska.
+    * SIM-kort bedrägeri sannolikhet: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägliga anrop. Värdet 0,2 innebär som cirka 20% av anrop poster ser falska.
     * Varaktighet i timmar. Antal timmar som appen ska köras. Du kan även stoppa appen helst genom att trycka på Ctrl + C på kommandoraden.
 
-    Appen startar efter några sekunder att telefonsamtal poster på skärmen när den skickar dem till händelsehubben.
+    Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb.
 
 Vissa viktiga fält som du ska använda i realtid bedrägeri identifiering programmet är följande:
 
-|**Post**|**Definition**|
+|**Spela in**|**Definition**|
 |----------|--------------|
-|`CallrecTime`|Tidsstämpel för anropet starttid. |
-|`SwitchNum`|Telefonväxeln används för att ansluta anropet. I det här exemplet är växlarna strängar som representerar landet där ursprung (USA Kina, Storbritannien, Tyskland eller Australien). |
-|`CallingNum`|Telefonnumret för anroparen. |
-|`CallingIMSI`|Internationella Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anroparen. |
-|`CalledNum`|Anropet mottagarens telefonnummer. |
-|`CalledIMSI`|Internationella Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anropet mottagaren. |
+|`CallrecTime`|Tidsstämpeln för samtalets starttid. |
+|`SwitchNum`|Telefonväxeln används för att ansluta samtalet. För det här exemplet är växlarna strängar som representerar ursprungslandet (USA, Kina, Storbritannien, Tyskland eller Australien). |
+|`CallingNum`|Uppringarens telefonnummer. |
+|`CallingIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anroparen. |
+|`CalledNum`|Telefonnumret till mottagaren. |
+|`CalledIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anropet mottagaren. |
 
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>Skapa ett Stream Analytics-jobb för att hantera strömmande data
@@ -171,7 +172,7 @@ Nu när du har en dataström med anropet händelser kan ställa du in ett Stream
 
     Jobbet har skapats och portalen visar jobbinformation. Inget kör ännu, men – du måste konfigurera jobbet innan den kan startas.
 
-### <a name="configure-job-input"></a>Konfigurera jobbet indata
+### <a name="configure-job-input"></a>Konfigurera jobbindata
 
 1. I instrumentpanelen eller **alla resurser** rutan, lokaliserar och markerar den `sa_frauddetection_job_demo` Stream Analytics-jobbet. 
 2. I den **jobbet topologi** avsnitt i fönstret Stream Analytics-jobbet klickar du på den **indata** rutan.
@@ -221,7 +222,7 @@ TelcoGenerator appen skickar poster för anrop till händelsehubben och Stream A
 
     Azure exempel 3 minuter kan du se från Indataströmmen och meddelar dig när exempeldata är klar. (Detta tar en stund.) 
 
-Exempeldata lagras tillfälligt och är tillgänglig när du har frågefönster öppnas. Om du stänger frågefönstret exempeldata ignoreras och måste du skapa en ny uppsättning exempeldata. 
+Exempeldata lagras tillfälligt och är tillgängliga medan du har frågefönstret öppet. Om du stänger frågefönstret ignoreras exempeldata och du måste skapa en ny uppsättning exempeldata. 
 
 Alternativt kan du hämta en JSON-fil som innehåller exempeldata [från GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), och sedan ladda upp den JSON-fil som ska användas som exempeldata för den `CallStream` indata. 
 
@@ -289,7 +290,7 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Identifiera SIM bedrägeri med hjälp av en självkoppling
 
-I det här exemplet Vi anser att bedrägliga användning ska anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra. Samma användare kan till exempel legitimt ringa ett samtal från USA och Australien på samma gång. 
+I det här exemplet Vi anser att bedrägliga användning ska anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. 
 
 Om du vill söka efter dessa fall, du kan använda en självkoppling för strömmande data att ansluta till dataströmmen till sig själv baserat på den `CallRecTime` värde. Du kan sedan söka efter anropet poster där den `CallingIMSI` värde (det ursprungliga nummer) är detsamma, men `SwitchNum` värdet (land för ursprung) är inte samma.
 

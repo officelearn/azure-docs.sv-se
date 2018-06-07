@@ -9,15 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809268"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
-Den här artikeln börjar en serie artiklar som hjälper företag att implementera en komplett hybrididentitetslösning för Azure Active Directory (AD Azure). Den här lösningen har beskrivs som Hybrid Identity digitala Transformation Framework. Det täcker affärsresultatet och mål organisationer kan fokusera på att implementera en robust och säker hybrididentitetslösning. 
+Den här artikeln börjar en serie artiklar som hjälper företag att implementera en komplett hybrididentitetslösning för Azure Active Directory (AD Azure). Den här lösningen har beskrivs som den [Hybrid Identity digitala Transformation Framework](https://aka.ms/aadframework). Det täcker affärsresultatet och mål organisationer kan fokusera på att implementera en robust och säker hybrididentitetslösning. 
 
 Första business resultatet av framework anger kraven för organisationer att skydda autentiseringsprocessen när användare har åtkomst till molnappar. Första verksamhetsmål i autentisering skyddad business resultatet är användarnas möjlighet att logga in på molnappar med hjälp av lokalt användarnamn och lösenord. Den här processen att och hur användare autentiseras gör allt i molnet möjligt.
 
@@ -166,7 +167,7 @@ Följande diagram visar en översikt på hög nivå arkitektur-komponenter som k
 |Vad är alternativen för flerfunktionsautentisering?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Azure MFA-server](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Tredjeparts-MFA](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Vilka användare konto tillstånd stöds?|Inaktiva konton<br>(upp till 30 minuter fördröjning)|Inaktiva konton<br><br>Låst konto<br><br>Lösenordet har gått ut<br><br>Logga in timmar|Inaktiva konton<br><br>Låst konto<br><br>Lösenordet har gått ut<br><br>Logga in timmar|
 |Vad är alternativ för villkorlig åtkomst?|[Azure AD villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Anspråksregler i AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Blockerar äldre protokoll som stöds?|Nej|Nej|[Ja](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Blockerar äldre protokoll som stöds?|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kan du anpassa logotyp, bild och beskrivning på sidan logga in?|[Ja, med Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Ja, med Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Ja](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Vilka avancerade scenarier stöds?|[Smart lösenord kontoutelåsning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Läcka ut autentiseringsuppgifter rapporter](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Smart lösenord kontoutelåsning](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Multisite autentiseringssystemet låg latens<br><br>[AD FS extranät-låsning](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integrering med tredje parts identitetssystem](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

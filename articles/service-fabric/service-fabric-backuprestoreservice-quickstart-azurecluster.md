@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809802"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsgranskning)
 > [!div class="op_single_selector"]
@@ -119,11 +120,11 @@ Första steget är att skapa princip för säkerhetskopiering som beskriver sche
 
 Använd Azure Storage konto skapade ovan för lagring av säkerhetskopior. Det här exemplet förutsätter Azure Storage-konto med namnet `sfbackupstore`. Behållaren `backup-container` har konfigurerats för att lagra säkerhetskopior behållaren med detta namn skapas, om den inte redan finns vid säkerhetskopiering överföring. Fyll i `ConnectionString` med giltig anslutningssträng för Azure Storage-konto.
 
-Kör följande PowerShell-skript för att anropa krävs REST API för att skapa en ny princip.
+Kör följande PowerShell-skript för att anropa krävs REST API för att skapa en ny princip. Ersätt `account-name` med namnet på ditt lagringskonto, och `account-key` med din lagringskontonyckel.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

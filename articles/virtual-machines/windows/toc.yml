@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: Databehandling med höga prestanda
           href: sizes-hpc.md
+        - name: Tidigare generationer
+          href: sizes-previous-gen.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
         - name: Benchmark-poäng
@@ -190,7 +192,12 @@
         - name: Tagga en virtuell dator
           href: tag.md
         - name: Köra skript på en virtuell dator
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Anpassat skripttillägg
+              href: ../extensions/custom-script-windows.md
+            - name: Kör kommando
+              href: run-command.md
         - name: Ändra temporär enhetsbeteckning
           href: change-drive-letter.md
         - name: Ändra tillgänglighetsuppsättning
@@ -329,41 +336,7 @@
         - name: DNS-upplösning
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Använd VM-tillägg
-      items:
-        - name: Översikt över VM-tillägg
-          href: extensions-features.md
-        - name: Anpassat skripttillägg
-          href: extensions-customscript.md
-        - name: OMS-agenttillägg
-          href: extensions-oms.md
-        - name: PowerShell DSC-tillägg
-          href: extensions-dsc-overview.md
-          items:
-            - name: Hantering av autentiseringsuppgifter för PowerShell DSC-tillägg
-              href: extensions-dsc-credentials.md
-            - name: DSC och VMSS med mallar
-              href: extensions-dsc-template.md
-        - name: Azure-logginsamlare för tillägg
-          href: log-collector-extension.md
-        - name: Azure-diagnostiktillägg
-          href: extensions-diagnostics.md
-          items:
-            - name: Tilläggsschema
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: Aktivera med PowerShell
-              href: ps-extensions-diagnostics.md
-            - name: Aktivera med mallar
-              href: extensions-diagnostics-template.md
-            - name: Felsökning
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: Exportera VM-tillägg
-          href: extensions-export-templates.md
-        - name: Felsökning av tillägg
-          href: extensions-troubleshoot.md
-        - name: Network Watcher-agent
-          href: extensions-nwa.md
-        - name: Begränsa installation av tillägg
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: Migrera virtuella datorer
       items:
         - name: Migrera AWS och lokala virtuella datorer

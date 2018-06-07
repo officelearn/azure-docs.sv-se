@@ -4,20 +4,19 @@ title: Dokumentation om Azure IoT Central (förhandsversion)
 metadata:
   title: Dokumentation om Azure IoT Central (förhandsversion) – självstudier, API-referens | Microsoft Docs
   description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
-  services: iot-central
-  author: czeumault
-  manager: carolz
-  ms.prod: microsoft-iot-central
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  author: dominicbetts
   ms.topic: landing-page
   ms.date: 11/08/2017
-  ms.author: carolz
-  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
-  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.author: dobett
+  ms.service: iot-central
+  services: iot-central
+  manager: timlt
+  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/16/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34628580"
 abstract:
   description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
 sections:

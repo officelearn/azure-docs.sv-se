@@ -7,9 +7,9 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: DC/OS – Linux
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: Självstudier
   items:
@@ -21,16 +21,12 @@
       href: container-service-dcos-fileshare.md
     - name: 4 – Integrera med ACR
       href: container-service-dcos-acr.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Säkra behållare
       href: container-service-security.md
 - name: Instruktionsguider
   items:
-    - name: Skapa ett ACS-kluster
-      href: container-service-create-acs-cluster-cli.md
-    - name: Anslut med ett ACS-kluster
-      href: container-service-connect.md
     - name: Skala ett ACS-kluster
       href: container-service-scale.md
     - name: DC/OS
@@ -85,7 +81,7 @@
       href: container-service-faq.md
     - name: Mallar – ACS-motor
       href: 'https://github.com/Azure/acs-engine'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

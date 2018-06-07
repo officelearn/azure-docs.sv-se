@@ -1,5 +1,5 @@
 - name: ExpressRoute dokumentation
-  href: index.md
+  href: index.yml
 - name: Översikt
   items:
     - name: Vad är ExpressRoute?

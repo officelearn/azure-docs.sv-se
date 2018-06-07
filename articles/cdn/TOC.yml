@@ -10,10 +10,12 @@
   items:
     - name: Skapa en profil och en slutpunkt
       href: cdn-create-new-endpoint.md
+    - name: Integrera ett lagringskonto
+      href: cdn-create-a-storage-account-with-cdn.md
 - name: Självstudier
   items:
     - name: Lägga till Azure CDN till en webbapp
-      href: app-service-web-tutorial-content-delivery-network.md
+      href: cdn-add-to-web-app.md
     - name: Lägga till en anpassad domän
       href: cdn-map-content-to-custom-domain.md
     - name: Konfigurera HTTPS på en anpassad domän
@@ -28,29 +30,21 @@
   items:
     - name: Så här fungerar cachelagring
       href: cdn-how-caching-works.md
+    - name: 'Innehållsleverans, Kina'
+      href: cdn-china-delivery.md
+    - name: Stöd för HTTP/2
+      href: cdn-http2.md
 - name: Instruktionsguider
   items:
-    - name: Integrera
-      items:
-        - name: Storage
-          items:
-            - name: Integrera ett lagringskonto
-              href: cdn-create-a-storage-account-with-cdn.md
-            - name: Support för SAS-lagring
-              href: cdn-sas-storage-support.md
-        - name: Cross-origin resource sharing (CORS)
-          href: cdn-cors.md
     - name: Optimera innehåll
+      href: cdn-optimization-overview.md
       items:
-        - name: Optimeringsöversikt
-          href: cdn-optimization-overview.md
-          items:
-            - name: Optimering av stora filer
-              href: cdn-large-file-optimization.md
-            - name: Optimering av mediedirektuppspelning
-              href: cdn-media-streaming-optimization.md
-            - name: Acceleration av dynamisk webbplats
-              href: cdn-dynamic-site-acceleration.md
+        - name: Optimering av stora filer
+          href: cdn-large-file-optimization.md
+        - name: Optimering av mediedirektuppspelning
+          href: cdn-media-streaming-optimization.md
+        - name: Acceleration av dynamisk webbplats
+          href: cdn-dynamic-site-acceleration.md
     - name: Hantera
       items:
         - name: Hantera med Azure PowerShell
@@ -61,8 +55,6 @@
           href: cdn-improve-performance.md
         - name: Kontrollera funktionssättet för cachelagring
           items:
-            - name: Så här fungerar cachelagring
-              href: cdn-how-caching-works.md
             - name: Kontrollera funktionssättet för cachelagring med cachelagringsregler
               href: cdn-caching-rules.md
             - name: Cachelagra innehåll efter frågesträngar
@@ -83,35 +75,35 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Tokenautentisering
           href: cdn-token-auth.md
+        - name: Support för SAS-lagring
+          href: cdn-sas-storage-support.md
+        - name: Cross-origin resource sharing (CORS)
+          href: cdn-cors.md
         - name: Övervaka resurser
           href: cdn-resource-health.md
         - name: Åsidosätt beteende med regler
           href: cdn-rules-engine.md
-        - name: Få aviseringar i realtid
-          href: cdn-real-time-alerts.md
-        - name: Stöd för HTTP/2
-          href: cdn-http2.md
     - name: Analysera
+      href: cdn-log-analysis.md
       items:
-        - name: Analysera användningsmönster för Azure CDN
-          href: cdn-log-analysis.md
+        - name: Azure-diagnostikloggar
+          href: cdn-azure-diagnostic-logs.md
+        - name: Analysverktyg för Azure CDN från Verizon
           items:
-            - name: Azure-diagnostikloggar
-              href: cdn-azure-diagnostic-logs.md
-            - name: Analysverktyg för Azure CDN från Verizon
-              items:
-                - name: Core-rapporter från Verizon
-                  href: cdn-analyze-usage-patterns.md
-                - name: Anpassade rapporter från Verizon
-                  href: cdn-verizon-custom-reports.md
-            - name: Analysverktyg för Azure CDN Premium från Verizon
-              items:
-                - name: Generera avancerade HTTP-rapporter
-                  href: cdn-advanced-http-reports.md
-                - name: Visa statistik i realtid
-                  href: cdn-real-time-stats.md
-                - name: Analysera gränsnodsprestanda
-                  href: cdn-edge-performance.md
+            - name: Core-rapporter från Verizon
+              href: cdn-analyze-usage-patterns.md
+            - name: Anpassade rapporter från Verizon
+              href: cdn-verizon-custom-reports.md
+        - name: Analysverktyg för Azure CDN Premium från Verizon
+          items:
+            - name: Generera avancerade HTTP-rapporter
+              href: cdn-advanced-http-reports.md
+            - name: Visa statistik i realtid
+              href: cdn-real-time-stats.md
+            - name: Analysera gränsnodsprestanda
+              href: cdn-edge-performance.md
+            - name: Få aviseringar i realtid
+              href: cdn-real-time-alerts.md
     - name: Utveckla
       items:
         - name: .NET

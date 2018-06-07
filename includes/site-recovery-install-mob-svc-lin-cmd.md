@@ -24,7 +24,7 @@ Usage:
 
 |Parameter|Typ|Beskrivning|Möjliga värden|
 |-|-|-|-|
-|-r |Obligatorisk|Anger om Mobility Service (MS) som ska installeras eller MasterTarget (Huvudmålservern) ska installeras.|MS </br> MT|
+|-r |Obligatorisk|Anger om Mobility Service (MS) som ska installeras eller MasterTarget (Huvudmålservern) ska installeras.|MS </br> HUVUDMÅLSERVERN|
 |-d |Valfri|Plats där Mobilitetstjänsten är installerad.|/usr/local/ASR|
 |-v|Obligatorisk|Anger plattformen Mobilitetstjänsten är installerad. </br> </br>- **VMware**: Använd det här värdet om du installerar Mobilitetstjänsten på en virtuell dator som körs på *VMware vSphere ESXi-värdar*, *Hyper-V-värdar*, och *fysiska servrar*. </br> - **Azure**: Använd det här värdet om du installerar en agent på en Azure IaaS-VM.| VMware </br> Azure|
 |-q|Valfri|Anger att installationsprogrammet körs i tyst läge.| Gäller inte|

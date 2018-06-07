@@ -1,6 +1,6 @@
 ---
 title: Push-meddelanden till specifika användare använder Azure Notification Hubs | Microsoft Docs
-description: Lär dig hur du skickar push-meddelanden till specifika användare via Azure Notification Hubs.
+description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
 documentationcenter: ios
 author: dimazaid
 manager: kpiteira
@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33777543"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika användare använder Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Denna självstudie visar hur du använder Azure-meddelandehubbar för att skicka push-meddelanden till en specifik app-användare på en viss enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter och att generera meddelanden, som visas i avsnittet vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter och att generera meddelanden, som visas i avsnittet vägledning [registrering från din Apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
-I den här kursen kan du utföra följande steg:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Skapa WebAPI-projekt
-> * Autentisera klienter till WebAPI-serverdel
-> * Registrera dig för meddelanden med hjälp av WebAPI-serverdel
-> * Skicka meddelanden från WebAPI-serverdel
-> * Publicera nya WebAPI-serverdel
+> * Skapa ett WebAPI-projekt
+> * Autentisera klienter mot WebAPI-serverdelen
+> * Registrera för meddelanden med hjälp av WebAPI-serverdelen
+> * Skicka meddelanden från WebAPI-serverdelen
+> * Publicera den nya WebAPI-serverdelen
 > * Ändra din iOS-app
 > * Testa programmet
 
@@ -478,10 +479,10 @@ Om du vill använda Mobile Apps som serverdelstjänsten kan se den [Mobile Apps 
     ![][4]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen beskrivs hur du push-meddelanden till specifika användare som har taggarna associerade med deras registreringar. Information om hur du push-meddelanden för plats-baserad, fortsätter du till följande kursen: 
+I den här självstudien har du lärt dig mer om push-meddelanden till specifika användare som har taggar associerade med sina registreringar. Information om hur du skickar platsbaserade meddelanden finns i nästa självstudie: 
 
 > [!div class="nextstepaction"]
->[Push-meddelanden för plats-baserad](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Platsbaserade push-meddelanden](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png

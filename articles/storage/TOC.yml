@@ -13,7 +13,7 @@
 - name: Köer
   href: ./queues/storage-queues-introduction.md
 - name: Tabeller
-  href: ../cosmos-db/table-storage-overview.md
+  href: ./tables/table-storage-overview.md
 - name: Diskar
   items:
     - name: Windows

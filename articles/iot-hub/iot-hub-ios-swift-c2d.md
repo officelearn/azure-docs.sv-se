@@ -1,24 +1,19 @@
 ---
 title: Moln till enhet meddelanden med Azure IoT Hub (iOS) | Microsoft Docs
 description: Hur du skickar meddelanden moln till enhet till en enhet från en Azure IoT-hubb med Azure IoT-SDK för iOS.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634289"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden moln till enhet med IoT-hubb (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -166,9 +161,9 @@ Dina utdata bör se ut som i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen beskrivs hur du skickar och tar emot meddelanden moln till enhet. 
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT-Fjärrövervaknings lösningsaccelerator].
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt med IoT-hubb finns [Azure IoT Fjärrövervaknings solution accelerator].
 
-Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Utvecklarhandbok].
+Mer information om hur du utvecklar lösningar med IoT-hubb finns i [Utvecklarhandbok för IoT-hubb].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
@@ -176,13 +171,13 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[skicka telemetri från en enhet till en IoT-hubb]: quickstart-send-telemetry-ios.md
+[Skicka telemetri från en enhet till en IoT-hubb]: quickstart-send-telemetry-ios.md
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[IoT-hubb Utvecklarhandbok]: iot-hub-devguide.md
+[Utvecklarhandbok för IoT-hubb]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT-Fjärrövervaknings lösningsaccelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Azure IoT Fjärrövervaknings solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

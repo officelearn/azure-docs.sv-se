@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9d8d0daae3fd35cd8a2527a3a29da235424830e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 62b838212f94c48e39daf31877aeb5b344836571
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622568"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +63,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Teradata länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-server. |Ja |
@@ -83,7 +84,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När källan är av typen **RelationalSource** (som omfattar Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Ja |
 
@@ -290,15 +291,15 @@ När data flyttas till Teradata, används följande mappningar från Teradata-ty
 | Bild |Sträng |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
-| Blob |Byte[] |
-| Mottagna byte |Byte[] |
-| VarByte |Byte[] |
+| Blob |byte] |
+| Mottagna byte |byte] |
+| VarByte |byte] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| Dubbel |Dubbel |
+| dubbla |dubbla |
 | Integer |Int32 |
-| Tal |Dubbel |
+| Tal |dubbla |
 | SmallInt |Int16 |
 | Date |DateTime |
 | Tid |TimeSpan |
@@ -321,7 +322,7 @@ När data flyttas till Teradata, används följande mappningar från Teradata-ty
 | Period(Date) |Sträng |
 | Period(Time) |Sträng |
 | Tid (Time med tidszon) |Sträng |
-| Period(Timestamp) |Sträng |
+| Period(timestamp) |Sträng |
 | Tid (tidsstämpel med tidszon) |Sträng |
 | Xml |Sträng |
 

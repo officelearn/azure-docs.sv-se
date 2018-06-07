@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640378"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -60,7 +61,7 @@ Parametrar är skiftlägeskänsliga.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -131,7 +132,7 @@ Ett vanligt användningsfall för Text fusion är möjligheten att koppla en tex
 
 Följande exempel kunskaper skapar en *merged_text* fältet ska innehålla textinnehåll dokumentet, samt OCRed text från var och en av avbildningarna som är inbäddad i detta dokument. 
 
-#### <a name="request-body-syntax"></a>Begäran brödtext Syntax
+#### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -200,4 +201,4 @@ Kunskaper i exemplet ovan förutsätter att det finns ett normaliserat bilder f�
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
 + [TextMerger kunskaper](cognitive-search-skill-textmerger.md)
 + [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
-+ [Skapa indexerare (REST)](ref-create-indexer.md)
++ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

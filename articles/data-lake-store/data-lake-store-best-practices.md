@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625346"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Metodtips för Azure Data Lake Store
 I den här artikeln får information du om metodtips och överväganden för att arbeta med Azure Data Lake Store. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Store. Arbeta med verkligen stordata i tjänster som Azure HDInsight var krånglig innan Data Lake Store. Var du tvungen att fragmentera data över flera Blob storage-konton så att petabyte lagring och optimala prestanda som kan byggas ut kan uppnås. De flesta av de hårda gränsvärdena för storlek och prestanda tas bort med Data Lake Store. Det finns dock fortfarande vissa aspekter som den här artikeln täcker så att du kan få bästa möjliga prestanda med Data Lake Store. 
@@ -65,9 +66,9 @@ POSIX behörigheter och granskning i Data Lake Store innehåller en kostnader so
 * Snabbare kopiera/replikering
 * Färre filer ska bearbeta när du uppdaterar Data Lake Store POSIX-behörigheter 
 
-Beroende på vilka tjänster och arbetsbelastningar använder data, är en bra att tänka på för filstorlekar 256 MB till 1 GB, helst inte kommer under 100 MB eller över 2 GB. Om det går inte att vara batchar filstorlekarna när hamnar i Data Lake Store, kan du ha ett separat komprimering jobb som kombinerar de här filerna till de större. Mer information och rekommendation om filstorlekar och sortera data i Data Lake Store finns [struktur datauppsättningen](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Beroende på vilka tjänster och arbetsbelastningar använder data, en bra att tänka på för filer är 256 MB eller större. Om det går inte att vara batchar filstorlekarna när hamnar i Data Lake Store, kan du ha ett separat komprimering jobb som kombinerar de här filerna till de större. Mer information och rekommendation om filstorlekar och sortera data i Data Lake Store finns [struktur datauppsättningen](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Mycket stora filer och eventuell prestandapåverkan 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Mycket stora filer och eventuell prestandapåverkan
 
 Även om Data Lake Store stöder stora filer upp till petabyte i storlek för optimala prestanda och beroende på vilken process som läser data, kan den inte är optimal att gå över 2 GB i genomsnitt. Till exempel när du använder **Distcp** för att kopiera data mellan platser eller annan storage-konton, filer är nivån finest av granularitet som används för att avgöra kartan uppgifter. Så om du kopierar 10 filer som är 1 TB allokerade högst 10 mappers. Även om du har många filer med mappers som tilldelats fungerar från början på mappers parallellt att flytta stora filer. När jobbet startar likvidation endast några mappers förblir allokerade och du kan ha fastnat med en enda mapper som tilldelats en stor fil. Microsoft har skickat förbättringar av Distcp för det här problemet i framtida versioner av Hadoop.  
 

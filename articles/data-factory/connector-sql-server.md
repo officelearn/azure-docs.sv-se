@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617689"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,11 +41,11 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 - Hämtar data med hjälp av SQL-fråga eller en lagrad procedur som källa.
 - Som mottagare, bifoga data måltabellen eller anropa en lagrad procedur med egen kod vid kopiering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ställa in en Self-hosted integrering Runtime om du vill använda data från en SQL Server-databas som inte är allmänt tillgänglig. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information. Integration Runtime innehåller en inbyggd drivrutin för SQL Server-databasen, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till SQL Server-databas.
 
-## <a name="getting-started"></a>Komma i gång
+## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,11 +55,11 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för SQL Server länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SqlServer** | Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| userName |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
+| Användarnamn |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
@@ -115,7 +116,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från/till SQL Server-databas, **SqlServerTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **SqlServerTable** | Ja |
 | tableName |Namnet på den tabell eller vy i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Ja |
@@ -147,7 +148,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SQL Server anger du datakällan i kopieringsaktiviteten till **SqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **SqlSource** | Ja |
 | sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. |Nej |
@@ -251,7 +252,7 @@ GO
 
 Om du vill kopiera data till SQL Server anger du sink i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till: **SqlSink** | Ja |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antalet rader). |Nej (standard: 10000) |
@@ -482,35 +483,35 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 | SQL Server-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| Binär |Byte[] |
+| Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |Byte[] |
-| flyttal |Dubbel |
-| Bild |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |byte] |
+| Flyttal |dubbla |
+| Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Ogift |
-| rowversion |Byte[] |
+| Verklig |Enkel |
+| ROWVERSION |byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
-| Text |Sträng, Char] |
-| tid |TimeSpan |
-| tidsstämpel |Byte[] |
+| text |Sträng, Char] |
+| time |TimeSpan |
+| tidsstämpel |byte] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
-| varbinary |Byte[] |
+| Unik identifierare |GUID |
+| varbinary |byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
 

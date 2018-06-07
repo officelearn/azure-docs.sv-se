@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636614"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar och hemligheter certifikat
 Azure Key Vault kan du lagra och använda kryptografiska nycklar i Microsoft Azure-miljön. Key Vault stöder flera nyckeltyper och algoritmer och möjliggör användning av maskinvara säkerhet moduler (HSM) för högt värderade nycklar. Dessutom kan Key Vault användare på ett säkert sätt lagra hemligheter. Hemligheter är begränsad storlek oktett-objekt med några särskilda semantik. Key Vault stöder även certifikat som är byggda på nycklar och hemligheter och lägga till en funktion för automatisk förnyelse.
@@ -327,7 +328,7 @@ Certifikat-attribut avspeglas attribut för adresserbara nyckel och Hemlig skapa
 
 En Key Vault-certifikatet har följande attribut:  
 
--   *aktiverad*: boolean, valfritt, standardvärdet är **SANT**. Det här attributet kan anges för att indikera om certifikatdata kan hämtas som hemliga eller kan använda som en nyckel. Detta används tillsammans med *nbf* och*exp*när en åtgärd som sker mellan *nbf* och exp, den endast tillåts om aktiverad är inställd på true. Genomförs utanför den *nbf* och*exp*fönster tillåts inte automatiskt.  
+-   *aktiverad*: boolean, valfritt, standardvärdet är **SANT**. Det här attributet kan anges för att indikera om certifikatdata kan hämtas som hemliga eller kan använda som en nyckel. Detta används tillsammans med *nbf* och *exp* när en åtgärd som sker mellan *nbf* och *exp*, kommer bara tillåtet om aktiverat anges till true. Genomförs utanför den *nbf* och *exp* fönster tillåts inte automatiskt.  
 
 Det finns ytterligare skrivskyddad attribut som ingår i svaret:
 

@@ -1,24 +1,19 @@
 ---
-title: Installera Azure Backup-Server v2 | Microsoft Docs
+title: Installera Azure Backup-Server v2
 description: Azure Backup-Server v2 ger förbättrad säkerhetskopiering för att skydda virtuella datorer, filer och mappar, arbetsbelastningar och mer. Lär dig mer om att installera eller uppgradera till Azure Backup Server v2.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: adigan
+ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606961"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installera Azure Backup-Server v2
 
@@ -115,7 +110,7 @@ Lägg till en volym i administratörskonsolen:
 
 I Backup Server anger du vilka arbetsbelastningar som är tilldelade till vilka volymer. Du kan exempelvis ange dyra volymer som stöder ett stort antal i/o-åtgärder per sekund (IOPS) för att lagra arbetsbelastningar som kräver ofta, högvolyms-säkerhetskopieringar. Ett exempel är SQL Server med transaktionsloggar.
 
-#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Uppdatera DPMDiskStorage
 
 Uppdatera egenskaperna för en volym i lagringspoolen i Backup Server med PowerShell-cmdlet Update DPMDiskStorage.
 
@@ -277,7 +272,7 @@ Säkerhetskopiera till Azure kör DPMSYNC-SYNC
 
 Två nya cmdlets finns tillgängliga när du installerar Azure Backup Server v2: 
 * [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
-* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Demontera DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 38c1611c0404202be2e100d3059b4ba1ed1a9236
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6debc77bf7232f5ee5d7e638ee25b5eccdbdeeef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622085"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +63,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SAP Business Warehouse (BW) länkad tjänst.
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 server | Namnet på den server som SAP BW-instansen finns. | sträng | Ja
 systemNumber | Systemnummer för SAP BW-system. | Två siffror decimaltal representeras som en sträng. | Ja
@@ -85,7 +86,7 @@ Medan egenskaper som är tillgängliga i den **typeProperties** avsnitt i aktivi
 
 När datakällan i en Kopieringsaktivitet är av typen **RelationalSource** (som innehåller SAP BW), följande egenskaper finns i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB | Anger MDX-fråga för att läsa data från SAP BW-instans. | MDX-fråga. | Ja |
 
@@ -294,20 +295,20 @@ Datatypen i ABAP ordlista | .NET-datatyp
 ACCP |  Int
 CHAR | Sträng
 CLNT | Sträng
-CURR | Decimal
+AKTUELLT DATUM | Decimal
 CUKY | Sträng
 DEC | Decimal
-FLTP | Dubbel
+FLTP | dubbla
 INT1 | Mottagna byte
 INT2 | Int16
 INT4 | Int
 LANG | Sträng
 LCHR | Sträng
-LRAW | Byte[]
+LRAW | byte]
 PREC | Int16
 QUAN | Decimal
-RAW | Byte[]
-RAWSTRING | Byte[]
+RÅDATA | byte]
+RAWSTRING | byte]
 STRÄNG | Sträng
 ENHET | Sträng
 DATS | Sträng

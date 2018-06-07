@@ -8,11 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641119"
 ---
 # <a name="what-is-cognitive-search"></a>Vad är kognitiva sökningen?
 
@@ -29,7 +30,7 @@ Kunskaper som används under indexeringen är fördefinierade eller anpassade:
 + [Anpassade kunskaper](cognitive-search-create-custom-skill-example.md) kan utvecklas av du för någon särskild bearbetning som krävs. Exempel på anpassade kunskaper kan vara en kundentitet modul eller dokumentet klassificerare som mål för en specifik domän, till exempel Ekonomi, vetenskapliga publikationer eller medicinska.
 
 > [!NOTE]
-> Cognitive Search är en offentlig förhandsversion och kompetenskörning ges för närvarande kostnadsfritt. Priser för den här funktionen meddelas vid ett senare tillfälle.
+> Cognitive Search är en offentlig förhandsversion och kompetenskörning ges för närvarande kostnadsfritt. Priserna för den här funktionen kommer att meddelas längre fram.
 
 ## <a name="components-of-cognitive-search"></a>Komponenter i kognitiva sökning
 
@@ -61,7 +62,7 @@ När bearbetningen är klar har du en sökning Kristi som består av utökade do
 
 Indexet är som andra du kan skapa för Azure Search: du kan komplettera med anpassade analyzers anropa fuzzy sökfrågor, lägga till filtrerade sökning eller experimentera med bedömningen profiler för att omforma sökresultatet.
 
-Index genereras från ett indexeringsschema som definierar fälten attribut, och andra konstruktioner kopplad till ett visst index, till exempel bedömningen profiler och synonymen mappar. När ett index är definierat och fyllts, kan du indexera inkrementellt för att hämta upp nya och uppdaterade källdokument. Vissa ändringar kräver återskapa. Du bör använda en mindre mängd data tills schemat designen är stabil. Mer information finns i [så att bygga om index](search-howto-reindex.md).
+Index genereras från ett indexeringsschema som definierar fälten attribut, och andra konstruktioner kopplad till ett visst index, till exempel bedömningen profiler och synonymen mappar. När ett index är definierat och fyllts, kan du indexera inkrementellt för att hämta upp nya och uppdaterade källdokument. Vissa ändringar kräver återskapa. Du bör använda en mindre mängd data tills schemat designen är stabil. Läs mer i informationen om hur du [återskapar ett index](search-howto-reindex.md).
 
 <a name="feature-concepts"></a>
 
@@ -102,9 +103,9 @@ För närvarande finns endast REST API: er. Använd `api-version=2017-11-11-Prev
 | REST-API | Beskrivning |
 |-----|-------------|
 | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern datakälla tillhandahåller källdata som används för att skapa utökade dokument.  |
-| [Skapa kunskaper (api-version = 2017-11-11-Preview)](ref-create-skillset.md)  | En resurs som koordinera bruket av [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline berikande under indexeringen. |
+| [Skapa kunskaper (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som koordinera bruket av [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline berikande under indexeringen. |
 | [Skapa Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycka ett Azure Search-index. Fält i indexet mappa till fält i datakällan eller ett fält som har tillverkats under fasen berikande (t.ex, ett fält för organisationsnamn som skapats av entiteten recognition). |
-| [Skapa indexerare (api-version = 2017-11-11-Preview)](ref-create-skillset.md)  | En resurs som definierar komponenter som används vid indexering: en datakälla, en kunskaper, fältet kopplingar från käll- och mellanliggande datastrukturer till målet index och indexet sig själv. Köra indexeraren är utlösare för datapåfyllning och berikande. Utdata är en sökning Kristi baserat på schemat index, fylls i med källdata utökat via kunskaper.  |
+| [Skapa indexerare (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används vid indexering: en datakälla, en kunskaper, fältet kopplingar från käll- och mellanliggande datastrukturer till målet index och indexet sig själv. Köra indexeraren är utlösare för datapåfyllning och berikande. Utdata är en sökning Kristi baserat på schemat index, fylls i med källdata utökat via kunskaper.  |
 
 **Checklista: Ett vanligt arbetsflöde**
 
@@ -112,11 +113,11 @@ För närvarande finns endast REST API: er. Använd `api-version=2017-11-11-Prev
 
 1. Skapa en [datakällobjektet](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure-sökning för att ange en anslutningssträng för hämtning av data.
 
-1. Skapa en [kunskaper](ref-create-skillset.md) berikande steg.
+1. Skapa en [kunskaper](https://docs.microsoft.com/rest/api/searchservice/create-skillset) berikande steg.
 
 1. Definiera den [indexeringsschema](https://docs.microsoft.com/rest/api/searchservice/create-index). Den *fält* samlingen innehåller fält från datakällan. Du bör också stub-ut ytterligare fält som ska innehålla genererade värden för innehåll som skapats under berikande.
 
-1. Definiera den [indexeraren](ref-create-skillset.md) refererar till datakällan, kunskaper och index.
+1. Definiera den [indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-skillset) refererar till datakällan, kunskaper och index.
 
 1. Inom indexeraren, lägger du till *outputFieldMappings*. Det här avsnittet mappar utdata från kunskaper (i steg 3) till indata fälten i indexeringsschema (i steg 4).
 

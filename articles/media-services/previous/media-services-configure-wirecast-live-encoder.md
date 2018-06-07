@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 2de7c06f2e03432021eaf6d81d166aadd392a4bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637998"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använda Wirecast-kodaren för att skicka en direktsänd dataström med enkel bithastighet
 > [!div class="op_single_selector"]
@@ -69,7 +70,7 @@ Medan startar kanalen kan [konfigurera kodaren](media-services-configure-wirecas
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>Konfigurera Telestream Wirecast-kodaren
+## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a>< ett id = ”configure_wirecast_rtmp” /a > Konfigurera Telestream Wirecast-kodaren
 I den här kursen används följande inställningar för utdata. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
 
 **Video**:
@@ -115,7 +116,7 @@ I den här kursen används följande inställningar för utdata. Resten av det h
    * Samplingsfrekvens: 44 100 kHz
 
      ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Tryck på **spara**.
+6. Tryck på **Spara**.
 
     Fältet avkodning har nu den nya profilen kan väljas.
 

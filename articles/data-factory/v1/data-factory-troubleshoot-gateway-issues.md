@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624292"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om felsökning av problem med att använda Data Management Gateway.
@@ -120,7 +121,7 @@ När du registrerat en gateway kan behöva du ange sökvägen och lösenord för
 #### <a name="cause"></a>Orsak
 Gatewayen har registrerats på andra datorer innan. Under registreringen av en gateway har ett krypteringscertifikat associerats med gatewayen. Certifikatet kan vara själva genereras av gatewayen eller anges av användaren.  Det här certifikatet används för att kryptera autentiseringsuppgifter för datalagret (länkade tjänst).  
 
-![Exportera certifikat](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+![Exportera certifikatet](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
 När du återställer gatewayen på en annan värddator, frågar Registreringsguiden för det här certifikatet kan dekryptera autentiseringsuppgifterna som krypterats med det här certifikatet.  Utan det här certifikatet autentiseringsuppgifterna inte kan dekrypteras av den nya gatewayen och efterföljande kopiera aktivitet körningar som är associerade med den här nya gateway misslyckas.  
 

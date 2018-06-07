@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608958"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -43,11 +44,6 @@ Kända lösningar för att felsöka problem i Azure Cloud Shell inkluderar:
  - **Lösning**: Kontrollera att du har konfigurerat inställningarna för att aktivera skicka https-förfrågningar och websocket-begäranden till domäner på *. console.azure.com.
 
 ## <a name="bash-troubleshooting"></a>Bash felsökning
-
-### <a name="cannot-run-az-login"></a>Det går inte att köra az inloggning
-
-- **Information om**: kör `az login` fungerar inte som du redan har autentiserats under kontot som används för att logga in på molnet Shell eller Azure-portalen.
-- **Lösning**: använda ditt konto som används för att logga in eller logga ut och autentiseras med ditt avsedda Azure-konto.
 
 ### <a name="cannot-run-the-docker-daemon"></a>Det går inte att köra docker-daemon
 

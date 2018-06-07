@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7713e1b6a74fd099206804133d2dc8140fe83a8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616404"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +63,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för DB2 länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Db2** | Ja |
 | server |Namnet på DB2-server. |Ja |
@@ -103,7 +104,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data från DB2, **RelationalTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i DB2-databasen. | Nej (om ”fråga” i aktivitetskälla har angetts) |
@@ -133,7 +134,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från DB2, anger du källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tabellnamn” i datamängden har angetts) |
@@ -177,8 +178,8 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Typ av DB2-databas | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binär |Byte[] |
-| Blob |Byte[] |
+| Binär |byte] |
+| Blob |byte] |
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
@@ -186,22 +187,22 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | DbClob |Sträng |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Dubbel |Dubbel |
-| flyttal |Dubbel |
+| dubbla |dubbla |
+| Flyttal |dubbla |
 | Bild |Sträng |
 | Integer |Int32 |
-| LongVarBinary |Byte[] |
+| LongVarBinary |byte] |
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
-| numeriskt |Decimal |
-| Real |Ogift |
+| Numerisk |Decimal |
+| Real |Enkel |
 | SmallInt |Int16 |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| VarBinary |Byte[] |
+| VarBinary |byte] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
-| Xml |Byte[] |
+| Xml |byte] |
 
 
 ## <a name="next-steps"></a>Nästa steg

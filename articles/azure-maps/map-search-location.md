@@ -1,22 +1,20 @@
 ---
 title: Visa sökresultat med Azure Maps | Microsoft Docs
 description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascrip-karta
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f66b1f93d7bc4c2e7c511c10d7091760e8f6d023
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b77737b16b23ed00c8f12f84e6a8558a665a7d15
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599889"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -43,3 +41,7 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 * [Azure mappar Fuzzy Sök API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * [karta](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Att lägga till i din maps mer kodexempel finns i följande artiklar: 
+* [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
+* [Visa anvisningar från A till B](./map-route.md)

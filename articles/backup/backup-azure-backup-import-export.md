@@ -1,24 +1,19 @@
 ---
-title: Azure Backup - offlinesäkerhetskopiering eller inledande seeding med hjälp av tjänsten Azure Import/Export | Microsoft Docs
+title: Azure Backup - offlinesäkerhetskopiering eller inledande seeding med hjälp av tjänsten Azure Import/Export
 description: Lär dig hur Azure Backup kan användas att skicka data från nätverket med hjälp av tjänsten Azure Import/Export. Den här artikeln förklarar offline seeding av den första säkerhetskopiera informationen med hjälp av tjänsten Azure Import Export.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606145"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure-säkerhetskopiering har flera inbyggda effektivitet som sparar kostnader för nätverk och lagring under de första fullständiga säkerhetskopieringarna av data till Azure. Första fullständiga säkerhetskopieringar vanligtvis överför stora mängder data och kräver större nätverksbandbredd jämfört med efterföljande säkerhetskopieringar som överför bara går/varje. Genom processen att dirigera offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -67,7 +62,7 @@ Innan du påbörjar Offline säkerhetskopiering arbetsflödet uppfylla följande
     4. I listan över providers rulla ned till Microsoft.ImportExport. Om statusen är NotRegistered, klickar du på **registrera**.
     ![registrera resursprovidern](./media/backup-azure-backup-import-export/registerimportexport.png)
 * En fristående plats, som kan vara en nätverksresurs eller alla ytterligare enheter på datorn, interna eller externa, har tillräckligt med diskutrymme för att rymma den första kopian har skapats. Om du vill se till att säkerhetskopiera en 500 GB filserver är mellanlagringsområdet minst 500 GB. (Färre används på grund av komprimering.)
-* När du skickar diskar till Azure, Använd endast 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II/III interna hårddiskar. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [Azure Import/Export service dokumentationen](../storage/common/storage-import-export-service.md#hard-disk-drives) för den senaste uppsättningen enheter som har stöd för tjänsten.
+* När du skickar diskar till Azure, Använd endast 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II/III interna hårddiskar. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [Azure Import/Export service dokumentationen](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen enheter som har stöd för tjänsten.
 * SATA-enheter måste vara ansluten till en dator (kallas en *kopiera datorn*) varifrån kopia av säkerhetskopierade data från den *mellanlagringsplatsen* till SATA-enheter är klar. Kontrollera att Bitlocker är aktiverat på den *kopiera datorn*.
 
 ## <a name="workflow"></a>Arbetsflöde

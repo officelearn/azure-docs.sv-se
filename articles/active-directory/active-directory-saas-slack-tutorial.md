@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c3fb9eb3e8dd4b8c3add5dcf0436958500aa0189
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2b1b6b8e119cc842ae780cd244ea3b265340fb3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-integrering med Slack
 
@@ -138,11 +139,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute1.png)
 
     a. I den **namn** textruta ange attributets namn visas för den raden.
-    
+
     b. Från den **värdet** väljer du det attributvärde som visas för den raden.
 
     c. Lämna den **Namespace** tomt.
-    
+
     d. Klicka på **OK**
 
 6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
@@ -155,17 +156,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 8. På den **Slack Configuration** klickar du på **konfigurera Slack** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_configure.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_configure.png)
 
-9.  I en annan webbläsarfönster loggar du in på webbplatsen Slack företag som administratör.
+9. I en annan webbläsarfönster loggar du in på webbplatsen Slack företag som administratör.
 
-10.  Gå till **Microsoft Azure AD** och gå till **inställningar för Team**.
+10. Gå till **Microsoft Azure AD** och gå till **inställningar för Team**.
 
      ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-slack-tutorial/tutorial_slack_001.png)
 
-11.  I den **inställningar för Team** klickar du på den **autentisering** fliken och klicka sedan på **ändra inställningar för**.
+11. I den **inställningar för Team** klickar du på den **autentisering** fliken och klicka sedan på **ändra inställningar för**.
 
-     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-slack-tutorial/tutorial_slack_002.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-slack-tutorial/tutorial_slack_002.png)
 
 12. På den **SAML autentiseringsinställningar** dialogrutan, utför följande steg:
 
@@ -180,10 +181,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. Konfigurera tre inställningarna ovan som passar din Slack-teamet. Mer information om inställningarna hittar den **Slacks guiden för konfiguration av SSO** här. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Klicka på **spara konfigurationen**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -201,12 +198,12 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-slack-tutorial/create_aaduser_02.png) 
 
 3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-slack-tutorial/create_aaduser_03.png) 
+
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-slack-tutorial/create_aaduser_03.png)
 
 4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png) 
+
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png)
 
     a. I den **namn** textruta typen **BrittaSimon**.
 
@@ -215,12 +212,10 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="creating-a-slack-test-user"></a>Skapa en Slack testanvändare
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Slack. Slack stöder just-in-time-etablering, vilket är aktiverat som standard.
-
-Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Slack om den inte finns.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Slack. Slack stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Slack om den inte finns. Slack stöder även automatisk användaretablering, hittar du mer information [här](active-directory-saas-slack-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
 > [!NOTE]
 > Om du behöver skapa en användare manuellt, måste du kontakta [Slack supportteamet](https://slack.com/help/contact).
@@ -229,7 +224,7 @@ Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas un
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Slack.
 
-![Tilldela användare][200] 
+![Tilldela användare][200]
 
 **Om du vill tilldela Slack Britta Simon utför du följande steg:**
 
@@ -265,6 +260,8 @@ När du klickar på panelen Slack åtkomst på panelen du ska hämta automatiskt
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-slack-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -279,4 +276,3 @@ När du klickar på panelen Slack åtkomst på panelen du ska hämta automatiskt
 [201]: ./media/active-directory-saas-slack-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-slack-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-slack-tutorial/tutorial_general_203.png
-

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Uppgradera från en tidigare version | Microsoft Docs"
-description: "Beskriver olika metoder för att uppgradera till den senaste versionen av Azure Active Directory Connect, inklusive en uppgradering på plats och en öppning migrering."
+title: 'Azure AD Connect: Uppgradera från en tidigare version | Microsoft Docs'
+description: Beskriver olika metoder för att uppgradera till den senaste versionen av Azure Active Directory Connect, inklusive en uppgradering på plats och en öppning migrering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592484"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste versionen
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera installationen av Azure Active Directory (AD Azure) Anslut till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [svänga migrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.
@@ -102,7 +104,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar omedelb
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. När uppgraderingen är klar kör du följande cmdlet ta reda på vilka åsidosättningar har lagts till:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. När uppgraderingen är klar kör du följande cmdlet ta reda på vilka åsidosättningar har lagts till: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > Åsidosättningarna som är specifika för anslutningen. I följande exempel har fullständig Import steg och fullständig synkronisering lagts till både lokalerna AD-koppling och Azure AD-koppling.
@@ -111,7 +113,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar omedelb
 
 3. Notera de befintliga åsidosättningar som lagts till.
    
-4. Om du vill ta bort åsidosättningar för både fullständig import och fullständig synkronisering på en godtycklig koppling, kör du följande cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Om du vill ta bort åsidosättningar för både fullständig import och fullständig synkronisering på en godtycklig koppling, kör du följande cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Kör följande PowerShell-skript för att ta bort åsidosättningar för alla kopplingar:
 
@@ -122,12 +124,12 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar omedelb
    }
    ```
 
-5. Om du vill återuppta Schemaläggaren, kör du följande cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Om du vill återuppta Schemaläggaren, kör du följande cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Kom ihåg att köra nödvändiga synkroniseringssteg tidigaste dataskyddsstatistik. Du kan utföra dessa steg med hjälp av hanteraren för synkroniseringstjänsten eller manuellt lägga till åsidosättningarna tillbaka med cmdlet Set-ADSyncSchedulerConnectorOverride.
 
-Kör följande cmdlet för att lägga till åsidosättningar för både fullständig import och fullständig synkronisering på en godtycklig koppling:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Kör följande cmdlet för att lägga till åsidosättningar för både fullständig import och fullständig synkronisering på en godtycklig koppling:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).

@@ -1,24 +1,19 @@
 ---
-title: Azure Backup - Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar | Microsoft Docs
+title: Azure Backup - Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med hjälp av PowerShell
 services: backup
-documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: ''
-ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: adigan
+ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606927"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på en DPM-server och för att hantera säkerhetskopiering och återställning.
@@ -53,7 +48,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 Följande uppgifter för installation och registrering kan automatiseras med PowerShell:
 
-* Skapa ett Recovery Services-valv
+* skapar ett Recovery Services-valv
 * Installera Azure Backup-agenten
 * Registreras med Azure Backup-tjänsten
 * Nätverksinställningar
@@ -80,7 +75,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
 4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
 
    > [!TIP]
-   > Många Azure Backup-cmdletar kräver Recovery Services-valvet objekt som indata. Därför är det praktiskt att lagra säkerhetskopian Recovery Services-valvet objekt i en variabel.
+   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
    >
    >
 
@@ -138,9 +133,9 @@ Tillgängliga alternativ inkluderar:
 | /m |Delta i Microsoft Update |- |
 | /nu |Sök inte efter uppdateringar när installationen är klar |- |
 | /d |Avinstallerar Microsoft Azure Recovery Services-agenten |- |
-| /ph |Värden proxyadress |- |
+| /pH |Värden proxyadress |- |
 | /po |Portnummer för proxyservern värden |- |
-| /pu |Värddatorn Proxyanvändarnamnet |- |
+| /Pu |Värddatorn Proxyanvändarnamnet |- |
 | /PW |Lösenord för proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrera DPM till en Recovery Services-valvet

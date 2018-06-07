@@ -1,19 +1,19 @@
 ---
-title: "Förstå Azure IoT kant runtime | Microsoft Docs"
-description: "Lär dig mer om Azure IoT kant-runtime och hur kan dina enheter"
-services: iot-edge
-keywords: 
+title: Förstå Azure IoT kant runtime | Microsoft Docs
+description: Lär dig mer om Azure IoT kant-runtime och hur kan dina enheter
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632082"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Förstå Azure IoT kant-runtime och dess arkitektur - förhandsgranskning
 
@@ -93,7 +93,7 @@ Varje objekt i moduler ordlistan innehåller specifik information om en modul oc
 * **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge-agenten använder du följande kommando: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Lägger till Docker-alternativ i den här egenskapen kan avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
 * **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator eller fel enhet. Stöds statusar:
-   * Hämtar
+   * Laddas ned
    * Körs
    * Skadad
    * Misslyckad

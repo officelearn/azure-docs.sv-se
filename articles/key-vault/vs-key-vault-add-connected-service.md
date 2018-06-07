@@ -10,11 +10,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9f0cc6ee06042948442aace05d56fcffa3742a8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b4fed559b6364149170dc8b1da421c9c3ee1203c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635771"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Nyckelvalvet i ditt webbprogram med hjälp av Visual Studio anslutna Services
 
@@ -25,7 +26,7 @@ Mer information om ändringarna anslutna tjänster gör i projektet att aktivera
 ## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** med den **Web Development** arbetsbelastning som har installerats. [Hämta nu](https://aka.ms/vsdownload).
+- **Visual Studio 2017 version 15.7** med den **Web Development** arbetsbelastning som har installerats. [Hämta nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - För ASP.NET (inte Core) måste .NET Framework 4.7.1 Development Tools inte är installerade som standard. Starta installationsprogrammet för Visual Studio för att installera dem, Välj **ändra**, och välj sedan **enskilda komponenter**, höger, expandera **ASP.NET och web development**, och välj **utvecklingsverktyg för .NET Framework 4.7.1**.
 - Ett ASP.NET 4.7.1 eller ASP.NET Core 2.0 webbprojekt som är öppna.
 

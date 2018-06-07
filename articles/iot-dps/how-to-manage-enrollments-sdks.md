@@ -1,22 +1,19 @@
 ---
 title: Hantera enhetsregistrering med Azure enheten etablering Service SDK | Microsoft Docs
 description: 'Så här hanterar du enhetsregistrering i IoT-hubb enheten Etableringstjänsten med hjälp av SDK: er för tjänsten'
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/04/18
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629855"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Så här hanterar du enhetsregistrering med Azure enheten etablering Service-SDK: er
 En *enhetsregistrering* skapas en post för en enstaka enhet eller en grupp av enheter som kan vid något tillfälle registrera med enheten Etableringstjänsten. Registreringspost innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskade IoT-hubben. Den här artikeln visar hur du hanterar enhetsregistreringar för etablering tjänsten genom programmering med Azure IoT etablering Service SDK: erna.  SDK: erna är tillgängliga på GitHub i samma databas som Azure IoT-SDK.

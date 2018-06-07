@@ -1,26 +1,23 @@
 ---
 title: Enheten simuleringen i fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning solution accelerator.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628267"
 ---
 # <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
-Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i fjärråtkomst övervakning solution accelerator. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
+Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i Fjärrövervaknings solution accelerator. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
 
 Följande videoklipp visar en översikt över alternativ för att anpassa enheten simulatorn mikrotjänster:
 
@@ -72,7 +69,7 @@ I följande tabell visas enhetens inledande status:
 
 I det andra scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhet.
 
-Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning solution accelerator:
+Den här kursen visar hur du använder enheten simulatorn med Fjärrövervaknings solution accelerator:
 
 I den här guiden får du lära dig att:
 
@@ -82,7 +79,7 @@ I den här guiden får du lära dig att:
 > * Lägga till en ny enhet på instrumentpanelen
 > * Skicka telemetri om anpassade från en befintlig typ av enhet
 
-Följande videoklipp visar en genomgång av simulerade och verkliga enheter som ansluter till den fjärranslutna övervakningslösning:
+Följande videoklipp visar en genomgång av simulerade och verkliga enheter som ansluter till Fjärrövervaknings-lösningen:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -90,7 +87,7 @@ Följande videoklipp visar en genomgång av simulerade och verkliga enheter som 
 
 Om du vill följa den här kursen behöver du:
 
-* En distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration. Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
+* En distribuerad instans av Fjärrövervaknings lösningen i din Azure-prenumeration. Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 * Visual Studio 2017. Om du inte har Visual Studio 2017 installerat kan du hämta den kostnadsfria [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -102,21 +99,21 @@ Om du vill följa den här kursen behöver du:
 
 ## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Utför följande uppgifter för att förbereda din utvecklingsmiljö för att lägga till en ny simulerade enhet till din fjärranslutna övervakningslösning:
+Utför följande uppgifter för att förbereda din utvecklingsmiljö för att lägga till en ny simulerade enhet till din lösning för övervakning av fjärråtkomst:
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Konfigurera SSH-åtkomst till den virtuella datorn på lösningen i Azure
 
-När du skapade din fjärranslutna övervakningslösning på [www.azureiotsuite.com](https://www.azureiotsuite.com), du har valt en lösningens namn. Lösningens namn blir namnet på Azure-resursgrupp som innehåller de olika distribuerade resurser som används i lösningen. Använder följande kommandon en resursgrupp med namnet **Contoso-01**, bör du ersätta **Contoso-01** med namnet på resursgruppen.
+När du skapade din Fjärrövervaknings lösningen i [www.azureiotsolutions.com](https://www.azureiotsolutions.com), du har valt en lösningens namn. Lösningens namn blir namnet på Azure-resursgrupp som innehåller de olika distribuerade resurser som används i lösningen. Använder följande kommandon en resursgrupp med namnet **Contoso-01**, bör du ersätta **Contoso-01** med namnet på resursgruppen.
 
 Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Du kan installera Azure CLI 2.0 på utvecklingsdatorn eller använda den [moln Shell](https://docs.microsoft.com/azure/cloud-shell/overview) i den [Azure-portalen](http://portal.azure.com). Azure CLI 2.0 är förinstallerade i molnet-gränssnittet.
 
-1. Kontrollera namnet på resursgruppen som innehåller dina fjärresurser övervakning genom att köra följande kommando:
+1. Kontrollera namnet på resursgruppen som innehåller dina Fjärrövervaknings resurser genom att köra följande kommando:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Det här kommandot visar alla resursgrupper i din prenumeration. I listan ska innehålla en resursgrupp med samma namn som din fjärranslutna övervakningslösning.
+    Det här kommandot visar alla resursgrupper i din prenumeration. I listan ska innehålla en resursgrupp med samma namn som din lösning för övervakning av fjärråtkomst.
 
 1. Kör följande kommando med din resursgruppens namn i stället för att göra din resurs gruppera standardgruppen för efterföljande kommandon **Contoso-01**:
 
@@ -161,7 +158,7 @@ Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.
     ssh azureuser@public-ip-address
     ```
 
-    Nu har du åtkomst till gränssnittet på den virtuella datorn som kör Docker-behållare i den fjärranslutna övervakningslösning. Om du vill visa behållarna som körs, använder du följande kommando:
+    Nu har du åtkomst till gränssnittet på den virtuella datorn som kör Docker-behållare i Fjärrövervaknings-lösning. Om du vill visa behållarna som körs, använder du följande kommando:
 
     ```sh
     docker ps
@@ -220,7 +217,7 @@ I kursen får du arbeta med den **enheten simuleringen** och **lagringsadapter**
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    Tjänsten enhet simuleringen i fjärranslutna övervakningslösning gör att du kan göra ändringar i de inbyggda simulerade enhetstyper och om du vill skapa en ny simulerade enhetstyper. Du kan använda anpassade enhetstyper för att testa funktionen för fjärranslutna övervakningslösning innan du ansluter din fysiska enheter.
+    Tjänst för simuleringen i lösningen Fjärrövervaknings gör att du kan göra ändringar i de inbyggda simulerade enhetstyper och om du vill skapa en ny simulerade enhetstyper. Du kan använda anpassade enhetstyper för att testa beteendet för lösningen Fjärrövervaknings innan du ansluter din fysiska enheter.
 
 1. Att klona .NET-versionen av den **lagringsadapter** databasen, kör du följande kommando:
 
@@ -228,7 +225,7 @@ I kursen får du arbeta med den **enheten simuleringen** och **lagringsadapter**
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att ansluta till tjänsten Cosmos-DB i Azure. Fjärråtkomst övervakningslösning lagrar konfigurationsdata för simulerade enheten i en Cosmos-DB-databas.
+    Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att ansluta till tjänsten Cosmos-DB i Azure. Fjärrövervaknings lösningen lagrar konfigurationsdata för simulerade enheten i en Cosmos-DB-databas.
 
 ### <a name="run-the-storage-adapter-service-locally"></a>Kör kortet lagringstjänsten lokalt
 
@@ -246,7 +243,7 @@ Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att 
 
 1. Lämna kortet lagringstjänsten körs lokalt förrän du har slutfört guiden.
 
-Nu har du allt på plats och du är redo att börja lägga till en ny typ av simulerade enheten i din fjärranslutna övervakningslösning.
+Nu har du allt på plats och du är redo att börja lägga till en ny typ av simulerade enheten i din lösning för övervakning av fjärråtkomst.
 
 ## <a name="create-a-simulated-device-type"></a>Skapa en simulerad enhetstyp
 
@@ -478,23 +475,23 @@ Du är nu redo att testa din nya simulerade av glödlampa typ genom att köra en
 
 1. Öppna Azure-portalen för att kontrollera att de två simulerade enheterna är anslutna till din IoT-hubb i webbläsaren.
 
-1. Navigera till IoT-hubben i resursgruppen som innehåller din fjärranslutna övervakningslösning.
+1. Navigera till IoT-hubben i resursgruppen som innehåller din lösning för övervakning av fjärråtkomst.
 
 1. I den **övervakning** väljer **mått**. Kontrollera att antalet **anslutna enheter** är två:
 
     ![Antal anslutna enheter](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. I din webbläsare, navigerar du till den **instrumentpanelen** för fjärråtkomst övervakning lösningen. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för simulerad enheter visas i diagrammet:
+1. I din webbläsare, navigerar du till den **instrumentpanelen** för din lösning för övervakning av fjärråtkomst. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för simulerad enheter visas i diagrammet:
 
     ![Temperatur telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Du har nu av glödlampa enheten simuleringen körs lokalt. Nästa steg är att distribuera din kod med uppdaterade simulator till den virtuella datorn som kör fjärråtkomst övervakning mikrotjänster i Azure.
+Du har nu av glödlampa enheten simuleringen körs lokalt. Nästa steg är att distribuera din kod med uppdaterade simulator till den virtuella datorn som kör mikrotjänster Fjärrövervaknings i Azure.
 
 Innan du fortsätter kan stoppa du felsökningen både enheten simulering och lagring kortet projekt i Visual Studio.
 
 ### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Distribuera den uppdaterade simulatorn till molnet
 
-Mikrotjänster i fjärranslutna övervakningslösning kör i docker-behållare. Behållarna som finns i lösningens virtuell dator i Azure. I det här avsnittet får du:
+Mikrotjänster i lösningen Fjärrövervaknings kör i docker-behållare. Behållarna som finns i lösningens virtuell dator i Azure. I det här avsnittet får du:
 
 * Skapa en ny enhet simuleringen docker-avbildning.
 * Överför avbildningen till docker-hubb databasen.
@@ -582,9 +579,9 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
     docker logs {container ID}
     ```
 
-Nu har du slutfört stegen för att distribuera en uppdaterad version av tjänsten simuleringen enhet till din fjärranslutna övervakningslösning.
+Nu har du slutfört stegen för att distribuera en uppdaterad version av tjänsten simuleringen enhet till din lösning för övervakning av fjärråtkomst.
 
-I din webbläsare, navigerar du till den **instrumentpanelen** för fjärråtkomst övervakning lösningen. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för din simulerade enheterna visas i diagrammet:
+I din webbläsare, navigerar du till den **instrumentpanelen** för din lösning för övervakning av fjärråtkomst. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för din simulerade enheterna visas i diagrammet:
 
 ![Temperatur telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
@@ -678,7 +675,7 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
 
 Att testa den uppdaterade **kylaggregat** enhetstyp, först köra en lokal kopia av den **enheten simuleringen** -tjänsten för att testa din enhetstyp fungerar som förväntat. När du har testat och testar din uppdaterade enhetstyp lokalt, kan du återskapa behållaren och omdistribuera den **enheten simuleringen** tjänst till Azure.
 
-När du kör den **enheten simuleringen** tjänsten lokalt, skickas telemetri till din fjärranslutna övervakningslösning. På den **enheter** kan du etablera instanser av din uppdaterade.
+När du kör den **enheten simuleringen** tjänsten lokalt, skickas telemetri till din lösning för övervakning av fjärråtkomst. På den **enheter** kan du etablera instanser av din uppdaterade.
 
 Om du vill testa och felsöka dina ändringar lokalt, finns i föregående avsnitt [testa typ av glödlampa enhet lokalt](#test-the-lightbulb-device-type-locally).
 
@@ -701,9 +698,9 @@ Den här självstudiekursen visades hur du vill:
 > * Lägga till en ny enhet på instrumentpanelen
 > * Skicka telemetri om anpassade från en befintlig typ av enhet
 
-Nu har du lärt dig hur du anpassar simuleringen tjänst. Föreslagna nästa steg är att lära dig hur du [ansluta en fysisk enhet till din fjärranslutna övervakningslösning](iot-accelerators-connecting-devices-node.md).
+Nu har du lärt dig hur du anpassar simuleringen tjänst. Föreslagna nästa steg är att lära dig hur du [ansluta en fysisk enhet till din lösning för fjärråtkomst övervakning](iot-accelerators-connecting-devices-node.md).
 
-Utvecklare om remote övervakningslösning, Läs mer:
+Utvecklare om lösningen Fjärrövervaknings, Läs mer:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594133"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -29,6 +30,9 @@ Den här artikeln vägleder dig genom stegen för att publicera en lokal app med
 
 Lär dig mer om den här funktionen med artikeln om du har använt Application Proxy [ge säker fjärråtkomst till lokala program](application-proxy.md).
 
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du redan har installerat och registrerat en koppling. Om du behöver göra de här stegen finns [komma igång med Application Proxy och installera Connector](application-proxy-enable.md).
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicera en lokal app för fjärråtkomst
 

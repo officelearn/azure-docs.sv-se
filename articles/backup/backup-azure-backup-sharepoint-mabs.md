@@ -1,24 +1,19 @@
 ---
-title: "Använd Azure Backup server att säkerhetskopiera en SharePoint-grupp till Azure | Microsoft Docs"
-description: "Använda Azure Backup Server för att säkerhetskopiera och återställa SharePoint-data. Den här artikeln innehåller information för att konfigurera SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disken eller från Azure."
+title: Använda Azure Backup-server för att säkerhetskopiera en SharePoint-grupp till Azure
+description: Använda Azure Backup Server för att säkerhetskopiera och återställa SharePoint-data. Den här artikeln innehåller information för att konfigurera SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disken eller från Azure.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: 34ba87a4-91f1-4054-a4a1-272af1e15496
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 3ed000affd326eb1bd7c99773ec021ad6e03cc3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606060"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-grupp till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure-säkerhetskopiering ger flexibilitet i schemat för säkerhetskopiering att skapa varje dag, varje vecka, månad eller årlig säkerhetskopiering pekar och ger alternativ för kvarhållning av princip för säkerhetskopiering punkter. Det ger också möjlighet att lagra lokal diskkopior för snabb återställningstiden mål (RTO) och för att lagra kopior till Azure för ekonomiska och långsiktig kvarhållning.
@@ -33,7 +28,7 @@ Azure Backup för DPM har stöd för följande scenarier:
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du måste bekräfta innan du säkerhetskopierar en SharePoint-grupp till Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du fortsätter, kontrollera att du har [installerad och förberedda Azure Backup Server](backup-azure-microsoft-azure-backup.md) att skydda arbetsbelastningar.
 
 ### <a name="protection-agent"></a>Skyddsagent

@@ -16,11 +16,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595333"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0 kod bevilja flöde
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
@@ -59,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |Rekommenderas |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | resurs | Rekommenderas |App-ID URI för mål-webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **programmet registreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i ett tillstånd eller token-förfrågningar. För att säkerställa färre autentisering placeras prompter auktoriseringsbegäran att kontrollera medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För Azure AD-appar v1 scope måste konfigureras statiskt i Azure Portal under program **inställningar**, **nödvändiga behörigheter**. |
-| kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
+| kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *select_account*: användaren uppmanas att välja ett konto att avbryta enkel inloggning på. Användaren kan välja ett befintligt konto inloggad, ange sina autentiseringsuppgifter för ett konto som är sparade eller välja att använda ett annat konto helt och hållet. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
 | login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg. Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
 | domain_hint |valfri |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
 | code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parameter. Kan vara något av `plain` eller `S256`. Om inte, `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -217,7 +218,7 @@ Den `id_token` parametern innehåller följande anspråkstyper:
 | IAT |Utfärdad för närvarande. Tiden då JWT utfärdades. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
 | ISS |Identifierar token utfärdaren |
 | NBF |Inte före tiden. Den tid när token träder i kraft. Aktuellt datum och tid måste vara större än eller lika med värdet Nbf för token ska vara giltigt. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
-| OID |Objektidentifierare (ID) för användarobjektet i Azure AD. |
+| OID |Användarobjektets objektidentifierare (ID) i Azure AD. |
 | Sub |Token ämne identifierare. Det här är en permanent och oåterkallelig identifierare för användaren som beskrivs i token. Använd det här värdet i cachelagring logik. |
 | tid |Klient identifierare (ID) för Azure AD-klienten som utfärdade token. |
 | unique_name |En unik identifierare för som kan visas för användaren. Detta är vanligtvis ett UPN (user Principal name). |

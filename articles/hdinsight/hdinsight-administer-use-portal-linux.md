@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627031"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -61,7 +62,7 @@ När du skapar ett HDInsight-kluster måste du ange en Azure-prenumeration. Klus
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Klicka på **prenumeration** i den vänstra menyn. Den har en gul nyckelikonen. Du bör se en lista över prenumerationer.
     3. Klicka på den prenumeration som du använder för att skapa kluster. 
-    4. Klicka på **min behörighet**.  Det visar dina [rollen](../role-based-access-control/overview.md#built-in-roles) för prenumerationen. Du behöver minst deltagare behörighet att skapa HDInsight-kluster.
+    4. Klicka på **min behörighet**.  Det visar dina [rollen](../role-based-access-control/built-in-roles.md) för prenumerationen. Du behöver minst deltagare behörighet att skapa HDInsight-kluster.
 
 - Använda en befintlig resursgrupp:
 

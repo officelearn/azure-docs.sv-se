@@ -1,24 +1,26 @@
 ---
-title: "Konfigurera säker LDAP (LDAPS) i Azure AD Domain Services | Microsoft Docs"
-description: "Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän"
+title: Konfigurera säker LDAP (LDAPS) i Azure AD Domain Services | Microsoft Docs
+description: Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 4d495fcef89a68ca544100dcea8e6c55d4709ae0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 178302bd28e83da73590faf2be98fe5d2853ce56
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586893"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -56,7 +58,7 @@ Utför följande steg om du vill exportera certifikatet LDAPS till en. PFX-filen
 9. Du bör se det självsignerade certifikatet som vi skapade. Du kan kontrollera egenskaperna för certifikat för att kontrollera certifikatets tumavtryck matchar som rapporterats för windows PowerShell när du skapade certifikatet.
 10. Välj det självsignerade certifikatet och **Högerklicka**. Snabbmenyn, Välj **alla aktiviteter** och välj **exportera...** .
 
-    ![Exportera certifikat](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
+    ![Exportera certifikatet](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
 11. I den **guiden Exportera certifikat**, klickar du på **nästa**.
 
     ![Exportera certifikat](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)

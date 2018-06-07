@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: dd74a0997e450c95ed93efdbb46f31e04735b888
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594150"
 ---
 # <a name="azure-active-directory-documentation"></a>Dokumentation om Azure Active Directory
 
@@ -99,7 +100,7 @@ Azure Active Directory (Azure AD) är en molnbaserad katalog- och identitetshant
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identitetsskydd</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Villkorlig åtkomst</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>

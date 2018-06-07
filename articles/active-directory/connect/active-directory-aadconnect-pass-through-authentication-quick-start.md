@@ -1,9 +1,9 @@
 ---
 title: Azure AD direkt-autentisering - Snabbstart | Microsoft Docs
-description: "Den här artikeln beskriver hur du kommer igång med Azure Active Directory (AD Azure) direkt-autentisering."
+description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory (AD Azure) direkt-autentisering.
 services: active-directory
-keywords: "Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591338"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory direkt-autentisering: Snabbstart
 
@@ -139,7 +141,7 @@ Först måste kan du göra det interaktivt genom att bara köra den hämtade aut
 Därefter kan du skapa och köra ett distributionsskript för obevakad. Detta är användbart när du vill distribuera flera autentisering agenter samtidigt eller installera agenter för autentisering på Windows-servrar som inte har aktiverat användargränssnittet eller som du kan inte komma åt med fjärrskrivbord. Här följer instruktioner om hur du använder den här metoden:
 
 1. Kör följande kommando för att installera en Agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter  *\<användarnamn\>*  och  *\<lösenord\>*:
+2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

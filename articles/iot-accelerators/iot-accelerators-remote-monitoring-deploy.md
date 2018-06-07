@@ -1,26 +1,23 @@
 ---
-title: Distribuera fjärråtkomst övervakningslösning - Azure | Microsoft Docs
-description: Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator från azureiotsuite.com.
-services: iot-suite
-suite: iot-suite
+title: Distribuera fjärråtkomst övervakning lösningen - Azure | Microsoft Docs
+description: Den här kursen visar hur du etablerar Fjärrövervaknings solution accelerator från azureiotsuite.com.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626861"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Distribuera fjärråtkomst övervakning solution accelerator
 
-Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator. Du distribuerar lösningen från azureiotsuite.com. Du kan också distribuera lösningen med hjälp av CLI att lära dig om det här alternativet finns [distribuera en lösningsaccelerator från kommandoraden](iot-accelerators-remote-monitoring-deploy-cli.md).
+Den här kursen visar hur du etablerar Fjärrövervaknings solution accelerator. Du distribuerar lösningen från azureiotsuite.com. Du kan också distribuera lösningen med hjälp av CLI att lära dig om det här alternativet finns [distribuera en lösningsaccelerator från kommandoraden](iot-accelerators-remote-monitoring-deploy-cli.md).
 
 I den här guiden får du lära dig att:
 
@@ -43,9 +40,9 @@ Innan du distribuerar solution accelerator till din Azure-prenumeration måste d
 
 1. Klicka på **försök nu** på den **Fjärrövervaknings** panelen.
 
-    ![Välj fjärrövervaknings](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
+    ![Välj Fjärrövervaknings](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
-1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för din fjärråtkomst övervakning solution accelerator.
+1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för din Fjärrövervaknings solution accelerator.
 
 1. Välj en **grundläggande** eller **Standard** distribution. Om du distribuerar lösningen för att lära dig hur det fungerar eller för att köra en demonstration, Välj den **grundläggande** alternativet för att minimera kostnaderna.
 
@@ -63,20 +60,20 @@ Information om felsökning finns [vad du gör om en distribution misslyckas](htt
 
 ## <a name="sign-in-to-the-solution-accelerator"></a>Logga in på solution accelerator
 
-När etableringen är klar kan du logga in på din fjärranslutna övervakning solution accelerator.
+När etableringen är klar kan du logga in på din Fjärrövervaknings lösningsaccelerator.
 
-1. På den **etablerade lösningar** väljer du den nya lösningen för fjärråtkomst övervakning:
+1. På den **etablerade lösningar** väljer du den nya Fjärrövervaknings lösningen:
 
     ![Välj ny lösning](./media/iot-accelerators-remote-monitoring-deploy/choosenew.png)
 
-1. Du kan visa information om din fjärranslutna övervakningslösning på panelen som visas. Välj **lösning instrumentpanelen** att ansluta till din fjärranslutna övervakningslösning.
+1. Du kan visa information om Fjärrövervaknings lösningen i panelen som visas. Välj **lösning instrumentpanelen** att ansluta till din lösning för övervakning av fjärråtkomst.
 
     > [!NOTE]
-    > Du kan ta bort din fjärranslutna övervakningslösning från den här panelen när du är klar med den.
+    > Du kan ta bort din lösning för övervakning av fjärråtkomst från den här panelen när du är klar med den.
 
     ![Lösning panelen](./media/iot-accelerators-remote-monitoring-deploy/solutionpanel.png)
 
-1. Instrumentpanelen för fjärråtkomst övervakning lösning visas i webbläsaren.
+1. Fjärrövervaknings lösning instrumentpanelen visas i webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -87,6 +84,6 @@ I den här självstudiekursen lärde du dig att:
 > * Distribuera solution accelerator
 > * Logga in på solution accelerator
 
-Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](iot-accelerators-remote-monitoring-explore.md).
+Nu när du har distribuerat lösningen Fjärrövervaknings nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](iot-accelerators-remote-monitoring-explore.md).
 
 <!-- Next tutorials in the sequence -->

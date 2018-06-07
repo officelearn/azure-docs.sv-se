@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e3f81a6480e9de55c8f803e2266c4ac6e33c316
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590546"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Användarnas integritet och Azure AD Connect 
 
@@ -26,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 >[!NOTE] 
 >Den här artikeln handlar om Azure AD Connect och användarens integritet.  Information om Azure AD Connect Health och användaren sekretess finns i artikeln [här](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Sekretess-efterlevnad för Azure AD Connect installationer kan nås på två sätt:
+Förbättra användarnas integritet för Azure AD Connect installationer på två sätt:
 
 1.  Extrahera data för en person på begäran, och ta bort data från den personen från installationer
 2.  Se till att inga data sparas 48 timmar.

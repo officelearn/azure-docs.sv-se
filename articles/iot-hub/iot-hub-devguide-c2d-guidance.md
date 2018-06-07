@@ -1,24 +1,19 @@
 ---
 title: Azure IoT-hubb moln till enhet alternativ | Microsoft Docs
 description: Utvecklare guide - hjälp när du ska använda direkt metoder, enheten dubbla önskade egenskaper eller moln till enhet meddelanden för moln till enhet kommunikation.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634445"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Vägledning för kommunikation moln till enhet
 IoT-hubb innehåller tre alternativ för enhetsappar exponera funktionen till en backend-app:
@@ -37,7 +32,7 @@ Här följer en detaljerad jämförelse av de olika alternativen för kommunikat
 | Dataflöde | Dubbelriktad. Enhetsapp svara direkt till metoden. Lösningens serverdel får resultatet sammanhang att begäran. | Enkelriktad. Enheten appen tar emot ett meddelande med egenskapsändringen. | Enkelriktad. Enheten appen tar emot meddelandet
 | Hållbarhet | Frånkopplade enheter kontaktas inte. Lösningens serverdel meddelas att enheten inte är ansluten. | Egenskapsvärden bevaras i dubbla för enheten. Enheten läses den vid nästa återanslutning. Egenskapsvärden är strängfält med den [IoT-hubb frågespråket][lnk-query]. | Meddelanden kan behållas av IoT-hubb för upp till 48 timmar. |
 | Mål | Enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb][lnk-jobs]. | Enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb][lnk-jobs]. | Enskild enhet av **deviceId**. |
-| Storlek | Upp till 8 KB-begäran och svar på 8 KB. | Maximalt önskade egenskaper storleken är 8 KB. | Upp till 64 KB meddelanden. |
+| Storlek | Maximal direkta metoden nyttolastens storlek är 128 KB. | Maximalt önskade egenskaper storleken är 8 KB. | Upp till 64 KB meddelanden. |
 | Frekvens | Hög. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Medel. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Låg. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. |
 | Protokoll | Tillgängligt med MQTT eller AMQP. | Tillgängligt med MQTT eller AMQP. | Tillgängligt på alla protokoll. Enheten måste avsöka när du använder HTTPS. |
 

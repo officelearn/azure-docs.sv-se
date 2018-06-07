@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603737"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuera resurser med Resource Manager-mallar och Azure Portal
 
@@ -113,7 +114,7 @@ Om du vill köra en distribution utan att använda någon av mallar i Marketplac
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Distribuera resurser från en mall som sparats i ditt konto
 
-Portalen kan du spara en mall i Azure-konto och distribuera den senare. Mer information om hur du arbetar med dessa sparade mallar, [Kom igång med privata mallar på Azure portal](../marketplace-consumer/mytemplates-getstarted.md).
+Portalen kan du spara en mall i Azure-konto och distribuera den senare. Mer information om mallar finns [skapa och distribuera din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
 
 1. Om du vill hitta dina sparade mallar, Välj **fler tjänster**.
 
@@ -135,4 +136,4 @@ Portalen kan du spara en mall i Azure-konto och distribuera den senare. Mer info
 * Om du vill visa granskningsloggarna finns [granskningsåtgärder med Resource Manager](resource-group-audit.md).
 * Om du vill felsöka distribution, se [visa distributionsåtgärder](resource-manager-deployment-operations.md).
 * Om du vill hämta en mall från en distribution eller resursgruppen finns [exportera Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
-* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md).
+* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

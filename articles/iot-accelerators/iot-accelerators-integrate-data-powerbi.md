@@ -1,22 +1,19 @@
 ---
 title: Visualisera Fjärrövervaknings data med Power BI - Azure | Microsoft Docs
 description: Den här kursen använder Power BI Desktop- och Cosmos-DB integerate data från en Fjärrövervaknings lösning till en anpassad visualisering. Den här hur användare kan skapa sina egna anpassade instrumentpaneler och dela dem till användare inte i lösningen.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627798"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera Fjärrövervaknings data med Power BI
 
@@ -105,7 +102,7 @@ Du också vill [datauppdatering](https://docs.microsoft.com/en-us/power-bi/refre
 
 I den här artikeln har du lärt dig om hur du visualisera remote övervakningsdata med Power BI
 
-Mer information om hur du anpassar den fjärranslutna övervakningslösning finns:
+Mer information om hur du anpassar Fjärrövervaknings-lösningen finns:
 
 * [Anpassa Remote övervakningslösning UI](iot-accelerators-remote-monitoring-customize.md)
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)

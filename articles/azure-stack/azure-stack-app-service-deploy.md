@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604275"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en Apptjänst-resursprovidern i Azure stapel
 
@@ -66,6 +67,12 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
         * Om du använder Azure Active Directory (Azure AD), anger du Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
         * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och klicka på **logga In**.
     2. I den **Azure Stack-prenumerationer** markerar den **standard prenumeration på leverantör**.
+    
+    > [!NOTE]
+    > Apptjänst kan endast distribueras till den **standard prenumeration på leverantör** just nu.  I en kommande uppdatering Apptjänst ska distribuera till den nya avläsning prenumerationen som introducerades i Azure-stacken 1804 och alla befintliga distributioner kommer att migreras till den här nya prenumerationen också.
+    >
+    >
+    
     3. I den **Azure Stack platser** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure-stacken Development Kit.
 
     ![Installationsprogrammet för App Service][3]

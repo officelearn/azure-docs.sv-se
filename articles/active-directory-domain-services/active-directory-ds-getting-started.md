@@ -1,32 +1,44 @@
 ---
-title: "Azure Active Directory Domain Services: Komma igång | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: Komma igång | Microsoft Docs'
 description: Aktivera Azure Active Directory Domain Services med Azure-portalen
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ab2897eefd1c394ba0b10ba6fce3e11af4a0b2a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587968"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure-portalen
 Den här artikeln visar hur du aktiverar Azure Active Directory Domain Services (Azure AD DS) med Azure-portalen.
 
+## <a name="before-you-begin"></a>Innan du börjar
+Du behöver följande för att slutföra aktiviteterna i den här artikeln:
+
+* En giltig **Azure-prenumeration**.
+* En **Azure AD-katalog** -antingen synkroniseras med en lokal katalog eller en molnbaserad katalog.
+* Den **Azure-prenumeration måste vara kopplad till Azure AD-katalog**.
+* Du behöver **global administratör** privilegier i Azure AD-katalog för att aktivera Azure AD Domain Services.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Aktivera Azure AD Domain Services
 Att starta den **aktivera Azure AD Domain Services** guiden gör du följande:
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. I den vänstra rutan klickar du på **skapar du en resurs**.
+2. I den vänstra rutan klickar du på **Skapa en resurs**.
 3. I den **ny** anger **Domain Services** i sökfältet.
 
     ![Sök efter domäntjänster](./media/getting-started/search-domain-services.png)
@@ -39,7 +51,7 @@ Att starta den **aktivera Azure AD Domain Services** guiden gör du följande:
 
 
 ## <a name="task-1-configure-basic-settings"></a>Uppgift 1: Konfigurera grundläggande inställningar
-I den **grunderna** sidan i guiden kan du ange DNS-domännamnet för den hanterade domänen. Du kan också välja resursgruppen och Azure-plats som den hanterade domänen ska distribueras.
+I den **grunderna** sidan i guiden och ange DNS-domännamnet för den hanterade domänen. Du kan också välja resursgruppen och Azure-plats som den hanterade domänen ska distribueras.
 
 ![Konfigurera grunderna](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +71,11 @@ I den **grunderna** sidan i guiden kan du ange DNS-domännamnet för den hantera
 
 2. Välj Azure **prenumeration** i som du vill skapa den hanterade domänen.
 
-3. Välj den **resursgruppen** till den hanterade domänen ska tillhöra. Du kan välja antingen den **Skapa nytt** eller **använda befintliga** alternativ för att välja en resursgrupp.
+3. Välj den **resursgruppen** till den hanterade domänen ska tillhöra. Välj antingen den **Skapa nytt** eller **använda befintliga** alternativ för att välja en resursgrupp.
 
 4. Välj Azure **plats** i som den hanterade domänen ska skapas. På den **nätverk** sidan i guiden visas bara virtuella nätverk som hör till den plats som du har valt.
 
-5. När du är klar klickar du på **OK** att gå vidare till den **nätverk** sidan i guiden.
+5. Klicka på **OK** att gå vidare till den **nätverk** sidan i guiden.
 
 
 ## <a name="next-step"></a>Nästa steg

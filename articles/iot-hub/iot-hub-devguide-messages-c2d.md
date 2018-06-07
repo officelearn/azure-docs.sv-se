@@ -1,23 +1,19 @@
 ---
 title: Förstå Azure IoT Hub moln till enhet messaging | Microsoft Docs
 description: Utvecklare guide - hur du använder moln till enhet meddelanden med IoT-hubben. Innehåller information om meddelandet livscykel och konfigurationsalternativ.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632483"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden moln till enhet från IoT-hubb
 
@@ -85,7 +81,7 @@ Om **Ack** är **fullständig**, och inte ett meddelande feedback, innebär det 
 
 Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb ger feedback via en slutpunkt för service-riktade (**/messages/servicebound/feedback**) som meddelanden. Semantiken för att ta emot feedback är desamma som för moln till enhet meddelanden. När det är möjligt batchar meddelandet feedback i ett enda meddelande med följande format:
 
-| Egenskap     | Beskrivning |
+| Egenskap      | Beskrivning |
 | ------------ | ----------- |
 | EnqueuedTime | Tidsstämpel som anger när feedback-meddelande togs emot av hubben. |
 | UserId       | `{iot hub name}` |
@@ -93,11 +89,11 @@ Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb ger feedback via e
 
 Brödtext är en JSON-serialiserad matris med poster, med följande egenskaper:
 
-| Egenskap           | Beskrivning |
+| Egenskap            | Beskrivning |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Tidsstämpel som anger när resultatet av meddelandet har hänt. Till exempel hubben fick meddelandet feedback eller det ursprungliga meddelandet har upphört att gälla. |
-| OriginalMessageId  | **MessageId** postmeddelandets moln till enhet som informationen feedback avser. |
-| StatusCode         | Strängen som krävs. Används i feedback-meddelanden som genereras av IoT-hubb. <br/> ”Lyckades” <br/> 'Har upphört att gälla: <br/> 'DeliveryCountExceeded' <br/> 'Avvisade' <br/> 'Rensas' |
+| originalMessageId  | **MessageId** postmeddelandets moln till enhet som informationen feedback avser. |
+| statusCode         | Strängen som krävs. Används i feedback-meddelanden som genereras av IoT-hubb. <br/> ”Lyckades” <br/> 'Har upphört att gälla: <br/> 'DeliveryCountExceeded' <br/> 'Avvisade' <br/> 'Rensas' |
 | Beskrivning        | Sträng som värden för **StatusCode**. |
 | DeviceId           | **DeviceId** av målenhet postmeddelandets moln till enhet som denna typ av feedback avser. |
 | DeviceGenerationId | **DeviceGenerationId** av målenhet postmeddelandets moln till enhet som denna typ av feedback avser. |
@@ -127,7 +123,7 @@ I följande exempel visas en feedback-postmeddelandets brödtext.
 
 Varje IoT-hubb visar följande konfigurationsalternativ för meddelanden moln till enhet:
 
-| Egenskap                  | Beskrivning | Intervall och standard |
+| Egenskap                   | Beskrivning | Intervall och standard |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Standard-TTL för moln till enhet meddelanden. | ISO_8601 intervall upp till 2D (minst 1 minut). Standard: 1 timme. |
 | MaxDeliveryCount          | Leverans av maximalt antal för köer moln till enhet per enhet. | 1 och 100. Standard: 10. |

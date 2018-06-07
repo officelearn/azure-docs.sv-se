@@ -1,31 +1,25 @@
 ---
 title: Fjärråtkomst övervakning solution accelerator vanliga frågor och svar | Microsoft Docs
 description: Vanliga frågor om Fjärrövervaknings solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627662"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Vanliga frågor om Fjärrövervaknings solution accelerator
 
 Se även allmänna [vanliga frågor och svar](iot-accelerators-faq.md).
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det för att etablera nya remote övervakningslösning?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det för att etablera nya Fjärrövervaknings lösningen?
 
 Nya solution accelerator erbjuder två distributionsalternativ:
 
@@ -34,7 +28,7 @@ Nya solution accelerator erbjuder två distributionsalternativ:
 
 ### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hur kan jag se till att jag Håll min nere kostnaderna när jag utveckla min lösning?
 
-Förutom att tillhandahålla två differentierade distributioner har nya remote övervakningslösning en inställning för att aktivera eller inaktivera simulerade enheterna på begäran. Inaktivera simuleringen minskar mängden data som inhämtas i lösningen och därmed den sammanlagda kostnaden.
+Förutom att tillhandahålla två differentierade distributioner, har den nya Fjärrövervaknings-lösningen en inställning för att aktivera eller inaktivera simulerade enheterna på begäran. Inaktivera simuleringen minskar mängden data som inhämtas i lösningen och därmed den sammanlagda kostnaden.
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Vad är skillnaden mellan basic och standard distributionsalternativ? Hur ska du välja mellan två distributionsalternativ?
 
@@ -48,7 +42,7 @@ Mer information finns i [uppgradera kartan för att se enheter på en dynamisk k
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Utforska funktionerna i fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-explore.md)
-* [Översikt över lösningsaccelerator för förutsägande underhåll](../iot-suite/iot-suite-predictive-overview.md)
+* [Utforska funktionerna i Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Anslutna Factory solution accelerator översikt](iot-accelerators-connected-factory-overview.md)
-* [IoT-säkerhet från grunden](../iot-suite/securing-iot-ground-up.md)
+* [IoT-säkerhet från grunden](securing-iot-ground-up.md)

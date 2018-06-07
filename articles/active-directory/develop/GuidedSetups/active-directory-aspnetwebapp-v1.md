@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b4ad805fe799e328631c13af5a599a9d1dbd91d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594575"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram
@@ -267,7 +268,7 @@ Välj länken för att se användarens anspråk. Den här åtgärden leder dig t
 #### <a name="expected-results"></a>Förväntat resultat
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap | Värde | Beskrivning|
+| Egenskap  | Värde | Beskrivning|
 |---|---|---|
 | Namn | {Fullständig användarnamn} | Användaren förnamn och efternamn
 |Användarnamn | <span>user@domain.com</span>| Användarnamnet som används för att identifiera den inloggade användaren

@@ -1,25 +1,22 @@
 ---
-title: Ansluta till GitHub med Azure Logikappar | Microsoft Docs
-description: "Automatisera arbetsflöden för GitHub med Azure Logikappar"
-services: logic-apps
-documentationcenter: 
+title: Ansluta till GitHub - Azure Logikappar | Microsoft Docs
+description: 'Övervaka GitHub-händelser med GitHub REST API: er och Azure Logic Apps'
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 03/02/2018
-ms.author: estfan; ladocs
-ms.openlocfilehash: 830c3e6b5462c5d2d917388c0d0924e444342f93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: c6bd21626c1934f40520b0ddc2d78eeb97eee9a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609920"
 ---
 # <a name="connect-to-github"></a>Ansluta till GitHub
 
@@ -31,7 +28,7 @@ Du kommer igång med GitHub-kopplingen [först skapa en logikapp](../logic-apps/
 
 Om du vill använda GitHub-kopplingen i en logikapp, måste du först skapa en *anslutning* och ange information för dessa egenskaper: 
 
-| Egenskap | Krävs | Beskrivning | 
+| Egenskap  | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
 | Token | Ja | Ange dina autentiseringsuppgifter för GitHub. |
 

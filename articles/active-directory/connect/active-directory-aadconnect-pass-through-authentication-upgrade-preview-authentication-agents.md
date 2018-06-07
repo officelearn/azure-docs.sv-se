@@ -1,9 +1,9 @@
 ---
 title: Azure AD Connect - direkt-autentisering - uppgradering auth agenter | Microsoft Docs
-description: "Den här artikeln beskriver hur du uppgraderar konfigurationen av Azure Active Directory (AD Azure) direkt-autentisering."
+description: Den här artikeln beskriver hur du uppgraderar konfigurationen av Azure Active Directory (AD Azure) direkt-autentisering.
 services: active-directory
-keywords: "Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: c699df83c7032dc6e3d176753d8203fec6977c1b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591998"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory direkt-autentisering: Uppgradera förhandsversionen autentisering agenter
 
@@ -68,7 +70,7 @@ Du måste uppgradera Azure AD Connect innan du uppgraderar autentiseringsagent p
 2. **Avinstallera förhandsversionen av den autentiseringsagent**: hämta [detta PowerShell-skript](https://aka.ms/rmpreviewagent) och köra den som en administratör på servern.
 3. **Hämta den senaste versionen av agenten för autentisering (versioner 1.5.193.0 eller senare)**: Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med globala administratörsbehörigheter för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direkt autentisering hämta agent ->**. Acceptera den [användarvillkoren](https://aka.ms/authagenteula) och ladda ned den senaste versionen av agenten för autentisering. Du kan också hämta autentiseringsagent från [här](https://aka.ms/getauthagent).
 4. **Installera den senaste versionen av agenten autentisering**: kör den körbara filen som hämtades i steg3. Ange din klient Global administratör autentiseringsuppgifter när du tillfrågas.
-5. **Kontrollera att den senaste versionen har installerats**: enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post för ”**ansluta autentiseringsagent för Microsoft Azure AD**”.
+5. **Kontrollera att den senaste versionen har installerats**: enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post för ”**Microsoft Azure AD Connect Autentiseringsagent**”.
 
 >[!NOTE]
 >Om du markerar bladet direkt-autentisering på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) när slutfört föregående steg visas två autentiseringsagent poster per server – en post som visar autentiseringsagent som **Active** och andra som **inaktiv**. Detta är _förväntade_. Den **inaktiv** post automatiskt bort efter några dagar.
@@ -80,7 +82,7 @@ Följ dessa steg om du vill uppgradera agenter för autentisering på andra serv
 1. **Avinstallera förhandsversionen av den autentiseringsagent**: hämta [detta PowerShell-skript](https://aka.ms/rmpreviewagent) och köra den som en administratör på servern.
 2. **Hämta den senaste versionen av agenten för autentisering (versioner 1.5.193.0 eller senare)**: Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med globala administratörsbehörigheter för din klient. Välj **Azure Active Directory -> Azure AD Connect -> direkt autentisering hämta agent ->**. Acceptera villkoren och hämta den senaste versionen.
 3. **Installera den senaste versionen av agenten autentisering**: kör den körbara filen som hämtades i steg 2. Ange din klient Global administratör autentiseringsuppgifter när du tillfrågas.
-4. **Kontrollera att den senaste versionen har installerats**: enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post med namnet **ansluta autentiseringsagent för Microsoft Azure AD**.
+4. **Kontrollera att den senaste versionen har installerats**: enligt beskrivningen tidigare kan du gå till **Kontrollpanelen -> program -> program och funktioner** och kontrollera att det finns en post med namnet **Microsoft Azure AD Connect Autentiseringsagent**.
 
 >[!NOTE]
 >Om du markerar bladet direkt-autentisering på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) när slutfört föregående steg visas två autentiseringsagent poster per server – en post som visar autentiseringsagent som **Active** och andra som **inaktiv**. Detta är _förväntade_. Den **inaktiv** post automatiskt bort efter några dagar.

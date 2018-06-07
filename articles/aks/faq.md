@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596506"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure-Kubernetes (AKS)
 
@@ -72,7 +73,7 @@ Om du vill köra Windows Server-behållare som du behöver köra Windows Server-
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS?
 
-Varje AKS distribution omfattar två resursgrupper. Först skapas av dig och innehåller AKS resursen. Resursprovidern AKS skapar automatiskt det andra under distributionen med namnet *MC_myResourceGRoup_myAKSCluster_eastus*. Andra resursgruppen som innehåller alla infrastrukturresurser som är associerade med klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resursen.
+Varje AKS distribution omfattar två resursgrupper. Först skapas av dig och innehåller AKS resursen. Resursprovidern AKS skapar automatiskt det andra under distributionen med namnet *MC_myResourceGroup_myAKSCluster_eastus*. Andra resursgruppen som innehåller alla infrastrukturresurser som är associerade med klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resursen.
 
 Om du skapar resurser som ska användas med AKS klustret, till exempel storage-konton eller reserverade offentliga IP-adressen bör du placera dem i den automatiskt genererade resursgruppen.
 

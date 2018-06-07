@@ -1,22 +1,19 @@
 ---
 title: Förenkla utvecklingen med hjälp av verktygen i Azure IoT Hub-enhet etablering Service SDK
 description: 'Det här dokumentet går igenom de verktyg som finns i Azure IoT Hub-enhet etablering Service SDK: er för utveckling'
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/09/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631130"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktygen i SDK: erna för att förenkla utvecklingen för etablering
 IoT-hubb enheten Etableringstjänsten förenklar etableringsprocessen med zero touch-in-time [Automatisk etablering](concepts-auto-provisioning.md) på en säker och skalbar sätt.  Attesteringen av säkerhet i form av X.509-certifikat eller Trusted Platform Module (TPM) måste anges.  Dessutom samarbetar Microsoft med [andra säkerhet maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroendet säkra IoT-distributionen. Förstå maskinvarukrav för säkerhet kan vara ganska svårt för utvecklare. En uppsättning Azure IoT etablering Service SDK tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med tjänsten etablering. SDK: erna dessutom exempel för vanliga scenarier som en uppsättning verktyg för att förenkla säkerhet attestering under utveckling.

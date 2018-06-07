@@ -1,19 +1,19 @@
 ---
-title: "Använda Azure IoT-gränsenheterna som gateways | Microsoft Docs"
-description: "Använda Azure IoT kant för att skapa en transparent täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt."
-services: iot-edge
-keywords: 
+title: Använda Azure IoT-gränsenheterna som gateways | Microsoft Docs
+description: Använda Azure IoT kant för att skapa en transparent täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt.
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+services: iot-edge
+ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631606"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Hur en IoT-enhet kan användas som en gateway - förhandsgranskning
 
@@ -39,7 +39,7 @@ En gateway har översättning av protokollet kan också utföra edge analytics, 
 
 En gateway som har identitet översättning ger fördelar för översättning av protokollet och tillåter dessutom fullständig hantering av underordnade enheter från molnet. Alla enheter i din IoT-lösningen visas i IoT-hubb oavsett protokoll med de tala.
 
-## <a name="cheat-sheet"></a>Fusklapp
+## <a name="cheat-sheet"></a>Översiktsblad
 Här är en snabb över blad som jämför IoT-hubb primitiver när du använder transparent, täckande och proxy gateways.
 
 | &nbsp; | Transparent gateway | Översättning av protokollet | Identitet översättning |

@@ -1,22 +1,19 @@
 ---
 title: Kom igång med enheten simuleringen lösningen - Azure | Microsoft Docs
 description: IoT-lösningen acceleratorer simuleringen-lösningen är ett verktyg som kan användas för att hjälpa utvecklingen och testningen av en IoT-lösning. Tjänsten simuleringen är ett fristående erbjudande som kan användas tillsammans med andra solution Accelerator eller användas med din egen anpassade lösningar.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627133"
 ---
 # <a name="device-simulation-walkthrough"></a>Enheten simuleringen genomgång
 
@@ -39,7 +36,7 @@ Om du inte har distribuerat enheten simuleringen ännu, bör du genomföra den [
 
 ## <a name="configuring-device-simulation"></a>Konfigurera simulering av enheten
 
-Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT solution Accelerator [etablerade lösningar](https://www.azureiotsuite.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
+Du kan konfigurera och köra enheten simuleringen helt från instrumentpanelen. Öppna instrumentpanelen från IoT solution Accelerator [etablerade lösningar](https://www.azureiotsolutions.com/) sidan. Klicka på **starta** under distributionen av nya enheter simuleringen.
 
 ### <a name="target-iot-hub"></a>Målet IoT-hubb
 
@@ -77,7 +74,7 @@ I följande tabell visas en lista över konfigurationer för varje förkonfigure
 | -------------| ------ | -----| 
 | Kylaggregat | fuktighet | % |
 | | tryck | psig | 
-| | Temperatur | F | 
+| | temperatur | F | 
 | Snabba | våning | 
 | | Vibration | mm | 
 | | Temperatur | F | 

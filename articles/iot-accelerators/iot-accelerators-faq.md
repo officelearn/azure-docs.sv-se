@@ -1,25 +1,19 @@
 ---
 title: Azure IoT solution Accelerator vanliga frågor och svar | Microsoft Docs
 description: Vanliga frågor om IoT solution Accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627167"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor om IoT solution Accelerator
 
@@ -42,7 +36,7 @@ Om du använder enheten DevKit hittar du resurser och exempel i den [IoT DevKit 
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>Är den nya arkitekturen i mikrotjänster tillgängligt för alla tre solution Accelerator?
 
-För närvarande använder endast remote övervakningslösning arkitektur för mikrotjänster som det täcker de bredaste scenariot.
+För närvarande använder endast Fjärrövervaknings-lösningen arkitektur för mikrotjänster det täcker de bredaste scenariot.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Vilka fördelar ger den nya öppen källkod mikrotjänster-baserad arkitekturen i den nya uppdateringen?
 
@@ -50,11 +44,11 @@ Under de senaste två åren har molnarkitektur avsevärt utvecklats. Mikrotjäns
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Är den nya solution acceleratorn i samma geografiska region som den befintliga lösningen?
 
-Ja, den nya fjärrövervaknings finns i samma geografiska regioner.
+Ja, den nya Fjärrövervaknings finns i samma geografiska regioner.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Vad är skillnaden mellan att ta bort en resursgrupp i Azure-portalen och klicka på Ta bort på en lösningsaccelerator i azureiotsuite.com?
 
-* Om du tar bort solution accelerator i [azureiotsuite.com](https://www.azureiotsuite.com/), du ta bort alla resurser som etablerades när du skapade solution accelerator. Om du har lagt till fler resurser till resursgruppen raderas även dessa resurser.
+* Om du tar bort solution accelerator i [azureiotsuite.com](https://www.azureiotsolutions.com/), du ta bort alla resurser som etablerades när du skapade solution accelerator. Om du har lagt till fler resurser till resursgruppen raderas även dessa resurser.
 * Om du tar bort resursgrupp i den [Azure-portalen](https://portal.azure.com), bara ta bort resurserna i resursgruppen. Du måste också ta bort Azure Active Directory-programmet som är associerade med solution accelerator.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Kan jag fortsätta att använda min befintliga investeringar i Azure IoT solution Accelerator?
@@ -71,7 +65,7 @@ Femtio. Du kan skapa en [Azure supportärende](https://portal.azure.com/#blade/M
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hur många kostnadsfria Bing Maps-API:er kan jag etablera i en prenumeration?
 
-Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise planer i en Azure-prenumeration. Fjärråtkomst övervakningslösning etableras som standard med interna transaktioner nivå 1-plan. Detta betyder att du bara kan etablera upp till två fjärrövervakningslösningar i en prenumeration utan några ändringar.
+Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise planer i en Azure-prenumeration. Fjärrövervaknings lösning etableras som standard med interna transaktioner nivå 1-plan. Du kan därför endast etablera upp till två Fjärrövervaknings lösningar i en prenumeration utan ändringar.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Kan jag skapa en lösningsaccelerator om jag har Microsoft Azure för DreamSpark?
 
@@ -92,7 +86,7 @@ Finns i blogginlägget Eric Golpe [genomgång av du tar bort en Azure AD-klient]
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Utforska funktionerna i fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-explore.md)
-* [Översikt över lösningsaccelerator för förutsägande underhåll](../iot-suite/iot-suite-predictive-overview.md)
+* [Utforska funktionerna i Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Anslutna Factory solution accelerator översikt](iot-accelerators-connected-factory-overview.md)
-* [IoT-säkerhet från grunden](../iot-suite/securing-iot-ground-up.md)
+* [IoT-säkerhet från grunden](securing-iot-ground-up.md)

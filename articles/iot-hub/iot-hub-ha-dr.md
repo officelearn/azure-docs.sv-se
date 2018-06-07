@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT-hubb hög tillgänglighet och disaster recovery | Microsoft Docs"
-description: "Beskriver funktionerna i Azure och IoT-hubb som hjälper dig att skapa hög tillgänglighet Azure IoT-lösningar med katastrofåterställning återställningsfunktioner."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT-hubb hög tillgänglighet och disaster recovery | Microsoft Docs
+description: Beskriver funktionerna i Azure och IoT-hubb som hjälper dig att skapa hög tillgänglighet Azure IoT-lösningar med katastrofåterställning återställningsfunktioner.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633714"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT-hubb hög tillgänglighet och disaster recovery
 IoT-hubb ger hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare krävs för lösningen som en Azure-tjänst. Microsoft Azure-plattformen innehåller också funktioner för att skapa lösningar med funktioner för katastrofåterställning (DR) eller mellan regional tillgänglighet. Om du vill ange globalt, dra nytta av funktionerna Azure DR mellan region hög tillgänglighet för enheter eller användare. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för kontinuitet för företag och Katastrofåterställning. Den [katastrofåterställning och hög tillgänglighet för Azure-program] [ Disaster recovery and high availability for Azure applications] dokumentet innehåller arkitekturvägledning om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.

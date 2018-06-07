@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 05/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 808debcee11eb83f7e6afa1f3443a35c9f6767c4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 53513b2d07f75e917845ad307a2833a5149ab677
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Självstudier: Azure Active Directory-integrering med Adobe kreativa moln
 
@@ -80,8 +81,6 @@ I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med 
 
 Azure AD måste du känna till motsvarande användaren i Adobe kreativa molnet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk mellan en Azure AD-användare och relaterade användaren i Adobe kreativa molnet upprättas.
 
-I Adobe kreativa moln, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
-
 Om du vill konfigurera och testa Azure AD enkel inloggning med Adobe kreativa molnet, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
@@ -101,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
 
 3. På den **Adobe kreativa molnet domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP initierade läge:
@@ -112,8 +111,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Adobe kreativa Cloud klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att hämta dessa värden. 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Adobe kreativa Cloud klienten supportteamet](https://helpx.adobe.com/in/contact/support.html) att hämta dessa värden.
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -138,41 +137,44 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | E-post |User.Mail |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
-    
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
-    
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
-    
+
     b. I den **namn** textruta ange attributets namn visas för den raden.
-    
+
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
-    
+
     d. Klicka på **OK**.
-    
+
+    > [!NOTE]
+    > Användarna måste ha en giltig Office 365 ExO licens för e-post anspråksvärde fyllas i SAML-svaret.
+
 8. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_400.png)
-    
+
 9. På den **Adobe kreativa Molnkonfigurationen** klickar du på **Konfigurera Adobe kreativa molnet** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnittet**.
 
     ![Adobe kreativa Molnkonfigurationen](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
-    
+
 10. I en annan webbläsarfönstret, logga in på [Adobe administratörskonsolen](https://adminconsole.adobe.com) som administratör.
 
 11. Gå till **inställningar** på det övre navigeringsfältet och välj sedan **identitet**. Listan över domäner öppnas. Klicka på **konfigurera** länken mot din domän. Utför följande steg på **enkel inloggning på konfiguration krävs** avsnitt. Mer information finns i [konfigurera en domän](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
     ![Inställningar för](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "inställningar")
-    
+
     a. Klicka på **Bläddra** hämtade certifikatet från Azure AD för att överföra **IDP certifikat**.
-    
+
     b. I den **IDP utfärdaren** textruta, ange värdet för **SAML enhets-Id** som du kopierade från **konfigurera inloggning** avsnitt i Azure-portalen.
-    
+
     c. I den **IDP inloggnings-URL** textruta, ange värdet för **URL för SAML SSO-Service** som du kopierade från **konfigurera inloggning** avsnitt i Azure-portalen.
-    
+
     d. Välj **HTTP - omdirigering** som **IDP bindning**.
-    
+
     e. Välj **e-postadress** som **inloggningen Användarinställning**.
-    
+
     f. Klicka på **spara** knappen.
 
 12. Instrumentpanelen visas nu XML **”hämta Metadata”** filen. Den innehåller Adobe EntityDescriptor Webbadressen och AssertionConsumerService. Öppna filen och konfigurera dem i Azure AD-program.
@@ -182,9 +184,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. Använd EntityDescriptor värdet Adobe för **identifierare** på den **konfigurera Appinställningar** dialogrutan.
 
     b. Använd AssertionConsumerService värdet Adobe för **Reply URL** på den **konfigurera Appinställningar** dialogrutan.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -290,4 +289,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_203.png
-

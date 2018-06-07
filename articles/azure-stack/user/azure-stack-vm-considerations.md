@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605396"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Överväganden för att använda virtuella datorer i Azure-stacken
 
@@ -102,7 +103,7 @@ Listan över resurstyper som stöds och API-versioner kan variera om operatorn m
 Windows-produkter måste användas i enlighet med användarrättigheter och licensvillkoren för Microsoft. Azure-stacken använder [automatisk aktivering av Virtuella](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) för att aktivera Windows Server virtuella maskiner (VMs).
 
 - Azure Stack-värd aktiverar Windows med AVMA-nycklar för Windows Server 2016. Alla virtuella datorer som kör Windows Server 2012 eller senare aktiveras automatiskt.
-- Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx).
+- Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx). Om du vill använda MAK-aktivering, måste du ange egna produktnyckel.
 
 Microsoft Azure använder KMS-aktivering för att aktivera Windows-datorer. Om du flyttar en virtuell dator från Azure-stacken till Azure och stöter aktivera problem, se [aktiveringsproblem för felsökning av Windows Azure virtuella](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Mer information finns på den [felsökning av Windows-aktivering fel på Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Teamblogg post.
 

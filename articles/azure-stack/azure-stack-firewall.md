@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604224"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
 Det rekommenderas att du använder en enhet för att säkra Azure-stacken. Även om brandväggar kan hjälpa dig med t.ex distribuerad denial of service (DDOS) attacker, intrångsidentifiering och innehållsgranskning, blir de också en genomströmning flaskhals för Azure storage-tjänster som blobbar, tabeller och köer.
@@ -48,7 +49,7 @@ I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern eller
 
 Normalt har offentligt dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I en kant-scenariot rekommenderas det inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare har fullständig själva kontrollerade molnet upplevelse som i ett offentligt moln som Azure.  
 
-![Azure Stack edge brandväggen exempel](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Azure Stack edge brandväggen exempel](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Företagets intranät eller perimeternätverk brandväggen scenariot
 I ett intranät eller perimeternätverk företagsdistribution bör distribueras Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets nätverksbrandvägg. Sedan dess trafiken distribueras mellan säker, perimeternätverk (eller DMZ) och osäkra zoner som beskrivs nedan:

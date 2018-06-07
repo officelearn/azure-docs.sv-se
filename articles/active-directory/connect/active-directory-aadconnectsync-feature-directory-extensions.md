@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: katalogtillägg | Microsoft Docs"
-description: "Det här avsnittet beskriver katalogfunktionen i Azure AD Connect."
+title: 'Azure AD Connect-synkronisering: katalogtillägg | Microsoft Docs'
+description: Det här avsnittet beskriver katalogfunktionen i Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593640"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: katalogtillägg
 Du kan använda katalogtillägg för att utöka schemat i Azure Active Directory (AD Azure) med egna attribut från lokala Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du även fortsättningsvis att hantera lokala. Attributen kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://graph.microsoft.io/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)respektive.
@@ -56,7 +58,7 @@ Dessa attribut är nu tillgängliga via Azure AD Graph API. Du kan fråga dem me
 Eller fråga attributen via Microsoft Graph-API med hjälp av [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
 
 >[!NOTE]
-> Du behöver fråga för de attribut som ska returneras. Uttryckligen väljer attribut så här: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Du behöver fråga för de attribut som ska returneras. Uttryckligen väljer attribut så här: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Mer information finns i [Microsoft Graph: Använd frågeparametrar](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 

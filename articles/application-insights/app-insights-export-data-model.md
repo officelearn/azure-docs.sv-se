@@ -1,8 +1,8 @@
 ---
 title: Azure Application Insights datamodellen | Microsoft Docs
-description: "Beskriver egenskaper som exporteras från löpande export i JSON och används som filter."
+description: Beskriver egenskaper som exporteras från löpande export i JSON och används som filter.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 841b11421b7198efc7fc9bb3226c7b067fcbbdc4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598835"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export-datamodell
 Den här tabellen innehåller egenskaper för telemetri som skickats från den [Programinsikter](app-insights-overview.md) SDK: er till portalen.
@@ -26,9 +27,9 @@ De visas också egenskapsfilter i [mått Explorer](app-insights-metrics-explorer
 
 Pekar på Observera:
 
-* `[0]`i dessa tabeller anger du en punkt i sökvägen där du måste infoga ett index. men det är inte alltid 0.
+* `[0]` i dessa tabeller anger du en punkt i sökvägen där du måste infoga ett index. men det är inte alltid 0.
 * Tidsvaraktigheter finns i en mikrosekundnivå så 10000000 tiondels == 1 sekund.
-* Datum och tider är UTC och anges i formatet ISO`yyyy-MM-DDThh:mm:ss.sssZ`
+* Datum och tider är UTC och anges i formatet ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
 
 ## <a name="example"></a>Exempel
@@ -118,40 +119,40 @@ Alla typer av telemetri åtföljs av en kontext-avsnittet. Alla dessa fält skic
 | --- | --- | --- |
 | Context.Custom.dimensions [0] |objektet] |Nyckel / värde-strängpar som anges av parametern anpassade egenskaper. Nyckeln får innehålla högst 100, värden får innehålla högst 1024. Fler än 100 unika värden egenskapen kan sökas men kan inte användas för segmentering. Max 200 nycklar per ikey. |
 | Context.Custom.Metrics [0] |objektet] |Nyckel-värdepar anges av parametern anpassade mått och av TrackMetrics. Maximal nyckellängd 100, värdena kan vara numeriskt. |
-| context.data.eventTime |Sträng |UTC |
-| context.data.isSynthetic |Booleskt värde |Begäran verkar komma från en bot eller web test. |
-| context.data.samplingRate |Antal |Procentandelen telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0 100,0. |
-| Context.Device |Objektet |Klientenheten |
-| Context.Device.Browser |Sträng |Internet Explorer, Chrome... |
-| context.device.browserVersion |Sträng |Chrome 48,0... |
-| context.device.deviceModel |Sträng | |
-| context.device.deviceName |Sträng | |
-| Context.Device.ID |Sträng | |
-| Context.Device.Locale |Sträng |en GB, de-DE... |
-| Context.Device.Network |Sträng | |
-| context.device.oemName |Sträng | |
-| context.device.osVersion |Sträng |Värdens operativsystem |
-| context.device.roleInstance |Sträng |ID för server-värd |
-| context.device.roleName |Sträng | |
-| Context.Device.Type |Sträng |PC webbläsare... |
-| Context.Location |Objektet |Härleds från clientip. |
-| Context.location.City |Sträng |Om den är känd som härrör från clientip, |
-| Context.location.clientip |Sträng |Senaste Åttahörning anonym till 0. |
-| Context.location.continent |Sträng | |
-| Context.location.Country |Sträng | |
-| Context.location.province |Sträng |Region |
-| Context.operation.ID |Sträng |Objekt som har samma åtgärds-id visas som relaterade objekt i portalen. Vanligtvis begäran-id. |
-| Context.operation.Name |Sträng |URL eller begäran |
-| context.operation.parentId |Sträng |Tillåter kapslade relaterade objekt. |
-| Context.session.ID |Sträng |ID för en grupp av åtgärder från samma källa. 30 minuter utan en åtgärd signalerar till slutet av en session. |
-| context.session.isFirst |Booleskt värde | |
-| context.user.accountAcquisitionDate |Sträng | |
-| context.user.anonAcquisitionDate |Sträng | |
-| context.user.anonId |Sträng | |
-| context.user.authAcquisitionDate |Sträng |[Autentiserad användare](app-insights-api-custom-events-metrics.md#authenticated-users) |
-| context.user.isAuthenticated |Booleskt värde | |
-| internal.data.documentVersion |Sträng | |
-| internal.data.ID |Sträng | |
+| context.data.eventTime |sträng |UTC-tid |
+| context.data.isSynthetic |boolesk |Begäran verkar komma från en bot eller web test. |
+| context.data.samplingRate |nummer |Procentandelen telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0 100,0. |
+| Context.Device |objekt |Klientenheten |
+| Context.Device.Browser |sträng |Internet Explorer, Chrome... |
+| context.device.browserVersion |sträng |Chrome 48,0... |
+| context.device.deviceModel |sträng | |
+| context.device.deviceName |sträng | |
+| Context.Device.ID |sträng | |
+| Context.Device.Locale |sträng |en GB, de-DE... |
+| Context.Device.Network |sträng | |
+| context.device.oemName |sträng | |
+| context.device.osVersion |sträng |Värdens operativsystem |
+| context.device.roleInstance |sträng |ID för server-värd |
+| context.device.roleName |sträng | |
+| Context.Device.Type |sträng |PC webbläsare... |
+| Context.Location |objekt |Härleds från clientip. |
+| Context.location.City |sträng |Om den är känd som härrör från clientip, |
+| Context.location.clientip |sträng |Senaste Åttahörning anonym till 0. |
+| Context.location.continent |sträng | |
+| Context.location.Country |sträng | |
+| Context.location.province |sträng |Region |
+| Context.operation.ID |sträng |Objekt som har samma åtgärds-id visas som relaterade objekt i portalen. Vanligtvis begäran-id. |
+| Context.operation.Name |sträng |URL eller begäran |
+| context.operation.parentId |sträng |Tillåter kapslade relaterade objekt. |
+| Context.session.ID |sträng |ID för en grupp av åtgärder från samma källa. 30 minuter utan en åtgärd signalerar till slutet av en session. |
+| context.session.isFirst |boolesk | |
+| context.user.accountAcquisitionDate |sträng | |
+| context.user.anonAcquisitionDate |sträng | |
+| context.user.anonId |sträng | |
+| context.user.authAcquisitionDate |sträng |[Autentiserad användare](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.isAuthenticated |boolesk | |
+| internal.data.documentVersion |sträng | |
+| internal.data.ID |sträng | Unikt id som tilldelas när ett objekt inhämtas till Application Insights |
 
 ## <a name="events"></a>Händelser
 Anpassade händelser som genererats av [trackevent ()](app-insights-api-custom-events-metrics.md#trackevent).
@@ -159,70 +160,70 @@ Anpassade händelser som genererats av [trackevent ()](app-insights-api-custom-e
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | händelseantal [0] |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel 4 =&gt; 25%. |
-| händelsenamn [0] |Sträng |Händelsenamn.  Maxlängd 250. |
-| händelsen [0] url |Sträng | |
-| händelsen [0] urlData.base |Sträng | |
-| händelsen [0] urlData.host |Sträng | |
+| händelsenamn [0] |sträng |Händelsenamn.  Maxlängd 250. |
+| händelsen [0] url |sträng | |
+| händelsen [0] urlData.base |sträng | |
+| händelsen [0] urlData.host |sträng | |
 
 ## <a name="exceptions"></a>Undantag
 Rapporter [undantag](app-insights-asp-net-exceptions.md) på servern och i webbläsaren.
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| sammansättningen basicException [0] |Sträng | |
+| sammansättningen basicException [0] |sträng | |
 | Antal basicException [0] |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel 4 =&gt; 25%. |
-| basicException [0] exceptionGroup |Sträng | |
-| basicException [0] exceptionType |Sträng | |
-| basicException [0] failedUserCodeMethod |Sträng | |
-| basicException [0] failedUserCodeAssembly |Sträng | |
-| basicException [0] handledAt |Sträng | |
-| basicException [0] hasFullStack |Booleskt värde | |
-| basicException [0]-id |Sträng | |
-| metoden basicException [0] |Sträng | |
-| basicException [0] meddelande |Sträng |Undantagsmeddelande. Maxlängd 10k. |
-| basicException [0] outerExceptionMessage |Sträng | |
-| basicException [0] outerExceptionThrownAtAssembly |Sträng | |
-| basicException [0] outerExceptionThrownAtMethod |Sträng | |
-| basicException [0] outerExceptionType |Sträng | |
-| basicException [0] outerId |Sträng | |
-| basicException [0] parsedStack [0] sammansättning |Sträng | |
-| basicException [0] parsedStack [0] filnamn |Sträng | |
+| basicException [0] exceptionGroup |sträng | |
+| basicException [0] exceptionType |sträng | |
+| basicException [0] failedUserCodeMethod |sträng | |
+| basicException [0] failedUserCodeAssembly |sträng | |
+| basicException [0] handledAt |sträng | |
+| basicException [0] hasFullStack |boolesk | |
+| basicException [0]-id |sträng | |
+| metoden basicException [0] |sträng | |
+| basicException [0] meddelande |sträng |Undantagsmeddelande. Maxlängd 10k. |
+| basicException [0] outerExceptionMessage |sträng | |
+| basicException [0] outerExceptionThrownAtAssembly |sträng | |
+| basicException [0] outerExceptionThrownAtMethod |sträng | |
+| basicException [0] outerExceptionType |sträng | |
+| basicException [0] outerId |sträng | |
+| basicException [0] parsedStack [0] sammansättning |sträng | |
+| basicException [0] parsedStack [0] filnamn |sträng | |
 | basicException [0] parsedStack [0] nivå |heltal | |
 | basicException [0] parsedStack [0] rad |heltal | |
-| basicException [0] parsedStack [0] metod |Sträng | |
-| basicException [0] stack |Sträng |Maxlängd 10k |
-| typeName basicException [0] |Sträng | |
+| basicException [0] parsedStack [0] metod |sträng | |
+| basicException [0] stack |sträng |Maxlängd 10k |
+| typeName basicException [0] |sträng | |
 
-## <a name="trace-messages"></a>Spåra meddelanden
+## <a name="trace-messages"></a>Spårningsmeddelanden
 Skickas av [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace), och av de [loggning kort](app-insights-asp-net-trace-logs.md).
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| meddelandet [0] loggningsnamn |Sträng | |
-| [0] meddelandeparametrar |Sträng | |
-| meddelandet [0] rådata |Sträng |Loggmeddelande får innehålla högst 10k. |
-| meddelandet [0] severityLevel |Sträng | |
+| meddelandet [0] loggningsnamn |sträng | |
+| [0] meddelandeparametrar |sträng | |
+| meddelandet [0] rådata |sträng |Loggmeddelande får innehålla högst 10k. |
+| meddelandet [0] severityLevel |sträng | |
 
 ## <a name="remote-dependency"></a>Fjärråtkomst beroende
 Skickas av TrackDependency. Används för att rapportprestanda och användning av [anrop till beroenden](app-insights-asp-net-dependencies.md) i server och AJAX-anrop i webbläsaren.
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| asynkrona remoteDependency [0] |Booleskt värde | |
-| remoteDependency [0] baseName |Sträng | |
-| remoteDependency [0] commandName |Sträng |Till exempel ”home/index” |
+| asynkrona remoteDependency [0] |boolesk | |
+| remoteDependency [0] baseName |sträng | |
+| remoteDependency [0] commandName |sträng |Till exempel ”home/index” |
 | Antal remoteDependency [0] |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel 4 =&gt; 25%. |
-| remoteDependency [0] dependencyTypeName |Sträng |HTTP, SQL... |
-| remoteDependency [0] durationMetric.value |Antal |Tid vid anrop till svaret av beroende har slutförts |
-| remoteDependency [0]-id |Sträng | |
-| remoteDependency [0] namn |Sträng |URL-adressen. Maxlängd 250. |
-| remoteDependency [0] resultCode |Sträng |från HTTP-beroendet |
-| remoteDependency [0] lyckades |Booleskt värde | |
-| typ av remoteDependency [0] |Sträng |HTTP, Sql... |
-| remoteDependency [0] url |Sträng |Maxlängd 2000 |
-| remoteDependency [0] urlData.base |Sträng |Maxlängd 2000 |
-| remoteDependency [0] urlData.hashTag |Sträng | |
-| remoteDependency [0] urlData.host |Sträng |Maxlängd 200 |
+| remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL... |
+| remoteDependency [0] durationMetric.value |nummer |Tid vid anrop till svaret av beroende har slutförts |
+| remoteDependency [0]-id |sträng | |
+| remoteDependency [0] namn |sträng |URL-adressen. Maxlängd 250. |
+| remoteDependency [0] resultCode |sträng |från HTTP-beroendet |
+| remoteDependency [0] lyckades |boolesk | |
+| typ av remoteDependency [0] |sträng |HTTP, Sql... |
+| remoteDependency [0] url |sträng |Maxlängd 2000 |
+| remoteDependency [0] urlData.base |sträng |Maxlängd 2000 |
+| remoteDependency [0] urlData.hashTag |sträng | |
+| remoteDependency [0] urlData.host |sträng |Maxlängd 200 |
 
 ## <a name="requests"></a>Begäranden
 Skickas av [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Modulerna som standard används för att rapporter serversvarstid, mätt på servern.
@@ -230,15 +231,15 @@ Skickas av [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | antalet begäranden [0] |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel: 4 =&gt; 25%. |
-| begäran [0] durationMetric.value |Antal |Tid för begäran som inkommer till svar. 1e7 == 1s |
-| id för förfrågan [0] |Sträng |Åtgärds-id |
-| namn på förfrågan [0] |Sträng |GET/POST + bas-url.  Maxlängd 250 |
+| begäran [0] durationMetric.value |nummer |Tid för begäran som inkommer till svar. 1e7 == 1s |
+| id för förfrågan [0] |sträng |Åtgärds-ID |
+| namn på förfrågan [0] |sträng |GET/POST + bas-url.  Maxlängd 250 |
 | begäran [0] responseCode |heltal |HTTP-svar som skickats till klienten |
-| begäran [0] lyckades |Booleskt värde |Standard == (responseCode &lt; 400) |
-| url-begäran [0] |Sträng |Inte inklusive värden |
-| begäran [0] urlData.base |Sträng | |
-| begäran [0] urlData.hashTag |Sträng | |
-| begäran [0] urlData.host |Sträng | |
+| begäran [0] lyckades |boolesk |Standard == (responseCode &lt; 400) |
+| url-begäran [0] |sträng |Inte inklusive värden |
+| begäran [0] urlData.base |sträng | |
+| begäran [0] urlData.hashTag |sträng | |
+| begäran [0] urlData.host |sträng | |
 
 ## <a name="page-view-performance"></a>Vyn sida prestanda
 Skickas av webbläsaren. Mäter tid att bearbeta en sida från användare initierar en begäran om att visa fullständiga (exklusive asynkrona AJAX-anrop).
@@ -248,16 +249,16 @@ Kontexten värden visa klientens operativsystem och version på webbläsaren.
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |heltal |Tiden från slutet av tar emot HTML för att visa sidan. |
-| clientPerformance [0] namn |Sträng | |
+| clientPerformance [0] namn |sträng | |
 | clientPerformance [0] networkConnection.value |heltal |Åtgången tid för att upprätta en nätverksanslutning. |
 | clientPerformance [0] receiveRequest.value |heltal |Tiden från slutet av begäran skickades till mottagning HTML i svar. |
 | clientPerformance [0] sendRequest.value |heltal |Tiden från att skicka HTTP-begäran. |
 | clientPerformance [0] total.value |heltal |Tiden mellan start-och skicka begäran till visar sidan. |
-| clientPerformance [0] url |Sträng |URL för den här begäran |
-| clientPerformance [0] urlData.base |Sträng | |
-| clientPerformance [0] urlData.hashTag |Sträng | |
-| clientPerformance [0] urlData.host |Sträng | |
-| clientPerformance [0] urlData.protocol |Sträng | |
+| clientPerformance [0] url |sträng |URL för den här begäran |
+| clientPerformance [0] urlData.base |sträng | |
+| clientPerformance [0] urlData.hashTag |sträng | |
+| clientPerformance [0] urlData.host |sträng | |
+| clientPerformance [0] urlData.protocol |sträng | |
 
 ## <a name="page-views"></a>Sidvisningar
 Skickas av trackPageView() eller [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
@@ -266,30 +267,30 @@ Skickas av trackPageView() eller [stopTrackPage](app-insights-api-custom-events-
 | --- | --- | --- |
 | Visa [0] antal |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel 4 =&gt; 25%. |
 | Visa [0] durationMetric.value |heltal |Värdet som du kan också ställa in i trackPageView() eller startTrackPage() - stopTrackPage(). Inte samma som clientPerformance värden. |
-| vynamn [0] |Sträng |Rubrik.  Maxlängd 250 |
-| Visa [0] url |Sträng | |
-| Visa [0] urlData.base |Sträng | |
-| Visa [0] urlData.hashTag |Sträng | |
-| Visa [0] urlData.host |Sträng | |
+| vynamn [0] |sträng |Rubrik.  Maxlängd 250 |
+| Visa [0] url |sträng | |
+| Visa [0] urlData.base |sträng | |
+| Visa [0] urlData.hashTag |sträng | |
+| Visa [0] urlData.host |sträng | |
 
 ## <a name="availability"></a>Tillgänglighet
 Rapporter [tillgänglighet webbtester](app-insights-monitor-web-app-availability.md).
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| tillgänglighet [0] availabilityMetric.name |Sträng |availability |
-| tillgänglighet [0] availabilityMetric.value |Antal |1.0 eller 0,0 |
+| tillgänglighet [0] availabilityMetric.name |sträng |availability |
+| tillgänglighet [0] availabilityMetric.value |nummer |1.0 eller 0,0 |
 | Antal tillgänglighet [0] |heltal |100 / ([provtagning](app-insights-sampling.md) hastighet). Till exempel 4 =&gt; 25%. |
-| tillgänglighet [0] dataSizeMetric.name |Sträng | |
+| tillgänglighet [0] dataSizeMetric.name |sträng | |
 | tillgänglighet [0] dataSizeMetric.value |heltal | |
-| tillgänglighet [0] durationMetric.name |Sträng | |
-| tillgänglighet [0] durationMetric.value |Antal |Varaktighet för testet. 1e7 == 1s |
-| meddelande om tillgänglighet [0] |Sträng |Fel diagnostik |
-| tillgänglighet [0] resultat |Sträng |Eller inte |
-| tillgänglighet [0] runLocation |Sträng |GEO-källan för HTTP-begäranden |
-| tillgänglighet [0] testName |Sträng | |
-| tillgänglighet [0] testRunId |Sträng | |
-| tillgänglighet [0] testTimestamp |Sträng | |
+| tillgänglighet [0] durationMetric.name |sträng | |
+| tillgänglighet [0] durationMetric.value |nummer |Varaktighet för testet. 1e7 == 1s |
+| meddelande om tillgänglighet [0] |sträng |Fel diagnostik |
+| tillgänglighet [0] resultat |sträng |Eller inte |
+| tillgänglighet [0] runLocation |sträng |GEO-källan för HTTP-begäranden |
+| tillgänglighet [0] testName |sträng | |
+| tillgänglighet [0] testRunId |sträng | |
+| tillgänglighet [0] testTimestamp |sträng | |
 
 ## <a name="metrics"></a>Mått
 Genereras av TrackMetric().
@@ -346,7 +347,7 @@ I stället före sammanställa statistik och, du kan använda [provtagning](app-
 ### <a name="durations"></a>Varaktighet
 Förutom där annat anges, representeras varaktighet i tiondels mikrosekundnivå, så att 10000000.0 innebär 1 sekund.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Application Insights](app-insights-overview.md)
 * [Löpande Export](app-insights-export-telemetry.md)
 * [Kodexempel](app-insights-export-telemetry.md#code-samples)

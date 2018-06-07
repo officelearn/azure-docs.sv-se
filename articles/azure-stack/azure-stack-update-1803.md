@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603952"
 ---
 # <a name="azure-stack-1803-update"></a>Azure-stacken 1803 uppdatering
 
@@ -56,7 +57,7 @@ Azure-stacken 1803 uppdatera versionsnumret är **20180329.1**.
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
 - Installera alla tillämpliga snabbkorrigeringar efter installationen av 1803. Mer information läser du följande knowledge base-artiklar, samt våra [Servicing princip](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - Nätverksstyrenhetens API-tjänsten kraschar när du försöker installera en uppdatering för Azure-stacken](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - åtgärder mot resurser misslyckas-klient och oväntat resurser skapas på samma klient eller infrastruktur volym](https://support.microsoft.com/en-us/help/4294441)
 
 - Granska brandväggskonfigurationen så när du har installerat uppdateringen [nödvändiga portarna](azure-stack-integrate-endpoints.md) är öppna. Den här uppdateringen införs till exempel Azure-Monitor som innehåller en ändring av granskningsloggar för att skicka aktivitetsloggar. Med den här ändringen port 13012 används nu och måste också vara öppen.  
 
@@ -110,6 +111,9 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 Följande är efter installationen kända problem för version **20180323.2**.
 
 #### <a name="portal"></a>Portalen
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Lösning: Lös problemet när du har installerat uppdateringen med steg 3 från de [utlösaren automation för att konfigurera anspråksproviderförtroende i Azure-stacken](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard providern Prenumerationens ägare.   
+
 - Möjlighet [att öppna en ny supportförfrågan i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
     - För Azure-Stack integrerad system använda https://aka.ms/newsupportrequest.
 
@@ -131,7 +135,23 @@ Följande är efter installationen kända problem för version **20180323.2**.
   Den här aviseringen kan ignoreras. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Hälsa och övervakning
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Avisera #1:
+   - NAMN: Infrastrukturrollen ohälsosamt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Hälsotillstånd domänkontrollant
+   - Beskrivning: Hälsotillstånd controller pulsslag skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.  
+
+  Avisera #2:
+   - NAMN: Infrastrukturrollen ohälsosamt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Hälsotillstånd domänkontrollant
+   - Beskrivning: Hälsotillstånd controller fel skanner är inte tillgänglig. Detta kan påverka hälsorapporter och mått.
+
+  Båda aviseringarna kan ignoreras. De stängs automatiskt med tiden.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa element som planer och erbjudanden. Objekten är icke-fungerande till användare.
@@ -143,7 +163,7 @@ Följande är efter installationen kända problem för version **20180323.2**.
 
 - När du skapar en tillgänglighetsuppsättning i portalen genom att gå till **ny** > **Compute** > **tillgänglighetsuppsättning**, du kan bara skapa en tillgänglighetsuppsättning med en feldomän och uppdateringsdomän 1. Som en lösning när du skapar en ny virtuell dator, skapa tillgänglighetsuppsättning med hjälp av PowerShell, CLI eller från portalen.
 
-- När du skapar virtuella datorer på Azure-stacken användarportalen visar portalen ett felaktigt antal datadiskar som kan kopplas till DS-serien VM. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
+- När du skapar virtuella datorer på Azure-stacken användarportalen visar portalen ett felaktigt antal datadiskar som kan kopplas till D-serien VM. Alla stöds D-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
 - När en VM-avbildning misslyckas skapas kan en misslyckade objekt som du inte kan ta bort läggas till bladet VM-avbildningar beräkning.
 
@@ -264,6 +284,8 @@ Följande är efter installationen kända problem för version **20180323.2**.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Hämta Azure Stack-verktyg från GitHub
 - När du använder den *anropa webrequest* PowerShell-cmdlet för att ladda ned Azure-stacken verktyg från Github, du får ett felmeddelande:     

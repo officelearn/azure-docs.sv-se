@@ -1,18 +1,19 @@
 ---
 title: Skapa och hantera händelseregler i ditt Azure IoT centrala program | Microsoft Docs
 description: Azure IoT Central händelseregler kan du övervaka dina enheter i nära realtid och anropa åtgärder, till exempel skicka ett e-postmeddelande när regeln utlöser automatiskt.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628376"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i ditt Azure IoT centrala program
 
@@ -20,7 +21,7 @@ Du kan använda Microsoft Azure IoT Central fjärrövervaka dina anslutna enhete
 
 Azure IoT Central används [händelse mätning](howto-set-up-template.md) att samla in data på enheten. Varje typ av mått har nyckelattribut som definierar måttet. Du kan skapa regler för att övervaka varje typ av enhet mått och genererar aviseringar när regeln utlöser. En regel för händelsen utlöses när den valda enhet händelsen rapporteras av enheten.
 
-## <a name="create-an-event-rule"></a>Skapa en regel för händelse
+## <a name="create-an-event-rule"></a>Skapa en händelseregel
 
 Det här avsnittet visar hur du skapar en regel för händelsen. Det här exemplet används en kylda Varuautomat enhet rapporter fläkt meddelar felhändelsen. Regeln övervakar den händelse som rapporterats av enheten och skickar ett e-postmeddelande när händelsen rapporteras.
 

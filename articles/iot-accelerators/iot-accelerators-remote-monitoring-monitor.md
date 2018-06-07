@@ -1,26 +1,23 @@
 ---
 title: Avancerad övervakning i fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: Den här kursen visar hur du övervakar enheter med instrumentpanelen för fjärråtkomst övervakning lösning.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627407"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning
+# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med övervakning av fjärråtkomst-lösningen
 
-Den här kursen visar funktionerna i instrumentpanelen för fjärråtkomst övervakning. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
+Den här kursen visar funktionerna i instrumentpanelen för övervakning av fjärråtkomst. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
 
 I den här kursen använder du två simulerade Contoso lastbil enheter att lära dig hur du övervakar dina enheter från solution accelerator instrumentpanelen. Du behöver övervaka plats och beteendet för din lastbilar i fältet som en Contoso-operator.
 
@@ -35,9 +32,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
+Om du vill följa den här självstudiekursen, måste en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="choose-the-devices-to-display"></a>Välj vilka enheter som ska visas
 
@@ -103,7 +100,7 @@ Du kan använda den **instrumentpanelen** filter för att justera tidsintervalle
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen visades hur du använder den **instrumentpanelen** att filtrera och övervaka simulerade lastbilar etablerats i din lösning för fjärråtkomst övervakning:
+Den här självstudiekursen visades hur du använder den **instrumentpanelen** att filtrera och övervaka simulerade lastbilar etablerats i din lösning för övervakning av fjärråtkomst:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

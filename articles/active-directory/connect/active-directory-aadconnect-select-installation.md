@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: df7cc8c978dfa215a79d087d2aa1f0dea258d6b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591651"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Välj vilken installationstyp du använder för Azure AD Connect
 Azure AD Connect har två typer av appinstallationer för nyinstallation: Express och anpassas. Det här avsnittet hjälper dig att avgöra vilket alternativ som ska användas under installationen.

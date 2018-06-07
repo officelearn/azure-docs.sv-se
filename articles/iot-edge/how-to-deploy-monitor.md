@@ -1,19 +1,20 @@
 ---
 title: Distribuera, övervaka moduler för Azure IoT kant | Microsoft Docs
 description: Hantera de moduler som körs på enheter
-services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-edge
+ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630722"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuera och övervaka IoT kant moduler i skala - förhandsgranskning
 

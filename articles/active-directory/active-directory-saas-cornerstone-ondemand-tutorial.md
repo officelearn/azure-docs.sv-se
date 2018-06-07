@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df2bc27a5f17120b222e91007a47f85f0566b616
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c609c32e423625c479f3f169da4a31616d200e57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Självstudier: Azure Active Directory-integrering med hörnstenarna OnDemand
 
@@ -64,7 +65,7 @@ Du måste lägga till hörnstenarna OnDemand från galleriet i listan över hant
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
@@ -103,7 +104,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
 
 3. På den **hörnstenarna OnDemand domän och URL: er** avsnittet, utför följande steg:
@@ -115,8 +116,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I **identifierare** textruta Skriv en URL med följande mönster: `https://<company>.csod.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [hörnstenarna OnDemand klienten supportteamet](mailTo:moreinfo@csod.com) att hämta dessa värden. 
- 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [hörnstenarna OnDemand klienten supportteamet](mailTo:moreinfo@csod.com) att hämta dessa värden.
+
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
@@ -131,9 +132,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. Konfigurera enkel inloggning på **hörnstenarna OnDemand** sida, måste du skicka den hämtade **certifikat**, **Sign-Out URL** och **SAML enkel inloggning Tjänstwebbadress** till [hörnstenarna OnDemand supportteamet](mailTo:moreinfo@csod.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
@@ -143,18 +141,18 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png) 
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png) 
+
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png)
 
 4. På den **användaren** dialogrutan utför följande steg:
- 
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textruta typen **BrittaSimon**.
@@ -164,10 +162,12 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="creating-a-cornerstone-ondemand-test-user"></a>Skapa en OnDemand hörnstenarna testanvändare
 
-För att aktivera Azure AD-användare att logga in på hörnstenarna OnDemand etableras de i hörnstenarna OnDemand. När det gäller hörnstenarna OnDemand är etablering en manuell aktivitet.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i hörnstenarna OnDemand. Hörnstenarna OnDemand stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+
+**Om du behöver skapa användare manuellt gör du följande:**
 
 För att konfigurera användaretablering, skicka information (t.ex.: namn, e-post) om Azure AD-användare du vill etablera till den [hörnstenarna OnDemand supportteamet](mailTo:moreinfo@csod.com).
 
@@ -215,8 +215,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Konfigurera Användaretablering](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -231,4 +230,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_203.png
-

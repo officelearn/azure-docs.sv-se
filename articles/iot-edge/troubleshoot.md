@@ -1,20 +1,19 @@
 ---
 title: Felsöka Azure IoT Edge | Microsoft Docs
 description: Lös vanliga problem och lär dig felsökning av Azure IoT Edge
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/23/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+services: iot-edge
+ms.openlocfilehash: ad22b0cd1457c1d4146a75047ff18e916c0c7ccd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633544"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 

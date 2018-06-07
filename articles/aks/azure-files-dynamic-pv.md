@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597509"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Beständiga volymer med Azure-filer
 
@@ -23,29 +24,20 @@ Mer information om Kubernetes beständiga volymer, inklusive statiska skapa finn
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-När du skapar en Azure-filresurs som en Kubernetes volym dynamiskt, kan storage-konto användas som den är i samma resursgrupp som klustret AKS. Om det behövs kan du skapa ett lagringskonto i samma resursgrupp som klustret AKS.
-
-Använd för att identifiera rätt resursgruppen den [az grupplistan] [ az-group-list] kommando.
+När du skapar en Azure-filresurs som en Kubernetes volym dynamiskt, storage-konto kan användas som den är i AKS **nod** resursgruppen. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Leta efter en resursgrupp med ett namn som liknar `MC_clustername_clustername_locaton`.
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Använd den [az storage-konto skapar] [ az-storage-account-create] kommando för att skapa lagringskontot.
 
-Med det här exemplet kan uppdatera `--resource-group` med namnet på resursgruppen och `--name` till ett valfritt namn.
+Uppdatera `--resource-group` med namnet på resursgruppen som samlats in i det sista steget, och `--name` till ett valfritt namn.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>Skapa storage-klass
@@ -76,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 Beständiga volym-anspråk (PVC) använder klassen lagringsobjektet att dynamiskt etablera ett Azure-filresursen.
 
-Följande YAML kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteOnce` åtkomst. Mer information om åtkomstlägen finns i [Kubernetes beständiga volym] [ access-modes] dokumentation.
+Följande YAML kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteMany` åtkomst. Mer information om åtkomstlägen finns i [Kubernetes beständiga volym] [ access-modes] dokumentation.
 
 Skapa en fil med namnet `azure-file-pvc.yaml` och kopiera följande YAML. Se till att den `storageClassName` matchar klassen lagring som skapats i det sista steget.
 
@@ -87,7 +79,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -209,6 +201,7 @@ Läs mer om Kubernetes beständiga volymer med Azure-filer.
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

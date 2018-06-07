@@ -1,24 +1,20 @@
 ---
-title: "Azure-säkerhetskopiering: programkonsekvent säkerhetskopiering av virtuella Linux-datorer | Microsoft Docs"
-description: "Skapa programkonsekventa säkerhetskopior av din virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript framework att säkerhetskopiera Azure distribuerade virtuella Linux-datorer. Den här artikeln innehåller information om felsökning."
+title: 'Azure-säkerhetskopiering: programkonsekvent säkerhetskopiering av virtuella Linux-datorer'
+description: Skapa programkonsekventa säkerhetskopior av din virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript framework att säkerhetskopiera Azure distribuerade virtuella Linux-datorer. Den här artikeln innehåller information om felsökning.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
-keywords: "programkonsekventa säkerhetskopia. programkonsekventa Virtuella Azure-säkerhetskopia. Linux VM-säkerhetskopia. Azure-säkerhetskopiering"
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
+keywords: programkonsekventa säkerhetskopia. programkonsekventa Virtuella Azure-säkerhetskopia. Linux VM-säkerhetskopia. Azure-säkerhetskopiering
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: anuragm
+ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605220"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhetskopiering av virtuella Azure Linux-datorer
 

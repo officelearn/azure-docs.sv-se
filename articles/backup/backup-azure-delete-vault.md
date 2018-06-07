@@ -1,24 +1,19 @@
 ---
-title: " Ta bort ett Recovery Services-valv i Azure | Microsoft Docs "
-description: "Den här artikeln förklarar hur du tar bort Recovery Services-valvet. Artikeln innehåller åtgärder för felsökning när du försöker ta bort ett valv, men det går inte att."
+title: Ta bort ett Recovery Services-valv i Azure '
+description: Den här artikeln förklarar hur du tar bort Recovery Services-valvet. Artikeln innehåller åtgärder för felsökning när du försöker ta bort ett valv, men det går inte att.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605348"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 Den här artikeln förklarar hur du tar bort ett Recovery Services-valv i Azure-portalen. Om du har säkerhetskopieringsvalv, har de konverterats till Recovery Services-valv.   
@@ -165,4 +160,4 @@ Om du har flera servrar har registrerats ett valv, kan det vara svårt att komma
     ![lista över säkerhetskopiering hanteringsservrar](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 5. Högerklicka på namnet på servern för att ta bort en server i listan och klicka sedan på **ta bort**.
     Den **ta bort** menyn öppnas.
-6. På den **ta bort** menyn och ange namnet på servern. Du kan kopiera och klistra in den från listan över Säkerhetskopieringshanteringsservrar om det är ett långt namn. Klicka på **ta bort**.  
+6. På den **ta bort** menyn och ange namnet på servern. Du kan kopiera och klistra in den från listan över Säkerhetskopieringshanteringsservrar om det är ett långt namn. Klicka på **Ta bort**.  

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619532"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,13 +61,13 @@ I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera 
 
 Följande tabell innehåller beskrivningar för JSON-element som är specifika för en Amazon Redshift länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
-| **server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
+| **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
+| **Server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
 | **port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej (standard är 5439) |
 | **Databasen** |Namnet på Amazon Redshift-databasen. |Ja |
-| **username** |Namnet på den användare som har åtkomst till databasen. |Ja |
+| **Användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
 | **Lösenord** |Lösenordet för användarkontot. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -75,7 +76,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnitt är olika för varje typ av datauppsättningen och innehåller information om placeringen av data i arkivet. **TypeProperties** avsnittet för en dataset av typen **RelationalTable**, som innehåller datauppsättningen Amazon Redshift har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i databasen Amazon Redshift som den länkade tjänsten refererar till. |Nej (om den **frågan** -egenskapen för en kopia aktivitet av typen **RelationalSource** har angetts) |
 
@@ -85,7 +86,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera a
 
 För Kopieringsaktiviteten när källan är av typen **AmazonRedshiftSource**, följande egenskaper är tillgängliga i **typeProperties** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **Frågan** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 | **redshiftUnloadSettings** | Innehåller Egenskapsgruppen när du använder Redshift **UNLOAD** kommando. | Nej |
@@ -94,7 +95,7 @@ För Kopieringsaktiviteten när källan är av typen **AmazonRedshiftSource**, f
 
 Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redshift med följande egenskap i den **typeProperties** avsnitt. Obs den här typen av datakälla inte stöder Redshift **UNLOAD** kommando.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **Frågan** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** -egenskapen för en dataset har angetts) |
 
@@ -334,8 +335,8 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | HELTAL |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| VERKLIG |Ogift |
-| DUBBEL PRECISION |Dubbel |
+| VERKLIG |Enkel |
+| DUBBEL PRECISION |dubbla |
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
 | VARCHAR |Sträng |

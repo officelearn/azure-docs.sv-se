@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12d7e997d82c0ac15d1c81b92491e0a16f4c214e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593684"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
 Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. På så sätt kan du implementera affärslogik fullständig identity integration utan att behöva skriva koden.
@@ -38,7 +40,7 @@ Attribut har strikt typkontroll. En funktion accepterar endast attribut av typen
 * Booleska värden uttrycks med konstanter: SANT, FALSKT.
 * Inbyggda konstanter och literaler uttrycks med endast deras namn: NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 Deklarativ etablering använder många funktioner för att aktivera möjligheten att omvandla attributvärden. Dessa funktioner kan kapslas så resultatet från en funktion som skickas till en annan funktion.
 
 `Function1(Function2(Function3()))`

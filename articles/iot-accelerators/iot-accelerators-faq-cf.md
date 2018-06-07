@@ -1,25 +1,19 @@
 ---
 title: Ansluten Factory lösning vanliga frågor och svar – Azure | Microsoft Docs
 description: Vanliga frågor om anslutna Factory solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627509"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om anslutna Factory solution accelerator
 
@@ -67,7 +61,7 @@ Du har två alternativ för att ta bort IP-adressen:
 
 Logga in på simuleringen VM stöds endast om du har distribuerat din lösning med hjälp av PowerShell-skriptet `build.ps1` i den [databasen](https://github.com/Azure/azure-iot-connected-factory).
 
-Om du har distribuerat en lösning från www.azureiotsuite.com kan du logga in på den virtuella datorn. Du kan inte logga in, eftersom lösenordet genereras slumpmässigt och du kan inte återställa den.
+Om du har distribuerat en lösning från www.azureiotsolutions.com kan du logga in på den virtuella datorn. Du kan inte logga in, eftersom lösenordet genereras slumpmässigt och du kan inte återställa den.
 
 1. Lägg till en offentlig IP-adress till den virtuella datorn. Se [hur lägger jag till en offentlig IP-adress i simuleringen VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Skapa en SSH-session till den virtuella datorn med IP-adressen för den virtuella datorn.
@@ -148,11 +142,11 @@ Om du ser inga data skickas till IoT-hubben är ett problem med simuleringen. So
 
 Om du vill aktivera en interaktiv karta i din lösning för anslutna fabriken, måste du ha en befintlig Bing Maps API för Enterprise-plan.
 
-När du distribuerar från [www.azureiotsuite.com](http://www.azureiotsuite.com), distributionsprocessen verifierar att prenumerationen har en aktiverad Bing Maps API för företagsplan och distribuerar automatiskt en interaktiv karta till anslutna fabriken. Om detta inte är fallet kan du fortfarande aktivera en interaktiv karta i distributionen på följande sätt:
+När du distribuerar från [www.azureiotsolutions.com](http://www.azureiotsolutions.com), distributionsprocessen verifierar att prenumerationen har en aktiverad Bing Maps API för företagsplan och distribuerar automatiskt en interaktiv karta till anslutna fabriken. Om detta inte är fallet kan du fortfarande aktivera en interaktiv karta i distributionen på följande sätt:
 
 När du distribuerar med den `build.ps1` skriptet i den anslutna Factory GitHub-lagringsplats och du har en Bing Maps API för företagsplan genom att ange miljövariabeln `$env:MapApiQueryKey` i fönstret build till Frågenyckeln för planen. Interaktiv karta aktiveras sedan automatiskt.
 
-Om du inte har en Bing Maps API för företagsplan distribuera lösningen för anslutna Factory från [www.azureiotsuite.com](http://www.azureiotsuite.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps API för företagsplan till din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps API för företag-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och komma åt resursen Apptjänst i distributionen anslutna fabriken. Gå till **programinställningar**, där du hittar ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** i frågan nyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om tjänsten App.
+Om du inte har en Bing Maps API för företagsplan distribuera lösningen för anslutna Factory från [www.azureiotsolutions.com](http://www.azureiotsolutions.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps API för företagsplan till din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps API för företag-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och komma åt resursen Apptjänst i distributionen anslutna fabriken. Gå till **programinställningar**, där du hittar ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** i frågan nyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om tjänsten App.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps API för företag-konto
 
@@ -212,6 +206,6 @@ Skicka telemetridata från icke OPC UA enheter till fabriksinställningarna ansl
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Översikt över lösningsaccelerator för förutsägande underhåll](../iot-suite/iot-suite-predictive-overview.md)
+* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Anslutna Factory solution accelerator översikt](iot-accelerators-connected-factory-overview.md)
-* [IoT-säkerhet från grunden](../iot-suite/securing-iot-ground-up.md)
+* [IoT-säkerhet från grunden](securing-iot-ground-up.md)

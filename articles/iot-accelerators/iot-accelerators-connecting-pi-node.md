@@ -1,31 +1,25 @@
 ---
 title: Etablera Raspberry Pi till Fjärrövervaknings i Node.js - Azure | Microsoft Docs
 description: Beskriver hur du ansluter en hallon Pi-enhet till Fjärrövervaknings solution accelerator med hjälp av ett program som skrivits i Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626878"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning solution accelerator (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ansluta enheten hallon Pi till Fjärrövervaknings solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här kursen visar hur du ansluter en fysisk enhet till fjärråtkomst övervakning solution accelerator. I den här kursen använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resurs begränsningar.
+Den här kursen visar hur du ansluter en fysisk enhet till Fjärrövervaknings solution accelerator. I den här kursen använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resurs begränsningar.
 
 ### <a name="required-hardware"></a>Nödvändig maskinvara
 
@@ -109,7 +103,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållaren värdet `{device connection string}` med värdet som du antecknade för enheten etablerad på fjärranslutna övervakningslösning:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållaren värdet `{device connection string}` med värdet som du antecknade för enheten etableras i Fjärrövervaknings-lösningen:
 
     ```nodejs
     var connectionString = '{device connection string}';

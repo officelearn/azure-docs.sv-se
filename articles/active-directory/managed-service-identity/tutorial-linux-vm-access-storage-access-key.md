@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: be350ad153bfcc51eb1198a97eeba01593ccb34e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594252"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Använd en Linux VM hanteras tjänstidentitet för åtkomst till Azure Storage via snabbtangent
 
@@ -226,10 +227,7 @@ Svar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-- Information om hur du gör detta samma självstudier med lagring SAS-autentiseringsuppgifter finns [använder en Linux VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter](tutorial-linux-vm-access-storage-sas.md)
-- Mer information om SAS-funktionen i Azure Storage-konto finns:
-  - [Använda signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Hur du skapar en tjänst-SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+I kursen får du har lärt dig hur du använder hanterade tjänstidentiteten Linux virtuella datorer för att få åtkomst till Azure Storage med hjälp av en snabbtangent.  Om du vill veta se mer om Azure Storage snabbtangenter:
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Hantera dina åtkomstnycklar för lagring](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

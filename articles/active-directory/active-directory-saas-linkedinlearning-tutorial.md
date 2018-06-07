@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fabb79a1449529cde97db7054eb954564b4dfa68
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b0db212b215d2d53b32437d703394148bcc4ac92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Självstudier: Azure Active Directory-integrering med LinkedIn Learning
 
@@ -165,7 +166,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 11. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
 
 12. Klicka på **Spara**.
 
@@ -208,12 +209,12 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
-    d. Klicka på **Skapa**. 
+    d. Klicka på **Skapa**.
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Skapa en testanvändare LinkedIn-utbildning
 
-Länkade Learning programmet stöder. Precis i tid användaretablering och efter autentisering skapas användare i programmet automatiskt. Om administratören sidan Inställningar på LinkedIn Learning portal Vänd växeln **automatiskt tilldela licenser** som aktiv för att aktivera precis i tid etablering och detta kan också tilldela en licens till användaren.
-   
+LinkedIn Learning programmet stöder bara i tid användaretablering och authentication-användare skapas automatiskt i programmet. Om administratören sidan Inställningar på LinkedIn Learning portal Vänd växeln **automatiskt tilldela licenser** till aktiva enbart i tid etablering och detta kan också tilldela en licens till användaren. LinkedIn Learning stöder även automatisk användaretablering, kan du hitta mer information [här](active-directory-saas-linkedinlearning-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+
    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
@@ -226,15 +227,15 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 2. Välj i listan med program **LinkedIn Learning**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Tilldela användare][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
@@ -245,7 +246,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
@@ -256,6 +257,7 @@ När du klickar på panelen LinkedIn Learning på åtkomstpanelen du bör få si
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

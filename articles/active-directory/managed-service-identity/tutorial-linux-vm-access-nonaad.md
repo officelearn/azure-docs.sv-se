@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595027"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Självstudier: Använda en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
 
@@ -134,12 +135,12 @@ Du behöver en SSH-klient för att slutföra de här stegen.  Om du använder Wi
     
 När du har hämtat hemligheten från Nyckelvalvet kan använda du den för att autentisera till en tjänst som kräver ett användarnamn och lösenord.
 
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="related-content"></a>Relaterat innehåll
+I kursen får du har lärt dig hur du använder en hanterad tjänstidentitet på en virtuell Linux-dator till Azure Key Vault.  Om du vill veta finns mer om Azure Key Vault:
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

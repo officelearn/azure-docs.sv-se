@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: Komma igång | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: Komma igång | Microsoft Docs'
 description: Aktivera Azure Active Directory Domain Services med Azure-portalen
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 607ca1900200f3b163d69a7aa4cb700b842f9334
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586839"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure-portalen
 
@@ -32,7 +34,7 @@ Nästa konfigurationsåtgärd är att skapa ett virtuellt Azure-nätverk och en 
 
 1. Klicka på **för virtuella nätverk** att välja ett virtuellt nätverk.
     > [!NOTE]
-    > **Klassiska virtuella nätverk stöds inte för nya distributioner.** Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som har distribuerats i klassiska virtuella nätverk fortfarande användas. Vi ger möjlighet att migrera en befintlig hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager inom en snar framtid.
+    > **Klassiska virtuella nätverk stöds inte för nya distributioner.** Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som har distribuerats i klassiska virtuella nätverk fortfarande användas. Microsoft gör att du kan migrera en befintlig hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager inom en snar framtid.
     >
 
 2. På den **Välj virtuellt nätverk** kan du se alla befintliga virtuella nätverk. Du ser bara de virtuella nätverk som tillhör resursgruppen och Azure-plats som du har valt på den **grunderna** sidan i guiden.
@@ -42,7 +44,7 @@ Nästa konfigurationsåtgärd är att skapa ett virtuellt Azure-nätverk och en 
   > **Du kan inte flytta din hanterade domän till ett annat virtuellt nätverk när du har aktiverat Azure AD Domain Services.** Välj rätt virtuellt nätverk för att aktivera din hanterade domän. När du har skapat en hanterad domän kan flytta du inte den till ett annat virtuellt nätverk utan att ta bort den hanterade domänen. Vi rekommenderar att du granskar den [nätverk överväganden för Azure Active Directory Domain Services](active-directory-ds-networking.md) innan du fortsätter.  
   >
 
-4. **Skapa virtuellt nätverk:** klickar du på **Skapa nytt** att skapa ett nytt virtuellt nätverk. Vi rekommenderar starkt att använda ett dedikerat undernät för Azure AD Domain Services. Till exempel skapa ett undernät med namnet DomainServices, vilket gör det lättare för andra administratörer att förstå vad som har distribuerats i undernätet. Klicka på **OK** när du är klar.
+4. **Skapa virtuellt nätverk:** klickar du på **Skapa nytt** att skapa ett nytt virtuellt nätverk. Använd en dedikerad undernät för Azure AD Domain Services. Till exempel skapa ett undernät med namnet DomainServices, vilket gör det lättare för andra administratörer att förstå vad som har distribuerats i undernätet. Klicka på **OK** när du är klar.
 
     ![Välj virtuella nätverk](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -57,7 +59,7 @@ Nästa konfigurationsåtgärd är att skapa ett virtuellt Azure-nätverk och en 
   > **Riktlinjer för att välja ett undernät**
   > 1. Använd en dedikerad undernät för Azure AD Domain Services. Distribuera inte eventuella andra virtuella datorer till det här undernätet. Den här konfigurationen kan du konfigurera nätverkssäkerhetsgrupper (NSG: er) för dina arbetsbelastningar för virtuella datorer utan att avbryta din hanterade domän. Mer information finns i [nätverk överväganden för Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Välj inte Gateway-undernätet för att distribuera Azure AD Domain Services, eftersom den inte är en konfiguration som stöds.
-  3. Kontrollera att det undernät som du har valt har tillräckligt utrymme för tillgängliga adresser - minst 3-5 tillgängliga IP-adresser och finns i privata IP-adressutrymmet.
+  3. Det undernät som du har valt måste ha minst 3-5 tillgängliga IP-adresser i dess adressutrymme.
   >
 
 6. När du är klar klickar du på **OK** för att komma till den **administratörsgruppen** sidan i guiden.

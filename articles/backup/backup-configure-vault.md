@@ -1,25 +1,20 @@
 ---
-title: Använd Azure Backup-agenten att säkerhetskopiera filer och mappar | Microsoft Docs
+title: Använda Azure Backup-agenten för att säkerhetskopiera filer och mappar
 description: Använda Microsoft Azure Backup-agenten för säkerhetskopiering av Windows-filer och mappar till Azure. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera princip för säkerhetskopiering och kör den första säkerhetskopian på filer och mappar.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;
-ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/5/2018
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606270"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klient) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -29,7 +24,7 @@ Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Win
 ## <a name="before-you-start"></a>Innan du börjar
 Om du vill säkerhetskopiera en server eller klient till Azure, behöver du ett Azure-konto. Om du inte har någon, kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 Recovery Services-valvet är en entitet som lagrar alla säkerhetskopior och återställningspunkter som du skapar över tid. Recovery Services-valvet innehåller också den säkerhetskopieringsprincip som tillämpas på skyddade filer och mappar. När du skapar ett Recovery Services-valv, bör du också välja det lämpliga lagringsalternativet för redundans.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv

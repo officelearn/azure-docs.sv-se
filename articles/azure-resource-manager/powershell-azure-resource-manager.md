@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603421"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/20/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt läser du [Installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
@@ -41,7 +42,7 @@ Set-AzureRmContext -Subscription <subscription-name>
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Resursgruppen är för närvarande är tom.
+Resursgruppen är tom för närvarande.
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
@@ -49,13 +50,13 @@ Resursgruppen är för närvarande är tom.
 
 ### <a name="assign-a-role"></a>Tilldela en roll
 
-I den här artikeln får distribuera du en virtuell dator och dess relaterade virtuella nätverk. Det finns tre resursspecifika roller som ger vanligtvis behövs åtkomst för att hantera virtuella lösningar:
+I den här artikeln får distribuera du en virtuell dator och dess relaterade virtuella nätverk. För hanteringen av VM-lösningar finns det tre resursspecifika roller som beviljar åtkomst på lämplig nivå:
 
-* [Virtual Machine-deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Virtuell datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor)
-* [Storage-konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Lagringskontodeltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare, är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver vidta liknande åtgärder. Tilldela sedan den gruppen till rätt roll. För att förenkla den här artikeln kan skapa du en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen till en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
 
 I följande exempel skapar en grupp och tilldelar deltagarrollen för virtuell dator för resursgruppen. Att köra den `New-AzureAdGroup` kommandot, måste du antingen använda de [Azure Cloud Shell](/azure/cloud-shell/overview) eller [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -69,21 +70,21 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Normalt du upprepa processen för **Network-deltagare** och **Storage-konto deltagare** Kontrollera användare tilldelas Hantera distribuerade resurser. Du kan hoppa över de här stegen i den här artikeln.
+Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodeltagare** för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
-## <a name="azure-policies"></a>Principer för Azure
+## <a name="azure-policies"></a>Azure-principer
 
 [!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Tillämpa principer
 
-Din prenumeration redan har flera principdefinitioner av. Tillgängliga principdefinitioner, Använd:
+Din prenumeration har redan flera principdefinitioner. Tillgängliga principdefinitioner, Använd:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Du kan visa befintliga principdefinitioner. Typ av princip är antingen **BuiltIn** eller **anpassad**. Titta igenom definitionerna för de som beskriver ett villkor som du vill tilldela. I den här artikeln får tilldela du principer som:
+De befintliga principdefinitionerna visas. Principtypen är antingen **BuiltIn** eller **Custom**. Titta igenom definitionerna och leta efter sådana som beskriver ett tillstånd som du vill tilldela. I den här artikeln tilldelar du principer som:
 
 * begränsa platserna för alla resurser
 * begränsa SKU: er för virtuella datorer
@@ -114,7 +115,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>Distribuera den virtuella datorn
 
-Du har tilldelat roller och principer, så att du är redo att distribuera lösningar. Standardstorleken är Standard_DS1_v2 som är en av dina tillåtna SKU: er. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
+Nu när du har tilldelat roller och principer är det dags att distribuera lösningen. Standardstorleken är Standard_DS1_v2, som är en av dina tillåtna SKU:er. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -127,7 +128,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -OpenPorts 80,3389
 ```
 
-När distributionen är klar kan tillämpa du inställningar för flera till lösningen.
+När distributionen är klar kan du lägga till fler hanteringsinställningar för lösningen.
 
 ## <a name="lock-resources"></a>Lås resurser
 
@@ -150,13 +151,13 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
   -ResourceGroupName myResourceGroup
 ```
 
-Den virtuella datorn kan bara tas bort om du uttryckligen tar bort låset. Steget visas i [Rensa resurser](#clean-up-resources).
+Den virtuella datorn kan bara tas bort om du uttryckligen tar bort låset. Det steget beskrivs i [Rensa resurser](#clean-up-resources).
 
-## <a name="tag-resources"></a>Taggen resurser
+## <a name="tag-resources"></a>Tagga resurser
 
 [!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
-### <a name="tag-resources"></a>Taggen resurser
+### <a name="tag-resources"></a>Tagga resurser
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -177,13 +178,13 @@ Om du vill söka efter resurser med taggnamn och värde använder du:
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Du kan använda de returnerade värdena för hanteringsuppgifter som stoppas alla virtuella datorer med ett taggvärde.
+Du kan använda de returnerade värdena för olika hanteringsuppgifter, t.ex. för att stoppa alla virtuella datorer med ett visst taggvärde.
 
 ```azurepowershell-interactive
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-### <a name="view-costs-by-tag-values"></a>Visa kostnader av taggvärden
+### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
 
 Du kan visa kostnaderna för resurser med taggarna när taggar till resurser. Det tar ett tag för kostnadsanalys att visa den senaste användningen, så du inte kan visa kostnaderna ännu. När kostnader, kan du visa kostnader för resurser över resursgrupper i din prenumeration. Användarna måste ha [prenumeration åtkomst till faktureringsinformationen](../billing/billing-manage-access.md) att visa kostnaderna.
 
@@ -199,7 +200,7 @@ Du kan också använda den [Azure Billing API: erna](../billing/billing-usage-ra
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Låst nätverkssäkerhetsgruppen kan inte tas bort förrän låset tas bort. Ta bort låset med:
+Den låsta nätverkssäkerhetsgruppen kan inte tas bort förrän låset tagits bort. Ta bort låset med:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
@@ -222,4 +223,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * Läs om hur du övervakar dina virtuella datorer i [övervaka och uppdatera en virtuell dator i Windows med Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Mer information om hur du använder Azure Security Center för att implementera rekommenderad säkerhetspraxis [övervaka virtuella säkerhet med hjälp av Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * Du kan flytta befintliga resurser till en ny resursgrupp. Exempel finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
-* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md).
+* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

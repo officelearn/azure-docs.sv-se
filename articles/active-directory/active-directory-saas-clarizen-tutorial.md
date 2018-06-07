@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a77ac397dfca1be948b6d0c05a50c23c0cd7879c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Självstudier: Azure Active Directory-integrering med Clarizen
 
@@ -185,6 +186,11 @@ Skapa en testanvändare kallas Britta Simon i Azure-portalen.
     d. Klicka på **Skapa**.
 
 ### <a name="create-a-clarizen-test-user"></a>Skapa en testanvändare Clarizen
+
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Clarizen. Clarizen stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-clarizen-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+
+**Om du behöver skapa användare manuellt gör du följande:**
+
 Om du vill aktivera Azure AD-användare att logga in på Clarizen, måste du etablera användarkonton. När det gäller Clarizen är etablering en manuell aktivitet.
 
 1. Logga in på webbplatsen Clarizen företag som administratör.
@@ -244,6 +250,7 @@ När du klickar på panelen Clarizen på åtkomstpanelen bör du vara automatisk
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593460"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera hash Lösenordssynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information som du behöver att synkronisera användarlösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -81,9 +83,9 @@ Nedan beskrivs djupgående så här fungerar Lösenordssynkronisering hash mella
 2. Innan du skickar, krypterar domänkontrollanten MD4 lösenordets hash-värde med hjälp av en nyckel som är en [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) hash för RPC-nyckeln och en salt. Den sedan skickar resultatet till hash-lösenordssynkroniseringsagenten via RPC. Domänkontrollanten skickar också saltet till agenten för synkronisering med hjälp av protokollet DC replikering så att agenten ska kunna dekryptera kuvertet.
 3.  När hash lösenordssynkroniseringsagenten har krypterade kuvertet, används [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) och salt att generera en nyckel för att dekryptera den mottagna data tillbaka till dess ursprungliga MD4-format. På någon punkt har hash lösenordssynkroniseringsagenten åtkomst till lösenordet i klartext. Lösenord hash-synkronisering agentens användningen av MD5 gäller enbart för replikering protokollet kompatibilitet med domänkontrollanten och används bara på lokala mellan domänkontrollanten och hash-lösenordssynkroniseringsagenten.
 4.  Hash-lösenordssynkroniseringsagenten expanderar 16 byte binära lösenords-hash till 64 byte först konverterar hash till en 32-byte hexadecimala strängen, som sedan konvertera den här strängen tillbaka till binär kodning i UTF-16.
-5.  Lösenordssynkroniseringsagenten för hash-lägger till en salt som består av en längd på 10 byte-salt till 64 byte binär att ytterligare skydda ursprungliga hash.
-6.  Hash-lösenordssynkroniseringsagenten sedan kombinerar MD4-hash plus salt och anger det i den [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) funktion. 1000 iterationer av den [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) nycklad hashalgoritm används. 
-7.  Hash-lösenordssynkroniseringsagenten tar den resulterande 32-byte-hashen, sammanfogar både saltet och antalet SHA256 iterationer till den (för användning av Azure AD) och överför strängen från Azure AD Connect till Azure AD via SSL.</br> 
+5.  Lösenordssynkroniseringsagenten för hash-lägger till en per användare salt, som består av en längd på 10 byte-salt till 64 byte binär att ytterligare skydda ursprungliga hash.
+6.  Hash-lösenordssynkroniseringsagenten kombinerar sedan MD4-hash plus per användare salt och anger det i den [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) funktion. 1000 iterationer av den [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) nycklad hashalgoritm används. 
+7.  Hash-lösenordssynkroniseringsagenten tar den resulterande 32-byte-hashen, sammanfogar både den per användare salt och antalet SHA256 iterationer för att den (för användning av Azure AD), sedan överför strängen från Azure AD Connect till Azure AD via SSL.</br> 
 8.  När en användare försöker logga in på Azure AD och anger sitt lösenord, kör lösenordet med samma MD4 + salt + PBKDF2 + HMAC SHA256-processen. Om den resulterande hashen matchar hashen lagras i Azure AD kan användaren har angett rätt lösenord och autentiseras. 
 
 >[!Note] 

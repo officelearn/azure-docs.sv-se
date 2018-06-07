@@ -10,13 +10,14 @@ ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 03d8cc4440d7adcb947e7c150a565e51b6401e92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2b3ae9e4ecb8b8db4eee109f0867c7884bea37c2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625686"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Använda tjänsten Azure Import/Export för offline kopia av data till Data Lake Store
 I den här artikeln får du lära dig hur att kopiera stora datamängder (> 200 GB) till ett Azure Data Lake Store med hjälp av offline kopiera metoder som den [Azure Import/Export service](../storage/common/storage-import-export-service.md). Den fil som används som exempel i den här artikeln är särskilt 339,420,860,416 byte eller om 319 GB på disken. Vi ska anropa den här filen 319GB.tsv.

@@ -1,18 +1,19 @@
 ---
 title: Enhetsanslutning i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör enhetsanslutning i Azure IoT Central
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: conceptual
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 00b621a4635ef1ceda26772ac5876fa2599b56f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dc9fe144c2258f33ce59c61ce63c15835cc3fa53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628342"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -49,7 +50,7 @@ I följande tabell visas hur Azure IoT centrala enhetsfunktioner mappas till IoT
 
 Mer information om hur du använder SDK: er för enheten finns i följande artiklar exempelkod:
 
-- [Ansluta en allmän Node.js-klient till din Azure IoT centralt program](howto-connect-nodejs.md)
+- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
 - [Anslut en hallon Pi-enhet till din Azure IoT centralt program](howto-connect-raspberry-pi-python.md)
 - [Ansluter en DevDiv kit enhet till din Azure IoT centralt program](howto-connect-devkit.md).
 
@@ -81,5 +82,5 @@ Alla data som utbyts mellan enheter och dina Azure IoT centrala är krypterad. I
 Nu när du har lärt enhetsanslutning i Azure IoT Central är här de föreslagna nästa steg:
 
 - [Förbereda och ansluter en DevKit-enhet](howto-connect-devkit.md)
-- [Förbereda och ansluta en hallon Pi](howto-connect-raspberry-pi-python.md)
-- [Ansluta en allmän Node.js-klient till din Azure IoT centralt program](howto-connect-nodejs.md)
+- [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
+- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)

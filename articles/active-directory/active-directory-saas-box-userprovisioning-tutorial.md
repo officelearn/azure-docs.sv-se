@@ -13,23 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0a6386f9d0207ab71c490801ea995e504825e0c8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589322"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Konfigurera rutan för automatisk användaretablering
 
 Syftet med den här kursen är att visa steg som du behöver utföra i rutan och Azure AD att automatiskt etablera och avinstallation etablera användarkonton från Azure AD till Box.
 
+> [!NOTE]
+> Den här självstudiekursen beskriver en koppling som bygger på Etableringstjänsten Azure AD-användare. Viktig information om vad tjänsten gör så här fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
+Om du vill konfigurera Azure AD-integrering med behöver du följande:
 
-*   En Azure Active directory-klient.
-*   En ruta enkel inloggning för aktiverade prenumerationen.
-*   Ett användarkonto i rutan Team administratörsbehörigheter.
+- En Azure AD-klient
+- En ruta företagsplan eller bättre
+
+> [!NOTE]
+> När du testar stegen i den här självstudiekursen, rekommenderar vi att du *inte* använder en produktionsmiljö.
+
+Följ dessa rekommendationer för att testa stegen i den här självstudiekursen:
+
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Tilldela användare till rutan 
 

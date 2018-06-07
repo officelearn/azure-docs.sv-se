@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594235"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med filtrering kan kan du kontrollera vilka objekt som visas i Azure Active Directory (AD Azure) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som de kan ha med en lokal implementering av Exchange och Lync.
@@ -33,7 +35,7 @@ I vissa fall använder du obligatoriska göra vissa ändringar i standardkonfigu
 Den här artikeln beskriver hur du konfigurerar olika filtreringsmetoder.
 
 > [!IMPORTANT]
-> Microsoft stöder inte ändra eller Azure AD Connect-synkronisering utanför de åtgärder som dokumenteras formellt operativsystem. Någon av dessa åtgärder kan resultera i tillståndet inkonsekvent eller som inte stöds av Azure AD Connect-synkronisering. Därför kan tillhandahålla inte Microsoft teknisk support för dessa distributioner.
+> Microsoft stöder inte ändring eller hantering av Azure AD Connect-synkronisering utöver de åtgärder som är formellt dokumenterade. Sådana åtgärder kan göra att Azure AD Connect-synkroniseringen hamnar i ett inkonsekvent tillstånd eller ett tillstånd som inte stöds. Därför kan Microsoft inte tillhandahålla teknisk support för sådana distributioner.
 
 ## <a name="basics-and-important-notes"></a>Grunderna och viktig information
 Du kan aktivera filtrering när som helst i Azure AD Connect-synkronisering. Om du börjar med en standardkonfiguration av katalogsynkronisering och sedan konfigurera filtrering är de objekt som har filtrerats ut synkroniserade till Azure AD. Alla objekt i Azure AD som tidigare har synkroniserats men filtrerades sedan raderas på grund av den här ändringen i Azure AD.

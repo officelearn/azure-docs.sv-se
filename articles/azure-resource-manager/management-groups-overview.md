@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604751"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
@@ -69,7 +70,7 @@ Varje katalog ges en översta hantering från en enda grupp med namnet ”rot”
 
 Har stöd för Azure Hanteringsgrupper [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) för alla resurs har åtkomst och rolldefinitioner. Dessa behörigheter ärvs till underordnade resurser som finns i hierarkin.   
 
-När någon [inbyggda RBAC rollen](../role-based-access-control/overview.md#built-in-roles) kan tilldelas till en hanteringsgrupp, det finns fyra roller som är vanliga: 
+När någon [inbyggda RBAC rollen](../role-based-access-control/built-in-roles.md) kan tilldelas till en hanteringsgrupp, det finns fyra roller som är vanliga: 
 - **Ägare** har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra. 
 - **Deltagare** kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra.
 - **Resursen princip deltagare** kan skapa och hantera principer i katalogen på resurser.     

@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637743"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningen klassificering modeller med Azure Machine Learning
 
@@ -61,7 +62,7 @@ Ladda ned anteckningsboken för att köra exemplet beskrivs här själv.
 
 ### <a name="load-the-sample-data"></a>Läs in exempeldata
 
-I följande exempel används en datamängd som består av 63 Bords bilder. Varje avbildning är märkt som tillhör någon av fyra olika klasser (skål, cup, bestick, platta). Antalet avbildningar i det här exemplet är liten så att det här exemplet kan utföras snabbt. I praktiken måste minst 100 bilder per klass anges. Alla avbildningar finns i *”... /sample_data/imgs_recycling / ”*i underkataloger som kallas” skål ”,” cup ”,” bestick ”och” skylt ”.
+I följande exempel används en datamängd som består av 63 Bords bilder. Varje avbildning är märkt som tillhör någon av fyra olika klasser (skål, cup, bestick, platta). Antalet avbildningar i det här exemplet är liten så att det här exemplet kan utföras snabbt. I praktiken måste minst 100 bilder per klass anges. Alla avbildningar finns i *”... /sample_data/imgs_recycling / ”* i underkataloger som kallas” skål ”,” cup ”,” bestick ”och” skylt ”.
 
 ![Azure Machine Learning-datamängd](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>Definiera DNN modeller
 
 Följande pretrained djupa Neurala nätverket modeller stöds med det här paketet: 
-+ AlexNet
 + Resnet 18
 + Resnet 34
 + Resnet 50
@@ -444,13 +444,9 @@ Med hjälp av en [Azure](https://azure.microsoft.com/) konto med en giltig prenu
 + Om du vill visa det aktuella modellen management kontot, använder du kommandot:
   <br>`az ml account modelmanagement show`
 
-**Skapa och ange din distributionsmiljö**
+**Skapa och ange din miljö för distribution av kluster**
 
 Du behöver bara ange din distributionsmiljö av en gång. Om du inte har någon ännu, konfigurera din distributionsmiljö som använder [instruktionerna](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Följ lokalt eller kluster-distribution konfigurationsstegen korrekt baserat på dina behov.
-+ Lokala distributioner stöds för Linux och Windows 10-datorer, men inte för Windows datavetenskap VM eller djup Learning VM. 
-+ Distributioner i klustret har stöd för både Linux och Windows. 
 
 Om du vill se din miljö för aktiv distribution, kan du använda kommandot CLI:
 <br>`az ml env show`

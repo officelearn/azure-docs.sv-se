@@ -1,28 +1,25 @@
 ---
 title: Kom igång med fjärråtkomst övervakningslösning - Azure | Microsoft Docs
 description: Den här kursen använder simulerade scenarier för att införa fjärråtkomst övervakning solution accelerator. Dessa scenarier skapas när du distribuerar fjärråtkomst övervakning solution accelerator för första gången.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627815"
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Utforska funktionerna i fjärråtkomst övervakning solution accelerator
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Utforska funktionerna i Fjärrövervaknings solution accelerator
 
-Den här kursen visar de viktigaste funktionerna i den fjärranslutna övervakningslösning. För att införa dessa funktioner demonstreras kursen vanliga kundscenarier med en simulerad IoT-program för företaget Contoso.
+Den här kursen visar de viktigaste funktionerna i Fjärrövervaknings-lösning. För att införa dessa funktioner demonstreras kursen vanliga kundscenarier med en simulerad IoT-program för företaget Contoso.
 
-I kursen får du förstår typiska IoT-scenarier ger remote övervakningslösning out box.
+I kursen får du förstår typiska IoT-scenarier ger Fjärrövervaknings-lösningen out box.
 
 I den här guiden får du lära dig att:
 
@@ -33,24 +30,24 @@ I den här guiden får du lära dig att:
 > * Ordna dina tillgångar
 > * Stoppa och starta de simulerade enheterna
 
-Följande videoklipp visar en genomgång av den fjärranslutna övervakningslösning:
+Följande videoklipp visar en genomgång av Fjärrövervaknings-lösningen:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen behöver en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
+Den här kursen behöver en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Contoso IoT exempeldistribution
 
-Du kan använda Contoso IoT exempeldistribution för att förstå grundläggande scenarier fjärrdatabasen övervakningslösning ger out box. Dessa scenarier bygger på verkliga IoT-distributioner. Troligen kommer du vill anpassa remote övervakningslösning för att uppfylla dina specifika krav, men Contoso-exempel hjälper dig att lära dig grunderna.
+Du kan använda Contoso IoT exempeldistribution för att förstå grundläggande scenarier för fjärråtkomst övervakning lösningen ger out box. Dessa scenarier bygger på verkliga IoT-distributioner. Troligen kommer du vill anpassa Fjärrövervaknings-lösning för att uppfylla dina specifika krav, men Contoso-exempel hjälper dig att lära dig grunderna.
 
 > [!NOTE]
 > Om du använde CLI för att distribuera solution accelerator filen `deployment-{your deployment name}-output.json` innehåller information om distribution till exempel URL för åtkomst av distribuerade exemplet.
 
-Contoso-exempel etablerar en uppsättning simulerade enheter och regler för att fungera på dem. När du förstår de grundläggande scenarierna kan du utforska av lösningen funktioner i [utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning](iot-accelerators-remote-monitoring-monitor.md).
+Contoso-exempel etablerar en uppsättning simulerade enheter och regler för att fungera på dem. När du förstår de grundläggande scenarierna kan du utforska av lösningen funktioner i [utför avancerad övervakning med lösningen Fjärrövervaknings](iot-accelerators-remote-monitoring-monitor.md).
 
 Contoso är ett företag som hanterar en mängd olika tillgångar i olika miljöer. Contoso planerar att använda molnbaserade IoT-program att övervaka och hantera flera resurser från en centraliserad program. Följande avsnitt innehåller en sammanfattning av den första konfigurationen av Contoso-exempel:
 
@@ -136,7 +133,7 @@ Kontrollera slutligen att telemetri värdena från kylaggregat är tillbaka till
 
 ## <a name="update-device-firmware"></a>Uppdatera enhetens inbyggda programvara
 
-Contoso testar en ny typ av enhet i fältet. Som en del av den tester, som du behöver se till att den inbyggda programvaran uppdaterar fungerar korrekt. Följande steg visar hur du använder fjärråtkomst övervakningslösning för att uppdatera den inbyggda programvaran på flera enheter.
+Contoso testar en ny typ av enhet i fältet. Som en del av den tester, som du behöver se till att den inbyggda programvaran uppdaterar fungerar korrekt. Följande steg visar hur du använder Fjärrövervaknings-lösningen för att uppdatera den inbyggda programvaran på flera enheter.
 
 Använd för att utföra nödvändiga enhetens hanteringsuppgifter i **enheter** sidan. Starta genom att filtrera för alla prototyper enheter:
 
@@ -253,7 +250,7 @@ I kursen får du lärt dig att:
 > * Ordna dina tillgångar
 > * Stoppa och starta de simulerade enheterna
 
-Nu när du har gjort den fjärranslutna övervakningslösning är föreslagna nästa steg att lära dig om de avancerade funktionerna i den fjärranslutna övervakningslösning:
+Nu när du har gjort Fjärrövervaknings lösningen är föreslagna nästa steg att lära dig om de avancerade funktionerna i Fjärrövervaknings-lösningen:
 
 * [Övervaka enheterna](./iot-accelerators-remote-monitoring-monitor.md).
 * [Hantera dina enheter](./iot-accelerators-remote-monitoring-manage.md).

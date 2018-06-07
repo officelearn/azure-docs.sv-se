@@ -1,32 +1,29 @@
 ---
 title: Enheten schemat i fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: Den här artikeln beskriver JSON-schema som definierar en simulerad enhet i fjärranslutna övervakningslösning.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627441"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå modellschemat enhet
 
-Du kan använda simulerade enheterna i fjärranslutna övervakningslösning för att testa sitt beteende. När du distribuerar fjärråtkomst övervakningslösning etableras en samling med simulerade enheter automatiskt. Du kan anpassa befintliga simulerade enheter eller skapa egna.
+Du kan använda simulerade enheterna i Fjärrövervaknings-lösningen för att testa sitt beteende. När du distribuerar lösningen Fjärrövervaknings etableras en samling med simulerade enheter automatiskt. Du kan anpassa befintliga simulerade enheter eller skapa egna.
 
 Den här artikeln beskriver modellschemat enheten som anger funktioner och beteendet för en simulerad enhet. Enhetsmodellen lagras i en JSON-fil.
 
 I följande artiklar är relaterade till den aktuella artikeln:
 
-* [Implementera modellen enhetsbeteende](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) beskriver JavaScript-filer som används för att implementera beteendet för en simulerad enhet.
+* [Implementera modellen enhetsbeteende](iot-accelerators-remote-monitoring-device-behavior.md) beskriver JavaScript-filer som används för att implementera beteendet för en simulerad enhet.
 * [Skapa en ny simulerade enhet](iot-accelerators-remote-monitoring-test.md) placeras alla tillsammans och visar hur du distribuerar en ny typ av simulerade enhet till din lösning.
 
 I den här artikeln kan du se hur du:
@@ -39,7 +36,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="the-parts-of-the-device-model-schema"></a>Delar av modellschemat enhet
 
-Varje enhetsmodell, till exempel en kylaggregat eller lastbil, definierar en typ av simulerade enhet kan ansluta till den fjärranslutna övervakningslösning. Varje enhetsmodell lagras i en JSON-fil med följande översta schema:
+Varje enhetsmodell, till exempel en kylaggregat eller lastbil, definierar en typ av simulerade enhet kan ansluta till Fjärrövervaknings-lösningen. Varje enhetsmodell lagras i en JSON-fil med följande översta schema:
 
 ```json
 {
@@ -203,12 +200,12 @@ Skicka telemetri meddelanden med olika intervall genom att lägga till flera tel
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-En simulerad enhet kan svara på moln till enhet metoder anropas från fjärranslutna övervakningslösning. Den `CloudToDeviceMethods` -avsnittet i enheten modellen schemat:
+En simulerad enhet kan svara på moln till enhet metoder anropas från Fjärrövervaknings-lösning. Den `CloudToDeviceMethods` -avsnittet i enheten modellen schemat:
 
 * Definierar metoder som den simulerade enheten kan svara.
 * Identifierar den JavaScript-fil som innehåller logiken som att köra.
 
-Den simulerade enheten skickar listan över metoder som stöds till fjärranslutna övervakningslösning.
+Den simulerade enheten skickar listan över metoder stöder Fjärrövervaknings-lösningen.
 
 Läs mer om den JavaScript-fil som implementerar beteendet för enheten i [förstå beteendet enheten modellen](iot-accelerators-remote-monitoring-device-behavior.md).
 
@@ -246,7 +243,7 @@ Den här artikeln beskrivs hur du skapar dina egna anpassade simulerade enhetsmo
 
 Nu du har lärt dig om JSON-schema, föreslagna nästa steg är att lära dig hur du [implementera beteendet för den simulerade enheten](iot-accelerators-remote-monitoring-device-behavior.md).
 
-Utvecklare om remote övervakningslösning, Läs mer:
+Utvecklare om lösningen Fjärrövervaknings, Läs mer:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

@@ -2,13 +2,12 @@
 title: Hämta Azure billing faktura och dagligen användningsdata | Microsoft Docs
 description: Beskriver hur du laddar ned eller visa din Azure faktura och daglig användning faktureringsinformation.
 keywords: fakturering faktura, ladda ned faktura, azure faktura, azure användning
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607420"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Hämta eller visa din Azure fakturering faktura och dagliga användningsdata
 Du kan hämta fakturan från den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) eller låta skickas via e-post. För att hämta det dagliga arbetet, gå till den [Azure Kontocenter](https://account.azure.com/Subscriptions). Endast vissa roller som har behörighet att hämta faktureringsinformation faktura och information om användning, som kontoadministratör. Läs mer om att få tillgång till faktureringsinformationen i [hantera åtkomst till Azure fakturering med roller](billing-manage-access.md).
 
 Den här artikeln gäller inte för kunder med Enterprise-avtal (EA). Om du är en EA-kund skickas fakturor direkt till registrering av administratörer.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Hämta fakturan i e-post (PDF)
 Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure faktura i ett e-postmeddelande. Den här funktionen är kanske inte tillgängliga för vissa prenumerationer som stöd för erbjudanden, Enterprise-avtal eller Azure i Open.
@@ -39,13 +38,18 @@ Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure f
     
 2. Klicka på **välja** och acceptera villkoren.
 
-    ![Skärmbild som visar opt-in-flöde](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Skärmbild som visar valet i flödet steg 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. När du har accepterat avtalet, kan du konfigurera ytterligare mottagare.
+3. När du har accepterat avtalet, kan du konfigurera ytterligare mottagare. När en mottagare har tagits bort, lagras inte längre den e-postadressen. Om du ändrar dig, måste du lägga till dem igen.
 
-    ![Skärmbild som visar opt-in-flöde](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Skärmbild som visar valet i flödet steg 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Om du inte får ett e-postmeddelande när du har följt stegen, kontrollera din e-postadress är korrekt i den [kommunikationsinställningar i din profil](https://account.windowsazure.com/profile).
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>Avregistrera från att få fakturan i e-post
+Om du inte vill att hämta fakturan i e-post, klickar du på Gå ut av via e-post fakturor. Detta tar bort alla e-postadresser som är inställd på att ta emot fakturor i e-post. Om du väljer kommer tillbaka i du måste konfigurera om mottagare.
+
+ ![Skärmbild som visar välja bort flödet](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Ladda ned faktura från Azure-portalen (PDF)
 

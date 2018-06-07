@@ -1,24 +1,20 @@
 ---
-title: "Kom igång med Azure IoT Hub-enhet twins (nod) | Microsoft Docs"
-description: "Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-SDK för Node.js används för att implementera simulerade enheten appen och en service-app som lägger till taggar och IoT-hubb-frågan körs."
-services: iot-hub
-documentationcenter: node
+title: Kom igång med Azure IoT Hub-enhet twins (nod) | Microsoft Docs
+description: Hur du använder Azure IoT Hub-enhet twins att lägga till taggar och sedan använda en IoT-hubb-fråga. Azure IoT-SDK för Node.js används för att implementera simulerade enheten appen och en service-app som lägger till taggar och IoT-hubb-frågan körs.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
+manager: ''
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: df49f054b5eb26c3d68f088bc05f5209cf2ebccf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb28d7df104887a4056489e9f693ce28ec406df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635108"
 ---
 # <a name="get-started-with-device-twins-node"></a>Kom igång med enheten twins (nod)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

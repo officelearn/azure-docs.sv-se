@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 96d9da90114ae392c3a9e1c22d8e993fd787ada8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618005"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,12 +60,12 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för SAP HANA länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SapHana** | Ja |
 | server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
 | AuthenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **grundläggande**, och **Windows** | Ja |
-| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
 | lösenord | Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
 
@@ -122,7 +123,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från SAP HANA anger källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | Ja |
@@ -167,15 +168,15 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 |:--- |:--- |
 | ALPHANUM | Sträng |
 | BIGINT | Int64 |
-| BLOB | Byte[] |
+| BLOB | byte] |
 | BOOLESKT VÄRDE | Mottagna byte |
-| CLOB | Byte[] |
+| CLOB | byte] |
 | DATE | DateTime |
 | DECIMAL | Decimal |
-| DUBBEL | Ogift |
+| DUBBEL | Enkel |
 | INT | Int32 |
 | NVARCHAR | Sträng |
-| VERKLIG | Ogift |
+| VERKLIG | Enkel |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TID | TimeSpan |

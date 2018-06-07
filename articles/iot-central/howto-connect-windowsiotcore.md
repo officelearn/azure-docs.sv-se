@@ -1,18 +1,19 @@
 ---
 title: Ansluter en Windows IoT Core-enhet till din Azure IoT centralt program | Microsoft Docs
 description: Som en enhet utvecklare lär du dig hur du ansluter en MXChip IoT DevKit enhet till din Azure IoT centralt program.
-services: iot-central
 author: miriamb
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 55c0d9c26cd4e7f8ae9f6ff2359e0f2d2a9970c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629151"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT centralt program
 
@@ -29,7 +30,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 ### <a name="telemetry-measurements"></a>Telemetri mått
 
-| Fältnamn     | Enheter  | Minimum | Maximal | Decimaler |
+| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | fuktighet       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -39,7 +40,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Decimaler | Minimum | Maximal | Inledande |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
@@ -51,7 +52,7 @@ Numeriska inställningar
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |
 
-## <a name="add-a-real-device"></a>Lägga till en verklig enhet
+## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 Azure IoT centrala programmet, lägga till en verklig enhet från den **Windows IoT Core** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
 
@@ -59,7 +60,7 @@ Azure IoT centrala programmet, lägga till en verklig enhet från den **Windows 
 
 För att ställa in en enhet med Windows IoT Core Följ steg-för-steg-guide på [konfigurera en enhet med Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
-### <a name="add-a-real-device"></a>Lägga till en verklig enhet
+### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 Azure IoT centrala programmet, lägga till en verklig enhet från den **Windows IoT Core** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
 

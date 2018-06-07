@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2696be33c97b411a9f4809f0ff6ca56cd2fe6080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3d2e64a88492db396b1c4771e605245c0cd744f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Självstudier: Azure Active Directory-integrering med xMatters OnDemand
 
@@ -103,14 +104,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
 3. På den **xMatters OnDemand domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:   
+    a. I den **identifierare** textruta Skriv en URL med följande mönster:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -133,7 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen lokalt som **c:\\XMatters OnDemand.cer**.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
-    
+
     > [!IMPORTANT]
     > Du behöver att vidarebefordra certifikatet som den [xMatters OnDemand supportteam](https://www.xmatters.com/company/contact-us/). Certifikatet måste överföras av supportteamet xMatters innan du kan slutföra konfigurationen för enkel inloggning. 
 
@@ -148,28 +149,24 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 7. I en annan webbläsarfönster loggar du in på webbplatsen XMatters OnDemand företag som administratör.
 
 8. Klicka på i verktygsfältet högst upp **Admin**, och klicka sedan på **företagsinformation** i navigeringsfältet till vänster.
-   
+
     ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 9. På den **SAML-konfiguration** utför följande steg:
-   
-    ![SAML-konfiguration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML-konfiguration")
-   
-    a. Välj **aktivera SAML**.
-   
-    b. Klistra in **SAML enhets-ID**, som du har kopierat från Azure-portalen i den **identitet Provider-ID** textruta.
-   
-    c. Klistra in **SAML enkel inloggning Tjänstwebbadress**, som du har kopierat från Azure-portalen i den **enkel inloggning på URL: en** textruta.
-   
-    d. Klistra in **Sign-Out URL**, som du har kopierat från Azure-portalen i den **URL för enkel logga ut** textruta.
-   
-    e. På sidan företagsinformation överst **spara ändringar**.
-    
-    ![Företagets information](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "företagets information")
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![SAML-konfiguration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML-konfiguration")
+
+    a. Välj **aktivera SAML**.
+
+    b. I den **identitet Provider-ID** textruta klistra in **SAML enhets-ID** värde som du har kopierat från Azure-portalen.
+
+    c. I den **enkel inloggning på URL: en** textruta klistra in **SAML inloggning tjänst-URL för enkel** värde som du har kopierat från Azure-portalen.
+
+    d. I den **URL för enkel logga ut** textruta klistra in **Sign-Out URL**, som du har kopierat från Azure-portalen.
+
+    e. På sidan företagsinformation överst **spara ändringar**.
+
+    ![Företagets information](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "företagets information")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -183,15 +180,15 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
- 
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textruta typen **BrittaSimon**.
@@ -201,32 +198,33 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Skapa en xMatters OnDemand testanvändare
 
-För att aktivera Azure AD-användare kan logga in på XMatters OnDemand etableras de i XMatters OnDemand. När det gäller XMatters OnDemand är etablering en manuell aktivitet.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i xMatters OnDemand. xMatters OnDemand stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Utför följande steg för att etablera en användarkonton:
+**Om du behöver skapa användare manuellt gör du följande:**
+
 1. Logga in på ditt **XMatters OnDemand** klient.
 
 2.  Klicka på **användare** fliken och klicka sedan på **Lägg till användare**.
-  
+
     ![Användare](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "användare")
 
 3. I den **lägga till en användare** avsnittet, utför följande steg:
-   
+
     ![Lägga till en användare](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "lägga till en användare")
 
     a. Välj **Active**.
 
     b. I den **användar-ID** textruta ange användar-id för användare som Brittasimon@contoso.com.
-   
+
     c. I den **Förnamn** textruta första typnamnet för användaren som Britta.
 
     d. I den **efternamn** textruta Skriv Efternamn för användaren som Simon.
-    
+
     e. I den **plats** textruta RETUR giltig plats för ett giltigt Azure AD-kontot som du vill etablera.
-    
+
     f. Klicka på **Spara**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
@@ -270,6 +268,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -284,4 +283,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_203.png
-

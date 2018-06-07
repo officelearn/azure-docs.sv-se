@@ -1,26 +1,20 @@
 ---
 title: Kom igång med Azure IoT Hub-modulidentitet och -modultvilling (portal och .NET) | Microsoft Docs
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med portalen och .NET.
-services: iot-hub
-documentationcenter: .net
-author: chrissie926
+author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30a53620a640b0122286a6ac69c0f98cd0bbde40
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361696"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634598"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -74,7 +68,7 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
 
     ![Create a visual studio project][13]
 
-2. **Installera SDK V1.16.0-preview-005 för Azure IoT Hub .NET-enheten** – Modulidentitet och modultvilling är tillgängliga som förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj version V1.16.0-preview-005 och installera. Nu har du åtkomst till alla modulfunktioner. 
+2. **Installera den senaste Azure IoT-hubb .NET enheten SDK** -modulen identitets- och modulen dubbla är tillgänglig som förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 

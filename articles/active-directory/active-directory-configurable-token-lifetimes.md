@@ -16,11 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588870"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -44,7 +45,7 @@ Du kan ange en princip som standardprincipen för din organisation. Principen ti
 
 Du kan ange principer för livslängd för token för uppdaterings-tokens, åtkomsttoken, session token och ID-token.
 
-### <a name="access-tokens"></a>Åtkomst-token
+### <a name="access-tokens"></a>Åtkomsttoken
 Klienter använder åtkomsttoken att få åtkomst till en skyddad resurs. En åtkomst-token kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomst-token kan inte återkallas och är giltiga tills de upphör att gälla. En skadlig aktören som har fått en åtkomst-token kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomst-token är en kompromiss mellan förbättra systemets prestanda och öka mängden tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme - efter en timme klienten måste använda uppdateringstoken (vanligtvis tyst) skaffar en ny uppdateringstoken och åtkomst-token. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
@@ -75,7 +76,7 @@ Du kan använda en princip för att ställa in tiden efter den första sessionst
 En princip för livslängd för token är en typ av grupprincipobjekt som innehåller regler för livslängd för token. Använd egenskaperna för principen för att styra angivna token livslängd. Om ingen princip har angetts, tillämpar systemet livstid standardvärdet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Livslängd för token konfigurerbara egenskaper
-| Egenskap | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
+| Egenskap  | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
@@ -89,7 +90,7 @@ En princip för livslängd för token är en typ av grupprincipobjekt som inneh�
 * <sup>3</sup>om **MaxAgeSessionMultiFactor** är inte ange det här värdet tar den **MaxAgeMultiFactor** värde. Om varken parametern anges tar egenskapen standardvärdet (förrän har återkallats).
 
 ### <a name="exceptions"></a>Undantag
-| Egenskap | Påverkar | Standard |
+| Egenskap  | Påverkar | Standard |
 | --- | --- | --- |
 | Uppdatera Token Max Age (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |Uppdatera token (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |12 timmar |
 | Uppdatera Token inaktiva Maxtid (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |90 dagar |
@@ -278,7 +279,7 @@ I det här exemplet skapar du en princip som kräver att användare autentiseras
 
 2.  Tilldela principen till tjänstens huvudnamn. Du måste också hämta de **ObjectId** för tjänstens huvudnamn. 
 
-    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
+    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
 
     2.  När du har den **ObjectId** av din tjänstens huvudnamn, kör du följande kommando:
 

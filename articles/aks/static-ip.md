@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596669"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS)
 
@@ -21,12 +22,18 @@ I vissa fall, som när Azure Kubernetes Service (AKS) läser in belastningsutjä
 
 ## <a name="create-static-ip-address"></a>Skapa statisk IP-adress
 
-Skapa en statisk offentlig IP-adress för tjänsten Kubernetes. IP-adressen måste skapas i den resursgrupp som har skapats automatiskt under distributionen av klustret. Mer information om olika AKS resursgrupper och hur du identifierar automatiskt skapat resursgruppen finns i [AKS vanliga frågor och svar][aks-faq-resource-group].
+Skapa en statisk offentlig IP-adress för tjänsten Kubernetes. IP-adressen måste skapas i AKS **nod** resursgruppen. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
+
+```azurecli-interactive
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGroup_myAKSCluster_eastus
+```
 
 Använd den [az nätverket offentliga ip-skapa] [ az-network-public-ip-create] kommando för att skapa IP-adress.
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
 Anteckna IP-adressen.
@@ -60,7 +67,7 @@ Anteckna IP-adressen.
  Om det behövs, adressen som kan hämtas med hjälp av den [az offentliga ip-lista över] [ az-network-public-ip-list] kommando.
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 ```
 
 ```console
@@ -122,3 +129,4 @@ Events:
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

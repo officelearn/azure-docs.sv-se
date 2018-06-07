@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: Schemaläggaren | Microsoft Docs"
-description: "Det här avsnittet beskriver funktionen inbyggda Schemaläggaren i Azure AD Connect-synkronisering."
+title: 'Azure AD Connect-synkronisering: Schemaläggaren | Microsoft Docs'
+description: Det här avsnittet beskriver funktionen inbyggda Schemaläggaren i Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fa99de4aac11e7310085cc37e6ebaee441415c61
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594167"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synkronisering: Schemaläggaren
 Det här avsnittet beskrivs de inbyggda Schemaläggaren i Azure AD Connect-synkronisering (kallas även Synkroniseringsmotorn).
@@ -71,10 +73,10 @@ Schemaläggarkonfigurationen som lagras i Azure AD. Om du har en fristående ser
 Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dagar, HH - timmar, mm - minuter och ss - sekunder
 
-Exempel:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+Exempel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Ändringar i Schemaläggaren att köra var 3: e timme.
 
-Exempel:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+Exempel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Du ändrar Schemaläggaren att köras dagligen.
 
 ### <a name="disable-the-scheduler"></a>Inaktivera Schemaläggaren  
@@ -131,7 +133,7 @@ De cmdlets som beskrivs i det här avsnittet är bara tillgängliga i build [1.1
 
 Om inbyggda Schemaläggaren inte uppfyller dina krav kan du schemalägga kopplingar med hjälp av PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Anropa ADSyncRunProfile
 Du kan starta en profil för en koppling i det här sättet:
 
 ```

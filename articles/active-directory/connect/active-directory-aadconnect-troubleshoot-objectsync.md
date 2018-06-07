@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592321"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objekt synkronisering med Azure AD Connect-synkronisering
-Det här dokumentet innehåller anvisningar att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning.
+Den här artikeln innehåller steg för att felsöka problem med synkronisering av objektet med hjälp av aktiviteten felsökning. Om du vill se hur felsökning fungerar i Azure Active Directory (AD Azure) Anslut titta på [den här korta videon](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Felsökning av aktivitet
-För Azure Active Directory (AAD) ansluta distribution med version 1.1.749.0 eller högre, använda aktiviteten felsökning i guiden för att felsöka objekt synkroniseringsproblem. För tidigare versioner måste du felsöka manuellt enligt [här](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+För Azure AD ansluta distribution med version 1.1.749.0 eller högre, använda aktiviteten felsökning i guiden för att felsöka objekt synkroniseringsproblem. För tidigare versioner måste du felsöka manuellt enligt [här](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Kör aktiviteten felsökning i guiden
 Utför följande steg om du vill köra aktiviteten felsökning i guiden:

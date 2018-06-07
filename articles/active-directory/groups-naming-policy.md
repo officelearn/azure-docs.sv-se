@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594558"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Tillämpa en princip för namngivning för Office 365-grupper i Azure Active Directory (förhandsgranskning)
 
@@ -189,7 +190,7 @@ School datasynkronisering (SDS) | Grupper som skapats via SDS följa naming prin
 Outlook kunden hanteraren för | Outlook Customer Manager är kompatibel med principen namngivning som automatiskt tillämpas på gruppen som skapades i Outlook kunden Manager. Om en anpassad blockerade word upptäcks att skapa gruppen i OCM blockeras och användaren har blockerats från att använda appen OCM.
 Klassrum app | Grupper som skapats i klassrummet appen uppfyller principen namngivning men namngivning principen används inte automatiskt, och namngivning princip förhandsgranskningen visas inte för användarna när du skriver in ett klassrum gruppnamn. Användarna måste ange namnet på tvingande klassrum med prefix och suffix. Om inte klassrumsgruppen skapa eller redigera misslyckas med fel.
 Power BI | Power BI arbetsytor är kompatibla med principen för namngivning.    
-Yammer | Yammer-anslutna grupperna inte framtvingar den konfigurerade namngivning principen. För organisationer med naming principen är aktiverad skapar Yammer äldre Yammer-grupper som inte är ansluten till Office 365 för grupper som inte överensstämmer med principen för namngivning.
+Yammer | När en användare loggar in på Yammer med sina Azure Active Directory-konto skapar en grupp eller redigerar ett gruppnamn, följa gruppnamnet namngivning av principen. Detta gäller både till Office 365 anslutna grupperna och alla andra Yammer-grupper.<br>Om en Office 365 ansluten grupp har skapats innan namngivning principen finns på plats, kommer gruppnamnet inte automatiskt följer namnge principerna. När en användare redigerar gruppnamnet, uppmanas de att lägga till prefixet och suffixet.
 StaffHub  | StaffHub team följer inte principen namngivning, men den underliggande Office 365-gruppen har. StaffHub Teamnamn gäller inte prefix och suffix och kontrollerar inte om anpassade blockerade ord. Men StaffHub gäller prefix och suffix och blockerade ord tas bort från den underliggande Office 365-gruppen.
 Exchange PowerShell | Exchange PowerShell cmdlets är kompatibla med principen för namngivning. Användarna får felmeddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer principen namngivning i gruppnamn och gruppalias (mailNickname).
 Azure Active Directory PowerShell-cmdlets | Azure Active Directory PowerShell-cmdlets är kompatibla med namngivning av principen. Användarna får felmeddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namnkonventionen i gruppnamn och gruppen.

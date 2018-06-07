@@ -1,30 +1,25 @@
 ---
-title: "Återställa data från ett Azure Backup-Server | Microsoft Docs"
-description: "Återställa data som du har skyddat till Recovery Services-valvet Azure Backup Server registrerad för att valvet."
+title: Återställa data från ett Azure Backup-Server
+description: Återställa data som du har skyddat till Recovery Services-valvet Azure Backup Server registrerad för att valvet.
 services: backup
-documentationcenter: 
 author: nkolli1
 manager: shreeshd
-editor: 
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604411"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 Du kan använda Azure Backup Server för att återställa data som du har säkerhetskopierat till Recovery Services-valvet. Processen för att göra så är integrerat i hanteringskonsolen för Azure Backup Server och liknar återställningsarbetsflöde för andra Azure Backup-komponenter.
 
 > [!NOTE]
-> Den här artikeln gäller för [System Center Data Protection Manager 2012 R2 med UR7 eller senare] (https://support.microsoft.com/en-us/kb/3065246), i kombination med den [senaste Azure Backup-agenten](http://aka.ms/azurebackup_agent).
+> Den här artikeln gäller för [System Center Data Protection Manager 2012 R2 med UR7 eller senare] (https://support.microsoft.com/en-us/kb/3065246), kombinerat med den [senaste Azure Backup-agenten](http://aka.ms/azurebackup_agent).
 >
 >
 
@@ -85,12 +80,12 @@ Du kan använda Azure Backup Server för att återställa data som du har säker
     ![Rensa extern DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>Felsökning av felmeddelanden
-| Nej. | Felmeddelande | Felsökningssteg |
+| Nej. | Felmeddelande | Felsökningsanvisningar |
 |:---:|:--- |:--- |
 | 1. |Den här servern är inte registrerad för valvet som är angivet av valvautentiseringen. |**Orsak:** det här felet uppstår när valvautentiseringsfilen som valts inte tillhör Recovery Services-valvet som är associerade med Azure Backup-Server där återställningen utförs. <br> **Lösning:** hämta valvautentiseringsfilen från Recovery Services-valvet till Azure Backup-Server är registrerad. |
 | 2. |Återställningsbara data är inte tillgänglig eller den valda servern är inte en DPM-server. |**Orsak:** det finns inga andra Azure Backup-servrar registrerade Recovery Services-valvet servrar har ännu inte överföra metadata eller den valda servern är inte en Azure Backup Server (även kallat Windows Server eller Windows-klient). <br> **Lösning:** om det finns andra Azure Backup-servrar registrerade Recovery Services-valvet, kontrollera att den senaste Azure Backup-agenten är installerad. <br>Om det finns andra Azure Backup-servrar registrerade Recovery Services-valv, vänta en dag efter installationen för att starta återställningsprocessen. Nattetid kommer att överföra metadata för alla skyddade säkerhetskopieringar till molnet. Data blir tillgängliga för återställning. |
 | 3. |Ingen annan DPM-server är registrerad för valvet. |**Orsak:** inga andra Azure Backup-servrar som är registrerade för valvet som återställningen görs.<br>**Lösning:** om det finns andra Azure Backup-servrar registrerade Recovery Services-valvet, kontrollera att den senaste Azure Backup-agenten är installerad.<br>Om det finns andra Azure Backup-servrar registrerade Recovery Services-valv, vänta en dag efter installationen för att starta återställningsprocessen. Nattetid filöverföringar metadata för alla skyddade säkerhetskopieringar till molnet. Data blir tillgängliga för återställning. |
-| 4. |Den angivna krypteringslösenfrasen matchar inte lösenfrasen som associeras med följande server:**<server name>** |**Orsak:** används håller på att kryptera data från Azure Backup Server-data som återställs krypteringslösenfrasen matchar inte den angivna krypteringslösenfrasen. Agenten är det gick inte att dekryptera data. Därför misslyckas återställningen.<br>**Lösning:** ange exakt samma krypteringslösenfrasen som är associerade med Azure Backup-Server som data återställs. |
+| 4. |Den angivna krypteringslösenfrasen matchar inte lösenfrasen som associeras med följande server: **<server name>** |**Orsak:** används håller på att kryptera data från Azure Backup Server-data som återställs krypteringslösenfrasen matchar inte den angivna krypteringslösenfrasen. Agenten är det gick inte att dekryptera data. Därför misslyckas återställningen.<br>**Lösning:** ange exakt samma krypteringslösenfrasen som är associerade med Azure Backup-Server som data återställs. |
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -100,7 +95,7 @@ För DPM-servrar med datakällor som skyddas till molnet (med hjälp av en samla
 
 ### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Vad är den lägsta versionen av Microsoft Azure Recovery Services-agenten behövs?
 
-Den lägsta versionen av Microsoft Azure Recovery Services-agenten eller Azure Backup-agenten som krävs för att aktivera den här funktionen är 2.0.8719.0.  Så här visar agentens version: Öppna Kontrollpanelen  **>**  alla objekt  **>**  program och funktioner  **>**  Microsoft Azure Recovery Services-agenten. Om versionen som är mindre än 2.0.8719.0, hämtar och installerar den [senaste Azure Backup-agenten](https://go.microsoft.com/fwLink/?LinkID=288905).
+Den lägsta versionen av Microsoft Azure Recovery Services-agenten eller Azure Backup-agenten som krävs för att aktivera den här funktionen är 2.0.8719.0.  Så här visar agentens version: Öppna Kontrollpanelen **>** alla objekt **>** program och funktioner **>** Microsoft Azure Recovery Services-agenten. Om versionen som är mindre än 2.0.8719.0, hämtar och installerar den [senaste Azure Backup-agenten](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 ![Rensa extern DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 

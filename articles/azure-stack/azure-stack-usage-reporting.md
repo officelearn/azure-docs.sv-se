@@ -3,7 +3,7 @@ title: Rapportera användningsdata för Azure-stacken till Azure | Microsoft Doc
 description: Lär dig hur du ställer in användningsinformation för rapportering i Azure-stacken.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603710"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera Azure Stack användningsdata till Azure 
 
@@ -42,7 +43,7 @@ Om du vill konfigurera användningsrapport data måste du [registrera Azure Stac
 - **Antal** – mängden Resursanvändning.
 - **Plats** – platsen där den aktuella Azure-stacken resursen har distribuerats.
 - **Resurs-URI** – fullständigt kvalificerade URI: N för den resurs som användning rapporteras.
-- **Prenumerations-ID** – prenumerations-ID för Azure Stack-användare. Detta är den lokala (Azure Stack)-prenumerationen.
+- **Prenumerations-ID** – prenumerations-ID för den Azure Stack-användare som är lokala (Azure Stack)-prenumerationen.
 - **Tid** – Start- och tid för användningsdata. Det finns vissa fördröjning mellan tiden när dessa resurser används i Azure-stacken och när användningsdata rapporteras till handel. Azure Stack mängder användningsdata för per dygn och reporting användningsdata för commerce pipeline i Azure tar ytterligare några timmar. Därför kan användning som sker inom kort före midnatt visas i Azure påföljande dag.
 
 ## <a name="generate-usage-data-reporting"></a>Generera en användningsrapport data
@@ -68,7 +69,7 @@ Om du har registrerat din Azure-stacken använder en annan prenumerationstyp, ti
 
    ![flödet för fakturering](media/azure-stack-usage-reporting/pricing-details.png)
 
-För Azure-stacken Development Kit debiteras inte Azure Stack resurser så visas priset som $0.00. När Azure stacken med flera noder blir allmänt tillgänglig, ser du den faktiska kostnaden för var och en av dessa resurser.
+För Azure-stacken Development Kit debiteras inte Azure Stack resurser så visas priset som $0.00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Vilka Azure Stack-distributioner debiteras?
 
@@ -82,7 +83,7 @@ Användare endast debiteras för virtuella datorer som körs under klient prenum
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Jag har en Windows Server-licens som du vill använda Azure-stacken, hur gör jag?
 
-Med hjälp av befintliga licenser undviker genererar användning mätare. Befintliga Windows Server-licenser kan användas i Azure-stacken, enligt beskrivningen i avsnittet ”använda befintliga program med Azure Stack” i [licensiering guiden Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Kunder som behöver distribuera sina virtuella datorer i Windows Server enligt beskrivningen i den [Hybrid-förmån för Windows Server-licens](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) avsnittet för att kunna använda sina befintliga licenser.
+Med hjälp av befintliga licenser undviker genererar användning mätare. Befintliga Windows Server-licenser kan användas i Azure-stacken, enligt beskrivningen i avsnittet ”använda befintliga program med Azure Stack” i [licensiering guiden Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Kunder som behöver distribuera sina virtuella datorer i Windows Server enligt beskrivningen i den [Hybrid-förmån för Windows Server-licens](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artikel för att kunna använda sina befintliga licenser.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Vilken prenumeration debiteras för de resurser som används?
 Den prenumeration som har angetts när [registrera Azure stacken med Azure](azure-stack-register.md) debiteras.
@@ -101,7 +102,7 @@ Användare kan se Azure Stack användningsdata i filen användning information. 
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Varför matchar inte användningsdata som rapporteras i Azure-stacken rapporten genereras från Azure Account Center?
 
-Det finns alltid en delaybetween användningsdata som rapporteras av Azure Stack-användning API: er och användningsdata som rapporteras av Azure Kontocenter... Den här fördröjningen är den tid som krävs för att överföra data om programvaruanvändning på Azure-stacken till Azure handel. På grund av den här fördröjningen användning som sker inom kort före midnatt kan visas i Azure påföljande dag. Om du använder den [API: er för användning av Azure Stack](azure-stack-provider-resource-api.md), och jämföra resultatet till användning som rapporteras i Azure portal för fakturering, du kan se skillnad.
+Det finns alltid en fördröjning mellan användningsdata som rapporteras av Azure Stack-användning API: er och användningsdata som rapporteras av Azure Kontocenter. Den här fördröjningen är den tid som krävs för att överföra data om programvaruanvändning på Azure-stacken till Azure handel. På grund av den här fördröjningen användning som sker inom kort före midnatt kan visas i Azure påföljande dag. Om du använder den [API: er för användning av Azure Stack](azure-stack-provider-resource-api.md), och jämföra resultatet till användning som rapporteras i Azure portal för fakturering, du kan se skillnad.
 
 ## <a name="next-steps"></a>Nästa steg
 

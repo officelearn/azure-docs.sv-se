@@ -1,40 +1,41 @@
 ---
-title: 'Azure Storage för stacken: Skillnader och överväganden'
-description: Förstå skillnaderna mellan Azure Stack Storage och Azure Storage, tillsammans med överväganden vid distribution av Azure-stacken.
+title: Azure-stacken lagring skillnader och överväganden | Microsoft Docs
+description: Förstå skillnaderna mellan Azure stack lagring och Azure storage, tillsammans med överväganden vid distribution av Azure-stacken.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604468"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage för stacken: Skillnader och överväganden
+# <a name="azure-stack-storage-differences-and-considerations"></a>Stacken för Azure storage: skillnader och överväganden
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure-stacken Storage är en uppsättning lagring molntjänster i Microsoft Azure-stacken. Azure-stacken Storage tillhandahåller blob, tabell, kö och hanteringsfunktioner för konto med Azure-konsekvent semantik.
+Azure-stacken storage är en uppsättning lagring molntjänster i Microsoft Azure-stacken. Azure-stacken lagring ger blob, tabell, kö och hanteringsfunktioner för konto med Azure-konsekvent semantik.
 
-Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från Azure Storage-tjänster. Dessutom visas saker att tänka på när du distribuerar Azure stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
+Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från Azure Storage-tjänster. Dessutom visas saker att tänka på när du distribuerar Azure stacken. Läs om övergripande skillnader mellan globala Azure och Azure-stacken i den [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat blad: lagring skillnader
 
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Molnbaserade SMB-filresurser som stöds|Stöds inte än
-|Azure Storage-tjänstens kryptering av vilande data|256-bitars AES-kryptering|BitLocker 128-bitars AES-kryptering
-|Storage Account-typ|Allmänna och Azure Blob storage-konton|Allmänna endast.
+|Azure storage service-kryptering för data i vila|256-bitars AES-kryptering|BitLocker 128-bitars AES-kryptering
+|Storage Account-typ|Allmänna och Azure blob storage-konton|Allmänna endast.
 |Alternativ för datareplikering|Lokalt redundant lagring, geo-redundant lagring, geo-redundant lagring med läsbehörighet och zonredundant lagring|Lokalt redundant lagring.
 |Premium Storage|Fullt stöd|Kan etableras, men ingen gräns för prestanda eller säkerhet.
 |Hanterade diskar|Premium- och standard som stöds|Stöds inte än.
@@ -80,7 +81,7 @@ Azure Storage services management API: er:
 
 ## <a name="sdk-versions"></a>SDK-versioner
 
-Azure-stacken Storage stöder följande klientbiblioteken:
+Azure Stack-lagring stöder följande klientbiblioteken:
 
 | Klientbibliotek | Azure-stacken en version som stöds | Länk                                                                                                                                                                                                                                                                                                                                     | Specifikation för slutpunkten       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

@@ -1,24 +1,19 @@
 ---
-title: Säkerhetskopiera Windows Server till Azure med hjälp av PowerShell | Microsoft Docs
+title: Säkerhetskopiera Windows Server till Azure med hjälp av PowerShell
 description: Lär dig hur du distribuerar och hanterar Azure Backup med hjälp av PowerShell
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 61bb58b2cf0d76f662144cb1911a6521394e92b6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 5/24/2018
+ms.author: saurse
+ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606281"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
@@ -57,7 +52,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
 4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
 
    > [!TIP]
-   > Många Azure Backup-cmdletar kräver Recovery Services-valvet objekt som indata. Därför är det praktiskt att lagra säkerhetskopian Recovery Services-valvet objekt i en variabel.
+   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
    >
    >
 
@@ -107,7 +102,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten är installerad](./media/backup-client-automation/installed-agent-listing.png)
+![Agenten har installerats](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:
@@ -118,7 +113,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 Tillgängliga alternativ inkluderar:
 
-| Alternativ | Information | Standardvärde |
+| Alternativ | Information | Standard |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | / p: ”plats” |Sökvägen till installationsmappen för Azure Backup-agenten. |C:\Program Files\Microsoft Azure Recovery Services-agenten |
@@ -126,9 +121,9 @@ Tillgängliga alternativ inkluderar:
 | /m |Delta i Microsoft Update |- |
 | /nu |Sök inte efter uppdateringar när installationen är klar |- |
 | /d |Avinstallerar Microsoft Azure Recovery Services-agenten |- |
-| /ph |Värden proxyadress |- |
+| /pH |Värden proxyadress |- |
 | /po |Portnummer för proxyservern värden |- |
-| /pu |Värddatorn Proxyanvändarnamnet |- |
+| /Pu |Värddatorn Proxyanvändarnamnet |- |
 | /PW |Lösenord för proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registrering av Windows Server eller Windows-klientdatorn till ett Recovery Services-valv
@@ -145,7 +140,7 @@ Det här och andra cmdletar som används för säkerhetskopiering, kommer från 
 Installationsprogrammet för agenten inte uppdatera $Env: PSModulePath variabeln. Det innebär att modulen automatisk inläsning misslyckas. För att lösa problemet kan du göra följande:
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 ```
 
 Du kan också du kan manuellt läsa in modulen i skriptet på följande sätt:
@@ -159,8 +154,8 @@ När du läser in Online Backup-cmdletar, kan du registrera autentiseringsuppgif
 
 
 ```
-PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+
+PS C:\> Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault

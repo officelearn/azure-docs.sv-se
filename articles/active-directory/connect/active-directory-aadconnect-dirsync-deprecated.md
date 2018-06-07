@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera från DirSync och Azure AD Sync | Microsoft Docs"
-description: "Beskriver hur du uppgraderar från DirSync och Azure AD Sync till Azure AD Connect."
+title: Uppgradera från DirSync och Azure AD Sync | Microsoft Docs
+description: Beskriver hur du uppgraderar från DirSync och Azure AD Sync till Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e8faf365c0f47582b4abc3554e0bb6e1c3e7902
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 23d2be6e3fb7d14cd7ea42ffc2bf6d4174a894cc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591828"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uppgradera Windows Azure Active Directory-synkronisering och Azure Active Directory Sync
 Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det här är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och stöds inte längre från och med 13 April 2017.
@@ -32,7 +34,7 @@ Den senaste versionen av DirSync gavs ut i juli 2014 och den senaste versionen a
 Azure AD Connect är efterföljaren till DirSync och Azure AD Sync. Alla scenarier kombinerar dessa två stöds. Du kan läsa mer om den i [integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="deprecation-schedule"></a>Utfasningen schema
-| Date | Kommentera |
+| Date | Kommentar |
 | --- | --- |
 | Den 13 april 2016 |Windows Azure Active Directory Sync (”DirSync”) och Microsoft Azure Active Directory Sync (”Azure AD Sync”) tillkännages som föråldrade. |
 | 13 april 2017 |Stöd för parterna. Kunder kommer inte längre att kunna öppna ett supportärende utan att först uppgradera till Azure AD Connect. |

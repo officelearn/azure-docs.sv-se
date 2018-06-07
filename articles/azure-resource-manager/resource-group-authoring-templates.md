@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603084"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Mallformat
-I sin enklaste strukturen innehåller en mall följande element:
+I sin enklaste struktur har en mall följande element:
 
 ```json
 {
@@ -41,14 +42,14 @@ I sin enklaste strukturen innehåller en mall följande element:
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | $schema |Ja |Plats för JSON-schemafilen som beskriver versionen av mallspråk. Använd den URL som visas i föregående exempel. |
-| contentVersion |Ja |Version av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
+| contentVersion |Ja |Version av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
 | parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resource distribution. |
 | variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
 | functions |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
 | resurser |Ja |Resurstyper som distribuerats eller uppdateras i en resursgrupp. |
 | utdata |Nej |Värden som returneras efter distributionen. |
 
-Varje element innehåller egenskaper som du kan ange. I följande exempel innehåller den fullständiga syntaxen för en mall:
+Varje element har egenskaper som du kan ange. I följande exempel visas den fullständiga syntaxen för en mall:
 
 ```json
 {
@@ -296,7 +297,7 @@ Mer information finns i [matar ut Azure Resource Manager-mallar](resource-manage
 
 Begränsa storleken på din mall 1 MB och varje parameterfilen till 64 KB. Gränsen på 1 MB gäller sluttillstånd för mallen när den har utökats med iterativ resursdefinitionerna och värden för parametrar och variabler. 
 
-Du är begränsad till:
+Du är också begränsad till:
 
 * 256 parametrar
 * 256 variabler

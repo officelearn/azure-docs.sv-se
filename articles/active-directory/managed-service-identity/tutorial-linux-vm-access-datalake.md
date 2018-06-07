@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 70dd61758b30c1c7a89374e708fe37c1443d3a2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4489f194329727160d770ab72d9cd36115f2e64d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594765"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Självstudier: Använd hanterade tjänstidentiteten för en Linux-VM för att få åtkomst till Azure Data Lake Store
 
@@ -181,12 +182,9 @@ Du kan lägga till att filer och hämta filer med hjälp av andra API: er för D
 
 Grattis! Du har autentiserats för filsystemet Data Lake Store med hjälp av MSI för en Linux-VM.
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-- Data Lake Store använder Azure Resource Manager för av hanteringsåtgärder.  Mer information om hur du använder MSI för att autentisera till Resource Manager finns [använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Lär dig mer om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Lär dig mer om [filen systemåtgärder på Azure Data Lake Store med hjälp av REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) eller [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Lär dig mer om [åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+I kursen får du har lärt dig hur du använder hanterade tjänstidentiteten Linux virtuella datorer för att få åtkomst till ett Azure Data Lake Store. Om du vill veta mer om Azure Data Lake Store, se:
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

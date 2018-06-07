@@ -3,16 +3,17 @@ title: Lägg till ett huvudnamn för tjänsten i Azure Analysis Services-serverr
 description: Lär dig hur du lägger till en automation tjänstens huvudnamn i rollen Administratör
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8840dd9a8a8e8ba1f78d461824ac0cdce32b2ac9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596778"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägg till ett huvudnamn för tjänsten server-administratör 
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 Innan du slutför den här uppgiften, måste du ha ett huvudnamn för tjänsten registreras i Azure Active Directory.
 
 [Skapa tjänstens huvudnamn - Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Skapa tjänstens huvudnamn - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 För att slutföra den här uppgiften, måste du ha [serveradministratören](analysis-services-server-admins.md) behörigheter på Azure AS-servern. 

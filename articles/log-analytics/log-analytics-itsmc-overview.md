@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637624"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure ITSM verktyg med IT Service Management-anslutningstjänsten
 
@@ -98,7 +99,7 @@ När du har prepped ITSM-verktyg, följer du stegen nedan för att skapa en ansl
 
     > [!NOTE]
 
-    > Som standard uppdaterar ITSMC anslutningens konfigurationsdata en gång i en gång per dygn. Uppdatera din anslutning data direkt för ändringar eller uppdateringar för mallen som du gör, klicka på ”Uppdatera” visas bredvid din anslutning.
+    > Som standard uppdaterar ITSMC anslutningens konfigurationsdata en gång i en gång per dygn. Uppdatera din anslutning data direkt eventuella ändringar eller mall för programuppdateringar som du gör, klicka på den **Sync** knappen på bladet för din anslutning.
 
     ![Uppdatera anslutning](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +138,6 @@ När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en
 >[!NOTE]
 
 > Information om priser för ITSM åtgärden finns i [sida med priser](https://azure.microsoft.com/pricing/details/monitor/) för åtgärdsgrupper.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Skapa ITSM arbetsobjekt från logganalys-varningar
-
-Du kan konfigurera Varningsregler i Azure logganalys-portalen för att skapa arbetsobjekt i ITSM verktyget på följande sätt.
-
-1. Från **loggen Sök** och köra en sökning i loggen om du vill visa data. Frågeresultatet är källan för arbetsobjekt.
-2. I **loggen Sök**, klickar du på **avisering** att öppna den **lägga till Varningsregeln** sidan.
-
-    ![Log Analytics skärmen](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. På den **lägga till Varningsregeln** och ange nödvändig information för **namn**, **allvarlighetsgrad**, **sökfråga**, och **Varna kriterier** (fönstret/Tidsmått för mätning).
-4. Välj **Ja** för **ITSM åtgärder**.
-5. Välj ITSM-anslutning från den **Välj anslutning** lista.
-6. Innehåller information som krävs.
-7. Om du vill skapa ett separat arbetsobjekt för varje loggpost för den här aviseringen, Välj den **skapa enskilda arbetsobjekt för varje loggpost** kryssrutan.
-
-    Eller
-
-    Låt kryssrutan omarkerade du skapar bara ett arbetsobjekt för valfritt antal loggposter i den här aviseringen.
-
-7. Klicka på **Spara**.
-
-Du kan visa logganalys-avisering som du skapade under **Inställningar > aviseringar**. Motsvarande ITSM anslutningens arbetsobjekt skapas när angivna aviseringen är uppfyllt.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>Skapa ITSM arbetsobjekt från logganalys loggposter
-
-Du kan också skapa arbetsobjekt i de anslutna ITSM källorna direkt från en loggpost. Detta kan användas för att testa om anslutningen fungerar korrekt.
-
-
-1. Från **loggen Sök**, söka data som krävs, välja informationen och klicka på **skapa arbetsobjekt**.
-
-    Den **skapa ITSM arbetsobjekt** visas:
-
-    ![Log Analytics skärmen](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Lägg till följande information:
-
-  - **Rubrik för arbetsobjekt**: rubrik för arbetsuppgiften.
-  - **Beskrivning av arbetsuppgift**: beskrivning för den nya arbetsuppgiften.
-  - **Påverkas datorn**: namnet på den dator där den här loggdata hittades.
-  - **Välj anslutning**: ITSM anslutning som du vill skapa det här arbetsobjektet.
-  - **Arbetsobjektet**: typ av arbetsobjekt.
-
-3. Om du vill använda en befintlig mall för arbetsobjekt för en incident **Ja** under **generera fungerar objektet baserat på mallen** alternativ och klickar sedan på **skapa**.
-
-    Eller:
-
-    Klicka på **nr** om du vill ge dina anpassade värden.
-
-4. Ange lämpliga värden i den **kontakta typen**, **inverkan**, **angelägenhetsgrad**, **kategori**, och **underkategorin** textrutor och klicka sedan på **skapa**.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualisera och analysera incidenten och ändra data för begäran

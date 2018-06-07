@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: jingwang
-ms.openlocfilehash: b8de35aef53458142e24224deb9886548fab221c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 59ad27a8609b4491ba131649b574d2a3bf55309b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617937"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-beta"></a>Kopiera data från Salesforce marknadsföring molnet med Azure Data Factory (Beta)
 
@@ -45,7 +46,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Salesforce marknadsföring länkade Molntjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **SalesforceMarketingCloud** | Ja |
 | clientId | Klient-ID som är associerade med programmet Salesforce marknadsföring molnet.  | Ja |
@@ -105,7 +106,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Salesforce marknadsföring moln som källtypen i kopieringsaktiviteten till **SalesforceMarketingCloudSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |

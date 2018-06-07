@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect-synkronisering: funktioner referens | Microsoft Docs'
-description: "Referens för uttryck för deklarativ etablering i Azure AD Connect-synkronisering."
+description: Referens för uttryck för deklarativ etablering i Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595163"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: funktioner referens
 I Azure AD Connect för funktioner att ändra ett attributvärde under synkroniseringen.  
@@ -55,8 +57,8 @@ Funktioner med typer **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[certThumbprint](#certthumbprint) | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Konvertering** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -76,12 +78,12 @@ Funktioner med typer **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [Innehåller](#contains) |[Antal](#count) |[Objektet](#item) |[ItemOrNull](#itemornull) | |
 | [Anslut dig](#join) |[RemoveDuplicates](#removeduplicates) |[Dela](#split) | | |
 | **Programflöde** | | | | |
-| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[Växel](#switch) | |
-| [Där](#where) |[Med](#with) | | | |
+| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[växel](#switch) | |
+| [där](#where) |[med](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Vänster](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Ersätt](#replace) | |
+| [vänster](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
+| [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Ersätt](#replace) | |
 | [ReplaceChars](#replacechars) |[Höger](#right) |[RTrim](#rtrim) |[Rensa](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
@@ -364,9 +366,9 @@ Funktionen CGuid konverterar strängrepresentation av en GUID till dess binär r
 Innehåller funktionen söker efter en sträng i ett flervärdesattribut
 
 **Syntax:**  
-`num Contains (mvstring attribute, str search)`-skiftlägeskänsligt  
+`num Contains (mvstring attribute, str search)` -skiftlägeskänsligt  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`-skiftlägeskänsligt
+`num Contains (mvref attribute, str search)` -skiftlägeskänsligt
 
 * attributet: flervärdesattribut att söka.
 * Sök: sträng att söka efter i attributet.
@@ -388,7 +390,7 @@ Om attributet proxyAddresses har en primär e-postadress (anges med versaler ”
 Funktionen ConvertFromBase64 konverterar angivna base64-kodade värdet till en vanlig sträng.
 
 **Syntax:**  
-`str ConvertFromBase64(str source)`-förutsätter Unicode för kodning  
+`str ConvertFromBase64(str source)` -förutsätter Unicode för kodning  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * källa: Base64-kodad sträng  
@@ -1180,7 +1182,7 @@ Processen för alla värden i en flervärdesfält attribut (eller utdata för et
 Returnera alla värden i flervärdesattribut Annantelefon när bindestreck (-) har tagits bort.
 
 - - -
-### <a name="split"></a>Delat
+### <a name="split"></a>Dela
 **Beskrivning:**  
 Funktionen Dela en sträng som avgränsas med en avgränsare och det är en sträng med flera värden.
 

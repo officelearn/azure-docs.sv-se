@@ -1,23 +1,19 @@
 ---
 title: Utveckla för mobila enheter med Azure IoT SDK | Microsoft Docs
 description: 'Utvecklare guide – Lär dig mer om hur du utvecklar för mobila enheter med Azure IoT-hubb SDK: er.'
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: yizhon
-ms.openlocfilehash: 824d577a4709a388bd858bdda6ef5f11f53dde58
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9c4b4a61698556f14a6362984b04e5cc409b5763
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634955"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Utveckla för mobila enheter med Azure IoT-SDK
 

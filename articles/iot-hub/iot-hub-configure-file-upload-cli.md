@@ -1,24 +1,19 @@
 ---
-title: "Konfigurera filöverföringen till IoT-hubb med Azure CLI (az.py) | Microsoft Docs"
-description: "Hur du konfigurerar filöverföringar till Azure IoT Hub använder plattformsoberoende Azure CLI 2.0 (az.py)."
-services: iot-hub
-documentationcenter: 
+title: Konfigurera filöverföringen till IoT-hubb med Azure CLI (az.py) | Microsoft Docs
+description: Hur du konfigurerar filöverföringar till Azure IoT Hub använder plattformsoberoende Azure CLI 2.0 (az.py).
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633860"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurera IoT-hubb filöverföringar med hjälp av Azure CLI
 
@@ -35,9 +30,9 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Logga in och ange ditt Azure-konto
 
-Logga in på ditt Azure-konto och välja din prenumeration.
+Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. Vid Kommandotolken kör du den [inloggningen kommandot][lnk-login-command]:
+1. I kommandotolken kör du [inloggningskommandot][lnk-login-command]:
 
     ```azurecli
     az login
@@ -45,13 +40,13 @@ Logga in på ditt Azure-konto och välja din prenumeration.
 
     Följ instruktionerna för att autentisera med hjälp av koden och logga in på ditt Azure-konto via en webbläsare.
 
-1. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla Azure konton som är associerade med dina autentiseringsuppgifter. Använd följande [kommando för att visa en lista med Azure-konton] [ lnk-az-account-command] som du kan använda:
+1. Om du har flera Azure-prenumerationer får du åtkomst till alla Azure-konton som är associerade med dina autentiseringsuppgifter när du loggar in på Azure. Använd följande [-kommando för att lista Azure-konton][lnk-az-account-command] som du kan använda:
 
     ```azurecli
     az account list
     ```
 
-    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan använda prenumerationsnamn eller ID från utdata från det föregående kommandot:
+    Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -83,7 +78,7 @@ Du kan använda en befintlig blobbehållare för dina filöverföringar eller sk
     az storage container create --name {container name} --connection-string "{your storage account connection string}"
     ```
 
-## <a name="file-upload"></a>Ladda upp filen
+## <a name="file-upload"></a>Filuppladdning
 
 Du kan nu konfigurera din IoT-hubb för att aktivera [filen överför funktioner] [ lnk-upload] med information om ditt lagringskonto.
 
@@ -144,7 +139,7 @@ Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT-hub
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 * [Skydda din IoT-lösning från grunden upp][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

@@ -9,17 +9,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bf5a3a1dc67752e3f911d07f23c7b408e6d38c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598777"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testa Kör som-kontoautentisering för Azure Automation
 När ett Automation-konto har skapats kan du utföra ett enkelt test för att bekräfta att du kan autentisera i Azure Resource Manager eller den klassiska Azure-distributionen med ditt nyskapade eller uppdaterade Automation Kör som-konto.    
 
 ## <a name="automation-run-as-authentication"></a>Automation Kör som-autentisering
-Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-creating-importing-runbook.md) och verifiera autentisering med hjälp av Kör som-kontot och även i dina anpassade runbookflöden för att autentisera och hantera Resource Manager-resurser med Automation-kontot.   
+Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-creating-importing-runbook.md) och verifiera autentisering med hjälp av Kör som-kontot och även i dina anpassade runbookflöden för att autentisera och hantera Resource Manager-resurser med Automation-kontot.
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -60,6 +61,9 @@ Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-cre
     } 
 
 Lägg märke till den cmdlet som används för att autentisera i en runbook - **Connect-AzureRmAccount**, använder den *ServicePrincipalCertificate* parameteruppsättning.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
+
+> [!IMPORTANT]
+> **Lägg till AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. Om du inte ser **Connect-AzureRMAccount**, kan du använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
 När du [köra runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) verifiera ditt kör som-konto ett [runbook-jobbet](automation-runbook-execution.md) skapas jobbet visas och jobbstatus visas i den **jobbsammanfattning** panelen. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
 

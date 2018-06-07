@@ -4,15 +4,16 @@ description: Beskriver hur resurs principdefinitionen används av Azure principe
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601266"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -63,7 +64,7 @@ Till exempel visar följande JSON en princip som begränsar där resurser har di
 }
 ```
 
-Alla Azure princip mallen prover finns på [mallar för Azure princip](json-samples.md).
+Alla Azure princip prover finns på [princip exempel](json-samples.md).
 
 ## <a name="mode"></a>Läge
 
@@ -203,7 +204,7 @@ Följande fält stöds:
 
 - `name`
 - `fullName`
-  - Returnerar det fullständiga namnet på resursen, inklusive överordnade (till exempel ”minserver/mindatabas”)
+  - Returnerar det fullständiga namnet på resursen. Det fullständiga namnet på en resurs är resursnamnet inledd av alla överordnade resursnamn (till exempel ”minserver/mindatabas”).
 - `kind`
 - `type`
 - `location`
@@ -250,6 +251,8 @@ Värdet kan vara en sträng eller ett JSON-format-objekt.
 
 Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomsten av en relaterad resurs och tillämpa en regel och en motsvarande effekt när resursen inte finns. Du kan till exempel kräva att en nätverksbevakaren distribueras för alla virtuella nätverk.
 Ett exempel på granskning när ett tillägg för virtuell dator inte har distribuerats, se [granska om tillägg inte finns](scripts/audit-ext-not-exist.md).
+
+Information om varje effekt ordningen för utvärdering, egenskaper och exempel finns [Förstå princip effekter](policy-effects.md).
 
 ## <a name="aliases"></a>Alias
 
@@ -391,4 +394,4 @@ Följande exempel illustrerar hur du skapar ett initiativ för att hantera två 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska Azure princip mallen exemplen på [mallar för Azure princip](json-samples.md).
+- Granska fler exempel på [Azure princip exempel](json-samples.md).

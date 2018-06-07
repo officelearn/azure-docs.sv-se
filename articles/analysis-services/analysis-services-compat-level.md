@@ -3,26 +3,27 @@ title: Datamodell kompatibilitetsnivån i Azure Analysis Services | Microsoft Do
 description: Förstå tabelldata modellen kompatibilitetsnivå.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 231a7ea42560aac3fba0ccf27e27123320f219a3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d68d544a66448fbbf193ff53fa43e179b1edb706
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602075"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Kompatibilitetsnivån för Analysis Services-tabellmodeller
 
-*Kompatibilitetsnivån* refererar till version-specifika funktioner i Analysis Services-motorn. Ändringar av kompatibilitetsnivån sammanfaller normalt med större versioner av SQL Server. De här ändringarna implementeras också i Azure Analysis Services för att upprätthålla paritet mellan båda plattformar. Kompatibilitet ändras även påverka funktionerna i din tabellmodeller. Till exempel har DirectQuery och tabular objektmetadata olika implementeringar beroende på kompatibilitetsnivån. 
+*Kompatibilitetsnivån* refererar till version-specifika funktioner i Analysis Services-motorn. Ändringar av kompatibilitetsnivån sammanfaller normalt med större versioner av SQL Server. De här ändringarna implementeras också i Azure Analysis Services för att upprätthålla paritet mellan båda plattformar. Kompatibilitetsnivån ändras också gälla funktionerna i din tabellmodeller. Till exempel har DirectQuery och tabular objektmetadata olika implementeringar beroende på kompatibilitetsnivån. Kompatibilitetsnivån har angetts i tabellmodell-projekt i Visual Studio (SSDT). Tabellmodeller skapas och importeras från Power BI Desktop är endast kompatibilitetsnivå 1400.
 
-Azure Analysis Services har stöd för tabellmodeller på 1200 eller över 1400 kompatibilitet.
+Azure Analysis Services har stöd för tabellmodeller på 1200 eller över 1400 kompatibilitet. 
 
 Senaste kompatibilitetsnivå är 1400. Den här nivån sammanfaller med SQL Server 2017 Analysis Services. Viktiga funktioner i kompatibilitetsnivå 1400 omfattar:
 
-*  Ny infrastruktur för dataanslutning och importeras till tabellmodeller med stöd för TOM APIs och TMSL skript. Den här nya funktionen aktiverar stöd för andra datakällor, till exempel Azure Blob storage.
+*  Nya funktioner för dataanslutning och importera med stöd för TOM APIs och TMSL skript. 
 *  Dataomvandling av och data mashup-funktioner med hjälp av hämta Data och M uttryck.
 *  Åtgärder som stöd för en detaljrader egenskap med ett DAX-uttryck. Den här egenskapen gör klientverktyg som Microsoft Excel för att öka detaljnivån till detaljerad data från en sammansatt rapport. När användare visar total försäljning för en region och månad, kan de visa associerade orderinformationen. 
 *  Säkerhet på objektnivå för tabell- och namn, utöver informationen i dem.

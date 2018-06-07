@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7041bd19c464c0ce6fb0f3d695a87581fed290e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592032"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 Den här artikeln innehåller vanliga frågor och information som rör certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till SaaS-program. Lägg till program från appgalleriet för Azure AD eller genom att använda en mall för icke-galleriet program. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
@@ -57,6 +58,15 @@ Skärmbilderna använder Salesforce för enkelhetens exempel, men de här stegen
 6. Det nya certifikatet är nu tillgänglig för nedladdning. Klicka på den **certifikat** länk för att hämta den. Certifikatet är nu inte aktiv. När du vill återställa till det här certifikatet kan välja den **aktivera nya certifikatet** kryssrutan och klicka på **spara**. Från den tidpunkten startar Azure AD med det nya certifikatet för signering svaret.
 
 7.  Information om hur du överför certifikatet till visst SaaS-program, klickar du på den **visa configuration självstudien** länk.
+
+## <a name="certificate-expiration-notification-email"></a>E-postmeddelande för certifikatet upphör att gälla
+
+Azure AD skickar ett e-meddelande 60, 30 och 7 dagar innan SAML-certifikatet upphör att gälla. Ange den e-postadressen för att skicka meddelandet:
+
+- På Azure Active Directory enkel inloggning sidan program, går du till fältet e-postmeddelande.
+- Ange e-postadressen som ska ta emot e-postmeddelande certifikatet upphör att gälla. Som standard använder det här fältet e-postadress för administratören som lagts till programmet.
+
+Du får e-postmeddelandet från aadnotification@microsoft.com. För att undvika skräppost-plats som ska e-postmeddelandet, måste du lägga till e-postmeddelandet till dina kontakter. 
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Förnya ett certifikat som upphör snart att gälla
 Följande förnyelse ska leda till ingen betydande driftstopp för dina användare. Skärmbilder i avsnittet funktionen Salesforce som ett exempel, men de här stegen kan tillämpas på alla externa SaaS-appar.

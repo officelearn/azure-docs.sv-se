@@ -1,12 +1,12 @@
 ---
 title: Ansluta Windows-datorer till Azure Log Analytics | Microsoft Docs
-description: "Den här artikeln beskriver hur du ansluter en Windows-datorer i andra moln eller lokala till logganalys med Microsoft Monitoring Agent (MMA)."
+description: Den här artikeln beskriver hur du ansluter en Windows-datorer i andra moln eller lokala till logganalys med Microsoft Monitoring Agent (MMA).
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637420"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -33,7 +34,7 @@ Agenten kan installeras på något av följande metoder. De flesta installatione
 * PowerShell-skript.
 * Resource Manager-mall för virtuella datorer som kör Windows på plats i Azure-stacken.  
 
-För att förstå kraven för Nätverks- och distribuera Windows-agenten ska granska [krav för Windows-datorer](log-analytics-concept-hybrid.md#prerequisites).
+För att förstå konfigurationen som stöds, granska [Windows-operativsystem som stöds](log-analytics-concept-hybrid.md#supported-windows-operating-systems) och [brandväggen nätverkskonfigurationen](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Microsoft Monitoring Agent för Windows behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys i Azure kommersiella och som tillhör amerikanska myndigheter moln korrekt.  
@@ -72,7 +73,7 @@ Följande tabell visar specifika logganalys parametrar som stöds av installatio
 
 |MMA-specifika alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | Valfri parameter. Installerar agenten utan prestandaövervakning av .NET-program.|   
+| NOAPM = 1                               | Valfri parameter. Installerar agenten utan prestandaövervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = konfigurera agenten ska rapportera till en arbetsyta                |
 |OPINSIGHTS_WORKSPACE_ID                | Arbetsyte-Id (guid) för arbetsytan att lägga till                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Arbetsytenyckel som används för att först autentisera med arbetsytan |

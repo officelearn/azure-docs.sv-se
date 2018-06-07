@@ -1,25 +1,20 @@
 ---
-title: 'Felsöka Azure Backup-fel: Gäst Agent Status otillgänglig | Microsoft Docs'
+title: 'Felsöka Azure Backup-fel: Gäst Agent Status otillgänglig'
 description: Symptom, orsaker och lösningar Azure Backup-fel som rör agent, tillägg och -diskar.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure-säkerhetskopiering; VM-agent. Nätverksanslutningen;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606366"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -63,7 +58,7 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Det går inte att säkerhetskopiera eftersom VM-agenten inte svarar
 
-Felmeddelande: ”Det går inte att utföra åtgärden eftersom den Virtuella Datoragenten inte svarar” <br>
+Felmeddelande: ”kunde inte kommunicera med den Virtuella datoragenten ögonblicksbild status” <br>
 Felkod: ”GuestAgentSnapshotTaskStatusError”
 
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
@@ -91,6 +86,16 @@ Per distributionskrav har inte den virtuella datorn Internetåtkomst. Eller så 
 
 Tillägget säkerhetskopiering kräver anslutning till Azure offentliga IP-adresser ska fungera. Tillägget skickar kommandon till en Azure storage-slutpunkt (http-URL) för hantering av ögonblicksbilder av den virtuella datorn. Om filnamnstillägget inte har åtkomst till internet, misslyckas säkerhetskopieringen förr eller senare.
 
+Den det möjligt att distribuera en proxyserver för att vidarebefordra VM-trafiken.
+##### <a name="create-a-path-for-http-traffic"></a>Skapa en sökväg för HTTP-trafik
+
+1. Om du har nätverksbegränsningar på plats (t.ex, en nätverkssäkerhetsgrupp) kan du distribuera en HTTP-proxyserver för att dirigera trafiken.
+2. Om du vill tillåta åtkomst till internet från HTTP-proxyserver, att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
+
+Information om hur du ställer in en HTTP-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+Säkerhetskopierade VM eller proxyserver genom vilken trafik dirigeras kräver åtkomst till Azure offentliga IP-adresser
+
 ####  <a name="solution"></a>Lösning
 För att lösa problemet, försök med något av följande metoder:
 
@@ -104,13 +109,6 @@ För att förstå de steg för steg om hur du konfigurerar tjänsten taggar kan 
 
 > [!WARNING]
 > Storage service-taggar finns i förhandsgranskningen. De är endast tillgängliga i vissa regioner. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Skapa en sökväg för HTTP-trafik
-
-1. Om du har nätverksbegränsningar på plats (t.ex, en nätverkssäkerhetsgrupp) kan du distribuera en HTTP-proxyserver för att dirigera trafiken.
-2. Om du vill tillåta åtkomst till internet från HTTP-proxyserver, att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
-
-Information om hur du ställer in en HTTP-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Om du använder Azure hanterade diskar kan behöva ett inledande ytterligare porten (port 8443) på brandvägg.
 
@@ -194,6 +192,19 @@ Det här problemet är specifikt för hanterade virtuella datorer där användar
 
 #### <a name="solution"></a>Lösning
 
-Ta bort låset från resursgruppen och låta tjänsten Azure Backup Rensa punkt återställningssamling och de underliggande ögonblicksbilderna i under nästa säkerhetskopiering för att lösa problemet.
-När du har gjort, kan du igen lägga tillbaka låset på VM-resursgrupp. 
+Ta bort låset från resursgruppen och utför följande steg för att ta bort samlingen återställning punkt för att lösa problemet: 
+ 
+1. Ta bort låset i resursgruppen där den virtuella datorn finns. 
+2. Installera ARMClient med Chocolatey: <br>
+   https://github.com/projectkudu/ARMClient
+3. Logga in på ARMClient: <br>
+    `.\armclient.exe login`
+4. Hämta samlingen återställning punkt som motsvarar den virtuella datorn: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Exempel: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Ta bort samlingen återställning punkt: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. Under nästa schemalagda säkerhetskopiering skapar automatiskt en återställning punkt samling och nya återställningspunkter.
+
+När du har gjort, kan du igen lägga tillbaka låset på VM-resursgrupp. 

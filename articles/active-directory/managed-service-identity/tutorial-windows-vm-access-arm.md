@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 1b23101de9a84da487e73558366cc574a22e849d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8abd4f0f597cf255be3c1bc2fdd78a121cfb6517
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594993"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt hanteraren för filserverresurser
 
@@ -117,9 +118,10 @@ Du måste använda **PowerShell** i den här delen.  Om du inte har installerat 
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
     ```
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
+I kursen får du har lärt dig hur du skapar en användare som tilldelats identitet och kopplar den till en Azure virtuell dator åtkomst till Azure Resource Manager API.  Om du vill veta mer om Azure Resource Manager, se:
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

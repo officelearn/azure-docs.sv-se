@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594789"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Använda en Windows VM hanteras tjänstidentitet för åtkomst till Azure Storage via snabbtangent
 
@@ -195,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="related-content"></a>Relaterat innehåll
+I kursen får du har lärt dig hur du skapar en tjänstidentitet hanteras för att komma åt Azure Storage med hjälp av en snabbtangent.  Om du vill veta se mer om Azure Storage snabbtangenter:
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-- Information om hur du gör detta samma självstudier med lagring SAS-autentiseringsuppgifter finns [använder en Windows VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter](tutorial-windows-vm-access-storage-sas.md)
-- Mer information om SAS-funktionen i Azure Storage-konto finns:
-  - [Använda signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Hur du skapar en tjänst-SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet
-
+> [!div class="nextstepaction"]
+>[Hantera dina åtkomstnycklar för lagring](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

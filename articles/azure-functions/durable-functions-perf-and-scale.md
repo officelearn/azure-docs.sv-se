@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18a3f3080c58e01117e0fc73adad76d28c298536
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599440"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure-funktioner)
 
@@ -161,7 +162,7 @@ När du planerar att använda beständiga funktioner för ett produktionsprogram
 > [!TIP]
 > Till skillnad från fan-out är fan-in åtgärder begränsad till en enda virtuell dator. Om programmet använder fan-out, fan-in mönster och du är orolig fan-in prestanda, Överväg att dividera underordnad aktivitet funktionen fan-out över flera [underordnade orkestreringarna](durable-functions-sub-orchestrations.md).
 
-I följande tabell visas den förväntade *maximala* genomströmning nummer för scenarier som beskrivits tidigare. ”Instans” refererar till en enda instans av en orchestrator-funktion som körs på en enda liten ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM i Azure App Service. I samtliga fall det förutsätts att [utökad sessioner](#orchestrator-function-replay) är aktiverade. Faktiska resultat kan variera beroende på CPU eller i/o-arbete som utförs av funktionskoden.
+I följande tabell visas den förväntade *maximala* genomströmning nummer för scenarier som beskrivits tidigare. ”Instans” refererar till en enda instans av en orchestrator-funktion som körs på en enda liten ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM i Azure App Service. I samtliga fall det förutsätts att [utökad sessioner](#orchestrator-function-replay) är aktiverade. Faktiska resultat kan variera beroende på CPU eller i/o-arbete som utförs av funktionskoden.
 
 | Scenario | Maximalt dataflöde |
 |-|-|

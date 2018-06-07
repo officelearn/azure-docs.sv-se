@@ -1,23 +1,20 @@
 ---
-title: "Kom igång med Azure IoT Hub enhetshantering (Java) | Microsoft Docs"
-description: "Hur du använder hantering av Azure IoT Hub-enheter för att initiera en omstart av fjärranslutna enheter. Azure IoT-enhet SDK för Java används för att implementera en simulerad enhetsapp som innehåller en direkt metod och Azure IoT SDK för Java att implementera ett service-appen som anropar metoden direkt."
-services: iot-hub
-documentationcenter: .java
+title: Kom igång med Azure IoT Hub enhetshantering (Java) | Microsoft Docs
+description: Hur du använder hantering av Azure IoT Hub-enheter för att initiera en omstart av fjärranslutna enheter. Azure IoT-enhet SDK för Java används för att implementera en simulerad enhetsapp som innehåller en direkt metod och Azure IoT SDK för Java att implementera ett service-appen som anropar metoden direkt.
 author: dominicbetts
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 7e3837582e2020dc560a2b624352f7326ea87c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a4ba8c2b88520dff028610cf64aa9b3a6e3fefd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636196"
 ---
 # <a name="get-started-with-device-management-java"></a>Komma igång med hantering av enheter (Java)
 

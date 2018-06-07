@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638729"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Loggen aviseringar i Azure-Monitor - aviseringar 
 Den här artikeln innehåller information om loggen aviseringar är en av typerna av aviseringar som stöds i den nya [Azure aviseringar](monitoring-overview-unified-alerts.md) och användarna kan använda Azures analytics platform som bas för aviseringar... Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
@@ -35,7 +36,7 @@ Loggen Sök regler definieras av följande information:
 - **Loggar frågan**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. *Azure Application Insights* fråga kan även inkludera [mellan program anropar](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), förutsatt att användaren har behörighet till externa program. 
 
     > [!IMPORTANT]
-    > Relationstypen av [mellan program frågan för Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) har Förhandsgranska - funktionerna och användarupplevelse kan ändras. Användning av [mellan arbetsytan frågan](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) och [cross-resurs-fråga för Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) är för närvarande **stöds inte** i Azure-aviseringar.
+    > Relationstypen av [mellan program frågan för Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) är i preview - begränsade funktionen för användning med 2 eller flera appar och användarupplevelse kan ändras. Användning av [mellan arbetsytan frågan](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) och [cross-resurs-fråga för Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) är för närvarande **stöds inte** i Azure-aviseringar.
 
 - **Tidsperiod**.  Anger tidsintervallet för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden. Tidsperiod som begränsar vilka data som hämtats för logg-fråga att förhindra missbruk och kringgår kommandon tid (som sedan) användas i loggen fråga. <br>*Om frågan körs klockan 13:15 tidsperioden som har angetts till 60 minuter, returneras endast de poster som skapats mellan 12:15:00 och 1:15 i Återställningsmappen exempelvis för att köra frågan för loggen. Nu om loggen frågan använder tiden som kommandot som sedan 7d, log-frågan skulle köras endast för data mellan 12:15:00 och 1:15 PM - som om det finns data för bara de senaste 60 minuterna. Och inte för data som anges i loggen frågan sju dagar.*
 - **Frekvensen**.  Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Måste vara lika med eller mindre än tidsperioden.  Om värdet är större än tidsperioden, riskerar du poster som saknas.<br>*Anta exempelvis att en tidsperiod på 30 minuter och en frekvens som 60 minuter.  Om frågan körs 1:00, returnerar poster mellan 12:30 och 1:00.  Nästa gång frågan körs är 2:00 när återgår den poster mellan 1:30 och 2:00.  Alla poster som skapats mellan 01:00 och 1:30 skulle aldrig utvärderas.*
@@ -125,7 +126,7 @@ API: er som angavs för Log aviseringar är RESTful och kan nås via Azure Resou
 
 För information samt exempel med hjälp av REST-API, se:
 - [Logga Analytics avisering REST API](../log-analytics/log-analytics-api-alerts.md) – om du vill skapa och hantera loggen Sök Varningsregler för Azure logganalys
-- [Azure övervakaren schemalagda frågan regler REST API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) – om du vill skapa och hantera loggen Sök Varningsregler för Azure Application Insights
+- [Azure övervakaren schemalagda frågan regler REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) – om du vill skapa och hantera loggen Sök Varningsregler för Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 Användarna kan också använda flexibiliteten genom [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) att skapa och uppdatera resurser – för att skapa eller uppdatera Log aviseringar.

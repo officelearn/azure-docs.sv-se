@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: Förstå standardkonfigurationen | Microsoft Docs"
-description: "Den här artikeln beskriver standardkonfigurationen i Azure AD Connect-synkronisering."
+title: 'Azure AD Connect-synkronisering: Förstå standardkonfigurationen | Microsoft Docs'
+description: Den här artikeln beskriver standardkonfigurationen i Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595316"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Regler och hur dessa regler påverkar konfigurationen dokumenterat. Även vägleder dig genom standardkonfigurationen av Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.

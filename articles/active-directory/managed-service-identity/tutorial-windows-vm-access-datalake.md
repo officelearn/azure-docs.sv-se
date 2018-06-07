@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f2904f3d070a818985fa291fb9083b5ec57529dd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595299"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Självstudier: Använda en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure Data Lake Store
 
@@ -208,12 +209,9 @@ Med andra Data Lake Store-filesystem hämta API: er som du kan lägga till filer
 
 Grattis!  Du har autentiserats för Data Lake Store-filsystem med hjälp av en VM MSI.
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-- Operations Data Lake Store använder Azure Resource Manager för hantering.  Mer information om hur du använder en VM MSI för att autentisera till Resource Manager [använder en Linux VM hanterade tjänsten identitet (MSI) för åtkomst till Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Lär dig mer om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Lär dig mer om [filsystemsåtgärder på Azure Data Lake Store med hjälp av REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) eller [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Lär dig mer om [åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+I den här självstudiekursen beskrivs hur du använder hanterade tjänstidentiteten för Windows-dator för åtkomst till ett Azure Data Lake Store. Om du vill veta mer om Azure Data Lake Store, se:
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

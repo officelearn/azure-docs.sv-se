@@ -1,22 +1,19 @@
 ---
 title: Återge täckning i Azure Maps | Microsoft Docs
 description: Lär dig mer om rendera-täckning i Azure Maps
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600586"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
 
@@ -24,7 +21,7 @@ Azure Maps använder både raster paneler och vector paneler för att skapa mapp
 
 Maps har dock inte samma grad av information och noggrannhet för alla regioner. Följande tabeller innehåller information om vilken detaljnivå renderade som ingår i varje region.
 
-## <a name="legend"></a>Förklaring
+## <a name="legend"></a>Teckenförklaring
 
 | Symbol | Betydelse |
 |--------|---------|
@@ -60,7 +57,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Gambia                           |   | Ø |
 | Ghana                            | ✓ | ✓ |
 | Guinea                           |   | Ø |
-| Guinea Bissau                    |   | Ø |
+| Guinea-Bissau                    |   | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberia                          |   | Ø |
@@ -78,7 +75,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Saint Helena, Ascension och Tristan da Cunha |   | Ø |
+| Sankta Helena, Ascension och Tristan da Cunha |   | Ø |
 | São Tomé och Príncipe            |   | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     |   | Ø |
@@ -87,7 +84,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Sydsudan                      |   | Ø |
 | Sudan                            |   | Ø |
 | Swaziland                        | ✓ | ✓ |
-| Förenade Republiken Tanzania      | ✓ | ✓ |
+| Förenade republiken Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunisien                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -194,7 +191,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Pakistan                  |   | Ø |
 | Filippinerna               | ✓ | ✓ |
 | Qatar                     | ✓ | ✓ |
-| Sydkorea         | ✓ | Ø |
+| Republiken Korea         | ✓ | Ø |
 | Saudiarabien              | ✓ | ✓ |
 | Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien           |   | ✓ |
 | Singapore                 | ✓ | ✓|
@@ -238,7 +235,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Tonga                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
-| Wallis och Futuna         |   | Ø |
+| Wallis- och Futunaöarna         |   | Ø |
 
 
 ## <a name="europe"></a>Europa

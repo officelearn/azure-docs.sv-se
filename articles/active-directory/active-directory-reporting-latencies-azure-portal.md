@@ -1,25 +1,27 @@
 ---
 title: Azure Active Directory reporting svarstiderna | Microsoft Docs
-description: "Lär dig mer om hur lång tid det tar för rapporteringshändelser ska visas i din Azure-portalen"
+description: Lär dig mer om hur lång tid det tar för rapporteringshändelser ska visas i din Azure-portalen
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589788"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting svarstider
 
@@ -37,10 +39,10 @@ Det finns två områden av aktiviteten reporting:
 
 I följande tabell visas latensinformation för aktivitetsrapporter.
 
-| Rapport | Minimum | Medel | Kommentarer |
-| :-- | --- | --- | :-- |
-| Granskningsloggar | 30 minuter  | 1 timme  |I vissa fall kan ta det upp till två timmar för aktiviteten granskningsdata visas.|
-| Inloggningar | 15 minuter  | 2 timmar |I vissa fall kan ta det upp till 24 timmar efter inloggningsaktivitet data visas. Detta inkluderar inloggningar aktivitetsdata från äldre office-program. |
+| Rapport | Svarstid (P95) |Svarstid (P99)|
+| :-- | --- | --- | 
+| Granskningsloggar | 2 minuter  | 5 minuter  |
+| Inloggningar | 2 minuter  | 5 minuter |
 
 
 

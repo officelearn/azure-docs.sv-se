@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598393"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende-spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som anropas med HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge programmet väntar på beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -48,7 +49,7 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 | Azure Cloud Service |[Använd startaktivitet](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Var du hittar beroendedata
-* [Programavbildningen](#application-map) visualizes beroenden mellan appen och angränsande komponenter.
+* [Programavbildningen](#application-map) visualizes beroenden mellan appen och Närliggande komponenter.
 * [Prestanda, webbläsare och fel blad](#performance-and-blades) visa beroende serverdata.
 * [Webbläsare bladet](#ajax-calls) visar AJAX-anrop från användarnas webbläsare.
 * [Klicka dig igenom från långsamma eller misslyckade förfrågningar](#diagnose-slow-requests) att kontrollera sambandet anropar.
@@ -200,12 +201,13 @@ Om du vill stänga av modulen standard beroende spårning, ta bort referensen ti
 
 *SQL-fråga som inte visas i sin helhet.*
 
-* Uppgradera till den senaste stabil versionen av Application Insights SDK.
+Se tabellen nedan och försäkra dig om du har valt rätt konfiguration för att aktivera beroende övervakning för ditt program.
 
- Om din version av .NET är mindre än 4.6:
-
-* IIS-värd: Installera [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) på värdservrar.
-* Azure-webbapp: öppna Application Insights i Kontrollpanelen för web app och installera Application Insights.
+| Plattform | Installera |
+| --- | --- |
+| IIS-servern |Antingen [installera statusövervakaren på servern](app-insights-monitor-performance-live-website-now.md). Eller [uppgradera ditt program till .NET framework 4.6 eller senare](http://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
+| Azure-webbapp |I Kontrollpanelen web app, [öppna bladet Application Insights i Kontrollpanelen web app](app-insights-azure-web-apps.md) och välj Installera om du uppmanas. |
+| Azure Cloud Service |[Använd startaktivitet](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Video
 

@@ -11,15 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599243"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Direktsänd dataström med mått: Övervaka och diagnostisera med 1 sekund svarstid 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Direktsänd dataström med mått: Övervaka och diagnostisera med 1 sekund svarstid
 
 Avsökning pulsslagsstatus centralt i ditt live, i produktion webbprogram med hjälp av mätvärden för Liveströmning från [Programinsikter](app-insights-overview.md). Välj och filtrera mått och prestanda räknare kan du titta på i realtid utan störningar till din tjänst. Kontrollera stackspår från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](app-insights-profiler.md), [ögonblicksbild felsökare](app-insights-snapshot-debugger.md), och [prestandatester](app-insights-monitor-web-app-availability.md#performance-tests), direktsänd dataström med mått ger ett kraftfullt och icke-inkräktande diagnostikverktyg för webbplatsen live.
 
@@ -34,8 +35,6 @@ Med direktsänd dataström med mått kan du:
 * Lätt att identifiera en server som har problem och filtrera alla de KPI/live feed till bara den servern.
 
 [![Live mått direktuppspelning av video](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-Direktsänd dataström med mått är tillgänglig på ASP.NET-appar som körs lokalt eller i molnet. 
 
 ## <a name="get-started"></a>Kom igång
 

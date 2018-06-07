@@ -1,26 +1,23 @@
 ---
-title: Identifiera enhetsproblem med i fjärranslutna övervakningslösning - Azure | Microsoft Docs
-description: Den här kursen visar hur du använder regler och åtgärder för att identifiera problem med tröskelvärdet-baserade enheter i den fjärranslutna övervakningslösning automatiskt.
-services: iot-suite
-suite: iot-suite
+title: Identifiera enhetsproblem med i Fjärrövervaknings lösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du använder regler och åtgärder för att identifiera problem med tröskelvärdet-baserade enheter i lösningen Fjärrövervaknings automatiskt.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627321"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Identifiera problem med tröskelvärdesbaserad regler
 
-Den här kursen visar funktionerna i regelmotor i fjärranslutna övervakningslösning. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
+Den här kursen visar funktionerna i regelmotor i Fjärrövervaknings-lösning. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
 
 Contoso har en regel som genererar en kritisk varning när trycket som rapporterats av en **kylaggregat** enhet överskrider 250 PSI. Som operatör kan du vill identifiera **kylaggregat** enheter som kan vara problematiskt sensorer genom att söka efter inledande trycket toppar. För att identifiera dessa enheter kan skapa du en regel för att generera en varning när överstiger 150 PSI.
 
@@ -37,9 +34,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
+Om du vill följa den här självstudiekursen, måste en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="view-the-rules-in-your-solution"></a>Visa regler i din lösning
 
@@ -110,7 +107,7 @@ Använd följande värden på nytt villkor:
 
 | Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
-| Tillstånd 2-fält| Temperatur                           |
+| Tillstånd 2-fält| temperatur                           |
 | Tillstånd 2-operatorn | Större än                      |
 | Villkorsvärdet 2    | 75                                |
 

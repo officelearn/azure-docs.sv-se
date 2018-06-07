@@ -1,30 +1,25 @@
 ---
-title: "Använda Azure portal för att konfigurera ladda upp filen | Microsoft Docs"
-description: "Hur du använder Azure-portalen för att konfigurera din IoT-hubb för att aktivera filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar målet Azure storage-konto."
-services: iot-hub
-documentationcenter: 
+title: Använda Azure portal för att konfigurera ladda upp filen | Microsoft Docs
+description: Hur du använder Azure-portalen för att konfigurera din IoT-hubb för att aktivera filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar målet Azure storage-konto.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 2d875947297be5d47362369b96bc6ab0d90b3c93
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0100cbe4bbc66d0c4ef940cc40f4fa3441176a1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633214"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurera IoT-hubb filöverföringar med Azure-portalen
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-## <a name="file-upload"></a>Ladda upp filen
+## <a name="file-upload"></a>Filuppladdning
 
 Att använda den [filen överför funktioner i IoT-hubb][lnk-upload], måste du först associera ett Azure Storage-konto med hubben. Välj **filuppladdning** att visa en lista över egenskaper för filöverföring för IoT-hubb som ändras.
 
@@ -57,7 +52,7 @@ Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT-hub
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 * [Skydda din IoT-lösning från grunden upp][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

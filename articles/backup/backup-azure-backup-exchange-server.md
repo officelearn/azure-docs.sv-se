@@ -1,24 +1,19 @@
 ---
-title: "Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM | Microsoft Docs"
-description: "Lär dig hur du säkerhetskopierar en Exchange-server till Azure Backup med System Center 2012 R2 DPM"
+title: Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
+description: Lär dig hur du säkerhetskopierar en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 services: backup
-documentationcenter: 
 author: MaanasSaran
 manager: NKolli1
-editor: 
-ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605108"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 Den här artikeln beskriver hur du konfigurerar en server för System Center 2012 R2 Data Protection Manager (DPM) att säkerhetskopiera en Microsoft Exchange-server till Azure Backup.  
@@ -31,7 +26,7 @@ För att kunna registrera DPM-servern med Azure Backup, måste du installera den
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du fortsätter, kontrollera att alla de [krav](backup-azure-dpm-introduction.md#prerequisites) för att använda Microsoft Azure Backup för att skydda arbetsbelastningar har uppfyllts. Dessa krav är följande:
 
 * Ett säkerhetskopieringsvalv på Azure-webbplatsen har skapats.

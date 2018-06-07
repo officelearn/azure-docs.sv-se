@@ -1,19 +1,19 @@
 ---
 title: Azure IoT kant modulsammansättningen | Microsoft Docs
 description: Lär dig vad hamnar i Azure IoT kant-moduler och hur de kan återanvändas
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/23/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631691"
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
 
@@ -131,7 +131,7 @@ Källan anger om meddelanden kommer från. Det kan vara något av följande vär
 | `/messages/modules/{moduleId}/outputs/*` | Varje enhet till moln-meddelande som skickas av {moduleId} med vissa utdata |
 | `/messages/modules/{moduleId}/outputs/{output}` | Alla enhet till moln-meddelanden som skickas med hjälp av {moduleId} {utdata} |
 
-### <a name="condition"></a>Villkor
+### <a name="condition"></a>Tillstånd
 Villkoret är valfritt i en deklaration för vägen. Om du vill skicka alla meddelanden från sink till källan lämna den **där** satsen helt. Eller så kan du använda den [IoT-hubb frågespråket] [ lnk-iothub-query] för vissa filtrera meddelanden eller meddelandetyper som uppfyller villkoret.
 
 Meddelanden som skickas mellan moduler i IoT kant formateras samma som de meddelanden som skickas mellan enheter och Azure IoT Hub. Alla meddelanden som är formaterade som JSON och har **systemProperties**, **appProperties**, och **brödtext** parametrar. 

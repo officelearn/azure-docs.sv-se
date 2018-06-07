@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect - uppdatering SSL-certifikatet för en AD FS-servergrupp | Microsoft Docs"
-description: "Det här dokumentet beskriver steg för att uppdatera SSL-certifikatet för en AD FS-servergrupp med hjälp av Azure AD Connect."
+title: Azure AD Connect - uppdatering SSL-certifikatet för en AD FS-servergrupp | Microsoft Docs
+description: Det här dokumentet beskriver steg för att uppdatera SSL-certifikatet för en AD FS-servergrupp med hjälp av Azure AD Connect.
 services: active-directory
-keywords: "Azure ad connect, AD FS ssl-uppdatering, uppdatering för AD FS-certifikat, ändra AD FS-certifikat, nya AD FS-certifikat, adfs certifikat, uppdatera AD FS ssl-certifikat, uppdatera ssl-certifikat adfs, konfigurera AD FS ssl-certifikat, AD FS, ssl, certifikat, adfs-tjänsten certifikat för kommunikation, update-federation, konfigurera federation, aad-anslutning"
+keywords: Azure ad connect, AD FS ssl-uppdatering, uppdatering för AD FS-certifikat, ändra AD FS-certifikat, nya AD FS-certifikat, adfs certifikat, uppdatera AD FS ssl-certifikat, uppdatera ssl-certifikat adfs, konfigurera AD FS ssl-certifikat, AD FS, ssl, certifikat, adfs-tjänsten certifikat för kommunikation, update-federation, konfigurera federation, aad-anslutning
 authors: anandyadavmsft
 manager: mtillman
 editor: billmath
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
+ms.component: hybrid
 ms.author: anandy
 ms.custom: seohack1
-ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d657725b7bfb75a118c1d8bbbe701c1c121b1ef2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595010"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS)
 

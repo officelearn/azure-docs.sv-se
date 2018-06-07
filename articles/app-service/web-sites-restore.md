@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598308"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
-Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](web-sites-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app baserat på en av din ursprungliga app säkerhetskopieringar. Azure Apptjänst har stöd för följande databaser för säkerhetskopiering och återställning:
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](web-sites-backup.md)). Du kan återställa appen med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app utifrån en säkerhetskopia av den ursprungliga appen. Azure Apptjänst har stöd för följande databaser för säkerhetskopiering och återställning:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure-databas för MySQL)](https://azure.microsoft.com/services/mysql)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -51,7 +52,7 @@ Den här artikeln visar hur du återställer en app i [Azure App Service](../app
    > 
    > 
    
-    Du kan välja **befintlig App** att återställa säkerhetskopian app till en annan app i samma resoure grupp. Innan du använder det här alternativet måste bör du redan har skapat en annan app i resursgruppen med spegling databaskonfiguration med det som definieras i säkerhetskopian för appen. Du kan också skapa en **ny** app att återställa ditt innehåll till.
+    Du kan välja **befintlig App** att återställa säkerhetskopian app till en annan app i samma resursgrupp. Innan du använder det här alternativet måste bör du redan har skapat en annan app i resursgruppen med spegling databaskonfiguration med det som definieras i säkerhetskopian för appen. Du kan också skapa en **ny** app att återställa ditt innehåll till.
 
 4. Klicka på **OK**.
 

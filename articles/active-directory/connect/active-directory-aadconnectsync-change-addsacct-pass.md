@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect-synkronisering: ändra lösenordet för AD DS | Microsoft Docs"
-description: "Det här avsnittet dokumentet beskriver hur du uppdaterar Azure AD Connect när lösenordet för AD DS-konto har ändrats."
+title: 'Azure AD Connect-synkronisering: ändra lösenordet för AD DS | Microsoft Docs'
+description: Det här avsnittet dokumentet beskriver hur du uppdaterar Azure AD Connect när lösenordet för AD DS-konto har ändrats.
 services: active-directory
-keywords: "AD DS-konto, Active Directory-konto, lösenord"
-documentationcenter: 
+keywords: AD DS-konto, Active Directory-konto, lösenord
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a4d0d062b28b03de7f1e606202dddae28bf6a2f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592467"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Ändra lösenordet för AD DS
 AD DS-konto refererar till det användarkonto som används av Azure AD Connect för att kommunicera med lokala Active Directory. Om du ändrar lösenordet för AD DS-konto, måste du uppdatera Azure AD Connect-synkroniseringstjänsten med det nya lösenordet. Annars synkronisering kan inte längre synkronisera korrekt med lokala Active Directory och visas följande felmeddelanden:
@@ -33,7 +35,7 @@ AD DS-konto refererar till det användarkonto som används av Azure AD Connect f
 Uppdatera synkroniseringstjänsten med det nya lösenordet:
 
 1. Starta hanteraren för synkroniseringstjänsten (START → synkroniseringstjänsten).
-</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
+</br>![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
 
 2. Gå till den **kopplingar** fliken.
 

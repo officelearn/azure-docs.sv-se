@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602823"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använder länkade och kapslade mallar när du distribuerar Azure-resurser
 
-Om du vill distribuera lösningar kan du använda en mall eller en Huvudmall med flera relaterade mallar. Relaterade mallen kan vara en separat fil som är länkad till från den huvudsakliga mallen, eller en mall som är kapslad i den huvudsakliga mallen.
+Om du vill distribuera lösningar kan du använda en mall eller en Huvudmall med många relaterade mallar. Relaterade mallen kan vara en separat fil som är länkad till från den huvudsakliga mallen, eller en mall som är kapslad i den huvudsakliga mallen.
 
 För små till medelstora lösningar är en mall lättare att förstå och hantera. Du kan se alla resurser och värden i en enda fil. För avancerade scenarier länkade mallar kan du bryta ned lösningen till riktade komponenter och återanvända mallar.
 
@@ -85,6 +86,8 @@ Om du vill kapsla mallen i huvudsakliga mallen använder den **mallen** egenskap
 >
 > Du kan inte använda den `reference` funktionen i avsnittet utdata i en kapslad mall. Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
 
+Den kapslade mallen kräver den [samma egenskaper](resource-group-authoring-templates.md) som en mall som standard.
+
 ### <a name="external-template-and-external-parameters"></a>Externa mall och externa parametrar
 
 Om du vill länka till en extern mall och parameterfilen **templateLink** och **parametersLink**. När du länkar till en mall för måste Resource Manager-tjänsten kunna komma åt den. Du kan inte ange en lokal fil eller en fil som endast är tillgängliga i det lokala nätverket. Du kan endast ange ett URI-värde som innehåller antingen **http** eller **https**. Ett alternativ är att placera den länka mallen i ett lagringskonto och Använd URI för objektet.
@@ -109,6 +112,8 @@ Om du vill länka till en extern mall och parameterfilen **templateLink** och **
   }
 ]
 ```
+
+Du behöver inte ange den `contentVersion` -egenskapen för mallen eller parametrar. Om du inte anger ett värde för innehållsversion distribueras den aktuella versionen av mallen. Om du anger ett värde för innehållsversion, måste den matcha versionen i länkade mallen. annars misslyckas distributionen med ett fel.
 
 ### <a name="external-template-and-inline-parameters"></a>Externa mallen och infogade parametrar
 
@@ -136,7 +141,7 @@ Eller så kan du ange parametern infogad. Om du vill skicka ett värde från den
 
 ## <a name="using-variables-to-link-templates"></a>Använda variabler för att länka mallar
 
-I föregående exempel visade hårdkodade URL-värden för mallen länkar. Den här metoden kan fungera för en enkel mall men det fungerar inte bra när du arbetar med en stor mängd modulära mallar. I stället kan du skapa en statisk variabel som lagrar en bas-URL för den huvudsakliga mallen och dynamiskt skapa URL: er för de länkade mallarna från den grundläggande Webbadressen. Fördelen med den här metoden är att du enkelt kan flytta eller duplicera mallen eftersom du behöver ändra den statiska variabeln i huvudsakliga mallen. Den huvudsakliga mallen skickar rätt URI: er i hela uppdelade mallen.
+I föregående exempel visade hårdkodade URL-värden för mallen länkar. Den här metoden kan fungera för en enkel mall men den fungerar inte bra när du arbetar med en stor mängd modulära mallar. I stället kan du skapa en statisk variabel som lagrar en bas-URL för den huvudsakliga mallen och dynamiskt skapa URL: er för de länkade mallarna från den grundläggande Webbadressen. Fördelen med den här metoden är att du enkelt kan flytta eller duplicera mallen eftersom du behöver ändra den statiska variabeln i huvudsakliga mallen. Den huvudsakliga mallen skickar rätt URI: er i hela uppdelade mallen.
 
 I följande exempel visas hur du skapar två webbadresserna för länkade mallar med hjälp av en bas-URL (**sharedTemplateUrl** och **vmTemplate**).
 
@@ -148,7 +153,7 @@ I följande exempel visas hur du skapar två webbadresserna för länkade mallar
 }
 ```
 
-Du kan också använda [deployment()](resource-group-template-functions-deployment.md#deployment) att hämta en bas-URL för den aktuella mallen och använda den för att hämta URL för andra mallar på samma plats. Den här metoden är användbart om din mallplats ändras (kanske på grund av versioning) eller om du vill undvika hård kodning URL: er i mallfilen. Egenskapen templateLink returneras bara när du länkar till en fjärransluten mall med en URL. Om du använder en mall för lokala är egenskapen inte tillgänglig.
+Du kan också använda [deployment()](resource-group-template-functions-deployment.md#deployment) att hämta en bas-URL för den aktuella mallen och använda den för att hämta URL för andra mallar på samma plats. Den här metoden är användbart om din mall ändras eller om du vill undvika hård kodning URL: er i filen med mallen. Egenskapen templateLink returneras bara när du länkar till en fjärransluten mall med en URL. Om du använder en lokal mall att egenskapen är inte tillgänglig.
 
 ```json
 "variables": {
@@ -414,7 +419,7 @@ done
 
 ## <a name="securing-an-external-template"></a>Skydda en extern mall
 
-Även om mallen länkade måste finnas externt, behöver det inte vara allmänt tillgänglig för allmänheten. Du kan lägga till mallen till en privat storage-konto som är tillgänglig för endast lagringskontoägaren. Sedan kan skapa du en delad åtkomsttoken signatur (SAS) för att möjliggöra åtkomst under distributionen. Du lägger till den SAS-token URI för den länkade mallen. Även om token som skickas som en säker sträng, loggas URI för länkade mallen, inklusive SAS-token i distributionsåtgärder. Ange en giltighetstid för token för att begränsa exponeringen.
+Även om länkade mallen måste finnas på externt kan behöver det inte vara allmänt tillgänglig för allmänheten. Du kan lägga till mallen till en privat storage-konto som är tillgänglig för endast lagringskontoägaren. Sedan kan skapa du en delad åtkomsttoken signatur (SAS) för att möjliggöra åtkomst under distributionen. Du lägger till den SAS-token URI för den länkade mallen. Även om token som skickas som en säker sträng, loggas URI för länkade mallen, inklusive SAS-token i distributionsåtgärder. Ange en giltighetstid för token för att begränsa exponeringen.
 
 Parameterfilen kan också vara begränsad åtkomst genom en SAS-token.
 

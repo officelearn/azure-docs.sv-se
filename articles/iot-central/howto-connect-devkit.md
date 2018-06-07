@@ -1,18 +1,19 @@
 ---
 title: Ansluter en DevKit enhet till din Azure IoT centralt program | Microsoft Docs
 description: Som en enhet utvecklare lär du dig hur du ansluter en MXChip IoT DevKit enhet till din Azure IoT centralt program.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628801"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en MXChip IoT DevKit enhet till din Azure IoT centralt program
 
@@ -29,7 +30,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 ### <a name="telemetry-measurements"></a>Telemetri mått
 
-| Fältnamn     | Enheter  | Minimum | Maximal | Decimaler |
+| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | fuktighet       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -48,7 +49,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Decimaler | Minimum | Maximal | Inledande |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
 | Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
@@ -79,7 +80,7 @@ Visa/Dölj inställningar
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knappen B aktiverad  | 
 
-### <a name="add-a-real-device"></a>Lägga till en verklig enhet
+### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 Azure IoT centrala programmet, lägga till en verklig enhet från den **MXChip** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
 
@@ -200,4 +201,4 @@ Information om hur du ändrar, skapa och ladda upp exempelkoden till din enhet f
 
 Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT centralt program, är här de föreslagna nästa steg:
 
-* [Förbereda och ansluta en hallon Pi](howto-connect-raspberry-pi-python.md)
+* [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)

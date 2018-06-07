@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: Anslut en Windows Server-VM till en hanterad domän | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: Anslut en Windows Server-VM till en hanterad domän | Microsoft Docs'
 description: Ansluta till en virtuell dator med Windows Server till Azure AD DS
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586961"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Anslut en Windows Server-virtuell dator till en hanterad domän
 Den här artikeln visar hur du distribuerar en virtuell dator med Windows Server med hjälp av Azure portal. Den visar hur du ansluter till den virtuella datorn till en hanterad Azure Active Directory Domain Services (Azure AD DS)-domän.
@@ -103,7 +105,7 @@ För att ansluta till den virtuella datorn i Windows Server till Azure AD DS-han
 
 7. Du kan ange autentiseringsuppgifter i något av följande sätt:
 
-   * **UPN-format**: (rekommenderas) Ange användarens huvudnamn (UPN) suffix för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är  *bob@domainservicespreview.onmicrosoft.com* .
+   * **UPN-format**: (rekommenderas) Ange användarens huvudnamn (UPN) suffix för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är *bob@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName format**: du kan ange kontonamnet i formatet SAMAccountName. I det här exemplet är användaren *bob* måste ange *CONTOSO100\bob*.
 
@@ -142,7 +144,7 @@ Om du har problem med autentiseringsuppgifter och inte går att ansluta till dom
 
 * Kontrollera att du har [aktiverat Lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md) enligt anvisningarna i Kom igång-guide.
 
-* Kontrollera att du använder UPN för användaren som konfigurerats i Azure AD (till exempel  *bob@domainservicespreview.onmicrosoft.com* ) att logga in.
+* Kontrollera att du använder UPN för användaren som konfigurerats i Azure AD (till exempel *bob@domainservicespreview.onmicrosoft.com*) att logga in.
 
 * Se till att du har väntat tillräckligt länge för synkronisering av lösenord för att slutföra som anges i Kom igång-guide.
 

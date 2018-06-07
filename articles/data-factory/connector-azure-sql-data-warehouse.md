@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/05/2018
+ms.topic: conceptual
+ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c862f269a8e32814dfb6d311706e65b57d52d1bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617084"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +56,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Azure SQL Data Warehouse länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureSqlDW** | Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för egenskapen connectionString. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -209,7 +210,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från/till Azure SQL Data Warehouse, anger du typegenskapen för datamängden som **AzureSqlDWTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **AzureSqlDWTable** | Ja |
 | tableName |Namnet på den tabell eller vy i Azure SQL Data Warehouse-instans som den länkade tjänsten refererar till. | Ja |
@@ -241,7 +242,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Azure SQL Data Warehouse, anger du datakällan i kopieringsaktiviteten för **SqlDWSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **SqlDWSource** | Ja |
 | sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. |Nej |
@@ -345,10 +346,10 @@ GO
 
 Om du vill kopiera data till Azure SQL Data Warehouse, anger du sink i kopieringsaktiviteten till **SqlDWSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till: **SqlDWSink** | Ja |
-| allowPolyBase |Anger om du vill använda PolyBase (i förekommande fall) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data till SQL Data Warehouse.** Se [Använd PolyBase för att läsa in data till Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information.<br/><br/>Tillåtna värden är: **SANT** (standard), och **FALSKT**.  |Nej |
+| allowPolyBase |Anger om du vill använda PolyBase (i förekommande fall) i stället för BULKINSERT mekanism. <br/><br/> **Med PolyBase är det rekommenderade sättet att läsa in data till SQL Data Warehouse.** Se [Använd PolyBase för att läsa in data till Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information.<br/><br/>Tillåtna värden är: **SANT**, och **FALSKT** (standard).  |Nej |
 | polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** egenskap är inställd på **SANT**. |Nej |
 | rejectValue |Anger det antal eller procentandelen rader som kan avvisas innan frågan misslyckas.<br/><br/>Mer information om den PolyBase avvisa alternativ i den **argument** avsnitt i [Skapa extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) avsnittet. <br/><br/>Tillåtna värden är: 0 (standard), 1, 2,... |Nej |
 | rejectType |Anger om alternativet rejectValue har angetts som ett litteralvärde eller ett procentvärde.<br/><br/>Tillåtna värden är: **värdet** (standard), och **procentandel**. |Nej |
@@ -558,7 +559,7 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |Dubbel |
+| Flyttal |dubbla |
 | Bild |byte] |
 | int |Int32 |
 | Money |Decimal |
@@ -572,7 +573,7 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
-| Text |Sträng, Char] |
+| text |Sträng, Char] |
 | time |TimeSpan |
 | tidsstämpel |byte] |
 | tinyint |Mottagna byte |

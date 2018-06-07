@@ -1,24 +1,26 @@
 ---
 title: Azure AD Connect sync shadow attribut | Microsoft Docs
-description: "Beskriver hur shadow attribut fungerar i Azure AD Connect-synkroniseringstjänsten."
+description: Beskriver hur shadow attribut fungerar i Azure AD Connect-synkroniseringstjänsten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bd1ede2bf8ff642b7be0869e54a6f037b01dd262
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593426"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync shadow attribut
 De flesta attribut representeras på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har en särskild hantering och attributvärdet i Azure AD kan vara annorlunda än Azure AD Connect synkroniserar.
@@ -39,7 +41,7 @@ En användare har följande attributvärden i en icke-verifierad domän:
 | --- | --- |
 | lokala userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
+| Azure AD-userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
 
 Attributet userPrincipalName är det värde som visas när du använder PowerShell.
 
@@ -55,7 +57,7 @@ För en postlåda användare, antingen lokalt eller i Exchange Online visas bara
 | lokala proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-I det här fallet  **smtp:abbie.spencer@fabrikam.com**  har tagits bort eftersom den domänen inte har verifierats. Men har även lagt till Exchange  **SIP:abbie.spencer@fabrikamonline.com** . Fabrikam inte har använt Lync/Skype lokal, men Azure AD och Exchange Online förbereda för den.
+I det här fallet **smtp:abbie.spencer@fabrikam.com** har tagits bort eftersom den domänen inte har verifierats. Men har även lagt till Exchange **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam inte har använt Lync/Skype lokal, men Azure AD och Exchange Online förbereda för den.
 
 Den här logiken för proxyAddresses kallas **ProxyCalc**. ProxyCalc anropas med varje ändring för en användare när:
 

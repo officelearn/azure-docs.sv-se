@@ -1,25 +1,19 @@
 ---
-title: Uppgradera Backup-valvet till Recovery Services-valv för Azure Backup | Microsoft Docs
+title: Uppgradera Backup-valvet till Recovery Services-valv för Azure Backup'
 description: Uppgradera Backup-valvet till Recovery Services-valvet få nya funktioner som säkerhetskopiering av hanteraren för virtuella datorer, förbättrad säkerhet, VMware VM säkerhetskopiering och säkerhetskopian av systemtillstånd för Windows-servrar
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2017
-ms.author: trinadhk, sogup
-ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: trinadhk
+ms.openlocfilehash: 358c7b0e61d1c85e236007c2495941a31502431a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606867"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Säkerhetskopieringsvalvet uppgraderas till Recovery Services-valvet
 Den här artikeln innehåller en översikt över vilka Recovery Services-valvet tillhandahåller, vanliga frågor och svar om hur du uppgraderar en befintlig säkerhetskopia valvet Recovery Services-valvet och åtgärder efter uppgradering. Recovery Services-valvet motsvarar Azure Resource Manager ett säkerhetskopieringsvalv som innehåller dina säkerhetskopierade data. Data är om vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer, lokalt eller i Azure.

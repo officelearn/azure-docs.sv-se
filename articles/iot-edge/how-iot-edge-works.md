@@ -1,25 +1,20 @@
 ---
 title: Vad är Azure IoT Edge | Microsoft Docs
 description: Översikt över tjänsten Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630705"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Vad är Azure IoT Edge – förhandsversion
 
@@ -69,7 +64,7 @@ Azure IoT Edge-körningen körs på en stor uppsättning IoT-enheter för att m�
 
 Det är komplicerat att hantera programvarans livscykel för företagsenheter. Det är ännu svårare att hantera programvarans livscykel för miljontals heterogena IoT-enheter. Arbetsbelastningar måste skapas och konfigureras för en viss typ av enhet, distribueras i stor skala till de miljontals enheterna i din lösning och övervakas för att fånga upp enheter som beter sig felaktigt. Dessa aktiviteter kan inte utföras på enhetsbasis och måste göras i stor skala.
 
-Azure IoT Edge integreras sömlöst med Azure IoT Suite för att tillhandahålla en kontrollplan för lösningens behov. Med molntjänster kan användare:
+Azure IoT-Edge integreras sömlöst med Azure IoT solution Accelerator att tillhandahålla en plan för åtkomstkontroll för din lösning behov. Med molntjänster kan användare:
 
 * Skapa och konfigurera en arbetsbelastning som ska köras på en specifik typ av enhet.
 * Skicka en arbetsbelastning till en uppsättning enheter.

@@ -1,24 +1,19 @@
 ---
 title: Jämföra Azure IoT-hubb till Azure Event Hubs | Microsoft Docs
 description: En jämförelse av tjänsterna IoT-hubb och Event Hubs Azure syntaxmarkering funktionella skillnader och användningsfall. Jämförelse innehåller protokoll som stöds, hantering, övervakning, och filöverföringar.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: b86132b42aef981e6218b27e271e6db645d14071
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9ad95071de07777e38533ecec9e8558841d8b1ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633969"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT-enheter ansluter till Azure: IoT-hubb och Händelsehubbar
 
@@ -32,7 +27,7 @@ Sammanfattningsvis, när båda lösningarna är utformade för datapåfyllning i
 
 Följande tabell innehåller information om hur två nivåer av IoT-hubb Jämför med Händelsehubbar när du utvärderar dem för IoT-funktioner. Mer information om standard- och basic-nivåerna för IoT-hubb finns [hur du väljer rätt IoT-hubb nivån][lnk-scaling].
 
-| IoT-funktion | Standardnivån för IoT-hubb | IoT-hubb grundläggande nivån | Händelsehubbar |
+| IoT-funktion | Standardnivån för IoT-hubb | IoT-hubb grundläggande nivån | Event Hubs |
 | --- | --- | --- | --- |
 | Meddelanden enhet till moln | ![Markera][1] | ![Markera][1] | ![Markera][1] |
 | Protokoll: HTTPS, AMQP, AMQP över webSockets | ![Markera][1] | ![Markera][1] | ![Markera][1] |

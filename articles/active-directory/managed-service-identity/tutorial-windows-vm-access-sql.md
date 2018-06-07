@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594959"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Självstudier: Använda en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
 
@@ -269,11 +270,9 @@ Du kan också ett snabbt sätt att testa slutpunkt till slutpunkt-installationsp
 
 Kontrollera värdet på `$DataSet.Tables[0]` att visa resultatet av frågan.  Grattis, du har efterfrågas i databasen med en VM MSI och utan att behöva ange autentiseringsuppgifter!
 
-## <a name="related-content"></a>Relaterat innehåll
+## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
-- Lär dig mer om [Azure SQL-stöd för Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Lär dig mer om [konfigurera Azure SQL-stöd för Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Lär dig mer om [autentisering och i SQLServer](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+I kursen får du har lärt dig hur du skapar en tjänstidentitet hanteras för att komma åt Azure SQL-server.  Om du vill veta mer om Azure SQL Server, se:
 
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
+> [!div class="nextstepaction"]
+>[Azure SQL Database-tjänsten](/azure/sql-database/sql-database-technical-overview)

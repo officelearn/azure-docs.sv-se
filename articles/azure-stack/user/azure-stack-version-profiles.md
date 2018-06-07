@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604445"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera profiler för API-version i Azure-stacken
 
@@ -36,7 +37,7 @@ Det här avsnittet hjälper dig att:
 ## <a name="summary-of-api-profiles"></a>Översikt över API-profiler
 
 - API profiler används för att representera en uppsättning Azure resursproviders och deras API-versioner.
-- API-profiler har skapats för utvecklare så att de kan skapa mallar över flera Azure-moln. Profiler är utformade för att uppfylla behovet av ett kompatibelt och stabil gränssnitt.
+- API-profiler har skapats att skapa mallar över flera Azure-moln. Profiler är utformade för att uppfylla behovet av ett kompatibelt och stabil gränssnitt.
 - Profiler släpps fyra gånger per år.
 - Tre profil konventioner används:
     - **senaste**  
@@ -66,17 +67,11 @@ Snarare än forskning varje resursprovider och den version som stöds av Azure-s
 
 API-profiler fungerar med verktyg som använder Azure Resource Manager, till exempel PowerShell, Azure CLI, koden i SDK och Microsoft Visual Studio. Verktyg och SDK: er kan använda profiler för att läsa vilken version av moduler och bibliotek med när du skapar ett program.
 
-**Utveckling av scenariot för att använda profil**  
-Anta att du använder PowerShell för att skapa:
+Om exempelvis Använd PowerShell för att skapa en storage-konto med hjälp av den **Microsoft.Storage** resursprovidern som har stöd för api-versionen 2016-03-30 och en virtuell dator med hjälp av Microsoft.Compute-resursprovidern med api-version 2015-12-01 , måste du leta upp som har stöd för PowerShell-modulen 2016-03-30 för lagring och vilken modul som stöder 2015-02-01 för beräkning och installera dem. Du kan i stället använda en profil. Använd cmdlet ** Installera profil * profilnamn *** och PowerShell läser du in rätt version av moduler.
 
-* Ett lagringskonto som använder den **Microsoft.Storage** resursprovidern som har stöd för api-versionen 2016-03-30.
-* En virtuell dator som använder den **Microsoft.Compute** resursprovidern som har stöd för api-version 2015-12-01.
+På samma sätt kan du ange vilken profil när du använder Python SDK för att skapa ett program med Python. SDK läser in rätt moduler för resursleverantörer som du har angett i skriptet.
 
-I stället för att söka efter och installera PowerShell-moduler som stöder api-versioner som du behöver för lagring och beräkning, kan du använda en profil. Använd cmdlet ** Installera profil * profilnamn *** och PowerShell läser du in rätt version av moduler.
-
-Om du använder Python SDK för att skapa en Python-baserade program på samma sätt kan du använder en profil. SDK läser in rätt moduler för resursleverantörer som du angav i skriptet.
-
-Som utvecklare kan fokusera du på att skriva din lösning. Du kan använda en profil om du vet att din kod ska fungera över alla moln som har stöd för profilen.
+Som utvecklare kan fokusera du på att skriva din lösning. I stället för att undersöka vilka api-versioner, resursleverantör, och vilka molnappar som arbetar tillsammans, att du använder en profil och vet att din kod ska fungera över alla moln som har stöd för den här profilen.
 
 ## <a name="api-profile-code-samples"></a>Kodexempel för API-profil
 
@@ -90,6 +85,8 @@ Du kan uppdatera din miljö konfiguration om du vill använda Azure Stack API-ve
 I gå-SDK är en profil en kombination av olika resurstyper med olika versioner från olika tjänster. profiler är tillgängliga under profilerna / sökväg med deras version i den **åååå-MM-DD** format. Mer information finns i [Använd API-version profiler för Gå](azure-stack-version-profiles-go.md).
 - **Ruby**  
 Ruby-SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursproviders i SDK innehåller beräkning, virtuella nätverk och lagring med Ruby språk. Mer information finns i [Använd API-version profiler med Ruby](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- Python SDK stöder profiler för API-version att målplattformar annat moln, till exempel Azure-stacken och global Azure. Du kan använda API-profiler för att skapa lösningar för ett hybridmoln. Mer information finns i [Använd API-version profiler med Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

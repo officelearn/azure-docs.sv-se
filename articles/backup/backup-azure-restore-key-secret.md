@@ -1,30 +1,25 @@
 ---
-title: "Återställa Key Vault-nyckel och Hemlig för krypterade virtuella datorer med Azure Backup | Microsoft Docs"
-description: "Lär dig hur du återställer Key Vault-nyckel och hemlig i Azure Backup med hjälp av PowerShell"
+title: Återställa Key Vault-nyckel och Hemlig för krypterade virtuella datorer med Azure Backup
+description: Lär dig hur du återställer Key Vault-nyckel och hemlig i Azure Backup med hjälp av PowerShell
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 45214083-d5fc-4eb3-a367-0239dc59e0f6
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2db3449187d655248b13198b268841052570626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b703b4511f9fefb48546b23feaa33ca7da34da1f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606111"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och Hemlig för krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om att använda Azure VM säkerhetskopiering för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och Hemlig inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (nyckel krypteringsnyckeln) och hemlighet (BitLocker-krypteringsnyckeln) för den återställda virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Säkerhetskopiering krypterade VMs** - krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Läs artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) mer information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
 * **Konfigurera Azure Key Vault** – Kontrollera att nyckelvalvet som nycklar och hemligheter ska återställas finns redan. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) mer information om hantering av nyckelvalvet.
 * **Återställa disk** -Kontrollera att du har utlösts återställningsjobbet för återställning av diskar där krypterade VM [PowerShell steg](backup-azure-vms-automation.md#restore-an-azure-vm). Det beror på att jobbet genererar en JSON-fil i ditt lagringskonto som innehåller nycklar och hemligheter för den kryptera virtuella datorn ska återställas.
@@ -56,7 +51,7 @@ PS C:\> Get-AzureStorageBlobContent -Blob $encryptedBlobName -Container $contain
 PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-## <a name="restore-key"></a>Återställa nyckeln
+## <a name="restore-key"></a>Återställ nyckeln
 När JSON-filen har genererats i målsökväg som nämns ovan, generera nyckel blob-fil från JSON och feed det för att återställa nyckeln cmdlet för att placera nyckel (KEK) tillbaka i nyckelvalvet.
 
 ```
@@ -85,7 +80,7 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
 ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan hämtas genom att referera till utdataporten för $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och text efter hemligheter / t.ex. utdata hemliga URL är https://keyvaultname.vault.azure.net/secrets/ B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 1. Värdet för $secretname kan erhållas genom att referera till utdataporten för $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och text efter hemligheter / t.ex. utdata hemliga URL är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. Värdet för taggen DiskEncryptionKeyFileName är samma som det hemliga namnet.
 >
 >
@@ -96,7 +91,7 @@ Om du har säkerhetskopierat krypterade VM som använder Azure VM säkerhetskopi
 ## <a name="legacy-approach"></a>Äldre metod
 Den metod som nämns ovan fungerar för alla återställningspunkter. Dock är äldre metod för att få nyckel och Hemlig information från återställningspunkten giltig för återställningspunkter som är äldre än 11 juli 2017 för virtuella datorer som har krypterats med BEK och KEK. När disken Återställningsjobbet har slutförts för krypterade VM med hjälp av [PowerShell steg](backup-azure-vms-automation.md#restore-an-azure-vm), se till att $rp fylls med ett giltigt värde.
 
-### <a name="restore-key"></a>Återställa nyckeln
+### <a name="restore-key"></a>Återställ nyckeln
 Använda följande cmdletar för att hämta information om nyckel (KEK) från återställningspunkten och feed det för att återställa nyckeln cmdlet för att placera den i nyckelvalvet.
 
 ```
@@ -116,7 +111,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan erhållas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och via SMS efter hemligheter / t.ex. utdata hemliga URL är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> 1. Värdet för $secretname kan erhållas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och via SMS efter hemligheter / t.ex. utdata hemlighet URL är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namnet är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. Värdet för taggen DiskEncryptionKeyFileName är samma som det hemliga namnet.
 > 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från nyckelvalvet efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
 >

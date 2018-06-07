@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 317c94abdf14d3d88e07e32ab16769bd1f641438
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591304"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
 Följande dokument är en teknisk referens för de nödvändiga portarna och protokollen för att implementera en hybrididentitetslösning. Använd följande bild och referera till tabellen.
@@ -55,7 +57,7 @@ Den här tabellen beskrivs de portar och protokoll som krävs för kommunikation
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Används för att hämta listor över återkallade certifikat (listor över återkallade certifikat) att verifiera SSL-certifikat. |
 | HTTPS |443(TCP/UDP) |Används för att synkronisera med Azure AD. |
-| WinRM |5985 |WinRM Listener |
+| WinRM |5985 |WinRM-lyssnare |
 
 ## <a name="table-4---wap-and-federation-servers"></a>Tabell 4 - WAP och federationsservrar
 Den här tabellen beskrivs de portar och protokoll som krävs för kommunikation mellan federationsservrar och WAP-servrar.

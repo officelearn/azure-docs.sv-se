@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598478"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-begränsningar för import och kända problem
 ## <a name="about-this-list"></a>Om den här listan
 När du importerar en API kan du stöta på vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. Den här artikeln dokument, ordnade efter Importformat för API: et.
 
-## <a name="open-api"> </a>Öppna API/Swagger
-Om felmeddelanden importera dokumentet öppna API: et, se till att du har validerat den - antingen med hjälp av designern i Azure-portalen (Design - frontend - öppna API specifikation-redigeraren), eller en tredjeparts-verktyget som <a href="http://www.swagger.io">Swagger Editor</a>.
+## <a name="open-api"> </a>OpenAPI/Swagger
+Om felmeddelanden importera dokumentet OpenAPI, se till att du har validerat den - antingen med hjälp av designern i Azure-portalen (Design - frontend - OpenAPI specifikation Editor) eller en tredjeparts-verktyget som <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * Endast JSON-format för OpenAPI stöds.
+* Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI ett parameternamn endast måste vara unika inom en plats, t.ex. sökväg, fråga, sidhuvud.  Vi kan dock tillåta åtgärder till discriminated både sökväg och fråga parametrarna (som inte stöder OpenAPI) i API-hantering. Vi kräver därför parameternamn vara unikt inom hela URL: en mall.)
 * Scheman som refereras till med hjälp av **$ref** egenskaper får inte innehålla andra **$ref** egenskaper.
 * **$ref** pekare kan inte referera till externa filer.
 * **x-ms-sökvägar** och **x servrar** är de enda tillägg som stöds.

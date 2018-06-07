@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sömlös Single Sign-On - hur det fungerar | Microsoft Docs"
-description: "Den här artikeln beskriver hur Azure Active Directory sömlös Single Sign-On-funktionen fungerar."
+title: 'Azure AD Connect: Sömlös Single Sign-On - hur det fungerar | Microsoft Docs'
+description: Den här artikeln beskriver hur Azure Active Directory sömlös Single Sign-On-funktionen fungerar.
 services: active-directory
-keywords: "Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bcd9ec44eafd586648ba964c5cba248a184a8ec3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591569"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: tekniska ingående
 

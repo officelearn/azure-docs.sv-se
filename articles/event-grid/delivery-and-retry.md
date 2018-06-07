@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625805"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
 
@@ -62,10 +63,10 @@ Händelsen rutnätet använder en exponentiell backoff i principen för leverans
 
 Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksintervall. Efter en timme försöks händelse leverans en gång i timmen.
 
-Som standard upphör händelse rutnätet alla händelser som inte levereras inom 24 timmar.
+Händelsen rutnätet slutar att leverera alla händelser som inte levereras inom 24 timmar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill visa status för händelse leveranser [övervakaren händelse rutnätet meddelandeleverans](monitor-event-delivery.md).
-* En introduktion till händelse rutnätet finns [om händelsen rutnätet](overview.md).
+* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
 * Om du vill komma igång snabbt med hjälp av händelse rutnätet kan se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).

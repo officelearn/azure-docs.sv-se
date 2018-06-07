@@ -1,18 +1,19 @@
 ---
 title: Förstå enheten mallen versionshantering för dina Azure IoT centrala appar | Microsoft Docs
 description: Iterera över mallarna enheten genom att skapa nya versioner och utan att påverka dina live anslutna enheter
-services: iot-central
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 01/19/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3a399b6b54f8da9c48b4bdfe7e98a527262bb174
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628835"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny enhet mallversion
 

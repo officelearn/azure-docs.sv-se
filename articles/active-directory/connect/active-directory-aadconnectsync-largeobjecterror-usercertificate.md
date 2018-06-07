@@ -1,11 +1,11 @@
 ---
 title: Azure AD Connect - LargeObject fel som orsakats av userCertificate attributet | Microsoft Docs
-description: "Det här avsnittet innehåller reparationssteg för LargeObject fel som orsakats av userCertificate attribut."
+description: Det här avsnittet innehåller reparationssteg för LargeObject fel som orsakats av userCertificate attribut.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592814"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: hantera LargeObject fel som orsakats av userCertificate attribut
 
@@ -71,7 +73,7 @@ Stegen kan sammanfattas som:
 Kontrollera sker ingen synkronisering när du arbetar på att implementera en ny synkroniseringsregel för att undvika oväntade ändringar exporteras till Azure AD. Inaktivera inbyggda sync scheduler:
 1. Starta PowerShell-session på Azure AD Connect-servern.
 
-2. Inaktivera schemalagda synkroniseringen genom att köra cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $false`
+2. Inaktivera schemalagda synkroniseringen genom att köra cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
 > Ovanstående gäller endast för nyare versioner (1.1.xxx.x) av Azure AD Connect med inbyggda Schemaläggaren. Om du använder äldre versioner (1.0.xxx.x) av Azure AD Connect som använder Schemaläggaren i Windows, eller om du använder egna anpassade scheduler (inte vanliga) för att utlösa återkommande synkronisering, måste du inaktivera dem i enlighet med detta.
@@ -91,8 +93,8 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
     | --- | --- |
     | Riktning |**Utgående** |
     | MV-objekttyp |**Person** |
-    | Anslutning |*namnet på Azure AD-koppling* |
-    | Objekttyp för kopplingen |**user** |
+    | Koppling |*namnet på Azure AD-koppling* |
+    | Objekttyp för kopplingen |**Användaren** |
     | MV-attribut |**userCertificate** |
 
 3. Om du använder OOB (out of box) sync regler till Azure AD-koppling för att exportera userCertficiate attribut för användarobjekt du bör få tillbaka det *”ut till AAD – användaren ExchangeOnline”* regeln.
@@ -117,8 +119,8 @@ Den nya regeln synkronisering måste ha samma **målgrupp filter** och **högre 
     | Namn | *Ange ett namn* | T.ex. *”ut till AAD – anpassad åsidosätta för userCertificate”* |
     | Beskrivning | *Ange en beskrivning* | T.ex. *”userCertificate attributet har mer än 15 värden, exportera NULL”.* |
     | Det anslutna systemet | *Välj den Azure AD-koppling* |
-    | Anslutna System objekttyp | **user** | |
-    | Typ av Metaversumobjekt | **person** | |
+    | Anslutna System objekttyp | **Användaren** | |
+    | Typ av Metaversumobjekt | **Person** | |
     | Länktypen | **Anslut dig** | |
     | Prioritet | *Om du har valt ett tal mellan 1 och 99* | Det antal valt får inte användas av någon befintlig synkroniseringsregel och har ett lägre värde (och därför högre prioritet) än den befintliga sync-regeln. |
 
@@ -128,9 +130,9 @@ Den nya regeln synkronisering måste ha samma **målgrupp filter** och **högre 
 
     | Attribut | Värde |
     | --- | --- |
-    | Flöde |**Expression** |
+    | Flöde |**uttryck** |
     | Målattribut |**userCertificate** |
-    | Källattributet |*Använd följande uttryck*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Källattributet |*Använd följande uttryck*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Klicka på den **Lägg till** för att skapa synkroniseringsregel för.
 
@@ -173,7 +175,7 @@ Så här exporterar ändringarna till Azure AD:
 ### <a name="step-8-re-enable-sync-scheduler"></a>Steg 8. Återaktivera sync scheduler
 Nu när problemet är löst återaktivera inbyggda sync scheduler:
 1. Starta PowerShell-session.
-2. Aktivera schemalagd synkronisering igen genom att köra cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Aktivera schemalagd synkronisering igen genom att köra cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
 > Ovanstående gäller endast för nyare versioner (1.1.xxx.x) av Azure AD Connect med inbyggda Schemaläggaren. Om du använder äldre versioner (1.0.xxx.x) av Azure AD Connect som använder Schemaläggaren i Windows, eller om du använder egna anpassade scheduler (inte vanliga) för att utlösa återkommande synkronisering, måste du inaktivera dem i enlighet med detta.

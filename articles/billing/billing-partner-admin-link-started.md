@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a5b6bb683538bd5359ebcbbe2640216e574b3e00
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608720"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Länken partner-ID till dina Azure-konton
 
@@ -32,7 +33,7 @@ Innan du länka ditt partner-ID måste kunden får du åtkomst till sina Azure-r
 
 - **Tjänstens huvudnamn:** kunden kan lägga till en app eller skript från din organisation i sina kataloger och tilldela någon RBAC-roll. Identiteten för den app eller skript kallas tjänstens huvudnamn.
 
-## <a name="link-partner-id"></a>Länken partner-ID
+## <a name="link-partner-id"></a>Länka partner-ID
 
 När du har åtkomst till resurser i kundens använda Azure-portalen, PowerShell eller CLI för att länka ditt Microsoft Partner Network-ID (MPN ID) till användar-ID eller tjänstens huvudnamn. Du måste länka partner-ID i varje kund-klient.
 
@@ -52,7 +53,7 @@ När du har åtkomst till resurser i kundens använda Azure-portalen, PowerShell
 
 ### <a name="use-powershell-to-link-new-partner-id"></a>Använd PowerShell för att länka nya partner-ID
 
-1. Installera den [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell-modulen.
+1. Installera den [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-modulen.
 
 2. Logga in på kundens klient med det användarkonto eller tjänstens huvudnamn, mer information, se [logga in med Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  

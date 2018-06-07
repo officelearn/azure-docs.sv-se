@@ -1,25 +1,22 @@
 ---
-title: MailChimp-anslutningen i Azure Logic Apps | Microsoft Docs
-description: "Skapa logikappar med Azure App service. MailChimp är en SaaS-tjänst som låter företag hantera och automatisera marknadsföringsaktiviteter via e-post, inklusive utskick av marknadsföringsmail, automatiserade meddelanden och riktade kampanjer."
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Ansluta till MailChimp - Azure Logikappar | Microsoft Docs
+description: 'Skapa och hantera marknadsföring e-postmeddelanden med MailChimp REST API: er och Azure Logic Apps'
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 36559de2-94f0-4355-b492-2926dfc56486
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 041212771db5b5971ccd220e68d71d59d8220531
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: a11dbee8a0aab70abad60b8b783b2caa4f03c9c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609336"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Kom igång med MailChimp-koppling
 MailChimp är en SaaS-tjänst som gör att företag att hantera och automatisera marknadsföringsaktiviteter för e-post, inklusive marknadsföring e-postmeddelanden, automatiserade meddelanden och riktade kampanjer.
@@ -29,7 +26,7 @@ Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../lo
 ## <a name="create-a-connection-to-mailchimp"></a>Skapa en anslutning till MailChimp
 För att skapa logikappar med MailChimp, måste du först skapa en **anslutning** ange detaljer för följande egenskaper:
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Token |Ja |Ange autentiseringsuppgifter för MailChimp |
 

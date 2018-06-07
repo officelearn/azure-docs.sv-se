@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: c1dbcf83927da23ceab652f8bc4dbe8d6343c1a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598410"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
@@ -47,8 +48,8 @@ Den här åtgärden är samma som en Docker-omstart.
 
 Ja, kan du göra det via källplatsen kontrollen management (SCM).
 
-> [!NOTE] 
-> Du kan också ansluta till app-behållaren direkt från lokala utvecklingsdatorn med SSH, SFTP eller Visual Studio Code (för live felsökning Node.js-appar). Mer information finns i [fjärrfelsökning och SSH i App Service på Linux](https://aka.ms/linux-debug).
+> [!NOTE]
+> Du kan också ansluta till appbehållaren direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
 >
 
 **Hur skapar jag en Linux App Service-plan via en SDK eller en Azure Resource Manager-mall**
@@ -113,7 +114,7 @@ Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appins
 
 **Min anpassade container tar lång tid att starta och plattformen startar om behållaren innan den är klar startas.**
 
-Du kan konfigurera tidsperiod som plattformen väntar startar din behållare. Gör du genom att ange den `WEBSITES_CONTAINER_START_TIME_LIMIT` appinställningen till önskat värde. Standardvärdet är 230 sekunder och det högsta värdet är 600 sekunder.
+Du kan konfigurera tidsperiod som plattformen väntar startar din behållare. Gör du genom att ange den `WEBSITES_CONTAINER_START_TIME_LIMIT` appinställningen till önskat värde. Standardvärdet är 230 sekunder och det maximala värdet är 1 800 sekunder.
 
 **Vad är formatet för privata registret serverns URL?**
 

@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ae79d081cc171fe904bf50b2341d7abd8f58e4f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594507"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount kan vara Service Pack datorkontot eller ett tjänstkont
 
 
 ## <a name="sso-for-non-windows-apps"></a>Enkel inloggning för Windows-appar
-Flöde för Kerberos-delegering i Azure AD Application Proxy startar när Azure AD autentiserar användaren i molnet. När begäran kommer lokalt, utfärdar Azure AD Application Proxy connector en Kerberos-biljett för användarens räkning genom att interagera med din lokala Active Directory. Den här processen kallas för som Kerberos-begränsad delegering (KCD). I nästa fas skickas en begäran till backend-program med Kerberos-biljett. Det finns flera protokoll som definierar hur du skickar denna begäran. De flesta Windows-servrar förväntas Negotiate/SPNego som stöds nu på Azure AD Application Proxy.
+
+Flöde för Kerberos-delegering i Azure AD Application Proxy startar när Azure AD autentiserar användaren i molnet. När begäran kommer lokalt, utfärdar Azure AD Application Proxy connector en Kerberos-biljett för användarens räkning genom att interagera med din lokala Active Directory. Den här processen kallas för som Kerberos-begränsad delegering (KCD). I nästa fas skickas en begäran till backend-program med Kerberos-biljett. 
+
+Det finns flera protokoll som definierar hur du skickar denna begäran. De flesta Windows-servrar förvänta dig att förhandla med SPNEGO. Detta protokoll stöds på Azure AD Application Proxy, men är inaktiverad som standard. En server kan vara konfigurerade för SPNEGO eller standard KCD, men inte båda.
+
+Om du konfigurerar en koppling dator för SPNEGO se till att alla andra kopplingar i gruppen anslutningen konfigureras också med SPNEGO. Program förväntas standard KCD ska dirigeras via andra kopplingar som inte är konfigurerade för SPNEGO.
+ 
+
+Aktivera SPNEGO:
+
+1. Öppna en kommandotolk som kör som administratör.
+2. Kör följande kommandon på anslutningstjänstservrarna som behöver SPNEGO från Kommandotolken.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Mer information om Kerberos finns [alla du vill veta om Kerberos-begränsad delegering (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 

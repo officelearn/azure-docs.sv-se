@@ -1,34 +1,35 @@
 ---
-title: Kom igång med Azure-stacken Storage utvecklingsverktyg
-description: Vägledning för att komma igång med Azure-stacken Storage utvecklingsverktyg
+title: Kom igång med Azure-stacken lagring utvecklingsverktyg | Microsoft Docs
+description: Vägledning för att komma igång med Azure-stacken utvecklingsverktyg för lagring
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604485"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Kom igång med Azure-stacken Storage utvecklingsverktyg
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>Kom igång med Azure-stacken utvecklingsverktyg för lagring
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 Microsoft Azure-stacken innehåller en uppsättning lagring som innehåller blob, tabeller och köer lagras.
 
-Använd den här artikeln som hjälp att komma igång med Azure-stacken Storage utvecklingsverktyg. Du hittar mer detaljerad information och exempelkod i motsvarande självstudier i Azure Storage.
+Använd den här artikeln som hjälp att komma igång med Azure-stacken utvecklingsverktyg för lagring. Du hittar mer detaljerad information och exempelkod i motsvarande självstudier i Azure storage.
 
->[!NOTE]
->Det finns kända skillnader mellan Azure Stack Storage och Azure-lagring, inklusive särskilda krav för varje plattform. Det finns till exempel specifika klientbibliotek och viss slutpunkts-suffixkrav för Azure-stacken. Mer information finns i [Azure Stack Storage: skillnader och överväganden](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Det finns kända skillnader mellan Azure Stack lagring och Azure-lagring, inklusive särskilda krav för varje plattform. Det finns till exempel specifika klientbibliotek och viss slutpunkts-suffixkrav för Azure-stacken. Mer information finns i [Stack för Azure storage: skillnader och överväganden](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azures klientbibliotek
 
-De REST API-versionerna som stöds för Azure Storage för stacken är 2017-04-17, 2016-05-31, 11-12-2015, 2015-07-08, 2015-04-05 för 1802 uppdateringen eller senare versioner och 2015-04-05 för tidigare versioner. Stacken för Azure-slutpunkter har inte fullständig paritet med den senaste versionen av Azure Storage REST API. Du måste vara medveten om den version som är kompatibel med REST API för storage-klientbibliotek.
+De REST API-versionerna som stöds för lagring av Azure-stacken är 2017-04-17, 2016-05-31, 11-12-2015, 2015-07-08, 2015-04-05 för 1802 uppdateringen eller senare versioner och 2015-04-05 för tidigare versioner. Stacken för Azure-slutpunkter har inte fullständig paritet med den senaste versionen av Azure storage REST API. Du måste vara medveten om den version som är kompatibel med REST API för storage-klientbibliotek.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 uppdateringen eller senare versioner
 
@@ -209,4 +210,4 @@ Följande kurser i Azure Table storage är tillämpliga på Azure-stacken. Obser
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Introduktion till Microsoft Azure storage](../../storage/common/storage-introduction.md)

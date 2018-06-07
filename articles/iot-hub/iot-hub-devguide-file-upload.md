@@ -1,24 +1,19 @@
 ---
-title: "Förstå Azure IoT Hub filöverföringen | Microsoft Docs"
-description: "Utvecklarhandbok - Använd funktionen filen överför i IoT-hubb för att hantera överföring av filer från en enhet till en Azure storage blob-behållare."
-services: iot-hub
-documentationcenter: .net
+title: Förstå Azure IoT Hub filöverföringen | Microsoft Docs
+description: Utvecklarhandbok - Använd funktionen filen överför i IoT-hubb för att hantera överföring av filer från en enhet till en Azure storage blob-behållare.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634904"
 ---
 # <a name="upload-files-with-iot-hub"></a>Överföra filer med IoT-hubb
 
@@ -100,7 +95,7 @@ När en enhet meddelar IoT-hubb som en överföringen är klar, du kan också ge
 
 Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb levererar filen överför meddelanden via en slutpunkt för service-riktade (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Receive-semantik för filen överför meddelanden är desamma som för meddelanden moln till enhet och har samma [meddelandet livscykel][lnk-lifecycle]. Varje meddelande som hämtas från filen överför aviseringsslutpunkten är en JSON-post med följande egenskaper:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | EnqueuedTimeUtc |Tidsstämpel som visar när meddelandet har skapats. |
 | DeviceId |**DeviceId** på den enhet som laddats upp filen. |
@@ -126,7 +121,7 @@ Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb levererar filen ö
 
 Varje IoT-hubb visar följande konfigurationsalternativ för filen överför meddelanden:
 
-| Egenskap | Beskrivning | Intervall och standard |
+| Egenskap  | Beskrivning | Intervall och standard |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Kontrollerar om filen överför meddelanden skrivs till filen meddelanden slutpunkten. |Bool. Standard: True. |
 | **fileNotifications.ttlAsIso8601** |Standard-TTL för filen överför meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). Standard: 1 timme. |

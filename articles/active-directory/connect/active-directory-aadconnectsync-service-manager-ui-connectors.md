@@ -1,11 +1,11 @@
 ---
-title: "Kopplingar i Azure AD Synchronization Service Manager-Gränssnittet | Microsoft Docs"
-description: "Förstå fliken kopplingar i hanteraren för synkroniseringstjänsten för Azure AD Connect."
+title: Kopplingar i Azure AD Synchronization Service Manager-Gränssnittet | Microsoft Docs
+description: Förstå fliken kopplingar i hanteraren för synkroniseringstjänsten för Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3bbbe5d0d7a7ed7065133b4bc6e5fc2dba39bf7d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b3c8925b213543d33f81c113b08e9601f2780bde
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593160"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Med hjälp av anslutningar med Azure AD Connect Sync Service Manager
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 Fliken kopplingar används för att hantera alla system Synkroniseringsmotorn är ansluten till.
 
 ## <a name="connector-actions"></a>Åtgärder för kopplingen
-| Åtgärd | Kommentera |
+| Åtgärd | Kommentar |
 | --- | --- |
 | Skapa |Använd inte. Använd installationsguiden för att ansluta till ytterligare AD-skogar. |
 | Egenskaper |Används för domän- och organisationsenhetsfiltrering. |
@@ -44,7 +46,7 @@ Fliken kopplingar används för att hantera alla system Synkroniseringsmotorn ä
 
 ### <a name="delete"></a>Ta bort
 Åtgärden ta bort används för två olika saker.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 Alternativet **ta bort anslutningsplatsen endast** tar bort alla data, men behålla konfigurationen.
 
@@ -55,17 +57,17 @@ Båda alternativen synkronisera alla objekt och uppdatera metaversum-objekt. Den
 ### <a name="configure-run-profiles"></a>Konfigurera körningsprofiler
 Det här alternativet kan du se körningsprofiler som konfigurerats för en koppling.
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Söka Anslutarplats
 Sökåtgärd connector utrymme är användbar för att söka efter objekt och felsöka problem.
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
 
 Starta genom att välja en **omfång**. Du kan söka baserat på data (RDN DN-fästpunkt, underträd) eller läget för objektet (alla andra alternativ).  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
 Om du till exempel göra en underträd sökning får du alla objekt i en Organisationsenhet.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
+![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 Från den här rutnät som du kan välja ett objekt, Välj **egenskaper**, och [följa den](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) från anslutningsplatsen källa via metaversum och att målet anslutningsplatsen.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Ändra lösenordet för AD DS
@@ -78,7 +80,7 @@ Lös problemet genom att uppdatera AD DS-användarkonto med hjälp av följande:
 
 
 1. Starta hanteraren för synkroniseringstjänsten (START → synkroniseringstjänsten).
-</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+</br>![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 2. Gå till den **kopplingar** fliken.
 3. Välj den AD-anslutning som är konfigurerat för att använda AD DS-konto.
 4. Välj under åtgärder, **egenskaper**.

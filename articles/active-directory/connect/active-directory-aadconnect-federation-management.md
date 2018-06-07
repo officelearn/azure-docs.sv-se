@@ -1,12 +1,12 @@
 ---
 title: Azure AD Connect - AD FS-hantering och anpassning | Microsoft Docs
-description: "AD FS-hantering med Azure AD Connect och anpassning av AD FS-inloggning användarupplevelsen med Azure AD Connect och PowerShell."
-keywords: "ADFS, ADFS, AD FS management, AAD Connect Connect, inloggning, AD FS anpassning, reparera förtroendet, O365, federation, förlitande part"
+description: AD FS-hantering med Azure AD Connect och anpassning av AD FS-inloggning användarupplevelsen med Azure AD Connect och PowerShell.
+keywords: ADFS, ADFS, AD FS management, AAD Connect Connect, inloggning, AD FS anpassning, reparera förtroendet, O365, federation, förlitande part
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590862"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (AD Azure) Anslut. Den omfattar också andra vanliga AD FS-uppgifter som du kan behöva göra för att slutföra konfigurationen av en AD FS-servergrupp.
@@ -29,7 +31,7 @@ Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federat
 |:--- |:--- |
 | **Hantera AD FS** | |
 | [Reparera förtroendet](#repairthetrust) |Så här reparerar federationsförtroende med Office 365. |
-| [Federera med Azure AD med hjälp av alternativa inloggnings-ID](#alternateid) | Konfigurera federation med hjälp av alternativa inloggnings-ID  |
+| [Federera med Azure AD med hjälp av alternativa inloggnings-ID ](#alternateid) | Konfigurera federation med hjälp av alternativa inloggnings-ID  |
 | [Lägga till en AD FS-server](#addadfsserver) |Hur du expanderar en AD FS-servergrupp med en ytterligare AD FS-servern. |
 | [Lägga till en AD FS Web Application Proxy-server](#addwapserver) |Hur du expanderar en AD FS-servergrupp med ytterligare en Webbprogramproxy (WAP) server. |
 | [Lägga till en federerad domän](#addfeddomain) |Hur du lägger till en federerad domän. |
@@ -223,7 +225,7 @@ Dessutom med hjälp av **lägga till** och inte **problemet**, du undvika att l�
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Den här regeln som definierar en tillfällig flagga kallas **idflag** som har angetts till **useguid** om det finns inga **ms-ds-consistencyguid** fyllts i för användaren. Logiken bakom detta är det faktum att AD FS inte tillåter tomma anspråk. Så när du lägger till anspråk http://contoso.com/ws/2016/02/identity/claims/objectguid och http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid i regel 1 kan du få ett **msdsconsistencyguid** anspråk endast om värdet fylls för användaren. Om det inte är ifylld ser att den har ett tomt värde och släpper den direkt i AD FS. Alla objekt har **objectGuid**, så att anspråk kommer alltid att det efter regel 1 körs.
+Den här regeln som definierar en tillfällig flagga kallas **idflag** som har angetts till **useguid** om det finns inga **ms-ds-consistencyguid** fyllts i för användaren. Logiken bakom detta är det faktum att AD FS inte tillåter tomma anspråk. När du lägger till anspråk http://contoso.com/ws/2016/02/identity/claims/objectguid och http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid i regel 1 kan, du få ett **msdsconsistencyguid** anspråk endast om värdet fylls för användaren. Om det inte är ifylld ser att den har ett tomt värde och släpper den direkt i AD FS. Alla objekt har **objectGuid**, så att anspråk kommer alltid att det efter regel 1 körs.
 
 **Regel 3: Utfärda ms-ds-consistencyguid-ID som inte ändras om det finns**
 
@@ -262,7 +264,7 @@ Standardregeln bara tar UPN-suffix och används i ID-anspråk utfärdare. Till e
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Anspråksvärde:** http://sub.contoso.com/adfs/services/trust/
+**Anspråkets värde:**  http://sub.contoso.com/adfs/services/trust/
 
 Ändra regel för anspråk för att matcha följande om du vill att endast rotdomänen i anspråksvärdet utfärdare:
 

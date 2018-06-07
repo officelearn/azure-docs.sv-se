@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe9bb36080027ba1873dc6fd3938972044a5d1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f259d8505fab74ea3925eea41ce3861fb239cf46
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Självstudier: Azure Active Directory-integrering med Replicon
 
@@ -58,14 +59,14 @@ Du måste lägga till Replicon från galleriet i listan över hanterade SaaS-app
 
 **Utför följande steg för att lägga till Replicon från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet Enterprise program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -101,7 +102,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_samlbase.png)
 
 3. På den **Replicon domän och URL: er** avsnittet, utför följande steg:
@@ -114,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Replicon klienten supportteamet](https://www.replicon.com/customerzone/contact-support) att hämta dessa värden. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
@@ -128,23 +129,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 6. Logga in på webbplatsen Replicon företag som en administratör i en annan webbläsarfönster.
 
 7. Utför följande steg för att konfigurera SAML 2.0:
-   
+
     ![Aktivera SAML-autentisering](./media/active-directory-saas-replicon-tutorial/ic777805.png "aktivera SAML-autentisering")
-    
+
     a. Visa den **EnableSAML Authentication2** dialogrutan Lägg till följande i din URL efter din nyckel för företag: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-    
-    * Nedan visas schemat för fullständig URL:  
-   `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-   
+
+    * Nedan visas schemat för fullständig URL: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+
    b. Klicka på den **+** att expandera den **v20Configuration** avsnitt.
 
    c. Klicka på den **+** att expandera den **metaDataConfiguration** avsnitt.
 
    d. Klicka på **Välj fil**, för att välja identitet providern metadata XML-filen och klicka på **skicka**.
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -177,31 +173,31 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-replicon-test-user"></a>Skapa en testanvändare Replicon
 
-För att aktivera Azure AD-användare att logga in på Replicon etableras de i Replicon. När det gäller Replicon är etablering en manuell aktivitet.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Replicon. Replicon stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-replicon-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-**Utför följande steg för att konfigurera användaretablering:**
+**Om du behöver skapa användare manuellt gör du följande:**
 
 1. Logga in på webbplatsen Replicon företag som en administratör i ett webbläsarfönster.
 
 2. Gå till **Administration \> användare**.
-   
+
     ![Användare](./media/active-directory-saas-replicon-tutorial/ic777806.png "användare")
 
 3. Klicka på **+ Lägg till användaren**.
-   
+
     ![Lägg till användare](./media/active-directory-saas-replicon-tutorial/ic777807.png "lägga till användare")
 
 4. I den **användarprofil** avsnittet, utför följande steg:
-   
+
     ![Användarprofil](./media/active-directory-saas-replicon-tutorial/ic777808.png "användarprofil")
-    
+
     a. I den **inloggningsnamnet** textruta typen Azure AD e-postadress för Azure AD-användare som du vill etablera som **BrittaSimon@contoso.com**.
-    
+
     b. Som **autentiseringstyp**väljer **SSO**.
-    
+
     c. I den **avdelning** textruta Skriv användarens avdelning.
 
     d. Som **typen**väljer **administratör**.
@@ -215,17 +211,17 @@ För att aktivera Azure AD-användare att logga in på Replicon etableras de i R
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Replicon.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Replicon Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 2. Välj i listan med program **Replicon**.
 
-    ![Länken Replicon i listan med program](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)  
+    ![Länken Replicon i listan med program](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
@@ -240,18 +236,19 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen Replicon på åtkomstpanelen du bör få automatiskt loggat in på ditt Replicon program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -266,4 +263,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_203.png
-

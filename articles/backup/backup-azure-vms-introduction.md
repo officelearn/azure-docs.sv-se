@@ -1,25 +1,20 @@
 ---
-title: Planera din infrastruktur för VM-säkerhetskopiering i Azure | Microsoft Docs
+title: Planera din infrastruktur för VM-säkerhetskopiering i Azure
 description: Viktiga överväganden när du planerar att säkerhetskopiera virtuella datorer i Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: Säkerhetskopiera virtuella datorer, säkerhetskopiera virtuella datorer
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606094"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
 Den här artikeln innehåller prestanda och resursen förslag på hur du planerar din infrastruktur för säkerhetskopiering av VM. Den definierar även viktiga aspekter av säkerhetskopieringstjänsten; dessa aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förbereda din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i [virtuella datorer dokumentationen](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -27,7 +22,7 @@ Den här artikeln innehåller prestanda och resursen förslag på hur du planera
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hur fungerar Azure säkerhetskopiera virtuella datorer?
 När tjänsten Azure Backup initierar en säkerhetskopiering på den schemalagda tiden tjänsten triggers reservanknytning att ta en ögonblicksbild i tidpunkt. Azure Backup-tjänsten används den _VMSnapshot_ tillägget i Windows, och _VMSnapshotLinux_ tillägget Linux. Tillägget installeras under den första säkerhetskopieringen. Om du vill installera tillägget måste du köra den virtuella datorn. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
 
-När en ögonblicksbild av virtuella Windows-datorer, samordnar Backup-tjänsten med Volume Shadow Copy Service (VSS) att hämta en programkonsekvent ögonblicksbild av den virtuella datorns diskar. Om du säkerhetskopierar virtuella Linux-datorer, kan du skriva egna skript för att säkerställa konsekvens när en VM-ögonblicksbild. Information om att aktivera dessa skript finns senare i den här artikeln.
+När Backup-tjänsten tar en ögonblicksbild av virtuella Windows-datorer kontaktar den VSS-tjänsten (Volume Shadow Copy) för att få en konsekvent ögonblicksbild av den virtuella datorns diskar. Om du säkerhetskopierar virtuella Linux-datorer, kan du skriva egna skript för att säkerställa konsekvens när en VM-ögonblicksbild. Information om att aktivera dessa skript finns senare i den här artikeln.
 
 När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
@@ -119,7 +114,7 @@ Vi rekommenderar följande dessa metoder när du konfigurerar säkerhetskopierin
 * Schemalägga VM säkerhetskopior vid låg belastning. Det här sättet Backup-tjänsten använder IOPS för att överföra data från customer storage-konto till valvet.
 * Se till att en principen tillämpas på virtuella datorer som är fördelade på olika lagringskonton. Vi rekommenderar högst 20 totala diskar från en enda lagringskonto skyddas av samma schemat för säkerhetskopiering. Om du har större än 20 diskar i ett lagringskonto kan sprida dessa virtuella datorer över flera principer för att hämta nödvändiga IOPS under fasen överföring av säkerhetskopieringen.
 * Återställ inte en virtuell dator som körs på Premium-lagring till samma lagringskonto. Om åtgärden återställningsprocessen sammanfaller med säkerhetskopieringen, minskar antalet IOPS som är tillgängliga för säkerhetskopiering.
-* Se till att lagringskontot att värdar premiumdiskar har minst 50% ledigt utrymme för mellanlagring ögonblicksbild för en lyckad säkerhetskopia för Premium VM-säkerhetskopiering. 
+* För Premium säkerhetskopiering VM säkerhetskopiering stacken V1 rekommenderas det att du allokerar högst 50% av det totala lagringsutrymmet konto så att Azure-säkerhetskopieringstjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från denna kopierade plats i lagringskontot till valvet.
 * Kontrollera att python-version på virtuella Linux-datorer aktiverad för säkerhetskopiering är 2.7
 
 ## <a name="data-encryption"></a>Datakryptering

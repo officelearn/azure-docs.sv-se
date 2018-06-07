@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627723"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelsehanterare i rutnätet för Azure-händelse
 
-En händelsehanterare är den plats där händelsen att skickas. Hanteraren tar vissa ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser. Du kan också använda en webhook för att hantera händelser. Webhooken behöver inte finnas i Azure för att hantera händelser.
+En händelsehanterare är den plats där händelsen att skickas. Hanteraren tar vissa ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser. Du kan också använda en webhook för att hantera händelser. Webhooken behöver inte finnas i Azure för att hantera händelser. Händelsen rutnätet har endast stöd för HTTPS webhook-slutpunkter.
 
 Den här artikeln innehåller länkar till innehåll för varje händelsehanterare.
 
@@ -31,6 +32,8 @@ Använd Azure Automation för att bearbeta händelser med automatisk runbooks.
 ## <a name="azure-functions"></a>Azure Functions
 
 Använd Azure Functions för serverlösa svar på händelser.
+
+När du använder Azure Functions som hanterare kan du använda Event Grid-utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
 
 |Titel  |Beskrivning  |
 |---------|---------|
@@ -75,5 +78,5 @@ Använd webhooks för anpassningsbara slutpunkter som svara på händelser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till händelse rutnätet finns [om händelsen rutnätet](overview.md).
+* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
 * Om du vill komma igång snabbt med hjälp av händelse rutnätet kan se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).

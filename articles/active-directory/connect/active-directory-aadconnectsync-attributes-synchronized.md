@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593443"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -59,7 +61,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | description |X |X |X | |
 | Visningsnamn |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -82,14 +84,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | HomePhone |X |X | | |
-| Info |X |X |X |Det här attributet används för närvarande inte för grupper. |
-| initialer |X |X | | |
+| info |X |X |X |Det här attributet används för närvarande inte för grupper. |
+| Initialer |X |X | | |
 | L |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | Manager |X |X | | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | mobila |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
@@ -181,7 +183,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | description |X |X |X | |
 | Visningsnamn |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -205,7 +207,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| Info |X |X |X | |
+| info |X |X |X | |
 | initialer |X |X | | |
 | ipPhone |X |X | | |
 | L |X |X | | |
@@ -213,7 +215,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | Manager |X |X | | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | middleName |X |X | | |
 | mobila |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
@@ -261,7 +263,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | CN |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | description |X |X |X | |
 | Visningsnamn |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
@@ -273,7 +275,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
 | Manager |X |X | | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | mobila |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
 | msRTCSIP-ApplicationOptions |X | | | |
@@ -309,7 +311,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | CN |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
 | Visningsnamn |X |X |X |En sträng som representerar namnet visas ofta som eget namn (Förnamn Efternamn). |
 | E-post |X |X |X |fullständig e-postadress. |
-| Medlem | | |X | |
+| medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X |mekanisk egenskap. Används av Azure AD. Innehåller alla sekundära e-postadresser för användaren. |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. |
@@ -328,7 +330,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Visningsnamn |X |X |X | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |
@@ -353,7 +355,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | L |X |X | | |
 | managedBy | | |X | |
 | Manager |X |X | | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | mobila |X |X | | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | physicalDeliveryOfficeName |X |X | | |
@@ -387,7 +389,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | E-post |X | |X | |
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
-| Medlem | | |X | |
+| medlem | | |X | |
 | objectSID |X | | |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av lösenordshashsynkronisering, direktautentisering och federation. |

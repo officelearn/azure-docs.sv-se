@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595588"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes instrumentpanel med Azure-Kubernetes (AKS)
 
@@ -37,7 +38,7 @@ Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes API
 
 ## <a name="run-an-application"></a>Kör ett program
 
-I instrumentpanelen Kubernetes klickar du på den **skapa** knappen i det övre högra fönstret. Ge distributionen namnet `nginx` och ange `nginx:latest` för bilder namn. Under **Service**väljer **externa** och ange `80` för både porten och målporten.
+I instrumentpanelen Kubernetes klickar du på den **skapa** knappen i det övre högra fönstret. Ge distributionen namnet `nginx` och ange `nginx:latest` för behållaren avbildningens namn. Under **Service**väljer **externa** och ange `80` för både porten och målporten.
 
 När du är klar klickar du på **distribuera** distributionen skapas.
 

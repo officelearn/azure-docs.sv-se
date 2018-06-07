@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594439"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Självstudier: Använda en virtuell Linux-MSI för att komma åt Azure Cosmos DB 
 
@@ -254,5 +255,8 @@ Det här kommandot CLI returnerar information om samlingen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanteras Service identitet (MSI) för Azure-resurser](overview.md).
+I kursen får du har lärt dig hur du använder en hanterad tjänstidentitet på en virtuell Linux-dator till Cosmos DB.  Om du vill veta se mer om Cosmos DB:
+
+> [!div class="nextstepaction"]
+>[Översikt över Azure Cosmos DB](/azure/cosmos-db/introduction)
 

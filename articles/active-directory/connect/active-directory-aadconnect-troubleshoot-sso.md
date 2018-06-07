@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Connect: Felsöka sömlös enkel inloggning | Microsoft Docs"
-description: "Det här avsnittet beskrivs hur du felsöker Azure Active Directory sömlös enkel inloggning"
+title: 'Azure Active Directory Connect: Felsöka sömlös enkel inloggning | Microsoft Docs'
+description: Det här avsnittet beskrivs hur du felsöker Azure Active Directory sömlös enkel inloggning
 services: active-directory
-keywords: "Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592236"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Förstå deklarativ etablering | Microsoft Docs"
-description: "Förklarar deklarativ etablering Konfigurationsmodell i Azure AD Connect."
+title: 'Azure AD Connect: Förstå deklarativ etablering | Microsoft Docs'
+description: Förklarar deklarativ etablering Konfigurationsmodell i Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6a0c16322884afba3d306c491c3cd592fc8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593199"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synkronisering: Förstå deklarativ etablering
 Det här avsnittet beskriver Konfigurationsmodell i Azure AD Connect. Modellen kallas deklarativ etablering och du kan göra en konfigurationsändring med enkel. Många saker som beskrivs i det här avsnittet avancerade och krävs inte för de flesta kundscenarier.
@@ -53,7 +55,7 @@ Scope-modulen stöder följande åtgärder.
 | Åtgärd | Beskrivning |
 | --- | --- |
 | LIKA, NOTEQUAL |En sträng jämför som utvärderar om värdet är lika med värdet i attributet. Flera värden attribut finns i ISIN och ISNOTIN. |
-| LESSTHAN, LESSTHAN_OR_EQUAL |Jämför en sträng som utvärderar om värdet är mindre än värdet i attributet. |
+| LESSTHAN LESSTHAN_OR_EQUAL |Jämför en sträng som utvärderar om värdet är mindre än värdet i attributet. |
 | INNEHÅLLER, NOTCONTAINS |En sträng jämför som utvärderar om värde finns någonstans i värdet i attributet. |
 | STARTSWITH, NOTSTARTSWITH |En sträng jämför som utvärderar om värdet är i början av värdet i attributet. |
 | ENDSWITH NOTENDSWITH |En sträng jämför som utvärderar om värdet är i slutet av värdet i attributet. |

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637080"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -41,7 +42,13 @@ Loggfilerna ska hämtas måste matcha följande kriterier.
 ## <a name="defining-a-custom-log"></a>Definiera en anpassad logg
 Använd följande procedur för att definiera en anpassad loggfil.  Rulla till slutet av den här artikeln en genomgång av ett prov för att lägga till en anpassad logg.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>Steg 1. Öppna guiden Anpassad logg
+### <a name="step-1-enable-custom-logs-preview"></a>Steg 1. Aktivera anpassade loggar förhandsgranskning
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+2. Välj en arbetsyta i fönstret logganalys prenumerationer och välj sedan den **OMS-portalen** panelen.<br><br> ![Loggsökningsknapp](media/log-analytics-data-sources-custom-logs/azure-portal-01.png)<br><br> 
+3. När du omdirigeras till OMS-portalen klickar du på panelen inställningar på den översta högra sidan på sidan.<br><br> ![OMS-portalen inställningsalternativ](media/log-analytics-data-sources-custom-logs/oms-portal-settings-option.png)<br><br> 
+4. Från den **inställningar** väljer **förhandsgranskningsfunktioner** och på sidan Välj **aktivera** för anpassade loggar.    
+
+### <a name="step-2-open-the-custom-log-wizard"></a>Steg 2. Öppna guiden Anpassad logg
 Guiden Anpassad logg körs i Azure-portalen och kan du definiera en ny anpassad logg att samla in.
 
 1. Välj i Azure-portalen **logganalys** > din arbetsyta > **avancerade inställningar**.
@@ -49,7 +56,7 @@ Guiden Anpassad logg körs i Azure-portalen och kan du definiera en ny anpassad 
 3. Som standard pushas alla konfigurationsändringar automatiskt till alla agenter.  Linux-agenter skickas en konfigurationsfil till Fluentd datainsamlaren.  Om du vill ändra den här filen manuellt på varje Linux-agenten och avmarkera sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer*.
 4. Klicka på **Lägg till +** att öppna guiden Anpassad logg.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Steg 2. Överföra och parsa en exempellogg
+### <a name="step-3-upload-and-parse-a-sample-log"></a>Steg 3. Överföra och parsa en exempellogg
 Börja med att ladda upp ett exempel på anpassad logg.  Guiden kommer att parsa och visa posterna i den här filen att verifiera.  Log Analytics använder avgränsaren som du anger för att identifiera varje post.
 
 **Ny rad** är standard-avgränsare och används för loggfiler som har en post per rad.  Om rad som börjar med ett datum och tid i något av formaten sedan kan du ange en **tidsstämpel** avgränsare som har stöd för transaktioner som sträcker sig över flera rader.
@@ -63,7 +70,7 @@ Om en avgränsare för en tidsstämpel används fylls egenskapen TimeGenerated f
 4. Ändra avgränsare som används för att identifiera en ny post och avgränsare som bäst identifierar poster i loggfilen.
 5. Klicka på **Nästa**.
 
-### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till sökvägar till loggsamling
+### <a name="step-4-add-log-collection-paths"></a>Steg 4. Lägg till sökvägar till loggsamling
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta anpassad logg.  Du kan antingen ange en specifik sökväg och ett namn på loggfilen eller du kan ange en sökväg med jokertecken för namnet.  Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek.  Du kan också ange flera sökvägar för en enda loggfil.
 
 Till exempel kan ett program skapa en loggfil skapas varje dag med det datumet i namn som log20100316.txt. Ett mönster för sådana loggen kan vara *loggen\*.txt* som gäller för alla loggfilen efter programmet naming schemat.
@@ -81,14 +88,14 @@ Följande tabell innehåller exempel på giltiga att ange olika loggfilerna.
 2. Ange sökvägen och klicka på den **+** knappen.
 3. Upprepa processen för eventuella ytterligare sökvägar.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Steg 4. Ange ett namn och en beskrivning av loggen
+### <a name="step-5-provide-a-name-and-description-for-the-log"></a>Steg 5. Ange ett namn och en beskrivning av loggen
 Det namn som du anger ska användas för typ som beskrivs ovan.  Den slutar alltid med _CL att skilja den som en anpassad logg.
 
 1. Skriv ett namn på loggen.  Den  **\_CL** suffix anges automatiskt.
 2. Lägg till en valfri **beskrivning**.
 3. Klicka på **nästa** spara definition för anpassad logg.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Steg 5. Verifiera att de anpassade loggarna samlas in
+### <a name="step-6-validate-that-the-custom-logs-are-being-collected"></a>Steg 6. Verifiera att de anpassade loggarna samlas in
 Det kan ta upp till en timme innan den första informationen från en ny anpassad logg ska visas i logganalys.  Den börjar samla in poster från loggar finns i sökvägen som du angav från den punkt som du definierat anpassad logg.  Poster som du har överfört när du skapar anpassade loggen behåller inte, men den samlar in redan befintliga poster i de loggfiler som påträffas.
 
 När logganalys startar har samlats in från anpassade loggen är dess poster tillgängliga med en logg-sökning.  Använd det namn som du gav anpassad logg som den **typen** i frågan.
@@ -98,7 +105,7 @@ När logganalys startar har samlats in från anpassade loggen är dess poster ti
 >
 >
 
-### <a name="step-6-parse-the-custom-log-entries"></a>Steg 6. Parsa anpassade loggposter
+### <a name="step-7-parse-the-custom-log-entries"></a>Steg 7. Parsa anpassade loggposter
 Hela loggposten kommer att lagras i en enda egenskap som kallas **\data**.  Du kommer troligen vill separera olika delar av informationen i varje post i enskilda egenskaper lagras i posten.  Du gör detta med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
 
 Detaljerade anvisningar för parsning av den anpassa loggposten finns inte här.  Mer information finns i [anpassade fält](log-analytics-custom-fields.md) dokumentationen för den här informationen.

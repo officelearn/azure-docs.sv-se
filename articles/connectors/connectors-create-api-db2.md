@@ -1,25 +1,22 @@
 ---
-title: "Lägg till DB2-koppling i dina Logic Apps | Microsoft Docs"
-description: "Översikt över DB2-koppling med REST API-parametrar"
-services: 
-documentationcenter: 
+title: Ansluta till DB2 - Azure Logikappar | Microsoft Docs
+description: 'Hantera resurser med DB2 REST API: er och Azure Logic Apps'
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609757"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Kom igång med DB2-koppling
 Microsoft-anslutaren för DB2 ansluter Logic Apps till resurser som är lagrade i en IBM DB2-databas. Denna koppling inkluderar en Microsoft-klient för att kommunicera med fjärrdatorer för DB2-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Bluemix dashDB eller IBM DB2 för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-plattformar och versioner (i det här avsnittet).
@@ -53,7 +50,7 @@ Skapa en logikapp för någon åtgärd består av många steg utförs via Micros
 Du kan lägga till en åtgärd i logikappen, att lista tabeller i en DB2-databas. Åtgärden instruerar kopplingen för att bearbeta en DB2 schema-instruktionen, exempelvis `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `Db2getTables`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -83,7 +80,7 @@ Du kan lägga till en åtgärd i logikappen, att lista tabeller i en DB2-databas
 ## <a name="create-the-connections"></a>Skapa anslutningar
 Den här anslutningen har stöd för anslutningar till databaser som finns på lokalt och i molnet med hjälp av följande anslutningsegenskaper. 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | server |Krävs. Accepterar ett strängvärde som representerar ett TCP/IP-adress eller ett alias i IPv4- eller IPv6-format, följt (-semikolonavgränsad) av ett TCP/IP-portnummer. |
 | databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). DB2 för z/OS accepterar en sträng med 16 byte (databas kallas en IBM DB2 för z/OS-plats). DB2 för i5/OS accepterar en 18 byte-sträng (databas kallas en IBM DB2 för i relationell databas). DB2 för LUW accepterar en 8 byte-sträng. |
@@ -123,7 +120,7 @@ Den här anslutningen kan komma åt en molnet DB2-databas.
 Du kan definiera en logik app åtgärd för att hämta alla rader i en DB2-tabell. Detta gör att kopplingen för att bearbeta en DB2 SELECT-instruktion som `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `Db2getRows`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -160,7 +157,7 @@ Du kan definiera en logik app åtgärd för att hämta alla rader i en DB2-tabel
 Du kan definiera en logik app åtgärd för att lägga till en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 INSERT-instruktionen, exempelvis `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `Db2insertRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -187,7 +184,7 @@ Du kan definiera en logik app åtgärd för att lägga till en rad i en DB2-tabe
 Du kan definiera en logik app åtgärd för att hämta en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 väljer där instruktionen, exempelvis `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn** (t.ex.) ”**Db2getRow**”), **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -215,7 +212,7 @@ Du kan definiera en logik app åtgärd för att hämta en rad i en DB2-tabell. D
 Du kan definiera en logik app-åtgärd om du vill ändra en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 UPDATE-instruktion som `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `Db2updateRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
@@ -242,7 +239,7 @@ Du kan definiera en logik app-åtgärd om du vill ändra en rad i en DB2-tabell.
 Du kan definiera en logik app åtgärd för att ta bort en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 DELETE-instruktion som `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer  **+**  (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
+1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
 2. Ange den **namn**, som `Db2deleteRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
 
 ### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd

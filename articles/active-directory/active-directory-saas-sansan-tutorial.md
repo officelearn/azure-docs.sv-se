@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8af15e4751b696a6f30d3dc70556ab856020bedb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f0739c821f1521eb761912e5092661c7b5c0fd78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Självstudier: Azure Active Directory-integrering med Sansan
 
@@ -110,7 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: 
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: 
     
     | Miljö | URL |
     |:--- |:--- |
@@ -118,16 +119,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Inbyggda mobila appen |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Inställningar för mobila webbläsare |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:
-    | Miljö             | URL |
-    | :-- | :-- |
-    | Dator                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Inbyggda mobila appen       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Inställningar för mobila webbläsare | `https://ap.sansan.com/s/saml2/<company name>` |
-
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Sansan klienten supportteamet](https://www.sansan.com/form/contact) att hämta dessa värden. 
-
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL. Kontakta [Sansan klienten supportteamet](https://www.sansan.com/form/contact) att hämta dessa värden. 
+     
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
@@ -136,19 +130,77 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. På den **Sansan Configuration** klickar du på **konfigurera Sansan** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. Sansan program förväntar sig flera **identifierare** och **Reply URL: er** att stödja flera miljöer (dator, interna mobilapp, inställningar för mobila webbläsare), som kan konfigureras med hjälp av PowerShell skript. Detaljerade anvisningar beskrivs nedan.
+
+7. Konfigurera flera **identifierare** och **Reply URL: er** för Sansan program med hjälp av PowerShell-skript, gör du följande:
+
+    ![Konfigurera enkel inloggning obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)    
+
+    a. Gå till den **egenskaper** sidan **Sansan** programmet och kopierar den **objekt-ID** med **kopiera** knappen och klistra in den i anteckningar.
+
+    b. Den **objekt-ID**, som du har kopierat från Azure-portalen kommer att användas som **ServicePrincipalObjectId** i PowerShell-skript används senare under kursen. 
+
+    c. Öppna en kommandotolk i Windows PowerShell.
+    
+    >[!NOTE] 
+    > Du måste installera modulen AzureAD (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Skriv Y och tryck på RETUR.
+
+    d. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
+
+    e. Använd följande skript för att uppdatera flera URL: er till ett program:
+
+    ```poweshell
+     Param(
+    [Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+    [Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+    [Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+    )
+
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+    if($ReplyUrls.Length)
+    {
+    echo "Updating Reply urls"
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+    echo "updated"
+    }
+    if($IdentifierUrls.Length)
+    {
+    echo "Updating Identifier urls"
+    $applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+    echo "Found Applications =" $applications.Length
+    $i = 0;
+    do
+    {  
+    $application = $applications[$i];
+    if($application.AppId -eq $servicePrincipal.AppId){
+    Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+    echo "Updated"
+    return;
+    }
+    $i++;
+    }while($i -lt $applications.Length);
+    echo "Not able to find the matched application with this service principal"
+    }
+    ```
+
+8. Resultatet av skriptet kommer att så här enligt nedan efter slutförande av PowerShell-skript och URL-värden uppdateras men inte hämta visas i Azure-portalen. 
+
+    ![Konfigurera enkel inloggning skript](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. På den **Sansan Configuration** klickar du på **konfigurera Sansan** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-7. Konfigurera enkel inloggning på **Sansan** sida, måste du skicka den hämtade **certifikat**, **Sign-Out URL**, **SAML enhets-ID**, och **SAML enkel inloggning Tjänstwebbadress** till [Sansan supportteamet](https://www.sansan.com/form/contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+10. Konfigurera enkel inloggning på **Sansan** sida, måste du skicka den hämtade **certifikat**, **Sign-Out URL**, **SAML enhets-ID**, och **SAML enkel inloggning Tjänstwebbadress** till [Sansan supportteamet](https://www.sansan.com/form/contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 >[!NOTE]
->PC webbläsarinställningen fungerar även för mobila appar och mobila webbläsare tillsammans med dator.  
-
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+>PC webbläsarinställningen fungerar även för mobila appar och mobila webbläsare tillsammans med dator. 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
 ![Skapa Azure AD-användare][100]
@@ -181,7 +233,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-sansan-test-user"></a>Skapa en testanvändare Sansan
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SanSan. SanSan programmet måste användaren som ska etableras i programmet innan du utför enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Sansan. Sansan programmet måste användaren som ska etableras i programmet innan du utför enkel inloggning. 
 
 >[!NOTE]
 >Om du behöver skapa en användare manuellt eller batch-användare, måste du kontakta den [Sansan supportteamet](https://www.sansan.com/form/contact). 

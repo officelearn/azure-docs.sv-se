@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: d050d291e569d6bd2c3f2f11f61e7cd8782eecee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da76313abbb4d65916fedf1b541fc948cb0e97cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Självstudier: Azure Active Directory-integrering med BlueJeans
 
@@ -57,14 +58,14 @@ Du måste lägga till BlueJeans från galleriet i listan över hanterade SaaS-ap
 
 **Utför följande steg för att lägga till BlueJeans från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Active Directory][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
-    
+
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
@@ -103,7 +104,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Konfigurera enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
 
 3. På den **BlueJeans domän och URL: er** avsnittet, utför följande steg:
@@ -114,9 +115,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.BlueJeans.com`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [BlueJeans klienten supportteamet](https://support.bluejeans.com/contact) att hämta dessa värden. 
- 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [BlueJeans klienten supportteamet](https://support.bluejeans.com/contact) att hämta dessa värden.
+
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
@@ -132,42 +133,38 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 7. I en annan webbläsarfönstret, logga in på ditt **BlueJeans** företagets webbplats som administratör.
 
 8. Gå till **ADMIN \> gruppinställningarna \> säkerhet**.
-   
+
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 
 9. I den **säkerhet** avsnittet, utför följande steg:
-   
-   ![SAML för enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML för enkel inloggning")   
-   
+
+   ![SAML för enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML för enkel inloggning")
+
    a. Välj **SAML för enkel inloggning**.
-  
+
    b. Välj **aktivera automatisk etablering**.
 
 10. Gå vidare med följande steg:
 
     ![Certifikat sökvägen](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "certifikat sökväg")
-    
+
     a. Klicka på **Välj fil**, och sedan ladda upp hämtat certifikat.
-   
+
     b. Klistra in **SAML enkel inloggning Tjänstwebbadress** till den **inloggnings-URL** textruta.
-   
+
     c. Klistra in **ändra lösenord URL** till den **lösenord ändra URL** textruta.
-   
+
     d. Klistra in **Sign-Out URL** till den **logga ut URL** textruta.
 
 11. Gå vidare med följande steg:
-    
-    ![Spara ändringarna](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "spara ändringar")
-    
-    a. I den **användar-id** textruta typen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-   
-    b. I den **e-post** textruta typen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-   
-    c. Klicka på **spara ändringar**.
 
-> [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Spara ändringarna](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "spara ändringar")
+
+    a. I den **användar-id** textruta typen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+
+    b. I den **e-post** textruta typen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+
+    c. Klicka på **spara ändringar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -178,18 +175,18 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png) 
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png) 
+
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png)
 
 3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png) 
+
+    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png)
 
 4. På den **användaren** dialogrutan utför följande steg:
- 
+
     ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textruta typen **BrittaSimon**.
@@ -199,55 +196,52 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="creating-a-bluejeans-test-user"></a>Skapa en testanvändare BlueJeans
 
-Om du vill aktivera Azure AD-användare kan logga in på BlueJeans etableras de i BlueJeans.  
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i BlueJeans. BlueJeans stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-bluejeans-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-Vid BlueJeans är etablering en manuell aktivitet.
-
-**Utför följande steg för att etablera en användarkonton:**
+**Om du behöver skapa användare manuellt gör du följande:**
 
 1. Logga in på ditt **BlueJeans** företagets webbplats som administratör.
 
 2. Gå till **ADMIN \> hantera användare \> lägga till användare**.
-   
+
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
-   
+
    >[!IMPORTANT]
    >Den **Lägg till användare** fliken är endast tillgänglig om i den **säkerhetsfliken**, **aktivera automatisk etablering** är avmarkerad. 
-   
+
 3. I den **Lägg till användare** avsnittet, utför följande steg:
 
     ![Lägg till användare](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "lägga till användare")
-    
+
     a. Ange en **BlueJeans användarnamn**, en **e-postadress**, **BlueJeans möte ID**, **kontrollant lösenord**, en **fullständigt namn** , **företagets** av en giltig AAD-konto som du vill etablera i relaterade textrutor.
-    
+
     b. Klicka på **lägga till användare**.
 
 >[!NOTE]
->Du kan använda något annat BlueJeans användarens konto skapas verktyg eller API: er som tillhandahålls av BlueJeans att etablera AAD-användarkonton. 
-> 
+>Du kan använda något annat BlueJeans användarens konto skapas verktyg eller API: er som tillhandahålls av BlueJeans att etablera AAD-användarkonton.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till BlueJeans.
 
-![Tilldela användare][200] 
+![Tilldela användare][200]
 
 **Om du vill tilldela BlueJeans Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 2. Välj i listan med program **BlueJeans**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png) 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png)
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Tilldela användare][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
@@ -258,7 +252,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
-    
+
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
@@ -270,6 +264,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-bluejeans-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -284,4 +279,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_203.png
-

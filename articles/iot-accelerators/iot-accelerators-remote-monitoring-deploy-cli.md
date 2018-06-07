@@ -1,26 +1,23 @@
 ---
-title: Distribuera fjärråtkomst övervakningslösning - Azure Java | Microsoft Docs
-description: Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator med hjälp av CLI.
-services: iot-suite
-suite: iot-suite
+title: Distribuera fjärråtkomst övervakning av Java-lösning - Azure | Microsoft Docs
+description: Den här kursen visar hur du etablerar Fjärrövervaknings solution accelerator med hjälp av CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628131"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera fjärråtkomst övervakning solution accelerator med hjälp av CLI
 
-Den här kursen visar hur du etablerar fjärråtkomst övervakning solution accelerator. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av webbaserade Användargränssnittet på azureiotsuite.com, mer information om det här alternativet finns [Distribuera fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
+Den här kursen visar hur du etablerar Fjärrövervaknings solution accelerator. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av webbaserade Användargränssnittet på azureiotsuite.com, mer information om det här alternativet finns [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -57,7 +54,7 @@ När du distribuerar solution accelerator, finns det flera alternativ som konfig
 | SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en enskild virtuell dator. En _standard_ distribution är avsedd för produktion, har mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en dockerbehållare för att köra mikrotjänster på din lokala dator och använder Azure-tjänster, till exempel lagring och Cosmos-DB i molnet. |
 | Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
 
-Läs om hur du använder den lokala distributionen i [kör remote övervakningslösning lokalt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Läs om hur du använder den lokala distributionen i [körs Fjärrövervaknings lösningen lokalt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="basic-vs-standard-deployments"></a>Grundläggande vs. Standard-distributioner
 
@@ -96,7 +93,7 @@ Skapa en lösning som Standard resulterar i följande Azure-tjänster som etable
 
 ### <a name="example-deploy-net-version"></a>Exempel: distribuera .NET-version
 
-I följande exempel visas hur du distribuerar basic, .NET-versionen av fjärråtkomst övervakning solution accelerator:
+I följande exempel visas hur du distribuerar Fjärrövervaknings solution accelerator basic, .NET-versionen:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Exempel: distribuera Java-version
 
-I följande exempel visas hur du distribuerar standard, Java-versionen av fjärråtkomst övervakning solution accelerator:
+I följande exempel visas hur du distribuerar, Java standardversionen av Fjärrövervaknings solution accelerator:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
@@ -138,6 +135,6 @@ I den här självstudiekursen lärde du dig att:
 > * Distribuera solution accelerator
 > * Logga in på solution accelerator
 
-Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](./iot-accelerators-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen Fjärrövervaknings nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

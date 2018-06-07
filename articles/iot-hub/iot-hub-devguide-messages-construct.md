@@ -1,24 +1,19 @@
 ---
 title: Förstå Azure IoT Hub-meddelandeformat | Microsoft Docs
 description: Utvecklarhandbok - beskrivs formatet och förväntade innehållet i IoT-hubb meddelanden.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633935"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT-hubb
 
@@ -41,9 +36,9 @@ Mer information om hur du kodar och avkodar meddelanden som skickas med olika pr
 
 I följande tabell visas en uppsättning egenskaper i IoT-hubb-meddelanden.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| MessageId |En användare går identifierare för meddelandet som används för request-reply-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) av alfanumeriska tecken, ASCII-7-bitars + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| messageId |En användare går identifierare för meddelandet som används för request-reply-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) av alfanumeriska tecken, ASCII-7-bitars + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Sekvensnummer |En siffra (unika per enhet kö) IoT-hubben har tilldelats varje moln till enhet-meddelande. |
 | Till |Ett mål som anges i [moln till enhet] [ lnk-c2d] meddelanden. |
 | ExpiryTimeUtc |Datum och tid för meddelandet upphör att gälla. |

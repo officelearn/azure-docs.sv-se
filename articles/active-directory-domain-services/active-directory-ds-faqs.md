@@ -1,30 +1,32 @@
 ---
-title: "Vanliga frågor och svar – Azure Active Directory Domain Services | Microsoft Docs"
-description: "Vanliga frågor och svar om Azure Active Directory Domain Services"
+title: Vanliga frågor och svar – Azure Active Directory Domain Services | Microsoft Docs
+description: Vanliga frågor och svar om Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587791"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor (FAQ)
 Den här sidan svar på vanliga frågor om Azure Active Directory Domain Services. Hålla kontroll för uppdateringar.
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
-Referera till den [felsökningsguide](active-directory-ds-troubleshooting.md) efter lösningar på vanliga problem som kan uppstå när du konfigurerar eller administrera Azure AD Domain Services.
+Referera till den [felsökningsguide](active-directory-ds-troubleshooting.md) efter lösningar på vanliga problem med att konfigurera eller administrera Azure AD Domain Services.
 
 ## <a name="configuration"></a>Konfiguration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Kan jag skapa flera hanterade domäner för en enda Azure AD-katalog?
@@ -55,7 +57,7 @@ Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](acti
 Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du inte behöver tillhandahålla, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen - tillhandahålls dessa hanteringsaktiviteter som en tjänst från Microsoft. Därför kan du lägga till ytterligare domänkontrollanter (skrivskyddad eller skrivskyddad) för den hanterade domänen.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Gästanvändare bjudits in till min katalog kan använda Azure AD Domain Services?
-Nej. Gästanvändare bjudits in till din Azure AD-katalog med det [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) process inbjudan är sycned till din Azure AD Domain Services-hanterad domän. Lösenorden för dessa användare lagras inte i Azure AD-katalogen. Därför Azure AD Domain Services har inget sätt att synkronisera NTLM och Kerberos-hashvärden för dessa användare i din hanterade domän. Därför sådana användare kan inte logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
+Nej. Gästanvändare bjudits in till din Azure AD-katalog med det [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) process inbjudan synkroniseras till din Azure AD Domain Services-hanterad domän. Lösenorden för dessa användare lagras inte i Azure AD-katalogen. Därför Azure AD Domain Services har inget sätt att synkronisera NTLM och Kerberos-hashvärden för dessa användare i din hanterade domän. Därför kan kan inte dessa användare logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
 
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan jag ansluta till domänkontrollanten för min hanterade domänen med hjälp av fjärrskrivbord?
@@ -65,13 +67,13 @@ Nej. Du har inte behörighet att ansluta till domänkontrollanterna för den han
 Medlemmar i den administrativa gruppen AAD DC-administratörer kan domänanslutning datorer. Dessutom kan beviljas medlemmar i gruppen fjärråtkomst till skrivbordet till datorer som har varit ansluten till domänen.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Måste jag administratörsbehörighet för domänen för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
-Nej. Du har inte beviljats administratörsbehörighet på den hanterade domänen. Både domän-administratör och företagsadministratörsbehörighet krävs behörighet är inte tillgängliga som du kan använda i domänen. Befintliga domänadministratör eller enterprise administratörsgrupper i Azure AD-katalogen också beviljas inte administratörsbehörighet för domänen/enterprise på domänen.
+Nej. Du har inte beviljats administratörsbehörighet på den hanterade domänen. Både domän-administratör och företagsadministratörsbehörighet krävs behörighet är inte tillgängliga som du kan använda i domänen. Medlemmar i gruppen domänadministratör eller enterprise administratörsgrupper i din lokala Active Directory beviljas också domän/enterprise administratörsbehörighet på den hanterade domänen inte.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Kan jag ändra gruppmedlemskap via LDAP eller andra administrativa verktyg för AD på hanterade domäner?
 Nej. Gruppmedlemskap kan inte ändras i domäner som underhålls av Azure AD Domain Services. Detsamma gäller för användarattribut. Du kan dock ändra gruppmedlemskap eller användarattribut i Azure AD eller på den lokala domänen. Dessa ändringar synkroniseras automatiskt till Azure AD Domain Services.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Hur lång tid tar det innan ändringarna jag göra i Azure AD-katalog som ska visas i min hanterade domänen?
-Ändringar i Azure AD-katalogen med Azure AD-Gränssnittet eller PowerShell synkroniseras till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. När en inledande synkronisering av din katalog är klar tar vanligtvis cirka 20 minuter för ändringar som gjorts i Azure AD återspeglas i din hanterade domän.
+Ändringar i Azure AD-katalogen med Azure AD-Gränssnittet eller PowerShell synkroniseras till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. När den första synkroniseringen är klar tar vanligtvis cirka 20 minuter för ändringar som gjorts i Azure AD återspeglas i din hanterade domän.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Kan jag utöka schemat för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
 Nej. Schemat hanteras av Microsoft för den hanterade domänen. Schematillägg stöds inte av Azure AD Domain Services.
@@ -81,6 +83,9 @@ Ja. Medlemmar i gruppen AAD DC-administratörer beviljas behörighet för DNS-ad
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Vad är lösenordsprincipen som livslängd på en hanterad domän?
 Standardlivstid för lösenord på en Azure AD Domain Services-hanterad domän är 90 dagar. Det här lösenordet livstid är inte synkroniserad med lösenord livslängd som konfigurerats i Azure AD. Du kan därför ha en situation där användarnas lösenord ut inom din hanterade domän, men fortfarande är giltiga i Azure AD. I sådana fall kan användarna behöver för att ändra sina lösenord i Azure AD och det nya lösenordet synkroniseras till din hanterade domän. Dessutom synkroniseras 'den lösenordet-har-inte-upphör' och 'user-must-change-password-at-next-logon'-attribut för användarkonton inte med din hanterade domän.
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Ger skydd för kontoutelåsning AD i Azure AD Domain Services?
+Ja. Fem ogiltig lösenordsförsök inom 2 minuter på den hanterade domänen orsaka ett användarkonto blir utelåst under 30 minuter. Efter 30 minuter låses användarkontot automatiskt. Ogiltig lösenordsförsök på den hanterade domänen låser inte ut användarkontot i Azure AD. Användarkontot är låst i din Azure AD Domain Services-hanterad domän.
 
 ## <a name="billing-and-availability"></a>Fakturering och tillgänglighet
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Är Azure AD Domain Services en betald tjänst?

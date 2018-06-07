@@ -3,7 +3,7 @@ title: Förutsättningar för att få åtkomst till Azure Active Directory repor
 description: Lär dig mer om förutsättningar för att kunna komma åt Azure AD reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a38447150dd283ff21a852690cfd48477472f7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588768"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Förutsättningar för att få åtkomst till Azure Active Directory reporting API
 
-Den [Azure Active Directory (AD Azure) reporting API: er](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) ger dig programmatisk åtkomst till data via en uppsättning REST-baserad API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg.
+[Azure Active Directory reporting API: er](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg.
 
 Reporting API: N används [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) att bevilja åtkomst till webb-API: er.
 
@@ -230,7 +232,7 @@ För att få ditt program klienthemlighet, måste du skapa en ny nyckel och spar
 
 - [Hämta data med Azure Active Directory reporting API med certifikat](active-directory-reporting-api-with-certificates.md).
 
-- [Hämta en första intryck reporting API](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+- [Få ett första intryck av rapport-API:er](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 
-- [Skapa din egen lösning](active-directory-reporting-api-getting-started-azure-portal.md#customize)
+- [Skapa dina egen lösning](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

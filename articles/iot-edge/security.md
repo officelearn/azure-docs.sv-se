@@ -1,19 +1,19 @@
 ---
-title: "Säkerhet i Azure IoT-Edge | Microsoft Docs"
-description: "Säkerhet, autentisering och auktorisering av IoT-gränsenheterna"
-services: iot-edge
-keywords: 
+title: Säkerhet i Azure IoT-Edge | Microsoft Docs
+description: Säkerhet, autentisering och auktorisering av IoT-gränsenheterna
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631436"
 ---
 # <a name="securing-azure-iot-edge---preview"></a>Skydda Azure IoT-Edge - förhandsgranskning
 
@@ -42,7 +42,7 @@ Möjligheten att delegera behörighet och kontrollera åtkomsten är avgörande 
 
 Andra auktorisering inkluderar certifikat för signering rättigheter och rollbaserad åtkomstkontroll (RBAC).  Utökning av framework säkerhet tillåter införandet av andra mogen för auktorisering. 
 
-## <a name="attestation"></a>Hälsoattestering
+## <a name="attestation"></a>Attestering
 
 Attesteringen säkerställer integriteten hos programvara bits.  Det är viktigt för att upptäcka och förhindra skadlig kod.  Azure IoT kant säkerhetsramverk klassificerar attestering enligt tre huvudkategorier:
 

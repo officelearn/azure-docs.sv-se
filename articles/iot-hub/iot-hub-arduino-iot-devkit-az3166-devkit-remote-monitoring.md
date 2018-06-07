@@ -1,24 +1,20 @@
 ---
-title: 'IoT DevKit till molnet: ansluta IoT MXChip DevKit till Azure IoT Hub | Microsoft Docs'
+title: IoT DevKit till molnet--ansluta IoT MXChip DevKit till Azure IoT Hub | Microsoft Docs
 description: I den här kursen lär du dig hur du skickar status för sensorer på IoT DevKit AZ3166 till Azure IoT-Fjärrövervaknings solution accelerator.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631504"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT-Fjärrövervaknings solution accelerator
 
@@ -40,7 +36,7 @@ En aktiv Azure-prenumeration. Om du inte har någon, kan du registrera via någo
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Skapa en Azure IoT-Fjärrövervaknings solution accelerator
 
-1. Gå till [Azure IoT-lösningen acclerators plats](https://www.azureiotsuite.com/) och på **skapa en ny lösning**.
+1. Gå till [Azure IoT-lösningen acceleratorer plats](https://www.azureiotsolutions.com/) och på **skapa en ny lösning**.
   ![Välj typ av Azure IoT solution accelerator](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > Det här exemplet skapar en IoT-hubb S2 när den skapar en IoT Fjärrövervaknings solution accelerator som standard. Om den här IoT-hubb inte används med massiv antalet enheter, rekommenderar vi du nedgradera den från S2 till S1 och ta bort IoT Fjärrövervaknings solution accelerator så att relaterade IoT-hubb kan också tas bort, när du inte längre behöver. 

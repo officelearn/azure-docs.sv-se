@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617900"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Kopiera data från Netezza med hjälp av Azure Data Factory (Beta)
 
@@ -56,7 +57,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Vilken säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutning till datalagret. T.ex. `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>– Endast oskyddad (**onlyUnSecured**): drivrutinen inte använda SSL.<br/>- **Önskad Unsecured (preferredUnSecured) (standard)**: om servern innehåller ett val, drivrutinen inte använda SSL. <br/>- **Önskad skyddat (preferredSecured)**: om servern innehåller ett val, drivrutinen använder SSL. <br/>- **Endast skyddat (onlySecured)**: drivrutinen ansluter inte såvida inte en SSL-anslutning är tillgänglig | Nej |
-| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. T.ex. `UseSystemTrustStore=<cert path>;`| Ja, om SSL är aktiverat |
+| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. T.ex. `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel:**
 

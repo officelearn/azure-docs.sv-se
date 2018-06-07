@@ -1,12 +1,12 @@
 ---
 title: Konfigurera Python med Azure App Service Web Apps
-description: "Den här självstudiekursen beskrivs alternativ för redigering och konfigurerar en enkel webbserver Gateway Interface (WSGI) kompatibla Python-program i Azure App Service Web Apps."
+description: Den här självstudiekursen beskrivs alternativ för redigering och konfigurerar en enkel webbserver Gateway Interface (WSGI) kompatibla Python-program i Azure App Service Web Apps.
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598648"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Konfigurera Python med Azure App Service Web Apps
 Den här självstudiekursen beskrivs alternativ för redigering och konfigurera en grundläggande Web Server Gateway Interface (WSGI) kompatibla Python-program på [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,9 @@ Beskriver ytterligare funktioner för Git-distribution, till exempel virtuell mi
 ## <a name="bottle-django-or-flask"></a>Bottle, Django eller Flask?
 Azure Marketplace innehåller mallar för Bottle, Django och Flask ramverk. Om du skapar din första webbapp i Azure App Service kan skapa du en snabbt från Azure portal:
 
-* [Skapa webbappar med Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Skapa webbappar med Django](https://portal.azure.com/#create/PTVS.Django)
-* [Skapa webbappar med Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Webbprogram med Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Webbprogram med Django](https://portal.azure.com/#create/PTVS.Django)
+* [Webbprogram med Flask på Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Skapa en webbapp i Azure-portalen
 Den här kursen förutsätter att en befintlig Azure-prenumeration och åtkomst till Azure-portalen.
@@ -53,7 +54,7 @@ Följande filer skapas i nästa avsnitt. De ska placeras i roten på Git-lagring
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>WSGI Handler
+## <a name="wsgi-handler"></a>WSGI hanterare
 WSGI är en Python-standard som beskrivs av [program 3333](http://www.python.org/dev/peps/pep-3333/) definierar ett gränssnitt mellan webbservern och Python. Det ger en standardiserad gränssnitt för att skriva olika webbaserade program och ramverk som använder Python. Populära Python web ramverk använder dag WSGI. Azure App Service Web Apps får du stöd för ramverk; Dessutom kan avancerade användare även skapa egna så länge anpassade hanteraren följer riktlinjer för WSGI-specifikationen.
 
 Här är ett exempel på en `app.py` som definierar en anpassad hanterare:
@@ -90,7 +91,7 @@ Exempel `requirements.txt`:
     azure==0.8.4
 
 
-## <a name="python-version"></a>Python Version
+## <a name="python-version"></a>Python-version
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Exempel `runtime.txt`:

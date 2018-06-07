@@ -1,25 +1,20 @@
 ---
-title: "Konfigurera rapporter för Azure-säkerhetskopiering"
-description: "Den här artikeln handlar om hur du konfigurerar Power BI-rapporter för Azure Backup med Recovery Services-valvet."
+title: Konfigurera rapporter för Azure-säkerhetskopiering
+description: Den här artikeln handlar om hur du konfigurerar Power BI-rapporter för Azure Backup med Recovery Services-valvet.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605237"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azure Backup med Recovery Services-valvet och att få åtkomst till dessa rapporter med hjälp av Power BI. När du utför dessa steg måste gå du till Power BI att visa alla rapporter, anpassa och skapa rapporter direkt. 
@@ -147,7 +142,7 @@ När konfigurera lagringskonto för rapporter med hjälp av recovery services-ve
 
    Ja, du kan konfigurera samma lagringskonto över olika valv att visa rapporter för cross-valvet. Du kan också konfigurera samma lagringskonto för valv över prenumerationer. Du kan sedan använda det här lagringskontot vid anslutning till Azure Backup-Innehållspaketet i Power BI för att visa rapporterna. Det lagringskonto som valts bör dock i samma region som recovery services-valvet.
    
-## <a name="troubleshooting-errors"></a>Felsökning av fel
+## <a name="troubleshooting-errors"></a>Felsöka fel
 | Felinformation | Lösning |
 | --- | --- |
 | När du har skapat lagringskontot för säkerhetskopiering rapporter **Lagringskonto** visas fortfarande **inte konfigurerad**. | Om du har konfigurerat storage-konto, flödar reporting data i trots problemet. Lös problemet genom att gå till Azure-portalen > alla tjänster > diagnostikinställningar > RS valv > Redigera inställning. Ta bort den tidigare konfigurerade inställningen och skapa en ny inställning från samma bladet. Ändra fältet **namn** till **tjänsten**. Detta ska visa konfigurerade storage-konto. |

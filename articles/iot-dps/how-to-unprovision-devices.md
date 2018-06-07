@@ -1,22 +1,19 @@
 ---
 title: Hur du ta bort etableringen av enheter som har etablerats med Azure IoT Hub-enhet etablering Service | Microsoft Docs
 description: Avetablering enheter som har etablerats med Azure IoT Hub etablering av tjänst
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr;bryanla
+ms.author: bryanla
 ms.date: 05/11/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 56d9c4c057e226f6cd93551380436cdc52d79169
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630365"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Hur du ta bort etableringen av enheter som tidigare har etablerats för automatisk 
 

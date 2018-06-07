@@ -1,38 +1,35 @@
 ---
 title: Språk som stöds i Azure Maps | Microsoft Docs
 description: Lär dig mer om språk som stöds för tjänster i Azure Maps
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600246"
 ---
 # <a name="azure-maps-supported-languages"></a>Språk som stöds av Azure Maps
 Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell innehåller språkkoderna som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Maps | Search | Routning | Trafik incidenter | JS kartkontrollen | Tidszon |
+| ID         | Namn                   |  Kartor | Search | Routning | Trafik incidenter | JS kartkontrollen | Tidszon |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | AF ÖA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | EU-ES      | Baskiska                 |       |        |         |                   |                |     ✓     |
 | BG-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | CA-ES      | Katalanska                |       |    ✓   |         |                   |                |     ✓     |
-| zh-HanS    | Kinesiska (förenklad)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Kinesiska (traditionell)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
+| zh-HanS    | Förenklad kinesiska   |       |  zh-CN |         |                   |                |     ✓     |
+| zh-HanT    | Traditionell kinesiska  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
 | HR-HR      | Kroatiska               |       |    ✓   |         |                   |                |     ✓     |
-| CS-CZ      | tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| CS-CZ      | Tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-NL      | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-vara      | Engelska (Nya Zeeland)        |       |    ✓   |         |                   |                |     ✓     |
@@ -46,7 +43,7 @@ Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell inne
 | el-GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | han IL      | Hebreiska                 |       |        |         |         ✓         |                |     ✓     |
 | Hej IN      | Hindi                  |       |        |         |                   |                |     ✓     |
-| hu-HU      | ungerska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| hu-HU      | Ungerska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ID-ID      | Indonesiska             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | IT-IT      | Italienska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japanska               |       |        |         |                   |                |     ✓     |
@@ -56,7 +53,7 @@ Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell inne
 | lv-LV      | Lettiska                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Mina MS      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| NB-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NB-NO      | Norska Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugisiska (Brasilien)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | PT-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

@@ -1,30 +1,27 @@
 ---
 title: Hantering av enheter i fjärranslutna övervakningslösning - Azure | Microsoft Docs
 description: Den här kursen visar hur du hanterar enheter som är anslutna till den fjärranslutna övervakningslösning.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627287"
 ---
 # <a name="manage-and-configure-your-devices"></a>Hantera och konfigurera dina enheter
 
-Den här kursen visar enheten funktioner för hantering av fjärråtkomst övervakningslösning. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
+Den här kursen visar enheten hanteringsfunktioner för lösning för övervakning av fjärråtkomst. I självstudiekursen används ett scenario för att införa dessa funktioner i Contoso IoT-programmet.
 
-Contoso har beslutat nya maskiner att expandera en av sina resurser för att öka utdata. Medan du väntar nya maskiner som ska levereras som du vill köra en simulering om du vill kontrollera hur din lösning. Som en operator som du vill hantera och konfigurera enheterna i den fjärranslutna övervakningslösning.
+Contoso har beslutat nya maskiner att expandera en av sina resurser för att öka utdata. Medan du väntar nya maskiner som ska levereras som du vill köra en simulering om du vill kontrollera hur din lösning. Som en operator som du vill hantera och konfigurera enheterna i Fjärrövervaknings-lösning.
 
-För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter remote övervakningslösning använder IoT-hubb funktioner som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-customize.md).
+För att tillhandahålla en utökningsbar sätt att hantera och konfigurera enheter Fjärrövervaknings lösningen använder funktioner för IoT-hubb som [jobb](../iot-hub/iot-hub-devguide-jobs.md) och [direkt metoder](../iot-hub/iot-hub-devguide-direct-methods.md). Information om hur enheten utvecklare implementerar metoderna på en fysisk enhet finns [anpassa Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-customize.md).
 
 I den här guiden får du lära dig att:
 
@@ -36,9 +33,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
+Om du vill följa den här självstudiekursen, måste en distribuerad instans av Fjärrövervaknings-lösning i din Azure-prenumeration.
 
-Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
+Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](iot-accelerators-remote-monitoring-deploy.md) kursen.
 
 ## <a name="add-a-simulated-device"></a>Lägg till en simulerad enhet
 
@@ -50,7 +47,7 @@ Lämna antalet enheter för att etablera inställd på **1**. Välj den **felakt
 
 ![Etablera en simulerad motorn-enhet](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-Mer information om hur du etablerar en *fysiska* enhet, finns [ansluta enheten till fjärråtkomst övervakning solution accelerator](iot-accelerators-connecting-devices-node.md).
+Mer information om hur du etablerar en *fysiska* enhet, finns [ansluta enheten till Fjärrövervaknings solution accelerator](iot-accelerators-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Testa den simulerade enheten
 
@@ -113,6 +110,6 @@ Nu när du har lärt dig hur du hanterar dina enheter, föreslagna nästa steg �
 
 * [Felsök och åtgärda enhetsproblem](iot-accelerators-remote-monitoring-maintain.md).
 * [Testa din lösning med simulerade enheter](iot-accelerators-remote-monitoring-test.md).
-* [Ansluta enheten till fjärråtkomst övervakning solution accelerator](iot-accelerators-connecting-devices-node.md).
+* [Ansluta enheten till Fjärrövervaknings solution accelerator](iot-accelerators-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

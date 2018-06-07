@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 308202addbca447ee0dab7a55a1ad2b3b6600a10
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603329"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa prenumerationer Azure Enterprise (förhandsversion)
 
@@ -175,7 +176,7 @@ I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du vill använda den här preview-modulen, installerar du den genom att köra `Install-Module AzureRM.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera den senaste versionen av PowerShellGet från [Hämtningsmodul PowerShellGet](/powershell/gallery/psget/get_psget_module).
+Om du vill använda den här preview-modulen, installerar du den genom att köra `Install-Module AzureRM.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera den senaste versionen av PowerShellGet från [Hämtningsmodul PowerShellGet](/powershell/gallery/installing-psget).
 
 Använd den [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) tillsammans med `enrollmentAccount` objekt-ID som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
 
@@ -299,4 +300,4 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 * Ett exempel på hur du skapar prenumerationer med hjälp av .NET finns [exempelkoden på GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Läs mer om Azure Resource Manager och dess API: er i [översikt över Azure Resource Manager](resource-group-overview.md).
 * Mer information om hur du hanterar många prenumerationer med hjälp av Hanteringsgrupper finns [ordna dina resurser med Azure-Hanteringsgrupper](management-groups-overview.md)
-* En omfattande bästa praxis riktlinjer för stora organisationer på prenumerationen styrning finns [Azure enterprise kodskelett - normativ prenumeration styrning](resource-manager-subscription-governance.md)
+* En omfattande bästa praxis riktlinjer för stora organisationer på prenumerationen styrning finns [Azure enterprise kodskelett - normativ prenumeration styrning](/azure/architecture/cloud-adoption-guide/subscription-governance)

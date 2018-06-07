@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cf955c15b1dfe3ef0c46ab5023035986da5c5c99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c75ec11fc11febbd896c715ead9f347062facb44
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Självstudier: Azure Active Directory-integrering med ServiceNow
 
@@ -271,10 +272,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Du kan konfigurera Azure AD för att generera Azure AD användar-ID (användarens huvudnamn) eller e-postadressen som den unika identifieraren i SAML-token genom att gå till den **ServiceNow > attribut > enkel inloggning** på Azure portal och mappa det önskade fältet som ska den **nameidentifier** attribut. Värdet för det markerade attributet i Azure AD (till exempel användarens huvudnamn) måste överensstämma med värdet som lagras i ServiceNow för det angivna fältet (till exempel användarnamn)
 
-     e. Under **x509 certifikat**, visar en lista över certifikat som du har skapat i föregående steg.
+    e. Under **x509 certifikat**, visar en lista över certifikat som du har skapat i föregående steg.
 
-     > [!NOTE]
-     > ServiceNow tillåter inte aktivering av Idp utan att klicka på knappen Testa anslutning, om du vill åsidosätta samma följer den nedanstående steg.
+    > [!NOTE]
+    > ServiceNow tillåter inte aktivering av Idp utan att klicka på knappen Testa anslutning, om du vill åsidosätta samma följer den nedanstående steg.
 
 22. Klicka på ikonen menyn från din nya identitetsleverantör som du har skapat som en del av konfigurationen och i listan Välj **kopiera sys_id**
 
@@ -443,7 +444,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > Du kan konfigurera Azure AD för att generera Azure AD användar-ID (användarens huvudnamn) eller e-postadressen som den unika identifieraren i SAML-token genom att gå till den **ServiceNow > attribut > enkel inloggning** på Azure portal och mappa det önskade fältet som ska den **nameidentifier** attribut. Värdet för det markerade attributet i Azure AD (till exempel användarens huvudnamn) måste överensstämma med värdet som lagras i ServiceNow för det angivna fältet (till exempel användarnamn)
 
     f. Klicka på **Spara**.
- 
+
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -475,10 +476,13 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-servicenow-test-user"></a>Skapa en testanvändare ServiceNow
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i ServiceNow. Om du inte vet hur du lägger till en användare i ditt ServiceNow eller snabba ServiceNow-konto, kontakta [supportteamet för ServiceNow-klient](https://www.servicenow.com/support/contact-support.html)
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i ServiceNow. ServiceNow stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-servicenow-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+
+> [!NOTE]
+> Om du behöver skapa en användare manuellt, måste du kontakta [supportteamet för ServiceNow-klient](https://www.servicenow.com/support/contact-support.html)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -521,6 +525,8 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Konfigurera Användaretablering](active-directory-saas-servicenow-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -535,4 +541,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-

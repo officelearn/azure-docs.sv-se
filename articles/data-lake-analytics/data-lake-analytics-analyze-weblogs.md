@@ -1,29 +1,26 @@
 ---
-title: "Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics | Microsoft Docs"
-description: "Lär dig att analysera webbplatsloggar med hjälp av Data Lake Analytics. "
+title: Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
+description: Lär dig att analysera webbplatsloggar med hjälp av Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623374"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
 Lär dig att analysera webbplatsloggar med hjälp av Data Lake Analytics, särskilt för att ta reda på vilka referenter råkade ut för fel när de försöker att gå till webbplatsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Visual Studio 2015 eller Visual Studio 2013**.
 * **[Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -172,7 +169,7 @@ Du kan lägga till ytterligare användardefinierade operatorer till programmet. 
 3. Dubbelklicka på **UnsuccessfulResponsees.log**.
 4. Du kan också dubbelklicka på filen i diagramvyn för jobbet för att kunna gå direkt till utdata.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Om du vill komma igång med Data Lake Analytics med hjälp av olika verktyg, se:
 
 * [Kom igång med Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)

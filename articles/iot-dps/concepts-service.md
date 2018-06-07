@@ -1,22 +1,19 @@
 ---
 title: Koncept i Azure IoT Hub-enhet etablering Service-tjänsten | Microsoft Docs
 description: Beskriver-etablering koncept som är specifika för enheter med DP- och IoT-hubb
-services: iot-dps
-keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: briz
+ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628308"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT-hubb enheten etablering-koncept
 

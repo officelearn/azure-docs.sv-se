@@ -1,18 +1,19 @@
 ---
 title: Administrera en Azure IoT centralt program | Microsoft Docs
 description: Som en administratör så att administrera dina Azure IoT centralt program
-services: iot-central
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: b60b9e851a3b6612964e67e7764ad8d43d606b4e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628563"
 ---
 # <a name="how-to-administer-your-application"></a>Så här administrerar du ditt program
 
@@ -74,7 +75,7 @@ Användare i den **administratör** rollen har åtkomst till alla funktioner i e
 
 Användaren som skapar ett program tilldelas automatiskt den **administratör** roll. Det måste alltid finnas minst en användare i den **administratör** roll.
 
-### <a name="application-builder"></a>ApplicationBuilder
+### <a name="application-builder"></a>Application Builder
 
 Användare i den **Application Builder** roll kan göra allt i ett Azure IoT centrala program utom administrera programmet.
 

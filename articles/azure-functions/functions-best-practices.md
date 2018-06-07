@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599576"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -116,7 +117,8 @@ Inställningar i värdfilen gäller över alla funktioner i appen, inom en *inst
 Andra värden konfigurationsalternativ finns [i värden configuration dokumentet](functions-host-json.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information finns i följande resurser:
 
-Eftersom Azure Functions använder Azure App Service, bör du också vara medveten om Apptjänst riktlinjer.
-* [Patterns and Practices HTTP prestandaoptimering](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [Hur du hanterar anslutningar i Azure Functions](manage-connections.md)
+* [Metodtips för Azure App Service](../app-service/app-service-best-practices.md)

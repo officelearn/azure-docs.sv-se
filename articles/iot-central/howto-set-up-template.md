@@ -1,18 +1,19 @@
 ---
 title: Ange en mall för enheten i Azure IoT centrala program | Microsoft Docs
 description: Lär dig hur du ställer in en mall för enheten med mått, inställningar, egenskaper, regler och instrumentpanelen.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629243"
 ---
 # <a name="set-up-a-device-template"></a>Ange en mall för enhet
 
@@ -39,7 +40,7 @@ Med den här enheten mallen operatör kan skapa och ansluta verkliga fläkt enhe
 > [!NOTE]
 Endast builders och administratörer kan skapa, redigera och ta bort enheten mallar. Alla användare kan skapa enheter i den **enheten Explorer** sida från befintliga mallar för enheten.
 
-## <a name="create-a-new-device-template"></a>Skapa en ny mall för enhet
+## <a name="create-a-new-device-template"></a>Skapa en ny enhetsmall
 
 1. Navigera till den **Application Builder** sidan.
 
@@ -106,7 +107,7 @@ När du har valt **spara**, **fläkt läge** tillstånd mätning visas i listan 
 
 ![Tillstånd mätningar diagram](./media/howto-set-up-template/statemeasurementschart.png)
 
-Om, det finns för många datapunkter som skickas av enheten inom en liten varaktighet, visas tillstånd måttet med en annan visual enligt nedan. Om du klickar på diagrammet visas alla datapunkter inom denna tidsperiod i kronologisk ordning. Du kan också begränsa tidsintervallet för att se mätningen ritas i diagrammet.
+Om det finns för många datapunkter som skickas av enheten på kort tid visas tillståndsmåttet med ett annat utseende enligt exemplet nedan. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervallet för att se mätningen ritas i diagrammet.
 
 ![Information om tillstånd mått](./media/howto-set-up-template/statemeasurementsdetail.png)
 

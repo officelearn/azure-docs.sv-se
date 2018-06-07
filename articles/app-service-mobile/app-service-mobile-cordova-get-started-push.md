@@ -1,10 +1,10 @@
 ---
-title: "Lägg till push-meddelanden i en Apache Cordova-app med funktionen Mobilappar i Azure App Service | Microsoft Docs"
-description: "Lär dig hur du använder Mobile Apps för att skicka push-meddelanden till din Apache Cordova-app."
+title: Lägg till push-meddelanden i en Apache Cordova-app med funktionen Mobilappar i Azure App Service | Microsoft Docs
+description: Lär dig hur du använder Mobile Apps för att skicka push-meddelanden till din Apache Cordova-app.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598002"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Lägg till push-meddelanden i din Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Den här kursen förutsätter att du har en Apache Cordova-program som har utvec
 
 För att slutföra den här kursen behöver du:
 
-* En dator med [Visual Studio Community 2015] [ 2] eller senare 
+* En dator med [Visual Studio Community 2015] [ 2] eller senare
 * [Visual Studio Tools för Apache Cordova][4]
 * En [aktivt Azure-konto][3]
 * En slutförd [Apache Cordova quickstart] [ 5] projekt
 * (Android) En [Google-konto] [ 6] med en verifierad e-postadress
 * (iOS) En [Apple Developer Program medlemskap] [ 7] och en iOS-enhet (iOS-simulatorn inte stöder push-meddelanden)
-* (Windows) En [Windows Store-utvecklarkonto] [ 8] och en Windows 10-enhet
+* (Windows) En [Store-utvecklarkonto] [ 8] och en Windows 10-enhet
 
 ## <a name="configure-hub"></a>Konfigurera en meddelandehubb
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -338,9 +339,9 @@ Kontrollera att ett meddelande tas emot när objektet har lagts till.
 
 Lär dig hur du använder följande SDK:
 
-* [Apache Cordova SDK][15]
-* [ASP.NET Server SDK][1]
-* [Node.js Server SDK][16]
+* [Apache Cordova-SDK][15]
+* [ASP.NET Server-SDK][1]
+* [Node.js Server-SDK][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

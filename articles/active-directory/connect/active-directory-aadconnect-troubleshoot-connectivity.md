@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593021"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutning mellan Azure AD Connect och AD Azure fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är stor sannolikhet kommer att visas i en miljö med en proxyserver.
@@ -44,7 +46,7 @@ Följande tabell är det absoluta minst för att kunna ansluta till Azure AD all
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*.verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
-| \*.entrust.com |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
+| \*. entrust.com |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
 | \*.windows.net |HTTPS/443 |Används för att logga in på Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Används för MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Används för att konfigurera Azure AD-katalogen och importera och exportera data. |
@@ -112,37 +114,37 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:32 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
+| 1/11/2016 8:32 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Konfigurera**
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |ansluta: / /*bba900 fästpunkt*. microsoftonline.com:443 |
+| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:44 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
+| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Inledande synkronisering**
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |ansluta: / /*bba900 fästpunkt*. microsoftonline.com:443 |
+| 1/11/2016 8:49 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 Det här avsnittet beskriver fel som kan returneras från ADAL (autentiseringsbiblioteket används av Azure AD Connect) och PowerShell. Felet förklaras hjälper dig i Förstå nästa steg.

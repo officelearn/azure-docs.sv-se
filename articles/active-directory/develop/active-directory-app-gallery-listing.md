@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594099"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -33,20 +35,19 @@ Azure Active Directory (AD Azure) är en molnbaserad identitetstjänst. Den [Azu
 
 *  Kunder att hitta den bästa möjliga enkel inloggning.
 
-*  Programkonfigurationen är enkel och minimal. 
+*  Programkonfigurationen är enkel och minimal.
 
 *  En snabbsökning hittar programmet i galleriet.
 
-*  Frigör Basic, och alla Premium Azure AD-användare kan använda den här integreringen. 
+*  Frigör Basic, och alla Premium Azure AD-användare kan använda den här integreringen.
 
-*  Gemensamma kunder få stegvisa configuration självstudiekursen. 
+*  Gemensamma kunder få stegvisa configuration självstudiekursen.
 
 *  Kunder som använder SCIM kan använda etablering för samma app.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Förutsättningar: Implementera federation-protokollet
 
-Om du vill visa ett program i appgalleriet för Azure AD, måste du först använder du ett av följande federation protokoll som stöds av Azure AD. Läs villkoren för Azure AD application gallery härifrån. 
+Om du vill visa ett program i appgalleriet för Azure AD, måste du först att implementera ett av följande federation protokoll som stöds av Azure AD och samtycker till villkoren för Azure AD application Gallery. Läs villkoren för Azure AD application gallery från [här](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect**: skapa flera program i Azure AD och genomföra den [Azure AD medgivande framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) för ditt program. Skicka inloggningsbegäran om till en gemensam slutpunkt så att en kund kan ge medgivande till programmet. Du kan styra användaråtkomst baserat på klient-ID och användarens UPN togs emot i token. Om du vill integrera ditt program med Azure AD, följer du de [utvecklare instruktioner](active-directory-authentication-scenarios.md).
 

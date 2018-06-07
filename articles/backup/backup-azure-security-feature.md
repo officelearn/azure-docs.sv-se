@@ -1,24 +1,19 @@
 ---
-title: Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup | Microsoft Docs
+title: Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att säkerhetskopiera säkrare
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 11483cd87600ef8b10c2c7492e2434b9ab97149e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606213"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar som använder Azure Backup
 Frågor om säkerhetsproblem som skadlig programvara, är en utpressningstrojan som och intrångsidentifiering, ökar. Dessa säkerhetsproblem kan vara kostsamma vad gäller både pengar och data. För att skydda mot sådana angrepp ger Azure Backup nu säkerhetsfunktioner för att skydda hybrid säkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agenten och Azure Backup Server. Funktionerna är:

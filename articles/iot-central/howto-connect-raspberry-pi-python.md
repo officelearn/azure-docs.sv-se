@@ -1,18 +1,19 @@
 ---
 title: Koppla de olika processtegen en hallon Pi till dina Azure IoT centralt program (Python) | Microsoft Docs
 description: Som en enhet utvecklare, hur du ansluter en hallon Pi till dina Azure IoT centralt program använder Python.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 23ab31d6d2357bfcb184e5b3022155bef5ace658
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629073"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en hallon Pi till dina Azure IoT centralt program (Python)
 
@@ -32,7 +33,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 ### <a name="telemetry-measurements"></a>Telemetri mått
 
-| Fältnamn     | Enheter  | Minimum | Maximal | Decimaler |
+| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | fuktighet       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -51,7 +52,7 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Decimaler | Minimum | Maximal | Inledande |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
 | Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
@@ -70,7 +71,7 @@ Visa/Dölj inställningar
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |
 
-### <a name="add-a-real-device"></a>Lägga till en verklig enhet
+### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 Azure IoT centrala programmet, lägga till en verklig enhet från den **hallon Pi** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
 

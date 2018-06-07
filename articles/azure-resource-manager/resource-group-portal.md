@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603393"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Hantera Azure-resurser via portalen
 
@@ -58,7 +59,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursg
    
     ![resursgruppen för PIN-kod](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## <a name="tag-resources"></a>Taggen resurser
+## <a name="tag-resources"></a>Tagga resurser
 Du kan lägga till taggar till resursgrupper och resurser och organisera dem logiskt dina tillgångar. Information om hur du arbetar med taggar finns [med taggar för att organisera dina Azure-resurser](resource-group-using-tags.md).
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
@@ -130,5 +131,5 @@ Tar bort en resursgrupp alla resurser som ingår i den. Du kan också ta bort en
 * Om du vill visa information om en distribution finns [visa distributionsåtgärder](resource-manager-deployment-operations.md).
 * För att distribuera resurser via portalen finns [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
 * För att hantera åtkomst till resurser, se [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
-* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md).
+* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -1,22 +1,20 @@
 ---
 title: Visar information om en koordinat med Azure Maps | Microsoft Docs
 description: Så här visar du information om en adress på kartan när en användare väljer en koordinat
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: bb8644724cc872a0a8bc331e76251218492fd93d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3caae47f7f8f5f9c917e3a59513e6cd33cdcaeae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600501"
 ---
 # <a name="get-information-from-a-coordinate"></a>Hämta information från en koordinat
 
@@ -45,3 +43,7 @@ Läs mer om de klasser och metoder som används i den här artikeln:
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [Öppna](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [Stäng](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+Att lägga till i din maps mer kodexempel finns i följande artiklar: 
+* [Visa anvisningar från A till B](./map-route.md)
+* [Visa trafik](./map-show-traffic.md)

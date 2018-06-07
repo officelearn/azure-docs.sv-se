@@ -3,16 +3,17 @@ title: Distribuera till Azure Analysis Services med SSDT | Microsoft Docs
 description: Lär dig hur du distribuerar en tabellmodell till en Azure Analysis Services-server med SSDT.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595666"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Distribuera en modell från SSDT
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda SQL Server Data Tools (SSDT) för att skapa och distribuera ett tabellmodellprojekt som du arbetar med. 
@@ -29,15 +30,18 @@ Du behöver följande för att komma igång:
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Så här distribuerar du en tabellmodell från SSDT
+## <a name="get-the-server-name"></a>Hämta namnet på servern
 
-1. Innan du distribuerar måste du hämta servernamnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
+Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    
-    ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. Välj SSDT > **Solution Explorer**, högerklicka på projektet > **Egenskaper**. Klistra sedan in servernamnet i **Distribution** > **Server**.   
+![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>Distribuera från SSDT
+
+1. Välj SSDT > **Solution Explorer**, högerklicka på projektet > **Egenskaper**. Klistra sedan in servernamnet i **Distribution** > **Server**.   
    
     ![Klistra in servernamnet i egenskapen för distributionsservern](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. I **Solution Explorer** högerklickar du på **Egenskaper** och klickar sedan på **Distribuera**. Du kan uppmanas att logga in i Azure.
+2. I **Solution Explorer** högerklickar du på **Egenskaper** och klickar sedan på **Distribuera**. Du kan uppmanas att logga in i Azure.
    
     ![Distribuera till en server](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

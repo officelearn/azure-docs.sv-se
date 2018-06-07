@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: Komma igång | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: Komma igång | Microsoft Docs'
 description: Aktivera Azure Active Directory Domain Services med Azure-portalen
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587910"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure-portalen
 
@@ -40,16 +42,19 @@ Den administrativa gruppen skapas automatiskt i Azure AD-katalogen. Den här gru
 
 3. När du är klar klickar du på **OK** att gå vidare till den **sammanfattning** sidan i guiden.
 
-4. På den **sammanfattning** sidan i guiden, granska konfigurationsinställningarna för den hanterade domänen. Du kan gå tillbaka till något steg i guiden för att göra ändringar, om det behövs. När du är klar klickar du på **OK** att skapa den nya Hantera domänen.
+
+## <a name="deploy-your-managed-domain"></a>Distribuera din hanterade domän
+
+1. På den **sammanfattning** sidan i guiden, granska konfigurationsinställningarna för den hanterade domänen. Du kan gå tillbaka till något steg i guiden för att göra ändringar, om det behövs. När du är klar klickar du på **OK** att skapa den nya Hantera domänen.
 
     ![Sammanfattning](./media/getting-started/domain-services-blade-summary.png)
 
-5. Du ser ett meddelande som visar förloppet för distributionen av Azure AD Domain Services. Klicka på meddelandet om du vill se detaljerad status för distributionen.
+2. Du ser ett meddelande som visar förloppet för distributionen av Azure AD Domain Services. Klicka på meddelandet om du vill se detaljerad status för distributionen.
 
     ![Meddelande - distribution pågår](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Etablera din hanterade domän
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Kontrollera distributionsstatusen för din hanterade domän
 Processen för etablering din hanterade domän kan ta upp till en timme.
 
 1. När din distribution pågår kan du söka efter domain services i den **söka resurser** sökrutan. Välj **Azure AD Domain Services** från sökresultaten. Den **Azure AD Domain Services** bladet visar den hanterade domänen som har etablerats.

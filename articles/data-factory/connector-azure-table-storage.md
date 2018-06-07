@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617186"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,7 +48,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Du kan skapa en länkad Azure Storage-tjänst genom att använda för kontot. Det ger datafabriken global åtkomst till lagring. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **AzureStorage**. |Ja |
 | connectionString | Ange information som behövs för att ansluta till lagring för egenskapen connectionString. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -90,7 +91,7 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagr
 
 Om du vill använda autentisering med signatur för delad åtkomst service stöds följande egenskaper.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **AzureStorage**. |Ja |
 | sasUri | Ange signaturen för delad åtkomst URI till lagringsresurser, till exempel blob, behållare eller tabellen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -129,7 +130,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Ange typegenskapen för dataset för att kopiera data till och från Azure Table, **AzureTable**. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till **AzureTable**. |Ja |
 | tableName |Namnet på tabellen i Table storage-databasinstansen som den länkade tjänsten refererar till. |Ja |
@@ -170,7 +171,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Azure Table, anger du källa i kopieringsaktiviteten till **AzureTableSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till **AzureTableSource**. |Ja |
 | azureTableSourceQuery |Använd anpassade Table storage fråga för att läsa data. Se exemplen i följande avsnitt. |Nej |
@@ -196,7 +197,7 @@ Om du använder parametern pipeline omvandla datetime-värdet till rätt format 
 
 Om du vill kopiera data till Azure Table, anger du sink i kopieringsaktiviteten till **AzureTableSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till **AzureTableSink**. |Ja |
 | azureTableDefaultPartitionKeyValue |Standard partition nyckelvärdet som kan användas av sink. |Nej |
@@ -272,7 +273,7 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar midnatt 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar den 31 December 9999. |
-| Edm.Double |dubbla |En 64-bitars flytande punktvärdet. |
+| Edm.Double |double |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |

@@ -10,23 +10,24 @@ ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626145"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrera data från Data Lake Store i Azure Data Catalog
-I den här artikeln får du lära dig hur du integrerar Azure Data Lake Store med Azure Data Catalog att göra data synlig i en organisation genom att integrera med Data Catalog. Mer information om katalogiserar data finns [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Scenarier där du kan använda Data Catalog finns [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
+I den här artikeln får lära du dig att integrera Azure Data Lake Store med Azure Data Catalog att göra data synlig i en organisation genom att integrera med Data Catalog. Mer information om katalogiserar data finns [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Scenarier där du kan använda Data Catalog finns [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Aktivera din Azure-prenumeration** för Data Lake Store Public Preview. Se [instruktioner](data-lake-store-get-started-portal.md).
-* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Låt oss skapa ett Data Lake Store-konto som kallas för den här kursen **datacatalogstore**.
+* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Skapa ett Data Lake Store-konto som kallas för den här självstudiekursen **datacatalogstore**.
 
     När du har skapat kontot, ladda upp exempeldata data till den. I den här självstudien Låt oss överför CSV-filer under den **AmbulanceData** mapp i den [Azure Data Lake Git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Du kan använda olika klienter som [Azure Lagringsutforskaren](http://storageexplorer.com/), för att överföra data till en blob-behållare.
 * **Azure Data Catalog**. Din organisation måste redan ha en Azure Data Catalog som skapats för din organisation. Endast en katalog är tillåten för varje organisation.
@@ -55,12 +56,12 @@ Innan du påbörjar de här självstudierna måste du ha:
 
     b. Den **tillgängliga objekt** visas i rutan filer och mappar under den **AmbulanceData** mapp.
 
-    c. **Objekt som ska vara registrerad** visar en lista över filer och mappar som du vill registrera i Azure Data Catalog.
+    c. **Objekt som ska registreras** visas i rutan filer och mappar som du vill registrera i Azure Data Catalog.
 
     ![Visa datastruktur](./media/data-lake-store-with-data-catalog/view-data-structure.png "visa datastruktur")
 8. Du bör registrera alla filer i katalogen för den här självstudiekursen. Klickar du på den (![flytta objekt](./media/data-lake-store-with-data-catalog/move-objects.png "flytta objekt")) för att flytta alla filer och **objekt som ska registreras** rutan.
 
-    Eftersom data registreras i en katalog för hela organisationen, är det en rekommenderade metod för att lägga till vissa metadata som du senare kan använda för att snabbt hitta data. Du kan till exempel lägga till en e-postadress för dataägaren (till exempel en som laddar upp data) eller lägga till en etikett för att identifiera data. Den här skärmbilden nedan visar en tagg att vi lägger till data.
+    Eftersom data registreras i en katalog för hela organisationen, är en rekommenderad metod för att lägga till vissa metadata som du senare kan använda för att snabbt hitta data. Du kan till exempel lägga till en e-postadress för dataägaren (till exempel en som laddar upp data) eller lägga till en etikett för att identifiera data. Den här skärmbilden nedan visar en tagg som du lägger till data.
 
     ![Visa datastruktur](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "visa datastruktur")
 

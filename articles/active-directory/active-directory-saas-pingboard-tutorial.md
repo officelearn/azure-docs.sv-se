@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25777001907f705700d1c90e238d19a20242b50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudier: Azure Active Directory-integrering med Pingboard
 
@@ -65,7 +66,7 @@ Du måste lägga till Pingboard från galleriet i listan över hanterade SaaS-ap
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Enterprise-program][2]
-    
+
 3. Klicka på **Lägg till** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -101,7 +102,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning länk][4]
 
 2.  På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. På den **Pingboard domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
@@ -118,12 +119,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
      I den **inloggnings-URL** textruta Skriv URL-Adressen med följande mönster: `https://<sub-domain>.pingboard.com/sign_in`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Observera att dessa värden inte är verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Pingboard klienten supportteamet](https://support.pingboard.com/) att hämta dessa värden.
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
-    ![Pingboard xml-metadata](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+    ![Pingboard xml-metadata](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Klicka på **spara** knappen.
 
@@ -135,7 +136,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.  På den **integreringar** kan hitta den **”Azure Active Directory”** panelen och klicka på den.
+9. På den **integreringar** kan hitta den **”Azure Active Directory”** panelen och klicka på den.
 
     ![Pingboard Single Sign-On-integrering](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -162,16 +163,16 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     ![Azure Active Directory-knappen](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png)
 
 3. Klicka på överst i dialogrutan **Lägg till** att öppna den **användaren** dialogrutan.
- 
+
     ![Knappen Lägg till](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Dialogrutan användare](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+
+    ![Dialogrutan användare](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png)
 
     a. I den **namn** textruta typen **BrittaSimon**.
 
@@ -180,12 +181,12 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-pingboard-test-user"></a>Skapa en testanvändare Pingboard
 
-För att aktivera Azure AD-användare att logga in på Pingboard etableras de i Pingboard. Pingboard är etablering en manuell aktivitet.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Pingboard. Pingboard stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](active-directory-saas-pingboard-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-**Utför följande steg om du vill konfigurera ett användarkonto:**
+**Om du behöver skapa användare manuellt gör du följande:**
 
 1. Logga in på webbplatsen Pingboard företag som administratör.
 
@@ -204,13 +205,13 @@ För att aktivera Azure AD-användare att logga in på Pingboard etableras de i 
     c. I den **befattning** textruta skriver Britta Simon befattningen.
 
     d. I den **plats** listrutan, välj platsen för Britta Simon.
-    
-    e. Klicka på **Lägg till**.   
+
+    e. Klicka på **Lägg till**.
 
 4. En bekräftelseskärm visas för att bekräfta att lägga till användaren.
-    
+
     ![Bekräfta](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
-        
+
     > [!NOTE]
     > Azure Active Directory kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den aktiveras.
 
@@ -255,8 +256,7 @@ När du klickar på panelen Pingboard på åtkomstpanelen du bör få automatisk
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Konfigurera Användaretablering](active-directory-saas-pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

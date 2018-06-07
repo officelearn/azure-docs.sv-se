@@ -3,7 +3,7 @@ title: Azure Active Directory-riskhändelser | Microsoft Docs
 description: Den här artice ger en detaljerad översikt över riskhändelser är.
 services: active-directory
 keywords: Azure active directory identitetsskydd, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/14/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2a616cf644ee4f71e1340993f01b37031d567a09
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588785"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: d04bfe601760dcbf832aeec0cc66d8e1eda51178
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595384"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Självstudier: Använda en Windows VM-MSI för att komma åt Azure Cosmos DB
 
@@ -209,4 +210,9 @@ Det här kommandot CLI returnerar information om samlingen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över MSI finns [hanterade tjänstidentiteten översikt](overview.md).
+I kursen får du har lärt dig hur du skapar en Windows hanterade tjänstidentiteten för att komma åt Cosmos DB.  Om du vill veta se mer om Cosmos DB:
+
+> [!div class="nextstepaction"]
+>[Översikt över Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+

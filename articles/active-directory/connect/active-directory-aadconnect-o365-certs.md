@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591505"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya federationscertifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -87,7 +89,7 @@ Om tumavtrycken i båda utdata matchar är ditt certifikat synkroniserade med Az
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: Kontrollera om ditt certifikat upphör snart att gälla
 I resultatet av Get-MsolFederationProperty eller Get-AdfsCertificate, kontrollera datum under ”inte efter”. Om datumet är mindre än 30 dagar direkt, bör du vidta åtgärder.
 
-| AutoCertificateRollover | Certifikat som är synkroniserade med Azure AD | Federationsmetadata är offentligt tillgänglig | Giltighetsperiod | åtgärd |
+| AutoCertificateRollover | Certifikat som är synkroniserade med Azure AD | Federationsmetadata är offentligt tillgänglig | Giltighetsperiod | Åtgärd |
 |:---:|:---:|:---:|:---:|:---:|
 | Ja |Ja |Ja |- |Ingen åtgärd krävs. Se [förnya certifikat för tokensignering certifikat automatiskt](#autorenew). |
 | Ja |Nej |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya certifikat för tokensignering certifikat manuellt](#manualrenew). |
@@ -107,7 +109,7 @@ Kontrollera följande för att bekräfta att certifikatet kan uppdateras automat
 
 **2. Metadata för AD FS-federation är offentligt tillgänglig.** Kontrollera att din federationsmetadata är offentligt tillgänglig genom att navigera till följande URL från en dator på internet (utanför företagsnätverket):
 
-https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
 
 där `(your_FS_name) `ersätts med värden federationstjänstnamnet används i din organisation, till exempel fs.contoso.com.  Om du ska kunna kontrollera båda av de här inställningarna, du behöver inte göra något annat.  
 
@@ -149,7 +151,7 @@ Två certifikat ska visas nu, ett som har en **NotAfter** datumet ungefär ett �
 Uppdatera Office 365 med den nya token som signerar certifikat som ska användas för förtroendet på följande sätt.
 
 1. Öppna Microsoft Azure Active Directory-modulen för Windows PowerShell.
-2. Run $cred=Get-Credential. När denna cmdlet efterfrågar autentiseringsuppgifter, skriver du cloud service administratörskontots autentiseringsuppgifter.
+2. Kör $cred = Get-Credential. När denna cmdlet efterfrågar autentiseringsuppgifter, skriver du cloud service administratörskontots autentiseringsuppgifter.
 3. Kör Anslut MsolService – autentiseringsuppgifter $cred. Denna cmdlet ansluter till Molntjänsten. Skapa en kontext som ansluter till Molntjänsten krävs innan du kör ytterligare cmdlets som installerats av verktyget.
 4. Om du kör kommandona på en dator som inte är den primära federationsservern i AD FS, kör Set-MSOLAdfscontext-datorn &lt;primära AD FS-servern&gt;, där &lt;primära AD FS-servern&gt; är det interna FQDN namnet på den primära AD FS-servern. Denna cmdlet skapar en kontext som ansluter till AD FS.
 5. Kör Update MSOLFederatedDomain – DomainName &lt;domän&gt;. Denna cmdlet uppdaterar inställningarna från AD FS i Molntjänsten och konfigurerar en förtroenderelation mellan två.

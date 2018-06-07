@@ -1,24 +1,20 @@
 ---
-title: "Komma igång med att ansluta fysiska enheter till Azure IoT Hub | Microsoft Docs"
-description: "Lär dig mer om att ansluta till Azure IoT Hub fysiska enheter och -kort. Enheterna kan skicka telemetri IoT-hubb och IoT-hubb kan övervaka och hantera dina enheter."
-services: iot-hub
-documentationcenter: 
+title: Komma igång med att ansluta fysiska enheter till Azure IoT Hub | Microsoft Docs
+description: Lär dig mer om att ansluta till Azure IoT Hub fysiska enheter och -kort. Enheterna kan skicka telemetri IoT-hubb och IoT-hubb kan övervaka och hantera dina enheter.
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "självstudiekurs för Azure iot-hubb"
+keywords: självstudiekurs för Azure iot-hubb
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 26a2d63aef21bd470d65d79e1abf8cefd2828419
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634003"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT-hubb Kom igång med fysiska enheter självstudier
 

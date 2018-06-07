@@ -1,11 +1,11 @@
 ---
-title: "Identitet synkronisering och dubblett attributet återhämtning | Microsoft Docs"
-description: "Nya beteendet för hur du hanterar objekt med UPN- eller ProxyAddress konflikter under katalogsynkronisering med Azure AD Connect."
+title: Identitet synkronisering och dubblett attributet återhämtning | Microsoft Docs
+description: Nya beteendet för hur du hanterar objekt med UPN- eller ProxyAddress konflikter under katalogsynkronisering med Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cfed9d32e919cc3c1b7b9c2a6ea5ddb31f2a8fb9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593216"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Dubbla attribut återhämtning är en funktion i Azure Active Directory som eliminerar friktion som orsakas av **UserPrincipalName** och **ProxyAddress** när du kör någon av Microsofts synkroniseringsverktyg i konflikt.
@@ -141,9 +143,9 @@ Ingen av de här problemen gör att data går förlorade eller tjänst försämr
 1. Objekt med ett specifikt attribut konfigurationer fortsätter att få exportfel och dubbla attribut i karantän.  
    Exempel:
    
-    a. Ny användare skapas i AD med UPN för  **Joe@contoso.com**  och ProxyAddress**smtp:Joe@contoso.com**
+    a. Ny användare skapas i AD med UPN för **Joe@contoso.com** och ProxyAddress **smtp:Joe@contoso.com**
    
-    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är  **SMTP:Joe@contoso.com** .
+    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är **SMTP:Joe@contoso.com**.
    
     c. Vid export en **ProxyAddress konflikt** felmeddelande i stället för att konflikten attribut i karantän. Åtgärden försöks vid varje efterföljande synkronisering cykel som skulle ha varit innan funktionen återhämtning aktiverades.
 2. Om två grupper skapas lokalt med samma SMTP-adress, en misslyckas att etablera vid första försöket med en standard dubblett **ProxyAddress** fel. Dock dubblettvärden är korrekt i karantän vid nästa synkronisering cykel.
@@ -157,16 +159,16 @@ Ingen av de här problemen gör att data går förlorade eller tjänst försämr
    
     b. **Användare B** försökte synkroniseras nästa med **UPN = User@contoso.com** .
    
-    c. **Användare B** UPN ändras till  **User1234@contoso.onmicrosoft.com**  och  **User@contoso.com**  har lagts till i **DirSyncProvisioningErrors**.
+    c. **Användare B** UPN ändras till **User1234@contoso.onmicrosoft.com** och **User@contoso.com** har lagts till i **DirSyncProvisioningErrors**.
    
-    d. Felmeddelandet för **användare B** ska visa att **användare A** har redan  **User@contoso.com**  som ett UPN, men den visar **användare B** egna displayName.
+    d. Felmeddelandet för **användare B** ska visa att **användare A** har redan **User@contoso.com** som ett UPN, men den visar **användare B** egna displayName.
 
 **Identitet synkronisering felrapporten**:
 
 Länken för *instruktioner för hur du löser problemet* är felaktig:  
     ![Aktiva användare](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "aktiva användare")  
 
-Den ska peka på [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+Den ska peka på [ https://aka.ms/duplicateattributeresiliency ](https://aka.ms/duplicateattributeresiliency).
 
 ## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md)

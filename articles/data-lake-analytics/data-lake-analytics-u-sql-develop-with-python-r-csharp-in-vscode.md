@@ -1,23 +1,20 @@
 ---
-title: "Utveckla U-SQL med Python, R och C# för Azure Data Lake Analytics i Visual Studio Code | Microsoft Docs"
-description: "Lär dig mer om att använda koden bakom med Python, R och C# för att skicka jobbet i Azure Data Lake."
+title: Utveckla U-SQL med Python, R och C# för Azure Data Lake Analytics i Visual Studio Code
+description: Lär dig mer om att använda koden bakom med Python, R och C# för att skicka jobbet i Azure Data Lake.
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
-manager: 
-editor: 
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/22/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/22/2017
+ms.openlocfilehash: 171aef186fd681adf9b3d92deb8691c852ea1038
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624915"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Utveckla U-SQL med Python, R och C# för Azure Data Lake Analytics i Visual Studio Code
 Lär dig hur du använder Visual Studio Code (VSCode) att skriva Python, R och C# code bakom med U-SQL och skicka jobb till Azure Data Lake-tjänsten. Mer information om Azure Data Lake-verktyg för VSCode finns [använda Azure Data Lake-verktyg för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -28,7 +25,7 @@ Innan du skriver bakomliggande kod anpassad kod, måste du öppna en mapp eller 
 ## <a name="prerequisites-for-python-and-r"></a>Krav för Python och R
 Registrera Python och R-tillägg-sammansättningar för ADL-konto. 
 1. Öppna ditt konto i portalen.
-   - Välj **översikt**. 
+   - Välj **Översikt**. 
    - Klicka på **exempel på skript**.
 2. Klicka på **mer**.
 3. Välj **installera tillägg för U-SQL**. 
@@ -185,7 +182,6 @@ En fil med bakomliggande kod är ett C#-fil som är associerad med ett enda U-SQ
 ## <a name="next-steps"></a>Nästa steg
 * [Använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
-* [Utveckla U-SQL-sammansättningar för Azure Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-assemblies.md)
 * [Kom igång med Data Lake Analytics med hjälp av PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure portal](data-lake-analytics-get-started-portal.md)
 * [Använd Data Lake-verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)

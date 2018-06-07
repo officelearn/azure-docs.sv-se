@@ -1,24 +1,20 @@
 ---
 title: Skapa en Azure IoT-hubb med resursprovidern REST API | Microsoft Docs
-description: "Hur du använder resursprovidern REST API för att skapa en IoT-hubb."
-services: iot-hub
-documentationcenter: .net
+description: Hur du använder resursprovidern REST API för att skapa en IoT-hubb.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 52814ee5-bc10-4abe-9eb2-f8973096c2d8
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: d9372f8345257c45ae6b3b915383788f698a0e35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 06f05da839ebca2ae53e255acce7f07d1989673c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635227"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Skapa en IoT-hubb med resursprovidern REST API (.NET)
 
@@ -186,7 +182,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i följande artiklar:
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

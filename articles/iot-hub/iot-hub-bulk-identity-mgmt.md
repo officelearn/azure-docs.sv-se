@@ -1,24 +1,19 @@
 ---
 title: Importera export av identiteter för Azure IoT Hub-enhet | Microsoft Docs
 description: Hur du använder tjänsten Azure IoT SDK för att utföra massåtgärder mot identitetsregistret att importera och exportera enheten identiteter. Importera åtgärder kan du skapa, uppdatera och ta bort enheten identiteter gruppvis.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634030"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT-hubb enheten identiteter i grupp
 
@@ -60,7 +55,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{y
 
 Att hitta anslutningssträngen för din IoT-hubb i Azure-portalen:
 
-- Gå till din IoT-hubb.
+- Gå till IoT-hubben.
 - Välj **principer för delad åtkomst**.
 - Välj en princip med hänsyn till de behörigheter som du behöver.
 - Kopiera connectionstring från panelen på höger sida av skärmen.
@@ -251,7 +246,7 @@ Använd det valfria **ImportMode %** egenskap i serialiseringsdata import för v
 | --- | --- |
 | **createOrUpdate** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
 | **skapa** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
-| **update** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **Uppdatering** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
 | **updateIfMatchETag** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
 | **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indata om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
 | **ta bort** |Om det finns redan en enhet med det angivna **id**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |

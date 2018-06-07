@@ -1,25 +1,20 @@
 ---
-title: 'Azure-säkerhetskopiering: Förbereda för att säkerhetskopiera virtuella datorer | Microsoft Docs'
+title: 'Azure-säkerhetskopiering: Förbereda för att säkerhetskopiera virtuella datorer'
 description: Kontrollera att din miljö har förberetts för att säkerhetskopiera virtuella datorer i Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: säkerhetskopiering. Säkerhetskopiera;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606644"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -59,6 +54,7 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Valda nätverk, när du konfigurerar brandväggen och inställningarna för virtuella nätverk för ditt lagringskonto, Välj **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** som undantag till Azure Backup-tjänsten för att aktivera åtkomst till nätverket begränsad lagringskontot. Återställning på objektnivå stöds inte för nätverket begränsad storage-konton.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Ögonblicksbilder på disken skriva Accelerator aktiverad stöds inte. Den blockerar Azure Backup service möjligheten att utföra en programkonsekvent ögonblicksbild av alla diskar på den virtuella datorn.
 * Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtuella datorer under konfigurationen av belastningsutjämnaren (interna och externa)
   * Virtuella datorer med flera reserverade IP-adresser
@@ -174,7 +170,9 @@ Om du har problem med att registrera den virtuella datorn finns i följande info
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
 För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
 
-Den här informationen för situationer där du har *inte* använda en virtuell dator som skapats från Azure Marketplace. Till exempel migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.
+Den här informationen för situationer där du har *inte* använda en virtuell dator som skapats från Azure Marketplace. **Till exempel migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.**
+
+**Obs**: när du har installerat den Virtuella datoragenten, måste du också använda Azure PowerShell för att uppdatera egenskapen ProvisionGuestAgent så att Azure vet VM-agenten har installerats. 
 
 Om du har problem med säkerhetskopiering av virtuella Azure-datorn använder du följande tabell för att kontrollera att den Virtuella Azure-agenten är korrekt installerat på den virtuella datorn. Tabellen innehåller ytterligare information om VM-agenten för Windows och Linux virtuella datorer.
 

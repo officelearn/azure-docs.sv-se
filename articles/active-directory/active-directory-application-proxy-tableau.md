@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7fa8654e413ac337994d35afdce7bd3478127f64
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 88da943224ce9df22a3d3befcb8fae6113986862
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588581"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy och Tableau 
 
@@ -43,7 +44,7 @@ I din e-post:
 -   Använda Aktivera Application Proxy för Tableau som ämne
 -   Ta din klient-ID i brödtexten    
 
-Du får en bekräftelse när du är redo att använda programmet. Detta tar vanligtvis om en vecka. Du kan dock slutföra konfigurationerna under väntan på bekräftelse.
+Du får en bekräftelse när du är redo att använda programmet. Du kan slutföra konfigurationerna under väntan på bekräftelse.
 
 
  

@@ -1,25 +1,20 @@
 ---
-title: "Vanliga frågor och svar om Azure Backup-agenten | Microsoft Docs"
-description: "Svar på vanliga frågor om hur Azure Backup-agenten fungerar samt begränsningar för säkerhetskopiering och kvarhållning."
+title: Azure Backup-agenten vanliga frågor och svar
+description: Svar på vanliga frågor om hur Azure Backup-agenten fungerar samt begränsningar för säkerhetskopiering och kvarhållning.
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst"
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
+keywords: säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: trinadhk
+ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605539"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Frågor om Azure Backup-agenten
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå Azure Backup-agentkomponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

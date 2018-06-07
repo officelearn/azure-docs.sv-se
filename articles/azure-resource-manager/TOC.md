@@ -4,7 +4,7 @@
 ## [Vad är Resource Manager?](resource-group-overview.md)
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
-## [Prenumerationsåtgärder](resource-manager-subscription-governance.md)
+## [Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Ordna resurser med hanteringsgrupper](management-groups-overview.md)
 
 # Kom igång
@@ -50,7 +50,6 @@
 ### [Skapa EA-prenumerationer programmässigt](programmatically-create-subscription.md)
 ### [Skapa hanteringsgrupper](management-groups-create.md)
 ### [Hantera dina hanteringsgrupper](management-groups-manage.md)
-### [Styrningsexempel](resource-manager-subscription-examples.md)
 
 ## Styr åtkomsten
 ### Skapa tjänstens huvudnamn

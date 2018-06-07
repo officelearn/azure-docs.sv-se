@@ -2,23 +2,20 @@
 title: Arbeta med geospatiala data i Azure Cosmos DB | Microsoft Docs
 description: Förstå hur du skapar, index- och fråga spatial objekt med Azure Cosmos DB och SQL-API.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611375"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Arbeta med geospatial och GeoJSON platsdata i Azure Cosmos DB
 Den här artikeln ger en introduktion till funktionen geospatiala i [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). När du har läst detta, kommer du att kunna besvara följande frågor:
@@ -98,7 +95,7 @@ Förutom punkterna stöder också GeoJSON LineStrings och polygoner. **LineStrin
 Förutom Point, LineString och Polygon anger GeoJSON också representation för hur du vill gruppera flera geospatiala platser, samt hur du associerar godtycklig egenskaper med geolokalisering som en **funktionen**. Eftersom de här objekten är giltig JSON, kan de alla lagras och behandlas i Azure Cosmos-databasen. Men Azure Cosmos DB endast stöd för automatisk indexering av punkter.
 
 ### <a name="coordinate-reference-systems"></a>Samordna referenssystem
-Eftersom formen jordens oregelbundna representeras koordinater geospatiala data i många koordinaten referenssystem (CR), var och en med sin egen ramar på referens- och måttenheter. Den ”National rutnät av Storbritannien” är exempelvis referenssystem är mycket noggrann för Storbritannien men inte utanför den. 
+Eftersom formen jordens oregelbundna representeras koordinater geospatiala data i många koordinaten referenssystem (CR), var och en med sin egen ramar på referens- och måttenheter. Den ”National rutnät av Storbritannien” är exempelvis referenssystem stämmer för Storbritannien men inte utanför den. 
 
 Den mest populära CR används idag är World geodetiskt System [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Använd WGS 84 GPS-enheter och tjänster för många mappning inklusive Google kartor och Bing Maps API: er. Azure Cosmos-DB har stöd för indexering och frågar geospatiala data med hjälp av WGS 84-CR endast. 
 
@@ -223,7 +220,7 @@ Polygon argument i ST_WITHIN kan innehålla endast en enkel signal, det vill sä
 > 
 > 
 
-Azure Cosmos-DB stöder också utföra omvända frågor, det vill säga kan du indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik att till exempel identifiera när en lastbil anländer till eller lämnar avsedda området. 
+Azure Cosmos-DB stöder också utföra omvända frågor, det vill säga kan du indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik för att identifiera, till exempel när en lastbil anländer till eller lämnar avsedda området. 
 
 **Fråga**
 
@@ -272,7 +269,7 @@ Dessa funktioner kan också användas för att validera polygoner. Till exempel 
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>LINQ-frågor skickas i .NET SDK
-SQL .NET SDK också providers stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. SQL-LINQ-providern översätter till motsvarande SQL inbyggda funktionsanropen metodanrop av (ST_DISTANCE och ST_WITHIN respektive). 
+SQL .NET SDK också providers stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. SQL-LINQ-providern översätter den här metoden anrop till motsvarande SQL inbyggda funktionsanropen (ST_DISTANCE och ST_WITHIN respektive). 
 
 Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos DB samlingen vars ”plats”-värdet är inom en radie på 30 km i den angivna peka med hjälp av LINQ.
 
@@ -391,7 +388,7 @@ Här är hur du ändrar en befintlig samling om du vill dra nytta av spatial ind
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Nolearned som du har fått kännedom om hur du kommer igång med geospatial stöd i Azure Cosmos-databasen, kan du:
+Nästa nu när du har lärt dig hur du kommer igång med geospatial stöd i Azure Cosmos-databasen, kan du:
 
 * Börja koda med den [geospatiala .NET kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Hämta händerna med geospatial fråga på den [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

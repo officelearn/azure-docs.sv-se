@@ -1,30 +1,27 @@
 ---
 title: Distribuera fjärråtkomst övervakning lösningen lokalt - Azure | Microsoft Docs
 description: Den här kursen visar hur du distribuerar fjärråtkomst övervakning solution accelerator till din lokala dator för testning och utveckling.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627239"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuera fjärråtkomst övervakning solution accelerator lokalt
 
-Den här artikeln visar hur du distribuerar fjärråtkomst övervakning solution accelerator till din lokala dator för testning och utveckling. Den här metoden distribuerar mikrotjänster till en lokal dockerbehållare och använder IoT-hubb Cosmos DB och Azure storage-tjänster i molnet. Du kan använda solution Accelerator (datorer) CLI för att distribuera Azure-molntjänster.
+Den här artikeln visar hur du distribuerar Fjärrövervaknings solution accelerator till din lokala dator för testning och utveckling. Den här metoden distribuerar mikrotjänster till en lokal dockerbehållare och använder IoT-hubb Cosmos DB och Azure storage-tjänster i molnet. Du kan använda solution Accelerator (datorer) CLI för att distribuera Azure-molntjänster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att distribuera Azure-tjänster används av fjärråtkomst övervakning solution accelerator, behöver du en aktiv Azure-prenumeration.
+För att distribuera Azure-tjänster används av Fjärrövervaknings solution accelerator, måste en aktiv Azure-prenumeration.
 
 Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +49,7 @@ Mer information om CLI finns [hur du använder CLI](https://github.com/Azure/pcs
 
 ### <a name="download-the-source-code"></a>Ladda ned källkoden
 
- Fjärråtkomst övervakning kod källdatabasen innehåller Docker-konfigurationsfiler som du behöver hämta, konfigurera och köra Docker-avbildningar som innehåller mikrotjänster. Gå till en lämplig mapp på din lokala dator via din favorit kommandoraden eller terminal för att klona och skapa en lokal version av databasen, och kör något av följande kommandon:
+ Fjärrövervaknings kod källdatabasen innehåller Docker-konfigurationsfiler som du behöver hämta, konfigurera och köra Docker-avbildningar som innehåller mikrotjänster. Gå till en lämplig mapp på din lokala dator via din favorit kommandoraden eller terminal för att klona och skapa en lokal version av databasen, och kör något av följande kommandon:
 
 Om du vill installera Java-implementeringar av mikrotjänster, kör du:
 
@@ -119,13 +116,13 @@ Första gången du kör det här kommandot hämtar Docker mikrotjänster bilder 
 
 Du kan använda ett separat gränssnitt för att visa loggar från behållaren. Hitta först ID behållaren med den `docker ps -a` kommando. Använd sedan `docker logs {container-id} --tail 1000` att visa de senaste 1000 loggposter för den angivna behållaren.
 
-Om du vill komma åt instrumentpanelen för fjärråtkomst övervakning lösning, gå till [ http://localhost:8080 ](http://localhost:8080) i webbläsaren.
+För att komma åt instrumentpanelen för fjärråtkomst övervakning lösning, gå till [ http://localhost:8080 ](http://localhost:8080) i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 
 För att undvika onödiga kostnader, när du har slutfört din testning, tar du bort molntjänster från din Azure-prenumeration. Det enklaste sättet att ta bort tjänsterna är att navigera till den [Azure-portalen](https://ms.portal.azure.com) och ta bort resursgruppen som du har skapat via den `pcs` verktyget.
 
-Använd den `docker-compose down --rmi all` kommando för att ta bort Docker-bilder och frigör utrymme på den lokala datorn. Du kan också ta bort den lokala kopian av övervakning fjärrdatabasen skapas när du har klonat källkod från GitHub.
+Använd den `docker-compose down --rmi all` kommando för att ta bort Docker-bilder och frigör utrymme på den lokala datorn. Du kan också ta bort den lokala kopian av databasen Fjärrövervaknings skapas när du har klonat källkod från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -137,6 +134,6 @@ I den här självstudiekursen lärde du dig att:
 > * Distribuera solution accelerator
 > * Logga in på solution accelerator
 
-Nu när du har distribuerat remote övervakningslösning nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](iot-accelerators-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen Fjärrövervaknings nästa steg är att [utforska funktionerna i lösningen instrumentpanelen](iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

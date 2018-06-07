@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 278f15271d3a5443102f5e387d3db1adb53fe7db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: eea4f568f21693764222c8fdbe3316bf6008cc05
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604241"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Distribuera mallar med hjälp av Azure Stack-portalen
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/20/2018
 
 Du kan använda portalen för att distribuera Azure Resource Manager-mallar till Azure-stacken.
 
-Att distribuera en mall:
+## <a name="to-deploy-a-template"></a>Att distribuera en mall
 
 1. Logga in på portalen, Välj **ny**, och välj sedan **anpassad**.
 2. Välj **malldistribution**.
@@ -39,4 +40,4 @@ Att distribuera en mall:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
+* [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)

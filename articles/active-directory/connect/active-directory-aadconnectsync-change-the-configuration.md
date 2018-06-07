@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: gjort en konfigurationsändring i Azure AD Connect-synkronisering | Microsoft Docs"
-description: "Vägleder dig igenom hur du gör en ändring i konfigurationen i Azure AD Connect-synkronisering."
+title: 'Azure AD Connect-synkronisering: gjort en konfigurationsändring i Azure AD Connect-synkronisering | Microsoft Docs'
+description: Vägleder dig igenom hur du gör en ändring i konfigurationen i Azure AD Connect-synkronisering.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595112"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är leder dig igenom hur du gör ändringar i standardkonfigurationen i Azure Active Directory (AD Azure) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna regler.
@@ -204,7 +206,7 @@ Innan du aktiverar synkronisering av UserType-attributet måste du först bestä
 
     Om du väljer den här metoden måste du se till att attributet avsedda fylls med rätt värde för alla befintliga användarobjekt i lokala Active Directory som synkroniseras till Azure AD innan du aktiverar synkronisering av UserType-attributet .
 
-- Du kan också härleda värdet för UserType-attributet från andra egenskaper. Till exempel du vill synkronisera alla användare som **gäst** om sina lokala AD userPrincipalName attributet slutar med domändelen  *@partners.fabrikam123.org* . 
+- Du kan också härleda värdet för UserType-attributet från andra egenskaper. Till exempel du vill synkronisera alla användare som **gäst** om sina lokala AD userPrincipalName attributet slutar med domändelen *@partners.fabrikam123.org*. 
 
     Som tidigare nämnts tillåter inte UserType-attributet på befintliga Azure AD-användare som ska ändras av Azure AD Connect i Azure AD Connect. Därför måste du säkerställa att den logik som du har valt är konsekvent med hur UserType-attributet har redan konfigurerats för alla befintliga Azure AD-användare i din klient.
 
@@ -282,7 +284,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som ska flödas f
     | --- | --- | --- | --- | --- |
     | Direkt | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatering |
 
-    Ett annat exempel är som du vill erhålla värde för UserType-attributet från andra egenskaper. Till exempel du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName attributet slutar med domändelen  *@partners.fabrikam123.org* . Du kan implementera ett uttryck så här:
+    Ett annat exempel är som du vill erhålla värde för UserType-attributet från andra egenskaper. Till exempel du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName attributet slutar med domändelen *@partners.fabrikam123.org*. Du kan implementera ett uttryck så här:
 
     | Flöde | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |

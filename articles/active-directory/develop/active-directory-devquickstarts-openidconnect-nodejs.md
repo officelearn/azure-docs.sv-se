@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594130"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
 Här kan vi använda Passport:
@@ -61,6 +62,10 @@ Det färdiga programmet har angetts i slutet av den här kursen samt.
 
 6. När du registrerar tilldelar Azure AD appen ett unikt-ID. Du behöver det här värdet i de följande avsnitten så kopiera den från appen på sidan.
 7. Från den **inställningar** -> **egenskaper** för programmet, uppdatera App-ID-URI. Den **App-ID URI** är en unik identifierare för programmet. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+8. Följ steg 4 i för att skapa en hemlig nyckel, [att lägga till autentiseringsuppgifter eller behörighet att komma åt web API: er](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+   > [!IMPORTANT]
+   > Kopiera värdet för nyckeln program. Detta är värdet för den `clientSecret`, som du behöver för **steg3** nedan. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>Steg 2: Lägg till förutsättningar för din katalog
 1. Från kommandoraden ändrar du katalog till din rotmapp om du inte redan där, och kör sedan följande kommandon:

@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: Krav och maskinvara | Microsoft Docs'
-description: "Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect"
+description: Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593375"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect.
@@ -45,7 +47,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * Det är **stöds inte** att använda lokala skogar och domäner med ”prickad” (med en punkt i namnet ””.) NetBIOS-namn.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](active-directory-aadconnectsync-recycle-bin.md).
 
-### <a name="azure-ad-connect-server"></a>Azure AD Connect server
+### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials. Servern måste använda Windows Server standard eller bättre.
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerat. Det är **stöds inte** att installera på server core.
 * Azure AD Connect måste installeras på Windows Server 2008 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när du använder standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
@@ -187,7 +189,7 @@ Följande är en lista över komponenter som Azure AD Connect installeras på de
 * Microsoft SQL Server 2012-kommandoradsverktyg
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 Redistribution Package
+* Microsoft Visual C++ 2013 omfördelning paketet
 
 ## <a name="hardware-requirements-for-azure-ad-connect"></a>Maskinvarukrav för Azure AD Connect
 Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-dator.

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605577"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure-stacken Marketplace-översikt
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 Marketplace är en uppsättning tjänster, program och resurser som är anpassade för Azure-stacken. Resurser omfattar nätverk, virtuella datorer, lagring och så vidare. Användare komma här för att skapa nya resurser och distribuera nya program. Du kan se det som en shopping katalog där användare kan bläddra och välj de objekt som de vill använda. Om du vill använda en Marketplace-objektet, måste användare prenumerera på ett erbjudande som ger dem åtkomst till objektet.
 
 Som operatör Azure Stack kan du bestämma vilka objekt du lägger till (publicera) på Marketplace. Du kan publicera t.ex. databaser, Apptjänster och så vidare. Publicering gör dem synliga för alla användare. Du kan publicera anpassade objekt som du skapar. Du kan också publicera objekt från en växande [lista över Azure Marketplace-objekt](azure-stack-marketplace-azure-items.md). När du publicerar ett objekt på Marketplace kan användare se den inom fem minuter.
+
+> [!Caution]  
+> Alla artefakter som galleriet objektet kallas bilder och json-filer är tillgängliga utan autentisering när du gör dem tillgängliga i stacken för Azure marketplace. Flera överväganden när du publicerar anpassade marketplace-objekt finns [skapa och publicera en Marketplace-objektet](azure-stack-create-and-publish-marketplace-item.md).
 
 Om du vill öppna Marketplace i administrationskonsolen väljer **ny**.
 

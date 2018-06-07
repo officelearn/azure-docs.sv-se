@@ -1,24 +1,19 @@
 ---
 title: Distribuera dina anslutna Factory gateway - Azure | Microsoft Docs
 description: Så här distribuerar du en gateway på Windows eller Linux för att aktivera anslutning till ansluten Factory solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626912"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuera en gräns-gatewayen för anslutna Factory solution accelerator på Windows- eller Linux
 
@@ -170,6 +165,6 @@ Lägg till OPC UA servrarna till anslutna Factory solution accelerator:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om arkitekturen för anslutna Factory solution accelerator finns [anslutna Factory solution accelerator genomgången](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Mer information om arkitekturen för anslutna Factory solution accelerator finns [anslutna Factory solution accelerator genomgången](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Lär dig mer om den [OPC Publisher referensimplementering](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

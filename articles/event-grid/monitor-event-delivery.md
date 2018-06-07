@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626997"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Övervaka händelse rutnätet meddelandeleverans 
 
@@ -41,9 +42,15 @@ För prenumerationer är mätvärden:
 
 ## <a name="event-subscription-status"></a>Prenumerationsstatus för händelse
 
-Om du vill visa måtten för en händelseprenumerationen söka efter **händelse rutnätet prenumerationer** i tjänsterna och markera den.
+Om du vill visa måtten för en händelseprenumeration kan du antingen söka efter prenumerationstypen eller prenumerationer för en viss resurs.
 
-![Sök efter händelseprenumerationer](./media/monitor-event-delivery/select-event-subscriptions.png)
+Om du vill söka efter händelsetyp prenumeration, Välj **alla tjänster**.
+
+![Markera alla tjänster](./media/monitor-event-delivery/all-services.png)
+
+Sök efter **händelse rutnätet** och välj **händelse rutnätet prenumerationer** från de tillgängliga alternativen.
+
+![Sök efter händelseprenumerationer](./media/monitor-event-delivery/search-and-select.png)
 
 Filtrera efter typ av händelse, prenumeration och plats. Välj **mått** för prenumerationen att visa.
 
@@ -53,9 +60,15 @@ Visa mått för händelsen ämnet och prenumerationen.
 
 ![Visa händelse mått](./media/monitor-event-delivery/subscription-metrics.png)
 
+Välj den resursen för att hitta mätvärden för en viss resurs. Markera **händelser**.
+
+![Välj händelser för en resurs](./media/monitor-event-delivery/select-events.png)
+
+Du kan se mått för prenumerationer för den här resursen.
+
 ## <a name="custom-event-status"></a>Anpassade händelsestatus
 
-Om du har publicerat en anpassad avsnittet kan visa du mätvärden för den. Välj den resursgrupp som innehåller avsnittet och välj ämnet.
+Om du har publicerat en anpassad avsnittet kan visa du måtten för den. Markera resursgruppen i avsnittet och väljer avsnittet.
 
 ![Välja anpassade ämne](./media/monitor-event-delivery/select-custom-topic.png)
 
@@ -66,5 +79,5 @@ Visa mått för avsnittet anpassade händelsen.
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om händelsen leverans och omförsök, [händelse rutnätet meddelandeleverans och försök igen](delivery-and-retry.md).
-* En introduktion till händelse rutnätet finns [om händelsen rutnätet](overview.md).
+* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
 * Om du vill komma igång snabbt med hjälp av händelse rutnätet kan se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).

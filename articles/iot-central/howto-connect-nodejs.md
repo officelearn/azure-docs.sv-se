@@ -1,18 +1,19 @@
 ---
-title: Koppla de olika processtegen generiska Node.js klientprogrammet Azure IoT centrala | Microsoft Docs
+title: Ansluta ett allmänt Node.js-klientprogram till Azure IoT Central | Microsoft Docs
 description: Som en enhet utvecklare, hur du ansluter en allmän Node.js-enhet till din Azure IoT centralt program.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628546"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta en allmän klientprogram att tillämpningsprogrammet Azure IoT Central (Node.js)
 
@@ -23,7 +24,7 @@ Den här artikeln beskriver hur som utvecklare som enheten kan ansluta ett allm�
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 1. Ett Azure IoT centrala program. Mer information finns i [skapa Azure IoT centrala programmet](howto-create-application.md).
-1. En utvecklingsdator med [Node.js](https://nodejs.org/) version 4.0.0 eller senare installerat. Du kan köra `node --version` i kommandoraden för att kontrollera din version. Node.js är tillgänglig för en mängd olika operativsystem.
+1. En utvecklingsdator med [Node.js](https://nodejs.org/) version 4.0.0 eller senare installerat. Du kan köra `node --version` i kommandoraden för att kontrollera din version. Node.js är tillgängligt för många olika operativsystem.
 
 I ditt Azure IoT centrala program behöver du en mall för enheten med följande mätningar och enhetsegenskaper definierats:
 
@@ -31,9 +32,9 @@ I ditt Azure IoT centrala program behöver du en mall för enheten med följande
 
 Lägg till följande telemetri i den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Enheter | Min | Max. | Decimaler |
+| Visningsnamn | Fältnamn  | Enheter | Min | Max | Decimaler |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatur  | Temperatur | F     | 60  | 110 | 0              |
+| Temperatur  | temperatur | F     | 60  | 110 | 0              |
 | Fuktighet     | fuktighet    | %     | 0   | 100 | 0              |
 | Tryck     | tryck    | kPa   | 80  | 110 | 0              |
 
@@ -48,7 +49,7 @@ Lägg till följande tillstånd i den **mätningar** sidan:
 
 | Visningsnamn | Fältnamn  | Värde 1 | Visningsnamn | Värde 2 | Visningsnamn |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Fläkt läge     | fanmode     | 1       | Körs      | 0       | Stoppad      |
+| Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 
 > [!NOTE]
   Datatypen för måttet tillstånd är sträng.
@@ -59,7 +60,7 @@ Ange fältnamn exakt som de visas i tabellen i mallen för enheten. Om fältnamn
 
 Lägg till följande händelse i den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Allvarsgrad |
+| Visningsnamn | Fältnamn  | Severity |
 | ------------ | ----------- | -------- |
 | Överhettning  | överhettas    | Fel    |
 
@@ -72,7 +73,7 @@ Lägg till följande egenskaper för enheter i den **egenskapssidan**:
 
 | Visningsnamn        | Fältnamn        | Datatyp |
 | ------------------- | ----------------- | --------- |
-| Serienummer       | Serienummer      | text      |
+| Serienummer       | serieNummer      | text      |
 | Enhetstillverkare | tillverkare      | text      |
 
 Ange namnen på sätt som visas i tabellen i mallen för enheten. Om fältnamnen inte matchar kan inte programmet visa egenskapens värde.
@@ -81,14 +82,14 @@ Ange namnen på sätt som visas i tabellen i mallen för enheten. Om fältnamnen
 
 Lägg till följande **nummer** inställningar i den **inställningssidan**:
 
-| Visningsnamn    | Fältnamn     | Enheter | Decimaler | Min | Max.  | Inledande |
+| Visningsnamn    | Fältnamn     | Enheter | Decimaler | Min | Max  | Inledande |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fläkthastighet       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Inställd temperatur | setTemperature | F     | 0        | 20  | 200  | 80      |
+| Ange temperatur | angeTemperatur | F     | 0        | 20  | 200  | 80      |
 
 Ange fältnamn på exakt som de visas i tabellen i mallen för enheten. Om fältnamnen inte matchar inte enheten ta emot värdet.
 
-### <a name="add-a-real-device"></a>Lägga till en verklig enhet
+### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 I ditt Azure IoT centrala program lägger du till en verklig enhet från enheten mallen du skapar och anteckna anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet dina Azure IoT centralt program](tutorial-add-device.md)
 
@@ -96,7 +97,7 @@ I ditt Azure IoT centrala program lägger du till en verklig enhet från enheten
 
 Följande steg visar hur du skapar ett klientprogram som implementerar den faktiska enheten som du lagt till programmet.
 
-1. Skapa en mapp med namnet `connected-air-conditioner-adv` på din dator. Navigera till mappen i kommandoradsverktyget miljön.
+1. Skapa en mapp med namnet `connected-air-conditioner-adv` på datorn. Navigera till mappen i kommandoradsverktyget miljön.
 
 1. Kör följande kommandon för att initiera projektet Node.js:
 
@@ -273,5 +274,5 @@ Som operatör i ditt Azure IoT centrala program för verkliga enheten kan du:
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du ansluter en allmän Node.js-klient till din Azure IoT centralt program, är här de föreslagna nästa steg:
-* [Förbereda och ansluta en hallon Pi](howto-connect-raspberry-pi-python.md)
+* [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

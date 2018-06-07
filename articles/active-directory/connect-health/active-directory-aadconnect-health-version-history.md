@@ -14,14 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590386"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.
+
+## <a name="may-2018"></a>Maj 2018
+**Agentuppdatering:**
+*   Azure AD Connect Health agent för AD DS (version 3.0.244.0)
+ 1. Agenten sekretess förbättring  
+ 2. Felkorrigeringar och allmänna förbättringar
+
+*   Azure AD Connect Health agent för AD FS (version 3.0.244.0)
+ 1. Diagnostik-agenttjänsten och relaterade PowerShell-modulen förbättringar
+ 2. Agenten sekretess förbättring  
+ 3. Felkorrigeringar och allmänna förbättringar
+
+* Azure AD Connect Health agent för synkronisering (version 3.0.244.0)
+ 1. Agenten sekretess förbättring  
+ 2. Felkorrigeringar och allmänna förbättringar
+
 
 ## <a name="march-2018"></a>Mars 2018
 **Nya förhandsgranskningsfunktioner:**

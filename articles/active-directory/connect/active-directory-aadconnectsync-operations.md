@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect-synkronisering: driftåtgärder och saker | Microsoft Docs"
-description: "Det här avsnittet beskriver åtgärder för Azure AD Connect-synkronisering och hur du förbereder för användning av den här komponenten."
+title: 'Azure AD Connect-synkronisering: driftåtgärder och saker | Microsoft Docs'
+description: Det här avsnittet beskriver åtgärder för Azure AD Connect-synkronisering och hur du förbereder för användning av den här komponenten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6e35dc0ad8493d2f92b7e81fc66f444048482bd9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592950"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synkronisering: driftåtgärder och beräkningen
 Syftet med det här avsnittet är att beskriva operativa uppgifter för Azure AD Connect-synkronisering.
@@ -71,7 +73,7 @@ Om du har gjort egna ändringar till den primära servern och vill jämföra kon
 Du har nu mellanlagrade export ändringar till Azure AD och lokala AD (om du använder Exchange-hybridinstallation). Nästa steg kan du granska vad är på väg att ändra innan du startar export till kataloger.
 
 #### <a name="verify"></a>Verifiera
-1. Starta en kommandotolk och gå till`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+1. Starta en kommandotolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen finns i synkroniseringstjänsten. Den har ett namn som liknar ”contoso.com – AAD” för Azure AD.
 3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i % temp % med namnet export.csv som kan granskas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 4. Gör nödvändiga ändringar i informationen eller konfigurationen och köra de här stegen igen (importera och synkronisera och kontrollera) tills de ändringar som är på väg att exporteras förväntas.

@@ -1,24 +1,19 @@
 ---
 title: Förstå Azure IoT Hub jobb | Microsoft Docs
 description: Utvecklarhandbok - schemaläggning av jobb ska köras på flera enheter anslutna till din IoT-hubb. Jobb kan uppdatera taggar och önskade egenskaper och anropa direkt metoder på flera enheter.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633952"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -103,12 +98,12 @@ ContinuationToken tillhandahålls av svaret.
 ## <a name="jobs-properties"></a>Egenskaper för jobb
 I följande lista visar egenskaper och motsvarande beskrivningar som kan användas när du frågar för jobb eller jobb resultat.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| **jobId** |Programmet ange ID för jobbet. |
+| **JobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program som starttid (ISO 8601) för jobbet. |
 | **endTime** |IoT-hubb som datum (ISO 8601) för när jobbet har slutförts. Gäller endast när jobbet når tillståndet 'slutförda'. |
-| **Typ** |Typer av jobb: |
+| **typ** |Typer av jobb: |
 | | **scheduledUpdateTwin**: ett jobb som används för att uppdatera en uppsättning egenskaper eller taggar. |
 | | **scheduledDeviceMethod**: ett jobb som används för att anropa en metod för enheten på en uppsättning twins för enheten. |
 | **status** |Aktuell status för jobbet. Möjliga värden för status: |

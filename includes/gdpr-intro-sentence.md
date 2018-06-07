@@ -1,8 +1,8 @@
 ---
- Rubrik: inkludera Filbeskrivning: inkludera Filtjänster: azure-policy författare: eross msft
+ rubrik: inkludera filbeskrivning: inkludera filtjänster: active directory-författare: eross-msft
  
-MS.Service: azure-policy ms.topic: inkludera ms.date: 04/24/2018 ms.author: lizross ms.custom: include-filen
+ms.service: active-directory ms.topic: include ms.date: 04/24/2018 ms.author: lizross ms.custom: inkludera fil
 ---
 
 >[!Note] 
-> Den här artikeln innehåller anvisningar att ta bort personliga data från enheten eller tjänsten och kan användas för att stödja din skyldigheter enligt BNPR. Om du letar efter allmän information om BNPR finns i [BNPR avsnitt av tjänsten förtroende portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> Den här artikeln tillhandahåller anvisningar om hur du tar bort personliga data från enheten eller tjänsten och den kan vara ett stöd för dina skyldigheter enligt GDPR. Om du letar efter allmän information om GDPR hittar du det i [GDPR-avsnittet på Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

@@ -1,6 +1,6 @@
 ---
-title: Include-filen för Azure privata DNS-zonen förhandsversion meddelande
-description: Include-filen för Azure privata DNS-zonen förhandsversion meddelande
+title: ta med fil med information om allmänt tillgänglig förhandsversion av Azure DNS Private Zone
+description: ta med fil med information om allmänt tillgänglig förhandsversion av Azure DNS Private Zone
 services: dns
 author: subsarma
 ms.service: dns
@@ -8,15 +8,16 @@ ms.topic: include file for Azure DNS Private Zone public preview notice
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for Azure DNS Private Zone public preview notice
-ms.openlocfilehash: 28b828f48e90c1e273dc3626b2b0e70260d6eacd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d00b0e26591e2c0def95e0c3b69c89b567dceddd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702541"
 ---
 > [!IMPORTANT]
-> Funktionen Azure privata DNS-zonen är för närvarande i förhandsversion. 
+> Funktionen Azure DNS Private Zone finns för närvarande som en allmänt tillgänglig förhandsversion. 
 >
-> Den här förhandsgranskningen tillhandahålls utan ett serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad kapacitet. 
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

@@ -1,20 +1,37 @@
-Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan publiceras till en funktionsapp i Azure. En funktion kan du gruppera funktioner som en logisk enhet för hantering, distribution och delning av resurser.   
+---
+title: ta med fil
+description: ta med fil
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 05/22/2018
+ms.author: glenga
+ms.custom: include file
+ms.openlocfilehash: 16bda26a80611b29fdb100736cfc48978e63f75a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34702440"
+---
+Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. I Visual Studio väljer **ny** > **projekt** från den **filen** menyn. 
+1. Välj **Nytt** > **Projekt** från **Arkiv**-menyn i Visual Studio.
 
-2. I den **nytt projekt** markerar **installerad**, expandera **Visual C#** > **moln**väljer **Azure Funktioner**, ange ett **namn** för ditt projekt och klickar på **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken. 
+2. I dialogrutan **Nytt projekt** väljer du **Installerat**, expanderar **Visual C#** > **Cloud**, väljer **Azure Functions**, skriver ett **namn** för projektet och klickar sedan på **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-    ![Dialogrutan Nytt projekt för att skapa en funktion i Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-project.png) 
+    ![Dialogrutan Nytt projekt för att skapa en funktion i Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-project.png)
 
-2. Använd inställningarna i tabellen nedan avbildningen.
- 
-    ![Dialogrutan ny funktion i Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-function.png) 
+3. Använd inställningarna som anges i tabellen under bilden.
+
+    ![Dialogrutan Ny funktion i Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-function.png) 
 
     | Inställning      | Föreslaget värde  | Beskrivning                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions v1 <br />(.NET Framework) | Detta skapar ett projekt för funktionen som använder Azure Functions version 1 körningsfel. Version 2-körningsmiljön som stöder .NET Core är för närvarande under förhandsgranskning. Mer information finns i [så målversionen Azure Functions-runtime](../articles/azure-functions/functions-versions.md).   | 
-    | **Mall** | HTTP-utlösare | Detta skapar en funktion som utlöses av en HTTP-begäran. |
-    | **Lagringskonto**  | Storage-emulatorn | En HTTP-utlösare använder inte kontot anslutning till lagringsplatsen. Alla andra typer av utlösare kräver en giltig anslutningssträng för Storage-konto. |
-    | **Behörighet som krävs** | Anonym | Funktionen skapade kan utlösas av alla klienter utan att ange en nyckel. Den här inställningen för auktorisering gör det enkelt att testa den nya funktionen. Mer information om nycklar och auktorisering finns [auktorisering nycklar](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) i den [HTTP och webhook bindningar](../articles/azure-functions/functions-bindings-http-webhook.md). |         
-3. Klicka på **OK** skapa funktionen projekt och HTTP aktiveras funktionen. 
+    | **Version** | Azure Functions v1 <br />(.NET Framework) | Med dessa inställningar skapas ett funktionsprojekt som använder körningsversion 1 av Azure Functions. Körningsversion 2, som stöder .NET Core, finns för närvarande endast som förhandsversion. Läs mer i informationen om att [köra rätt körningsversion av Azure Functions](../articles/azure-functions/functions-versions.md).   |
+    | **Mall** | HTTP-utlösare | Den här inställningen skapar en funktion som utlöses av en HTTP-begäran. |
+    | **Lagringskonto**  | Lagringsemulator | HTTP-utlösare använder inte Storage-kontoanslutningen. Alla andra typer av utlösare kräver en giltig anslutningssträng för Storage-kontot. |
+    | **Åtkomstbehörighet** | Anonym | Funktionen som skapats kan utlösas av alla klienter utan att en nyckel anges. Den här auktoriseringsinställningen gör det enkelt att testa den nya funktionen. Mer information om nycklar och auktorisering finns i avsnittet om [auktoriseringsnycklar](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) i avsnittet om [HTTP- och webhook-bindningar](../articles/azure-functions/functions-bindings-http-webhook.md). |
+4. Klicka på **OK** för att skapa funktionsprojektet och den HTTP-utlösta funktionen.
 

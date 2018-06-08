@@ -3,16 +3,19 @@ title: Självstudie – Bevilja åtkomst till ett ASP.NET Core webb-API från en
 description: Självstudie som visar hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropar det från en ensidesapp.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711101"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med Azure Active Directory B2C
 
@@ -155,13 +158,15 @@ Om du vill tillåta ensidesappen att anropa ASP.NET Core webb-API:et, måste du 
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Öppna filen **launchSettings.json** under **Egenskaper**, leta upp inställningen *applicationURL* och registrera värdet, som du ska använda i nästa avsnitt.
+
 ### <a name="configure-the-single-page-app"></a>Konfigurera ensidesappen
 
 Ensidesappen använder Azure AD B2C för användarregistrering, inloggning och skyddade ASP.NET Core webb-API-anrop. Du måste uppdatera ensidesappens anrop till .NET Core webb-API:et.
 Så här ändrar du appinställningarna:
 
 1. Öppna filen `index.html` i exemplet för ensidesappen i Node.js.
-2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-klientorganisationen. Ändra värdena för **b2cScopes** och **webApi** i följande kodrader:
+2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-klientorganisationen. I följande kod lägger du till namnet på din klientorganisation i **b2cScopes** och ändrar **webApi**-värdet till det *applicationURL*-värde som du skrev ned tidigare:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ Så här ändrar du appinställningarna:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

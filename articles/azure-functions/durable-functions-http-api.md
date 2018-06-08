@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32309988"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure-funktioner)
 
@@ -130,7 +131,7 @@ Nyttolasten i svar för den **HTTP 200** och **HTTP 202** fall är en JSON-objek
 | Fält           | Datatyp | Beskrivning |
 |-----------------|-----------|-------------|
 | runtimeStatus   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
-| Indata           | JSON      | JSON-data som används för att initiera instansen. |
+| indata           | JSON      | JSON-data som används för att initiera instansen. |
 | customStatus    | JSON      | JSON-data som används för anpassad orchestration status. Det här fältet är `null` om inte är aktiverad. |
 | utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
 | createdTime     | sträng    | Tiden då instansen har skapats. Använder ISO 8601 utökad notation. |
@@ -214,7 +215,7 @@ POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 
 Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
-| Fält       | Parametertypen  | Data tType | Beskrivning |
+| Fält       | Parametertyp  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
 | EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
 | {innehåll}   | Begär innehåll | JSON      | JSON-formaterad händelsenyttolasten. |

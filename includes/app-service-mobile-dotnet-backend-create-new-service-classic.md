@@ -1,4 +1,4 @@
-1. Logga in på den [Azure-portalen].
+1. Logga in på den [Azure Portal].
 2. Välj **+ ny** > **webb + mobilt** > **Mobilapp**, och ange sedan ett namn för Mobile Apps serverdel.
 3. För **resursgruppen**, Välj en befintlig resursgrupp eller skapa en ny (med samma namn som din app). 
 4. För **programtjänstplanen**, standardplanen (i det [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) är markerad. Du kan också välja en annan plan eller [skapa en ny](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
@@ -18,4 +18,4 @@
    Vänta några minuter för databasen distribueras innan du fortsätter.
 
 <!-- URLs. -->
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

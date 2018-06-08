@@ -9,10 +9,11 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: cccba0593c81be98231ec41fcad6f26e78fed223
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30325437"
 ---
 >[!NOTE]
->Vissa funktioner som nämns i den här artikeln, t.ex. moln till enhet meddelanden enhet twins och enhetshantering, är bara tillgängliga i standardnivån för IoT-hubb. Mer information om IoT-hubb nivåerna basic och standard finns [hur du väljer rätt IoT-hubb nivån](../articles/iot-hub/iot-hub-scaling.md).
+>Vissa funktioner som nämns i den här artikeln, t.ex. moln till enhet meddelanden enhet twins och enhetshantering, är bara tillgängliga i standardnivån för IoT-hubb. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

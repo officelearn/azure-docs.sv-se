@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "31589636"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +36,7 @@ Det här avsnittet visar hur du använder .NET-serverdelen SDK i Azure Apptjäns
 Referensdokumentationen för SDK-servern finns här: [.NET-referens för Azure Mobile Apps][1].
 
 ## <a name="create-app"></a>Så här: skapa en .NET-mobilappsserverdel
-Om du startar ett nytt projekt, kan du skapa ett program för användning med antingen den [Azure-portalen] eller Visual Studio. Du kan köra programmet Apptjänst lokalt eller publicera projektet till molnbaserade Apptjänst mobilappen.
+Om du startar ett nytt projekt, kan du skapa ett program för användning med antingen den [Azure Portal] eller Visual Studio. Du kan köra programmet Apptjänst lokalt eller publicera projektet till molnbaserade Apptjänst mobilappen.
 
 Om du lägger till mobila funktioner till ett befintligt projekt, finns det [ladda ned och initiera SDK](#install-sdk) avsnitt.
 
@@ -468,7 +469,7 @@ Kontrollera att din mobila serverdel har [Microsoft.Azure.Mobile.Server.Authenti
 I föregående exempel, bör du konfigurera den *authAudience* och *authIssuer* programinställningar i din Web.config-filen till varje URL: en för din programrot med hjälp av HTTPS-schema. På samma sätt bör du ange *authSigningKey* ska värdet för ditt program signeringsnyckel.
 Du kan hämta signeringsnyckeln:
 
-1. Navigera till din app i den [Azure-portalen]
+1. Navigera till din app i den [Azure Portal]
 2. Klicka på **verktyg**, **Kudu**, **Gå**.
 3. Klicka på hantering av Kudu-plats **miljö**.
 4. Hitta värdet för *webbplats\_AUTH\_signering\_NYCKELN*.
@@ -481,7 +482,7 @@ Använd signeringsnyckeln för den *authSigningKey* parameter i din lokala progr
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

@@ -5,20 +5,17 @@ keywords: Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735172"
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -61,6 +58,9 @@ Det finns ingen gräns för den totala mängden data som en behållare kan lagra
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Vad är Azure Cosmos DB genomströmning gränser?
 Det finns ingen gräns för totala genomflödet som en behållare kan stödja i Azure Cosmos DB. Viktiga idé är att distribuera din arbetsbelastning ungefär jämnt mellan ett tillräckligt stort antal partitionsnycklar.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Krypteras direkt och via en Gateway lägen för anslutningen? 
+Ja krypteras alltid fullständigt båda lägena. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Hur mycket kostar Azure Cosmos DB?
 Mer information finns i den [Azure Cosmos DB prisinformation](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Avgifterna för användning av Azure DB Cosmos bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och etablerat dataflöde för varje behållare. Termen *behållare* här refererar till SQL API insamling, Graph API diagram, MongoDB API-samling och tabellen API-tabeller. 
@@ -164,6 +164,10 @@ Du kan-massinfogning dokument i Azure Cosmos DB på två sätt:
 * Datamigreringsverktyget enligt beskrivningen i [verktyg för Azure Cosmos DB](import-data.md).
 * Lagrade procedurer som beskrivs i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Jag har installationen min samling som ska användas lazy indexering, visas att frågorna inte returnerar förväntat resultat. 
+Enligt beskrivningen i avsnittet indexering kan lazy indexering resultera i det här beteendet. Du bör alltid använda konsekvent indexering för alla program. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>Stöder den SQL API stöd för cachelagring av resurslänkar?
 Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränderlig och kan cachelagras. SQL-API-klienter kan ange en ”If-None-Match”-rubrik för läsning mot ett resurs-liknande dokument eller en samling och sedan uppdatera sina lokala kopior när serverversionen har ändrats.
 
@@ -171,7 +175,12 @@ Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränd
 Ja. Den [Azure Cosmos DB emulatorn](local-emulator.md) ger en hög återgivning emulering av Cosmos-DB-tjänsten. Den stöder funktioner som är identisk med Azure Cosmos DB, inklusive stöd för att skapa och hämtning av JSON-dokument, etablering och skalning samlingar och köra lagrade procedurer och utlösare. Du kan utveckla och testa program med hjälp av Azure Cosmos DB-emulatorn och distribuera dem till Azure på global nivå genom att göra en enda konfigurationen av anslutningens slutpunkt för Azure Cosmos DB.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Varför är långt flyttalsvärden i ett dokument avrundat från data explorer i portalen. 
-Detta är en begränsning i JavaScript. JavaScript använder dubbel precision flyttals formatera tal som anges i IEEE 754 och det på ett säkert sätt representera tal mellan-(253 - 1) och 253 – 1 (d.v.s. 9007199254740991) bara.
+Detta är en begränsning i JavaScript. JavaScript använder dubbel precision flyttals formatera tal som anges i IEEE 754 och det på ett säkert sätt representera tal mellan-(253 - 1) och 253-1 (d.v.s. 9007199254740991) bara.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Där tillåts behörigheter i objekthierarkin?
+
+Skapa behörigheter med ResourceTokens tillåts på samlingsnivå och dess underordnade (t.ex dokument, bifogade filer). Detta innebär att försök att skapa en behörighet på databasen eller en kontonivå tillåts inte för närvarande.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Utveckla mot API: et för MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Vad är Azure Cosmos DB API för MongoDB?
@@ -414,7 +423,7 @@ Med specifikationen dataflöde kan ändra du Elastiskt den om du vill dra nytta 
 
 Azure Cosmos-DB är avsedd att vara ett globalt distribuerade, SLA-baserade system med garantier för tillgänglighet, svarstid och genomströmning. När du reserverar genomflöde i Azure Cosmos DB garanteras den, till skillnad från genomflödet i andra system. Azure Cosmos-DB tillhandahåller ytterligare funktioner som kunder har begärt, till exempel sekundärindex och distributionslistor.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Jag får aldrig en ”full” kvotmeddelanden (som anger att en partition är full) när jag mata in data i Azure Table storage. Jag får det här meddelandet med tabell-API. Detta ger att begränsa mig och tvinga jag ändra Mina befintliga program?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Jag får en fullständig kvot aldrig ”meddelande (som anger att en partition är full) när jag mata in data i Azure Table storage. Jag får det här meddelandet med tabell-API. Detta ger att begränsa mig och tvinga jag ändra Mina befintliga program?
 
 Azure Cosmos-DB är ett SLA-baserat system som ger obegränsad skala garantier för latens, dataflöde, tillgänglighet och konsekvenskontroll. Kontrollera att index och Datastorleken är hanterbar och skalbar för att säkerställa prestanda Garanterad premium. 10 GB-gränsen för antalet enheter eller objekt per Partitionsnyckeln är att säkerställa att vi ger utmärkt prestanda för sökning och fråga. För att säkerställa att programmet ska skalas, även för Azure Storage, rekommenderar vi att du *inte* skapa en varm partition genom att lagra all information i en partition och exempelvärden. 
 
@@ -475,7 +484,7 @@ Diagnostikloggar beskrivs i den [Azure Cosmos DB diagnostikloggning](logging.md)
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Stöder primära nyckel kartan partition viktiga konceptet att Azure Cosmos DB?
 Partitionsnyckeln är Ja, används för att placera enheten i rätt plats. I Azure Cosmos DB för den att hitta rätt logisk partition som lagras på en fysisk partition. Partitionering konceptet och förklaras i den [Partition och skala i Azure Cosmos DB](partition-data.md) artikel. Väsentliga ta bort det här är att en logisk partition inte får överstiga gränsen på 10 GB idag. 
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Vad händer när jag får ett ”full” kvotmeddelanden som anger att en partition är full?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Vad händer när jag får en fullständig kvot ”meddelande som anger att en partition är full?
 Azure Cosmos-DB är ett SLA-baserat system som ger obegränsad skala garantier för latens, dataflöde, tillgänglighet och konsekvenskontroll. Dess Cassandra API kan för obegränsad lagring av data. Den här obegränsad lagring baseras på vågräta scaleout data med hjälp av partitionering som viktiga begrepp. Partitionering konceptet och förklaras i den [Partition och skala i Azure Cosmos DB](partition-data.md) artikel.
 
 10 GB-gränsen för antalet enheter eller objekt per logisk partition bör du följa. För att säkerställa att programmet ska skalas bra, rekommenderar vi att du *inte* skapa en varm partition genom att lagra all information i en partition och exempelvärden. Det här felet kan endast komma om dina data är förvrängd - som är att du har stora mängder data för en partitionsnyckel - d.v.s. mer än 10 GB. Du kan hitta fördelning av data med hjälp av lagring-portalen. Sättet att åtgärda det här felet är att recrete tabellen och välja en detaljerad primär (partitionsnyckel), vilket gör att bättre fördelning av data.

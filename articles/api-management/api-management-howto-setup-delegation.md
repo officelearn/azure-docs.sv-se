@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32151951"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -67,7 +68,7 @@ Nu måste du skapa den **delegering endpoint**. Det måste genomföra ett antal 
 5. Om användaren har registrerat dig måste du skapa ett lämpligt för dem i API-hantering. [Skapa en användare] med API Management REST API. Se till att du har angett det användar-ID till samma i din användararkivet eller ett ID som du kan hålla reda på när du gör det.
 6. När användaren har autentiserats:
    
-   * [begär en enkel inloggning (SSO) token] via API Management REST API
+   * [en enkel inloggning (SSO) token för begäran] via API Management REST API
    * Lägg till en frågeparameter returnUrl SSO-URL som du har fått från API-anrop ovan:
      
      > Till exempel https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -172,7 +173,7 @@ Mer information om delegering finns i följande video:
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[begär en enkel inloggning (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[en enkel inloggning (SSO) token för begäran]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
 [anropa REST-API för produkten prenumeration]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps

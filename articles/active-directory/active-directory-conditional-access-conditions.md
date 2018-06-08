@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735149"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
 
@@ -148,7 +150,7 @@ Villkoret klienten appar kan du tillämpa en princip för olika typer av program
 - Webbplatser och tjänster
 - Mobila appar och program. 
 
-![Villkor](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Ett program är klassificerade som:
 
@@ -156,7 +158,7 @@ Ett program är klassificerade som:
 
 - En en mobil app eller ett skrivbordsprogram om mobilappen OpenID Connect används för en intern klient.
 
-En fullständig lista över de klientappar som du kan använda i din princip för villkorlig åtkomst finns i [Teknisk referens för Azure Active Directory villkorlig åtkomst](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+En fullständig lista över de klientappar som du kan använda i din princip för villkorlig åtkomst finns i [klienten appar villkor](active-directory-conditional-access-technical-reference.md#client-apps-condition) i den tekniska referensen för Azure Active Directory villkorlig åtkomst.
 
 Vanliga användningsområden för det här villkoret är principer som:
 
@@ -166,6 +168,20 @@ Vanliga användningsområden för det här villkoret är principer som:
 
 Förutom att använda enkel inloggning på webben och protokoll för modern autentisering kan använda du det här villkoret till e postprogram som använder Exchange ActiveSync, t.ex. interna e-postappar på de flesta smartphones. För närvarande måste klientappar som använder äldre protokoll skyddas med hjälp av AD FS.
 
+Du kan bara välja det här villkoret om **Office 365 Exchange Online** är endast molnappen som du har valt.
+
+![Molnappar](./media/active-directory-conditional-access-conditions/32.png)
+
+Att välja **Exchange ActiveSync** som klientprogram villkor stöds endast om det inte finns andra villkor i en princip som konfigurerats. Du kan dock begränsa omfånget för det här tillståndet gäller endast för plattformar som stöds.
+
+ 
+![Plattformar som stöds](./media/active-directory-conditional-access-conditions/33.png)
+
+Problemet endast gäller för plattformar som stöds är detsamma för alla plattformar för enheter i en [enhet plattform villkoret](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Plattformar som stöds](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Mer information finns i:
 
 - [Ställ in SharePoint Online och Exchange Online för Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-no-modern-authentication.md)
@@ -173,9 +189,53 @@ Förutom att använda enkel inloggning på webben och protokoll för modern aute
 - [Azure Active Directory app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Äldre autentisering  
+
+Villkorlig åtkomst används nu för äldre Office-klienter som inte stöder modern autentisering samt klienter som använder e-post-protokollen POP, IMAP-, SMTP-osv. Detta kan du konfigurera principer som **blockera åtkomst från andra klienter**.
+
+
+![Äldre autentisering](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Kända problem
+
+- Konfigurera en princip för **andra klienter** blockerar från vissa klienter som SPConnect hela organisationen. Detta beror på dessa äldre klienter autentiseras på oväntade sätt. Det här problemet gäller inte för högre Office-program som äldre Office-klienterna. 
+
+- Det kan ta upp till 24 timmar innan principen ska gälla. 
+
+
+#### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+**Blockerar Exchange Web Services (EWS)?**
+
+Det beror på autentiseringsprotokollet som EWS använder. Om programmet EWS använder modern autentisering kan omfattas det av klientappen ”mobilappar och skrivbordsklienter”. Om programmet EWS använder grundläggande autentisering, kommer det omfattas av klientappen ”andra klienter”.
+
+
+**Vilka kontroller kan använda för andra klienter**
+
+En kontroll kan konfigureras för ”andra klienter”. Slutanvändarens upplevelse kommer dock att blockera åtkomsten för samtliga fall. ”Andra klienter” stöder inte kontroller som MFA, kompatibel enhet, domänanslutning osv. 
+ 
+**Vilka villkor kan använda för andra klienter?**
+
+Eventuella villkor kan konfigureras för ”andra klienter”.
+
+**Stöder Exchange ActiveSync alla villkor och kontroller?**
+
+Nej. Här är en sammanfattning av stöd för Exchange ActiveSync (EAS):
+
+- EAS stöder endast användare och grupp som mål. Det stöder inte Gäst, roller. Om villkoret för gäst-rollen har konfigurerats, blockeras alla användare eftersom vi inte kan avgöra om principen ska tillämpas på användaren eller inte.
+
+- EAS fungerar bara med Exchange som molnappen. 
+
+- EAS stöder inte alla villkor utom klientappen sig själv.
+
+- EAS kan konfigureras med en kontroll (alla utom enhetskompatibilitet kommer att leda till block).
+
+**Principerna gäller alla klientappar som standard framöver?**
+
+Nej. Det finns ingen ändring i princip standardbeteendet. Principerna fortsätta gälla till webbläsaren och klienter för mobila program/skrivbordet som standard.
 
 
 

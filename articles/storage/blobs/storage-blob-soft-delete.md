@@ -6,20 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057867"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34701691"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Mjuk borttagning för Azure Storage BLOB (förhandsgranskning)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Radera mjuka för Azure Storage BLOB
 
 ## <a name="overview"></a>Översikt
 
-Azure Storage erbjuder mjuk borttagning (förhandsversion) för blob-objekt så att du lättare kan återställa data när det är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
+Azure Storage erbjuder mjuk borttagning för blob-objekt så att du lättare kan återställa data när det är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
@@ -30,10 +30,6 @@ Du kan konfigurera tidsperiod som ej permanent borttagna data kan återställas 
 
 Mjuk borttagning är bakåtkompatibel; Du behöver inte göra ändringar i dina program kan dra nytta av skydd som den här funktionen ger. Dock [dataåterställning](#recovery) introducerar en ny **ångra borttagning Blob** API.
 
-> [!NOTE]
-> Under Public Preview anropa ange Blob-nivå på en blob med ögonblicksbilder är inte tillåtet.
-Mjuk borttagning genererar ögonblicksbilder för att skydda dina data när den är över. Vi arbetar aktivt på en lösning för att aktivera skiktning av blobbar med ögonblicksbilder.
-
 ### <a name="configuration-settings"></a>Konfigurationsinställningar
 
 När du skapar ett nytt konto, är Mjuk borttagning inaktiverat som standard. Mjuk borttagning är också inaktiverat som standard för befintliga lagringskonton. Du kan växla och inaktivera funktionen när som helst under ett lagringskonto.
@@ -42,7 +38,7 @@ Du kommer fortfarande att kunna komma åt och återställa ej permanent borttagn
 
 Kvarhållningsperioden anger hur lång tid som ej permanent borttagna data är lagrade och tillgänglig för återställning. För blobbar och blob-ögonblicksbilder som uttryckligen tas bort klockfrekvensen kvarhållningsperioden startar när data tas bort. För ej permanent borttagna ögonblicksbilder som genereras av funktionen Mjuk borttagning när data skrivs över, påbörjas klocka när ögonblicksbilden har genererats. För närvarande kan du behålla ej permanent borttagna data för mellan 1 och 365 dagar.
 
-Du kan ändra kvarhållningsperioden för mjuk borttagning när som helst. En uppdaterad Bevarandeperiod gäller enbart för nyligen borttagna data. Tidigare borttagna data upphör att gälla baserat på kvarhållningsperioden som konfigurerades när informationen har tagits bort.
+Du kan ändra kvarhållningsperioden för mjuk borttagning när som helst. En uppdaterad Bevarandeperiod gäller enbart för nyligen borttagna data. Tidigare borttagna data upphör att gälla baserat på kvarhållningsperioden som konfigurerades när informationen har tagits bort. Försök att ta bort ett mjukt borttaget objekt påverkas inte dess förfallotiden.
 
 ### <a name="saving-deleted-data"></a>Spara borttagna data
 
@@ -64,13 +60,13 @@ När **ta bort Blob** anropas på en ögonblicksbild den ögonblicksbilden har m
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. När **ögonblicksbild Blob** anropas B0 blir en ögonblicksbild och B1 är aktiv på blob. När ögonblicksbilden B0 tas bort, den har markerats som ej permanent borttagna.\*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. När **ögonblicksbild Blob** anropas B0 blir en ögonblicksbild och B1 är aktiv på blob. När ögonblicksbilden B0 tas bort, den har markerats som ej permanent borttagna.*
 
 När **ta bort Blob** anropas på en grundläggande blob (någon blob som inte själv en ögonblicksbild), blobben har markerats som ej permanent borttagna. Konsekvent med tidigare beteende, anropar **ta bort Blob** returnerar ett fel på en blob med aktiva ögonblicksbilder. Anropar **ta bort Blob** på en blob med ej permanent borttagna ögonblicksbilder inte returnerar ett fel. Du kan ändå ta bort en blob och alla dess ögonblicksbilder på gång när mjuk borttagning är aktiverat. Detta markerar de grundläggande blobben och ögonblicksbilder som mjuka tas bort.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här är en **ta bort Blob** anrop görs för att ta bort B2 och alla associerade ögonblicksbilder. Aktiva blob, B2 och alla associerade ögonblicksbilder är markerade som ej permanent borttagna.\*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här är en **ta bort Blob** anrop görs för att ta bort B2 och alla associerade ögonblicksbilder. Aktiva blob, B2 och alla associerade ögonblicksbilder är markerade som ej permanent borttagna.*
 
 > [!NOTE]
 > En ej permanent borttagna ögonblicksbild av blobens tillstånd innan Skrivåtgärden genereras automatiskt när en ej permanent borttagna blob skrivs över. Ny blob ärver nivån på över blob.
@@ -103,7 +99,7 @@ Om du vill göra det lättare att återställa borttagna data, har vi in ett nyt
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här, **ångra borttagning Blob** anropas på blob B, vilket återställer grundläggande blob, B1 och alla associerade ögonblicksbilder här bara B0 som aktiv. I det andra steget kopieras B0 över grundläggande blob. Den här kopieringsåtgärden genererar en ej permanent borttagen ögonblicksbild av B1.\*
+*Ej permanent borttagna data är grå, medan aktiva data är blå. Fler nyskrivna data visas under äldre data. Här, **ångra borttagning Blob** anropas på blob B, vilket återställer grundläggande blob, B1 och alla associerade ögonblicksbilder här bara B0 som aktiv. I det andra steget kopieras B0 över grundläggande blob. Den här kopieringsåtgärden genererar en ej permanent borttagen ögonblicksbild av B1.*
 
 Om du vill visa ej permanent borttagna blobbar och blob ögonblicksbilder, kan du välja att inkludera borttagna data i **lista Blobbar**. Du kan välja att visa endast ej permanent borttagna grundläggande blobbar eller att inkludera ej permanent borttagna blob-ögonblicksbilder. Du kan visa den tid när data har tagits bort samt antalet dagar innan data upphör gälla permanent för ej permanent borttagna data.
 
@@ -141,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Finns det [nästa steg](#Next steps) avsnittet för en pekare till programmet som producerade det här utdata.
+Finns det [nästa steg](#next-steps) avsnittet för en pekare till programmet som producerade det här utdata.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
@@ -205,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure CLI 
+Uppdatera egenskaper för en blob-klient om du vill aktivera mjuk borttagning:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Om du vill verifiera mjuk borttagning är aktiverad, använder du följande kommando: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Klientbibliotek för Python
 
 Uppdatera egenskaper för en blob-klient om du vill aktivera mjuk borttagning:
@@ -277,11 +286,15 @@ Mjuk borttagning är för närvarande endast tillgängligt för bloblagring (obj
 
 **Finns mjuk borttagning för alla typer av lagring?**
 
-Ja, mjuk borttagning är tillgänglig för blob storage-konton samt som blobar i allmänna lagringskonton. Detta gäller både standard- och premium-konton. Mjuk borttagning är inte tillgänglig för hanterade diskar.
+Ja, mjuk borttagning är tillgänglig för blob storage-konton samt som blobar i allmänna lagringskonton (GPv1 och GPv2). Detta gäller både standard- och premium-konton. Mjuk borttagning är inte tillgänglig för hanterade diskar.
 
 **Finns mjuk borttagning för alla lagringsnivåer?**
 
 Ja, mjuk borttagning är tillgänglig för alla lagringsnivåer, inklusive hot, kall och Arkiv. Dock mjuk borttagning inte ger över skydd för blobbar i arkivet nivån.
+
+**Kan jag använda Ange Blob nivå API för tjänstnivån blobbar med ej permanent borttagna ögonblicksbilder?**
+
+Ja. Ej permanent borttagna ögonblicksbilder kommer att finnas kvar på den ursprungliga nivån, men bas blob flyttas till det nya lagret. 
 
 **Premium-lagringskonton har en per blob ögonblicksbild högst 100. Ej permanent borttagna ögonblicksbilder räknas in i den här gränsen?**
 

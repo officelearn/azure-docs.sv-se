@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "33777543"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika användare använder Azure Notification Hubs

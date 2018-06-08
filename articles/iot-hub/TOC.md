@@ -151,11 +151,6 @@
 #### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 ### [Utveckla för begränsade enheter](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
-### Meddelanderoutning
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### [Fråga Avro-data från en hubbväg](iot-hub-query-avro-data.md)
 ### Skicka meddelanden från moln till enhet
 #### [.NET](iot-hub-csharp-csharp-c2d.md)

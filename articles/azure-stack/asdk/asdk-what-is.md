@@ -1,26 +1,27 @@
 ---
 title: En introduktion till Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: "Beskriver ASDK och vanliga användningsområden för utvärdering av Microsoft Azure-stacken."
+description: Beskriver ASDK och vanliga användningsområden för utvärdering av Microsoft Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850635"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Vad är Azure Stack Development Kit?
 [Microsoft Azure-stacken integrerat system](.\.\azure-stack-poc.md) i intervallet från 4 – 12 noder och gemensamt stöds av en partner för maskinvara och Microsoft. Använd Azure-stacken integrerat system för att aktivera nya scenarier för din produktionsarbetsbelastningar. Om du är operatör Azure Stack som hanterar den integrerade system-infrastrukturen och erbjuder tjänster, finns våra [operatorn dokumentationen](https://docs.microsoft.com/azure/azure-stack).
@@ -44,7 +45,7 @@ Titta på den här korta videon mer information om ASDK:
 ## <a name="asdk-and-multi-node-azure-stack-differences"></a>Azure-stacken skillnaderna i ASDK och flera noder
 Nod ASDK distributioner skiljer sig från flera noder Azure Stack distributioner i några viktiga sätt som du bör vara medveten om.
 
-|Beskrivning|ASDK|Multi-node Azure Stack|
+|Beskrivning|ASDK|Med flera noder Azure Stack|
 |-----|-----|-----|
 |**Skalning**|Alla komponenter är installerade på en enda nod server.|Kan variera i storlek från 4-12-noder.|
 |**Återhämtning**|Konfiguration nod ge inte hög tillgänglighet|[Hög tillgänglighet](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) funktioner stöds.|
@@ -59,7 +60,7 @@ Som operatör Azure Stack som du behöver veta vilka tjänster du kan göra till
 ### <a name="foundational-services"></a>Grundläggande tjänster
 Azure-stacken innehåller som standard följande ”grundläggande tjänster” när du distribuerar ASDK:
 - Compute
-- Lagring
+- Storage
 - Nätverk
 - Key Vault
 
@@ -79,4 +80,4 @@ Azure-stacken fortsätter att lägga till stöd för ytterligare Azure-tjänster
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill komma igång med att utvärdera Azure-stacken, måste du förbereda development kit värden server-datorn och sedan [installera ASDK](asdk-deploy.md). Därefter kan du logga in på portalerna administratörs- och att börja använda Azure-stacken.
+Om du vill komma igång med att utvärdera Azure-stacken, måste du förbereda development kit värden server-datorn och sedan [installera ASDK](asdk-install.md). Därefter kan du logga in på portalerna administratörs- och att börja använda Azure-stacken.

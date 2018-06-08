@@ -2,30 +2,28 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  document_id: 
-  title: "Azure IoT Edge – självstudier, API-referens"
-  meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
-  services: iot-edge
+  title: Azure IoT Edge – självstudier, API-referens
+  description: Använda Azure IoT Edge för att distribuera Azure-tjänster och anpassad affärslogik till enheter ”vid gränsen”.
   author: kgremban
   manager: timlt
   ms.service: iot-edge
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  services: iot-edge
   ms.topic: landing-page
   ms.date: 01/08/2018
   ms.author: kgremban
-  ms.openlocfilehash: e95adf14c91ff61c79eb038f921da7112165e282
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: 6d46719a31e5ebd41276a1f6988180518fcbf9bb
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34631096"
 abstract:
-  description: "Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar."
+  description: Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Distribuera din första IoT Edge-modul och bearbeta data på en simulerad enhet:"
+    text: 'Distribuera din första IoT Edge-modul och bearbeta data på en simulerad enhet:'
   - type: list
     style: icon48
     items:
@@ -41,10 +39,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_macos.svg
       text: Mac
       href: /azure/iot-edge/quickstart-linux
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig hur du installerar och konfigurerar IoT Edge, distribuerar moduler och använder Azure-tjänster som Stream Analytics ”vid gränsen”."
+    text: Lär dig hur du installerar och konfigurerar IoT Edge, distribuerar moduler och använder Azure-tjänster som Stream Analytics ”vid gränsen”.
   - type: list
     style: ordered
     items:

@@ -1,10 +1,12 @@
 - name: Dokumentation om Data Factory V1
   href: null
+- name: Växla till den aktuella versionen av dokumentationen
+  href: ../index.yml
 - name: Översikt
   items:
     - name: introduktion till Azure Data Factory
       href: data-factory-introduction.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Pipelines och aktiviteter
           href: data-factory-create-pipelines.md
@@ -26,7 +28,7 @@
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell
           href: data-factory-copy-activity-tutorial-using-powershell.md
-        - name: REST API
+        - name: REST-API
           href: data-factory-copy-activity-tutorial-using-rest-api.md
         - name: .NET-API
           href: data-factory-copy-activity-tutorial-using-dotnet-api.md
@@ -41,7 +43,7 @@
           href: data-factory-build-your-first-pipeline-using-powershell.md
         - name: Azure Resource Manager-mall
           href: data-factory-build-your-first-pipeline-using-arm.md
-        - name: REST API
+        - name: REST-API
           href: data-factory-build-your-first-pipeline-using-rest-api.md
     - name: Flytta data mellan lokalt system och molnet
       href: data-factory-move-data-between-onprem-and-cloud.md

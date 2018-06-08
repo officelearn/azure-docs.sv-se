@@ -8,17 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830545"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data vetenskap virtuell dator baserat Team analyser och AI-miljö 
 Den [datavetenskap virtuella](overview.md) (DSVM) ger en miljö med omfattande på Azure-molnet med inbyggda programvara för analys av AI och data. Traditionellt har används DSVM som enskilda analytics skrivbord och enskilda forskare få produktivitet med den här delade begreppet deras förskapad analytics-miljö. När stora analytics team planerar sina analytics miljöer för sina dataanalytiker och utvecklare AI, återkommande tema är för en delad analytics utveckling och experiment infrastruktur som hanteras i enlighet med företagets IT principer som underlättar också samarbete och konsekvens över hela datavetenskap / analytics team. En delad infrastruktur kan också IT att använda bättre analytics-miljö. Teambaserade datavetenskap / analytics infrastruktur kallas även av vissa organisationer som en ”Analytics Sandbox” som gör det möjligt för data-forskare att snabbt förstå data, köra experiment, verifiera hypotesen, skapa förutsägelsemodeller på ett säkert sätt utan att påverka produktionsmiljön samtidigt som du har åtkomst till olika datatillgångar. 

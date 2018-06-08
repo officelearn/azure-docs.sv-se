@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31607863"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850179"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -243,15 +244,20 @@ I den första skärmbilden leder DNN förfining till att bättre noggrannhet än
 
 
 ### <a name="parameter-tuning"></a>Parametern justera
+
 Som gäller för de flesta maskininlärning projekt, kräver hämta goda resultat för en ny datamängd noggrann parametern justera samt att utvärdera olika designbeslut. Om du vill hjälpa till med dessa uppgifter, alla viktiga parametrar har angetts och en kort förklaring finns i en enda plats: den `PARAMETERS.py` filen.
 
 Några av de mest lovande vägar för förbättringar är:
 
 - DQS: Kontrollera uppsättningar för träning och testning har hög kvalitet. Som är avbildningar är kommenterade korrekt, tvetydig bilder tas bort (till exempel kläder artiklar med såväl stripe punkter) och attribut är ömsesidigt uteslutande (det vill säga valt så att varje avbildning som hör till exakt ett attribut).
+
 - Om objektet av intresse är liten bild kända metoder för klassificering av bilden inte ska fungera väl. I sådana fall Överväg att använda en metod för identifiering av objekt som beskrivs i det här [kursen](https://github.com/Azure/ObjectDetectionUsingCntk).
 - DNN förfining: parametern tvekan viktigaste få rätt är inlärningsfrekvensen `rf_lrPerMb`. Om noggrannhet på utbildning (första bilden i del 2) är inte nära 0-5%, troligen är på grund av ett fel inlärningsfrekvensen. De parametrar som börjar med `rf_` är mindre viktiga. Utbildning fel bör normalt minska exponentiellt och vara nära 0% efter utbildning.
+
 - Ange upplösning: standard bildupplösningen är 224 x 224 bildpunkter. Med högre upplösning (parameter: `rf_inputResoluton`), till exempel 448 x 448 eller 896 x 896 pixlar ofta betydande förbättrar noggrannhet men långsammare DNN förfining. **Med högre upplösning är nästan gratislunch och nästan alltid förstärker noggrannhet**.
+
 - DNN över passning: undvika ett stort mellanrum mellan utbildning och testa noggrannhet under DNN förfining (först figur i del 2). Luckan kan minskas med annullerad priser `rf_dropoutRate` minst 0,5 och genom att öka vikten regularizer `rf_l2RegWeight`. Med en hög annullerad frekvens kan vara användbar om DNN inkommande bildupplösningen är hög.
+
 - Försök med djupare DNNs genom att ändra `rf_pretrainedModelFilename` från `ResNet_18.model` antingen `ResNet_34.model` eller `ResNet_50.model`. Resnet 50 modellen är inte bara djupare, men dess utdata från näst sista lagret är av storleken 2048 flyttal (vs. 512 flyttal ResNet 18 och ResNet 34 modeller). Ökad dimensionen kan vara särskilt bra när utbildning SVM-klassificerare.
 
 ## <a name="part-3---custom-dataset"></a>Del 3 - anpassad datauppsättning

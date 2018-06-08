@@ -5,6 +5,7 @@
     - name: Vad är VM-skalningsuppsättningar?
       href: overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa på Azure Portal
       href: quick-create-portal.md
@@ -64,6 +65,102 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+- name: Begrepp
+  items:
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Regioner och tillgänglighet
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
+    - name: VM-typer och storlekar
+      href: ../virtual-machines/windows/sizes.md
+      maintainContext: true
+      items:
+        - name: Generellt syfte
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: Anpassningsbara B-serien
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: Beräkningsoptimerad
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Minnesoptimerad
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Lagringsoptimerad
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: GPU-optimerad
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: Konfigurera GPU-drivrutiner
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Databehandling med höga prestanda
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure-beräkningsenheter (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Benchmark-poäng
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Godkända Linux-distributioner
+      href: ../virtual-machines/linux/endorsed-distros.md
+      maintainContext: true
+    - name: Underhåll och uppdateringar
+      href: ../virtual-machines/windows/maintenance-and-updates.md
+      maintainContext: true
+    - name: Disklagring
+      href: ../virtual-machines/windows/about-disks-and-vhds.md
+      maintainContext: true
+      items:
+        - name: Managed Disks
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Premium Storage
+          href: ../virtual-machines/windows/premium-storage.md
+          maintainContext: true
+        - name: Premium-lagringsprestanda
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Standard Storage
+          href: ../virtual-machines/windows/standard-storage.md
+          maintainContext: true
+        - name: Skalbarhetsmål för diskar
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Lagring och haveriberedskap för diskar
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Nätverk
+      href: ../virtual-machines/windows/network-overview.md
+      maintainContext: true
+    - name: Infrastruktur för automatisering
+      href: ../virtual-machines/windows/infrastructure-automation.md
+      maintainContext: true
+    - name: Säkerhet och principer
+      href: ../virtual-machines/windows/security-policy.md
+      maintainContext: true
+    - name: Övervakning
+      href: ../virtual-machines/windows/monitor.md
+      maintainContext: true
+    - name: Beräkning med höga prestanda
+      href: ../virtual-machines/windows/high-performance-computing.md
+      maintainContext: true
+    - name: Distributionsöverväganden
+      items:
+        - name: vCPU-kvoter
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Gör så här för att
   items:
     - name: Planera och designa

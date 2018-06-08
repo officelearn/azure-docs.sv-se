@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849757"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure-stacken
 
@@ -143,7 +144,7 @@ När du konfigurerar en VPN-anslutning i Azure-stacken måste du konfigurera ans
 Till skillnad från Azure, vilket stöder flera erbjudanden för både som initierare och en Övervakare, stöder Azure-stacken bara ett erbjudande.
 
 ###  <a name="ike-phase-1-main-mode-parameters"></a>Parametrar för IKE fas 1 (huvudläge)
-| Egenskap              | Värde|
+| Egenskap               | Värde|
 |-|-|
 | IKE-version           | IKEv2 |
 |Diffie-Hellman Group   | Grupp 2 (1 024 bitar) |
@@ -152,12 +153,15 @@ Till skillnad från Azure, vilket stöder flera erbjudanden för både som initi
 |SA-livstid (tid)     | 28 800 sekunder|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametrar för IKE fas 2 (snabbläge)
-| Egenskap| Värde|
+| Egenskap | Värde|
 |-|-|
 |IKE-version |IKEv2 |
 |Kryptering och hash-algoritmer (kryptering)     | GCMAES256|
 |Kryptering och hash-algoritmer (autentisering) | GCMAES256|
-|SA-livstid (tid)  | 27 000 sekunder |
-|SA-livstid (byte) | 819,200       |
+|SA-livstid (tid)  | 27 000 sekunder<sup>se anmärkning 1</sup> |
+|SA-livstid (byte) | 33,553,408<sup>se anmärkning 2</sup>     |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Utebliven peer-identifiering | Stöds|  
+
+*Anmärkning 1:* före version 1803 Azure stacken använder 14 400 värdet för SA-livstid (Time). 
+*Anmärkning 2:* före version 1803 Azure stacken använder 819,200 värdet för SA-livstid (byte).

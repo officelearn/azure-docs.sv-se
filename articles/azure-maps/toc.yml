@@ -30,12 +30,14 @@
       href: render-coverage.md
     - name: Routningstäckning
       href: routing-coverage.md
-    - name: Söka efter kategorier
-      href: search-categories.md
+    - name: Sökkategorier som stöds
+      href: supported-search-categories.md
     - name: Språk som stöds
       href: supported-languages.md
     - name: Förbrukningsmodell
       href: consumption-model.md
+    - name: Utöka geoJSON
+      href: extend-geojson.md
 - name: Instruktionsguider
   items:
     - name: Hantera Maps-konton
@@ -70,17 +72,33 @@
           href: map-show-traffic.md
         - name: Interagera med mushändelser
           href: map-events.md
+        - name: Tillgängliga kartprogram
+          href: map-accessibility.md
 - name: Referens
   items:
-    - name: API för tjänster – REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: API för kartkontroll – Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: REST
+      items:
+        - name: Renderingstjänst
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+        - name: Routningstjänst
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+        - name: Söktjänst
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+        - name: Tidszonstjänst
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+        - name: Trafiktjänst
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+        - name: Kontohantering för Maps
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Kartkontroll
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: Relaterat
   items:
     - name: Lösningar
       items:
-        - name: Förinställda lösningar för IoT Suite
+        - name: IoT-lösningsacceleratorer
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

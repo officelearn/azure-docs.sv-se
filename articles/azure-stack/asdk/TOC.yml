@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Självstudier
   items:
-    - name: 1. Distribuera ASDK
-      items:
-        - name: Distribuera ASDK - installationsprogrammet
-          href: asdk-deploy.md
-        - name: Distribuera ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Distribuera om ASDK
-          href: asdk-redeploy.md
-    - name: 2. Lägga till ett marketplace-objekt
-      items:
-        - name: Ladda ned från Azure
-          href: asdk-marketplace-item.md
-        - name: Lägg till från en lokal källa
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Erbjuda IaaS-tjänster
-      href: asdk-offer-services.md
-    - name: 4. Prenumerera på ett erbjudande
+    - name: Prenumerera på ett erbjudande
       href: asdk-subscribe-services.md
-    - name: 5. Uppdatera erbjudanden och planer
+    - name: Uppdatera erbjudanden och planer
       href: asdk-update-offers.md
-    - name: 6. Skapa en virtuell dator från en mall
+    - name: Skapa en virtuell dator från en mall
       href: asdk-create-vm-template.md
 - name: Begrepp
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: Förbereda värddatorn ASDK
           href: asdk-prepare-host.md
-        - name: Installera ASDK
+        - name: Distribuera ASDK - installationsprogrammet
           href: asdk-install.md
+        - name: Distribuera ASDK - PowerShell
+          href: asdk-deploy-powershell.md
         - name: Efter distributionen konfiguration
           href: asdk-post-deploy.md
+        - name: Distribuera om ASDK
+          href: asdk-redeploy.md
     - name: Registrera ASDK
       href: asdk-register.md
     - name: Konfigurera Azure Stack telemetriinställningar

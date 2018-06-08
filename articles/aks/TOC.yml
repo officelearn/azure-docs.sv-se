@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: Ingångshändelser och TLS
           href: ingress.md
+        - name: Utgående trafik
+          href: egress.md
         - name: Routning av HTTP-program
           href: http-application-routing.md
     - name: Säkerhet och autentisering

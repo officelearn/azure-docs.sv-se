@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Omfattningar
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Skapa variabler för att spara värden
+          href: logic-apps-create-variables-store-values.md
         - name: Lägga till anpassad kod med Azure Functions
           href: logic-apps-azure-functions.md
         - name: Anropa Logic Apps med Azure Functions

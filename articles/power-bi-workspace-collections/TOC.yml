@@ -1,0 +1,74 @@
+- name: Översikt
+  items:
+    - name: Vad är Power BI-arbetsytesamlingar?
+      href: what-are-power-bi-workspace-collections.md
+    - name: Vad är nytt i Power BI-arbetsytesamlingar?
+      href: whats-new.md
+- name: Kom igång
+  items:
+    - name: Kom igång med Power BI-arbetsytesamlingar
+      href: get-started.md
+    - name: Kom igång med ett exempel
+      href: get-started-sample.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
+- name: Gör så här för att
+  items:
+    - name: Planera och designa
+      items:
+        - name: Vanliga scenarier
+          href: scenarios.md
+    - name: Hantera
+      items:
+        - name: Anslut till en datakälla
+          href: connect-datasource.md
+        - name: Bädda in en Power BI-rapport
+          href: embed-report.md
+        - name: Interagera med rapporter
+          href: interact-with-reports.md
+        - name: Skapa en ny rapport från en datauppsättning
+          href: create-report-from-dataset.md
+        - name: Spara rapporter
+          href: save-reports.md
+        - name: Växla mellan att visa och redigera
+          href: toggle-mode.md
+    - name: Skydda
+      items:
+        - name: Autentisering och auktorisering
+          href: app-token-flow.md
+        - name: Säkerhet på postnivå med Power BI-arbetsytesamlingar
+          href: row-level-security.md
+- name: Referens
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
+    - name: PowerShell
+      href: /powershell/module/azurerm.powerbiembedded
+    - name: .NET Azure Resource Manager
+      href: /dotnet/api/microsoft.azure.management.powerbiembedded
+    - name: Hämta .NET SDK
+      href: 'https://www.nuget.org/profiles/powerbi'
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
+    - name: 'Management REST API:er'
+      href: /rest/api/powerbiembedded/
+    - name: 'REST API:er'
+      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Inbäddat exempel med JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+    - name: Git-lagringsplats för JavaScript
+      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
+    - name: 'Git-lagringsplats för Power BI C#'
+      href: 'https://github.com/Microsoft/PowerBI-CSharp'
+    - name: Power BI Community
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Exempelprogram
+      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/powerbi'

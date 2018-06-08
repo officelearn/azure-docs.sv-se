@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench (offentlig förhadsversion)
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Om Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -11,6 +12,7 @@
     - name: Integreringsmönster
       href: blockchain-workbench-integration-patterns.md
 - name: Instruktionsguider
+  expanded: true
   items:
     - name: Distribuera Workbench
       href: blockchain-workbench-deploy.md
@@ -48,3 +50,9 @@
       href: blockchain-workbench-messages-overview.md
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: Lösningsmallar
+      items:
+        - name: Konsortium för bevis på arbete för ethereum
+          href: ethereum-deployment-guide.md
+        - name: Konsortium för Hyperledger Fabric
+          href: hyperledger-fabric-single-member-blockchain.md

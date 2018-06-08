@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650068"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839817"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -79,7 +79,7 @@ Som standard skapas kvorum set-repliker för lokal lagringskonfigurationer i sam
 Eftersom zonen redundant kvorum-uppsättning har repliker i olika datacenter med några avståndet mellan dem, ökad Nätverksfördröjningen öka tid som genomförande och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till en zon konfigurationen genom att inaktivera inställningen zonen redundans. Den här processen liknar den vanliga tjänstuppdateringen mål för servicenivå (SLO) är en storlek på data igen. I slutet av processen har databasen eller poolen migrerats från en zon redundant ring till en enda zon ring eller vice versa.
 
 > [!IMPORTANT]
-> Zonen redundant databaser och elastiska pooler stöds endast i Premium och företag kritiska (förhandsgranskning) tjänstnivåer. Under förhandsversion, säkerhetskopior och granska poster lagras i RA-GRS lagring och kan därför inte automatiskt tillgänglig vid ett avbrott för hela zonen. 
+> Zonen redundant databaser och elastiska pooler är för närvarande stöds bara i premiumnivån. Under förhandsversion, säkerhetskopior och granska poster lagras i RA-GRS lagring och kan därför inte automatiskt tillgänglig vid ett avbrott för hela zonen. 
 
 I följande diagram visas zonen redundant version av arkitekturen för hög tillgänglighet:
  

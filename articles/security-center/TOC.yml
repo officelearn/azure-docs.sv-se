@@ -147,6 +147,8 @@
           href: security-center-threat-intel.md
         - name: Undersökning
           href: security-center-investigation.md
+        - name: Hantera användardata för undersökning
+          href: security-center-investigation-user-data.md
     - name: Automatisera säkerhetsarbetsflöden
       items:
         - name: Logic Apps-spelböcker
@@ -171,6 +173,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: Resurser
   items:
+    - name: Hantera användardata
+      href: security-center-privacy.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: security-center-faq.md
     - name: Plattformar som stöds

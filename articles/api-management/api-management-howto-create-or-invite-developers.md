@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 53ed914a3890aab1dd49536856feeb8975986e00
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33934816"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Hantera användarkonton i Azure API Management
 Utvecklare finns i API-hantering, användare av API: er som du exponera med hjälp av API-hantering. Den här guiden visar hur du skapar och bjuda in utvecklare att använda API: er och produkter som du gör tillgängliga för dem med din API Management-instans. Information om hur du hanterar användarkonton programmässigt finns i [användarentiteten](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentation i den [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) referens.

@@ -12,9 +12,15 @@
 - name: Självstudier
   items:
     - name: 'Ladda upp, koda och strömma'
-      href: stream-files-tutorial-with-api.md
+      items:
+        - name: Med .NET
+          href: stream-files-tutorial-with-api.md
+        - name: Med REST
+          href: stream-files-tutorial-with-rest.md
     - name: Analysera din video
-      href: analyze-videos-tutorial-with-api.md
+      items:
+        - name: Med .NET
+          href: analyze-videos-tutorial-with-api.md
 - name: Exempel
   items:
     - name: Azure-kodexempel
@@ -25,18 +31,24 @@
   items:
     - name: Tillgångar
       href: assets-concept.md
-    - name: Generera anpassningsbar bithastighetsstege automatiskt
-      href: autogen-bitrate-ladder.md
+    - name: Kodning
+      items:
+        - name: Översikt
+          href: encoding-concept.md
+        - name: Generera anpassningsbar bithastighetsstege automatiskt
+          href: autogen-bitrate-ladder.md
     - name: Medieintelligens
       href: intelligence-concept.md
+    - name: Reagerar på händelser
+      href: reacting-to-media-services-events.md
     - name: Lagringskonton
       href: storage-account-concept.md
     - name: Transformeringar och jobb
       href: transform-concept.md
-    - name: Reagerar på händelser
-      href: reacting-to-media-services-events.md
 - name: Instruktionsguider
   items:
+    - name: Migrera från v2 till v3
+      href: migrate-from-v2-to-v3.md
     - name: Skapa ett konto – CLI
       href: create-account-cli-how-to.md
     - name: 'Åtkomst till API:er – CLI'
@@ -49,8 +61,14 @@
           href: job-input-from-http-how-to.md
         - name: Från en lokal fil
           href: job-input-from-local-file-how-to.md
+    - name: Anpassa förinställningar för transformering
+      items:
+        - name: Med .NET Core
+          href: customize-encoder-presets-how-to.md
 - name: Referens
   items:
+    - name: OpenAPI-specifikation (Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: Azure CLI 2.0
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
@@ -61,6 +79,8 @@
       href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node .js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Händelsescheman
       href: media-services-event-schemas.md
 - name: Resurser
@@ -77,3 +97,5 @@
       href: release-notes.md
     - name: Kvoter och begränsningar
       href: limits-quotas-constraints.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: frequently-asked-questions.md

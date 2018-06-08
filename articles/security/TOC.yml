@@ -95,11 +95,11 @@
           href: security-internet-of-things-overview.md
           items:
             - name: Metodtips för IoT-säkerhet
-              href: ../iot-suite/iot-security-best-practices.md
+              href: ../iot-accelerators/iot-security-best-practices.md
             - name: IoT-säkerhet
-              href: '../iot-suite/iot-security-architecture.md#security-in-iot'
+              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
             - name: Skydda distributionen av IoT
-              href: ../iot-suite/iot-suite-security-deployment.md
+              href: ../iot-accelerators/iot-accelerators-security-deployment.md
     - name: Azure Service Fabric-säkerhet
       href: azure-service-fabric-security-overview.md
       items:
@@ -159,6 +159,8 @@
           href: ./blueprints/fedramp-datawarehouse-overview.md
         - name: IaaS-webbprogram
           href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:
@@ -197,6 +199,8 @@
       href: ./blueprints/azure-health.md
 - name: White paper-faktablad
   href: security-white-papers.md
+- name: Säkerhetstjänster i Azure
+  href: azure-security-services-technologies.md
 - name: Tekniska översikter
   href: security-overviews.md
 - name: Bästa praxis

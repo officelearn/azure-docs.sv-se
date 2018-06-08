@@ -27,6 +27,8 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Övergång till OMS-portalen
+      href: log-analytics-oms-portal-faq.md
     - name: Uppgradering av arbetsyta
       items:
         - name: Översikt över uppgradering

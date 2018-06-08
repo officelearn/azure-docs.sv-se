@@ -39,7 +39,9 @@
   items:
     - name: Distribuera
       items:
-        - name: Distribuera grupper med flera behållare
+        - name: Grupper med flera behållare – YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Grupper med flera behållare – Resource Manager
           href: container-instances-multi-container-group.md
         - name: Distribuera från Azure Container Registry
           href: container-instances-using-azure-container-registry.md

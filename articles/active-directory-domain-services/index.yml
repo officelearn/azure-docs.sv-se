@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure AD Domain Services
+metadata:
+  title: Dokumentation om Azure AD Domain Services
+  description: Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
+  keywords: Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift
+  author: mahesh-unnikrishnan
+  ms.author: maheshu
+  manager: mtillman
+  ms.date: 6/1/2018
+  ms.topic: landing-page
+  ms.devlang: na
+  ms.service: active-directory
+  ms.component: domains
+  ms.openlocfilehash: 4b065baf02a71d37b05cecf441b27f05a393c08c
+  ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 06/04/2018
+  ms.locfileid: "34726587"
+sections:
+- items:
+  - type: markdown
+    text: Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: active-directory-ds-overview.md
+      html: <p>Läs om vad Azure AD Domain Services kan göra för dig.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_investigate.svg
+      title: Vad är Azure AD Domain Services?
+    - href: active-directory-ds-getting-started.md
+      html: <p>Skapa en egen hanterad domän med hjälp av den här enkla genomgången.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_deploy.svg
+      title: Kom igång
+    - href: active-directory-ds-contact-us.md
+      html: <p>Få hjälp när du behöver.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_support.svg
+      title: Få support
+    - href: https://azure.microsoft.com/en-us/updates/?product=active-directory-ds
+      html: <p>Se nya funktioner i Azure AD Domain Services.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_whats-new.svg
+      title: Nyheter
+- title: Videoklipp
+  items:
+  - type: markdown
+    text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
+- title: Planera artiklar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-comparison.md">Ska du besluta om tjänsten passar dig?</a>
+    - html: <a href="active-directory-ds-features.md">Funktioner i Azure AD Domain Services</a>
+    - html: <a href="active-directory-ds-scenarios.md">Hur kan du använda tjänsten?</a>
+    - html: <a href="active-directory-ds-synchronization.md">Förstå hur synkroniseringen fungerar i Azure AD Domain Services</a>
+    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">Prissättning i Azure AD Domain Services</a>
+- title: Program och Azure AD Domain Services
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Distribuera Azure AD App Proxy</a>
+    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">Profilsynkronisering för SharePoint Server</a>
+    - html: <a href="active-directory-ds-enable-kcd.md">Konfigurera begränsad Kerberos-delegering</a>
+- title: Instruktionsartiklar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-check-health.md">Kontrollera en hanterad domäns hälsostatus</a>
+    - html: <a href="active-directory-ds-csp.md">Azure CSP-prenumerationer och Azure AD Domain Services</a>
+    - html: <a href="active-directory-ds-admin-guide-administer-dns.md">Hantera DNS</a>
+    - html: <a href="active-directory-ds-networking.md">Välja ett virtuellt nätverk</a>
+    - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Konfigurera säkert LDAP</a>
+    - html: <a href="active-directory-ds-admin-guide-create-ou.md">Skapa en organisationsenhet</a>
+    - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Hantera grupprincip</a>
+- title: Felsökningsartiklar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-troubleshooting.md">Felsökningsguide</a>
+    - html: <a href="active-directory-ds-troubleshoot-alerts.md">Felsöka aviseringar på en hanterad domän</a>
+    - html: <a href="active-directory-ds-faqs.md">Vanliga frågor och svar</a>
+    - html: <a href="https://azure.microsoft.com/en-us/support/options/">Få support</a>
+- title: Andra resurser
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Ge feedback om Azure AD Domain Services på UserVoice</a>
+    - html: <a href="https://azure.microsoft.com/en-us/roadmap/?category=security-identity">Azure-översikt</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-contact-us">Kontakta oss</a>

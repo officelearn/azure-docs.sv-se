@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Skicka händelser till Queue Storage
       href: custom-event-to-queue-storage.md
+    - name: Skicka händelser till Event Hubs
+      href: custom-event-to-eventhub.md
 - name: Självstudier
   items:
     - name: E-postmeddelande när en virtuell dator ändras

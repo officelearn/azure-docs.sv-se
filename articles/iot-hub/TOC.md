@@ -9,6 +9,7 @@
 ## [Skicka telemetri (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Skicka telemetri (Java)](quickstart-send-telemetry-java.md)
 ## [Skicka telemetri (Python)](quickstart-send-telemetry-python.md)
+## [Skicka telemetri (iOS)](quickstart-send-telemetry-ios.md)
 ## [Kontrollera en enhet (Node.js)](quickstart-control-device-node.md)
 ## [Kontrollera en enhet (.NET)](quickstart-control-device-dotnet.md)
 ## [Kontrollera en enhet (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Meddelanderoutning](tutorial-routing.md)
+## [Konfigurera dina enheter](tutorial-device-twins.md)
+## [Testa enhetsanslutning](tutorial-connectivity.md)
 ## Skicka meddelanden från moln till enhet
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Kom igång med enhetstvillingar
-### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
-### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-getstarted.md)
-### [Python-serverdel/Python-enhet](iot-hub-python-twin-getstarted.md)
 ## Komma igång med enhetshantering
 ### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-device-management-get-started.md)
 ### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java-serverdel/Java-enhet](iot-hub-java-java-device-management-getstarted.md)
 ### [Python-serverdel/Python-enhet](iot-hub-python-python-device-management-get-started.md)
-## Så här använder du tvillingegenskaper
-### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-how-to-configure.md)
-### [Python-serverdel/Python-enhet](iot-hub-python-python-twin-how-to-configure.md)
 ## Använda enhetsjobb för att uppdatera enhetens inbyggda programvara
 ### [Node-serverdel/Node-enhet](iot-hub-node-node-firmware-update.md)
 ### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
 ### [Prissättningsexempel](iot-hub-devguide-pricing.md)
 ### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
+### [Utveckla för begränsade enheter](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT-support](iot-hub-mqtt-support.md)
 ### [Ordlista](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
 ### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
 #### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
+### [Utveckla för begränsade enheter](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Meddelanderoutning
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [Fråga Avro-data från en hubbväg](iot-hub-query-avro-data.md)
 ### Skicka meddelanden från moln till enhet
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Kom igång med enhetstvillingar
+#### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
+#### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-getstarted.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-twin-getstarted.md)
 ### Ladda upp filer från enheter
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Schemalägga och sända jobb
-### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)
-### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java-serverdel/Java-enhet](iot-hub-java-java-schedule-jobs.md)
-### [Python-serverdel/Python-enhet](iot-hub-python-python-schedule-jobs.md)
 
 ## Skapa en IoT Hub 
 ### [Använda Azure Portal](iot-hub-create-through-portal.md)

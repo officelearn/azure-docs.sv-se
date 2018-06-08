@@ -63,6 +63,8 @@
           items:
             - name: Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal
               href: backup-azure-microsoft-azure-backup.md
+            - name: Installera Azure Backup Server på Azure Stack
+              href: backup-mabs-install-azure-stack.md
             - name: Lägga till lagringsutrymme på Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Uppgradera Azure Backup Server till v.2
@@ -157,12 +159,10 @@
           href: backup-dpm-automation.md
         - name: Windows Server i Azure Portal
           href: backup-client-automation.md
-    - name: Azure SQL Database
+    - name: SQL på virtuella Azure-datorer
       items:
-        - name: Konfigurera och återställa SQL Database-säkerhetskopior – SQL-lagring
-          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Konfigurera och återställa SQL Database-säkerhetskopior – Recovery Services-valv
-          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Säkerhetskopiera SQL-databas i Azure
+          href: backup-azure-sql-database.md
     - name: Windows Server
       items:
         - name: Säkerhetskopiera Windows Server-filer och -mappar

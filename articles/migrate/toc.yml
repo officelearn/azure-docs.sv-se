@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Begrepp
   items:
-    - name: Begrepp för insamlare
+    - name: Om insamlaren
       href: concepts-collector.md
     - name: Utvärderingsberäkningar
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
-    - name: Migrera dina lokala resurser till Azure
+    - name: Contoso-migreringsserie
       items:
-        - name: Scenarioöversikt – migrera dina lokala resurser till Azure
-          href: migrate-scenarios-overview.md
-        - name: Scenario 1 – utvärdera lokala resurser för migrering till Azure
+        - name: 1. Contoso-migreringsöversikt
+          href: contoso-migration-overview.md
+        - name: 2. Contoso – Konfigurera en Azure-infrastruktur
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
           href: migrate-scenarios-assessment.md
-        - name: 'Scenario 2: Lift and shift-migrering till Azure'
+        - name: 4. Contoso-Byta värd för virtuella Azure-datorer och Azure SQL Managed Instance
           href: migrate-scenarios-lift-and-shift.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md

@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834390"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Så här väljer du algoritmer för Microsoft Azure Machine Learning
 Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror”. Det beror på storleken, kvaliteten och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen översattes till instruktioner för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna datavetare går inte att avgöra vilken algoritm utför bäst innan du försöker dem.
@@ -67,7 +69,7 @@ I förstärkning learning, hämtar algoritmen att välja en åtgärd som svar p�
 Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta ersättning. Det finns inga förstärkning learning algoritmen moduler i Azure Machine Learning. Förstärkning learning är vanligt i robotics, där en uppsättning sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja av roboten nästa åtgärd. Det är också en fysisk plats för sakernas Internet program.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
-### <a name="accuracy"></a>Noggrannhet
+### <a name="accuracy"></a>Tillförlitlighet
 Hämtar det mest korrekta svaret möjliga är inte alltid nödvändigt.
 Ibland är en uppskattning lämplig, beroende på vad du vill använda den för. Om så är fallet kan du klippa ut din bearbetningstid kraftigt av skulle fastna för fler ungefärliga metoder. En annan fördel med flera ungefärliga metoder är att de naturligt tenderar att undvika [overfitting](https://youtu.be/DQWI1kvmwRg).
 

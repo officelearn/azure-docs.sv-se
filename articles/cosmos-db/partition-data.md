@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe2dbab876d1ef55ff05315cf7c823d0444663a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808680"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850533"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -64,15 +64,16 @@ Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objek
 
 Valet av Partitionsnyckeln är ett viktigt beslut som du behöver göra i designläge. Välj ett egenskapsnamn som har ett stort antal värden och har även åtkomstmönster. Det är bäst att ha en partitionsnyckel med ett stort antal distinkta värden (t.ex. hundratals eller tusentals). Det kan du distribuera din arbetsbelastning jämnt mellan dessa värden. En perfekt Partitionsnyckeln är en som visas ofta som ett filter i dina frågor och kardinalitet är tillräcklig för att säkerställa att din lösning är skalbart.
 
-Om en fysiska partition når sin lagringsgräns och data i partitionen har samma partitionsnyckel, Azure Cosmos-databas returnerar den *”partitionsnyckel nått maximal storlek på 10 GB”* meddelandet och partitionen inte delar upp. Att välja en bra partitionsnyckel är ett viktigt beslut. Partitioner är ett internt begreppet Azure Cosmos DB och är tillfälligt. Antagande av hur många partitioner fördelas på en viss genomströmning är inte helt korrekt. Azure Cosmos-DB skala automatiskt partitioner baserat på din arbetsbelastning. Så du inte bör corelate databasens utformning baserat på antalet partitioner bör i stället du kontrollera att välja rätt Partitionsnyckeln. 
+Om en fysiska partition når sin lagringsgräns och data i partitionen har samma partitionsnyckel, Azure Cosmos-databas returnerar den *”partitionsnyckel nått maximal storlek på 10 GB”* meddelandet och partitionen inte delar upp. Att välja en bra partitionsnyckel är ett viktigt beslut. Fysiska partitioner är ett internt begreppet Azure Cosmos DB och är tillfälligt. Azure Cosmos-DB skala automatiskt antalet fysiska partitioner baserat på din arbetsbelastning. Så du inte bör corelate databasens utformning baserat på antalet fysiska partitioner bör i stället du kontrollera att välja rätt Partitionsnyckeln (logiska partitioner). 
 
 Välj en partitionsnyckel så att:
 
-* Datadistributionen av är även över alla nycklar.
-* Arbetsbelastningen är även över alla nycklar.
-* Det är lämpligt för att ha en uppsättning nycklar som partitionsnycklar än en enskild nyckel.  Fler nycklar resultera i en arbetsbelastning fördelas jämnt.
+* Storage-distribution är även över alla nycklar.
+* Volymen fördelning begäranden vid en viss tidpunkt är även över alla nycklar.
+* Frågor som anropas med hög samtidighet kan effektivt vidarebefordras genom att inkludera Partitionsnyckeln i filterpredikatet.  
+* Om du väljer en partitionsnyckel med högre kardinalitet rekommenderas vanligtvis – becaue det vanligtvis ger bättre distribution och skalbarhet. En sammansatt nyckel kan till exempel bildas genom att sammanbinda värden från flera egenskaper för att öka kardinalitet. 
 
-När du väljer en partitionsnyckel med ovan överväganden som du inte behöver bry dig om antalet partitioner eller hur mycket genomströmning fördelas per fysiska partition som vi skala varje partition oberoende av varandra och linjärt efter behov.
+När du väljer en partitionsnyckel med ovan överväganden kommer du inte behöver bry dig om antalet partitioner eller hur mycket genomströmning fördelas per fysiska partition som Azure Cosmos DB skalas ut antalet fysiska partitioner och kan även skala den enskilda partitioner efter behov.
 
 Azure DB Cosmos-behållare kan skapas som *fast* eller *obegränsade* i Azure-portalen. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange en partitionsnyckel och en minsta genomströmning på 1 000 RU/s för att skapa en behållare som obegränsade. Azure DB Cosmos-behållare kan också konfigureras för att dela dataflödet mellan en uppsättning behållare, där varje behållare måste ange en partition nyckeln och kan växa obegränsade.
 

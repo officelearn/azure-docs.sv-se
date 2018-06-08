@@ -5,23 +5,24 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833400"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera uppdateringshantering, ändringsspårning och lager-lösningar
 
-Azure Automation ger lösningar för att hantera uppdateringar av operativsystemet säkerhet, spåra ändringar och inventera vad som är installerat på datorerna. Det finns flera sätt att publicera datorer, kan du publicera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), från ditt Automation-konto eller av [runbook](automation-onboard-solutions.md). Den här artikeln beskriver onboarding dessa lösningar från ditt Automation-konto.
+Azure Automation ger lösningar för att hantera uppdateringar av operativsystemet säkerhet, spåra ändringar och inventera vad som är installerat på datorerna. Det finns flera sätt att publicera datorer, kan du publicera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), från ditt Automation-konto eller av [runbook](automation-onboard-solutions.md). Den här artikeln beskriver onboarding dessa lösningar från ditt Automation-konto.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure på https://portal.azure.com
+Logga in till Azure på https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Aktivera lösningar
 
@@ -68,29 +69,27 @@ Välj antingen sparad sökning kan du se frågan som används för att fylla i g
 
 ![Sparade sökningar](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>Publicera en dator i Azure
+## <a name="onboard-azure-vms"></a>Publicera virtuella Azure-datorer
 
 Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **+ Lägg till Azure VM**, Välj en virtuell dator i listan. På den **uppdateringshantering** klickar du på **aktivera**. Den aktuella virtuella datorn läggs till i datorgruppen sparad sökning för lösningen.
+Klicka på **+ Lägg till virtuella datorer i Azure**, Välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktiveras är avmarkerad out och inte kan väljas. På den **aktivera uppdateringshantering** klickar du på **aktivera**. Detta lägger till de valda virtuella datorerna till i datorgruppen sparad sökning för lösningen.
+
+![Aktivera virtuella Azure-datorer](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>Publicera en virtuell dator utan Azure
 
-Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
+Azure-datorer inte behöver läggas till manuellt. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **Lägg till Azure-datorn**. Detta öppnar ett nytt webbläsarfönster med instruktioner om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn så att datorn kan rapportera till lösningen. Om du är onboarding en dator som för närvarande hanteras av System Center Operations Manager, en ny agent krävs inte, arbetsyteinformation har angetts i den befintliga agenten.
+Klicka på **Lägg till Azure-datorn**. Detta öppnar ett nytt webbläsarfönster med den [instruktioner om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../log-analytics/log-analytics-concept-hybrid.md) så att datorn kan rapportera till lösningen. Om du är onboarding en dator som för närvarande hanteras av System Center Operations Manager, en ny agent krävs inte, arbetsyteinformation har angetts i den befintliga agenten.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Publicera datorer på arbetsytan
 
-Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
+Manuellt installerade datorer eller datorer som redan rapporterar till arbetsytan behöver läggas till i Azure Automation för lösningen ska aktiveras. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
 Välj **hantera datorer**. Detta öppnar den **hantera datorer** sidan. Den här sidan kan du aktivera lösningen på en utvald grupp datorer, alla tillgängliga datorer eller aktivera lösning för alla aktuella datorer och aktivera det på alla framtida datorer.
 
 ![Sparade sökningar](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>Valda datorer
-
-Välj för att aktivera lösning för en eller flera datorer **aktivera på valda datorer** och på **lägga till** bredvid varje dator som du vill lägga till i lösningen. Den här uppgiften lägger till de valda datornamn datorgruppen sparade sökfråga för lösningen.
 
 ### <a name="all-available-machines"></a>Alla tillgängliga datorer
 
@@ -99,6 +98,10 @@ Välj för att aktivera lösning för alla tillgängliga datorer **aktivera på 
 ### <a name="all-available-and-future-machines"></a>Alla tillgängliga och framtida datorer
 
 Välj för att aktivera lösning för alla tillgängliga datorer och alla framtida datorer **aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort de sparade sökningar och Scope konfigurationer från arbetsytan. Då öppnas lösningen till alla Azure och Azure-datorer som rapporterar till arbetsytan.
+
+### <a name="selected-machines"></a>Valda datorer
+
+Välj för att aktivera lösning för en eller flera datorer **aktivera på valda datorer** och på **lägga till** bredvid varje dator som du vill lägga till i lösningen. Den här uppgiften lägger till de valda datornamn datorgruppen sparade sökfråga för lösningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

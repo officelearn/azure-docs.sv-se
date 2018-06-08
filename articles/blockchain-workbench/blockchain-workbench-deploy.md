@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831643"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
 
@@ -72,7 +73,7 @@ Distribution av Blockchain Workbench kräver registrering av Azure AD-program. D
 Därefter måste du ändra programmanifestet att använda programmet roller i Azure AD för att ange Blockchain arbetsstationen administratörer.  Läs mer om applikationsmanifest [Azure Active Directory-programmanifestet](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Programmet som du har registrerat, Välj **Manifest** i informationsfönstret registrerade programmet.
-2. Generera ett GUID. Du kan använda PowerShell-kommandot `[guid]::NewGuid()` eller online verktyg för att generera ett GUID. 
+2. Generera ett GUID. Du kan generera ett GUID med PowerShell-kommando [guid]:: NewGuid () eller cmdlet New-GUID. Ett annat alternativ är att använda en GUID generator webbplats.
 3. Du kommer att uppdatera den **appRoles** avsnitt i manifestet. Välj i rutan Redigera manifestet **redigera** och Ersätt `"appRoles": []` med den angivna JSON. Se till att ersätta värdet för den **id** med det GUID som du genererade. 
 
     ``` json

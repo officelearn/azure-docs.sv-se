@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714144"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850016"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -70,12 +70,16 @@ Målet med Azure AD anslutna enheter är att förenkla:
 
 - Windows-distributioner av enheter som ägs av arbetet 
 - Åtkomst till organisationens appar och resurser från valfri windowsenhet
+- Molnbaserad hantering av enheter som ägs av arbetet
 
 ![Azure AD som registrerade enheter](./media/device-management-introduction/02.png)
 
+Azure AD-anslutning kan distribueras med hjälp av följande metoder: 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Bulk-distribution](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Självbetjäningsupplevelse](device-management-azuread-joined-devices-frx.md) 
 
-Detta sker genom att erbjuda användarna en upplevelse som Självbetjäning för att hämta enheter som ägs av arbetet under kontroll av Azure AD.  
-**Azure AD-anslutning** är avsedd för organisationer som vill vara moln första eller endast molnbaserad. Det finns ingen begränsning för storlek eller typ av organisationer som kan distribuera Azure AD Join. Azure AD-anslutning fungerar bra även i en hybridmiljö och kan ge åtkomst till lokala appar och resurser.
+**Azure AD-anslutning** är avsedd för organisationer som vill ha molnet först (som är i första hand använder molntjänster, med målet att minska användningen av en lokal infrastruktur) eller endast molnbaserad (ingen lokal infrastruktur). Det finns inga begränsningar för storlek eller typ av organisationer som kan distribuera Azure AD Join. Azure AD-anslutning fungerar bra även i en hybridmiljö aktiverar åtkomst till både till molnet och lokala appar och resurser.
 
 Implementera Azure AD anslutna enheter ger dig följande fördelar:
 
@@ -89,10 +93,12 @@ Implementera Azure AD anslutna enheter ger dig följande fördelar:
 
 - **Begränsning av åtkomst** för appar från enheter som uppfyller policy för efterlevnad.
 
-- **Sömlös åtkomst till lokala resurser** när enheten har fri till den lokala domänkontrollanten.
+- **Sömlös åtkomst till lokala resurser** när enheten har fri till den lokala domänkontrollanten. 
 
 
-Medan Azure AD-anslutning är främst avsedd för organisationer som inte har en lokal Windows Server Active Directory-infrastruktur, kan fungera utmärkt också använda den i scenarier där:
+Azure AD-anslutning är främst avsedd för organisationer som inte har en lokal Windows Server Active Directory-infrastruktur, du kan visserligen använda den i scenarier där:
+
+- Du vill att övergå till en molnbaserad infrastruktur med hjälp av Azure AD och MDM som Intune.
 
 - Du kan inte använda en lokal domänanslutning till exempel om du behöver hämta mobila enheter som surfplattor och telefoner under kontroll.
 
@@ -122,7 +128,7 @@ Om din miljö har en lokal AD storleken och du även vill utnyttja funktionerna 
 
 Du bör använda Azure AD hybrid anslutna enheter om:
 
-- Du har Win32-appar som distribueras till dessa enheter som använder NTLM / Kerberos.
+- Du har Win32-appar som distribueras till enheterna som förlitar sig på Active Directory-autentisering för datorn.
 
 - Du behöver GP att hantera enheter.
 

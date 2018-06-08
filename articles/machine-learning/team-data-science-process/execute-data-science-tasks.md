@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: 5c617c60ff51d0b1e7717b28b0372efe63c1ee18
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838389"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskap aktiviteter: utforskning, modellering och distribution
 
@@ -92,14 +94,17 @@ Det finns olika strategier och plattformar för att placera modeller i produktio
 - [Distribution av en modell i SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Före distributionen för en är att försäkra dig om svarstiden för modellen bedömningen är tillräckligt små för att använda i produktionen.
 >
->
->Obs: Före distributionen för en är att försäkra dig om svarstiden för modellen bedömningen är tillräckligt små för att använda i produktionen.
 >
 
 Ytterligare exempel finns i genomgång som visar alla steg i processen för **specifika scenarier**. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) artikel. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program.
 
-Obs: Distribution med hjälp av Azure Machine Learning Studio finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> Distribution med hjälp av Azure Machine Learning Studio finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### <a name="ab-testing"></a>A / B-testning
 När det finns flera modeller i produktion kan det vara bra att utföra [A / B-testning](https://en.wikipedia.org/wiki/A/B_testing) att jämföra prestanda av modeller. 
@@ -108,6 +113,7 @@ När det finns flera modeller i produktion kan det vara bra att utföra [A / B-t
 ## <a name="next-steps"></a>Nästa steg
 
 [Spåra förloppet för datavetenskap projekt](track-progress.md) visar hur en data-forskare kan spåra förloppet för ett projekt för vetenskapliga data.
- 
+
+[Modellen igen och CI/CD](ci-cd-flask.md) visar hur CI/CD kan utföras med utvecklade modeller.
 
 

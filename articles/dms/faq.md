@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850080"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering
 Den här artikeln innehåller vanliga frågor om hur du använder tjänsten Azure Database migrering tillsammans med tillhörande svar.
@@ -34,6 +35,9 @@ Tjänsten Azure Database migrering är den bästa metoden för Databasmigrering 
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>FRÅGOR. Hur jämför tjänsten Azure Database migrering till Azure migrera erbjudande?
 Tjänsten Azure migrera hjälper till med migrering av lokala virtuella datorer till Azure IaaS. Tjänsten utvärderar migrering lämplighet och prestandabaserad storlek och ger den uppskattade kostnaden för din lokala virtuella datorer som körs i Azure. Azure migrera är användbart för lift och SKIFT migrering av lokala VM-baserade arbetsbelastningar till Azure IaaS-VM. Men till skillnad från tjänsten Azure Database migrering Azure migrera är inte en särskild databas migrering tjänsterbjudande för Azure PaaS relationsdatabas plattformar, till exempel Azure SQL Database eller SQL Azure eller hanterad Azure SQL Database-instans.
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>FRÅGOR. Vilka versioner av SQL Server stöder tjänsten Azure Database migrering som en källa?
+När du migrerar från SQL Server stöder tjänsten Azure Database migrering SQL Server 2005 till SQL Server 2017.
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>FRÅGOR. Vad är en översikt över de steg som krävs för att använda tjänsten Azure Database migrering du utför en Databasmigrering?
 Vid migrering vanliga, enkel databas måste du:

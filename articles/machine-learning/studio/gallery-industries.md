@@ -1,30 +1,32 @@
 ---
-title: "Azure AI-galleriet branschspecifika lösningar | Microsoft Docs"
-description: "Identifiera branschlösningar i Azure AI-galleriet."
+title: Azure AI-galleriet branschspecifika lösningar | Microsoft Docs
+description: Identifiera branschlösningar i Azure AI-galleriet.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: 0113742cd0b51470559f4e7b03edbfddf2d7e0de
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834574"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Upptäck branschspecifika lösningar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Branschspecifika Cortana Intelligence-lösningar
-Den  **[branscher](https://gallery.cortanaintelligence.com/industries)**  avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som
+Den **[branscher](https://gallery.cortanaintelligence.com/industries)** avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som
 
 * [Retail](https://gallery.cortanaintelligence-int.com/industries/retail) -retail-lösningar, till exempel försäljning prognoser förutsäga kunden omsättning och utveckla prissättningsmodeller.
 * [Tillverkar](https://gallery.cortanaintelligence-int.com/industries/manufacturing) – Sök tillverkar lösningar, till exempel förutseende underhåll och skapa prognoser energi priser.
@@ -46,7 +48,7 @@ Den här sidan kan bläddra du alla resurser i galleriet. Du kan också söka ge
 
  Klicka på någon galleriobjektet om du vill öppna objektets informationssidan för mer information.
 
-**[GÅ TILL I GALLERIET >>](http://gallery.cortanaintelligence.com)**
+**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

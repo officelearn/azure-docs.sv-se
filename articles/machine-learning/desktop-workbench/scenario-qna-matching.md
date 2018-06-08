@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835108"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Q & en matchande med hjälp av Azure Machine Learning-arbetsstationen
 Svara på Öppna avslutades frågor är svår och kräver ofta manuellt arbete från ämnesexperter (SME). Om du vill minska kraven på interna små och medelstora företag skapa företag ofta en lista över vanliga frågor och svar (FAQ) för att hjälpa användare. Det här exemplet visar olika effektiva machine learning metoder för att matcha öppna avslutades frågor till ett befintligt vanliga frågor och svar fråga/svar-par. Det här exemplet visar ett enkelt utvecklingsprocessen för att skapa en sådan lösning med hjälp av Azure Machine Learning-arbetsstationen. 

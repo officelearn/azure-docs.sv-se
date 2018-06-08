@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: c5419eed1de50c29cf6e5bcaf7070c48d7a335ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4dcae0bb3cb89e65079b88f7be68ddf360ce1b8c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834819"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Hantera iterationer av experiment i Azure Machine Learning Studio
 Utveckla en prediktiv analysmodell är en återkommande process - när du ändrar de olika funktioner och parametrar av experimentet resultaten att Konvergera tills du är nöjd du har en tränad, effektiv modell. Nyckel till den här processen för att spåra olika iterationer av dina experiment parametrar och konfigurationer.
@@ -44,7 +46,7 @@ Anta att du skapar ett experiment med den [linjär Regression] [ linear-regressi
 
 | Learning värde | Starttid för körning |
 | --- | --- |
-| 0.1 |2014-9-11 4:18:58 pm. |
+| 0,1 |2014-9-11 4:18:58 pm. |
 | 0.2 |2014-9-11 4:24:33 pm |
 | 0.4 |2014-9-11 4:28:36 pm |
 | 0.5 |2014-9-11 4:33:31 pm. |

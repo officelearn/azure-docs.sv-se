@@ -8,21 +8,23 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 4eb1d657adc37ef0d1e4055573b174d58baf2e0e
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ec734cf456050250396b00aa09b61bace7e9aa0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830289"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>Lagra åtkomst autentiseringsuppgifter på den datavetenskap virtuella datorn på ett säkert sätt
 
-En gemensam utmaning när skapa molnprogram är hur du hanterar autentiseringsuppgifterna som måste vara i koden för att autentisera till molntjänster. Skydda autentiseringsuppgifterna är en viktig uppgift. Vi rekommenderar de aldrig visas på arbetsstationer eller checkas till källkontroll. 
+En vanligt utmaning när man skapar molnprogram är hur man hanterar de autentiseringsuppgifter som måste finnas i koden för att kunna autentisera till molntjänster. Att skydda dessa autentiseringsuppgifter är en viktig uppgift. Vi rekommenderar att de aldrig visas på utvecklarnas arbetsstationer eller att de checkas in i källkodskontrollen. 
 
 [Hanterad Service identitet (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) gör lösa problemet enklare genom att ge Azure-tjänster en automatiskt hanterade identitet i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, utan några autentiseringsuppgifter i koden. En vanliga mönstret för att säkra autentiseringsuppgifter är att använda MSI i kombination med den [Azure Keyvault](https://docs.microsoft.com/azure/key-vault/)en hanterad Azure-tjänsten för att lagra hemligheter och krypteringsnycklar på ett säkert sätt. Du kan använda nyckelvalv med hjälp av hanterade tjänstidentiteten och hämta auktoriserade hemligheter och kryptografiska nycklar från Nyckelvalvet. 
 

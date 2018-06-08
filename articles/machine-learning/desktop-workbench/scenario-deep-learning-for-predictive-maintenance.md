@@ -7,16 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 962a9d32790638af7513e805424d8579b29f433e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832609"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Djupgående utbildning för förutsägande Underhåll verkliga scenarier
 
@@ -27,7 +29,7 @@ Djupgående learning är en av de mest populära trenderna i machine learning oc
 
 Kallas djupa neurala nätverk (DNN) kan är dessa metoder inspirerat av enskilda neurons som ligger inom hjärna (biologiska neurala nätverk).
 
-Effekten av utrustning oplanerade driftstopp kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning som körs för att maximera användning och prestanda och minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
+Följderna av oplanerade avbrott för utrustning kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning som körs för att maximera användning och prestanda och minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
 
 En strategi för förutsägande Underhåll (em) använder machine learning metoder för att avgöra tillståndet för utrustning förebyggande syfte Underhåll ska utföras för att undvika negativa datorn prestanda. PM, data som samlas in med tiden för att övervaka status för datorn och sedan analyseras för att hitta mönster för att förutsäga fel. [Lång kort sikt minne (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) nätverk är bra för den här inställningen, eftersom de har utformats för att lära sig från sekvenser av data.
 
@@ -151,7 +153,7 @@ Följande referens ger exempel på andra förutsägande Underhåll användningsf
 * [Förutsägande Underhåll Modeling Guide med SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [Förutsägande Underhåll verkliga scenarier](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
+* [Förutsägande Underhåll verkliga scenarier](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)
 
 ## <a name="next-steps"></a>Nästa steg
 

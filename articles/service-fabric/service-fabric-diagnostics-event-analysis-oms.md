@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 1552fbe66f7bad219d8aea8a3f208b0fe69cdf2b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716065"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839596"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med logganalys
 
@@ -54,19 +54,19 @@ Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är 
 * [Reliable Services programming modellen händelser](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Förutom den operativa kanalen, mer detaljerad systemhändelser kan samlas in av [uppdaterar konfigurationen av diagnostik-tillägg](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
+>Förutom den operativa kanalen, mer detaljerad systemhändelser kan samlas in av [uppdaterar konfigurationen av diagnostik-tillägget](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric händelser inklusive åtgärder på noder
 
 1. På sidan Service Fabric Analytics klickar du på diagrammet för **Service Fabric händelser**.
 
-    ![OMS SA lösning operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
+    ![OMS SA lösning operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-2. Klicka på tabellen för att visa händelser i en lista. När du ser här alla händelserna som har samlats in. Dessa är från WADServiceFabricSystemEventsTable i Azure Storage-konto för referens, och på samma sätt tjänsterna tillförlitliga och aktörer händelser visas bredvid är från dessa respektive tabeller.
+2. Klicka på **listan** att visa händelser i en lista. När du ser här alla händelserna som har samlats in. Dessa är från WADServiceFabricSystemEventsTable i Azure Storage-konto för referens, och på samma sätt tjänsterna tillförlitliga och aktörer händelser visas bredvid är från dessa respektive tabeller.
     
-    ![OMS fråga operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
+    ![OMS fråga operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att hitta alla åtgärder som vidtas på noder i klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md)
+Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att hitta alla åtgärder som vidtas på noder i klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -79,13 +79,13 @@ Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemt
 
 1. Diagram för på sidan Service Fabric Analytics **Reliable Services**.
 
-    ![OMS SA lösning Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+    ![OMS SA lösning Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-2. Klicka på tabellen för att visa händelser i en lista. Här kan du visa händelser från tillförlitliga tjänsterna. Du kan se olika händelser för när tjänsten runasync startades och slutfördes som inträffar oftast på distribution och uppgraderingar. 
+2. Klicka på **listan** att visa händelser i en lista. Här kan du visa händelser från tillförlitliga tjänsterna. Du kan se olika händelser för när tjänsten runasync startades och slutfördes som inträffar oftast på distribution och uppgraderingar. 
 
-    ![OMS fråga Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+    ![OMS fråga Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill konfigurera mer detaljerade händelser för reliable actors, måste du ändra den `scheduledTransferKeywordFilter` i konfigurationen av filnamnstillägget diagnostiska (se nedan). Information om värdena för dessa finns i den [tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md#keywords)
+Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill konfigurera mer detaljerade händelser för reliable actors, måste du ändra den `scheduledTransferKeywordFilter` i konfigurationen av filnamnstillägget diagnostiska (se nedan). Information om värdena för dessa finns i den [tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -99,9 +99,9 @@ Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill
                 },
 ```
 
-Frågespråket Kusto är kraftfull. En annan värdefulla fråga som du kan köra är att ta reda på vilka noder som genererar flest händelser. Frågan i skärmbilden nedan visar reliable services händelse aggregeras med viss tjänst och nod
+Frågespråket Kusto är kraftfull. En annan värdefulla fråga som du kan köra är att ta reda på vilka noder som genererar flest händelser. Frågan i skärmbilden nedan visar Service Fabric-Funktionshändelser samman med specifika tjänsten och noden.
 
-![OMS frågan händelser per nod](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
+![OMS frågan händelser per nod](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849516"
 ---
 # <a name="asdk-administration-basics"></a>ASDK administration grunderna 
 Det finns flera saker du behöver veta om du har använt Azure Stack Development Kit (ASDK) administration. Den här vägledningen ger en översikt över din roll som operatör Azure Stack i miljön utvärdering och hur du kontrollerar din testanvändare kan snabbt blir mer produktiv.
@@ -36,7 +37,7 @@ Det finns några överväganden för användarkonton som du bör vara medveten o
 |Lokal administratör (. \administratör)|ASDK värden administratör|ASDK värden administratör|
 |AzureStack\AzureStackAdmin|ASDK värden administratör<br><br>Kan användas för att logga in på administrationsportalen Azure Stack<br><br>Åtkomst till Visa och administrera Service Fabric-ringar|ASDK värden administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till Visa och administrera Service Fabric-ringar<br><br>Längre ägare av Default leverantör prenumeration (DP)|
 |AzureStack\CloudAdmin|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten|Kan komma åt och köra tillåtna-kommandon inom den privilegierade slutpunkten<br><br>Kan inte logga in till ASDK värden<br><br>Standard-providern prenumerationens (DP) ägare|
-|Azure AD Global Administrator|Används under installationen<br><br>Standard-providern prenumerationens (DP) ägare|Inte tillämpligt|
+|Global administratör för Azure AD|Används under installationen<br><br>Standard-providern prenumerationens (DP) ägare|Inte tillämpligt|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg använda för att hantera?
@@ -64,5 +65,5 @@ För i development kit är ditt enda supportalternativ be supporten-relaterade f
 > Eftersom ASDK är en utvärderingsmiljö, stöds inte officiellt erbjuds via Microsoft kundservice (CSS).
 
 ## <a name="next-steps"></a>Nästa steg
-[Distribuera ASDK](asdk-deploy.md)
+[Distribuera ASDK](asdk-install.md)
 

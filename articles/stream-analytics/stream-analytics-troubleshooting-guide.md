@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850454"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Felsökningsguide för Azure Stream Analytics
 
@@ -41,6 +42,7 @@ Använd följande riktlinjer för bästa resultat vid felsökning Stream Analyti
 
 5.  Undvika vanliga fallgropar som:
     - En [ **där** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) -sats i frågan har filtrerats ut alla händelser som förhindrar att inga utdata som genereras.
+    - En [ **OMVANDLINGEN** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) fungerar misslyckas, orsakar jobb misslyckas. Om du vill undvika fel av typen omvandlingen, Använd [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) i stället.
     - När du använder Windows-funktioner, vänta tills hela fönstret varaktigheten Se utdata från frågan.
     - Tidsstämpel för händelser som föregår jobbets starttid och därför händelser släpps.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f57924bf2197c472d408edc67baf35b18ae45c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652934"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839523"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera programmet på virtuella datorer
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln introducerar sätt att skapa en anpassad VM-avbildning för instanser i en skala eller köra automatiskt installera skript på befintliga VM-instanser. Du också lära dig hur du hanterar programmet eller OS-uppdateringar i en skaluppsättning.
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Installera program med OS-uppdateringar
 När nya versioner är tillgängliga kan du använda eller skapa en ny anpassad avbildning och [distribuera OS uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md) till en skala. Varje VM-instans har uppgraderats till den senaste bilden som du anger. Du kan använda en anpassad avbildning med programmet förinstallerad tillägget för anpassat skript eller PowerShell DSC har programmet automatiskt tillgängliga när du utför uppgraderingen. Du kan behöva planera för programunderhåll när du utför den här processen för att säkerställa att det inte finns någon version kompatibilitetsproblem.
 
-Om du använder en anpassad VM-avbildning med programmet förinstallerat, kan du integrera programuppdateringar med en rörledning distributionen för att skapa nya bilder och distribuera OS uppgraderingar i skaluppsättning. Den här metoden möjliggör rörledning för att hämta de senaste versionerna av programmet, skapa och validera en VM-avbildning och sedan uppgradera VM-instanser i skaluppsättning. Om du vill köra en pipeline för distribution som skapar och distribuerar programuppdateringar över anpassade VM-avbildningar kan du [skapa en förpackaren avbildning och distribuera med Visual Studio Team Services) [/ vsts/pipelines/appar/CD-/ azure/distribuera-azure-scaleset] eller Använd en annan plattform som [Spinnaker](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
+Om du använder en anpassad VM-avbildning med programmet förinstallerat, kan du integrera programuppdateringar med en rörledning distributionen för att skapa nya bilder och distribuera OS uppgraderingar i skaluppsättning. Den här metoden möjliggör rörledning för att hämta de senaste versionerna av programmet, skapa och validera en VM-avbildning och sedan uppgradera VM-instanser i skaluppsättning. Om du vill köra en pipeline för distribution som skapar och distribuerar programuppdateringar över anpassade VM-avbildningar, kan du [skapa en förpackaren avbildning och distribuera med Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), eller Använd en annan plattform som [Spinnaker ](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Nästa steg

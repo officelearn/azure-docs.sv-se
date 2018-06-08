@@ -4,17 +4,19 @@ description: Det här scenariot visas hur du gör distribuerade finjustering av 
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 70baa1160e9f521ac5533eaa15d4a9ab57433a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832755"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av justeringsmodeller med hjälp av Azure Machine Learning arbetsstationen
 
@@ -107,7 +109,7 @@ I följande två avsnitt visar vi hur du slutför konfigurationen av fjärråtko
 
 med IP-adress, användarnamn och lösenord i DSVM. IP-adressen för DSVM finns i avsnittet översikt på sidan DSVM i Azure-portalen:
 
-![VIRTUELLA IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
+![IP-adress för virtuell dator](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
 
 #### <a name="configuration-of-spark-cluster"></a>Konfigurationen av Spark-kluster
 
@@ -294,7 +296,7 @@ Vi Ersätt
 
     from sklearn.model_selection import GridSearchCV
 
-med 
+med  
 
     from spark_sklearn import GridSearchCV
 

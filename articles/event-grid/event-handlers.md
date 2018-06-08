@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627723"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849550"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelsehanterare i rutnätet för Azure-händelse
 
@@ -42,6 +42,14 @@ När du använder Azure Functions som hanterare kan du använda Event Grid-utlö
 | [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md) | När Händelsehubbar skapar en Capture-fil, skickar en händelse till en funktionsapp händelse rutnätet. Appen hämtar filen avbildning och migrerar data till data warehouse. |
 | [Azure Service Bus Azure händelse rutnätet integration exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Händelsen rutnätet skickar meddelanden från Service Bus-ämne app och logikapp. |
 
+## <a name="event-hubs"></a>Event Hubs
+
+Använd Händelsehubbar när din lösning hämtar händelser snabbare än den kan bearbeta händelser. Programmet bearbetar händelser från Event Hubs på den egna schema. Du kan skala din händelsebearbetning för att hantera inkommande händelser.
+
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Vidarebefordra anpassade händelser till Händelsehubbar i Azure med Azure CLI och händelsen rutnätet](custom-event-to-eventhub.md) | Skickar en anpassad händelse till en händelsehubb för bearbetning av ett program. |
+
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 
 Använd Azure Relay Hybridanslutningar för att skicka händelser till program som finns inom ett företagsnätverk och inte har en offentligt tillgänglig slutpunkt.
@@ -62,7 +70,7 @@ Använd Logic Apps automatisera affärsprocesser för att svara på händelser.
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Använda Queue storage för att ta emot händelser som behöver ska hämtas.
+Använda Queue storage för att ta emot händelser som behöver ska hämtas. Du kan använda Queue storage när du har en tidskrävande process som tar för lång tid att svara. Genom att skicka händelser till Queue storage kan appen hämtar och bearbetar händelser på sitt eget schema.
 
 |Titel  |Beskrivning  |
 |---------|---------|

@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: d79453e72bf26ce5d14fac71e35a146381b951fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655616"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836274"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps för program som styrs av datorn (AI): skapa kontinuerlig integration pipeline i Azure med hjälp av Docker och Kubernetes
 Det finns ofta två dataströmmar arbetet, Datavetare skapa machine learning-modeller och App-utvecklare skapa programmet och sedan exponera det att slutanvändare kan använda för ett AI-program. I den här artikeln visar vi hur du implementerar en kontinuerlig Integration (KO) / kontinuerlig leverans (CD) i pipeline för ett AI-program. AI program är en kombination av programkoden inbäddade med en pretrained machine learning (ML) modell. För den här artikeln vi hämtar en pretrained modell från ett privat Azure blob storage-konto, kan det bero på ett AWS S3-konto. Vi använder en enkel python flask för artikeln.

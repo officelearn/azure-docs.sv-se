@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833727"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -34,31 +35,16 @@ Om du vill använda uppdateringshantering behöver du:
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Uppdateringshantering stöds på följande operativsystem.
+Uppdateringshantering stöds på följande operativsystem:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och senare. Nano Server stöds inte.
-
-  Stöd för att distribuera uppdateringar till Windows Server 2008 R2 SP1 kräver .NET Framework 4.5 och Windows Management Framework 5.0 eller senare.
-
-- Windows-klientoperativsystem stöds inte.
-
-Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update.
-
-> [!NOTE]
-> System Center Configuration Manager kan inte hantera Windows-agenten samtidigt.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) och 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) och 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)
-
-- Ubuntu 12.04 LTS och senare (x86/x64)
+|Operativsystem  |Anteckningar  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdatera bedömningar         |
+|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) rekommenderas för ökad tillförlitlighet.         |
+|CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
+|Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
 > [!NOTE]
 > Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information finns i avsnittet om [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -142,7 +128,7 @@ I fönstret **Ny uppdateringsdistribution** anger du följande:
 
   ![Fönstret ”Ny uppdateringsdistribution”](./media/manage-update-multi/update-select-computers.png)
 
-- **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. En beskrivning av typer klassificering finns [uppdatera klassificeringar](automation-update-management.md#update-classifications). Klassificeringstyper:
+- **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. En beskrivning av klassificeringstyper finns i [uppdatera klassificeringar](automation-update-management.md#update-classifications). Klassificeringstyper:
   - Kritiska uppdateringar
   - Säkerhetsuppdateringar
   - Samlade uppdateringar
@@ -151,6 +137,9 @@ I fönstret **Ny uppdateringsdistribution** anger du följande:
   - Definitionsuppdateringar
   - Verktyg
   - Uppdateringar
+
+- **Uppdateringar för att utesluta** -öppnas den **undanta** sidan. Ange i KBs eller paketnamn som ska undantas.
+
 - **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan även ange en annan tid.
    Du kan också ange om distributionen ska ske en gång eller enligt ett schema med återkommande tider. Välj alternativet **Återkommande** under **Återkommande** för att ange ett återkommande schema.
 

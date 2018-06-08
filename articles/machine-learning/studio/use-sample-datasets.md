@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836308"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -203,7 +205,7 @@ Innehåller väder data, till exempel temperatur- och fuktighetskonsekvens index
 <p></p>
 <b>För forskning:</b> Cortez P., & Morais A. (2008). UCI Machine Learning databasen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, skola Information och datorvetenskap
 <p></p>
-[Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med meteorologiska Data. I J. Neves, m-F. Santos och J. Machado Eds., nya trender i styrs av datorn, förfaranden 13 EPIA 2007 - portugisiska konferens om styrs av datorn, December, 523-Guimarães Portugal sidor 512, 2007. APPIA, ISBN-13 978-989-95618-0-9. Finns på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med meteorologiska Data. I J. Neves, m-F. Santos och J. Machado Eds., nya trender i styrs av datorn, förfaranden 13 EPIA 2007 - portugisiska konferens om styrs av datorn, December, 523-Guimarães Portugal sidor 512, 2007. APPIA ISBN 13 978-989-95618-0-9. Finns på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -401,7 +403,7 @@ Avsnittet om porttilldelningar för nyhetsartiklar i RCV1 V2 Reuters nyheter dat
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A. Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra I 2008-2009. Challenge dataset från KDD Cup 2010 utbildningssyfte Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> eller <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A. Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra jag 2008-2009. Challenge dataset från KDD Cup 2010 utbildningssyfte Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> eller <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
 <p></p>
 Datamängden har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfilerna från en student tutoring system. De angivna funktionerna inkluderar problem-ID och dess kort beskrivning, student ID, tidsstämpel och hur många försök student innan lösa problemet på rätt sätt. Den ursprungliga datauppsättningen har 8.9M poster. den här datauppsättningen har provtagning ned till de första 100K raderna. Datamängden har 23 tabbavgränsade kolumner med olika typer: numeriska, kategoriska, och tidsstämpel.
   </td>

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606145"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831470"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure-säkerhetskopiering har flera inbyggda effektivitet som sparar kostnader för nätverk och lagring under de första fullständiga säkerhetskopieringarna av data till Azure. Första fullständiga säkerhetskopieringar vanligtvis överför stora mängder data och kräver större nätverksbandbredd jämfört med efterföljande säkerhetskopieringar som överför bara går/varje. Genom processen att dirigera offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -51,7 +51,7 @@ Följande funktioner i Azure Backup eller arbetsbelastningar som stöd för anv�
 Innan du påbörjar Offline säkerhetskopiering arbetsflödet uppfylla följande krav: 
 * Skapa en [Recovery Services-valvet](backup-azure-recovery-services-vault-overview.md). Om du vill skapa ett valv, följer du stegen i [i den här artikeln](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Se till att endast den [senaste versionen av Azure Backup-agenten](https://aka.ms/azurebackup_agent) har installerats på Windows Server och Windows-klienten, i tillämpliga fall och datorn har registrerats med Recovery Services-valvet.
-* Azure PowerShell 3.7.0 eller senare krävs på datorn som kör Azure Backup-agenten. Det rekommenderas att du [installera den senaste versionen av Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Azure PowerShell 3.7.0 krävs på datorn som kör Azure Backup-agenten. Vi rekommenderar att du hämtar och [installerar 3.7.0 versionen av Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Kontrollera att Microsoft Edge eller Internet Explorer 11 installeras och JavaScript är aktiverat på datorn som kör Azure Backup-agenten. 
 * Skapa ett Azure Storage-konto i samma prenumeration som Recovery Services-valvet. 
 * Kontrollera att du har den [behörighet](../azure-resource-manager/resource-group-create-service-principal-portal.md) att skapa Azure Active Directory-programmet. Arbetsflödet Offline säkerhetskopiering skapar ett Azure Active Directory-program i prenumerationen som är associerade med Azure Storage-konto. Syftet med programmet är att ge Azure Backup säker och begränsade åtkomst till tjänsten Azure Import krävs för säkerhetskopiering Offline-arbetsflöde. 
@@ -108,7 +108,7 @@ Den *AzureOfflineBackupDiskPrep* förbereder du SATA-enheter som skickas till de
 
     * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflöde med hjälp av samma sökvägen som har angetts i den **initiera offlinesäkerhetskopiering** arbetsflöde.
     * BitLocker har aktiverats på datorn kopia.
-    * Azure PowerShell 3.7.0, eller nyare är installerad.
+    * Azure PowerShell 3.7.0 har installerats.
     * Senaste kompatibla webbläsare (kant eller Internet Explorer 11) är installerade och JavaScript är aktiverat. 
     * Kopiera datorn kan komma åt Azure-portalen. Om det behövs, kan kopiera datorn vara samma som källdatorn.
     

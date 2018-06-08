@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850145"
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
 
@@ -40,11 +41,11 @@ Prestandaövervakaren, ExpressRoute-övervakaren och tjänsten Endpoint övervak
 
 Prestandaövervakaren är en del av NPM network Monitor för moln, hybridmoln och lokala miljöer. Du kan övervaka nätverksanslutningen mellan fjärranslutna avdelningskontor och filialer, lagringsplatser, Datacenter och moln. Du kan identifiera problem innan dina användare klagar. Viktiga fördelar är:
 
-* Övervaka förluster eller fördröjningar över olika undernät och set-aviseringar
+* Övervaka förlust och svarstider i alla olika undernät och ställ in aviseringar
 * Övervaka alla sökvägar (inklusive redundanta sökvägar) i nätverket
 * Felsökning av nätverksproblem med tillfälliga och tidpunkt i, som är svåra att replikera
 * Fastställa specifika segmentet i nätverket, som ansvarar för försämrade prestanda
-* Övervakning av hälsan på nätverket, utan att behöva SNMP
+* Övervaka nätverkets hälsotillstånd utan behov av SNMP
 
 ![NPM topologisk karta](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -54,14 +55,15 @@ Mer information läser du följande artiklar:
 * [Användningsfall](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Produktuppdateringar: [februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [augusti 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>Övervakare för ExpressRoute
+## <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
-NPM expressroute ger fullständig övervakning för privat peering anslutningar på ExpressRoute. Du kan övervaka E2E anslutning och prestanda mellan dina lokalkontor och Azure via ExpressRoute. De viktigaste funktionerna är:
+NPM expressroute erbjuder omfattande ExpressRoute övervakning för privat Azure-peering och Microsoft peering anslutningar. Du kan övervaka E2E anslutning och prestanda mellan dina lokalkontor och Azure via ExpressRoute. De viktigaste funktionerna är:
 
 * Automatisk identifiering av ER kretsar som är associerad med din prenumeration
 * Identifiering av nätverkets topologi från lokal till dina molnprogram
-* Kapacitetsplanering, användning analys bandbreddsanvändning per virtuellt nätverk
+* Kapacitetsplanering, analys för användning av bandbredd
 * Övervakning och avisering på både primära och sekundära sökvägar
+* Övervaka anslutningar till Azure-tjänster som Office 365, Dynamics 365... via ExpressRoute
 * Identifiera försämring av anslutning till Vnet
 
 ![GEO-karta visar trafik över regioner](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -71,7 +73,7 @@ Mer information finns i följande artiklar:
 * [Konfigurera övervakare av nätverksprestanda för ExpressRoute](../expressroute/how-to-npm.md)
 * [blogginlägget](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Tjänsten Endpoint för övervakning
+## <a name="service-endpoint-monitor"></a>Övervakning av tjänstens slutpunkt
 
 Med tjänstslutpunkten övervakning, kan du nu testa tillgängligheten för program och identifiera prestandaflaskhalsar via lokalt, operatör nätverk och moln/privat datacenter.
 
@@ -113,7 +115,7 @@ Den här lösningen bygger för DNS-administratörer samlar in, analyserar och k
 * Överblick av belastningen på DNS-servrar
 * Övervakning av dynamisk DNS-registreringsfel
 
-![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+![DNS-instrumentpanelen](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Relaterade länkar:
 * [Blogginlägget](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [dokumentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)

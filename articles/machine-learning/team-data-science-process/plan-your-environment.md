@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: d2b982669f126695e3e5baefce24853269947536
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838341"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planerar att när du konfigurerar en miljö för att göra avancerade analyser bearbetning på en datamängd? Den här artikeln tyder på ett antal frågor som hjälper identifiera de uppgifter och resurser som är relevanta ditt scenario. Anvisningar för förutsägelseanalys beskrivs i [vad är Team Data vetenskap processen (TDSP)?](overview.md). Var och en av dessa steg kräver särskilda resurser för uppgifterna som är relevanta för din specifika situation. Viktiga frågor för att identifiera ditt scenario omfatta data logistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk som du föredrar att göra analys.

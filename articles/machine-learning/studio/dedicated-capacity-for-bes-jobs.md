@@ -8,16 +8,18 @@ ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
+ms.component: studio
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 5a3d2c976ca4deef093f2640e56634acf911f4c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e4cf34582e28e00108e280d928eea8a8134699a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834533"
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-tjänsten för Machine Learning-jobb
 
@@ -46,7 +48,7 @@ Mer information om hur du skapar webbtjänster finns [distribuera en Azure Machi
 
 När du har skapat en pool kan skicka du BES jobbet med Batch begäranden URL för webbtjänsten. Du kan välja att skicka den till en pool eller klassiska batch-bearbetning. Om du vill skicka ett jobb för att bearbeta Batch-Pool du lägga till följande parameter till jobbet skicka frågans brödtext:
 
-"AzureBatchPoolId":"&lt;pool ID&gt;"
+”AzureBatchPoolId” ”:&lt;poolen ID&gt;”
 
 Om du inte lägga till parametern körs jobbet i klassiskt batch processmiljö. Om poolen har tillgängliga resurser, startar jobbet körs omedelbart. Om poolen saknar lediga resurser i ditt jobb kö tills en resurs som är tillgänglig.
 

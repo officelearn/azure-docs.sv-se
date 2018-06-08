@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 5c265b14a88e993512811de365f1ba51f7ba6028
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 262c9af4e0f3ee34dc89986affacb6c0d8a0d801
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835730"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Felsökningsguide: Skapa och anslut till en Machine Learning-arbetsyta
 Den här guiden ger lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning arbetsytor.
@@ -30,7 +32,7 @@ Om du vill öppna en arbetsyta i Machine Learning Studio, måste du vara inlogga
 
 Mer information om hur du hanterar en arbetsyta finns [hantera en Azure Machine Learning-arbetsytan].
 
-[hantera en Azure Machine Learning-arbetsytan]: manage-workspace.md
+[Hantera en Azure Machine Learning-arbetsytan]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Tillåtna regioner
 Machine Learning är tillgänglig i ett begränsat antal regioner. Om din prenumeration inte innehåller något av dessa regioner kan du se ett felmeddelande, ”du har inga prenumerationer i tillåtna regioner”.

@@ -7,14 +7,16 @@ ms.author: svankam
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 05db4e47e5b2931a101a323a0210c080b87c1c42
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832949"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -137,7 +139,7 @@ Du kan också ta bort projekt och arbetsytor från i appen arbetsstationen.
 Om du har Windows 10 faller skapare Update och projektet har skapats i en lokal mapp som mappats till OneDrive, kanske du upptäcker att du inte kan öppna en fil i arbetsstationen. Detta beror på ett programfel som introducerades av faller skapare uppdateringen som orsakar node.js-kod att fungera i en mapp i OneDrive. Programfelet korrigeras snart av Windows update, men fram till dess kan inte skapar du projekt i en mapp i OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Filnamnet för långt i Windows
-Om du använder arbetsstationen i Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta till en ”går inte att hitta den angivna sökvägen” fel. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.
+Om du använder arbetsstationen i Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta till en ”går inte att hitta den angivna sökvägen” fel. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.
 
 ## <a name="interrupt-cli-execution-output"></a>Avbryter CLI utförande-utdatan
 Om du startar ett experiment som körs med `az ml experiment submit` eller `az ml notebook start` och du vill avbryta utdata: 

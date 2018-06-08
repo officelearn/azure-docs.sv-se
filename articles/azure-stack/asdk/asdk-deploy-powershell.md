@@ -1,39 +1,30 @@
 ---
 title: Distribuera Azure Stack - PowerShell | Microsoft Docs
-description: "I kursen får installera du ASDK från kommandoraden."
+description: I den här artikeln får installera du ASDK från kommandoraden med hjälp av PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849965"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Självstudier: distribuera ASDK från kommandoraden
-I kursen får distribuera du Azure Stack Development Kit (ASDK) från kommandoraden i en produktionsmiljö. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Distribuera ASDK från kommandoraden
 ASDK är en miljö för testning och utveckling som du kan distribuera om du vill utvärdera och visa Azure Stack-funktioner och tjänster. För att få måste igång, att förbereda miljön maskinvaran och köra några skript (det kan ta flera timmar). Därefter kan du logga in på portalerna administratörs- och att börja använda Azure-stacken.
-
-I den här guiden får du lära dig hur man:
-
-> [!div class="checklist"]
-> * Ladda ned och extrahera distributionspaketet
-> * Förbereda värddatorn development kit 
-> * Utför konfigurationer efter distributionen
-> * Registrera med Azure
 
 ## <a name="prerequisites"></a>Förutsättningar 
 Förbereda värddatorn development kit. Planera din maskinvara, programvara och nätverk. Den dator som är värd för development kit (development kit host) måste uppfylla nätverkskrav för maskinvara, programvara och. Du måste också välja mellan att använda Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS). Se till att uppfylla dessa krav innan du påbörjar distributionen så att installationen körs utan problem. 
@@ -61,7 +52,7 @@ Konfigurera värddatorn ASDK för start från CloudBuilder.vhdx:
 
   1. Starta en kommandotolk som administratör.
   2. Kör `bcdedit /copy {current} /d "Azure Stack"`
-  3. Kopiera (CTRL + C) CLSID-värdet returnerade, inklusive krävs {} ”s. Det här värdet kallas {CLSID} och behöver att kunna klistras in i (CTRL + V eller högerklicka) i stegen.
+  3. Kopiera (CTRL + C) CLSID-värdet returnerade, inklusive de nödvändiga {}' s. Det här värdet kallas {CLSID} och behöver att kunna klistras in i (CTRL + V eller högerklicka) i stegen.
   4. Kör `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Kör `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Kör `bcdedit /set {CLSID} detecthal on` 
@@ -154,7 +145,7 @@ Om miljön inte har DHCP aktiverat, måste du inkludera följande ytterligare pa
 |DNSForwarder|Valfri|En DNS-server har skapats som en del av distributionen av Azure-stacken. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen för att matcha namn utanför stämpeln. DNS-servern i stämpel vidarebefordras okänt namn på den här servern.|
 |NatIPv4Address|Krävs för DHCP NAT-stöd|Anger en statisk IP-adress för MAS BGPNAT01. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
 |NatIPv4Subnet|Krävs för DHCP NAT-stöd|IP-undernät prefix som används för DHCP över NAT-stöd. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
+|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). Till exempel.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
 |Kör om|Valfri|Använd den här flaggan igen för distribution. Alla tidigare indata används. Återinföra informationen tidigare stöds inte eftersom flera unika värden genereras och används för distribution.|
 
 
@@ -176,16 +167,5 @@ Du måste registrera Azure stacken med Azure så att du kan [hämta Azure market
 ## <a name="next-steps"></a>Nästa steg
 Grattis! När du slutfört de här stegen har du en development kit miljö med både [administratör](https://adminportal.local.azurestack.external) och [användaren](https://portal.local.azurestack.external) portaler. 
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Ladda ned och extrahera distributionspaketet
-> * Förbereda värddatorn development kit 
-> * Utför konfigurationer efter distributionen
-> * Registrera med Azure
-
-Gå vidare till nästa kurs att lära dig hur du lägger till en Azure-stacken marketplace-objektet.
-
-> [!div class="nextstepaction"]
-> [Lägg till ett Azure-stacken marketplace-objekt](asdk-marketplace-item.md)
+[Publicera ASDK installation konfigurationsuppgifter](asdk-post-deploy.md)
 

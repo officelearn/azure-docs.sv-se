@@ -6,31 +6,39 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850577"
 ---
 # <a name="deploy-a-container-group"></a>Distribuera en behållare grupp
 
 Azure Behållarinstanser stöder distribution av flera behållare till en enda värd med en [behållargruppen](container-instances-container-groups.md). Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process.
 
-Det här dokumentet vägleder dig genom att köra en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
+Det finns två metoder för att distribuera flera behållare grupper med hjälp av Azure CLI:
+
+* Malldistribution för hanteraren för filserverresurser (den här artikeln)
+* [Distribution av YAML](container-instances-multi-container-yaml.md)
+
+Distribution med en Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure serviceresurser (till exempel en resurs för Azure-filer) på behållaren instans distributionen. På grund av formatet YAML kortare karaktär distribution med en YAML-fil rekommenderas om din distribution innehåller *endast* behållarinstanser.
 
 > [!NOTE]
 > Flera behållare grupper är för närvarande begränsad till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
-Skapa en fil med namnet `azuredeploy.json` och kopierar följande JSON till den.
+Avsnitten i den här artikeln beskriver hur du kör en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
 
-En offentlig IP-adress, och två exponerade har definierats i det här exemplet är en behållare grupp med två behållare. Första behållaren i gruppen körs ett mot internet-program. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
+Börja med att skapa en fil med namnet `azuredeploy.json`, kopierar följande JSON till den.
 
-```json
+Resource Manager-mallen definierar en behållare grupp med två behållare, en offentlig IP-adress och två exponerade portar. Första behållaren i gruppen körs ett mot internet-program. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ En offentlig IP-adress, och två exponerade har definierats i det här exemplet 
 
 Om du vill använda ett privat behållaren image register att lägga till ett objekt i JSON-dokumentet med följande format. Exempel på implementering av den här konfigurationen, finns det [ACI Resource Manager mallreferensen] [ template-reference] dokumentation.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Inom några sekunder bör du få ett första svar från Azure.
 
 ## <a name="view-deployment-state"></a>Visa status för distributionen
 
-Du kan visa statusen för distributionen av [az behållaren visa] [ az-container-show] kommando. Detta returnerar etablerade offentliga IP-adressen som programmet kan användas.
+Om du vill visa status för distributionen, Använd följande [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Resultat:
+Om du vill visa programmet som körs, navigerar du till dess IP-adress i webbläsaren. IP-Adressen är till exempel `52.168.26.124` i detta exempel på utdata:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

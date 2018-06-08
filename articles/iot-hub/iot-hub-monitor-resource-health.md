@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: caf740e45c6de2b6ae52db48a588db67033e103d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634693"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850397"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -44,7 +44,7 @@ Azure övervakaren spårar olika åtgärder som sker i IoT-hubb. Varje kategori 
 
 #### <a name="connections"></a>Anslutningar
 
-Anslutningar kategorin spårar fel som uppstår när enheter ansluta eller koppla från en IoT-hubb. Spårning av den här kategorin är användbar för att identifiera obehöriga anslutningsförsök och för att spåra när anslutningen bryts för enheter i områden i dålig anslutning.
+Anslutningar kategorin spårar enheter ansluta och koppla bort händelser från en IoT-hubb samt fel. Spårning av den här kategorin är användbar för att identifiera obehöriga anslutningsförsök och för att spåra när anslutningen bryts för enheter i områden i dålig anslutning.
 
 ```json
 {

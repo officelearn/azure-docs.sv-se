@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830286"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kombinera kolumner med exempel omvandling
 Den här omvandlingen tillåter användaren att lägga till en ny kolumn genom att kombinera värden från flera kolumner. Användaren kan ange en avgränsare eller ange kombinerade exempelvärden att utföra den här transformationen. När användaren ger exempel på kombination, omvandlingen hanteras av samma **av exempel** motor som används i den **härledd kolumn efter exempel** transformeringen.
@@ -50,7 +52,7 @@ En användare kan redigera en befintlig **kombinera kolumn av exempel** transfor
 
 Ett komma följt av ett blanksteg används som avgränsare i det här exemplet för att kombinera den *gata*, *Stad*, *tillstånd*, och *ZIP* kolumner.
 
-|Gatuadress|Ort|Status|ZIP-|Kolumn|
+|Gata|Ort|Status|ZIP-|Kolumn|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th sätt|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th sätt|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|

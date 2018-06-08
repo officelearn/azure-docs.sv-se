@@ -6,14 +6,16 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831609"
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Vad är nytt i Azure Machine Learning?
 
@@ -26,9 +28,9 @@ Med den här versionen av Azure Machine Learning kan du:
 + Featurize bilder med en quantized version ResNet 50 träna en baserat på dessa funktioner, klassificerare och [distribuera den modellen till en då FPGA på Azure](../service/how-to-deploy-fpga-web-service.md) för mycket låg latens inferencing.
 
 + Snabbt skapa och distribuera hög korrekt machine learning och djup learning-modeller med [anpassade Azure Machine Learning paket](../service/reference-python-package-overview.md) för följande domäner:
-  + [Datorn vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [Datorvision](../service/how-to-build-deploy-image-classification-models.md)
   + [Textanalys](../service/how-to-build-deploy-text-classification-models.md)
-  + [Prognoser](../service/how-to-build-deploy-forecast-models.md)
+  + [Prognosticering](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Versionsnumret**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
@@ -222,7 +224,7 @@ Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machi
 ### <a name="sample-projects"></a>Exempelprojekt
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) och [MMLSpark](https://github.com/Azure/mmlspark) exempel uppdateras med den nya versionen av Azure ML-SDK
 
-### <a name="breaking-changes"></a>Gör ändringar
+### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 - Upphöja den `--type` växla i `az ml computetarget attach` till en underkommandot. 
 
     - `az ml computetarget attach --type remotedocker` är nu `az ml computetarget attach remotedocker`

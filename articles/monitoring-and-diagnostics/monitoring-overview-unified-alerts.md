@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/07/2018
 ms.author: mamit,bwren
 ms.custom: ''
-ms.openlocfilehash: dac8052a96c98130891a9ea31994198e331e314d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 699dff42846ee1f9d42980feca55d8a79e2514e3
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726473"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839851"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Enhetlig aviseringar i Azure-Monitor
 
@@ -104,6 +104,8 @@ Aviseringar är tillgänglig över flera Azure övervaka tjänster. Information 
 | Application Insights | Tillgänglighetstester för webbprogram | Stöds inte i enhetlig aviseringar.  Se [Web test varningar](../application-insights/app-insights-monitor-web-app-availability.md). Tillgänglig för alla webbplatser som instrumenterats ska skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
 
 ## <a name="enhanced-unified-alerts-public-preview"></a>Förbättrad enhetlig aviseringar (förhandsversion)
+> [!NOTE]
+>  Funktioner i det här avsnittet kommer snart. Den kan inte visas i din version av portalen ännu. 
 
 En förbättrad enhetlig aviseringar upplevelse gavs ut som förhandsversion för Azure-Monitor den 1 juni 2018. Det här upplevelsen bygger på fördelarna med [unified aviseringar](#overview) ut mars 2018 och ger dig möjlighet att hantera och sammanställa enskilda aviseringar förutom att ändra tillstånd för avisering. Det här avsnittet beskrivs de nya funktionerna och hur du navigerar nya aviseringen sidor i Azure-portalen.
 

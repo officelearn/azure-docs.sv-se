@@ -2,23 +2,20 @@
 title: Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs
 description: Tjänsten gränser och konfigurationsvärden för Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
 author: ecfan
 manager: cfowler
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/14/2018
 ms.author: estfan
-ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 713312725c92c6c78241e1cdcaa06280282c7777
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831854"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurationsinformation för Logikappar i Azure
 
@@ -65,7 +62,7 @@ Här följer gränser för en enkel logikapp som kör:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Ändra omgången varaktigheten och lagringen
 
-Du kan ändra den här gränsen till ett värde mellan sju dagar och 90 dagar. Men att överskrida den maximala gränsen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+Du kan ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar. Gå ovanför den maximala gränsen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
 
 1. I Azure-portalen på din logikapp-menyn väljer du **inställningar för arbetsflöde**. 
 
@@ -83,7 +80,7 @@ Här följer gränser för en enkel logikapp som kör:
 | ---- | ----- | ----- | 
 | Tills iterationer | 5 000 | | 
 | ForEach-objekt | 100,000 | Du kan använda den [fråga åtgärd](../connectors/connectors-native-query.md) att filtrera större matriser efter behov. | 
-| ForEach parallellitet | 50 | Standardvärdet är 20. <p>Att ställa in en viss nivå av parallellitet i en ForEach-loop i `runtimeConfiguration` egenskap i den `foreach` åtgärd. <p>Om du vill köra en ForEach-loop sekventiellt, den `operationOptions` egenskapen till ”sekventiella” i den `foreach` åtgärd. | 
+| ForEach parallellitet | 50 | Standardvärdet är 20. <p>Ange för att ändra den här standardnivån i en ForEach-loop i `runtimeConfiguration` egenskap i den `foreach` åtgärd. <p>Om du vill köra en ForEach-loop sekventiellt, den `operationOptions` egenskapen till ”sekventiella” i den `foreach` åtgärd. | 
 | SplitOn objekt | 100,000 | | 
 |||| 
 
@@ -95,14 +92,14 @@ Här följer gränser för en enkel logikapp som kör:
 
 | Namn | Gräns | Anteckningar | 
 | ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning över flera appar efter behov. | 
+| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning i mer än en app efter behov. | 
 | Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appar efter behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 |Kan fördela belastningen över flera appar efter behov. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appen efter behov. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över flera appen efter behov. | 
 |||| 
 
-Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
+Att över dessa gränser i normala bearbetningen eller köra belastningen tester kan gå över dessa gränser [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
 
 <a name="request-limits"></a>
 
@@ -125,7 +122,7 @@ Vissa åtgärder för kopplingen asynkrona anrop eller lyssna efter begäranden 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
 | Meddelandestorlek | 100 MB | Du kan undvika den här gränsen genom att se [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). Dock kan vissa kopplingar och API: er inte stöder högoptimerat eller ens Standardgränsen. | 
-| Meddelandestorlek med högoptimerat | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för högoptimerat eller kan ha högoptimerat aktiverat i konfigurationen runtime-stöd. Mer information finns i [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Meddelandestorlek med högoptimerat | 1 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för högoptimerat eller kan du aktivera högoptimerat i sina runtime-konfigurationen. Mer information finns i [hantera stora meddelanden med högoptimerat](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Gränsen för utvärdering av uttryck | 131,072 tecken | Den `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. | 
 |||| 
 
@@ -158,9 +155,11 @@ Här följer gränser för anpassade kopplingar som du kan skapa från web API: 
 
 ### <a name="artifact-limits-per-integration-account"></a>Artefakt gränser per integration konto
 
-Här följer gränser för antalet artefakter för varje konto för integrering. Mer information finns i [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/).
+Här följer gränser för antalet artefakter för varje konto för integrering. Mer information finns i [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Kostnadsfri nivå*
+
+Använd den kostnadsfria nivån endast för undersökande scenarier, inte produktion scenarier. Det här skiktet begränsar genomflöde och användning och har inga servicenivåavtal (SLA).
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
@@ -207,9 +206,9 @@ Här följer gränser för antalet artefakter för varje konto för integrering.
 | ---- | ----- | ----- | 
 | Schema | 8 MB | Om du vill överföra filer som är större än 2 MB, Använd den [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Karta (XSLT-fil) | 2 MB | | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Du kan distribuera belastningen över flera konton som behövs. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över flera konton som behövs. | 
-| Runtime-slutpunkten: spåra anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över flera konton som behövs. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
+| Runtime-slutpunkten: spåra anrop per 5 minuter | 45,000 | Du kan distribuera belastningen över fler än ett konto vid behov. | 
 | Runtime-slutpunkten: blockerar samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska tidsåtgången vid behov. | 
 ||||  
 
@@ -232,8 +231,7 @@ Här följer gränser som gäller för B2B-protokoll:
 
 ### <a name="azure-logic-apps-service"></a>Logic Apps i Azure-tjänsten
 
-Alla logikappar i en region använder samma uppsättning IP-adresser.
-Anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) eller andra HTTP-begäranden som kommer från IP-adresser i den här listan. 
+Alla logikappar i en region använder samma intervall av IP-adresser. Att stödja de anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), och andra HTTP-begäranden, konfigurerar din brandväggskonfigurationer så att de inkluderar dessa utgående och inkommande IP-adresser baserat på dina logic apps finns där:
 
 | Logic Apps region | Utgående IP |
 |-------------------|-------------|
@@ -264,7 +262,7 @@ Anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http
 | | |
 
 | Logic Apps region | Inkommande IP |
-|-------------------|-------------|
+|-------------------|------------|
 | Östra Australien | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Sydöstra Australien | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Södra Brasilien | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -293,37 +291,41 @@ Anrop som logic apps gör direkt med [HTTP](../connectors/connectors-native-http
 
 ### <a name="connectors"></a>Anslutningar
 
-Anropen som [kopplingar](../connectors/apis-list.md) Se kommer från IP-adresserna i den här listan.
+Att stödja anropen som [kopplingar](../connectors/apis-list.md) fabrikat, ställa in din brandväggskonfigurationer så att de inkluderar dessa utgående IP-adresser baserat på de regioner där dina logic apps finns.
 
-| Logic Apps region | Utgående IP |
-|-------------------|-------------|
-| Östra Australien | 40.126.251.213 |
-| Sydöstra Australien | 40.127.80.34 |
-| Södra Brasilien | 191.232.38.129 |
-| Centrala Kanada | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Östra Kanada | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| Indien, centrala | 104.211.98.164 |
-| Centrala USA | 40.122.49.51 |
-| Östasien | 23.99.116.181 |
-| Östra USA | 191.237.41.52 |
-| Östra USA 2 | 104.208.233.100 |
-| Östra Japan | 40.115.186.96 |
-| Västra Japan | 40.74.130.77 |
-| Norra centrala USA | 65.52.218.230 |
-| Norra Europa | 104.45.93.9 |
-| Södra centrala USA | 104.214.70.191 |
-| Södra Indien | 104.211.227.225 |
-| Sydostasien | 13.76.231.68 |
-| Västra Europa | 40.115.50.13 |
-| Indien, västra | 104.211.161.203 |
-| Västra USA | 104.40.51.248 |
-| Storbritannien, södra | 51.140.80.51 |
-| Storbritannien, västra | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> Om du har befintliga konfigurationer kan uppdatera dem **så snart som möjligt före den 1 September 2018** så att de inkluderar och matchar IP-adresser i den här listan för de regioner där dina logic apps finns. 
+
+| Logic Apps region | Utgående IP | 
+|-------------------|-------------|  
+| Östra Australien | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Sydöstra Australien | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Södra Brasilien | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Centrala Kanada | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Östra Kanada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Indien, centrala | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Centrala USA | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| Östasien | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| Östra USA | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| Östra USA 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Östra Japan | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Västra Japan | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Norra centrala USA | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| Norra Europa | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| Södra centrala USA | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| Södra Indien | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Sydostasien | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| Västra centrala USA | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Västra Europa | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| Indien, västra | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| Västra USA | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| Västra USA 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| Storbritannien, södra | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| Storbritannien, västra | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Vanliga exempel och scenarier](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Video: Automatisera affärsprocesser med Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Video: Integrera dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* Lär dig hur du [skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Lär dig mer om [vanliga exempel och scenarier](../logic-apps/logic-apps-examples-and-scenarios.md)

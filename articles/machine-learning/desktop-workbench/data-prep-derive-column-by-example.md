@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833771"
 ---
 # <a name="derive-column-by-example-transformation"></a>Härledd kolumn av exempel omvandling
 
@@ -152,7 +154,7 @@ Antal exempel som krävs för det här fallet: 1
 |Anna Marie|W|Karlsson|Anna Marie· W· Karlsson|
 |Rico||Ropp|Rico·· Ropp|
 |Lauren kan||Fullmer|Lauren May·· Fullmer|
-|Pressrester|t|Maine|Marc· T· Maine|
+|Pressrester|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie··Adelman|
 |John Paul||Smith|John Paul·· Smith|
 |Låt|W|Staller|Song· W· Staller|
@@ -307,7 +309,7 @@ Dessa datumdelar extraherades med olika av exempel omformningar på samma dataup
 |28-Nov-2006 14:19:15|Tis|28|Nov|2006|14|19|15|
 |29-april-2031 04:59:45|Tis|29|Apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|Tor|29|Jan|2032|2|38|36|
-|11-maj-2028 15:31:52|Tor|11|Maj|2028|15|31|52|
+|11-maj-2028 15:31:52|Tor|11|maj|2028|15|31|52|
 |15-Jul-1977 12:45:39|Fre|15|Jul|1977|12|45|39|
 |27-Jan-2029 05:55:41|Lör|27|Jan|2029|5|55|41|
 |2024-03-Mar 10:17:49|Sön|3|Mar|2024|10|17|49|

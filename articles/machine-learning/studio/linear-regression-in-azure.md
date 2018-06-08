@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836233"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Använda linjär regression i Azure Machine Learning
 > *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsofts Data insikter Center utmärkt. I den här artikeln beskriver de sina erfarenheter migrera en befintlig regression analys suite till en molnbaserad lösning med hjälp av Azure Machine Learning. 
@@ -77,12 +79,12 @@ När vi körde våra processen och resultat av datavetare och utvecklare på Mac
 ### <a name="mystery-solved"></a>Okända löst!
 När vi tillämpas rekommendationerna uppnås vi samma baslinje-prestanda i Machine Learning Studio som med Excel: 
 
-|  | Excel | Studio (Initial) | Studio med minsta kvadrat |
+|  | Excel | Studio (första) | Studio med minsta kvadrat |
 | --- |:---:|:---:|:---:|
 | Märkt värde |Verkliga (numeriskt) |samma |samma |
 | Deltagaren |Excel -> Data Analysis -> Regression |Linjär Regression. |Linjär Regression |
-| Deltagaren alternativ |Gäller inte |Som standard |vanlig minsta kvadrat<br />L2 = 0,005 |
-| Data Set |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |samma |samma |
+| Deltagaren alternativ |Gäller inte |Standardvärden |vanlig minsta kvadrat<br />L2 = 0,005 |
+| Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |samma |samma |
 | Dela: Train |Excel tränats på först 18 rader, testas med de senaste 8 raderna. |samma |samma |
 | Dela: Test |Excel-regressionsformeln som tillämpas på de senaste 8 raderna |samma |samma |
 | **Prestanda** | | | |

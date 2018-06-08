@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: ee34520973a482a5a7741efe1306c8a656315277
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834608"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Identifiera och dela samlingar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -52,7 +54,7 @@ T.ex, du kan använda en samling för att gruppera objekt i ett visst ämne elle
   
     ![Välj namnet på ditt konto](./media/gallery-collections/click-account-name.png)
 
-3. Välj **nytt objekt**.
+3. Välj **Nytt objekt**.
    
     ![Välj ”nytt objekt”](./media/gallery-collections/click-new-item.png)
 4. På den **beskrivning** sidan för **OBJEKTTYPEN**väljer **samling**. Ange ett namn för samlingen, en kort sammanfattning, en detaljerad beskrivning och alla taggar som kan hjälpa andra användare att hitta din samling.

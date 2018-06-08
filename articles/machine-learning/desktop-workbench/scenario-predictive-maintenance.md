@@ -7,19 +7,21 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a7455f2d84c5ee458d13ef072895ecdd17968883
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832704"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Förutsägande Underhåll för verkliga scenarier
 
-Effekten av utrustning oplanerade driftstopp kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning kör för maximal användning och prestanda och för att minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
+Följderna av oplanerade avbrott för utrustning kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning kör för maximal användning och prestanda och för att minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
 
 Det här scenariot utforskar en relativt [storskaliga simulerade datauppsättning](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) funktion om du vill gå igenom ett förutsägande Underhåll datavetenskap projekt från datapåfyllning, ingenjörer och modellskapandet modellen operationalization och distribution. Koden för hela processen skrivs i Jupyter-anteckningsbok med PySpark i Azure Machine Learning-arbetsstationen. Den slutliga modellen distribueras med hjälp av Azure Machine Learning modellen Management för att kommentera realtid utrustning fel.   
 
@@ -133,7 +135,7 @@ Följande referens ger exempel på andra förutsägande Underhåll användningsf
 * [Förutsägande Underhåll Modeling Guide med SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [Djup learning för förebyggande underhåll](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance)
+* [Djup learning för förebyggande underhåll](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Nästa steg
 

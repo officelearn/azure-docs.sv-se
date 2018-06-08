@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849938"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-kretsar och routningsdomäner
  Måste du sortera en *ExpressRoute-krets* att ansluta din lokala infrastruktur till Microsoft via en anslutning provider. Följande bild visar en logisk representation av anslutningen mellan din WAN och Microsoft.
@@ -72,7 +73,7 @@ Finns det [vanliga frågor om sidan](expressroute-faqs.md) för mer information 
 ## <a name="routing-domain-comparison"></a>Routning domän jämförelse
 I följande tabell jämförs de tre routningsdomänerna:
 
-|  | **Privat Peering** | **Offentlig Peering** (föråldrad för nya skapande) | **Microsoft Peering** |
+|  | **Privat Peering** | **Offentlig Peering** (föråldrad för nya skapande) | **Microsoft-Peering** |
 | --- | --- | --- | --- |
 | **Max. # prefix stöd per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
 | **IP-adressintervall som stöds** |En giltig IP-adress inom din WAN. |Offentliga IP-adresser som ägs av dig eller anslutningsleverantören. |Offentliga IP-adresser som ägs av dig eller anslutningsleverantören. |
@@ -86,6 +87,11 @@ I följande tabell jämförs de tre routningsdomänerna:
 Du kan välja att aktivera en eller flera av routningsdomänerna som en del av ExpressRoute-kretsen. Du kan välja att ha alla routningsdomäner spärra samma VPN om du vill kombinera dem till en enda routningsdomän. Du kan också publicera dem på olika routningsdomäner liknar diagrammet. Den rekommenderade konfigurationen är att privat peering är direkt ansluten till Kärnnätverket och offentliga och Microsoft peering länkar är anslutna till ditt Perimeternätverk.
 
 Om du väljer att alla tre peeringsessioner, måste du ha tre par BGP-sessioner (ett par för varje typ av peering). BGP-sessionen par ger en hög tillgänglighet länk. Om du ansluter via layer 2 anslutningen leverantörer ansvarar du för att konfigurera och hantera routning. Du kan lära dig mer genom att granska den [arbetsflöden](expressroute-workflows.md) för att ställa in ExpressRoute.
+
+## <a name="expressroute-health"></a>ExpressRoute-hälsa
+ExpressRoute-kretsar kan övervakas för tillgänglighet, anslutning till Vnet och bandbredd användning med [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+
+NPM övervakar hälsotillståndet för privat Azure-peering och Microsoft-peering.  Kolla in våra [efter](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 * Hitta en tjänstleverantör. Se [ExpressRoute service providers och platser](expressroute-locations.md).

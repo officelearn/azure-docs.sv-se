@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831793"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över Reporting API: er för Enterprise-kunder
 API: er Reporting aktivera Enterprise Azure-kunder kan hämta programmässigt användnings- och faktureringsinformation till önskade verktyg för dataanalys. 
@@ -30,7 +31,7 @@ API: er Reporting aktivera Enterprise Azure-kunder kan hämta programmässigt an
 
 |Begäran sidhuvud nyckel | Värde|
 |-|-|
-|Auktorisering| Ange värdet i det här formatet: **ägar {API_KEY}** <br/> Exempel: ägar eyr... 09|
+|Auktorisering| Ange värdet i det här formatet: **ägar {API_KEY}** <br/> Exempel: ägar eyr... 09| 
 
 ## <a name="consumption-apis"></a>API: er för förbrukning
 Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagger/ui/index) för API: erna som beskrivs nedan som ska aktivera enkel introspection API och möjligheten att generera klient-SDK med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data från 1 maj 2014 är tillgängliga via den här API: T. 
@@ -50,12 +51,12 @@ Etags returneras i svaret ovan API. En ändring i Etag anger data har uppdaterat
  **Lista över fakturering punkter** – [fakturering punkter API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returnerar en lista över fakturering punkter som har förbrukningsdata för den angivna registreringen i omvänd kronologisk ordning. Varje Period innehåller en egenskap som pekar på API-väg för de fyra datauppsättningarna - BalanceSummary, UsageDetails, Marketplace-debiteringar och Prisdokument.
 
 
-## <a name="api-response-codes"></a>API-svarskoder  
+## <a name="api-response-codes"></a>API-svarskoder   
 |Svarets statuskod|Meddelande|Beskrivning|
 |-|-|-|
 |200| Ok|Inget fel|
 |401| Behörighet saknas| API-nyckel hittades inte, ogiltig upphört att gälla osv.|
-|404| Ej tillgänglig| Rapporten slutpunkten hittades inte|
+|404| Otillgängligt| Rapporten slutpunkten hittades inte|
 |400| Felaktig förfrågan| Ogiltiga parametrar – datumintervall, EA siffror osv.|
 |500| Serverfel| Unexoected fel vid bearbetning av begäran| 
 

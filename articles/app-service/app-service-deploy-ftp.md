@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e05e06a5abd02dd67f58a8e01bb246e318f51de
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850244"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -26,29 +27,23 @@ Den här artikeln visar hur du använder FTP eller FTPS för att distribuera dit
 
 FTP-/ S-slutpunkten för din app är redan aktiv. Ingen konfiguration krävs för att aktivera FTP/S-distribution.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>Steg 1: Ange autentiseringsuppgifter för distribution
+## <a name="open-ftp-dashboard"></a>Öppna FTP-instrumentpanelen
 
-För att komma åt FTP-servern för din app måste du först autentiseringsuppgifter för distribution. 
+I den [Azure-portalen](https://portal.azure.com), öppna appens [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-Om du vill ange eller återställa dina autentiseringsuppgifter för distribution, se [autentiseringsuppgifter för distribution av Azure App Service](app-service-deployment-credentials.md). Den här kursen visar hur du använder användarnivå autentiseringsuppgifter.
+Klicka för att öppna instrumentpanelen FTP **kontinuerlig leverans (förhandsgranskning)** > **FTP** > **instrumentpanelen**.
 
-## <a name="step-2-get-ftp-connection-information"></a>Steg 2: Hämta information om FTP-anslutning
+![Öppna FTP-instrumentpanelen](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna appens [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Välj **översikt** i det vänstra navigeringsfönstret anteckna värdena för **FTP/distribution användaren**, **värdnamn för FTP-**, och **FTPS värdnamn**. 
+## <a name="get-ftp-connection-information"></a>Hämta information om FTP-anslutning
 
-    ![Information om FTP-anslutning](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+I FTP-instrumentpanelen, klickar du på **kopiera** att kopiera FTPS slutpunkt och app autentiseringsuppgifter.
 
-    > [!NOTE]
-    > Att ge rätt kontext för FTP-servern i **FTP/distribution användaren** värde visas i Azure portal innehåller namnet på appen.
-    > Du kan hitta samma information när du väljer **egenskaper** i det vänstra navigeringsfönstret. 
-    >
-    > Dessutom visas aldrig lösenord för distribution. Om du glömmer lösenordet distribution kan gå tillbaka till [steg 1](#step1) och återställa lösenordet distribution.
-    >
-    >
+![Kopiera FTP-information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>Steg 3: Distribuera filer till Azure
+Det rekommenderas att du använder **App autentiseringsuppgifter** att distribuera din app eftersom det är unikt för varje app. Men om du klickar på **användarautentiseringsuppgifter**, du kan ange användarnivå autentiseringsuppgifter som du kan använda för FTP-/ S inloggning i alla Apptjänst-appar i din prenumeration.
+
+## <a name="deploy-files-to-azure"></a>Distribuera filer till Azure
 
 1. Från FTP-klient (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/) eller [FileZilla](https://filezilla-project.org/download.php?type=client)), använder informationen som samlats in för att ansluta till din app.
 3. Kopiera filerna och deras respektive katalogstrukturen till den [ **/platsen/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/platsen/wwwroot/App_Data/jobb/** katalogen för WebJobs).
@@ -75,6 +70,12 @@ Om du vill inaktivera okrypterad FTP, Välj **FTPS endast**. För att inaktivera
 
 ![Inaktivera FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Automatisera med skript
+
+För FTP-distribution med [Azure CLI](/cli/azure), se [skapa en webbapp och distribuera filer med FTP (Azure CLI)](./scripts/app-service-cli-deploy-ftp.md).
+
+För FTP-distribution med [Azure PowerShell](/cli/azure), se [ladda upp filer till ett webbprogram med hjälp av FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
 ## <a name="troubleshoot-ftp-deployment"></a>Felsökning av FTP-distribution
 
 - [Hur felsöker FTP-distributionen?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +86,12 @@ Om du vill inaktivera okrypterad FTP, Välj **FTPS endast**. För att inaktivera
 
 Det första steget för felsökning av FTP-distribution är att isolera ett distributionsproblem med från en runtime problem med programmet.
 
-Ett distributionsproblem med innebär vanligtvis inga filer eller felaktiga filer som distribueras till din app. Det kan åtgärdas genom att undersöka din FTP-distribution eller välja en annan distributionssökväg (till exempel källkontrollen).
+Ett distributionsproblem med innebär vanligtvis inga filer eller felaktiga filer som distribueras till din app. Du kan felsöka genom att undersöka din FTP-distribution eller välja en annan distributionssökväg (till exempel källkontrollen).
 
-Ett problem med programmet runtime vanligtvis resulterar i rätt uppsättning filer som distribueras till din app men felaktigt Apps beteende. Det kan åtgärdas genom att fokusera på koden beteende under körning och undersöka specifika felet sökvägar.
+Ett problem med programmet runtime vanligtvis resulterar i rätt uppsättning filer som distribueras till din app men felaktigt Apps beteende. Du kan felsöka genom att fokusera på koden beteende under körning och undersöka specifika felet sökvägar.
 
 Information om ett problem med distributionen eller runtime finns [distribution kontra runtime problem](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Jag kan inte FTP och publicera min kod. Hur kan jag för att lösa problemet?
 Kontrollera att du har angett rätt värdnamnet och [autentiseringsuppgifter](#step-1--set-deployment-credentials). Kontrollera också att följande FTP-portar på din dator inte blockeras av en brandvägg:
 

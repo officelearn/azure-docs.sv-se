@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cc53fc52590bc9991dcfd4730d9e4cb03e05efd5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831490"
 ---
 # <a name="split-column-by-example-transformation"></a>Delad kolumn av exempel omvandling
 Den här transformeringen delar predictively innehållet i en kolumn i meningsfulla gränser utan indata från användaren. Dela algoritmen väljer gränserna när du har analyserat innehållet i kolumnen. Dessa gränser kan definieras av

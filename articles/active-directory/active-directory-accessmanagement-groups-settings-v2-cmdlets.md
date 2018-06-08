@@ -11,14 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b53c2b717d41cc202b20805e6513cac0ce0c2758
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850050"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdlets för grupphantering
 > [!div class="op_single_selector"]
@@ -33,8 +34,9 @@ Den här artikeln innehåller exempel på hur du använder PowerShell för att h
 Om du vill installera Azure AD PowerShell-modulen använder du följande kommandon:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-Om du vill verifiera att modulen har installerats, använder du följande kommando:
+Verifiera att modulen är redo att användas, använder du följande kommando:
 
     PS C:\Windows\system32> get-module azuread
 
@@ -250,7 +252,7 @@ Använd cmdleten Remove-AzureADGroupOwner om du vill ta bort en ägare från en 
 När en grupp har skapats, vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadress i gruppen. Grupper med följande mycket Privilegierade e-post-alias kan bara skapas av en global administratör för Azure AD. 
   
 * missbruk 
-* administratör 
+* Admin 
 * Administratören 
 * hostmaster 
 * majordomo 

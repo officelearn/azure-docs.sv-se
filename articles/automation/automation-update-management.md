@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d336b0a4c1de069fccce21a370ca64dc9e9359c9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824956"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831701"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -166,6 +166,8 @@ Den här vyn innehåller information om dina datorer som saknar uppdateringar, d
 
 Du kan köra en sökning i loggen som returnerar information om maskin-, update- eller distributionen genom att markera objektet i listan. Då öppnas den **loggen Sök** sida med en fråga för det markerade objektet.
 
+![Uppdatera standardvyn för hantering](media/automation-update-management/update-management-view.png)
+
 ## <a name="installing-updates"></a>Installera uppdateringar
 
 När uppdateringar har utvärderats för alla Linux- och Windows-datorer i din arbetsyta kan du installera nödvändiga uppdateringar genom att skapa en *Uppdateringsdistribution*. En distribution är en schemalagd installation av uppdateringar som krävs för en eller flera datorer. Du kan ange datum och tid för distributionen förutom den dator eller grupp av datorer som ska inkluderas i distribueringens omfång. Läs mer om datorgrupper i [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Datorgrupper i Log Analytics). När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång vid tid då schemat skapades. Efterföljande ändringar i en grupp visas inte. Undvik detta genom att ta bort den schemalagda distributionen och återskapa den.
@@ -197,9 +199,8 @@ Skapa en ny uppdatera distribution genom att klicka på den **schema uppdatering
 |Operativsystem| Linux- eller Windows|
 | Datorer för att uppdatera |Välj en sparad sökning eller Välj dator från listrutan och Välj enskilda datorer |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Uppdateringar som ska uteslutas|Ange alla KBs för att utesluta utan prefixet 'KB'|
-|Schemainställningar|Välj tid för start och välj antingen en gång eller återkommande för återkommande|
-| Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet kan inte vara mindre än 30 minuter och mer än 6 timmar |
+|Uppdateringar som ska uteslutas|Ange uppdateringar ska undantas. Ange KB utan prefixet 'KB' för Windows. Ange paketnamnet för Linux eller Använd ett jokertecken.  |
+|Schemainställningar|Välj tid för start och välj antingen en gång eller återkommande för återkommande|| Underhållsperiod |Antal minuter som anges för uppdateringar. Värdet kan inte vara mindre än 30 minuter och mer än 6 timmar |
 
 ## <a name="update-classifications"></a>Uppdatera klassificeringar
 

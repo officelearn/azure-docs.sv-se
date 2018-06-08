@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: 667f385e4f157a5e1b9fcaf47b25619eafa8e9e3
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738252"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839577"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure filer med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [SMB kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln beskrivs två sätt att montera en Azure-filresursen: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
@@ -134,7 +134,7 @@ ms.locfileid: "34738252"
 5. **Använd följande kommando för att lägga till följande rad `/etc/fstab`** : Kom ihåg att ersätta `<storage-account-name>`, `<share-name>`, `<smb-version>`, och `<mount-point>` med lämplig information för din miljö. Om SMB 3.0 har stöd för Linux-distribution med kryptering (se [förstå SMB klientkrav](#smb-client-reqs) för mer information), Använd `3.0` för `<smb-version>`. Linux-distributioner som inte stöder SMB 3.0 med kryptering använder `2.1` för `<smb-version>`. Observera att en Azure-filresurs kan endast monteras utanför en Azure-region (inklusive lokalt eller i en annan Azure-region) med SMB 3.0. 
 
     ```bash
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-key>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 88cc9ff4979c2e6a4a14a7d531054c1a842deaf8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849811"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -38,36 +39,21 @@ Kör följande kommando för att använda en exempel-databas för att följa ins
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## <a name="prepare-your-repository"></a>Förbered din databas
-
-Se till att Lagringsplatsens rot har rätt filer i projektet.
-
-| Körmiljö | Rot-directory-filer |
-|-|-|
-| ASP.NET (endast Windows) | _*.SLN_, _*.csproj_, eller _default.aspx_ |
-| ASP.NET Core | _*.SLN_ eller _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby (endast Linux) | _Gemfile_ |
-| Node.js | _Server.js_, _app.js_, eller _package.json_ med ett start-skript |
-| Python (endast Windows) | _\*.PY_, _requirements.txt_, eller _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, eller  _iisstart.htm_ |
-| Webbjobb | _\<job_name > / Kör. \<tillägg >_ under _App\_Data/jobb/kontinuerlig_ (för kontinuerliga Webbjobb) eller _App\_Data/jobb/utlöst_ (för utlöses WebJobs). Mer information finns i [Kudu WebJobs-dokumentation](https://github.com/projectkudu/kudu/wiki/WebJobs) |
-| Funktioner | Se [kontinuerlig distribution för Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
-
-För att anpassa din distribution, kan du inkludera en _.deployment_ filen i Lagringsplatsens rot. Mer information finns i [anpassa distributioner](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) och [anpassat distributionsskriptet](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
-
-> [!NOTE]
-> Se till att `git commit` alla ändringar som du vill distribuera.
->
->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+## <a name="deploy-from-local-git-with-kudu-builds"></a>Distribuera från lokala Git med Kudu-versioner
 
-## <a name="enable-git-for-your-app"></a>Aktivera Git för din app
+Det enklaste sättet att aktivera lokal Git-distribution för din app med Kudu build-server är att använda molnet Shell.
 
-För att aktivera Git-distribution för en befintlig app i App Service kör [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) i molnet-gränssnittet.
+### <a name="create-a-deployment-user"></a>Skapa en distributionsanvändare
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+
+### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
+
+Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern kör [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) i molnet-gränssnittet.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -97,7 +83,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-## <a name="deploy-your-project"></a>Distribuera projektet
+### <a name="deploy-your-project"></a>Distribuera projektet
 
 I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<url >_ med URL: en för Git-fjärråtkomstprincipen som du har fått från [aktivera Git för din app](#enable-git-for-you-app).
 
@@ -113,13 +99,56 @@ git push azure master
 
 Du kan se runtime-specifika automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js, och `pip install` för Python. 
 
-När distributionen är klar, din app i Azure portal bör nu ha en post på din `git push` i den **distributionsalternativ** sidan.
+Bläddra till appen för att kontrollera att innehållet distribueras.
 
-![](./media/app-service-deploy-local-git/deployment_history.png)
+## <a name="deploy-from-local-git-with-vsts-builds"></a>Distribuera från lokala Git med VSTS versioner
+
+> [!NOTE]
+> För App Service att skapa den nödvändiga versionen och frigöra definitioner i VSTS kontot är ditt Azure-konto måste ha rollen för **ägare** i din Azure-prenumeration.
+>
+
+Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern, navigerar du till din app i den [Azure-portalen](https://portal.azure.com).
+
+I det vänstra navigeringsfönstret på appsidan klickar du på **Deployment Center** > **lokala Git** > **Fortsätt**. 
+
+![](media/app-service-deploy-local-git/portal-enable.png)
+
+Klicka på **VSTS kontinuerlig leverans** > **fortsätta**.
+
+![](media/app-service-deploy-local-git/vsts-build-server.png)
+
+I den **konfigurera** sidan, konfigurera ett nytt konto i VSTS eller ange ett befintligt konto. När du är klar klickar du på **Fortsätt**.
+
+> [!NOTE]
+> Om du vill använda ett befintligt VSTS-konto som inte visas måste du [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
+
+Beroende på den [prisnivån](/pricing/details/app-service/plans/) av din programtjänstplan kan du också se en **till mellanlagring** sidan. Välj om du vill aktivera distributionsplatser och klicka sedan på **Fortsätt**.
+
+I den **sammanfattning** , kontrollera alternativen och klickar på **Slutför**.
+
+Det tar några minuter för kontot VSTS ska bli klar. När den är klar, Kopiera URL: en för Git-lagringsplats i deployment center.
+
+![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+
+I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt  _\<url >_ med URL-Adressen som du har fått från det sista steget.
+
+```bash
+git remote add vsts <url>
+```
+
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Autentiseringshanteraren, logga in med din visualstudio.com användare. Ytterligare autentiseringsmetoder finns [VSTS autentisering översikt](/vsts/git/auth-overview?view=vsts).
+
+```bash
+git push vsts master
+```
+
+När distributionen är klar hittar du bygga förloppet på `https://<vsts_account>.visualstudio.com/<project_name>/_build` och distribution förlopp på `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
 
 Bläddra till appen för att kontrollera att innehållet distribueras.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting-kudu-deployment"></a>Felsökning av Kudu-distribution
 
 Här följer vanliga fel eller problem när du använder Git för att publicera till en Apptjänst-app i Azure:
 

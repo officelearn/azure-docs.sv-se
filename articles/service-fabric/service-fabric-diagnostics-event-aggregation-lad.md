@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 681a29776914263c62b9887e4d8dafb715cd14e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849855"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregering av händelse och med Azure-diagnostik för Linux
 > [!div class="op_single_selector"]
@@ -51,5 +52,5 @@ Detta konfigurerar LAD agenten för att övervaka angivna loggfilerna. När en n
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. För att förstå vilka händelser som du bör undersöka vid felsökning av problem i detalj, se [LTTng dokumentationen](http://lttng.org/docs) och [med LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+1. För att förstå vilka händelser som du bör undersöka vid felsökning av problem i detalj, se [LTTng dokumentationen](http://lttng.org/docs) och [med LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Konfigurera agenten logganalys](service-fabric-diagnostics-event-analysis-oms.md) för att samla in mått kan övervaka behållare som har distribuerats på klustret och visualisera dina loggar 

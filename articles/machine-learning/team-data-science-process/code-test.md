@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: f9465eadfea97ffb721a2bac2c9845460d566fd1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655619"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837165"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Datavetenskap kod testning med UCI vuxna intäkter förutsägelse datauppsättningen
 Den här artikeln ger preliminära riktlinjer för att testa koden i ett arbetsflöde för vetenskapliga data. Dessa tester ger datavetare ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av koden. Vi använder en Team Data vetenskap processen (TDSP) [projekt som använder UCI vuxna intäkter datauppsättningen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi tidigare publicerade för att visa hur koden testning kan göras. 

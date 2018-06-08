@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 474eb7122de59d12c69b7c1021cfdff8548c5a25
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837964"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och Läs in data från Azure Blob Storage
 Det här avsnittet innehåller allmänna Hive-frågor som skapar Hive-tabeller och läsa in data från Azure blob storage. Vägledning finns även på partitionering Hive-tabeller och använda den optimerade raden kolumner (ORC) formatering för att förbättra frågeprestanda.
@@ -146,7 +148,7 @@ Nedan följer beskrivningar av de fält som du ska ansluta och andra konfigurati
 * **<table name>**: namnet på den tabell som du vill skapa inom den angivna databasen. Om du vill använda standarddatabasen tabellen kan refereras direkt av *<table name>* utan <database name>.
 * **<field separator>**: avgränsare som avgränsar fälten i filen ska överföras till Hive-tabell.
 * **<line separator>**: avgränsare som avgränsar rader i datafilen.
-* **<storage location>**: Azure storage-plats att spara data för Hive-tabeller. Om du inte anger *plats <storage location>* , lagras i databasen och tabeller i *hive/datalager/* katalogen i standardbehållaren för Hive-klustret som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste vara kallas klustrets i formatet plats i förhållande till standardbehållaren *' wasb: / / / < katalogen 1 > / ”* eller *' wasb: / / / < katalogen 1 > / < katalogen 2 > /”*osv. När frågan körs, skapas de relativa katalogerna i standardbehållaren.
+* **<storage location>**: Azure storage-plats att spara data för Hive-tabeller. Om du inte anger *plats <storage location>* , lagras i databasen och tabeller i *hive/datalager/* katalogen i standardbehållaren för Hive-klustret som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste vara kallas klustrets i formatet plats i förhållande till standardbehållaren *' wasb: / / / < katalogen 1 > / ”* eller *' wasb: / / / < katalogen 1 > / < katalogen 2 > /”* osv. När frågan körs, skapas de relativa katalogerna i standardbehållaren.
 * **TBLPROPERTIES("Skip.Header.Line.Count"="1")**: om filen har en rubrikrad, måste du lägga till egenskapen **slutet** av den *Skapa tabell* frågan. Annars rubrikraden har lästs in som en post i tabellen. Den här konfigurationen kan utelämnas i frågan om filen inte har en rubrikrad.
 
 ## <a name="load-data"></a>Läs in data till Hive-tabeller

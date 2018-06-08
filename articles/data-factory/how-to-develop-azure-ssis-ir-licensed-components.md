@@ -1,6 +1,6 @@
 ---
-title: Utveckla betald eller licensierade komponenter för Azure-SSIS-integrering runtime | Microsoft Docs
-description: Den här artikeln beskrivs hur en ISV kan utveckla och installera betald eller licensierad anpassade komponenter för Azure-SSIS-integrering runtime
+title: Installera betald eller licensierad komponenter för Azure-SSIS-integrering runtime | Microsoft Docs
+description: Lär dig hur en ISV kan utveckla och installera betald eller licensierad anpassade komponenter för Azure-SSIS-integrering runtime
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 42f1bb247533fafbc6947e77cc1a1f07a482fd45
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700510"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830851"
 ---
 # <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Utveckla betald eller licensierade anpassade komponenter för Azure-SSIS-integrering runtime
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Problem - Azure SSIS-IR kräver en annan identifieringsmetod
+Den här artikeln beskrivs hur en ISV kan utveckla och installera betald eller licensierade anpassade komponenter för SQL Server Integration Services (SSIS)-paket som körs i Azure i Azure-SSIS-integrering körningsmiljön.
 
-Komponenternas Azure SSIS-integrering runtime presenterar flera utmaningar som gör de vanliga licensiering metoder som används för lokal installation av anpassade komponenter som saknas.
+## <a name="the-problem"></a>Problemet
+
+Komponenternas Azure SSIS-integrering runtime presenterar flera utmaningar som gör de vanliga licensiering metoder som används för lokal installation av anpassade komponenter som saknas. Därför kräver Azure SSIS-IR en annan metod.
 
 -   Noder i Azure-SSIS-IR är temporär och kan tilldelat eller publicerat när som helst. Du kan till exempel starta eller stoppa noder för att hantera kostnaden eller skala upp eller ned via olika storlekar på noden. Därför är bindning en tredjepartskomponent licens till en viss nod med hjälp av datorspecifik information, till exempel MAC-adress eller CPU-ID inte längre giltigt.
 
 -   Du kan även skala Azure SSIS-IR in eller ut, så att antalet noder kan krympa eller expandera när som helst.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Lösningen – Windows-miljövariabler och SSIS systemvariabler för licensens bindning och validering
+## <a name="the-solution"></a>Lösningen
 
-På grund av begränsningar av traditionella licensiering metoder som beskrivs i föregående avsnitt ger Azure SSIS-IR Windows-miljövariabler och SSIS systemvariabler för licensens bindning och verifiering av komponenter från tredje part. ISV: er kan använda dessa variabler för att hämta information om unika och beständiga för en Azure-SSIS-IR, t.ex ID för kluster och antalet noder för kluster. Med den här informationen ISV: er kan binda licensen för sina komponenten till en Azure-SSIS-IR *som ett kluster*, med ett ID som inte ändras när kunder starta eller stoppa skala upp eller ned, skala in eller ut eller konfigurera om Azure-SSIS-IR på något sätt.
+Azure-SSIS-IR innehåller en ny lösning på grund av begränsningar av traditionella licensiering metoder som beskrivs i föregående avsnitt. Den här lösningen använder Windows-miljövariabler och SSIS systemvariabler för licensens bindning och verifiering av komponenter från tredje part. ISV: er kan använda dessa variabler för att hämta information om unika och beständiga för en Azure-SSIS-IR, t.ex ID för kluster och antalet noder för kluster. Med den här informationen kan ISV sedan binda licensen för sina komponenten till en Azure-SSIS-IR *som ett kluster*. Den här bindningen använder ett ID som inte ändras när kunder startar och stoppar, skala upp eller ned skala in eller ut eller konfigurera om Azure-SSIS-IR på något sätt.
 
 Följande diagram visar standardinstallation, aktivering och licensens bindning och validering flödar för tredjeparts-komponenter som använder dessa nya variabler:
 
@@ -71,6 +73,7 @@ Följande diagram visar standardinstallation, aktivering och licensens bindning 
                                                                                                                                
     }
     ```
+
 ## <a name="isv-partners"></a>ISV-partners
 
 Du hittar en lista över ISV-partner som har anpassade deras komponenter och tillägg för Azure-SSIS-IR i slutet av det här blogginlägget - [Enterprise Edition, anpassad installation och 3 part utökningsbarhet för SSIS i ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).

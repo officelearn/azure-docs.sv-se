@@ -9,17 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 424af2ffd1b7931701036aeb819cbb8879cb7a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832670"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -104,17 +106,17 @@ Kolumnnumret | Fältnamn| Typ | Beskrivning |
 1  | `SessionStart` | DateTime |    Starttid för session
 2  |`SessionEnd`    | DateTime | Sluttid för session
 3 |`ConcurrentConnectionCounts` | Integer | Antalet samtidiga anslutningar
-4 | `MbytesTransferred` | Dubbel | Normaliserade data som överförs i megabyte
+4 | `MbytesTransferred` | dubbla | Normaliserade data som överförs i megabyte
 5 | `ServiceGrade` | Integer |  Service-klass för session
 6 | `HTTP1` | Integer|  Sessionen använder HTTP1 eller HTTP2
 7 |`ServerType` | Integer   |Servertyp
-8 |`SubService_1_Load` | Dubbel |   Läs in subservice 1
-9 | `SubService_2_Load` | Dubbel |  Läs in subservice 2
-10 | `SubService_3_Load` | Dubbel |     Läs in subservice 3
-11 |`SubService_4_Load` | Dubbel |  Läs in subservice 4
-12 | `SubService_5_Load`| Dubbel |      Läs in subservice 5
-13 |`SecureBytes_Load`  | Dubbel | Läsa in säker byte
-14 |`TotalLoad` | Dubbel | Totalt antal belastningen på servern
+8 |`SubService_1_Load` | dubbla |   Läs in subservice 1
+9 | `SubService_2_Load` | dubbla |  Läs in subservice 2
+10 | `SubService_3_Load` | dubbla |     Läs in subservice 3
+11 |`SubService_4_Load` | dubbla |  Läs in subservice 4
+12 | `SubService_5_Load`| dubbla |      Läs in subservice 5
+13 |`SecureBytes_Load`  | dubbla | Läsa in säker byte
+14 |`TotalLoad` | dubbla | Totalt antal belastningen på servern
 15 |`ClientIP` | Sträng|    Klientens IP-adress
 16 |`ServerIP` | Sträng|    Serverns IP-adress
 
@@ -164,7 +166,7 @@ Du bör använda en behållare för experimentering på datamängden som en mån
 | stringIndexModel | Parkettgolv | Strängen indexeraren modellen för icke-numeriska funktioner.|
 | oneHotEncoderModel|Parkettgolv | En hot kodare modell för kategoriska funktioner. |
 | mlModel | Parkettgolv | Utbildade maskininlärningsmodell. |
-| Info| Python pickle-fil | Information om omvandlade data, inklusive utbildning start, utbildning slut, varaktighet, tidstämpel för train-test delning och kolumner för indexering och en hot kodning.
+| info| Python pickle-fil | Information om omvandlade data, inklusive utbildning start, utbildning slut, varaktighet, tidstämpel för train-test delning och kolumner för indexering och en hot kodning.
 
 Alla filer och blobbar i föregående tabell används för operationalization.
 
@@ -190,7 +192,7 @@ Det första argumentet, `configFilename`, är en lokal konfigurationsfil där du
 | storageContainer | Sträng | Behållaren i Azure Storage-konto för att lagra mellanresultat |
 | storageKey | Sträng |Azure åtkomstnyckeln för Lagringskontot |
 | DataFile|Sträng | Datakällfilerna  |
-| Varaktighet| Sträng | Varaktighet för data i datakällfilerna|
+| varaktighet| Sträng | Varaktighet för data i datakällfilerna|
 
 Ändra både `Config/storageconfig.json` och `Config/fulldata_storageconfig.json` att konfigurera lagringskontot och nyckeln för säkerhetslagring blob-behållaren mellanliggande resultaten ska sparas. Blob-behållare för en månad data kör är som standard `onemonthmodel`, och blob-behållaren för fullständig datauppsättning kör `fullmodel`. Kontrollera att du skapar dessa två behållare på ditt lagringskonto. Den `dataFile` i [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) konfigurerar vilka data läses in i [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). Den `duration` fältet anger intervall som innehåller information. Om varaktigheten är ONE_MONTH ska data läses in vara en CSV-fil mellan sju filer av data för juni 2016. Om varaktighet är FULL, fullständiga datauppsättningen (1 TB) har lästs in. Du behöver inte ändra `dataFile` och `duration` i dessa två konfigurationsfiler.
 

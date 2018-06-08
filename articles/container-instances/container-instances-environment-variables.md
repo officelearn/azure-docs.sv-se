@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/07/2018
 ms.author: marsma
-ms.openlocfilehash: 1a025ce647cb3c071a6549a433e6505b85409fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830470"
 ---
 # <a name="set-environment-variables"></a>Ange miljövariabler
 
@@ -23,6 +24,8 @@ Om du kör till exempel den [aci/microsoft-wordcount] [ aci-wordcount] behållar
 *NumWords*: antalet ord som skickas till STDOUT.
 
 *MinLength*: det minsta antalet tecken i ett ord att inventeras. En hög siffra ignorerar vanliga ord som ”av” och ”i”.
+
+Om du behöver skicka hemligheter som miljövariabler Azure Behållarinstanser stöder [secure värden](#secure-values) secure värden för både Windows- och Linux-behållare.
 
 ## <a name="azure-cli-example"></a>Azure CLI-exempel
 
@@ -151,6 +154,81 @@ Om du vill se ett exempel kan du starta den [aci/microsoft-wordcount] [ aci-word
 Visa behållarens loggar under **inställningar** Välj **behållare**, sedan **loggar**. Liknar utdata som visas i föregående CLI och PowerShell avsnitt ser du hur den skriptfunktion har ändrats av miljövariablerna. Endast fem orden visas med en minsta längd på åtta tecken.
 
 ![Portalen visar behållaren loggutdata][portal-env-vars-02]
+
+## <a name="secure-values"></a>Säker värden
+Objekt med säker värden är avsedda att innehåller känslig information, till exempel lösenord eller nycklar för ditt program. Med hjälp av säkra värden för miljövariabler är både säkrare och mer flexibelt än att inkludera den i din behållaren avbildningen. Ett annat alternativ är att använda hemliga volymer, beskrivs i [montera en hemlig volym i Azure Behållarinstanser](container-instances-volume-secret.md).
+
+Säker miljövariablerna med säker värden avslöja inte säker värdet i din behållaregenskaperna så kan bara kommas åt från värdet i din behållaren. Till exempel visa behållaren egenskaper i Azure-portalen eller Azure CLI går inte att visa en miljövariabel med ett säkert värde.
+
+Ange en säker miljövariabel genom att ange den `secureValue` egenskapen i stället för vanliga `value` för variabeltypen. De två variabler som definieras i följande YAML visar två variabeln typer.
+
+### <a name="yaml-deployment"></a>YAML-distribution
+
+Skapa en `secure-env.yaml` fil med följande kodavsnitt.
+
+```yaml
+apiVersion: 2018-06-01
+location: westus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
+        - "name": "NOTSECRET"
+          "value": "my-exposed-value"
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Kör följande kommando för att distribuera behållargruppen med YAML.
+
+```azurecli-interactive
+az container create --resource-group myRG --name securetest -f secure-env.yaml
+```
+
+### <a name="verify-environment-variables"></a>Kontrollera miljövariabler
+
+Kör följande kommando för att söka efter dina behållaren miljövariabler.
+
+```azurecli-interactive
+az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+```
+
+JSON-svar med information om den här behållaren visas endast icke-säker miljövariabeln och säker miljövariabeln nyckel.
+
+```json
+  "environmentVariables": [
+    {
+      "name": "NOTSECRET",
+      "value": "my-exposed-value"
+    },
+    {
+      "name": "SECRET"
+    }
+```
+
+Du kan granska den säkra miljövariabeln anges med den `exec` kommando som gör det möjligt att köra ett kommando från i en behållare som körs. 
+
+Kör följande kommando för att starta en interaktiv bash-session med behållaren.
+```azurecli-interactive
+az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+```
+
+Skriv ut din miljövariabel med kommandot bash i din behållare från.
+```bash
+echo $SECRET
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

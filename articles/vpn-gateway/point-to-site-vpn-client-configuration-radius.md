@@ -1,31 +1,36 @@
 ---
-title: "Skapa och installera VPN-klientkonfigurationsfiler för RADIUS-P2S-anslutningar: PowerShell: Azure | Microsoft Docs"
-description: "Skapa Windows-, Mac OS X- och Linux VPN-klienten konfigurationsfiler för anslutningar som använder RADIUS-autentisering."
+title: 'Skapa och installera VPN-klientkonfigurationsfiler för RADIUS-P2S-anslutningar: PowerShell: Azure | Microsoft Docs'
+description: Skapa Windows-, Mac OS X- och Linux VPN-klienten konfigurationsfiler för anslutningar som använder RADIUS-autentisering.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235897"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
 Om du vill ansluta till ett virtuellt nätverk via punkt-till-plats (P2S), måste du konfigurera klientenheten som du ska ansluta från. Du kan skapa P2S VPN-anslutningar från Windows-, Mac OS X- och Linux-klientenheter. 
 
 När du använder RADIUS-autentisering, det finns flera alternativ för Webbplatsautentisering: autentisering med användarnamn/lösenord, autentisering med datorcertifikat och andra typer av autentisering. Konfigurationen för VPN-klienten är olika för varje typ av autentisering. Om du vill konfigurera VPN-klienten, kan du använda klientkonfigurationsfiler som innehåller inställningarna som krävs. Den här artikeln hjälper dig att skapa och installera VPN-klientkonfiguration för RADIUS-autentisering-typ som du vill använda.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 Konfiguration av arbetsflödet för P2S RADIUS-autentisering är följande:
 
@@ -153,6 +158,10 @@ Följande instruktioner har skapats via strongSwan 5.5.1 på Ubuntu 17.0.4. Fakt
  
 Du kan skapa VPN-klienten konfigurationsfilerna för RADIUS-autentisering som använder EAP-TLS-protokollet. Ett enterprise-utfärdade certifikat används vanligtvis för att autentisera en användare för VPN. Kontrollera att alla anslutande användare ha ett certifikat installerat på sina enheter och att RADIUS-server kan verifiera certifikatet.
 
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
+
 I kommandona, `-AuthenticationMethod` är `EapTls`. Under certifikatautentisering verifierar klienten RADIUS-servern genom att verifiera certifikatet. `-RadiusRootCert` är den .cer-fil som innehåller rotcertifikatet som används för att verifiera RADIUS-servern.
 
 Varje enhet för VPN-klienten kräver ett installerat klientcertifikat. En windowsenhet har ibland flera klientcertifikat. Detta kan resultera i en dialogruta som visar en lista över alla certifikat vid autentisering. Användaren kan sedan välja certifikatet som ska användas. Rätt certifikat kan filtreras genom att ange det rotcertifikat som klientcertifikatet ska kedja till. 
@@ -210,7 +219,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på en Mac
 
    ![Lägger till certifikatet RadiusServerRoot](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Varje klient kräver ett klientcertifikat för autentisering. Installera klientcertifikatet på klientenheten.
-3. Öppna den **nätverk** dialogrutan under **nätverksinställningar**. Välj  **+**  att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure-nätverket.
+3. Öppna den **nätverk** dialogrutan under **nätverksinställningar**. Välj **+** att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure-nätverket.
 
    Den **gränssnittet** värdet är **VPN**, och **VPN-typ** värdet är **IKEv2**. Ange ett namn för profilen i den **tjänstnamnet** och välj sedan **skapa** att skapa VPN-anslutningsprofilen för klienten.
 

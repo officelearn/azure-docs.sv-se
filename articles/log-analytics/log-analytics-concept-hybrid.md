@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235948"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -40,12 +41,9 @@ Agent för Linux och Windows kommunicerar utgående med Log Analytics-tjänsten 
 
 Om du övervakar datorn med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 kan det vara multi-homed Log Analytics-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av [Operations Manager ](log-analytics-om-agents.md). Linux-datorer som övervakas av en Operations Manager-hanteringsgrupp som är integrerad med logganalys får inte någon konfiguration för datakällor och vidarebefordra insamlade data till hanteringsgruppen. Windows-agent kan rapportera upp till fyra arbetsytor, medan den Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
 
-Agent för Linux och Windows är inte bara för att ansluta till logganalys, det stöder också Azure Automation till värd Hybrid Runbook worker-rollen och lösningar för hantering, till exempel ändringsspårning och hantering av uppdateringar.  Läs mer om Hybrid Runbook Worker-rollen [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
+Agent för Linux och Windows är inte bara för att ansluta till logganalys, det stöder också Azure Automation till värd Hybrid Runbook worker-rollen och lösningar för hantering, till exempel ändringsspårning och hantering av uppdateringar.  Läs mer om Hybrid Runbook Worker-rollen [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).  
 
-## <a name="prerequisites"></a>Förutsättningar
-Granska följande information för att verifiera att du uppfyller systemkraven innan du börjar.
-
-### <a name="windows-operating-system"></a>Windows-operativsystem
+## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:
 
 * Windows Server 2008 Service Pack 1 (SP1) eller senare
@@ -54,17 +52,7 @@ Följande versioner av Windows-operativsystemet stöds officiellt för Windows-a
 > [!NOTE]
 > Agenten för Windows har endast stöd för Transport Layer Security (TLS) 1.0- och 1.1.  
 
-#### <a name="network-configuration"></a>Nätverkskonfiguration
-Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Windows-agenten kan kommunicera med logganalys. Trafiken är utgående från nätverket till logganalys-tjänsten. 
-
-| Agentresurs | Portar | Kringgå HTTPS-kontroll|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Ja |
-|*.oms.opinsights.azure.com | 443 | Ja | 
-|*.blob.core.windows.net | 443 | Ja | 
-|*.azure-automation.net | 443 | Ja | 
-
-### <a name="linux-operating-systems"></a>Linux-operativsystem
+## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också köra på andra distributioner som inte finns.  Om inget annat anges stöds alla mindre versioner för varje större version i listan.  
 
 * Amazon Linux 2012.09 till 2015.09 (x86/x64)
@@ -75,19 +63,22 @@ Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också kör
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
-#### <a name="network-configuration"></a>Nätverkskonfiguration
-Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Linux-agenten kan kommunicera med logganalys.  
+## <a name="network-firewall-requirements"></a>Brandväggen nätverkskrav
+Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Linux och Windows-agenten kan kommunicera med logganalys.  
 
-|Agentresurs| Portar | Riktning |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | Port 443 | Inkommande och utgående|  
-|*.oms.opinsights.azure.com | Port 443 | Inkommande och utgående|  
-|*.blob.core.windows.net | Port 443 | Inkommande och utgående|  
-|*.azure-automation.net | Port 443 | Inkommande och utgående|  
+|Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |Port 443 |Inkommande och utgående|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Inkommande och utgående|Ja |  
+|*.blob.core.windows.net |Port 443 |Inkommande och utgående|Ja |  
+|*.azure-automation.net |Port 443 |Inkommande och utgående|Ja |  
 
-Linux-agenten stöder kommunikation via en proxyserver eller OMS Gateway till Log Analytics-tjänsten med hjälp av HTTPS-protokollet.  Stöd för både anonyma och grundläggande autentisering (användarnamn/lösenord).  Proxyservern kan anges under installationen eller genom att ändra konfigurationsfilen proxy.conf efter installationen.  
 
-Konfigurationsvärdet proxy har följande syntax:
+Om du planerar att använda Azure Automation Hybrid Runbook Worker att ansluta till och registrera Automation-tjänsten för att använda runbooks i din miljö, måste den ha åtkomst till portnumret och URL: er som beskrivs i [konfigurera nätverket för den Runbook Worker-hybrid](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+Windows- och Linux-agenten stöder kommunikation via en proxyserver eller OMS Gateway till Log Analytics-tjänsten med hjälp av HTTPS-protokollet.  Stöd för både anonyma och grundläggande autentisering (användarnamn/lösenord).  För Windows-agenten är ansluten direkt till tjänsten proxykonfigurationen har angetts under installationen eller [efter distributionen](log-analytics-agent-manage.md#update-proxy-settings) från Kontrollpanelen eller med PowerShell.  
+
+För Linux-agenten proxyservern har angetts under installationen eller [efter installationen](/log-analytics-agent-manage.md#update-proxy-settings) genom att ändra proxy.conf konfigurationsfilen.  Konfigurationsvärdet för Linux-agenten proxy har följande syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

@@ -1,26 +1,28 @@
 ---
-title: "Anropa en funktion från PowerApps | Microsoft Docs"
-description: "Skapa en anpassad koppling och sedan anropa en funktion med hjälp av kopplingen."
+title: Anropa en funktion från PowerApps | Microsoft Docs
+description: Skapa en anpassad koppling och sedan anropa en funktion med hjälp av kopplingen.
 services: functions
 keywords: molnappar, cloud services, PowerApps, processer, business-program
-documentationcenter: 
-author: mgblythe
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234962"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) plattformen är avsedd för affärsexperter att skapa appar utan traditionella programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från teknisk information.
@@ -71,7 +73,7 @@ Anpassade API: et (även kallat en anpassad koppling) finns i PowerApps, men du 
 ## <a name="create-an-app-and-add-data-sources"></a>Skapa en app och Lägg till datakällor
 Nu är du redo att skapa appen i PowerApps och lägga till Excel-data och anpassade API som datakällor för appen.
 
-1. I [web.powerapps.com](https://web.powerapps.com), Välj **Start från tomt** > ![Phone app ikonen](media/functions-powerapps-scenario/icon-phone-app.png) (phone) > **gör den här appen**.
+1. I [web.powerapps.com](https://web.powerapps.com) väljer du **Starta från tom** > ![Telefonappikon](media/functions-powerapps-scenario/icon-phone-app.png) (telefon) > **Skapa den här appen**.
 
     ![Starta från tom - telefonapp](media/functions-powerapps-scenario/create-phone-app.png)
 
@@ -97,7 +99,7 @@ Nu är du redo att skapa appen i PowerApps och lägga till Excel-data och anpass
 
     ![Data som ska importeras](media/functions-powerapps-scenario/excel-table.png)
 
-    1. På arbetsytan app väljer **ansluta till data**.
+    1. På apparbetsytan väljer du **anslut till data**.
 
     1. På den **Data** klickar du på **lägga till statiska data i appen**.
 

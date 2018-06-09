@@ -1,28 +1,27 @@
 ---
-title: "Översikt över funktioner i Azure Event Hubs | Microsoft Docs"
-description: "Översikt över och information om Händelsehubbar i Azure-funktioner"
+title: Översikt över funktioner i Azure Event Hubs | Microsoft Docs
+description: Översikt över och information om Händelsehubbar i Azure-funktioner
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 06/08/2018
 ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248749"
 ---
 # <a name="event-hubs-features-overview"></a>Översikt över Event Hubs funktioner
 
-Händelsehubbar i Azure är en skalbar händelsebearbetning tjänsten som en och bearbetar stora mängder händelser och data med låg latens och hög tillförlitlighet. Se [vad är Händelsehubbar?](event-hubs-what-is-event-hubs.md) för en översikt över tjänsten.
+Händelsehubbar i Azure är en skalbar händelsebearbetning tjänsten som en och bearbetar stora mängder händelser och data med låg latens och hög tillförlitlighet. Se [vad är Händelsehubbar?](event-hubs-what-is-event-hubs.md) för en översikt.
 
 Den här artikeln bygger på informationen i den [översiktsartikel](event-hubs-what-is-event-hubs.md), och ger information om Händelsehubbar komponenter och funktioner i technical och implementering.
 
@@ -36,7 +35,7 @@ Du kan publicera en händelse via AMQP 1.0 eller HTTPS. Händelsehubbar ger [kli
 
 Valet att använda AMQP eller HTTPS är specifikt för användningsscenariot. AMQP kräver en beständig dubbelriktad socket och dessutom säkerhet på transportnivå (TLS) eller SSL/TLS. AMQP har högre nätverkskostnader när sessionen initieras, men HTTPS kräver ytterligare SSL-kostnader för varje begäran. AMQP har högre prestanda för frekventa utfärdare.
 
-![Händelsehubbar](./media/event-hubs-features/partition_keys.png)
+![Event Hubs](./media/event-hubs-features/partition_keys.png)
 
 Event Hubs garanterar att alla händelser som delar samma partitionsnyckelvärde levereras i rätt ordning och till samma partition. Om partitionsnycklar används med utfärdarprinciper måste utfärdarens identitet och partitionsnyckelns värde matcha varandra. Annars uppstår ett fel.
 
@@ -44,7 +43,7 @@ Event Hubs garanterar att alla händelser som delar samma partitionsnyckelvärde
 
 Med händelsehubbar får du granulär kontroll över utgivare via *utgivarprinciper*. Utfärdarprinciper är körningsfunktioner som utformats för att ge stöd för ett stort antal oberoende utfärdare. Med utgivarprinciper använder varje utgivare sin egen unika identifierare vid publicering av händelser på en händelsehubb med hjälp av följande mekanism:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -60,11 +59,11 @@ Event Hubs tillhandahåller meddelandeströmning via ett partitionerat konsument
 
 En partition är en ordnad sekvens av händelser som hålls kvar i en händelsehubb. När nya händelser anländer läggs de till i slutet av denna sekvens. En partition kan betraktas som en ”genomförandelogg”.
 
-![Händelsehubbar](./media/event-hubs-features/partition.png)
+![Event Hubs](./media/event-hubs-features/partition.png)
 
 Händelsehubbar behåller data under en konfigurerad kvarhållningstid som gäller för alla partitioner i hubben. Händelser löper ut enligt ett tidsschema. Det går inte att ta bort dem. Eftersom partitioner är oberoende av varandra och innehåller sina egna sekvenser med data, växer de ofta i olika takt.
 
-![Händelsehubbar](./media/event-hubs-features/multiple_partitions.png)
+![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
 
 Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Du kan öka antalet partitioner till mer än 32 genom att kontakta Event Hubs-teamet.
 
@@ -103,13 +102,13 @@ Följande är exempel på URI-konventionen för konsumentgrupper:
 
 Följande bild visar strömhanteringsarkitekturen för händelsehubbar:
 
-![Händelsehubbar](./media/event-hubs-features/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Offsets för strömmar
 
 En *offset* är en händelses position inom en partition. Föreställ dig en offset som en markör på klientsidan. Denna offset är en byte-numrering av händelsen. Med den så kan en händelsekonsument (läsare) ange vid vilken punkt i händelseströmmen som läsningen ska starta. Du kan ange offseten som en tidsstämpel eller ett offset-värde. Konsumenterna ansvarar för att lagra sina egna offset-värden utanför händelsehubbtjänsten. Inom en partition innehåller varje händelse en offset.
 
-![Händelsehubbar](./media/event-hubs-features/partition_offset.png)
+![Event Hubs](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Kontrollpunkter
 
@@ -123,7 +122,7 @@ Alla konsumenter i Händelsehubbar ansluter via en AMQP 1.0-session, en tillstå
 
 #### <a name="connect-to-a-partition"></a>Ansluta till en partition
 
-När du ansluter till partitioner är det vanligt att använda en leasingmekanism till att samordna läsaranslutningar till specifika partitioner. På det sättet är det möjligt för varje partition i en konsumentgrupp att bara ha en aktiv läsare. Hanteringen av kontrollpunkter, leasing och läsare blir enklare med klassen [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) för .NET-klienter. Värden för händelsebearbetning är en smart konsumentagent.
+När du ansluter till partitioner är det vanligt att använda en leasingmekanism till att samordna läsaranslutningar till specifika partitioner. På det sättet är det möjligt för varje partition i en konsumentgrupp att bara ha en aktiv läsare. Hanteringen av kontrollpunkter, leasing och läsare blir enklare med klassen [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) för .NET-klienter. Värden för händelsebearbetning är en smart konsumentagent.
 
 #### <a name="read-events"></a>Läsa händelser
 
@@ -149,11 +148,11 @@ Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflöde
 * Ingress (inkommande trafik): Upp till 1 MB per sekund eller 1 000 händelser per sekund (beroende på vilket som inträffar först)
 * Egress (utgående trafik): Upp till 2 MB per sekund
 
-Utöver kapaciteten för köpta genomflödesenheter är den inkommande trafiken begränsad och en [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) returneras. Utgående trafik genererar inte begränsningsundantag, men är fortfarande begränsad till kapaciteten för de köpta genomflödesenheterna. Om du får felmeddelanden om publiceringsfrekvensen eller om du förväntar dig större utgående trafik kontrollerar du hur många genomflödesenheter du har köpt för namnområdet. Du kan hantera enheter på den **skala** bladet namnområden i den [Azure-portalen](https://portal.azure.com). Du kan också hantera enheter via programmering med hjälp av [Event Hubs API: er](event-hubs-api-overview.md).
+Utöver kapaciteten för köpta genomflödesenheter är den inkommande trafiken begränsad och en [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) returneras. Utgående trafik genererar inte begränsningsundantag, men är fortfarande begränsad till kapaciteten för de köpta genomflödesenheterna. Om du får felmeddelanden om publiceringsfrekvensen eller om du förväntar dig större utgående trafik kontrollerar du hur många genomflödesenheter du har köpt för namnområdet. Du kan hantera enheter på den **skala** bladet namnområden i den [Azure-portalen](https://portal.azure.com). Du kan också hantera enheter via programmering med hjälp av [Event Hubs API: er](event-hubs-api-overview.md).
 
-Genomflödesenheter debiteras per timme och köps i förväg. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter kan köpas för ett Event Hubs-namnområde och delas mellan alla Event Hubs i namnområdet.
+Genomflödesenheter redan köpt och debiteras per timme. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter enheter kan köpas för ett namnområde för Händelsehubbar och delas mellan alla händelsehubbar i namnutrymmet.
 
-Om du vill köpa fler genomflödesenheter i block om 20 upp till 100 genomflödesenheter kontaktar du Azure-supporten. Utöver det kan du också köpa block med 100 genomflödesenheter.
+Om du vill köpa fler genomflödesenheter i block om 20 upp till 100 genomflödesenheter kontaktar du Azure-supporten. Utöver det kan köpa du block med 100 genomflödesenheter.
 
 Vi rekommenderar att du väga genomflödesenheter och partitioner för att uppnå bästa skala. En enstaka partition har en maximal skala på en genomflödesenhet. Antalet dataflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
 

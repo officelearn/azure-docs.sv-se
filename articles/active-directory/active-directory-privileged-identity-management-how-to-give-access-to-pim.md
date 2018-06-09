@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d1d912b61993b74f0524b4fc4d0beadae0b018fe
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 150f994aedfc8d2847a0741792c32114e1b520fe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698255"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233554"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Ger tillgång till att hantera Azure AD Privileged Identity Management
 Den globala administratören som aktiverar Azure AD Privileged Identity Management (PIM) för en organisation automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan får skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och säkerhet läsare har skrivskyddad åtkomst till Azure AD PIM. Om du vill ge åtkomst till PIM, kan den första användaren tilldela andra användare till den **administratör av Privilegierade roller** roll. Den här tilldelningen måste göras i PIM sig själv och kan inte ändras via PowerShell eller andra portaler.

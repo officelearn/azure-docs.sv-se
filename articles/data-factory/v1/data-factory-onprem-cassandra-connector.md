@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622109"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235472"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 Du kan kopiera data från ett lokalt Cassandra dataarkiv till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från ett dataarkiv som Cassandra till andra databaser, men inte för att flytta data från andra datalager till en Cassandra dataarkiv. 
 
 ## <a name="supported-versions"></a>Versioner som stöds
-Stöder följande versioner av Cassandra för Cassandra-anslutningen: 2.X.
+Stöder följande versioner av Cassandra för Cassandra-anslutningen: 2.x och 3.x. För aktiviteten körs på Self-hosted integrering körning, Cassandra 3.x stöds sedan IR version 3.7 och senare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 För Azure Data Factory-tjänsten för att kunna ansluta till din lokala Cassandra databas måste du installera en Data Management Gateway på samma dator som värd för databasen eller på en separat dator för att undvika konkurrerar om resurser med databasen. Data Management Gateway är en komponent som ansluter lokala datakällor till molntjänster i en säker och hanterad sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln för information om Data Management Gateway. Se [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
@@ -75,6 +75,9 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | lösenord |Ange lösenordet för användarkontot. |Ja, om authenticationType anges till Basic. |
 | gatewayName |Namnet på den gateway som används för att ansluta till lokalt Cassandra-databasen. |Ja |
 | encryptedCredential |Autentiseringsuppgifter har krypterats med gatewayen. |Nej |
+
+>[!NOTE]
+>För närvarande stöds inte anslutning till Cassandra med SSL.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).

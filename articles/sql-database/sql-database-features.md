@@ -1,35 +1,35 @@
 ---
 title: Azure SQL Database-funktionsjämförelse | Microsoft Docs
-description: Den här artikeln jämförs funktionerna i Azure SQL Database och hanterade instanser med varandra och med SQL Server.
+description: Den här artikeln jämförs funktioner i SQL Server som är tillgängliga i olika varianter av Azure SQL Database.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: eaaadd48c92ef79964f712dae9bffb24dac271cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646729"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248817"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
-Azure SQL Database delar en gemensam kodbas med SQL Server. Funktioner i SQL Server som stöds av Azure SQL Database beror på vilken typ av Azure SQL-databas som du skapar. Med Azure SQL Database, kan du antingen skapa en databas som en del av en [hanterade instans](sql-database-managed-instance.md) (för närvarande i förhandsversion) eller så kan du skapa en databas som är en enskild databas eller en databas som ingår i en elastisk pool. 
+Azure SQL Database delar en gemensam kodbas med SQL Server. Funktioner i SQL Server som stöds av Azure SQL Database beror på vilken typ av Azure SQL-databas som du skapar. Med Azure SQL Database, kan du antingen skapa en databas som en del av en [hanterade instans](sql-database-managed-instance.md) (för närvarande i förhandsversion) eller så kan du skapa en databas som är en del av logisk server och du kan också placeras i en elastisk pool. 
 
 Microsoft fortsätter att lägga till funktioner i Azure SQL Database. Finns på webbsidan för uppdateringar av tjänsten för Azure efter de senaste uppdateringarna med dessa filter:
 
 * Filtrerade till [SQL Database-tjänsten](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrerade till allmän tillgänglighet [meddelanden (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) för SQL Database-funktioner.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>Stöder SQL Server och SQL-databas
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Stöd för SQL Server-funktionen i Azure SQL Database
 
 I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller information om huruvida funktionen helt eller delvis stöds och en länk till mer information om funktionen. 
 
-| **SQL-funktion** | **Stöds i Azure SQL-databas** | **Hanterade instansen (förhandsgranskning)** |
+| **SQL-funktion** | **Stöds i databasen/logisk Azure SQL-Server** | **Stöds i databasen/hanterad Azure SQL-instans (förhandsgranskning)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja - finns [certifikatarkivet](sql-database-always-encrypted.md) och [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Ja - finns [certifikatarkivet](sql-database-always-encrypted.md) och [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn-Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Automatisk justering (markörplan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatisk justering (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nej |
 | [BACPAC fil (exportera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja - finns [SQL Database-export](sql-database-export.md) | Ja |
-| [BACPAC fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja - finns [Importera SQL-databas](sql-database-import.md) | Ja |
+| [BACPAC fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja - finns [Importera SQL-databas](sql-database-import.md) | Nej |
 | [BACKUP-kommandot](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nej, endast system-initierad automatiska säkerhetskopieringar - finns [automatisk säkerhetskopiering](sql-database-automated-backups.md) | System-initierad automatiska säkerhetskopieringar och användaren initierade endast kopiering säkerhetskopieringar - Se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Inbyggda funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta - finns enskilda funktioner | Ja - finns [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Registrering av ändringsdata](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
@@ -137,7 +137,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 |Hotidentifiering|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Spårningsflaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nej | Nej |
 | [Variabler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
-| [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Nej, inte i Public Preview |
+| [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja | Partiell endast med kryptering som hanteras av tjänsten |
 [Virtuella nätverk](../virtual-network/virtual-networks-overview.md) | Partiell - finns [VNET-slutpunkter](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, Resource Manager-modellen |
 | [Windows Server Failover-kluster](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Katastrofåterställning diskuteras i [översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
 | [XML-index](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Ja | Ja |

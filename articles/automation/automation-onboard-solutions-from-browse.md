@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6d0109b9043b48fbbbeeaccea6c798eaa547a056
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839884"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233945"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och lager lösningar på flera virtuella datorer
 
@@ -63,7 +63,7 @@ När onboarding flera datorer kan det vara datorer som visas som **kan inte akti
 
 **Orsak**: det här felet visas som den virtuella datorn som du försöker publicera rapporter till en annan arbetsyta.
 
-**Lösningen**: arbetsytan som du riktar genom att klicka i infogad länk eller klicka på Ändra **ändra**. Du kan också använda följande skript för att ändra arbetsytan till det avsedda för varje dator.
+**Lösningen**: Klicka på **som konfiguration** ändra riktade Automation-konto och logganalys-arbetsytan.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM-rapporter till en arbetsyta som inte är tillgänglig i den här prenumerationen
 

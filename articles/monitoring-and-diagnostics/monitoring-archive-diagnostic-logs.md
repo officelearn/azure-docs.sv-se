@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638773"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235982"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -28,6 +28,9 @@ I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdl
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du [skapa ett lagringskonto](../storage/storage-create-storage-account.md) som du kan arkivera dina diagnostikloggar. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning data som lagras i den så att du bättre kan styra åtkomsten till övervakningsdata. Men om du arkiverar även din aktivitetsloggen och diagnostik mått till ett lagringskonto, kan det vara bra att använda detta lagringskonto för dina diagnostikloggar för att hålla alla övervakningsdata på en central plats. Storage-konto som du använder måste vara ett allmänt lagringskonto inte ett blob storage-konto.
+
+> [!NOTE]
+>  Du kan inte arkivera data till en lagringsplats för kontot som bakom skyddade virtuella nätverk.
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 

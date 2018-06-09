@@ -5,14 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236702"
 ---
 ### <a name="supportedclientos"></a>Vilka klientoperativsystem kan jag använda med punkt-till-plats?
 
@@ -28,6 +29,12 @@ Följande klientoperativsystem stöds:
 * Windows 10
 * Mac OS X version 10.11 (El Capitan)
 * Mac OS X version 10.12 (Sierra)
+* Linux (StrongSwan)
+* iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
@@ -59,7 +66,7 @@ Nej. En punkt-till-plats-klient kan bara ansluta till resurser i det virtuella n
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Hur högt dataflöde kan jag förvänta mig vid anslutningar för plats-till-plats eller punkt-till-plats?
 
-Det är svårt att bibehålla ett exakt dataflöde i VPN-tunnlarna. IPsec och SSTP är kryptografifrekventa VPN-protokoll. Dataflödet är också begränsat av svarstiden och bandbredden mellan din lokala plats och Internet. För en VPN-gateway med endast IKEv2-baserade VPN-anslutningar för punkt-till-plats beror det totala dataflödet som du kan förvänta dig på Gateway-SKU:n. Mer information om dataflödet finns i avsnittet om [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Det är svårt att bibehålla ett exakt dataflöde i VPN-tunnlarna. IPsec och SSTP är kryptografifrekventa VPN-protokoll. Dataflödet är också begränsat av svarstiden och bandbredden mellan din lokala plats och Internet. För VPN Gateway med endast IKEv2-baserade VPN-anslutningar från punkt till plats beror det totala dataflödet som du kan förvänta dig på Gateway-SKU:n. Mer information om dataflödet finns i avsnittet om [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan jag använda alla VPN-programklienter för punkt-till-plats som har stöd för SSTP och/eller IKEv2?
 
@@ -76,7 +83,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
   | OS-version | Date | Antal/länk |
   |---|---|---|---|
   | Windows Server 2016<br>Windows 10 Version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 Version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  | Windows 10-Version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
   |  |  |  |  |
 
 2. Ange registernyckelvärdet. Skapa eller ange ”HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD nyckel i registret till 1.

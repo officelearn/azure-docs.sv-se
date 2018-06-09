@@ -1,26 +1,28 @@
 ---
-title: "Anropa en Azure-funktion från Microsoft Flow | Microsoft Docs"
-description: "Skapa en anpassad koppling och sedan anropa en funktion med hjälp av kopplingen."
+title: Anropa en Azure-funktion från Microsoft Flow | Microsoft Docs
+description: Skapa en anpassad koppling och sedan anropa en funktion med hjälp av kopplingen.
 services: functions
-keywords: "molnappar, cloud services, Microsoft Flow affärsprocesser affärsprogram"
-documentationcenter: 
-author: mgblythe
+keywords: molnappar, cloud services, Microsoft Flow affärsprocesser affärsprogram
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234809"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Anropa en funktion från Microsoft Flow
 
@@ -58,11 +60,11 @@ Du börja på genom att skapa en lista som du använder som en datakälla för f
 
 1. I SharePoint-webbplatsen klicka eller tryck på **ny**, sedan **listan**.
 
-    ![Skapa nya SharePoint-listan](./media/functions-flow-scenario/new-list.png)
+    ![Skapa ny SharePoint-lista](./media/functions-flow-scenario/new-list.png)
 
 2. Ange namnet `Turbines`, klicka eller tryck på **skapa**.
 
-    ![Ange namn på ny lista](./media/functions-flow-scenario/create-list.png)
+    ![Ange namn för ny lista](./media/functions-flow-scenario/create-list.png)
 
     Den **turbiner** lista skapas med standard **rubrik** fältet.
 
@@ -70,7 +72,7 @@ Du börja på genom att skapa en lista som du använder som en datakälla för f
 
 3. Klicka eller tryck på ![ikon för nya objekt](./media/functions-flow-scenario/icon-new.png) sedan **datum**.
 
-    ![Lägg till rad med textfält](./media/functions-flow-scenario/add-column.png)
+    ![Lägg till fält med enskild textrad](./media/functions-flow-scenario/add-column.png)
 
 4. Ange namnet `LastServiceDate`, klicka eller tryck på **skapa**.
 
@@ -153,7 +155,7 @@ Du först skapa ett flöde från tomt (utan en mall) och Lägg till en *utlösar
 
 Flödet för objekt som skapats i listan, kontrollerar om den **ServiceRequired** fältet är inställt på `Yes`, går sedan till den **fall** branch eller **om inget** Förgrena som det behövs. Du kan spara tid, i det här avsnittet om du bara ange åtgärder för den **fall** grenen.
 
-### <a name="add-the-custom-connector"></a>Lägg till anpassad koppling
+### <a name="add-the-custom-connector"></a>Lägga till den anpassade anslutningsappen
 
 Du har nu lägga till anpassad koppling som anropar funktionen i Azure. Du lägger till anpassad koppling flödet precis som en koppling som standard. 
 
@@ -237,7 +239,7 @@ Nu när flödet har slutförts kan du lägga till en rad i SharePoint-listan och
 
 3. Klicka på **Klar**.
 
-    ![Snabb redigering klar](media/functions-flow-scenario/quick-edit-done.png)
+    ![Snabbredigering klar](media/functions-flow-scenario/quick-edit-done.png)
 
     När du lägger till objektet utlöser flödet som du kan ta en titt på Nästa.
 
@@ -247,7 +249,7 @@ Nu när flödet har slutförts kan du lägga till en rad i SharePoint-listan och
 
 5. Under **KÖRNINGSHISTORIK**, klicka på Kör flödet.
 
-    ![Kör historik](media/functions-flow-scenario/run-history.png)
+    ![Körningshistorik](media/functions-flow-scenario/run-history.png)
 
     Om körningen lyckades kan du granska åtgärderna flöde på nästa sida. Om du kör misslyckades av någon anledning, felsökningsinformation nästa sida.
 

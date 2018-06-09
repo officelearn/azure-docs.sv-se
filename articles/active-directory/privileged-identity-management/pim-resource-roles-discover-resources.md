@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: af3aa7426515e8180fd41a4594b87f12645722e1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 563c7f24ec4045b46d5bdcf0dc267dbdda2d5a5e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699554"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234479"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Identifiera och hantera Azure-resurser med hjälp av Privileged Identity Management
 

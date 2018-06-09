@@ -10,15 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c47cdeab4edd0b8dbe9cfe7c388253d02a9148c9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699741"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233262"
 ---
 # <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Utför åtkomst granskningar i Azure-resurser med hjälp av Privileged Identity Management
 Rolltilldelningar blir ”inaktiva” när användare privilegierad åtkomst som de inte behöver längre. För att minska risken för att associeras med dessa inaktuella rolltilldelningar bör Privilegierade rollen administratörer regelbundet granska roller. Det här dokumentet beskriver steg för att starta en åtkomst-granskning i Privileged Identity Management (PIM) för Azure-resurser.

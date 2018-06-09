@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809802"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236128"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsgranskning)
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Låt oss gå igenom stegen för att aktivera regelbunden säkerhetskopiering fö
 
 Första steget är att skapa princip för säkerhetskopiering som beskriver schemat för säkerhetskopiering, mål-lagringskontot för säkerhetskopierade data, principnamn och maximala säkerhetskopior som ska tillåtas innan fullständig säkerhetskopiering. 
 
-Använd Azure Storage konto skapade ovan för lagring av säkerhetskopior. Det här exemplet förutsätter Azure Storage-konto med namnet `sfbackupstore`. Behållaren `backup-container` har konfigurerats för att lagra säkerhetskopior behållaren med detta namn skapas, om den inte redan finns vid säkerhetskopiering överföring. Fyll i `ConnectionString` med giltig anslutningssträng för Azure Storage-konto.
+Använd Azure Storage konto skapade ovan för lagring av säkerhetskopior. Behållaren `backup-container` har konfigurerats för att lagra säkerhetskopior. En behållare med detta namn skapas om den inte redan finns vid säkerhetskopiering överföring. Fyll i `ConnectionString` med en giltig anslutningssträng för Azure Storage-konto ersätter `account-name` med namnet på ditt lagringskonto, och `account-key` med din lagringskontonyckel.
 
 Kör följande PowerShell-skript för att anropa krävs REST API för att skapa en ny princip. Ersätt `account-name` med namnet på ditt lagringskonto, och `account-key` med din lagringskontonyckel.
 

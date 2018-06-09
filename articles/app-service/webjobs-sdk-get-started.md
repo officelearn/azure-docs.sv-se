@@ -1,5 +1,5 @@
 ---
-title: Kom igång med WebJobs SDK - Azure
+title: Kom igång med Azure WebJobs SDK
 description: Introduktion till WebJobs-SDK för händelsedriven Bakgrundsbearbetning. Lär dig hur du kommer åt data i Azure-tjänster och tjänster från tredje part.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234534"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Kom igång med WebJobs SDK
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedriven Bakgrundsbearbetning
 
-Den här artikeln visar hur du skapar en WebJobs SDK-projektet, kör lokalt och distribuera den till Azure.
+Den här artikeln visar hur du skapar ett Azure WebJobs SDK-projekt, kör lokalt och distribuera den till Azure App Service.
 
 Anvisningarna gäller [Visual Studio 2017](https://www.visualstudio.com/vs/), men samma uppgifter kan utföras med andra verktyg som [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>Vad är WebJobs SDK
+## <a name="what-is-the-azure-webjobs-sdk"></a>Vad är Azure WebJobs-SDK?
 
 Azure WebJobs-SDK är ett ramverk som gör det enklare att skriva bakgrund bearbetningskoden som ansluter till data i Azure-tjänster. SDK innehåller deklarativa syntaxen för att ange händelser som ska utlösa en funktion, t.ex ett nytt meddelande som lagts till i en kö. Liknande deklarativa syntaxen styr läsning och skrivning av data när en funktion som har utlösts. Det här systemet för utlösare och bindningar hand tar om de flesta lågnivå-kodning uppgifter som är associerade med åtkomst till Azure och tjänster från tredje part.
 

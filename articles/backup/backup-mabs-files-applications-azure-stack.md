@@ -6,14 +6,14 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/18/2018
+ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 6c7fcc0182add05b68a7b41ab6fe50e18427f6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607311"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248868"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure-stacken
 Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure-stacken. Installera Microsoft Azure Backup Server för att säkerhetskopiera filer och program som en virtuell dator som körs på Azure-stacken. Du kan skydda alla program som körs på någon Azure Stack-server i samma virtuella nätverk. När du har installerat Azure Backup-Server, Lägg till Azure-diskar för att öka den lokala lagringen tillgänglig för kortsiktig säkerhetskopiering. Azure Backup-servern använder Azure-lagring för långsiktig kvarhållning.
@@ -22,60 +22,124 @@ Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och
 > Även om Azure Backup Server och System Center Data Protection Manager (DPM) är liknande, finns DPM inte stöd för användning med Azure-stacken.
 >
 
-
-## <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
-Azure Backup-Server skyddar följande Azure Stack virtuella arbetsbelastningar.
-
-| Skyddad datakälla | Skydd och återställning |
-| --------------------- | ----------------------- |
-| Windows Server semikolon årligt kanal - Datacenter-Enterprise-standarden | Volymer, filer, mappar |
-| Windows Server 2016 - Datacenter-Enterprise-standarden | Volymer, filer, mappar |
-| Windows Server 2012 R2 - Datacenter-Enterprise-standarden | Volymer, filer, mappar |
-| Windows Server 2012 - Datacenter-Entprise-Standard | Volymer, filer, mappar |
-| Windows Server 2008 R2 - Datacenter-Enterprise-standarden | Volymer, filer, mappar |
-| SQL Server 2016 | Databas |
-| SQL Server 2014 | Databas |
-| SQL Server 2012 SP1 | Databas |
-| SharePoint 2013 | Servergrupp, databas, klientdel, webbserver |
-| SharePoint 2010 | Servergrupp, databas, klientdel, webbserver |
+Den här artikeln täcker inte installerar Azure Backup Server i Azure Stack-miljö. Om du vill installera Azure Backup Server på Azure-stacken, finns i artikeln [förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 
-## <a name="install-azure-backup-server"></a>Installera Azure Backup-Server
-Om du vill installera Azure Backup Server på en virtuell dator i Azure-stacken, finns i artikeln [förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server](backup-mabs-install-azure-stack.md). Innan du installerar och konfigurerar Azure Backup Server, Tänk på följande:
+## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Säkerhetskopiera data från en Azure-stacken VM till Azure
 
-### <a name="determining-size-of-virtual-machine"></a>Bestämma storleken på virtuella datorn
-Kör Azure Backup Server på en virtuell dator i Azure-stacken med storlek A2 eller större. Hjälp med att välja en storlek på virtuell dator, hämtar den [Kalkylatorn för storlek på Azure-stacken VM](https://www.microsoft.com/download/details.aspx?id=56832).
+Öppna konsolen Azure Backup Server för att konfigurera Azure Backup-Server för att skydda IaaS-virtuella datorer. Du ska använda konsolen för att konfigurera skyddsgrupper och för att skydda data på virtuella datorer.
 
-### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Virtuella nätverk på Azure-stacken virtuella datorer
-Alla virtuella datorer som används i en arbetsbelastning i Azure-stacken måste tillhöra samma virtuella Azure-nätverket och Azure-prenumeration.
+1. Azure Backup Server-konsolen, klicka på **skydd** och klicka på i verktygsfältet, **ny** att öppna den **Skapa ny Skyddsgrupp** guiden.
 
-### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Lagra säkerhetskopierade data på lokal disk och i Azure
-Azure Backup-servern lagrar säkerhetskopierade data på Azure diskar som är anslutna till den virtuella datorn för operativa återställning. Diskarna och lagringsutrymmet är kopplade till den virtuella datorn hanterar Azure Backup Server lagring för dig. Hur mycket lagringsutrymme för säkerhetskopierade data beror på antalet och storleken på diskar som är anslutna till varje [virtuella Azure-stacken](../azure-stack/user/azure-stack-storage-overview.md). Varje storleken på stacken virtuella Azure-datorn har ett maximalt antal diskar som kan kopplas till den virtuella datorn. A2 är till exempel fyra diskar. A3 är åtta diskar. A4 är 16 diskar. Igen, storlek och antalet diskar avgör den totala lagringspoolen för säkerhetskopiering.
+   ![Konfigurera skydd i Azure Backup Server-konsolen](./media/backup-mabs-files-applications-azure-stack/1-mabs-menu-create-protection-group.png)
 
-> [!IMPORTANT]
-> Du bör **inte** behålla operativa återställningsdata (säkerhetskopiering) på Azure Backup-Server-anslutna diskar för mer än fem dagar.
->
+    Det kan ta några sekunder att öppna guiden. När guiden öppnas, klickar du på **nästa** att gå vidare till den **Välj typ av Skyddsgrupp** skärmen.
 
-Lagra säkerhetskopierade data i Azure minskar infrastrukturen för säkerhetskopiering på Azure-stacken. Om data är mer än fem dagar gammal, bör det lagras i Azure.
+   ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/2-create-new-protection-group-wiz.png)
 
-Skapa för att lagra säkerhetskopierade data i Azure, eller Använd Recovery Services-valvet. När du förbereder att säkerhetskopiera arbetsbelastningen Azure Backup Server du [konfigurera Recovery Services-valvet](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). När du konfigurerat varje gång en säkerhetskopiering körs skapas en återställningspunkt i valvet. Varje Recovery Services-valvet innehåller upp till 9999 återställningspunkter. Du kan behålla säkerhetskopierade data i många år beroende på antalet återställningspunkter som skapats och hur länge de bevaras. Du kan till exempel skapa månatliga återställningspunkter och behålla dem i fem år.
- 
-### <a name="using-sql-server"></a>Använda SQLServer
-Välj endast en Azure-stacken virtuell dator som kör SQL Server om du vill använda en fjärransluten SQL Server för Azure Backup Server-databasen.
+2. På den **Välj typ av Skyddsgrupp** väljer **servrar** och på **nästa**.
 
-### <a name="azure-backup-server-vm-performance"></a>Azure Backup Server VM-prestanda
-Om delas med andra virtuella datorer, kan lagringsstorleken för kontot och IOPS-gränser påverka prestanda för virtuella datorer i Azure Backup Server. Därför bör du använda ett separat lagringskonto för den virtuella datorn i Azure Backup Server. Azure Backup-agenten körs på Azure Backup-servern behöver tillfällig lagring för:
-    - egen användning (en cacheplats)
-    - data återställs från molnet (lokalt mellanlagringsområde)
-  
-### <a name="configuring-azure-backup-temporary-disk-storage"></a>Konfigurera Azure Backup tillfälliga disklagring
-Varje virtuell dator i Azure-stacken medföljer tillfälliga diskutrymme, som är tillgängliga för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras så att det finns i `D:\`, och cacheplatsen kan placeras på `C:\`. På så sätt behöver ingen lagring hämtas från datadiskar som är kopplade till den virtuella datorn i Azure Backup Server.
+    ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-### <a name="scaling-deployment"></a>Skalning distribution
-Om du vill skala distributionen har följande alternativ:
-  - Skala upp – öka storleken på Azure Backup Server virtuell dator från en serie D-serien och öka den lokala lagringen [per Azure Stack virtuella instruktioner](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Omfördela data: skicka äldre data till Azure Backup Server och spara endast senaste data på det lagringsutrymme som är kopplade till Azure Backup-Server.
-  - Skala ut – Lägg till fler Azure Backup-servrar för att skydda arbetsbelastningarna.
+    Den **Välj gruppmedlemmar** skärmen öppnas. 
+
+    ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
+
+3. I den **Välj gruppmedlemmar** klickar du på **+** att expandera listan över subitems. Markera kryssrutan för alla objekt som du vill skydda. När alla objekt har valts klickar du på **nästa**.
+
+    ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
+
+    Microsoft rekommenderar att alla virtuella datorer som delar en protection-princip i en skyddsgrupp. Mer information om planering och distribution av skyddsgrupper finns i System Center DPM-artikeln [distribuera Skyddsgrupper](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+
+4. I den **Välj Dataskyddsmetod** skärmen, Skriv ett namn för skyddsgruppen. Markera kryssrutan för **jag vill ha kortvarigt skydd med:** och **jag vill onlineskydd**. Klicka på **Nästa**.
+
+    ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
+
+    Att välja **jag vill onlineskydd**, måste du först välja **jag vill ha kortvarigt skydd med:** Disk. Azure Backup-Server kan inte skydda till band, så att disken är det enda alternativet för kortsiktigt skydd.
+
+5. I den **ange kortvariga mål** väljer du hur lång tid att behålla återställningspunkter sparas på disk och när du vill spara säkerhetskopior. Klicka på **Nästa**.
+
+    > [!IMPORTANT]
+    > Du bör **inte** behålla operativa återställningsdata (säkerhetskopiering) på Azure Backup-Server-anslutna diskar för mer än fem dagar.
+    >
+
+    ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+
+    I stället för att välja ett intervall för inkrementell säkerhetskopiering för att köra en snabb fullständig säkerhetskopiering före varje schemalagd återställningspunkt, klickar du på **precis innan en återställningspunkt**. Om du skyddar programarbetsbelastningar skapas Azure Backup Server återställningspunkter per frekvens synkroniseringsschemat (förutsatt att programmet stöder inkrementell säkerhetskopiering). Om programmet inte stöder inkrementell säkerhetskopiering, Azure Backup-Server kör en snabb fullständig säkerhetskopiering.
+
+    För **filen återställningspunkter**, ange när du vill skapa återställningspunkter. Klicka på **ändra** Ange dagar och tider i veckan när återställningspunkter skapas.
+
+6. I den **granska diskallokering** kan du se lagring lagringspoolens allokerade diskutrymme för skyddsgruppen.
+
+    **Total storlek på Data** är storleken på data som du vill säkerhetskopiera och **diskutrymme som ska etableras** på Azure Backup Server är det rekommenderade utrymmet för skyddsgruppen. Azure Backup-servern väljer perfekt säkerhetskopieringsvolymen baserat på inställningarna. Du kan dock redigera säkerhetskopieringsvolymen valen i allokering diskinformation. Välj önskade lagring för arbetsbelastningar, i den nedrullningsbara menyn. Redigeringarna ändra värdena för totalt lagringsutrymme och ledigt utrymme i fönstret tillgängliga disklagring. Underprovisioned utrymme är mängden lagringsutrymme som Azure Backup Server föreslår att du lägger till i volymen, för att fortsätta med säkerhetskopiering smidigt i framtiden.
+
+7. I **Välj metod för skapande av replik**, Välj hur du vill hantera den första fullständiga datareplikeringen. Om du vill replikera via nätverket rekommenderar Azure du väljer en tid. Överväg att replikera data offline med flyttbart medium för stora mängder data eller bristfälliga nätverksförhållanden.
+
+8. I **Välj alternativ för konsekvenskontroll**, Välj hur du vill automatisera konsekvenskontroller. Aktivera konsekvenskontroller ska köras endast när datareplikering blir inkonsekvent, eller enligt ett schema. Om du inte vill konfigurera automatisk konsekvenskontroll kör du en manuell kontroll när som helst genom att:
+    * I den **skydd** i Azure Backup Server-konsolen, högerklicka på skyddsgruppen och välj **utför konsekvenskontroll**.
+
+9. Om du väljer att säkerhetskopiera till Azure på den **ange onlineskyddsdata** sidan kontrollerar du de arbetsbelastningar som du vill säkerhetskopiera till Azure är markerade.
+
+10. I **Ange schema för onlinesäkerhetskopiering**, ange när inkrementella säkerhetskopieringar till Azure ska ske. 
+
+    Du kan schemalägga säkerhetskopieringar att köras varje dag veckan/år-månad och den tid/datum då de ska köras. Säkerhetskopieringar kan inträffa upp till två gånger per dag. Varje gång ett säkerhetskopieringsjobb körs skapas en data-återställningspunkt i Azure från en kopia av säkerhetskopierade data lagras på disk för Azure Backup-Server.
+
+11. I **ange bevarandeprincip**, ange hur återställningspunkter som skapats från varje dag/vecka/månad/år säkerhetskopior bevaras i Azure.
+
+12. I **Välj onlinereplikeringsmetoden**, ange hur den första fullständiga replikeringen av data sker. 
+
+    Du kan replikera via nätverket eller göra ett offline säkerhetskopiering (offline seeding). Offlinesäkerhetskopiering använder den [Azure Import-funktionen](./backup-azure-backup-import-export.md).
+
+13. På **sammanfattning**, granskar du inställningarna. När du klickar på **Skapa grupp**, den första datareplikeringen inträffar. När datareplikeringen är klar på den **Status** sidan skyddsgruppens status visas som **OK**. Inledande säkerhetskopieringsjobbet sker i enlighet med skydd gruppinställningar.
+
+Frågor som behöver besvara: hur du för att expandera disklagring för Azure-stacken kortsiktig disklagring. Vad är riktlinjer som behöver anropas ut förklarar kortsiktig disklagring?
+
+## <a name="recover-file-data"></a>Återställa fildata
+
+Använda Azure Backup Server konsolen för att återställa data till den virtuella datorn.
+
+1. I Azure Backup Server-konsolen på navigeringsfältet klickar du på **Recovery** och Sök efter de data som du vill återställa. Välj data i resultatfönstret.
+
+2. I kalendern i avsnittet med återställningspunkter fet stil anger återställningspunkter är tillgängliga. Välj datum att återställa en återställningspunkt.
+
+3. I den **Återställningsbart objekt** rutan, Välj ett objekt som du vill återställa.
+
+4. I den **åtgärder** rutan klickar du på **återställa** att öppna Återställningsguiden.
+
+5. Du kan återställa data på följande sätt:
+
+    * **Återställ till den ursprungliga platsen** -det här alternativet fungerar inte om datorn är ansluten via VPN. I stället använda en alternativ plats och sedan kopiera data från den platsen.
+    * **Återställ till en alternativ plats**
+
+6. Ange återställningsalternativ:
+
+    * För **återställningsfunktionssätt för befintlig version**väljer **Skapa kopia**, **hoppa över**, eller **Skriv över**. Skriv över är bara tillgänglig när återställning till den ursprungliga platsen.
+    * För **Återställ säkerhet**, Välj **tillämpa inställningar på måldatorn** eller **tillämpa säkerhetsinställningar för återställningspunktversionen**.
+    * För **begränsning av nätverksbandbredd**, klickar du på **ändra** att aktivera begränsning av nätverksbandbredd.
+    * Välj **aktivera SAN-baserad återställning med hjälp av ögonblicksbilder av maskinvara** att använda SAN-baserade ögonblicksbilder av maskinvara för snabbare återställning. Det här alternativet gäller bara när du har ett SAN där ögonblicksbilder av maskinvara funktionen är aktiverad. Om du vill göra den återställningspunkt skrivbar måste SAN-nätverket kunna skapa en klon och dela en klon. Skyddade virtuella datorn och Azure Backup Server måste vara ansluten till samma SAN.
+    * **Meddelande** klickar du på **skicka ett e-postmeddelande när återställningen är slutförd**, och ange vilka mottagare som tar emot meddelandet. Avgränsa e-postadresser med kommatecken.
+    * När du har gjort valen klickar du på **nästa**
+
+7. Granska återställningsinställningarna och klicka på **återställa**. 
+
+    > [!Note] 
+    > Alla Synkroniseringsjobb för det valda återställningsobjekt avbryts medan återställningsjobbet pågår.
+    >
+
+Om du använder moderna Backup Storage (MB) stöds inte återställning av slutanvändare File Server (EUR). Filen Server EUR har ett beroende på Volume Shadow Copy Service (VSS), som inte använder moderna Backup Storage. Om EUR är aktiverad, återställer du data med följande steg:
+
+1. Navigera till de skyddade filerna och högerklicka på filen och markera **egenskaper**.
+
+2. På den **egenskaper** -menyn klickar du på **tidigare versioner** och välj den version som du vill återställa.
+
+
+
+## <a name="register-azure-backup-server-with-a-vault"></a>Registrera Azure Backup Server med ett valv
+Innehåller steg som visar hur du:
+
+1. Öppna Recovery Services-valvet.
+2. Klicka på infrastrukturen för säkerhetskopiering.
+3. Visa säkerhetskopiering hanteringsservrar.
 
 ## <a name="see-also"></a>Se också
 Information om hur du använder Azure Backup Server för att skydda finns andra arbetsbelastningar i följande artiklar:

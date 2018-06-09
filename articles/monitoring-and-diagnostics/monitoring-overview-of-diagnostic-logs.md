@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 7d1ab75146c9899bf2699309cd5dd4ed523096ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6017052db3e6c3f0cfc22b18263727e997944483
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638814"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236424"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -45,6 +45,9 @@ Här följer några av de saker som du kan göra med resurs diagnostikloggar:
 * Analysera dem med [logganalys](../log-analytics/log-analytics-azure-storage.md)
 
 Du kan använda ett lagringskonto eller Händelsehubbar namnområde som inte är i samma prenumeration som avger loggar. Den användare som konfigurerar inställningen måste ha RBAC lämplig åtkomst till båda prenumerationer.
+
+> [!NOTE]
+>  Du kan inte arkivera data till en lagringsplats för kontot som bakom skyddade virtuella nätverk.
 
 ## <a name="resource-diagnostic-settings"></a>Diagnostikinställningar för resurs
 

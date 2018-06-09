@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 3c7ea4f3c081734a77f5ebe44c9fba167ddc6d67
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3c875060a7abdf4431026e79ce966efdc89e4e77
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839398"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236186"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introduktion till Azure logganalys-integrering
 
-
 >[!IMPORTANT]
-> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01. Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01. Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log-integrering har gjorts tillgängliga för förenklar uppgiften att integrera Azure loggar med din lokala Security Information and Event Management SIEM ()-system.
 

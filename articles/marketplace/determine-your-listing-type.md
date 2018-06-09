@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8e9781f97c7d605a5249fcc1684dc2f72cb1e3ac
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824439"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235815"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Bestäm vilken lista för din lösning  
 Skyltfönster stöder många publiceringsalternativ: Visar en lista över typer och erbjuda typer. Välj en typ av erbjudande som bäst representerar din lösning och tjänsten information. Alla publiceringsalternativ ger behörighet för att leda delning.   
@@ -209,10 +209,11 @@ Microsoft stöder för närvarande lediga och bring-your-äger-licens (BYOL) lic
 
 | Krav | Information |  
 |:--- |:--- |  
-| Fakturering och mätning | Stöd för antingen den kostnadsfria eller BYOL faktureringsmodell som tillämpas. |  
-|Avbildningen skapades från Dockerfile    |   Behållaren bilder måste baseras på Docker image-specifikationer och måste skapas från en Dockerfile. Mer information om hur du skapar [här] docker-avbildningar. (https://docs.docker.com/engine/reference/builder/#usage) |
-|Värd för i ACR    |   Behållaren bilder måste finnas i ett Azure Container registret (ACR)-databas. Mer information om hur du arbetar med ACR [här]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)   |
-|Bild-märkning    |   Behållaren bilder måste innehålla minst 1 taggen (högsta taggar: 16). Mer information om taggar en avbildning [här]. (https://docs.docker.com/engine/reference/commandline/tag/)    |
+|Fakturering och mätning  |  Din behållaren måste ha stöd för antingen gratis eller ta med din egen licens fakturering modeller.       |  
+|Avbildningen skapades från Dockerfile   |   Behållaren bilder måste baseras på Docker image-specifikationer och måste skapas från en Dockerfile. Mer information om hur du skapar [här] docker-avbildningar. (https://docs.docker.com/engine/reference/builder/#usage)
+|Värd för i ACR   |   Behållaren bilder måste finnas i ett Azure Container registret (ACR)-databas. Mer information om hur du arbetar med ACR [här]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
+|Bild-märkning   |   Behållaren bilder måste innehålla minst 1 taggen (högsta taggar: 16). Mer information om taggar en avbildning [här]. (https://docs.docker.com/engine/reference/commandline/tag/)     | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Krav för: Azure Marketplace: Transact: SaaS-app  
@@ -224,10 +225,11 @@ Microsoft är värd för commerce-transaktionen. Microsoft debiterar kunden å d
 
 | Krav | Information |  
 |:--- |:--- |  
-| Fakturering och mätning | Erbjudandet är kostar debiteras per månad. Användningsbaserad prisnivå och användningsbaserad *true up* alternativ stöds inte just nu. |  
-| Annullering | Erbjudandet är cancelable av kunden när som helst. |  
-|Landningssida för transaktion     |   Värd för en Azure anpassade transaktion landningssida där användare kan skapa och hantera sina SaaS-tjänstkontot.      |    Transaktionen     |
-|Prenumerationen API    |   Du exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort en användare konto och service-plan. Ändringar för kritiska API måste stödjas inom 24 timmar. Icke-kritiska API ändringar släpps regelbundet.      |     Transaktionen    |
+|Fakturering och mätning   |   Erbjudandet är kostar debiteras per månad. Användningsbaserad priser och användningsbaserad ”true up” funktioner stöds inte just nu.      |  
+|Annullering  |   Erbjudandet är cancelable av kunden när som helst.      |  
+|Landningssida för transaktion   |   Värd för en Azure anpassade transaktion landningssida där användare kan skapa och hantera sina SaaS-tjänstkontot.      |   
+|Prenumerationen API    |   Du exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort en användare konto och service-plan. Ändringar för kritiska API måste stödjas inom 24 timmar. Icke-kritiska API ändringar släpps regelbundet.      | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Krav för: Azure Marketplace: Transact: virtuell dator  

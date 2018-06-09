@@ -1,5 +1,5 @@
 ---
-title: Hur du använder WebJobs-SDK för händelsedriven Bakgrundsbearbetning – Azure
+title: Hur du använder Azure WebJobs SDK
 description: Mer information om hur du skriva kod för WebJobs-SDK. Skapa händelsedriven bakgrund bearbetar jobb som har åtkomst till data i Azure-tjänster och tjänster från tredje part.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725538"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234658"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Hur du använder WebJobs-SDK för händelsedriven Bakgrundsbearbetning
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Hur du använder Azure WebJobs SDK för händelsedriven Bakgrundsbearbetning
 
-Den här artikeln innehåller information om hur du skriva kod för [WebJobs SDK](webjobs-sdk-get-started.md). Dokumentationen gäller 2.x och 3.x om inget annat anges annars. Huvudsakliga ändringen introducerades av 3.x är att använda .NET Core i stället för .NET Framework.
+Den här artikeln innehåller information om hur du skriva kod för [Azure WebJobs SDK](webjobs-sdk-get-started.md). Dokumentationen gäller 2.x och 3.x om inget annat anges annars. Huvudsakliga ändringen introducerades av 3.x är att använda .NET Core i stället för .NET Framework.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs-SDK och den här artikellänkar till Azure Functions dokumentationen för vissa avsnitt. Observera följande skillnader mellan funktioner och WebJobs-SDK:

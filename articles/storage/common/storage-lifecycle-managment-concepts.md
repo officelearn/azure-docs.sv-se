@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: b141adc9025f2f40acdfbd1f2d7f378173463956
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34805160"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248477"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykeln (förhandsgranskning)
 
@@ -70,7 +70,7 @@ Om funktionen har godkänts och registrerats korrekt, får tillståndet ”regis
 
 ## <a name="add-or-remove-policies"></a>Lägg till eller ta bort principer 
 
-Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure portal, PowerShell, REST API: er eller klienten verktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure portal [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), REST API: er eller klientverktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [ Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -121,7 +121,7 @@ I en princip krävs två parametrar:
 | Parameternamn | Parametertyp | Anteckningar |
 |----------------|----------------|-------|
 | version        | En sträng som är uttryckt i `x.x` | Förhandsgranska versionsnumret är 0,5 |
-| regler          | En matris med regeln objekt | Det krävs minst en regel i varje princip. Du kan ange upp till 10 regler per princip under förhandsgranskning. |
+| regler          | En matris med regeln objekt | Det krävs minst en regel i varje princip. Du kan ange upp till 4 regler per princip under förhandsgranskning. |
 
 Parametrar som krävs i en regel är:
 
@@ -169,7 +169,7 @@ Varje regeldefinition innehåller ett filter och en åtgärd uppsättningen. Fö
 
 ```
 
-## <a name="rule-filters"></a>Regeln filter
+### <a name="rule-filters"></a>Regeln filter
 
 Filter begränsa regelåtgärder till en delmängd av blobbar i lagringskontot. Om flera filter definieras en logisk `AND` utförs på alla filter.
 
@@ -191,6 +191,9 @@ I preview stöder livscykelhantering skiktning och borttagning av blob och bortt
 | tierToCool    | Stöd för antal BLOB-informationsblock för närvarande på Hot nivå         | Stöds inte |
 | tierToArchive | Stöd för antal BLOB-informationsblock för närvarande på aktiv eller kall nivå | Stöds inte |
 | radera        | Stöds                                   | Stöds     |
+
+>[!NOTE] 
+Om mer än en åtgärd har definierats för samma blob, gäller åtgärden billigaste blob livscykelhantering. (t.ex. åtgärden `delete` billigare än åtgärden `tierToArchive`. Åtgärden `tierToArchive` billigare än åtgärden `tierToCool`.)
 
 I Förhandsgranska baserat villkor som åtgärden körning på ålder. Grundläggande blob använder senast ändrad att spåra ålder och blob ögonblicksbilder använder ögonblicksbilden skapelsetid att spåra ålder.
 

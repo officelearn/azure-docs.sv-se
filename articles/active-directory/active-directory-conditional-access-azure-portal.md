@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfa3d70e2ce901a59476c5c0784d35999731ed6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724368"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248728"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -32,6 +32,7 @@ Säkerhet är ett viktigt mål för organisationer som använder molnet. En vikt
 ![Kontroll](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Den här artikeln innehåller en översikt av villkorlig åtkomst i Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
@@ -60,7 +61,7 @@ Dessa och relaterade svaren representerar vanliga scenarier för åtkomst för v
 
 ## <a name="conditional-access-policies"></a>Principer för villkorlig åtkomst
 
-En princip för villkorlig åtkomst är definition av ett scenario för åtkomst med hjälp av följande mönster:
+En princip för villkorlig åtkomst är en definition av ett scenario för åtkomst med hjälp av följande mönster:
 
 ![Kontroll](./media/active-directory-conditional-access-azure-portal/10.png)
 

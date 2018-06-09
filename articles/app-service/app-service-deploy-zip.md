@@ -1,11 +1,11 @@
 ---
 title: Distribuera din app till Azure App Service med en ZIP- eller WAR-fil | Microsoft Docs
-description: "Lär dig mer om att distribuera din app till Azure App Service med en ZIP-fil (eller en WAR-fil för Java-utvecklare)."
+description: Lär dig mer om att distribuera din app till Azure App Service med en ZIP-fil (eller en WAR-fil för Java-utvecklare).
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3178d5cb09087a243a51e20567895d03ce1f7fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234142"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP- eller WAR-fil
 
@@ -82,7 +83,7 @@ Det här kommandot distribuerar filer och kataloger från ZIP-filen till standar
 
 ## <a name="deploy-war-file"></a>Distribuera WAR-filen
 
-Skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/wardeploy för att distribuera WAR-filen till App Service. POST-begäran måste innehålla filen .war i meddelandetexten. Autentiseringsuppgifter för distribution för din app tillhandahålls i begäran med hjälp av grundläggande autentisering. 
+Skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/wardeploy för att distribuera WAR-filen till App Service. Din POST-begäran måste innehålla .war-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering. 
 
 Du måste dina autentiseringsuppgifter för distribution av App Service för grundläggande HTTP-autentisering. Information om hur du anger dina autentiseringsuppgifter för distribution finns [ange och återställa användarnivå autentiseringsuppgifter](app-service-deployment-credentials.md#userscope).
 
@@ -106,6 +107,8 @@ $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

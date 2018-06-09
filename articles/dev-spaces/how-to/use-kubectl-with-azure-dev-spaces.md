@@ -8,20 +8,21 @@ author: ghogen
 ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
-description: Snabb utveckling av Kubernetes med behållare och mikrotjänster på Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare
+description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 38a433a14ab977fb56a8331a057d27241f1d9783
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248666"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Använda kubectl med ett utrymme för Azure-utveckling
 
 Du kan komma åt Kubernetes klustret i ett Azure Dev utrymme och Använd befintlig Kubernetes verktyg som `kubectl`.
 
-Kör `azds resource create` eller `azds resource select` automatiskt lägger till en `kubectl` configuration kontext för dig, så kubectl redan är ansluten till din Azure Dev blanksteg Kubernetes-klustret. Exempel:
+Kör `az aks use-dev-spaces` kommando lägger automatiskt till en `kubectl` configuration kontext för dig, så kubectl redan är ansluten till din Azure Dev blanksteg Kubernetes-klustret. Exempel:
 - Kontrollera den aktuella kontexten: `kubectl config current-context`
 - Visa en lista över alla tillgängliga kontexter: `kubectl config get-contexts`. 
 - Ändra kontexten: `kubectl config use-context <context-name>`

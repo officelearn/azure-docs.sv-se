@@ -3,7 +3,7 @@ title: Azure DB Cosmos-bindningar för funktioner 1.x
 description: Förstå hur du använder Azure Cosmos DB utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: fb9e6eaca31849eb8ef15714978c1ec55b23e02f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: tdykstra
+ms.openlocfilehash: 97943bc17c9722ffcd8dc815ec67d033e8aa4fee
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796935"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234911"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure DB Cosmos-bindningar för Azure Functions 1.x
 

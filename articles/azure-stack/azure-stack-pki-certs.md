@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823857"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234849"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certifikatkrav
 
@@ -30,7 +30,7 @@ Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av extern
 - Processen för att hämta certifikat som matchar de specifikationerna
 - Hur du förbereder, validera och använda dessa certifikat under distributionen
 
-> [!NOTE]
+> [!Note]  
 > Under distributionen måste du kopiera certifikat till distributionsmappen som matchar den identitetsleverantör som du distribuerar mot (Azure AD eller AD FS). Om du använder ett enda certifikat för alla slutpunkter, måste du kopiera den certifikatfilen i varje distributionsmappen som beskrivs i tabellerna nedan. Mappstrukturen före bygger på den virtuella datorn för distribution och finns på: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Certifikatkrav
@@ -47,12 +47,12 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Certifikatets ”utfärdat till”: fältet får inte vara samma som dess ”utfärdat av”: fältet.
 - Lösenorden för alla certifikat pfx-filer måste vara samma vid tidpunkten för distribution
 - Lösenord för att den certifikat PFX-filen måste vara ett komplext lösenord.
-- Se till att ämnesnamn och Alternativt ämnesnamn över alla certifikat matchar de specifikationer som beskrivs i den här artikeln för att undvika inte kunde distribueras.
+- Kontrollera att ämnesnamn och Alternativt ämnesnamn i tillägget (x509v3_config) för alternativt namn matchar ämne. Fältet för certifikatmottagarens alternativa namn kan du ange ytterligare värdnamn (webbplatser, IP-adresser, allmänna namn) som ska skyddas av ett enda SSL-certifikat.
 
-> [!NOTE]
+> [!NOTE]  
 > Self signerat certifikat inte stöds.
 
-> [!NOTE]
+> [!NOTE]  
 > Förekomsten av mellanhand certifikatutfärdare i kedjan för förtroenden är för ett certifikat som stöds. 
 
 ## <a name="mandatory-certificates"></a>Obligatoriska certifikat

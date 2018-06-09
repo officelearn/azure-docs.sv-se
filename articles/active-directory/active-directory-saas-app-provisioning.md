@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247952"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
 Azure Active Directory (Azure AD) kan du automatisera skapandet, underhållet och borttagningen av användaridentiteter i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) program som Dropbox, Salesforce, ServiceNow med mera.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Här följer några exempel på vad den här funktionen kan du göra:**
 
@@ -77,6 +80,8 @@ Kontakta Azure AD engineering team för att begära etablering support för ytte
     
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hur ställer jag in automatisk etablering till ett program?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 Konfigurationen av Azure AD etableras för ett valt program startar i den  **[Azure-portalen](https://portal.azure.com)**. I den **Azure Active Directory > företagsprogram** väljer **Lägg till**, sedan **alla**, och Lägg sedan till något av följande beroende på ditt scenario:
 
@@ -170,31 +175,50 @@ När du är i karantän, minska frekvensen av inkrementella synkroniseringar gra
 Etableringsjobbet för den tas bort från karantän efter alla felaktiga fel fastställs och nästa synkronisering cykel startar. Om etableringsjobbet för den är i karantän i mer än fyra veckor, har etableringsjobbet för den inaktiverats.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>Hur lång tid tar det för att etablera användare?
+
+Prestanda beror på om din Etableringsjobbet genomför en inledande synkronisering eller en inkrementell synkronisering enligt beskrivningen i föregående avsnitt.
+
+För **inledande synkroniseringar**, jobbtiden beror på ett antal faktorer, inklusive antalet användare och grupper i omfånget för etablering och det totala antalet användare och grupper i källsystemet. En omfattande lista över faktorer som påverkar prestanda för inledande synkronisering sammanfattas senare i det här avsnittet.
+
+För **inkrementella synkroniseringar**, jobbtiden beror på antalet ändringar som identifierats i cykel för att synkronisera. Om det finns färre än 5 000 användare eller ändringar i gruppmedlemskap, kan jobbet slutförs inom en enskild inkrementell synkronisering cykel. 
+
+I följande tabell sammanfattas synkroniseringstider för vanliga scenarier för etablering. I dessa scenarier källsystemet är Azure AD och måldatorn är en SaaS-program. Synkronisera gånger härleds från en statistiska analyser av Synkroniseringsjobb för SaaS-program ServiceNow, arbetsplats, Salesforce och Google Apps.
+
+
+| Konfiguration av scope | Användare, grupper och medlemmar i omfång | Första synkroniseringstid | Inkrementell synkroniseringstid |
+| -------- | -------- | -------- | -------- |
+| Synkronisera tilldelade användare och grupper bara |  < 1 000 |  < 30 minuter | < 30 minuter |
+| Synkronisera tilldelade användare och grupper bara |  1 000 – 10 000 | 142 - 708 minuter | < 30 minuter |
+| Synkronisera tilldelade användare och grupper bara |   10 000 - 100 000 | 1,170 - 2,340 minuter | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  < 1 000 | < 30 minuter  | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  1 000 – 10 000 | < 30 120 minuter | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  10 000 - 100 000  | 713 - 1,425 minuter | < 30 minuter |
+| Synkronisera alla användare i Azure AD|  < 1 000  | < 30 minuter | < 30 minuter |
+| Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 - 86 minuter | < 30 minuter |
+
+
+Om konfigurationen **Sync tilldelade användare och grupper bara**, du kan använda följande formel för att fastställa ungefärlig lägsta och högsta förväntade **inledande synkronisering** gånger:
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Sammanfattning av faktorer som påverkar den tid det tar för att slutföra en **inledande synkronisering**:
+
+* Det totala antalet användare och grupper i omfånget för etablering
+
+* Det totala antalet användare, grupper och medlemmar i gruppen finns i källsystemet (AD Azure)
+
+* Huruvida användare i omfånget för etablering matchas till befintliga användare i målprogrammet eller måste skapas för första gången. Alla användare skapas för första gången för synkroniseringsjobb tar cirka *dubbelt så länge* som Synkronisera jobb som matchar alla användare till befintliga användare.
+
+* Antalet fel i den [granskningsloggar](active-directory-saas-provisioning-reporting.md). Prestanda är långsammare om det finns många fel och tjänsten etablering är i ett tillstånd i karantän   
+
+* Begära hastighetsbegränsningar och begränsning implementeras av måldatorn. Vissa målsystem implementera begäran hastighetsbegränsningar och begränsning som kan påverka prestanda vid stora synkroniseringsåtgärder. Under dessa förhållanden kan en app som tar emot för många begäranden för snabb långsamma dess svar hastighet eller stänga anslutningen. Anslutningen måste justera genom att inte skicka app begäranden snabbare än appen kan bearbeta dem för att förbättra prestanda. Etablering kopplingar som skapats av Microsoft gör denna justering. 
+
+* Antal och storlek för tilldelade grupper. Synkroniserar tilldelade grupper tar längre tid än synkroniserar användare. Prestanda kan påverkas av både antalet och storleken på de tilldelade grupperna. Om ett program har [mappningar som aktiverats för gruppen objektet synkronisering](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), egenskaper som gruppnamn och medlemskap synkroniseras och användare. Dessa ytterligare synkroniseringar tar längre tid än att bara synkronisera användarobjekt.
+ 
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-**Hur lång tid tar det för att etablera Mina användare?**
-
-Prestanda är olika beroende på om din Etableringsjobbet genomför en inledande synkronisering eller en inkrementell synkronisering.
-
-För inledande synkronisering är den tid det tar för att slutföra direkt beroende av hur många användare, grupper och medlemmar i gruppen finns i källsystemet. Mycket små källsystem hundratals objekt kan slutföra inledande synkronisering på bara några minuter. Dock tar källsystem hundratals tusentals eller miljontals kombinerade objekt längre tid.
-
-Den tid det tar beror på antalet ändringar som har påträffats i den sync cykeln för inkrementell synkronisering. Om det finns mindre än 5 000 användare eller ändringar i gruppmedlemskap upptäckt, kan dessa ofta synkroniseras inom en cykel 40 minuter. 
-
-Observera att prestandan är beroende av både käll- och system. Vissa målsystem implementera begäran hastighetsbegränsningar och begränsning att kan påverkan prestanda vid stora synkroniseringsåtgärder och förskapad Azure AD etablering kopplingar för dessa system ta hänsyn till.
-
-Prestanda är också längre tid om det finns många (registreras i den [granskningsloggar](active-directory-saas-provisioning-reporting.md)) och tjänsten etablering är i tillståndet ”karantän”.
-
-**Hur kan jag för att förbättra prestanda för synkronisering?**
-
-De flesta prestandaproblem sker under inledande synkronisering av datorer som har ett stort antal grupper och medlemmar i gruppen.
-
-Om det inte krävs synkroniseringen av grupper eller gruppmedlemskap, förbättras sync prestanda avsevärt genom att:
-
-1. Ange den **etablering > Inställningar > Scope** menyn till **synkronisera alla**, i stället för att synkronisera tilldelade användare och grupper.
-2. Använd [Omfångsfilter](active-directory-saas-scoping-filters.md) i stället för tilldelningar för att filtrera listan över användare som har etablerats.
-
-> [!NOTE]
-> För program som har stöd för etablering av namn och egenskaper (till exempel ServiceNow och Google Apps), inaktiverar detta minskar också risken för den tid det tar för en inledande synkronisering att slutföra. Om du inte vill att etablera gruppnamn och gruppmedlemskap i ditt program, kan du inaktivera detta i den [attributet mappningar](active-directory-saas-customizing-attribute-mappings.md) av etablering konfigurationen.
 
 **Hur kan jag spåra förloppet för den aktuella Etableringsjobbet?**
 

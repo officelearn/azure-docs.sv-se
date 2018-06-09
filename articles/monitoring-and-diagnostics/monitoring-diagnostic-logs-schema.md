@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2018
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20f148988191c130d8e10f1776f3bbe1612a8c17
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248184"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för diagnostikloggar i Azure
 
@@ -29,30 +30,34 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 
 | Tjänst | Schemat & Docs |
 | --- | --- |
-| Analysis Services | Schemat är inte tillgänglig. |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management diagnostikloggar](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostikloggning för Programgateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Logganalys för Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch-diagnostikloggning](../batch/batch-diagnostics.md) |
-| Customer Insights | Schemat är inte tillgänglig. |
-| Content Delivery Network | Schemat är inte tillgänglig. |
+| Content Delivery Network | [Azure diagnostikloggar för CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB-loggning](../cosmos-db/logging.md) |
+| Data Factory | [Övervaka Datafabriker med hjälp av Azure-Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Åtkomst till diagnostikloggar för Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Åtkomst till diagnostikloggarna för Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Händelsehubbar |[Azure Event Hubs diagnostiska loggar](../event-hubs/event-hubs-diagnostic-logs.md) |
+| DB för PostgreSQL |  Schemat är inte tillgänglig. |
+| Event Hubs |[Azure Event Hubs diagnostiska loggar](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Express Route | Schemat är inte tillgänglig. |
 | IoT Hub | [Åtgärder för IoT-hubb](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault-loggning](../key-vault/key-vault-logging.md) |
-| Belastningsutjämnare |[Logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS-skydd | Schemat är inte tillgänglig. |
+| DDOS Protection | [Hantera Azure DDoS-skydd Standard](../virtual-network/manage-ddos-protection.md) |
+| PowerBI dedikerad | Schemat är inte tillgänglig. |
 | Recovery Services | [Datamodell för Azure-säkerhetskopiering](../backup/backup-azure-reports-data-model.md)|
 | Search |[Att aktivera och använda Sök trafik Analytics](../search/search-traffic-analytics.md) |
-| Serverhantering | Schemat är inte tillgänglig. |
 | Service Bus |[Azure Service Bus-diagnostikloggar](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database-diagnostikloggning](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Jobbet diagnostikloggar](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | Schemat är inte tillgänglig. |
 | Virtuella nätverk | Schemat är inte tillgänglig. |
+| Virtuella nätverksgatewayer | Schemat är inte tillgänglig. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Stöd för kategorier i loggen resurstyp
 |Resurstyp|Kategori|Kategori visningsnamn|
@@ -74,6 +79,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.DataLakeStore/accounts|Granska|Granskningsloggar|
 |Microsoft.DataLakeStore/accounts|Begäranden|Begäran loggar|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server-loggar|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL Säkerhetskopieringshändelser|
 |Microsoft.Devices/IotHubs|Anslutningar|Anslutningar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Enhetstelemetrin|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D kommandon|
@@ -90,6 +96,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Devices/provisioningServices|ServiceOperations|Tjänståtgärder|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arkivera loggar|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operativa loggar|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatisk skalning loggar|
@@ -112,6 +119,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S diagnostikloggar|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager avsökningen Hälsohändelse resultat|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabell med GWM räknare|
+|Microsoft.PowerBIDedicated/capacities|Motorn|Motorn|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure-säkerhetskopiering rapportdata|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-jobb|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-händelser|
@@ -126,9 +134,9 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store vänta statistik|
 |Microsoft.Sql/servers/databases|Fel|Fel|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Databasen vänta statistik|
-|Microsoft.Sql/servers/databases|Tidsgränser|Tidsgränser|
+|Microsoft.Sql/servers/databases|Timeouter|Timeouter|
 |Microsoft.Sql/servers/databases|Block|Block|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL-insikter|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|Granska|Granskningsloggar|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Granskningshändelse för SQL-säkerhet|
 |Microsoft.StreamAnalytics/streamingjobs|Körnings-|Körnings-|

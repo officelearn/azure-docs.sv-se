@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235319"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Händelsehubbar
 
@@ -30,7 +26,7 @@ Standardnivån av Händelsehubbar i Azure tillhandahåller funktioner utöver va
 * Längre kvarhållning av händelse
 * Ytterligare asynkrona anslutningar med en överförbrukning kostnad för mer än det antal som ingår
 * Mer än en enskild konsument-grupp
-* [Avbilda](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Avbilda](event-hubs-capture-overview.md)
 
 Mer information om prisnivåer, inklusive Event Hubs dedikerade, finns det [Händelsehubbar prisinformationen](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ Med hjälp av den [automatiskt öka](event-hubs-auto-inflate.md) -funktionen kan
 Ja, så länge som alla händelsehubbar finns i samma namnområde.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Vad är den högsta bevarandeperioden för händelser?
-Event Hubs standardnivån stöder för närvarande en högsta loggperioden 7 dagar. Observera att händelsehubbar inte är avsedda för permanent datalagring. Mer än 24 timmar kvarhållningsperioder är avsedda för scenarier där det är praktiskt att spela upp en händelseström i samma system. till exempel för att träna eller kontrollera en ny maskininlärningsmodell på befintliga data. Om du behöver meddelandet kvarhållning utöver 7 dagar, så att [Event Hubs avbilda](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) på din händelse hubb hämtar data från din händelsehubb till lagringskonto eller Azure Data Lake-tjänstkontot du väljer. Aktivera avbilda ådrar sig en kostnad som baseras på dina köpta Genomflödesenhet.
+Event Hubs standardnivån stöder för närvarande en högsta loggperioden 7 dagar. Observera att händelsehubbar inte är avsedda för permanent datalagring. Mer än 24 timmar kvarhållningsperioder är avsedda för scenarier där det är praktiskt att spela upp en händelseström i samma system. till exempel för att träna eller kontrollera en ny maskininlärningsmodell på befintliga data. Om du behöver meddelandet kvarhållning utöver 7 dagar, så att [Event Hubs avbilda](event-hubs-capture-overview.md) på din händelse hubb hämtar data från din händelsehubb till lagringskonto eller Azure Data Lake-tjänstkontot du väljer. Aktivera avbilda ådrar sig en kostnad som baseras på dina inköpta genomflödesenheter.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Där är Händelsehubbar i Azure?
+
 Händelsehubbar i Azure är tillgänglig i alla regioner som stöds Azure. En lista över finns det [Azure-regioner](https://azure.microsoft.com/regions/) sidan.  
 
 ## <a name="best-practices"></a>Bästa praxis
@@ -101,22 +98,27 @@ Avbilda använder ett lagringskonto som du anger när aktiverad på en händelse
 ## <a name="quotas"></a>Kvoter
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Finns det kvoter som är associerade med Händelsehubbar?
+
 En lista över alla Händelsehubbar kvoter finns [kvoter](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vilka är några av de undantag som genereras av Händelsehubbar och föreslagna åtgärder?
+
 En lista över möjliga Händelsehubbar undantag, se [undantag översikt](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
+
 Händelsehubbar stöder två typer av [diagnostik loggar](event-hubs-diagnostic-logs.md) -avbilda felloggarna och operativa loggar - som representeras i json och kan aktiveras via Azure-portalen.
 
 ### <a name="support-and-sla"></a>Support och servicenivåavtal
+
 Teknisk support för Händelsehubbar är tillgänglig via den [community-forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Support för fakturering och prenumerationshantering ges utan kostnad.
 
 Läs mer om våra SLA i den [serviceavtal](https://azure.microsoft.com/support/legal/sla/) sidan.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)

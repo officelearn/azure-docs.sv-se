@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 060f91e4bdd1dd2690a3e1f148f7c5e5e13d13ef
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638994"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235672"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 
@@ -107,6 +107,9 @@ En **loggen profil** styr hur din aktivitetsloggen exporteras. Med en logg-profi
     - Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar för loggar som ska tas bort från ditt lagringskonto.
 
 Du kan använda ett lagringsutrymme konto eller händelse hubb namnområde som inte är i samma prenumeration som en avger loggar. Den användare som konfigurerar inställningen måste ha RBAC lämplig åtkomst till båda prenumerationer.
+
+> [!NOTE]
+>  Du kan inte arkivera data till en lagringsplats för kontot som bakom skyddade virtuella nätverk.
 
 De här inställningarna kan konfigureras via alternativet ”Export” i bladet aktivitetsloggen i portalen. De kan också konfigureras via programmering [med hjälp av REST API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdlets eller CLI. En prenumeration kan bara ha en logg-profil.
 

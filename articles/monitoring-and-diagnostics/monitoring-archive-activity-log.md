@@ -12,20 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: a7fc8209028b8d84be31a068f7aa7a83a1ca152a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e401d22dbcf5074f4652fb60ee5eeec1d31ef164
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638797"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235608"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetsloggen som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du bara behöver lagra dina händelser i 90 dagar eller mindre och du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetsloggen händelser lagras i Azure-plattformen i 90 dagar utan att aktivera arkivering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) som du kan arkivera dina aktivitetsloggen. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning data som lagras i den så att du bättre kan styra åtkomsten till övervakningsdata. Men om du även arkiverar diagnostikloggar och mått till ett lagringskonto, kan det vara bra att använda detta lagringskonto för aktivitetsloggen samt för att hålla alla övervakningsdata på en central plats. Storage-konto som du använder måste vara ett allmänt lagringskonto inte ett blob storage-konto. Storage-konto behöver inte finnas i samma prenumeration som prenumerationen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
+
+> [!NOTE]
+>  Du kan inte arkivera data till en lagringsplats för kontot som bakom skyddade virtuella nätverk.
 
 ## <a name="log-profile"></a>Log-profil
 Om du vill arkivera aktivitetsloggen med någon av metoderna nedan kan du ange den **loggen profil** för en prenumeration. Log-profil definierar typ av händelser som lagras eller strömmas och utdata – lagring konto och/eller event hub. Den definierar även bevarandeprincip (antal dagar att behålla) för händelser som lagras i ett lagringskonto. Om bevarandeprincipen anges till noll, som händelser lagras på obestämd tid. I annat fall kan detta anges till ett värde mellan 1 och 2147483647. Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip kommer att tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar för loggar som ska tas bort från ditt lagringskonto. [Du kan läsa mer om loggen profiler här](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 

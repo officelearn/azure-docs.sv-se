@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 94062c69a1de32d061b97bbaae0d7028b0424feb
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757680"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234621"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -42,15 +42,15 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Användaren måste också vara Global administratör om du vill distribuera principen för villkorlig åtkomst i Exchange ActiveSync i Azure.
   
-* **Dynamics 365 administratören**: användare med den här rollen har globala behörigheter i Microsoft Dynamics 365 när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Enhetsadministratörer**: användare med den här rollen blir för lokala datoradministratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheter objekt i Azure Active Directory.
+* **Enhetsadministratörer**: den här rollen är tillgängliga för tilldelning endast som en ytterligare lokala administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheter objekt i Azure Active Directory.
 
 * **Directory läsare**: Detta är en äldre roll som ska tilldelas till program som inte stöder den [medgivande Framework](active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
 
 * **Synkronisering Katalogkonton**: Använd inte. Den här rollen är tilldelas automatiskt till Azure AD Connect-tjänsten och inte avsedd eller stöd för annan användning.
 
 * **Directory skrivare**: Detta är en äldre roll som ska tilldelas till program som inte stöder den [medgivande Framework](active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
+
+* **Dynamics 365 administratören**: användare med den här rollen har globala behörigheter i Microsoft Dynamics 365 när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Exchange-tjänstadministratör**: användarna med den här rollen har globala behörigheter i Microsoft Exchange Online när tjänsten finns. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

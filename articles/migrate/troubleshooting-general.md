@@ -4,14 +4,14 @@ description: En översikt över kända problem i tjänsten Azure migrera och fel
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 05/31/2018
+ms.date: 06/08/2018
 ms.author: raynew
-ms.openlocfilehash: d53dec3794a414f61b9bfca3e9715607de448bbf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c717cfdac83ec8d85b1fa0a874e5573a40dd4611
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716211"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235635"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -19,13 +19,29 @@ ms.locfileid: "34716211"
 
 [Azure migrera](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Använd den här artikeln för att felsöka problem när du distribuerar och använder Azure migrera.
 
-**Migrering för att skapa projekt misslyckades med felet *förfrågningar måste innehålla användarens identitet rubriker***
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Migrering för att skapa projekt misslyckades med felet *förfrågningar måste innehålla användarens identitet rubriker*
 
 Det här problemet kan inträffa om en användare inte har åtkomst till Azure Active Directory (Azure AD)-klient för organisationen. När en användare läggs till en Azure AD-klient för första gången, får han/hon ett e-inbjudan för att ansluta till klientorganisationen. Användare måste du gå till e-postmeddelandet och att hämta har lagts till klienten. Om du inte ser e-postmeddelandet, nå ut till en användare som redan har åtkomst till innehavaren och be dem att skicka inbjudan till dig med hjälp av stegen som anges [här](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
 
 När e-postinbjudan tas emot måste du öppna e-postmeddelandet och klicka på länken i e-postmeddelandet att tacka ja till inbjudan. När det är klart måste du logga ut från Azure-portalen och logga in igen och uppdatera webbläsaren fungerar inte. Sedan kan du försöka skapa projektet migrering.
 
-**Insamlaren kan inte ansluta till internet**
+### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestandadata för diskar och nätverk för nätverkskort visas som noll
+
+Detta kan inträffa om statistik anger nivån på vCenter server anges till mindre än tre. Nivå 3 eller högre, lagrar vCenter VM prestandahistorik för bearbetning, lagring och nätverk. För mindre än nivån tre lagras vCenter inte i lagring och nätverksdata, men CPU och minne data. I det här scenariot prestanda data visas som noll i Azure migrera och migrera Azure ger storlek rekommendation för diskar och nätverk baserat på metadata som samlas in från lokala datorer.
+
+Om du vill aktivera insamling av prestandadata för disk- och ändra statistik inställningar till tre. Sedan vänta minst en dag för att identifiera din miljö och utvärdera den.
+
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Jag installerade agenter och används beroende visualiseringen för att skapa grupper. Nu efter växling vid fel, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”
+* Post planerad eller oplanerad växling vid fel, lokala datorer är avstängda och motsvarande datorer skapas i Azure. Dessa datorer få en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren valde att behålla lokala IP-adress eller inte. Om både MAC och IP-adresser skiljer sig åt Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
+* Bokför testa redundans, lokala datorer är aktiverade som förväntat. Motsvarande datorer efter en redundansväxling i Azure få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående logganalys-trafik från de datorerna, Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
+
+## <a name="collector-errors"></a>Insamlaren fel
+
+### <a name="deployment-of-collector-ova-failed"></a>Distribution av insamlaren ägg misslyckades
+
+Detta kan inträffa om ägg delvis har hämtat eller på grund av webbläsaren om du använder vSphere-webbklienten för att distribuera ägg. Se till att hämtningen är klar och försök att distribuera ägg med en annan webbläsare.
+
+### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Insamlaren kan inte ansluta till internet
 
 Detta kan inträffa när den datorn som du använder är bakom en proxyserver. Kontrollera att du anger autentiseringsuppgifterna om proxyn måste en.
 Om du använder alla URL-baserade brandväggen proxy för att styra utgående anslutning, att kontrollera listan över godkända följande obligatoriska URL: er:
@@ -48,7 +64,7 @@ Kontrollera att du har kopieras och klistras in rätt information. Om du vill fe
 7. Kontrollera att agenten kan ansluta till projektet. Om det inte går att kontrollera inställningarna. Om agenten kan ansluta men insamlaren inte kan kontakta Support.
 
 
-**Fel 802: Jag får ett synkroniseringsfel datum och tid.**
+### <a name="error-802-date-and-time-synchronization-error"></a>Fel 802: Datum och tid synkroniseringsfel
 
 Serverns klocka kanske out för synkronisering med den aktuella tiden med fler än fem minuter. Ändra tiden klockan på insamlaren så att det matchar den aktuella tiden på följande sätt:
 
@@ -56,20 +72,32 @@ Serverns klocka kanske out för synkronisering med den aktuella tiden med fler �
 2. Kör w32tm /tz för att kontrollera tidszonen.
 3. Kör w32tm/resync för att synkronisera tiden.
 
-**Mina projekt-nyckel har ”==” symboler mot slutet. Dessa kodas till andra alfanumeriska tecken Collector. Förväntas detta?**
+### <a name="vmware-powercli-installation-failed"></a>VMware PowerCLI installationen misslyckades
 
-Ja, alla projekt nycklar slutar med ”==”. Insamlaren krypterar nyckeln projekt innan bearbetningen.
+Azure migrera insamlaren hämtar PowerCLI och installerar den på maskinen. Fel i PowerCLI installation kan bero på kan inte nås slutpunkter för PowerCLI-databasen. Om du vill felsöka, försök att manuellt installera PowerCLI i insamlaren VM med hjälp av följande steg:
 
-**Prestandadata för diskar och nätverk för nätverkskort visas som noll**
+1. Öppna Windows PowerShell i administratörsläge
+2. Gå till katalogen C:\ProgramFiles\ProfilerService\VMWare\Scripts\
+3. Kör skriptet InstallPowerCLI.ps1
 
-Detta kan inträffa om statistik anger nivån på vCenter server anges till mindre än tre. Nivå 3 eller högre, lagrar vCenter VM prestandahistorik för bearbetning, lagring och nätverk. För mindre än nivån tre lagras vCenter inte i lagring och nätverksdata, men CPU och minne data. I det här scenariot prestanda data visas som noll i Azure migrera och migrera Azure ger storlek rekommendation för diskar och nätverk baserat på metadata som samlas in från lokala datorer.
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Fel UnhandledException internt fel uppstod: System.IO.FileNotFoundException
 
-Om du vill aktivera insamling av prestandadata för disk- och ändra statistik inställningar till tre. Sedan vänta minst en dag för att identifiera din miljö och utvärdera den.
+Det här är ett problem som uppstår i versioner av insamlaren som är lägre än 1.0.9.5. Om du använder version 1.0.9.2 av insamlaren, eller versioner som gavs ut före den allmänna tillgängligheten, till exempel 1.0.8.59, så uppstår det här problemet. Följ [länken till forumen som är angiven här för att få ett detaljerat svar](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
 
-**Jag installerade agenter och används beroende visualiseringen för att skapa grupper. Nu efter växling vid fel, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”**
-* Post planerad eller oplanerad växling vid fel, lokala datorer är avstängda och motsvarande datorer skapas i Azure. Dessa datorer få en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren valde att behålla lokala IP-adress eller inte. Om både MAC och IP-adresser skiljer sig åt Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
-* Bokför testa redundans, lokala datorer är aktiverade som förväntat. Motsvarande datorer efter en redundansväxling i Azure få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående logganalys-trafik från de datorerna, Azure migrera associeras inte lokala datorer med en Tjänstkarta beroendedata och frågar användaren att installera agenter i stället för att visa beroenden.
+[Uppgradera insamlaren för att åtgärda problemet](https://aka.ms/migrate/col/checkforupdates).
 
+### <a name="error-unabletoconnecttoserver"></a>Fel UnableToConnectToServer
+
+Det gick inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av fel: det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
+
+Kontrollera om du kör den senaste versionen av insamlaren-enhet, om inte, uppgradera enheten till den [senaste versionen](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+
+Om problemet inträffar fortfarande i den senaste versionen kan bero det på att insamlaren datorn kan inte matcha namnet på vCenter-servern har angetts eller den angivna porten är felaktig. Om porten inte anges försöker insamlaren att ansluta till portnumret 443.
+
+1. Försök att pinga example.com från insamlaren-datorn.
+2. Om steg 1 misslyckas kan du försöka ansluta till vCenter-servern via en IP-adress.
+3. Identifiera rätt portnummer för att ansluta till vCenter.
+4. Kontrollera slutligen om vCenter-servern är igång.
 
 ## <a name="troubleshoot-readiness-issues"></a>Felsökning av beredskapsproblem med
 
@@ -130,26 +158,6 @@ Om du vill samla in Event Tracing for Windows gör följande:
  - I Chrome, högerklicka någonstans i loggen för konsolen. Välj **Spara som**, för att exportera och zip-loggen.
  - Högerklicka på fel och välj i Edge/IE **kopiera alla**.
 7. Stäng utvecklingsverktyg.
-
-
-## <a name="vcenter-errors"></a>vCenter-fel
-
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Fel UnhandledException internt fel uppstod: System.IO.FileNotFoundException
-
-Det här är ett problem som uppstår i versioner av insamlaren som är lägre än 1.0.9.5. Om du använder version 1.0.9.2 av insamlaren, eller versioner som gavs ut före den allmänna tillgängligheten, till exempel 1.0.8.59, så uppstår det här problemet. Följ [länken till forumen som är angiven här för att få ett detaljerat svar](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
-
-[Uppgradera insamlaren för att åtgärda problemet](https://aka.ms/migrate/col/checkforupdates).
-
-### <a name="error-unabletoconnecttoserver"></a>Fel UnableToConnectToServer
-
-Det gick inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av fel: det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
-
-Det här händer när insamlardatorn inte kan omvandla vCenter-servernamnet som angetts eller porten som angetts är fel. Om porten inte är angiven försöker insamlaren som standard att ansluta till portnumret 443.
-
-1. Försök att pinga Servername.com från insamlardatorn.
-2. Om steg 1 misslyckas kan du försöka ansluta till vCenter-servern via en IP-adress.
-3. Identifiera rätt portnummer för att ansluta till vCenter.
-4. Kontrollera slutligen om vCenter-servern är igång.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Felkoder för insamlaren och rekommenderade åtgärder
 

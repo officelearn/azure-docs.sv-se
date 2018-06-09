@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: b8888823b1445dc084ae4c0323d90110c9d384a4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839453"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235754"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log-integrering med Azure diagnostikloggning och vidarebefordran av Windows-händelser
 
+
 >[!IMPORTANT]
-> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01.  Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01. Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Du bör endast använda Azure logganalys integration om en [Azure-Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) anslutningen är inte tillgänglig från leverantören säkerhetsincident och händelsen Management (SIEM).
 

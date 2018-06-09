@@ -1,24 +1,25 @@
 ---
 title: Förutsägande Underhåll investerar med Azure - Cortana Intelligence tekniska lösningsguide | Microsoft Docs
 description: En teknisk guide till Lösningsmall med Microsoft Cortana Intelligence för förebyggande underhåll i aerospace, verktyg och transport.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248392"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till Cortana Intelligence-Lösningsmall för förebyggande underhåll i aerospace och andra företag
 
@@ -57,7 +58,7 @@ Välj den första noden förutsägande Underhåll Datagenerator i lösningen mal
 
 Händelsen generation programmet fyller Azure Event Hub endast när det körs på datorn.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure händelsehubb
 Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service är mottagaren av indata som angetts av syntetiska datakällan.
 
 ## <a name="data-preparation-and-analysis"></a>Förberedelse av data och analys
@@ -85,7 +86,7 @@ Det är inte troligt att datamängden matchar den datamängd som används av den
 
 I följande avsnitt beskrivs de delar av mallen som kräver ändringar när en ny datamängd införs.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure händelsehubb
 Azure Event Hub är generisk; data kan vara upp till hubben i CSV- eller JSON-format. Ingen särskild bearbetning sker i Azure-Händelsehubb, men det är viktigt att du förstår de data som matas in.
 
 Det här dokumentet beskriver inte hur att mata in data, men kan du enkelt skicka händelser eller data till en Azure-Händelsehubb med hjälp av Event Hub-API: er.

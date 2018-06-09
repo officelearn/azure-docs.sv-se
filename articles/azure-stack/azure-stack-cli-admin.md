@@ -1,24 +1,25 @@
 ---
-title: "Aktivera Azure CLI för Azure-stacken användare | Microsoft Docs"
-description: "Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken"
+title: Aktivera Azure CLI för Azure-stacken användare | Microsoft Docs
+description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: e2483bda5a0c6a6b270759946f146c37c5dad5b1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247864"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Aktivera Azure CLI för Azure Stack-användare
 
@@ -58,19 +59,17 @@ certutil -encode root.cer root.pem
 Azure Stack-operatörer bör ställa in en offentligt tillgänglig slutpunkt som är värd för en virtuell dator alias-fil. Virtuella Aliasfilen är en JSON-fil som innehåller ett eget namn för en bild. Det här namnet anges senare när en virtuell dator distribueras som en parameter av Azure CLI.  
 
 Innan du lägger till en post till en aliasfil, kontrollerar du att du [hämta bilder från Azure Marketplace](azure-stack-download-azure-marketplace-item.md), eller ha [publicerade en egen anpassad avbildning](azure-stack-add-vm-image.md). Om du publicerar en anpassad avbildning anteckna utgivare, erbjudande, SKU och version informationen som du angav vid publicering. Om det är en avbildning från marketplace, du kan visa informationen med hjälp av den ```Get-AzureVMImage``` cmdlet.  
-   
+
 En [alias exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) med många vanliga avbildningen alias är tillgänglig. Du kan använda som som en startpunkt. Värd för den här filen i ett utrymme där CLI-klienter kan nå. Ett sätt som är värd för filen i en blob storage-konto och dela URL: en med dina användare:
 
 1. Hämta den [exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) från GitHub.
-2. Skapa ett nytt lagringskonto i Azure-stacken. När detta är slutfört kan du skapa en ny blobbbehållare. Ange åtkomstprincip för till ”offentliga”.  
-3. Överför JSON-filen till den nya behållaren. När detta är slutfört kan visa du Webbadressen till blob genom att klicka på blobbnamnet och sedan välja URL: en från blob-egenskaper.
-
+2. Skapa ett nytt lagringskonto i Azure-stacken. När det är klart kan du skapa en ny blobbbehållare. Ange åtkomstprincip för till ”offentliga”.  
+3. Överför JSON-filen till den nya behållaren. När det är klart, kan du visa Webbadressen till blob genom att välja blobbnamnet och sedan välja URL: en från blob-egenskaper.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
+- [Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Ansluta med PowerShell](azure-stack-connect-powershell.md)
+- [Ansluta med PowerShell](azure-stack-connect-powershell.md)
 
-[Hantera användarbehörigheter](azure-stack-manage-permissions.md)
-
+- [Hantera användarbehörigheter](azure-stack-manage-permissions.md)

@@ -6,14 +6,14 @@ author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606060"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247973"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-grupp till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure-säkerhetskopiering ger flexibilitet i schemat för säkerhetskopiering att skapa varje dag, varje vecka, månad eller årlig säkerhetskopiering pekar och ger alternativ för kvarhållning av princip för säkerhetskopiering punkter. Det ger också möjlighet att lagra lokal diskkopior för snabb återställningstiden mål (RTO) och för att lagra kopior till Azure för ekonomiska och långsiktig kvarhållning.
@@ -32,13 +32,13 @@ Det finns några saker du måste bekräfta innan du säkerhetskopierar en ShareP
 Innan du fortsätter, kontrollera att du har [installerad och förberedda Azure Backup Server](backup-azure-microsoft-azure-backup.md) att skydda arbetsbelastningar.
 
 ### <a name="protection-agent"></a>Skyddsagent
-Skyddsagenten måste installeras på den server som kör SharePoint, servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Mer information om hur du ställer in protection agent finns [installationsprogrammet Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Det enda undantaget är att du installerar agenten endast på en enda webbserver för klientdel (WFE). DPM måste agenten på en WFE-server bara ska fungera som startpunkt för skydd.
+Azure Backup-agenten måste installeras på den server som kör SharePoint, servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Mer information om hur du ställer in protection agent finns [installationsprogrammet Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Det enda undantaget är att du installerar agenten endast på en enda webbserver för klientdel (WFE). Azure Backup-Server måste agenten på en WFE-server bara ska fungera som startpunkt för skydd.
 
 ### <a name="sharepoint-farm"></a>SharePoint-grupp
 För per 10 miljoner objekt i servergruppen måste det finnas minst 2 GB utrymme på volymen där MABS mappen finns. Den här utrymme som krävs för kataloggenerering. För MABS återställa specifika objekt (webbplatssamlingar, platser, listor, dokumentbibliotek, mappar, enskilda dokument och listobjekt) skapas kataloggenerering en lista över URL: er som ingår i varje innehållsdatabas. Du kan visa listan över URL: er i fönstret återställningsbara objekt i den **Recovery** aktivitetsområdet MABS-administratörskonsolen.
 
 ### <a name="sql-server"></a>SQL Server
-MABS körs som LocalSystem-kontot. Om du vill säkerhetskopiera SQL Server-databaser, måste MABS sysadmin-behörigheter på det kontot för den server som kör SQL Server. Ange NT AUTHORITY\SYSTEM till *sysadmin* på den server som kör SQL Server innan du säkerhetskopiera den.
+Azure Backup-servern körs som LocalSystem-kontot. Om du vill säkerhetskopiera SQL Server-databaser, måste MABS sysadmin-behörigheter på det kontot för den server som kör SQL Server. Ange NT AUTHORITY\SYSTEM till *sysadmin* på den server som kör SQL Server innan du säkerhetskopiera den.
 
 Om SharePoint-servergruppen har SQL Server-databaser som är konfigurerade med SQL Server-alias, installerar du SQL Server-klientkomponenterna på klientwebbservern som MABS ska skydda.
 
@@ -232,4 +232,6 @@ F: kan jag återställa SharePoint-databasen till den ursprungliga platsen om Sh
 S: eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan de inte ändras om inte tillgänglighetsgruppen tas bort. Därför kan inte MABS återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om MABS skydd av SharePoint - Se [Video serie - DPM-skydd av SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+
+Finns det [säkerhetskopiera Exchange server](backup-azure-exchange-mabs.md) artikel.
+Finns det [säkerhetskopiera SQL Server](backup-azure-sql-mabs.md) artikel.

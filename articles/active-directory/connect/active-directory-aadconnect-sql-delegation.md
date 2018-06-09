@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d0cfce1dfe6482397e421d85d59494e6d75cc441
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 198ecdbf81c2b8efeec23da2c5d5d087128b20e9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591165"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233571"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med administratörsbehörighet för SQL delegerad
 Innan den senaste versionen i Azure AD Connect stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.
@@ -48,7 +48,7 @@ Använd följande steg för att tillhandahålla databasen out of band och instal
 2.  Tilldela Azure AD Connect-administratören och domänkontot följande behörigheter:
     - SQL-inloggning 
     - **databasen owner(dbo)** rättigheter.  </br>
-![Behörigheter](media/active-directory-aadconnect-sql-delegation/sql3.png)
+![Behörigheter](media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3.  Skicka ett e-postmeddelande till Azure AD Connect-administratören som anger namnet på SQL server- och instansnamn som ska användas när du installerar Azure AD Connect.
 
 ## <a name="additional-information"></a>Ytterligare information

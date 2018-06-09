@@ -1,24 +1,26 @@
 ---
-title: "Exportera en Azure-baserad API till PowerApps och Microsoft flödar | Microsoft Docs"
-description: "Översikt över hur du exponera en värdbaserad API i Apptjänst PowerApps och Microsoft Flow"
+title: Exportera en Azure-baserad API till PowerApps och Microsoft flödar | Microsoft Docs
+description: Översikt över hur du exponera en värdbaserad API i Apptjänst PowerApps och Microsoft Flow
 services: app-service
-documentationcenter: 
-author: mattchenderson
-manager: erikre
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ggailey777
+manager: cfowler
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: mahender; mblythe
-ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: glenga
+ms.reviewer: sunayv
+ms.openlocfilehash: ef3fe5002a28c66478a10909a7e9556449cd9712
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234775"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-baserad API till PowerApps och Microsoft-flöde
 
@@ -153,7 +155,7 @@ Det här avsnittet beskriver de autentiseringstyper som stöds i **Express** lä
 ### <a name="api-key"></a>API-nyckel
 När du använder en API-nyckel, uppmanas användarna anslutningstjänsten för nyckeln när de skapar en anslutning. Du kan ange en API-nyckelnamn hjälper dem att förstå vilka behövs. I det tidigare exemplet använder vi namnet `API Key (contact meganb@contoso.com)` så att användarna förstår var du kan hämta information om API-nyckeln. För Azure Functions är nyckeln vanligtvis en värdnycklar, som omfattar flera funktioner i funktionen appen.
 
-### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (AD Azure)
 När du använder Azure AD, du behöver två registreringar för Azure AD-program: en för API sig själv och en för anpassad koppling:
 
 - Konfigurera registrering för API: et med den [autentisering/auktorisering i Apptjänst](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) funktion.

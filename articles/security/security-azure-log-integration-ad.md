@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: d7ec3a3fe26600e69a7e4f511c01006a97cbe12c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839489"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235999"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrera Azure Active Directory-granskningsloggar
 
@@ -28,7 +28,7 @@ Granskningshändelser för Azure Active Directory (AD Azure) hjälper dig att id
 
 
 >[!IMPORTANT]
-> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01. Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> Funktionen Azure logganalys integration att bli inaktuell av 2019-06/01. Att kommer inaktiveras AzLog hämtningar av 27 Jun 2018. För information om vad du gör glidande vidarebefordra granskning efter [Använd Azure Övervakaren för integrering med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active Directory-granskningsloggar
 

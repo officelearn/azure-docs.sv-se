@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808510"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235421"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
 
@@ -103,6 +103,10 @@ Kontrollera följande innan du kan säkerhetskopiera SQL Server-databasen. :
 - Identifiera eller [skapa ett Recovery Services-valv](backup-azure-sql-database.md#create-a-recovery-services-vault) i samma region eller språk, som den virtuella datorn där SQL Server.
 - [Kontrollera behörigheterna för den virtuella datorn](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) behövs för att säkerhetskopiera SQL-databaser.
 - [SQL-datorn är ansluten till nätverket](backup-azure-sql-database.md#establish-network-connectivity).
+
+> [!NOTE]
+> Du kan ha endast en lösning för säkerhetskopiering för att säkerhetskopiera SQL Server-databaser. Inaktivera andra SQL-säkerhetskopiering innan du använder den här funktionen, annan säkerhetskopieringar ska påverka och misslyckas. Du kan aktivera Azure Backup för IaaS-VM tillsammans med SQL-säkerhetskopiering utan någon konflikt 
+>
 
 Om dessa villkor finns i din miljö, fortsätter du till avsnittet [konfigurera ditt valv för att skydda en SQL-databas](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). Om någon av nödvändiga inte finns kommer fortsätta att läsa det här avsnittet.
 
@@ -253,7 +257,13 @@ När du använder den **identifiera DBs** i bakgrunden verktyget Azure Backup ut
 
 ## <a name="configure-backup-for-sql-server-database"></a>Konfigurera säkerhetskopiering av SQL Server-databas
 
-Azure-säkerhetskopiering tillhandahåller tjänster för att skydda din SQL Server-databaser och hantera säkerhetskopieringsjobb. Hantering och övervakningsfunktioner beror på Recovery Services-valvet. Konfigurera skydd för SQL-databasen:
+Azure-säkerhetskopiering tillhandahåller tjänster för att skydda din SQL Server-databaser och hantera säkerhetskopieringsjobb. Hantering och övervakningsfunktioner beror på Recovery Services-valvet. 
+
+> [!NOTE]
+> Du kan ha endast en lösning för säkerhetskopiering för att säkerhetskopiera SQL Server-databaser. Inaktivera andra SQL-säkerhetskopiering innan du använder den här funktionen, annan säkerhetskopieringar ska påverka och misslyckas. Du kan aktivera Azure Backup för IaaS-VM tillsammans med SQL-säkerhetskopiering utan någon konflikt 
+>
+
+Konfigurera skydd för SQL-databasen:
 
 1. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
 

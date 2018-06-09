@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: f7e456c76dcf67a40777e32b100b900b859e210e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736804"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236407"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik analytics
 
@@ -30,14 +30,14 @@ ms.locfileid: "34736804"
     - NSG-flöde loggar aktiverad för NSG: er som du vill övervaka
     - Ett Azure Storage-konto för lagring av rådata flog loggar
     - En arbetsyta med läs- och skrivbehörighet logganalys (OMS)
-    - Ditt konto ha tilldelats med någon av följande behörigheter på prenumerationsnivån:
+    - Användare måste tilldelas med någon av följande roller på prenumerationsnivån:
     
             All permissions *
             All Read permissions */read
             All network permissions Microsoft.Network/*
             All network read permissions Microsoft.Network/*/read
 
-    Eller ditt konto ha tilldelats med följande alla åtgärder på prenumerationsnivån: 
+    Eller användare måste tilldelas med följande alla roller på prenumerationsnivån: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -49,6 +49,19 @@ ms.locfileid: "34736804"
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Följ nedanstående steg för för att kontrollera roller som tilldelas en användare för en prenumeration:
+
+Logga in på Azure med hjälp av Login-AzureRmAccount 
+
+Välj den prenumeration som krävs med hjälp av Select-AzureRmSubscription 
+
+Nu för att lista alla roller som har tilldelats en angiven användare att använda Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+
+Om du inte ser några utdata när köra commends sedan Kontakta respektive prenumerationsadministratör för att få åtkomst till kör kommandon.  
+
+För mer information finns [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Vilka Azure-regioner är trafik analytics?
 
@@ -114,11 +127,11 @@ ms.locfileid: "34736804"
 
 14. Kan jag konfigurera trafik analytics med hjälp av PowerShell eller en mall för Azure Resource Manager?
 
-    Nej, trafik analytics endast konfigureras med Azure-portalen.
+Ja, konfiguration av trafik med hjälp av windows powershell som stöds från version 6.2.1 och senare, men Azure Resource Manager mallstöd inte är tillgänglig vid finns. För mer information hur PowerShell kan användas för att konfigurera trafik analytics finns följande [dokumentationen](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Hur prissätts trafik analytics?
 
-        Trafik analytics förbrukade för att utöka minskade loggar och lagra förbättrad loggar i logganalys-arbetsytan. Under förhandsgranskning, debiteras trafiken analytics inte för att utöka minskade loggarna, men förvaring av data i en arbetsyta regleras fakturering på publicerade priser. Det här svaret kommer att uppdateras när priser för trafik analytics är tillgänglig.
+Trafik analytics förbrukade för flöde loggdata bearbetas av tjänsten och lagra resulted förbättrad loggar i logganalys-arbetsytan. Du behöver veta mer om prissättning plan du [Klicka här](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
 

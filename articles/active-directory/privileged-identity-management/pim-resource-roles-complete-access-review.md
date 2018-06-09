@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1dd5eb4a2a0a4edd15e5299754028570806db09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6556d3bac386bff26f9a5ce8f599e099fdb6c4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699462"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233809"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Slutför en åtkomst-granskning för Azure-resurser med hjälp av Privileged Identity Management
 Privilegierade rollen administratörer kan granska privilegierad åtkomst efter en [säkerhetsgranskning har startats](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) för Azure-resurser skickar automatiskt ett e-postmeddelande som uppmanar användaren att granska deras åtkomst. Om en användare inte har fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en säkerhetsgranskning](pim-resource-roles-perform-access-review.md).

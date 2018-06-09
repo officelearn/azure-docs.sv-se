@@ -1,25 +1,26 @@
 ---
 title: Om Azure punkt-till-plats VPN-anslutningar | Microsoft Docs
-description: "Den här artikeln hjälper dig att förstå punkt-till-plats-anslutningar och hjälper dig att bestämma vilka P2S VPN gateway-autentiseringstyp som ska användas."
+description: Den här artikeln hjälper dig att förstå punkt-till-plats-anslutningar och hjälper dig att bestämma vilka P2S VPN gateway-autentiseringstyp som ska användas.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236441"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats VPN
 
@@ -47,19 +48,23 @@ Innan Azure tar emot en P2S VPN-anslutning, måste användaren först autentiser
 
 När du använder den interna Azure certifikatautentiseringen används ett klientcertifikat som finns på enheten för att autentisera den anslutande användaren. Klientcertifikat genereras från ett betrott rotcertifikat och sedan installeras på varje klientdator. Du kan använda ett rotcertifikat som skapades med en företagslösning eller du kan generera ett självsignerat certifikat.
 
-Verifieringen av klientcertifikatet utförs av VPN-gateway och sker under etablering av P2S VPN-anslutningen. Rotcertifikatet krävs för validering och måste överföras till Azure. 
+Verifieringen av klientcertifikatet utförs av VPN-gateway och sker under etablering av P2S VPN-anslutningen. Rotcertifikatet krävs för validering och måste överföras till Azure.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autentisera med hjälp av Active Directory (AD) domänserver
 
 AD-domänautentisering tillåter användare att ansluta till Azure med sina domänautentiseringsuppgifter för organisationen. Det krävs en RADIUS-server som kan integreras med AD-server. Organisationer kan också använda deras befintliga RADIUS-distribution.   
- RADIUS-server kan vara distribuerade lokalt eller i ditt Azure VNET. Azure VPN-Gateway fungerar som en och vidarebefordrar autentiseringsmeddelanden fram och tillbaka mellan RADIUS-servern och enheten som ansluter under autentiseringen. Gateway-anslutningsbarhet till RADIUS-servern är så viktigt. Om RADIUS-server finns lokalt, måste det anges för reachability med en S2S VPN-anslutning från Azure till den lokala platsen.  
- RADIUS-servern kan även integreras med AD-Certifikattjänster. På så sätt kan du använda RADIUS-server och dina företagsdistribution certifikat för P2S certifikatautentisering som ett alternativ till Azure certifikatautentisering. Fördelen är att du inte behöver överföra rotcertifikat och återkallade certifikat till Azure.
+  RADIUS-server kan vara distribuerade lokalt eller i ditt Azure VNET. Azure VPN-Gateway fungerar som en och vidarebefordrar autentiseringsmeddelanden fram och tillbaka mellan RADIUS-servern och enheten som ansluter under autentiseringen. Gateway-anslutningsbarhet till RADIUS-servern är så viktigt. Om RADIUS-server finns lokalt, måste det anges för reachability med en S2S VPN-anslutning från Azure till den lokala platsen.  
+  RADIUS-servern kan även integreras med AD-Certifikattjänster. På så sätt kan du använda RADIUS-server och dina företagsdistribution certifikat för P2S certifikatautentisering som ett alternativ till Azure certifikatautentisering. Fördelen är att du inte behöver överföra rotcertifikat och återkallade certifikat till Azure.
 
 En RADIUS-server kan också integreras med andra system för extern Identitetshantering. Detta öppnar gott om autentiseringsalternativ för P2S-VPN, inklusive alternativ för multi-Factor.
 
 ! [punkt-till-plats]] (./media/point-to-site-about/p2s.png ”punkt-till-plats”)
 
-### <a name="configuration-requirements-for-client-devices"></a>Konfigurationskrav för klientenheter
+## <a name="what-are-the-client-configuration-requirements"></a>Vilka är kraven för konfiguration av klienten?
+
+>[!NOTE]
+>För Windows-klienter måste du ha administratörsbehörighet på klientenheten för att upprätta VPN-anslutningen från klientenheten till Azure.
+>
 
 Användare kan du använda de inbyggda VPN-klienterna på Windows och Mac-enheter för P2S. Azure tillhandahåller en VPN-klient configuration zip-fil som innehåller inställningar som krävs för dessa interna klienter att ansluta till Azure.
 
@@ -69,10 +74,10 @@ Användare kan du använda de inbyggda VPN-klienterna på Windows och Mac-enhete
 Zip-filen innehåller också värdena för vissa av de viktiga inställningarna på Azure-sidan som du kan använda för att skapa din egen profil för dessa enheter. Vissa värden innehåller VPN-gateway-adress, konfigurerade tunneltyper, vägar och rotcertifikatet för gateway-verifiering.
 
 >[!NOTE]
->För Windows-klienter måste du ha administratörsbehörighet på klientenheten för att upprätta VPN-anslutningen från klientenheten till Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Vilka Gateway-SKU: er stöd P2S VPN?
+## <a name="gwsku"></a>Vilka Gateway-SKU: er stöd P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
@@ -81,7 +86,7 @@ Zip-filen innehåller också värdena för vissa av de viktiga inställningarna 
 * SLA (serviceavtal) information finns på sidan SLA.
 
 >[!NOTE]
->Grundläggande SKU: N har inte stöd för IKEv2 eller RADIUS-autentisering.
+>Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering.
 >
 
 ## <a name="configure"></a>Hur konfigurerar jag en P2S-anslutning

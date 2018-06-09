@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee628f137761445be8871cf4df44e48231342f50
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598393"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234605"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende-spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som anropas med HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge programmet väntar på beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -191,6 +191,8 @@ Om du skapar din kod med en sammansättning som du inte skriva själv kan du tid
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 

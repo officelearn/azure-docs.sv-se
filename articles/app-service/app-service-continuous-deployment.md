@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: e587edeef1cfa080a81f523f63678a645b514c57
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849499"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233852"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
 Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](app-service-web-overview.md). Apptjänst kan kontinuerlig distribution från BitBucket, GitHub och [Visual Studio Team Services VSTS ()](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga databas i någon av dessa tjänster.
@@ -134,6 +134,8 @@ För att inaktivera kontinuerlig distribution, gå till sidan Apptjänst-app i d
 I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **VSTS** eller **BitBucket**  >  **Koppla från**.
 
 ![](media/app-service-continuous-deployment/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

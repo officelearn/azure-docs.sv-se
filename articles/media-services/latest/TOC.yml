@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: Med REST
           href: stream-files-tutorial-with-rest.md
+    - name: Strömma live
+      items:
+        - name: Med .NET Core
+          href: stream-live-tutorial-with-api.md
     - name: Analysera din video
       items:
         - name: Med .NET
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Generera anpassningsbar bithastighetsstege automatiskt
           href: autogen-bitrate-ladder.md
+    - name: Liveuppspelning
+      href: live-streaming-overview.md
     - name: Medieintelligens
       href: intelligence-concept.md
     - name: Reagerar på händelser

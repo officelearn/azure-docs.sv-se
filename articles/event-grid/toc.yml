@@ -49,6 +49,8 @@
       href: powershell-samples.md
     - name: Mallar för Resurshanteraren
       href: template-samples.md
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: Begrepp
   items:
     - name: Event Grid-begrepp

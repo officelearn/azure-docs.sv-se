@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234758"
 ---
-# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Tillgängliggöra SQL-databaser till Azure Stack-användare
+# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Självstudier: tillgängliggöra SQL-databaser till Azure Stack-användare
+
 Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln (klienter) skapa SQL-databaser som de kan använda med sina moln-ursprungliga appar, webbplatser och arbetsbelastningar. Genom att tillhandahålla dessa anpassade på begäran, molnbaserade databaser till dina användare kan spara du dem tid och resurser. Om du vill ställa in, kommer du att:
 
 > [!div class="checklist"]
@@ -32,11 +34,11 @@ Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Distribuera SQL Server-resursprovidern
 
-Distributionsprocessen beskrivs i detalj i den [Använd SQL-databaser på Azure-stacken artikel](azure-stack-sql-resource-provider-deploy.md), som består av följande primära steg:
+Distributionsprocessen beskrivs i detalj i den [Använd SQL-databaser på Azure-stacken artikel](azure-stack-sql-resource-provider-deploy.md), och består av följande primära steg:
 
 1. [Distribuera SQL-resursprovidern](azure-stack-sql-resource-provider-deploy.md).
 2. [Kontrollera distributionen](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3. Ange kapacitet genom att ansluta till en SQL-server som värd.
+3. Ange kapacitet genom att ansluta till en SQL-server som värd. Mer information finns i [Lägg till värd för servrar](azure-stack-sql-resource-provider-hosting-servers.md)
 
 ## <a name="create-an-offer"></a>Skapa ett erbjudande
 
@@ -44,9 +46,7 @@ Distributionsprocessen beskrivs i detalj i den [Använd SQL-databaser på Azure-
 2.  [Skapa en plan](azure-stack-create-plan.md). Ge den namnet *TestSQLServerPlan*, Välj den **Microsoft.SQLAdapter** tjänsten, och **SQLServerQuota** kvoten.
 
     > [!NOTE]
-    > Andra tjänster kan krävas i planen för att låta användarna skapa andra appar. Till exempel Azure Functions kräver att planen omfattar den **Microsoft.Storage** service, medan Wordpress kräver **Microsoft.MySQLAdapter**.
-    > 
-    >
+    > Andra tjänster kan krävas i planen för att låta användarna skapa andra appar. Azure Functions kräver till exempel den **Microsoft.Storage** tjänsten i planen, medan Wordpress kräver **Microsoft.MySQLAdapter**.
 
 3.  [Skapa ett erbjudande](azure-stack-create-offer.md), ge den namnet **TestSQLServerOffer** och välj den **TestSQLServerPlan** plan.
 
@@ -55,23 +55,24 @@ Distributionsprocessen beskrivs i detalj i den [Använd SQL-databaser på Azure-
 Nu när du har distribuerat resursprovidern SQL Server och skapat ett erbjudande, du kan logga in som en användare kan prenumerera på erbjudandet och skapa en databas.
 
 ### <a name="subscribe-to-the-offer"></a>Prenumerera på erbjudandet
+
 1. Logga in på Azure Stack-portalen (https://portal.local.azurestack.external) som en klient.
-2. Klicka på **skaffa en prenumeration** och skriv sedan **TestSQLServerSubscription** under **visningsnamn**.
-3. Klicka på **Välj ett erbjudande** > **TestSQLServerOffer** > **skapa**.
-4. Klicka på **fler tjänster** > **prenumerationer** > **TestSQLServerSubscription** > **resurs providers**.
-5. Klicka på **registrera** bredvid den **Microsoft.SQLAdapter** provider.
+2. Välj **skaffa en prenumeration** och ange sedan **TestSQLServerSubscription** under **visningsnamn**.
+3. Välj **Välj ett erbjudande** > **TestSQLServerOffer** > **skapa**.
+4. Välj **fler tjänster** > **prenumerationer** > **TestSQLServerSubscription** > **resurs providers**.
+5. Välj **registrera** bredvid den **Microsoft.SQLAdapter** provider.
 
 ### <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
-1. Klicka på **+**  >  **Data + lagring** > **SQL-databas**.
-2. Lämna standardvärdena för fält eller så kan du använda de här exemplen:
+1. Välj **+**  >  **Data + lagring** > **SQL-databas**.
+2. Behåll standardinställningarna eller Använd de här exemplen i följande fält:
     - **Databasnamn**: SQLdb
     - **Max storlek i MB**: 100
     - **Prenumerationen**: TestSQLOffer
     - **Resursgruppen**: SQL-RG
-3. Klicka på **inloggningsinställningar**ange autentiseringsuppgifter för databasen och klicka sedan på **OK**.
-4. Klicka på **SKU** > Välj SQL-SKU som du skapade för värd för SQLServer > **OK**.
-5. Klicka på **Skapa**.
+3. Välj **inloggningsinställningar**, ange autentiseringsuppgifter för databasen och välj sedan **OK**.
+4. Välj **SKU** > Välj SQL-SKU som du skapade för värd för SQL-Server > och välj sedan **OK**.
+5. Välj **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -86,4 +87,3 @@ Gå till nästa kurs att lära dig hur du:
 
 > [!div class="nextstepaction"]
 > [Göra webb-, mobil- och API-appar tillgängliga för användarna]( azure-stack-tutorial-app-service.md)
-

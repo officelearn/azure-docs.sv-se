@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Konfigurera molnet för hybridanslutning
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Prenumerera på ett erbjudande
+      href: azure-stack-subscribe-services.md
+    - name: Skapa en virtuell dator från en mall
+      href: azure-stack-create-vm-template.md
 - name: Instruktionsguider
   items:
     - name: Använda Azure Stack Portal

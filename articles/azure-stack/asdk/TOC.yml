@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK viktig information
       href: asdk-release-notes.md
-- name: Självstudier
-  items:
-    - name: Prenumerera på ett erbjudande
-      href: asdk-subscribe-services.md
-    - name: Uppdatera erbjudanden och planer
-      href: asdk-update-offers.md
-    - name: Skapa en virtuell dator från en mall
-      href: asdk-create-vm-template.md
 - name: Begrepp
   items:
     - name: Överväganden vid planering av distribution

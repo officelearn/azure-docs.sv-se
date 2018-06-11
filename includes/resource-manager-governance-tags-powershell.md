@@ -5,33 +5,34 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 21216d19fb8a37d3e9e02e410d39b2a999d3935e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.openlocfilehash: 5dc4ce00685c74b2974cf1bfb5e8606eb3063e8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670181"
 ---
-Om du vill lägga till två taggar i en resursgrupp, Använd den [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup) kommando:
+Om du vill lägga till två taggar till en resursgrupp använder du kommandot [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup):
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-Anta att du vill lägga till en tredje tagg. Varje gång du tillämpar taggar på en resurs eller resursgrupp skriver du över resursens eller resursgruppens befintliga taggar. Om du vill lägga till en ny etikett utan att förlora befintliga taggar måste du hämta befintliga taggar, lägga till en ny tagg och tillämpa samling taggar:
+Vi utgår från att du vill lägga till en tredje tagg. Varje gång du tillämpar taggar på en resurs eller resursgrupp skriver du över resursens eller resursgruppens befintliga taggar. Om du vill lägga till en ny tagg utan att förlora befintliga taggar måste du hämta de befintliga taggarna, lägga till en ny tagg och sedan tillämpa samlingen av taggar igen:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag
 $tags = (Get-AzureRmResourceGroup -Name myResourceGroup).Tags
-$tags += @{Project="Documentation"}
+$tags.Add("Project", "Documentation")
 
 # Reapply the updated set of tags 
 Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
 ```
 
-Resurser som ärver inte taggar från resursgruppen. För närvarande resursgruppen har tre taggar, men resurserna som inte har några taggar. Om du vill lägga till alla taggar från en resursgrupp för dess resurser och behålla befintliga taggar för resurser som inte är dubbletter, använder du följande skript:
+Resurser ärver inte taggar från resursgruppen. För närvarande har resursgruppen tre taggar, men resurserna har inte några taggar. Om du vill tillämpa alla taggar från en resursgrupp på dess resurser och behålla de befintliga taggarna på resurser som inte är dubbletter så kan du använda följande skript:
 
 ```azurepowershell-interactive
 # Get the resource group
@@ -39,47 +40,53 @@ $group = Get-AzureRmResourceGroup myResourceGroup
 
 if ($group.Tags -ne $null) {
     # Get the resources in the resource group
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
 
     # Loop through each resource
     foreach ($r in $resources)
     {
         # Get the tags for this resource
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-
-        # Loop through each tag from the resource group
-        foreach ($key in $group.Tags.Keys)
+        
+        # If the resource has existing tags, add new ones
+        if ($resourcetags)
         {
-            # Check if the resource already has a tag for the key from the resource group. If so, remove it from the resource
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+
+            # Reapply the updated tags to the resource 
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-
-        # Add the tags from the resource group to the resource tags
-        $resourcetags += $group.Tags
-
-        # Reapply the updated tags to the resource 
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+        }
     }
 }
 ```
 
-Du kan också använda taggar från resursgruppen i resurser utan att behålla befintliga taggar:
+Du kan även tillämpa taggar från resursgruppen till resurser utan att behålla befintliga taggar:
 
 ```azurepowershell-interactive
 # Get the resource group
 $g = Get-AzureRmResourceGroup -Name myResourceGroup
 
 # Find all the resources in the resource group, and for each resource apply the tags from the resource group
-Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 ```
 
-Om du vill kombinera flera värden i en enskild tagg, använder du en JSON-sträng.
+Om du vill kombinera flera värden i en enda tagg använder du en JSON-sträng.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
-Om du vill ta bort alla taggar, kan du skicka en tom hash-tabell.
+Om du vill ta bort alla taggar skickar du en tom hash-tabell.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ }

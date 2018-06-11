@@ -125,7 +125,7 @@
 #### [Meddelanden](active-directory-reporting-notifications.md)
 #### [Granska aktivitetsreferens](active-directory-reporting-activity-audit-reference.md)
 #### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [Villkor](active-directory-conditional-access-conditions.md)
 #### [Platsvillkor](active-directory-conditional-access-locations.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
+#### [Baslinjeskydd](active-directory-conditional-access-baseline-protection.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)

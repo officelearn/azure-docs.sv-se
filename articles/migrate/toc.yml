@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: Utvärderingsberäkningar
       href: concepts-assessment-calculation.md
-    - name: Visualisering av beroenden
+    - name: Om visualisering av beroenden
       href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
@@ -25,9 +25,13 @@
         - name: 2. Contoso – Konfigurera en Azure-infrastruktur
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso-Byta värd för virtuella Azure-datorer och Azure SQL Managed Instance
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL Managed Instance
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso – Byta värd för en app på virtuella Azure-datorer
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL AlwaysOn
+          href: contoso-migration-rehost-vm-sql-ag.md
     - name: Utforska och utvärdera en stor miljö
       href: how-to-scale-assessment.md
     - name: Gruppera datorer
@@ -48,3 +52,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: resources-faq.md

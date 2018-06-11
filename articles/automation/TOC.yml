@@ -29,6 +29,8 @@
   items:
     - name: Publicering
       items:
+        - name: Publicera flera virtuella datorer från portalen
+          href: automation-onboard-solutions-from-browse.md
         - name: Publicera från en virtuell Azure-dator
           href: automation-onboard-solutions-from-vm.md
         - name: Publicera från ett Automation-konto
@@ -159,14 +161,12 @@
       items:
         - name: Runbook-galleri
           href: automation-runbook-gallery.md
-        - name: Övervaka runbook-flöden med aktivitetsloggar
-          href: automation-alert-activity-log.md
+        - name: Övervaka runbook-flöden med måttaviseringar
+          href: automation-alert-metric.md
         - name: Starta ett runbook-flöde med Azure-aviseringar
           href: automation-create-alert-triggered-runbook.md
         - name: Skapa virtuella Amazon Web Service-datorer
           href: automation-scenario-aws-deployment.md
-        - name: Åtgärda varning från virtuell Azure-dator
-          href: automation-azure-vm-alert-integration.md
         - name: Starta/stoppa virtuella datorer utanför arbetstid
           href: automation-solution-vm-management.md
         - name: Ta bort resursgrupp
@@ -215,16 +215,12 @@
   items:
     - name: Introduktionsvideo för Automation
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Azure Automation-utbildning
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Utbildningsväg
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Viktig information

@@ -116,6 +116,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: Filkomprimering
           href: cdn-troubleshoot-compression.md
+        - name: Tillåtna certifikatutfärdare
+          href: cdn-troubleshoot-allowed-ca.md
 - name: Referens
   items:
     - name: Regelmotor – referens

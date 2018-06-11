@@ -10,20 +10,18 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: e4bde4f521e0e19e7acd36260c98cfe80973e284
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 0d0ec1520c91c0c1dcdac4660130917bb63065cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825568"
 ---
-## <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera debug tillgångar med filnamnstillägget VS-kod
-Du måste först konfigurera projektet kod så att VS koden kommer att kommunicera med vår utvecklingsmiljö i Azure. VS kod tillägget för Azure Dev blanksteg innehåller ett helper-kommando för att konfigurera debug-konfiguration. 
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
+Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
 
-Öppna den **kommandot paletten** (med hjälp av den **visa | Kommandot paletten** menyn), och använder automatisk komplettering Skriv och väljer det här kommandot: `Azure Dev Spaces: Create configuration files for connected development`. 
+Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Create configuration files for connected development`. 
 
-Detta lägger till debug-konfigurationen för Azure Dev blanksteg under den `.vscode` mapp.
+Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`.
 
 ![](../media/common/command-palette.png)
-
-> [!Important]
-> På grund av ett programfel Stäng och öppna VS koden igen innan du fortsätter.

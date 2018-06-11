@@ -63,8 +63,6 @@
           items:
             - name: Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal
               href: backup-azure-microsoft-azure-backup.md
-            - name: Installera Azure Backup Server på Azure Stack
-              href: backup-mabs-install-azure-stack.md
             - name: Lägga till lagringsutrymme på Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Uppgradera Azure Backup Server till v.2
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Skydda systemtillstånd och Bare Metal Recovery
               href: backup-mabs-system-state-and-bmr.md
-            - name: Filer och program på Azure Stack
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Återställa data från Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure Backup Server på Azure Stack
+      items:
+        - name: Installera Azure Backup Server
+          href: backup-mabs-install-azure-stack.md
+        - name: Skydda filer och program
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: Skydda SharePoint-grupp
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: Skydda SQL Server-databas
+          href: backup-mabs-sql-azure-stack.md
     - name: Azure-filresurser
       items:
         - name: Säkerhetskopiera Azure-filresurser

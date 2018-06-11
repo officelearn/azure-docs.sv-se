@@ -10,19 +10,20 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f1e997b9e7f948f29cce940574fe7db34a503dc6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825563"
 ---
 ## <a name="well-done"></a>Bra gjort!
-Du har slutfört guiden komma igång! Du har lärt dig att:
+Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en miljö med Kubernetes i Azure som är optimerad för utveckling.
-> * Utveckla upprepade gånger koden i behållare med VS-kod och kommandoraden.
-> * Utveckla oberoende två separata tjänster och använda Kubernetes DNS-identifiering kan ringa till en annan tjänst.
-> * Effektivt utveckla och testa din kod i ett team.
+> * Skapa en Kubernetes-baserad miljö i Azure som är optimerad för utveckling, en _utvecklarmiljö_.
+> * Utveckla kod iterativt i behållare med VS Code och kommandoraden.
+> * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
+> * Effektivt utvecklar och testar din kod i en teammiljö.
 
-Nu när du har arbetat med Azure Dev blanksteg [dela din utvecklingsmiljö med en gruppmedlem](../how-to/share-dev-spaces.md) och hjälpa dem att se hur lätt det är att samarbeta.
+Nu när du har utforskat Azure Dev Spaces kan du [dela din utvecklarmiljö med en gruppmedlem](../how-to/share-dev-spaces.md) och visa personen hur lätt det är att samarbeta.

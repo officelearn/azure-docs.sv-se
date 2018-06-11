@@ -11,6 +11,10 @@
       href: quickstart-cli.md
     - name: Kör träningsjobb – Python
       href: quickstart-python.md
+- name: Instruktionsguider
+  items:
+    - name: Migrera till uppdaterat API
+      href: migrate-to-new-api.md
 - name: Referens
   items:
     - name: Azure CLI

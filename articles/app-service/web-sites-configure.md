@@ -2,10 +2,10 @@
 title: Konfigurera webbappar i Azure App Service
 description: Hur du konfigurerar en webbapp i Azure App Service
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234537"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -49,12 +50,12 @@ Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen f
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Ange **ON** att WebSocket-protokollet, till exempel om ditt webbprogram använder [ASP.NET SignalR] eller [socket.io](https://socket.io/).
+**Web Sockets**. Ange **ON** att WebSocket-protokollet, till exempel om ditt webbprogram använder [ASP.NET-SignalR] eller [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
 **Always On**. Som standard inaktiveras webbappar om de är inaktiv under en tidsperiod. Detta gör att systemet spara resurser. I Basic eller Standard-läge kan du aktivera **alltid på** att appen att läsa in hela tiden. Om din app körs kontinuerliga Webbjobb eller körs WebJobs aktiveras med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller web-jobb körs inte på ett tillförlitligt sätt.
 
-**Hanterat Pipeline-Version**. Anger IIS [pipelineläge]. Låt den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
+**Hanterat Pipeline-Version**. Anger IIS [Pipeline-läge]. Låt den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
 
 **Automatisk växling**. Om du aktiverar automatisk växling för en distributionsplats Apptjänst automatiskt att växla som webbappen till produktionen när du trycker på en uppdatering till platsen. Mer information finns i [till mellanlagring fack för web apps i Azure App Service](web-sites-staged-publishing.md).
 
@@ -67,6 +68,8 @@ Det här avsnittet innehåller namn/värde-par som ditt webbprogram ska läsas i
 * För .NET-appar de här inställningarna är injekteras i konfigurationen av .NET `AppSettings` vid körning kan åsidosätta befintliga inställningar. 
 * PHP, Python, Java och noden program kan komma åt de här inställningarna som miljövariabler vid körning. Två miljövariabler som skapas för varje appinställning. en med namnet som anges i inställningen som appen och en annan med prefixet APPSETTING_. Båda innehåller samma värde.
 
+Appinställningar krypteras alltid när lagras (krypterat i vila).
+
 ### <a name="connection-strings"></a>Anslutningssträngar
 Anslutningssträngar för länkade resurser. 
 
@@ -74,12 +77,14 @@ För .NET-appar har dessa anslutningssträngar injekteras i konfigurationen av .
 
 PHP, Python, Java och noden program, ska inställningarna vara tillgänglig som miljövariabler vid körning, föregås av anslutningstypen. Variabeln prefix miljö är följande: 
 
-* SQL Server: `SQLCONNSTR_`
+* SQLServer: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQL-databas: `SQLAZURECONNSTR_`
 * Anpassad: `CUSTOMCONNSTR_`
 
 Om exempelvis en MySql-anslutningssträng vid namn `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
+
+Anslutningssträngar krypteras alltid när lagras (krypterat i vila).
 
 ### <a name="default-documents"></a>Standarddokument
 Standarddokumentet är webbsidan som visas på rot-URL för en webbplats.  Den första matchande filen i listan används. 
@@ -147,7 +152,7 @@ Om du vill visa dina distributionsplatser, klickar du på **alla inställningar*
 ### <a name="monitoring"></a>Övervakning
 Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter från upp till tre fördelade platser i Basic eller Standard-läge. En övervakning testet misslyckas om HTTP-svarskoden är ett fel (4xx eller 5xx) eller svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om övervakning testerna lyckas från angivna platser. 
 
-Mer information finns i [så här: övervaka status för web endpoint].
+Mer information finns i [Så här: övervaka status på slutpunkt].
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service]. Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
@@ -162,14 +167,14 @@ Mer information finns i [så här: övervaka status för web endpoint].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET-SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[distribuera till Mellanlagringsmiljöer för Web Apps i Azure App Service]: ./web-sites-staged-publishing.md
+[Distribuera till Mellanlagringsmiljöer för Web Apps i Azure App Service]: ./web-sites-staged-publishing.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[så här: övervaka status för web endpoint]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Så här: övervaka status på slutpunkt]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Övervakning grunderna för Web Apps i Azure App Service]: ./web-sites-monitor.md
-[pipelineläge]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Pipeline-läge]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en webbapp i Azure App Service]: ./web-sites-scale.md
 [Prova App Service]: https://azure.microsoft.com/try/app-service/
 

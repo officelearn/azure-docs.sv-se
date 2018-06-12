@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629243"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261992"
 ---
 # <a name="set-up-a-device-template"></a>Ange en mall för enhet
 
@@ -161,6 +161,59 @@ När du har valt **spara**, enhetsplats visas som en panel:
 > [!NOTE]
 > Du kan ändra egenskapsvärdet för när du har skapat en ny panel. Först stänga av designläge överst höger på skärmen.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Skapa en plats-egenskap som tillhandahålls av Azure Maps
+Du kan ge geografiska kontext till data i Azure IoT Central plats och mappa alla latitud och longitud koordinaterna för en gatuadress eller helt enkelt latitud och longitud koordinater. Den här funktionen i Azure IoT Central drivs av Azure Maps.
+
+Det finns två typer av du kan lägga till egenskaper:
+- **Platsen som en egenskap på programmet** som kommer att lagras enbart i programmet. Enheten har ingen kunskap om programegenskaperna.
+- **Platsen som en enhetsegenskap** som rapporteras av enheten.
+
+####<a name="adding-location-as-an-application-property"></a>Lägga till platsen som en egenskap för programmet 
+Du kan skapa en plats egenskapen som en egenskap för program som använder Azure mappar i ditt Azure IoT centrala program. Exempelvis kan du lägga till Enhetsadressen som installationen. 
+
+1. Gå till fliken enhetsegenskap. Kontrollera designläge är påslagen.
+
+![Platsegenskapen](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Klicka på plats på fliken Egenskaper.
+3. Konfigurera visningsnamn, fältnamn och det initiala värdet för platsen (valfritt). 
+
+![Plats egenskapen formulär](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Det finns två format som stöds för att lägga till en plats:
+- **Platsen som en adress**
+- **Platsen som koordinater** 
+
+4. Klicka på Spara. 
+
+![Egenskapen Platsfältet](./media/howto-set-up-template/locationcloudproperty3.png)
+
+En operatör kan nu uppdatera plats värdet i formuläret plats fältet. 
+
+####<a name="adding-location-as-a-device-property"></a>Lägga till platsen som en enhetsegenskap för 
+
+Du kan skapa en plats som en enhet som rapporteras av enheten.
+Till exempel att du vill spåra platsen för enheten.
+
+1.  Gå till fliken enhetsegenskap. Kontrollera designläge är påslagen.
+2.  Klicka på enhetsegenskap från biblioteket.
+
+![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Konfigurera visningsnamn, fältnamn och välj ”plats” som en datatyp. 
+
+> [!NOTE]
+Fältnamnet måste exakt matcha namnet på egenskapen enheten rapporter. 
+
+![Egenskapen Platsfältet](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Plats egenskapen operator-vyn](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Nu när du har konfigurerat din Platsegenskapen, kan du lägga till en karta för att visualisera plats i instrumentpanelen för enheten. Se hur du [Lägg till plats Azure kartan i instrumentpanelen](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Regler
 
 Regler kan operatörer att övervaka enheter i nära realtid. Regler automatiskt anropa **åtgärder** som skickar ett e-postmeddelande när regeln utlöser. Det finns en typ av regel idag:
@@ -178,6 +231,31 @@ Du kan till exempel lägga till en **inställningar och egenskaper** rutan för 
 Nu när en operator visar instrumentpanelen, ser den här panelen som visar egenskaper och inställningar på enheten:
 
 ![Instrumentpanelen](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Lägg till plats Azure kartan i instrumentpanelen
+
+Om du har konfigurerat en Platsegenskapen enligt stegen [skapa en plats-egenskap som tillhandahålls av Azure Maps]((howto-set-up-template.md), du kommer att kunna visualisera platsen med hjälp av en karta direkt i instrumentpanelen i enheten.
+
+1.  Gå till fliken instrumentpanelen för enheten. Kontrollera designläge är påslagen.
+2.  Välj karta från biblioteket på instrumentpanelen för enheten. 
+
+![Instrumentpanelen Azure platskarta väljer](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Ge ett namn och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
+
+![Konfigurera Azure kartan plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Spara och du ser kartan panelen visar den plats som du har valt. 
+
+![Azure kartan visualisera plats på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+Du kommer att kunna ändra storlek på kartan för att den har önskad storleken.
+
+Nu när en operator visar instrumentpanelen, ser den här alla instrumentpanelen rutor du har konfigurerat inklusive plats karta!
+
+![Instrumentpanelen plats Azure kartan instrumentpanelen](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

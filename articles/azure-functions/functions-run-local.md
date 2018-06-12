@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725232"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294510"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -64,9 +64,9 @@ Följande steg kan du använda npm för att installera grundläggande verktyg i 
 
 3. Installera paketet Verktyg för kärnor:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>MacOS med Homebrew
 
@@ -74,9 +74,9 @@ Följande steg använda Homebrew för att installera hanteringsverktygen kärnor
 
 1. Installera [.NET Core 2.0 för macOS](https://www.microsoft.com/net/download/macos).
 
-1. Installera [Homebrew](https://brew.sh/), om den inte redan är installerad.
+2. Installera [Homebrew](https://brew.sh/), om den inte redan är installerad.
 
-2. Installera paketet Verktyg för kärnor:
+3. Installera paketet Verktyg för kärnor:
 
     ```bash
     brew tap azure/functions
@@ -89,42 +89,43 @@ Följande steg används [LGH](https://wiki.debian.org/Apt) installera grundlägg
 
 1. Installera [.NET Core 2.0 för Linux](https://www.microsoft.com/net/download/linux).
 
-1. Registrera Microsoft-produktnyckeln som tillförlitliga:
+2. Registrera Microsoft-produktnyckeln som tillförlitliga:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Kontrollera Ubuntu server kör en lämplig version i tabellen nedan. Om du vill lägga till lgh källan, kör du:
+3. Kontrollera Ubuntu server kör en lämplig version i tabellen nedan. Om du vill lägga till lgh källan, kör du:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux-distribution | Version |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu nr 17.04 från    | `zesty`     |
-  | Ubuntu 16.04/Linux myntverket 18    | `xenial`  |
+    | Linux-distribution | Version |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu nr 17.04 från    | `zesty`     |
+    | Ubuntu 16.04/Linux myntverket 18    | `xenial`  |
 
-3. Installera paketet Verktyg för kärnor:
+4. Installera paketet Verktyg för kärnor:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>Köra verktyg för Azure Functions kärnor
- 
+
 Azure Functions grundläggande verktyg lägger du till följande kommando alias:
-* **funktionen**
-* **azfun**
-* **azurefunctions**
+
++ **funktionen**
++ **azfun**
++ **azurefunctions**
 
 Något av dessa alias kan användas där `func` illustreras i exemplen.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -134,13 +135,13 @@ När du kör lokalt funktioner projektet är en katalog som innehåller filerna 
 
 Kör följande kommando för att skapa projektet och lokal Git-lagringsplats i fönstret terminal eller från en kommandotolk:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 Resultatet ser ut som i följande exempel:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -166,8 +167,9 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -178,16 +180,17 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
   }
 }
 ```
+
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **isEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
-| **Värden** | Samling av programinställningar som används när du kör lokalt. **AzureWebJobsStorage** och **AzureWebJobsDashboard** är exempel, en fullständig lista, se [app inställningsreferens](functions-app-settings.md). Många utlösare och bindningar har en egenskap som refererar till en appinställning som **anslutning** för Blob storage-utlösare. För sådana egenskaper, behöver du en tillämpningsinställning som definierats i den **värden** matris. Detta gäller även för binding-egenskapen som du anger att en app inställningsnamn genom att omsluta värdet i procenttecken, till exempel `%AppSettingName%`. |
-| **Värd** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. | 
+| **Värden** | Samling programinställningar och anslutningssträngar som används när du kör lokalt. Dessa motsvarar app-inställningar i appen funktionen i Azure, som **AzureWebJobsStorage** och **AzureWebJobsDashboard**. Många utlösare och bindningar har en egenskap som refererar till en appinställningen för anslutningssträngen, exempelvis **anslutning** för den [Blob storage utlösaren](functions-bindings-storage-blob.md#trigger---configuration). För sådana egenskaper, behöver du en tillämpningsinställning som definierats i den **värden** matris. <br/>**AzureWebJobsStorage** är en obligatorisk appinställning för utlösare än HTTP. När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installeras lokalt, du kan ställa in **AzureWebJobsStorage** till `UseDevelopmentStorage=true` och grundläggande verktygen använder emulatorn. Detta är användbart vid utveckling, men du bör testa med en anslutning för faktiska lagringsplatsen före distributionen. |
+| **Värd** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. |
 | **LocalHttpPort** | Anger den standardport som används när du kör den lokala värden funktioner (`func host start` och `func run`). Den `--port` kommandoradsalternativet har högre prioritet än detta värde. |
 | **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från alla ursprung. |
-| **ConnectionStrings** | Innehåller databasanslutningssträngar för dina funktioner. Anslutningssträngar i det här objektet har lagts till i miljön med providern **System.Data.SqlClient**.  | 
+| **ConnectionStrings** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som måste få anslutningssträngar från den **ConnectionStrings** avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet har lagts till i miljön med providern [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den **anslutningssträngar** avsnitt i den **programinställningar** för din funktionsapp. |
 
-De här inställningarna kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i referensavsnitten språkspecifika:
+Funktionen app inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i referensavsnitten språkspecifika:
 
 + [C#-förkompilerat](functions-dotnet-class-library.md#environment-variables)
 + [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
@@ -195,26 +198,37 @@ De här inställningarna kan också läsa i koden som miljövariabler. Mer infor
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Inställningarna i filen local.settings.json används endast av funktioner verktyg när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att se till att dessa inställningar har lagts till i funktionsapp i Azure.
+Inställningarna i filen local.settings.json används endast av funktioner verktyg när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att se till att dessa inställningar har lagts till i funktionsapp i Azure. Värdena i **ConnectionStrings** aldrig har publicerats.
 
-Om ingen giltig lagringsanslutningssträng anges för **AzureWebJobsStorage**, visas följande felmeddelande:  
+Om ingen giltig lagringsanslutningssträng anges för **AzureWebJobsStorage** och emulatorn inte används, visas följande felmeddelande:  
 
 >Värde saknas för AzureWebJobsStorage i local.settings.json. Detta krävs för alla utlösare än HTTP. Du kan köra ' func azure functionapp fetch-app-inställningar <functionAppName>' eller ange en anslutningssträng i local.settings.json.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>Konfigurera appinställningar
+### <a name="get-your-storage-connection-strings"></a>Hämta storage-anslutningssträngar
 
-För att ange ett värde för anslutningssträngar, kan du göra något av följande alternativ:
-* Ange anslutningssträng från [Azure Lagringsutforskaren](http://storageexplorer.com/).
-* Använd någon av följande kommandon:
+Även när du använder storage-emulatorn för utveckling, kanske du vill testa med en anslutning för faktiska lagringsplatsen. Anta att du har redan [skapat ett lagringskonto](../storage/common/storage-create-storage-account.md), du kan hämta en giltig lagringsanslutningssträng i något av följande sätt:
 
-    ```
++ Från den [Azure Portal]. Navigera till ditt lagringskonto, Välj **åtkomstnycklar** i **inställningar**, kopiera en av de **anslutningssträngen** värden.
+
+  ![Kopiera anslutningssträngen från Azure-portalen](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ Använd [Azure Lagringsutforskaren](http://storageexplorer.com/) att ansluta till ditt Azure-konto. I den **Explorer**, expandera din prenumeration, Välj ditt lagringskonto och kopiera den primära eller sekundära anslutningssträngen. 
+
+  ![Kopiera anslutningssträngen från Lagringsutforskaren](./media/functions-run-local/storage-explorer.png)
+
++ Använda grundläggande verktyg för att hämta anslutningssträngen från Azure med något av följande kommandon:
+
+    + Hämta alla inställningar från en befintlig funktionsapp:
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + Hämta anslutningssträngen för ett visst lagringskonto:
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Båda kommandon måste du först logga in på Azure.
 
 <a name="create-func"></a>
@@ -222,7 +236,7 @@ För att ange ett värde för anslutningssträngar, kan du göra något av följ
 
 Om du vill skapa en funktion, kör du följande kommando:
 
-```
+```bash
 func new
 ``` 
 `func new` stöder följande valfria argument:
@@ -235,21 +249,21 @@ func new
 
 Till exempel för att skapa en JavaScript-HTTP-utlösare, kör du:
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Om du vill skapa en funktion som utlöses av kön, kör du:
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>Kör funktioner lokalt
+## Run functions locally
 
-För att köra ett funktioner projekt, kör du funktioner värden. Värden kan utlösare för alla funktioner i projektet:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -268,7 +282,7 @@ func host start
 
 När värden funktioner startar anger URL: en för HTTP-utlösta funktioner:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -284,7 +298,7 @@ Om du vill felsöka C#-funktioner, Använd `--debug vs`. Du kan också använda 
 
 Om du vill starta värden och Ställ in JavaScript-felsökning, kör du:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -314,12 +328,12 @@ Se till att använda samma servernamn och port som funktioner värden lyssnar p�
 
 Följande cURL-kommando utlösare i `MyHttpTrigger` quickstart funktion från en GET-begäran med den _namn_ -parametern som angavs i frågesträngen. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 Följande exempel är samma funktion som anropas från en POST-begäran skickas _namn_ i frågans brödtext:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -341,7 +355,7 @@ Du måste ange data i brödtexten i en POST-förfrågan om du vill skicka testda
 ```` 
 Den `<trigger_input>` värdet innehåller data i ett format som förväntades av funktionen. Följande cURL-exempel är en POST till en `QueueTriggerJS` funktion. I det här fallet är indata en sträng som motsvarar det meddelande som förväntas finnas i kön.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -364,7 +378,7 @@ Du kan även anropa en funktion direkt med hjälp av `func run <FunctionName>` o
 
 Till exempel för att anropa en funktion som utlöses av HTTP och skicka innehållet, kör du följande kommando:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -376,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Om du vill publicera ett projekt för funktioner till en funktionsapp i Azure, använda den `publish` kommando:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -384,7 +398,7 @@ Du kan använda följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan.|
+| **`--publish-local-settings -i`** |  Publiceringsinställningar i local.settings.json till Azure, där du uppmanas att skriva över om inställningen finns redan. Om du använder lagringsemulatorn kan du ändra appinställningen en [anslutning faktiska lagringsplatsen](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Måste användas med `-i`. Skriver över AppSettings i Azure med lokalt värde om olika. Standardvärdet är fråga.|
 
 Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Information om hur du skapar en funktionsapp från Kommandotolken eller terminalfönster med hjälp av Azure CLI finns [skapa en Funktionsapp för serverlösa körning](./scripts/functions-cli-create-serverless.md).

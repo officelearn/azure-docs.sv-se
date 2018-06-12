@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261941"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -32,7 +33,7 @@ Standard belastningsutjämning är en ny produkt i belastningsutjämnaren för a
 
 Du kan använda Standard belastningsutjämnare som en offentlig eller intern belastningsutjämnare. Och en virtuell dator kan vara ansluten till en offentlig och en intern belastningsutjämnare resurs.
 
-Resursen belastningsutjämnaren funktioner uttrycks alltid som en klientdel, en regel, en hälsoavsökningen och en definition för backend-adresspool.  En resurs kan innehålla flera regler. Du kan placera virtuella datorer i serverdelspoolen genom att ange serverdelspoolen från den virtuella datorns nätverkskort resurs.  När det gäller en skaluppsättning för virtuell dator den här parametern skickas via nätverksprofilen och expanderas.
+Resursen belastningsutjämnaren funktioner uttrycks alltid som en klientdel, en regel, en hälsoavsökningen och en definition för backend-adresspool.  En resurs kan innehålla flera regler. Du kan placera virtuella datorer i serverdelspoolen genom att ange serverdelspoolen från den virtuella datorns nätverkskort resurs.  Den här parametern skickas via nätverksprofilen och expanderas när du använder skalningsuppsättningar i virtuella datorer.
 
 En viktig del är omfånget för det virtuella nätverket för resursen.  Även om grundläggande belastningsutjämnaren finns inom omfånget för en tillgänglighetsuppsättning, en Standard belastningsutjämnare är helt integrerat med omfånget för ett virtuellt nätverk och alla virtuella nätverkskoncept gäller.
 
@@ -43,7 +44,7 @@ Läs in belastningsutjämnaren resurser är objekt inom vilken express hur Azure
 
 ## <a name="why-use-standard-load-balancer"></a>Varför använda Standard belastningsutjämnaren?
 
-Standard belastningsutjämnare kan du skala ditt program och skapa hög tillgänglighet för liten skala distributioner till stora och komplexa flera zonen arkitekturerna.
+Med Standard Load Balancer kan du skala dina program och skapa hög tillgänglighet för småskaliga distributioner till stora och komplexa arkitekturer i flera zoner.
 
 Granska tabellen nedan ger en översikt över skillnaderna mellan Standard belastningsutjämnare och grundläggande belastningsutjämnare:
 
@@ -71,7 +72,7 @@ Granska [tjänsten gränser för belastningsutjämnaren](https://aka.ms/lblimits
 
 Standard belastningsutjämnaren serverdelspooler utökas till virtuella resurser i ett virtuellt nätverk.  Den kan innehålla upp till 1000 backend-instanser.  En backend-instansen är en IP-konfiguration, vilket är en egenskap för en NIC-resurs.
 
-Serverdelspoolen kan innehålla tillgänglighetsuppsättningar, fristående virtuella datorer eller virtuella datorer.  Du kan blanda resurser i serverdelspoolen och kan innehålla en kombination av dessa resurser upp till 150 totalt.
+Serverdelspoolen kan innehålla tillgänglighetsuppsättningar, fristående virtuella datorer eller virtuella datorer.  Du kan också blanda resurser i serverdelspoolen. Du kan kombinera upp till 150 resurser i serverdelspoolen per resurs för belastningsutjämnaren.
 
 När du överväger hur du utformar din serverdelspool, du kan utforma minst antal enskilda backend resurser för att ytterligare optimera varaktigheten för hanteringsåtgärder.  Det finns ingen skillnad i prestanda för data-plan eller skala.
 
@@ -89,7 +90,7 @@ Granska [detaljerad beskrivning av tillgänglighet zoner relaterade förmågor](
 
 ### <a name="diagnostics"></a> diagnostik
 
-Standard belastningsutjämnare ger flerdimensionella mätvärden via Azure-Monitor.  De här måtten kan filtreras, grupperas och tillhandahålla aktuella och historiska insikter om prestanda och hälsotillståndet för din tjänst.  Resource Health stöds också.  Nedan följer en kort översikt över stöds diagnostik:
+Standard belastningsutjämnare ger flerdimensionella mätvärden via Azure-Monitor.  De här måtten kan filtreras, grupperas och delats upp för en viss dimension.  De ger aktuella och historiska insikter om prestanda och hälsotillståndet för din tjänst.  Resource Health stöds också.  Nedan följer en kort översikt över stöds diagnostik:
 
 | Mått | Beskrivning |
 | --- | --- |
@@ -117,7 +118,7 @@ Granska [detaljerad beskrivning av hög tillgänglighet portar](load-balancer-ha
 
 ### <a name="securebydefault"></a>Som standard
 
-Standard belastningsutjämnare är helt publicerats så att det virtuella nätverket.  Det virtuella nätverket är ett privat, stängd nätverk.  Eftersom belastningsutjämnare som Standard och offentliga IP-adresser har utformats för att det här virtuella nätverket som kan nås från utanför det virtuella nätverket, resurserna nu som standard om du öppnar dem. Detta innebär Nätverkssäkerhetsgrupper (NSG: er) används nu för att tillåta explicit och godkända tillåts trafik.  Du kan skapa hela virtuella datacentret och bestäm via NSG vad och när den ska vara tillgänglig.  Om du inte har en NSG till ett undernät eller nätverkskort på den virtuella datorresursen tillåter vi inte trafik till den här resursen.
+Standard belastningsutjämnare är helt publicerats så att det virtuella nätverket.  Det virtuella nätverket är ett privat, stängd nätverk.  Eftersom belastningsutjämnare som Standard och offentliga IP-adresser har utformats för att det här virtuella nätverket som kan nås från utanför det virtuella nätverket, resurserna nu som standard om du öppnar dem. Detta innebär Nätverkssäkerhetsgrupper (NSG: er) används nu för att tillåta explicit och godkända tillåts trafik.  Du kan skapa hela virtuella datacentret och bestäm via NSG vad och när den ska vara tillgänglig.  Om du inte har en NSG till ett undernät eller nätverkskort på den virtuella datorresursen tillåts trafiken inte att nå den här resursen.
 
 Mer information om NSG: er och hur de ska användas för ditt scenario finns [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 
@@ -202,7 +203,7 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 >
 >Både Basic och Standard-SKU har många skillnader som beskrivs i den här artikeln.  Kontrollera att du förstår och förbereda dem.
 >
->Matchar SKU: er måste användas för belastningsutjämnaren och offentliga IP-resurser. Du kan inte ha en blandning av grundläggande SKU-resurser och Standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en uppsättning resurs tillgänglighet eller en virtuell dator skaluppsättning resurser till båda SKU: er samtidigt.
+>Matchar SKU: er måste användas för belastningsutjämnaren och offentliga IP-resurser. Du kan inte ha en blandning av grundläggande SKU-resurser och Standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/18/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640548"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267381"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela användare, grupper och tjänstens huvudnamn. Rolltilldelningar är hur du styr åtkomst till resurser i Azure. Om inbyggda roller inte uppfyller de specifika behoven i din organisation, kan du skapa egna [anpassade roller](custom-roles.md).
@@ -133,6 +133,8 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Authorization/*/Delete | Det går inte att ta bort roller och rolltilldelningar |
 > | Microsoft.Authorization/*/Write | Det går inte att skapa roller och rolltilldelningar |
 > | Microsoft.Authorization/elevateAccess/Action | Ger anroparen åtkomst till administratör för användaråtkomst i klientomfattningen |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## <a name="reader"></a>Läsare
 > [!div class="mx-tableFixed"]
@@ -709,7 +711,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Åtgärder** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | Rensar data från Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Ta bort angivna data från arbetsytan |
 

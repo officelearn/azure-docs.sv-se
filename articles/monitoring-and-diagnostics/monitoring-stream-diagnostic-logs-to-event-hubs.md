@@ -1,24 +1,19 @@
 ---
-title: Strömma Azure diagnostiska loggar till en händelsehubb | Microsoft Docs
+title: Azure strömmen diagnostiska loggar till en händelsehubb
 description: Lär dig mer om att strömma Azure diagnostiska loggar till en händelsehubb.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264331"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Azure strömmen diagnostiska loggar till en händelsehubb
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI 2.0.
@@ -54,9 +49,9 @@ Du kan aktivera strömning av diagnostikloggar programmässigt via portalen elle
 Namnområdet Händelsehubbar behöver inte finnas i samma prenumeration som resursen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 
 > [!NOTE]
-> Skicka flerdimensionell mätvärden via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som Flat enda dimensionell mått som aggregeras på värden.
+> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: 'Inkommande meddelanden' mått på en Händelsehubb kan utforskade och i diagrammet på en per kön nivå. Men när exporteras via diagnostikinställningar mått representeras av alla inkommande meddelanden i alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -184,7 +179,7 @@ Här är exempel utdata från Händelsehubbar:
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| poster |En matris med alla händelser i den här nyttolasten. |
+| Poster |En matris med alla händelser i den här nyttolasten. |
 | time |Tid då händelsen inträffade. |
 | category |Loggen kategorin för den här händelsen. |
 | resourceId |Resurs-ID för den resurs som genereras av den här händelsen. |

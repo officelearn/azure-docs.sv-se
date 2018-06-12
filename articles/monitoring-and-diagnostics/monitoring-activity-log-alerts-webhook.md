@@ -1,22 +1,19 @@
 ---
-title: Förstå webhook-schemat som används i aktiviteten loggen aviseringar | Microsoft Docs
+title: Förstå webhook-schemat som används i aktiviteten loggen aviseringar
 description: Läs mer om schemat för JSON som skickas till en Webhooksadressen när en aktivitet loggen avisering aktiveras.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263250"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för Azure aktiviteten Logga varningar
 Som en del av definitionen för en grupp, kan du konfigurera webhook slutpunkter för att ta emot aviseringar för aktiviteten loggen. Du kan använda webhooks, för att vidarebefordra meddelandena till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolasten för HTTP POST till en webhook ser ut.
@@ -156,7 +153,7 @@ Information om specifika schemat på alla andra aktiviteten loggen aviseringar f
 | httpRequest |Begäran innehåller vanligtvis clientRequestId, clientIpAddress och HTTP-metoden (till exempel PLACERA). |
 | nivå |Ett av följande värden: kritisk, fel, varningar och information. |
 | operationId |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
-| operationName |Namnet på åtgärden. |
+| operationName |Åtgärdens namn. |
 | properties |Egenskaper för händelsen. |
 | status |Sträng. Status för åtgärden. Vanliga värden är igång, pågår, slutfört, misslyckades, aktiv och löst. |
 | subStatus |Normalt innehåller HTTP-statuskod för motsvarande REST-anrop. Det kan även innehålla andra strängar som beskriver en sådan. Vanliga understatus värden är OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), det gick inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409 ), Internt serverfel (HTTP-statuskod: 500), tjänsten inte tillgänglig (HTTP-statuskod: 503), och Gateway-Timeout (HTTP-statuskod: 504). |

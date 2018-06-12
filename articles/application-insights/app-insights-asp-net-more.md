@@ -1,6 +1,6 @@
 ---
-title: "Få ut mer av Azure Application Insights | Microsoft Docs"
-description: "Här är en sammanfattning av de funktioner som du kan utforska efter komma igång med Application Insights."
+title: Få ut mer av Azure Application Insights | Microsoft Docs
+description: Här är en sammanfattning av de funktioner som du kan utforska efter komma igång med Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 167f0175b2c5de804a4251307a7b16e5e40a516a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294344"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Flera telemetri från Application Insights
 När du har [lagt till Application Insights ASP.NET-koden](app-insights-asp-net.md), det finns några saker du kan göra för att få ännu mer telemetri. 

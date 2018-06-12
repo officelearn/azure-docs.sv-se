@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5484233c7d3d32e51098baad8c22ec51df8f0d8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260625"
 ---
 # <a name="using-openfaas-on-aks"></a>Med hjälp av OpenFaaS på AKS
 
@@ -107,7 +108,7 @@ Om du vill testa OpenFaaS system, bläddra till den externa IP-adressen på port
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
-Slutligen installera OpenFaaS CLI. Den här exmaple används brew, finns i [OpenFaaS CLI dokumentationen] [ open-faas-cli] fler alternativ.
+Slutligen installera OpenFaaS CLI. Det här exemplet används brew, finns det [OpenFaaS CLI dokumentationen] [ open-faas-cli] fler alternativ.
 
 ```console
 brew install faas-cli

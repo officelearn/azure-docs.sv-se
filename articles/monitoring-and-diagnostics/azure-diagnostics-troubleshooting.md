@@ -1,24 +1,20 @@
 ---
-title: "Felsöka Azure Diagnostics | Microsoft Docs"
-description: "Felsökning av problem när du använder Azure-diagnostik i Azure Virtual Machines, Service Fabric och Cloud Services."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Felsöka Azure-diagnostik tillägg
+description: Felsökning av problem när du använder Azure-diagnostik i Azure Virtual Machines, Service Fabric och Cloud Services.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263854"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics felsökning
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure-diagnostik. Läs mer om Azure diagnostics [översikt över Azure-diagnostik](azure-diagnostics.md).
@@ -38,7 +34,7 @@ Följande är sökvägar till vissa viktiga loggar och artefakter. Vi refererar 
 | --- | --- |
 | **Azure Diagnostics-konfigurationsfil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
 | **Monitoring agent-konfigurationsfil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure Diagnostics extension-paketet** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Verktyget loggsökvägen-samling** | %SystemDrive%\Packages\GuestAgent\ |
@@ -47,7 +43,7 @@ Följande är sökvägar till vissa viktiga loggar och artefakter. Vi refererar 
 ### <a name="virtual-machines"></a>Virtuella datorer
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \RuntimeSettings |
 | **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **Lokal lagring för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **Monitoring agent-konfigurationsfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
@@ -72,10 +68,10 @@ Kontrollera om det finns inga data för den specifika måtten, **diagnostik Conf
 - \ASP.NET\Requests avvisade
 - \Processor(W3wp)\% processortid
 - \Process (w3wp) \Private byte
-- \Process(WaIISHost)\% Processor Time
-- \Process(WaIISHost)\Private Bytes
-- \Process(WaWorkerHost)\% Processor Time
-- \Process(WaWorkerHost)\Private Bytes
+- \Process(WaIISHost)\% processortid
+- \Process (WaIISHost) \Private byte
+- \Process(WaWorkerHost)\% processortid
+- \Process (WaWorkerHost) \Private byte
 - \Memory\Page fel per sekund
 - \.NET CLR-minne (_globala_)\% tid i GC i
 - \LogicalDisk (C:) \Disk skrivna byte/s
@@ -207,7 +203,7 @@ Den här koden genererar fyra tabeller:
 
 | Händelse | Tabellnamn |
 | --- | --- |
-| Provider = ”prov1” &lt;händelse-id = ”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
+| Provider = ”prov1” &lt;händelse-id = ”1” /&gt; |WADEvent + MD5("prov1") + ”1” |
 | Provider = ”prov1” &lt;händelse-id = ”2” eventDestination = ”dest1” /&gt; |WADdest1 |
 | Provider = ”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | Provider = ”prov2” &lt;DefaultEvents eventDestination = ”dest2” /&gt; |WADdest2 |

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596506"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260809"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure-Kubernetes (AKS)
 
@@ -49,7 +49,7 @@ Azure tillämpas automatiskt säkerhetskorrigeringar på noderna i klustret enli
 
 ## <a name="when-will-acs-be-deprecated"></a>När kommer ACS inaktuell?
 
-ACS att bli inaktuell vid ungefär samma tidpunkt som AKS blir GA. Har du 12 månader efter det att migrera kluster till AKS. Du kan köra alla ACS-åtgärder under 12 månader.
+ACS att bli inaktuell vid ungefär samma tidpunkt AKS som blir GA. Har du 12 månader efter det att migrera kluster till AKS. Du kan köra alla ACS-åtgärder under 12 månader.
 
 ## <a name="does-aks-support-node-autoscaling"></a>Stöder AKS nod autoskalning?
 
@@ -76,6 +76,10 @@ Om du vill köra Windows Server-behållare som du behöver köra Windows Server-
 Varje AKS distribution omfattar två resursgrupper. Först skapas av dig och innehåller AKS resursen. Resursprovidern AKS skapar automatiskt det andra under distributionen med namnet *MC_myResourceGroup_myAKSCluster_eastus*. Andra resursgruppen som innehåller alla infrastrukturresurser som är associerade med klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resursen.
 
 Om du skapar resurser som ska användas med AKS klustret, till exempel storage-konton eller reserverade offentliga IP-adressen bör du placera dem i den automatiskt genererade resursgruppen.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder AKS ett servicenivåavtal?
+
+I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för kostnaden för tjänsten inte ska publicerade servicenivån uppfyllas. Eftersom AKS själva är ledigt, är det utan kostnad som är tillgängliga att ersätta och därför inga formella SLA. Men försöka vi Underhåll tillgängligheten för minst 99,5% för Kubernetes API-servern.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839434"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301379"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 
@@ -169,8 +169,6 @@ Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp (NSG):
 - En DMZ nätverkssäkerhetsgrupp för brandväggen och programmet Gateway Brandvägg
 - En NSG för hantering av jumpbox (skyddsmiljö host)
 - En NSG för apptjänst-miljön
-
-Var och en av de NSG: er har specifika portar och protokoll öppnas för säker och rätt drift av lösningen. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](#network-security-groups).
 
 Var och en av de NSG: er har specifika portar och protokoll öppnas för en säker och korrekt fungerande lösningen. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
 - Aktiverad [diagnostikloggar och händelser](/azure/virtual-network/virtual-network-nsg-manage-log) lagras i storage-konto 

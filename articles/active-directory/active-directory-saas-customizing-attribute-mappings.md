@@ -1,11 +1,11 @@
 ---
 title: Anpassa Azure AD-attributmappning | Microsoft Docs
-description: "Lär dig vilka attributmappning för SaaS-appar i Azure Active Directory är hur du kan ändra dem för att adressera dina affärsbehov."
+description: Lär dig vilka attributmappning för SaaS-appar i Azure Active Directory är hur du kan ändra dem för att adressera dina affärsbehov.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295633"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappning för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för en tredje parts SaaS-program aktiverat kontrollerar Azure-portalen dess attributvärden i form av en konfiguration som kallas ”attributmappning”.
@@ -83,7 +84,7 @@ Gruppen etablering kan eventuellt aktiveras eller inaktiveras genom att välja G
 De attribut som etablerats som en del av gruppobjekt kan anpassas på samma sätt som användarobjekt som beskrivs ovan. 
 
 >[!TIP]
->Etablering av gruppobjekt (egenskaper och medlemmar) är ett begrepp som är skilda från [tilldela grupper](active-directory-coreapps-assign-user-azure-portal.md) till ett program. Det är möjligt att tilldela en grupp till ett program, men endast etablera användarobjekt som ingår i gruppen. Etablering av fullständig gruppobjekt krävs inte för att använda grupper i tilldelningar.
+>Etablering av gruppobjekt (egenskaper och medlemmar) är ett begrepp som är skilda från [tilldela grupper](manage-apps/assign-user-or-group-access-portal.md) till ett program. Det är möjligt att tilldela en grupp till ett program, men endast etablera användarobjekt som ingår i gruppen. Etablering av fullständig gruppobjekt krävs inte för att använda grupper i tilldelningar.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Redigera lista över attribut som stöds
@@ -149,7 +150,7 @@ Det här alternativet tvingas effektivt omsynkronisering av alla användare när
 * [Automatisera användaren etablering/avetablering för SaaS-appar](active-directory-saas-app-provisioning.md)
 * [Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
+* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->

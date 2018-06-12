@@ -1,8 +1,8 @@
 ---
-title: "Tillhandahåll appar med Omfångsfilter | Microsoft Docs"
-description: "Lär dig hur du använder målgrupp filter för att förhindra att objekt i appar som stöder automatisk användaretablering från tillhandahålls om ett objekt inte uppfyller dina affärsbehov."
+title: Tillhandahåll appar med Omfångsfilter | Microsoft Docs
+description: Lär dig hur du använder målgrupp filter för att förhindra att objekt i appar som stöder automatisk användaretablering från tillhandahålls om ett objekt inte uppfyller dina affärsbehov.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293083"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserad programmet etablering med Omfångsfilter
 Syftet med den här artikeln är som förklarar hur du använder målgrupp filter för att definiera attributbaserade regler som bestämmer vilka användare som har etablerats till ett program.
@@ -29,7 +30,7 @@ En målgrupp filtret kan Azure Active Directory (AD Azure) etableras inkludera e
 
 Omfångsfilter kan användas på olika sätt beroende på vilken typ av etablering connector:
 
-* **Utgående etablering från Azure AD till SaaS-program**. När Azure AD är källsystemet, [användar- och tilldelningar](active-directory-coreapps-assign-user-azure-portal.md) är den vanligaste metoden för att avgöra vilka användare som ingår i omfattningen för etablering. Tilldelningarna också används för att aktivera enkel inloggning och ger en enkel metod för att hantera åtkomst och etablering. Omfångsfilter kan användas (valfritt) utöver tilldelningar eller i stället för dem för att filtrera användare baserat på attributvärden.
+* **Utgående etablering från Azure AD till SaaS-program**. När Azure AD är källsystemet, [användar- och tilldelningar](manage-apps/assign-user-or-group-access-portal.md) är den vanligaste metoden för att avgöra vilka användare som ingår i omfattningen för etablering. Tilldelningarna också används för att aktivera enkel inloggning och ger en enkel metod för att hantera åtkomst och etablering. Omfångsfilter kan användas (valfritt) utöver tilldelningar eller i stället för dem för att filtrera användare baserat på attributvärden.
 
     >[!TIP]
     > Du kan inaktivera etablering baserat på tilldelningar för ett företagsprogram genom att ändra inställningarna i den [omfång](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menyn under etablering inställningarna **synkroniseras alla användare och grupper**. Med det här alternativet plus attributbaserad målgrupp filter ger snabbare prestanda än att använda gruppbaserade tilldelningar.  
@@ -113,8 +114,8 @@ Målgrupp filter konfigureras som en del av attributmappning för varje Azure AD
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program](active-directory-saas-app-provisioning.md)
 * [Anpassa attributmappning för användaretablering](active-directory-saas-customizing-attribute-mappings.md)
-* [Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Skriva uttryck för attributmappningar](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Kontot etablering meddelanden](active-directory-saas-account-provisioning-notifications.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
+* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md)
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 5/9/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: c6fdd51bd522b08b33e6cac852ef313475682550
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723151"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323790"
 ---
 # <a name="write-accelerator"></a>Skriva Accelerator
 Skriva Accelerator är en funktion för disken för M-serien virtuella maskiner (VMs på Premium-lagring med Azure hanterade diskar) exklusivt. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-fördröjningen för skrivningar mot Azure Premium-lagring. Skriva Accelerator är idealisk där logguppdateringar krävs för att spara till disk på en hög performant sätt för moderna databaser.
@@ -49,17 +49,13 @@ Det finns begränsningar för Azure Premium Storage virtuella hårddiskar per vi
 
 | VM-SKU | Antal skriva Accelerator diskar | Skriva Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
-| M32ms | 4 | 2000 | 
-| M32s | 4 | 2000 | 
-| M16ms | 2 | 1000 | 
-| M16s | 2 | 1000 | 
-| M8ms | 1 | 500 | 
-| M8s | 1 | 500 | 
+| M128ms 128s | 16 | 8000 |
+| M64ms M64ls, M64s | 8 | 4000 |
+| M32ms M32ls M32ts, M32s | 4 | 2000 | 
+| M16ms M16s | 2 | 1000 | 
+| M8ms M8s | 1 | 500 | 
 
+IOPS-gränser är per virtuell dator och *inte* per disk. Alla diskar för skriva Accelerator dela samma IOPS-gräns per virtuell dator.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivera skriva Accelerator på en specifik disk
 De följande avsnitten beskrivs hur du kan aktivera skriva Accelerator på Azure Premium Storage virtuella hårddiskar.
 

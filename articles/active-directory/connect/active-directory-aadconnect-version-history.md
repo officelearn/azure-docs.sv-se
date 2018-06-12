@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2eb59024e0e1ef773901b3f91ae7221c95d4414
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802008"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261788"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
 
 
-Den här artikeln är utformad för att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
+Den här artikeln är utformat för att hålla reda på de versioner som har släppts och förstå vilka ändringar som finns i den senaste versionen.
 
 Den här tabellen är en lista över närliggande ämnen:
 

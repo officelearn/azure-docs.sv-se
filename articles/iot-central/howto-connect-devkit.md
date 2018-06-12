@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628801"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261584"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en MXChip IoT DevKit enhet till din Azure IoT centralt program
 
@@ -28,7 +28,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 Ett program som skapas från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper:
 
-### <a name="telemetry-measurements"></a>Telemetri mått
+### <a name="measurements"></a>Mått
+
+#### <a name="telemetry"></a>Telemetri 
 
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ Ett program som skapas från den **exempel Devkits** programmall innehåller en 
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### <a name="states"></a>Tillstånd 
+
+| Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
+
+#### <a name="events"></a>Händelser 
+
+| Namn             | Visningsnamn      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Knappen B aktiverad  | 
+
+
 
 ### <a name="settings"></a>Inställningar
 
@@ -68,17 +84,6 @@ Visa/Dölj inställningar
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |
 
-### <a name="states"></a>tillstånd 
-
-| Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
-
-### <a name="events"></a>Händelser 
-
-| Namn             | Visningsnamn      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Knappen B aktiverad  | 
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 

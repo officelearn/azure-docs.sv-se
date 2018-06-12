@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 22b233e23c5c4609990bb6ba6148fe24d3d82c4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641357"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300665"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över säkerheten i Azure identity management
 Microsoft identitets- och lösningar hjälp IT skydda åtkomst till program och resurser i företagets datacenter och i molnet. Dessa skydd gör nivåer av verifiering, till exempel Multifaktorautentisering och principer för villkorlig åtkomst. Misstänkt aktivitet med avancerad säkerhet reporting, granskning och aviseringar hjälper dig att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) ger enkel inloggning (SSO) till tusentals moln programvara som en tjänst (SaaS)-appar och åtkomst till webbprogram som du kör lokalt.
@@ -58,7 +58,7 @@ Läs mer:
 
 * [Översikt över enkel inloggning](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrera Azure Active Directory enkel inloggning med SaaS-appar](../active-directory/active-directory-enterprise-apps-manage-sso.md)
+* [Integrera Azure Active Directory enkel inloggning med SaaS-appar](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Omvänd proxy
 Azure AD Application Proxy kan du publicera lokala program som [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) platser [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), och [IIS](http://www.iis.net/)-baserade appar i ditt privata nätverk och ger säker åtkomst till användare utanför nätverket. Application Proxy ger fjärråtkomst och enkel inloggning för många typer av lokala webbprogram med tusentals SaaS-program som har stöd för Azure AD. Anställda kan logga in till appar från hem på sina egna enheter och autentisera via denna molnbaserade proxy.

@@ -1,8 +1,8 @@
 ---
 title: Datalagring och lagring i Azure Application Insights | Microsoft Docs
-description: "Kvarhållning och sekretess Principframställning"
+description: Kvarhållning och sekretess Principframställning
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294074"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -158,13 +159,13 @@ SDK: erna variera mellan plattformar och det finns flera komponenter som du kan 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Typer av data som skickas i olika scenarier
 | Åtgärden | Dataklasser som samlas in (se nästa tabell) |
 | --- | --- |
-| [Lägg till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknarna<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
-| [Installera statusövervakaren på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknarna |
+| [Lägg till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
+| [Installera statusövervakaren på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknare |
 | [Lägg till Application Insights SDK för Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
-| [Lägg till JavaScript SDK på webbsidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>Ajax |
+| [Lägg till JavaScript SDK på webbsidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>AJAX |
 | [Definiera standardegenskaper][apiproperties] |**Egenskaper för** för alla händelser som standard och anpassade |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
-| [Anropa spåra *][api] |händelsenamnet<br/>**Egenskaper** |
+| [Anropa spåra *][api] |Händelsenamn<br/>**Egenskaper** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaper** |
 | SDK kan samla in data. Exempel: <br/> -Det går inte att komma åt prestandaräknarna<br/> -undantag i telemetri initieraren |SDK-diagnostik |
 
@@ -183,20 +184,20 @@ För [SDK: er för andra plattformar][platforms], se dokumenten.
 | Händelser |Händelsenamn och värde |
 | PageViews |Sidan och URL eller inloggningsnamn |
 | Klienten perf |URL-sida namn, inläsningstid för webbläsare |
-| Ajax |HTTP-anrop från webbsidan till servern |
+| AJAX |HTTP-anrop från webbsidan till servern |
 | Begäranden |URL: en varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutningssträngen eller URI, sync/asynkrona, varaktighet, lyckas, SQL-uttryck (med Status Monitor) |
 | **Undantag** |Typ, **meddelande**, anropa stackar, käll-fil- och tal, tråd-id |
-| Krascher |Process-id, överordnade process-id, tråd-id som kraschar. programkorrigering av-id, build;  Undantagstyp, adress, reason; dolda symboler och register, binära start- och adresser, binärt namn och sökväg, cpu-typ |
+| Kraschar |Process-id, överordnade process-id, tråd-id som kraschar. programkorrigering av-id, build;  Undantagstyp, adress, reason; dolda symboler och register, binära start- och adresser, binärt namn och sökväg, cpu-typ |
 | Spårning |**Meddelandet** och allvarlighetsgrad |
-| Prestandaräknarna |Processortid, minne, förfrågningar, undantag hastighet, process privata byte, i/o-hastighet, varaktighet för begäran Kölängd för begäran |
+| Prestandaräknare |Processortid, minne, förfrågningar, undantag hastighet, process privata byte, i/o-hastighet, varaktighet för begäran Kölängd för begäran |
 | Tillgänglighet |Web test svarskod, varaktighet för varje steg, namn på testet, timestamp, lyckade, svarstid, test-plats |
 | SDK-diagnostik |Spårningsmeddelande eller ett undantag |
 
 Du kan [inaktivera vissa data genom att redigera ApplicationInsights.config][config]
 
-## <a name="credits"></a>Krediter
-Den här produkten innehåller GeoLite2 data som skapats av MaxMind, från [http://www.maxmind.com](http://www.maxmind.com).
+## <a name="credits"></a>Eftertexter
+Den här produkten innehåller GeoLite2 data som skapats av MaxMind, från [ http://www.maxmind.com ](http://www.maxmind.com).
 
 
 

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84fa3c5bd57e1f9f5b3eddf872307829f6c9c509
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292974"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Asana för automatisk användaretablering
 
@@ -42,7 +43,7 @@ Azure AD använder ett begrepp som kallas ”tilldelningar” för att avgöra v
 
 Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vilka användare i Azure AD behöver åtkomst till appen Asana. Du kan sedan tilldela dessa användare i appen Asana genom att följa anvisningarna här:
 
-[Tilldela en användare till en enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Tilldela en användare till en enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Viktiga tips för att tilldela användare till Asana
 
@@ -99,6 +100,6 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapport om au
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användare konto-etablering för företag-appar](active-directory-enterprise-apps-manage-provisioning.md)
+* [Hantera användare konto-etablering för företag-appar](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](active-directory-saas-asana-tutorial.md)

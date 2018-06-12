@@ -1,24 +1,25 @@
 ---
-title: "Azure Privileged Identity Management godkännande arbetsflöden | Microsoft Docs"
-description: "Lär dig mer om godkännandearbetsflöden i Privileged Identity Management (PIM)"
+title: Azure Privileged Identity Management godkännande arbetsflöden | Microsoft Docs
+description: Lär dig mer om godkännandearbetsflöden i Privileged Identity Management (PIM)
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261023"
 ---
 # <a name="approvals"></a>Godkännanden
 
@@ -39,7 +40,7 @@ Privata förhandsgranskningen stöder följande scenarion:
 
 **Som en privilegierade rollen Administratör (PRA) kan du:**
 
--   [aktivera godkännande för specifika roller](#enable-approval-for-specific-roles)
+-   [Aktivera godkännande för specifika roller](#enable-approval-for-specific-roles)
 
 -   [Ange godkännare användare och/eller grupper för att godkänna begäranden](#specify-approver-users-and/or-groups-to-approve-requests)
 
@@ -49,17 +50,17 @@ Privata förhandsgranskningen stöder följande scenarion:
 
 -   [Visa väntande godkännanden (antal begäranden)](#view-pending-approvals-requests)
 
--   [godkänna eller Avvisa begäran för rollen höjning (enkel och/eller)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [Godkänna eller Avvisa begäran för rollen höjning (enkel och/eller)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
 -   [Ange en motivering till min godkännande/nekande](#provide-justification-for-my-approval/rejection) 
 
 **Som en behörig användare i rollen kan du:**
 
--   [begära aktivering av en roll som kräver godkännande](#request-activation-of-a-role-that-requires-approval)
+-   [Begära aktivering av en roll som kräver godkännande](#request-activation-of-a-role-that-requires-approval)
 
 -   [Visa status för din begäran om att aktivera](#view-the-status-of-your-request-to-activate)
 
--   [slutföra uppgiften i Azure AD om aktivering har godkänts](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [Slutföra uppgiften i Azure AD om aktivering har godkänts](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navigering
 

@@ -1,11 +1,11 @@
 ---
-title: "Hantera innehållstyper - Azure Logic Apps | Microsoft Docs"
-description: "Hur Azure Logikappar behandlar innehållstyper vid design och körning"
+title: Hantera innehållstyper - Azure Logic Apps | Microsoft Docs
+description: Hur Azure Logikappar behandlar innehållstyper vid design och körning
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 809cc8524bf0d9922aec1f88aa5bfe3b8f2f4d78
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297129"
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Hantera innehållstyper i logikappar
 
@@ -49,7 +50,7 @@ Inga ytterligare omvandling krävs. Om du arbetar med data som är JSON men inte
 
 Begäran-utlösare kan du ange en JSON-schema för nyttolasten du förväntar dig att få. Det här schemat kan designer generera token så att du kan använda innehållet i begäran. Om du inte har ett schema som är klar, Välj **Använd exemplet nyttolast för att skapa schema**, så du kan generera ett JSON-schema från en exempel-nyttolast.
 
-![Schemat](./media/logic-apps-http-endpoint/manualtrigger.png)
+![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
 
 ### <a name="parse-json-action"></a>'Parsa JSON-åtgärd
 
@@ -72,15 +73,15 @@ Om du i nästa åtgärd skicka begäran som en del av en annan begäran (`@body(
 
 Logic Apps motorn bevaras alltid den `Content-Type` som togs emot på HTTP-begäran eller svar. Om motorn tar emot innehåll med den `Content-Type` av `application/octet-stream`, och inkluderar att innehåll i en efterföljande åtgärd utan omvandling, utgående begäran har `Content-Type`: `application/octet-stream`. På så sätt kan kan motorn garantera att data inte förloras när genom arbetsflödet. Dock lagras åtgärdstillstånd (indata och utdata) i en JSON-objekt när tillståndet flyttas genom arbetsflödet. Så om du vill behålla vissa datatyper motorn konverterar innehållet till en binary base64-kodad sträng med tillämpliga metadata som bevarar både `$content` och `$content-type`, som automatiskt ska konverteras. 
 
-* `@json()`-kastar data till`application/json`
-* `@xml()`-kastar data till`application/xml`
-* `@binary()`-kastar data till`application/octet-stream`
-* `@string()`-kastar data till`text/plain`
-* `@base64()`-Konverterar innehållet till en base64-sträng
-* `@base64toString()`– konverterar en base64-kodad sträng`text/plain`
-* `@base64toBinary()`– konverterar en base64-kodad sträng`application/octet-stream`
-* `@encodeDataUri()`-kodar en sträng som en bitmatris dataUri
-* `@decodeDataUri()`-avkodar ett dataUri till en bytematris
+* `@json()` -kastar data till `application/json`
+* `@xml()` -kastar data till `application/xml`
+* `@binary()` -kastar data till `application/octet-stream`
+* `@string()` -kastar data till `text/plain`
+* `@base64()` -Konverterar innehållet till en base64-sträng
+* `@base64toString()` – konverterar en base64-kodad sträng `text/plain`
+* `@base64toBinary()` – konverterar en base64-kodad sträng `application/octet-stream`
+* `@encodeDataUri()` -kodar en sträng som en bitmatris dataUri
+* `@decodeDataUri()` -avkodar ett dataUri till en bytematris
 
 Till exempel om du har fått en HTTP-begäran med `Content-Type`: `application/xml`:
 

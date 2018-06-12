@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323807"
+---
 ## <a name="overview"></a>Översikt
 När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera en avbildning från [Azure Marketplace](https://azure.microsoft.com/marketplace/), OS-Standardenheten är ofta 127 GB (vissa bilder har mindre diskstorlekar för OS som standard). Även om det är möjligt att lägga till datadiskar i den virtuella datorn (hur många beror på vilken SKU som har valts) rekommenderas du att installera program och processorintensiva arbetsbelastningar på de här tilläggsdiskarna eftersom kunder ofta behöver expandera operativsystemenheten för att kunna hantera följande typ av scenarier:
 
@@ -13,7 +30,7 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 >
 
 ## <a name="resize-the-os-drive"></a>Ändra storlek på operativsystemenheten
-I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp av Resource Manager-moduler i [Azure Powershell](/powershell/azureps-cmdlets-docs). Ändra storlek på OS-enhet för både Unamanged och hanterade diskar eftersom metoden att ändra storlek på diskar som skiljer sig mellan både disktyper visas.
+I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp av Resource Manager-moduler i [Azure Powershell](/powershell/azureps-cmdlets-docs). Ändra storlek på OS-enhet för både ohanterade och hanterade diskar eftersom metoden att ändra storlek på diskar som skiljer sig mellan både disktyper visas.
 
 ### <a name="for-resizing-unmanaged-disks"></a>För att ändra storlek på ohanterade diskar:
 
@@ -106,7 +123,7 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
 ## <a name="summary"></a>Sammanfattning
 I den här artikeln har vi använt Azure Resource Manager-modulerna i Powershell för att öka storleken på operativsystemenheten för en virtuell IaaS-dator. Nedan är det fullständiga skriptet som referens för både ohanterade och hanterade diskar:
 
-Unamanged diskar:
+Ohanterad diskar:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +151,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Nästa steg
-Men i den här artikeln fokuserar huvudsakligen på expanderar Unamanged/hanterad OS-disken på den virtuella datorn, användas utvecklade skriptet också för att expandera datadiskar som är kopplade till den virtuella datorn. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet ```OSDisk``` i ```StorageProfile``` med matrisen ```DataDisks``` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
+## <a name="for-resizing-data-disks"></a>För att ändra storlek på Datadiskar
+Men i den här artikeln fokuserar huvudsakligen på expanderande ohanterade/hanterad OS-disken på den virtuella datorn, användas utvecklade skriptet också för att expandera datadiskar som är kopplade till den virtuella datorn. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet ```OSDisk``` i ```StorageProfile``` med matrisen ```DataDisks``` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
 
-Unamanged Disk:
+Ohanterad Disk:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +166,11 @@ $disk.DiskSizeGB = 1023
 
 På samma sätt kan du referera till andra datadiskar som är kopplade till den virtuella datorn antingen genom att använda ett index som ovan eller med diskens ```Name```-egenskap som på bilden nedan:
 
-Unamanged Disk:
+Ohanterad Disk:
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Hanterade Disk:
+Hanterade diskar:
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

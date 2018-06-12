@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714399"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261193"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -57,7 +57,8 @@ Den här artikeln används för att förbättra läsbarhet beskrivningar, följa
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- Registrering av Windows-klientversioner enheter **är** stöds i ofedererad miljöer genom sömlös enkel inloggning [Azure Active Directory sömlös enkel inloggning](https://aka.ms/hybrid/sso).
+- Registrering av Windows-klientversioner enheter **är** stöds i ofedererad miljöer genom sömlös enkel inloggning [Azure Active Directory sömlös enkel inloggning](https://aka.ms/hybrid/sso). 
+- Registrering av Windows-klientversioner enheter **är inte** stöds när du använder Azure AD direkt-autentisering.
 - Registrering av Windows-klientversioner enheter **är inte** stöds för enheter med hjälp av centrala profiler. Om du beroende av centrala profiler eller inställningar, använder du Windows 10.
 
 
@@ -81,8 +82,7 @@ Kontrollera att följande URL: er är tillgängliga från datorer i nätverket i
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com Tillåt
 - https://device.login.microsoftonline.com
 
 - Din organisations STS (externa domäner)
@@ -95,7 +95,7 @@ Om din organisation planerar att använda sömlös SSO, följande webbadresser m
 
 - https://aadg.windows.net.nsatc.net
 
-- Dessutom följande inställning måste vara aktiverat i användarens intranät: ”Tillåt uppdateringar av statusfältet via skript”.
+- Dessutom följande inställning måste vara aktiverat i användarens intranät: ”Tillåt status uppdateras via skript”.
 
 Om din organisation använder hanterade (ofedererad) installation med lokala AD och inte använder AD FS för att federera med Azure AD, och sedan ansluta till Azure AD-hybridlösning i Windows 10 som förlitar sig på datorobjekt i AD ska sync'ed till Azure AD. Kontrollera att alla organisationens enheter (OU) som innehåller de datorobjekt som måste vara en hybrid anslutna Azure AD har aktiverats för synkronisering i Azure AD Connect sync-konfiguration.
 

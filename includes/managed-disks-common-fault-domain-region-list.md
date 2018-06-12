@@ -10,7 +10,7 @@
 | Norra centrala USA    | 3                       |
 | Södra centrala USA    | 3                       |
 | Västra centrala USA     | 2                       |
-| Centrala Kanada      | 2                       |
+| Centrala Kanada      | 3                      |
 | Östra Kanada         | 2                       |
 |                     |                         |
 | Norra Europa        | 3                       |

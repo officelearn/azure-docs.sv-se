@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 09d7bfc8fc0fed5360936fbcb6a3accb791989f2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 46a636f32cb5bbfcadf9e6ca165c8dd4349d3083
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713719"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293151"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -164,7 +164,7 @@ En fullständig lista över redan integrerade program finns på [Active Director
 Mer information finns i:
 
 * [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
+* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
 **F: Hur loggar användarna in i program med Azure AD?**

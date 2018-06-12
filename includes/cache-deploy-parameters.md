@@ -53,5 +53,5 @@ Storleken på den nya Azure Redis-Cache-instansen.
     }
 
 
-Mallen definierar de värden som tillåts för den här parametern (0, 1, 2, 3, 4, 5 eller 6) och tilldelar ett standardvärde (1) om inget värde anges. Dessa siffror motsvarar följande cache-storlekar: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Mallen definierar de värden som tillåts för den här parametern (0, 1, 2, 3, 4, 5 eller 6) och tilldelar ett standardvärde (0) om inget värde anges. Dessa siffror motsvarar följande cache-storlekar: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

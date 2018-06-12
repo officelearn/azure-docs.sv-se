@@ -17,11 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261652"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Autentiseringsscenarier för Azure AD
 
@@ -137,7 +138,7 @@ Det här avsnittet beskrivs ett program som autentiserar användare i en webblä
 1. När en användare besöker programmet och behöver logga in, omdirigeras via en begäran till autentiseringsslutpunkten i Azure AD.
 1. Användaren loggar in på sidan logga in.
 1. Om autentiseringen lyckas skapar en autentiseringstoken Azure AD och returnerar ett svar till programmets Reply URL som har konfigurerats i Azure-portalen. För ett produktionsprogram vara svars-URL: en HTTPS. Returnerade token innehåller anspråk om användaren och Azure AD som krävs av programmet för att validera token.
-1. Programmet validerar token med hjälp av en offentlig signeringsnyckel och information om utfärdare tillgänglig federation metadata dokumentet för Azure AD. När programmet validerar token, startar en ny session med användaren i Azure AD. Den här sessionen kan användare komma åt programmet tills den förfaller.
+1. Programmet validerar token med hjälp av en offentlig signeringsnyckel och information om utfärdare tillgänglig federation metadata dokumentet för Azure AD. När programmet validerar token, startar en ny session med användaren. Den här sessionen kan användare komma åt programmet tills den förfaller.
 
 #### <a name="code-samples"></a>Kodexempel
 

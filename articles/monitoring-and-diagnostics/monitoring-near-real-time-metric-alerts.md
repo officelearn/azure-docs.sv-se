@@ -1,26 +1,19 @@
 ---
-title: Resurser som stöds för nyare Azure övervaka mått aviseringar | Microsoft Docs
+title: Stöds resurser för nyare Azure övervaka mått aviseringar
 description: Referens för support mått och loggfiler för nyare Azure nära realtid mått aviseringar.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809836"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264518"
 ---
 # <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Metoder som stöds mått och skapa nya mått aviseringar
 Azure övervakaren nu stöder en [nya mått aviseringstyp](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska mått aviseringar](insights-alerts-portal.md). Stöd för äldre aviseringar en [stora listan över mått](monitoring-supported-metrics.md). En (växande) delmängd av listan större stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 

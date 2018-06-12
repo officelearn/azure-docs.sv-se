@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807806"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293443"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar i mått diagram i Application Insights
 Anteckningar på [Metrics Explorer](app-insights-metrics-explorer.md) diagram visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon inverkan på programmets prestanda. De kan skapas automatiskt av den [Visual Studio Team Services bygg system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Du kan också skapa anteckningar om du vill flagga alla händelser som du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).

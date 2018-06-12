@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293168"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappning i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappning som du kan ange mappningen för en uttryck. Du måste skriva ett skript-liknande uttryck som gör att du kan omvandla användarnas data i format som är mer godkänd för SaaS-program för dessa.
@@ -175,7 +176,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |**Källan** värde att uppdatera. |
 | **Standardvärde** |Valfri |Sträng |Standardvärde som ska användas när datakällan inte matchar några nycklar. Kan vara en tom sträng (””). |
-| **Nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
+| **nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
 | **värde** |Krävs |Sträng |Ersättningsvärde för den **källa** matchade nyckel. |
 
 ## <a name="examples"></a>Exempel
@@ -256,7 +257,7 @@ Om tillståndet koden inte matchar någon av de fördefinierade alternativ, anv�
 * [Automatisera användaren etablering/avetablering för SaaS-appar](active-directory-saas-app-provisioning.md)
 * [Anpassa attributmappning för Användaretablering](active-directory-saas-customizing-attribute-mappings.md)
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
+* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Kontot etablering meddelanden](active-directory-saas-account-provisioning-notifications.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar](active-directory-saas-tutorial-list.md)
 

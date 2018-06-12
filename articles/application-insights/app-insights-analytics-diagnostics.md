@@ -1,22 +1,23 @@
 ---
-title: "Diagnostik för web app prestanda förändringar i Azure Application Insights för smartkort | Microsoft Docs"
-description: "Automatisk diagnos av toppar eller stegen i prestanda telemetri från ditt webbprogram."
+title: Diagnostik för web app prestanda förändringar i Azure Application Insights för smartkort | Microsoft Docs
+description: Automatisk diagnos av toppar eller stegen i prestanda telemetri från ditt webbprogram.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2017
 ms.author: mbullwin
-ms.openlocfilehash: e0c8d712f03da0c5e47ea422b051c0b8734c6b21
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 08b1da205797d663191dde45f8c091dba91fc573
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294375"
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnostisera plötsliga förändringar i din app telemetri
 

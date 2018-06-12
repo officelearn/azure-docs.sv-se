@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261159"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsökning av Enterprise tillstånd centrala inställningar i Azure Active Directory
 
@@ -79,7 +80,7 @@ Under vissa förhållanden Enterprise tillstånd centrala kan det hända att syn
 **Potentiella problem**: synkronisering kan misslyckas om administratören konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multifaktorautentisering och åtkomsttoken på enheten upphör att gälla. Se till att du logga in och logga ut med Microsoft Passport för arbetsplats PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
 
 ### <a name="event-viewer"></a>Loggboken
-För avancerad felsökning kan Loggboken användas för att söka efter specifika fel. Dessa beskrivs i tabellen nedan. Händelser kan hittas under Loggboken > program- och tjänstloggar > **Microsoft** > **Windows** > **SettingSync** och identity-relaterade problem med synkronisering av **Microsoft** > **Windows** > **Azure AD**.
+För avancerad felsökning kan Loggboken användas för att söka efter specifika fel. Dessa beskrivs i tabellen nedan. Händelser kan hittas under Loggboken > program- och tjänstloggar > **Microsoft** > **Windows** > **SettingSync** och för Identity-relaterade problem med synkronisering av **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Kända problem

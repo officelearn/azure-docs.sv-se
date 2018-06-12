@@ -2,7 +2,7 @@
 title: Ansluta till DB2 - Azure Logikappar | Microsoft Docs
 description: 'Hantera resurser med DB2 REST API: er och Azure Logic Apps'
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, estfan
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609757"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295099"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Kom igång med DB2-koppling
 Microsoft-anslutaren för DB2 ansluter Logic Apps till resurser som är lagrade i en IBM DB2-databas. Denna koppling inkluderar en Microsoft-klient för att kommunicera med fjärrdatorer för DB2-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Bluemix dashDB eller IBM DB2 för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-plattformar och versioner (i det här avsnittet).

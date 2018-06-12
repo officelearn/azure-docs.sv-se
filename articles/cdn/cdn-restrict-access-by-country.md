@@ -3,8 +3,8 @@ title: Begränsa Azure CDN innehåll efter land | Microsoft Docs
 description: Lär dig hur du begränsar åtkomsten till ditt Azure CDN-innehåll med hjälp av funktionen geo-filtrering.
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260760"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Begränsa Azure CDN innehåll efter land
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 När en användare begär innehåll, som standard, hanteras innehållet oavsett om användaren har gjort denna begäran från. I vissa fall kanske du vill begränsa åtkomsten till ditt innehåll efter land. Den här artikeln förklarar hur du använder den *geo-filtrering* funktionen för att konfigurera tjänsten om du vill tillåta eller blockera åtkomst efter land.
 
 > [!IMPORTANT]
-> Azure CDN-produkter alla ge samma funktioner för filtrering av geo men har en liten skillnad i te landskoder som de stöder. En länk till skillnaderna finns i steg3.
+> Azure CDN-produkter alla ge samma funktioner för filtrering av geo men har en liten skillnad i te landskoder som de stöder. Mer information finns i [Azure CDN landskoder](https://msdn.microsoft.com/library/mt761717.aspx).
 
 
 Information om saker som gäller för att konfigurera den här typen av begränsning finns [överväganden](cdn-restrict-access-by-country.md#considerations).  
@@ -69,10 +70,13 @@ Funktionen geo-filtrering använder landskoder för att definiera de länder dä
 
 ## <a name="considerations"></a>Överväganden
 * Ändringar i konfigurationen av filtrering land börjar inte gälla omedelbart:
-   * För **Azure CDN Standard från Microsoft** profiler, spridningen vanligtvis är klar på tio minuter. 
-   * För **Azure CDN Standard från Akamai** profiler, spridningen vanligtvis slutförs inom en minut. 
-   * För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter.  
+   * För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+   * För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
+   * För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis är klar på 10 minuter. 
+ 
 * Den här funktionen har inte stöd för jokertecken (till exempel ' *').
+
 * Geo-filtrering konfigurationen som är associerade med den relativa sökvägen ska tillämpas rekursivt till denna sökväg.
-* Endast en regel kan tillämpas på samma relativa sökväg (du kan skapa flera land filter som pekar på samma relativa sökväg. En mapp kan dock ha flera land filter. Detta beror på den rekursiva natur land filter. Med andra ord en undermapp till en tidigare konfigurerade mapp som kan tilldelas ett annat land filter.
+
+* Endast en regel kan tillämpas på samma relativa sökväg. Du kan inte att skapa flera land filter som pekar på samma relativa sökväg. En mapp kan dock ha flera land filter på grund av rekursiva hur land filter. Med andra ord en undermapp till en tidigare konfigurerade mapp som kan tilldelas ett annat land filter.
 

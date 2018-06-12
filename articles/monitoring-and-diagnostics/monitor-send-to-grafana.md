@@ -1,18 +1,20 @@
 ---
-title: Övervaka Azure-tjänster och program med hjälp av Grafana | Microsoft Docs
+title: Övervaka Azure-tjänster och -program med Grafana
 description: Väg Azure-Monitor och Application Insights data så att du kan visa dem i Grafana.
-services: monitoring-and-diagnostics
+services: azure-monitor
 keywords: ''
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: article
-ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 537760554baa542d4cd967d2e1e885f936303175
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.service: azure-monitor
+ms.component: ''
+ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263090"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka Azure-tjänster i Grafana
 Du kan nu också övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [plugin-program för Azure-Monitor datakälla](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in prestandadata för program som samlas in av Application Insights SDK samt infrastrukturdata som tillhandahålls av Azure-Monitor. Du kan sedan visa dessa data på instrumentpanelen Grafana.

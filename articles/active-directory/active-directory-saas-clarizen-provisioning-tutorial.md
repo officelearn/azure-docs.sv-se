@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: 779fa09781b5ea6e13450d609703bec0c08e38e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ee0d5248e3e53db8b7475dca1d51658ade25f81
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293270"
 ---
 # <a name="tutorial-configure-clarizen-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Clarizen för automatisk användaretablering
 
@@ -71,7 +72,7 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Clarizen. När du valt, kan du tilldela dessa användare och/eller grupper till Clarizen genom att följa anvisningarna här:
 
-*   [Tilldela en användare eller grupp till en enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Tilldela en användare eller grupp till en enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-clarizen"></a>Viktiga tips för att tilldela användare till Clarizen
 
@@ -161,7 +162,7 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användare konto-etablering för företag-appar](active-directory-enterprise-apps-manage-provisioning.md)
+* [Hantera användare konto-etablering för företag-appar](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1800db8cd25aa37bffb76adf00901e11c75d49fe
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604088"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294509"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Kontrollera dina mallar för Azure-stacken med verktyget mallen verifiering
 
@@ -32,8 +32,8 @@ Du kan använda verktyget mallen verifiering för att kontrollera om din Azure R
 
 För att validera en mall som du behöver skapa ett moln funktioner filen först och sedan köra verktyget verifiering. Du kan använda följande PowerShell-moduler från Azure Stack-verktyg:
 
-- I den **TemplateValidator** mapp:<br>         AzureRM.CloudCapabilities.psm1 skapar en molnet funktioner JSON-fil som representerar de tjänster och -versioner i ett moln med Azure-stacken.
-- I den **CloudCapabilities** mapp:<br>
+- I den **CloudCapabilities** mapp:<br>         AzureRM.CloudCapabilities.psm1 skapar en molnet funktioner JSON-fil som representerar de tjänster och -versioner i ett moln med Azure-stacken.
+- I den **TemplateValidator** mapp:<br>
 AzureRM.TemplateValidator.psm1 använder en molnet funktioner JSON-fil för att testa mallar för distribution i Azure-stacken.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Skapa filen molnet funktioner

@@ -1,24 +1,19 @@
 ---
-title: Skapa en logg med en Resource Manager-mall | Microsoft Docs
+title: Skapa en loggavisering med en Resource Manager-mall
 description: Lär dig mer om att skapa loggen med hjälp av en Azure Resource Manager-mall och API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 14a2560d91fd0f8dcc729b32c7155c4b74aa8aa1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263209"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Skapa en loggavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan hantera [Logga varningar](monitor-alerts-unified-log.md) programmässigt i skala, i Azure med hjälp av [Azure Resource Manager-mall](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) och [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). För närvarande Azure aviseringar stöder Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) och [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).

@@ -1,25 +1,19 @@
 ---
-title: Logga varningar i Azure-Monitor - aviseringar | Microsoft Docs
+title: Loggen aviseringar i Azure-Monitor
 description: 'Aktivera e-postmeddelanden, meddelanden, anropa webbplatser URL: er (webhooks) eller automation när de analytiska frågan du anger villkor för Azure-aviseringar.'
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638729"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264382"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Loggen aviseringar i Azure-Monitor - aviseringar 
 Den här artikeln innehåller information om loggen aviseringar är en av typerna av aviseringar som stöds i den nya [Azure aviseringar](monitoring-overview-unified-alerts.md) och användarna kan använda Azures analytics platform som bas för aviseringar... Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)

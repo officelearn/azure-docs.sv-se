@@ -4,7 +4,7 @@ description: Azure CDN har stöd för delad åtkomst signatur (SAS) att bevilja 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261176"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Med SAS Azure CDN
 
@@ -70,7 +71,7 @@ Det här alternativet är den enklaste och använder en enda SAS-token som skick
  
 Det här alternativet är bara tillgängligt för **Azure CDN Premium från Verizon** profiler. Med det här alternativet kan du skydda blobblagring på den ursprungliga servern. Du kanske vill använda det här alternativet om du inte behöver specifika åtkomstbegränsningar för filen, men vill hindra användare från att komma åt lagringsutrymme ursprung direkt för att förbättra Azure CDN avlastning gånger. SAS-token som är okända för användaren, krävs för alla filer i den angivna behållaren på den ursprungliga servern. På grund av URL-omskrivning om regeln krävs SAS-token men inte för CDN-slutpunkten.
  
-1. Använd den [regelmotor](cdn-rules-engine.md) att skapa en regel för URL-omskrivning om. Nya regler tar ungefär 90 minuter för att sprida.
+1. Använd den [regelmotor](cdn-rules-engine.md) att skapa en regel för URL-omskrivning om. Nya regler ta ungefär 10 minuter för att sprida.
 
    ![CDN hantera knappen](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Om du vill använda Azure CDN säkerhet token-autentisering måste du ha en **Az
        
    Parameteralternativ för säkerhet tokenautentisering skiljer sig från parameteralternativ för en SAS-token. Om du väljer att använda en förfallotid när du skapar en säkerhetstoken, anger du den till samma värde som förfallotiden för SAS-token. På så sätt att förfallotiden är förutsägbar. 
  
-2. Använd den [regelmotor](cdn-rules-engine.md) att skapa en URL-omskrivning om regel om du vill aktivera SAS-token åtkomst till alla blobbar i behållaren. Nya regler tar ungefär 90 minuter för att sprida.
+2. Använd den [regelmotor](cdn-rules-engine.md) att skapa en URL-omskrivning om regel om du vill aktivera SAS-token åtkomst till alla blobbar i behållaren. Nya regler ta ungefär 10 minuter för att sprida.
 
    Följande exempel URL-omskrivning om regel använder ett mönster för reguljärt uttryck med en sparandet grupp och en slutpunkt med namnet *storagedemo*:
    

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/31/2018
-ms.openlocfilehash: 18b0ee143443ecf128bdfe57adb61cc22f95db87
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ed94c3b750c927ec48959c12388bd22de3d3df4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832592"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261958"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Vad är då FPGA och projektet Brainwave?
 
@@ -62,7 +62,7 @@ Följande scenarier använder då FPGA i projektet Brainwave arkitektur:
 - Automatiserad optical kontrollsystem. Se [realtid AI: Microsoft tillkännager förhandsgranskning av projektet Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
 - Mark omfattar mappning. Se [hur du använder FPGAs för djup Learning härledning att utföra mark omfattar mappning på terabyte Flygfoto bilder](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
 
-## <a name="how-to-create-an-fpga-service"></a>Så här skapar du en då FPGA tjänst?
+## <a name="how-to-deploy-a-web-service-to-an-fpga"></a>Hur du distribuerar en webbtjänst till då en FPGA?
 
 Övergripande flödet för att skapa en avbildning recognition tjänst i Azure med hjälp av ResNet50 som en featurizer är följande:
 
@@ -70,7 +70,8 @@ Följande scenarier använder då FPGA i projektet Brainwave arkitektur:
 2. Registrera modellen med zip-filen i Blob storage Management API för Azure ML-modellen.
 3. Distribuera tjänsten med registrerade modellen med hjälp av Azure ML-modell Management API.
 
-En självstudiekurs finns [Azure ML maskinvara snabbare modeller Quickstart](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/resnet50/00_QuickStart.ipynb).
+Mer information om den här processen i artikeln [distribuera en modell som en webbtjänst på en då FPGA med Azure Machine Learning](how-to-deploy-fpga-web-service.md).
+
 
 ## <a name="start-using-fpga"></a>Börja använda då FPGA
 

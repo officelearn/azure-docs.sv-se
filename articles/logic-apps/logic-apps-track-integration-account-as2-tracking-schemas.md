@@ -2,7 +2,7 @@
 title: AS2 spårning scheman för övervakning av B2B - Azure Logic Apps | Microsoft Docs
 description: AS2 spårning scheman används för att övervaka B2B-meddelanden från transaktioner i ditt Azure-konto för integrering.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300889"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Starta eller aktivera spårning av AS2-meddelanden och MDNs till övervakaren lyckade, fel och meddelandeegenskaper
 Du kan använda dessa scheman för AS2-spårning i ditt konto i Azure-integrering för att övervaka business-to-business (B2B) transaktioner:
@@ -59,7 +60,7 @@ Du kan använda dessa scheman för AS2-spårning i ditt konto i Azure-integrerin
     }
 ````
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | Sträng | AS2 meddelandet partner avsändare. (Valfritt) |
 | receiverPartnerName | Sträng | Mottagaren AS2-meddelande Partnernamn. (Valfritt) |
@@ -111,7 +112,7 @@ Du kan använda dessa scheman för AS2-spårning i ditt konto i Azure-integrerin
     }
 ````
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
 | senderPartnerName | Sträng | AS2 meddelandet partner avsändare. (Valfritt) |
 | receiverPartnerName | Sträng | Mottagaren AS2-meddelande Partnernamn. (Valfritt) |

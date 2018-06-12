@@ -1,25 +1,19 @@
 ---
-title: Arkivera Azure diagnostikloggar | Microsoft Docs
+title: Arkivera Azure diagnostikloggar
 description: Lär dig mer om att arkivera dina Azure diagnostikloggar för långsiktig kvarhållning i ett lagringskonto.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: logs
+ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235982"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263498"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -153,7 +147,7 @@ Varje händelse lagras i filen PT1H.json i matrisen ”innehåller” följa det
 | --- | --- |
 | time |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
 | resourceId |Resurs-ID för resursen påverkas. |
-| operationName |Åtgärdens namn. |
+| operationName |Namnet på åtgärden. |
 | category |Loggen kategori för händelsen. |
 | properties |En uppsättning `<Key, Value>` par (d.v.s. ordlista) som beskriver information om händelsen. |
 

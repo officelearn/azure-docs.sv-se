@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d27e687acf62e4a1e96f1bb49607618dff45512b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628512"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261686"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enheten i Azure IoT centrala programmet
 
@@ -86,10 +86,40 @@ När du har skapat din enhetsuppsättning kan du konfigurera dess **instrumentpa
 
     > [!NOTE]
     > Du kan lägga till flera avbildningar, länkar och rutnät.
-
-1. Inaktivera **designläge**.
+  
+    1. Inaktivera **designläge**.
 
     ![Designläge ut](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konfigurera platskarta i enheten anger instrumentpanelen 
+Du kan lägga till en platskarta som visualiserar platsen för dina enheter anger i en karta. 
+
+För att lägga till en platskarta till enheten som anger instrumentpanelen måste du ha konfigurerade Platsegenskapen i mallen för enheten, se [skapa en plats-egenskap som tillhandahålls av Azure Maps](howto-set-up-template.md).
+
+
+1. På enheten anger instrumentpanelen, väljer du mappning från biblioteket. 
+
+    ![Enheten anger instrumentpanelen Maps](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Ge ett namn och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
+
+    ![Konfigurera instrumentpanelen Maps](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Spara och du ser kartan panelen Visa platsen för dina enheter i den enhetsuppsättning.
+
+    ![Spara instrumentpanelen Maps](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Nu när en operator visar enheten anger instrumentpanelen, hon kan se alla rutor har du konfigurerat inklusive plats karta som visualiserar enheter plats i korthet!
+
+    ![Maps-operatorn instrumentpanelsvy](media/howto-use-device-sets/LocationMaps4.png)
+
+    Du kommer att kunna ändra storlek på kartan för att den har önskad storleken.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet
 

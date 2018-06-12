@@ -3,7 +3,7 @@ title: Arbetsflödet Definition Language funktioner - Azure Logic Apps | Microso
 description: Lär dig mer om funktioner för att skapa logikappar med arbetsflödet Definition Language
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301396"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Arbetsflödet Definition Language funktioner referens för Azure Logic Apps
 
@@ -1450,7 +1451,7 @@ equals('<object1>', '<object2>')
 
 | Parameter | Krävs | Typ | Beskrivning | 
 | --------- | -------- | ---- | ----------- | 
-| <*Objekt1*>, <*object2*> | Ja | Olika | Värden, uttryck eller objekt som ska jämföras | 
+| <*Objekt1*>, <*object2*> | Ja | olika | Värden, uttryck eller objekt som ska jämföras | 
 ||||| 
 
 | Returvärde | Typ | Beskrivning | 
@@ -1509,7 +1510,7 @@ Och returnerar följande resultat:
 
 <a name="float"></a>
 
-## <a name="float"></a>flyttal
+## <a name="float"></a>flyt
 
 Konvertera en strängversion för ett flyttal till en faktisk flyttal. Du kan använda den här funktionen när du ange anpassade parametrar till en app, till exempel en logikapp.
 
@@ -1524,7 +1525,7 @@ float('<value>')
 
 | Returvärde | Typ | Beskrivning | 
 | ------------ | ---- | ----------- | 
-| <*flyttal*> | flyttal | Flyttal för den angivna strängen | 
+| <*flyttal*> | Flyttal | Flyttal för den angivna strängen | 
 |||| 
 
 *Exempel*
@@ -3109,7 +3110,7 @@ Och returnerar följande resultat:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>skalstreck
+## <a name="ticks"></a>tick
 
 Returnera den `ticks` egenskapsvärdet för en angiven tidsstämpel. En *skalstreck* är ett intervall om 100 nanosekunder.
 

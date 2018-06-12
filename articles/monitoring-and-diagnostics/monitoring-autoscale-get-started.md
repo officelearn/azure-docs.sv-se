@@ -1,24 +1,19 @@
 ---
-title: "Kom igång med Autoskala i Azure | Microsoft Docs"
-description: "Lär dig mer om att skala din resurs i Azure."
+title: Kom igång med Autoskala i Azure
+description: Lär dig att skala din resurs Web App är Cloud Service, virtuell dator eller virtuella datorn i Azure.
 author: rajram
-manager: rboucher
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263654"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med Autoskala i Azure
 Den här artikeln beskriver hur du ställer in Autoskala inställningarna för din resurs i Microsoft Azure-portalen.
@@ -93,7 +88,7 @@ Förutom att skala baserat på CPU, kan du ange nivå på olika sätt för speci
 ### <a name="view-the-scale-history-of-your-resource"></a>Visa historiken skala för din resurs
 När din resurs skalas upp eller ned loggas en händelse i aktivitetsloggen. Du kan visa historiken skala för din resurs för de senaste 24 timmarna genom att växla till den **kör historik** fliken.
 
-![Kör historik][11]
+![Körningshistorik][11]
 
 Om du vill visa historiken för fullständig skala (för upp till 90 dagar) Välj **Klicka här om du vill se mer information**. Aktivitetsloggen öppnas med Autoskala markerat för din resurs och kategori.
 

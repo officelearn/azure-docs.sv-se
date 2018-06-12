@@ -1,62 +1,64 @@
 ---
-title: Hur du utökar aviseringar från loggen Analytcs till Azure | Microsoft Docs
+title: Utöka aviseringar från loggen Analytcs till Azure
 description: Den här artikeln beskriver de verktyg och API som du kan utöka aviseringar från Log Analytics till Azure-aviseringar.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.openlocfilehash: 0dce6e6772b4efea90df2e095ac0041641d99061
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.component: alerts
+ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763535"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301039"
 ---
-# <a name="how-to-extend-alerts-from-log-analytics-into-azure-alerts"></a>Hur du utökar aviseringar från Log Analytics till Azure-aviseringar
-Aviseringar i logganalys ersätts med Azure aviseringar och som en del av denna övergång, aviseringar som du konfigurerade i logganalys utökas till Azure.  Om du inte vill vänta tills de automatiskt att flyttas till Azure kan du initiera processen efter något av alternativen:
+# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
+Funktionen aviseringar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerade i logganalys till Azure. Om du inte vill vänta tills de automatiskt att flyttas till Azure kan du starta processen:
 
-1. Manuellt från OMS-portalen 
-2. Programmässigt med AlertsVersion-API  
+- Manuellt från Operations Management Suite-portalen. 
+- Programmässigt med AlertsVersion API.  
 
 > [!NOTE]
-> Utöka Microsoft automatiskt aviseringar som skapats i Log Analytics till Azure-aviseringar startar på **14 maj 2018** stegvis tills slutförts. Microsoft kommer att börja planera migrera aviseringarna till Azure från den här dag framåt, och under den här övergången aviseringar kan hanteras från både OMS-portalen och Azure-portalen. Den här processen är icke-förstörande och inte interruptive.  
+> Microsoft utöka aviseringar som skapats i Log Analytics till Azure aviseringar automatiskt startar för den 14 maj 2018 i en serie med återkommande tills slutförts. Microsoft scheman migrera aviseringarna till Azure och under den här övergången kan aviseringar hanteras från både Operations Management Suite-portalen och Azure-portalen. Den här processen är inte destruktiva eller interruptive.  
 
-## <a name="option-1---initiate-from-the-oms-portal"></a>Alternativ 1 - initiera från OMS-portalen
-Följande steg beskriver hur du utökar aviseringar för arbetsytan från OMS-portalen.  
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Alternativ 1: Initiera från Operations Management Suite-portalen
+Följande steg beskriver hur du utökar aviseringar för arbetsytan från Operations Management Suite-portalen.  
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-2. Välj en arbetsyta i fönstret logganalys prenumerationer och välj sedan den **OMS-portalen** panelen.<br><br> ![Loggsökningsknapp](./media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
-3. När du omdirigeras till OMS-portalen klickar du på panelen inställningar på den översta högra sidan på sidan.<br><br> ![OMS-portalen inställningsalternativ](./media/monitor-alerts-extend/oms-portal-settings-option.png)<br><br> 
+1. Välj i Azure-portalen **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+2. Välj en arbetsyta i fönstret logganalys prenumerationer och välj sedan den **OMS-portalen** panelen.
+![Skärmbild av logganalys prenumeration rutan med OMS-portalen panelen markerat](./media/monitor-alerts-extend/azure-portal-01.png) 
+3. När du omdirigeras till Operations Management Suite-portal, väljer du den **inställningar** ikon.
+![Skärmbild av Operations Management Suite-portalen med inställningsikonen markerat](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
 4. Från den **inställningar** väljer **aviseringar**.  
-5. Klicka på knappen **utöka till Azure**.<br><br> ![OMS aviseringsinställningar Portalsida med utöka alternativet](./media/monitor-alerts-extend/ExtendInto.png)
-6. En guide visas i fönstret med först av tre steg som tillhandahåller en översikt över processen.  Klicka på **nästa** att fortsätta.<br><br> ![Utöka aviseringar från Log Analytics till Azure - steg 1](./media/monitor-alerts-extend/ExtendStep1.png)  
-7. I det andra steget presenteras en översikt över föreslagna ändringar med lämpliga [åtgärdsgrupper](monitoring-action-groups.md) för aviseringar. Om liknande åtgärder ses över mer än en avisering förslag tjänsten ska associeras med alla en enda åtgärdsgrupp.  Grupp föreslagna följer namnkonventionen: *WorkspaceName_AG_ #Number*. Fortsätt genom att klicka på **nästa**.<br><br> ![Utöka aviseringar från Log Analytics till Azure - steg 2](./media/monitor-alerts-extend/ExtendStep2.png)  
-8. I det sista steget i guiden klickar du på **Slutför** och bekräfta när du uppmanas att starta processen.  Du kan också kan du ange en e-postadresser så att du meddelas när processen är klar och alla aviseringar har flyttats till Azure-aviseringar.<br><br> ![Utöka aviseringar från Log Analytics till Azure - steg3](./media/monitor-alerts-extend/ExtendStep3.png)
+5. Välj **utökar till Azure**.
+![Skärmbild av Operations Management Suite aviseringsinställningar Portalsida med utöka till Azure markerat](./media/monitor-alerts-extend/ExtendInto.png)
+6. En tre steg-guide visas i den **aviseringar** fönstret. Läs översikten och välj **nästa**.
+![Skärmbild av steg 1 i guiden](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. I det andra steget du se en översikt över föreslagna ändringar med lämpliga [åtgärdsgrupper](monitoring-action-groups.md) för aviseringar. Om liknande åtgärder ses över mer än en avisering, föreslår guiden associera en enda åtgärdsgrupp med alla.  Namngivningskonventionen är följande: *WorkspaceName_AG_ #Number*. Om du vill fortsätta, Välj **nästa**.
+![Skärmbild av steg 2 i guiden](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. I det sista steget i guiden väljer du **Slutför**, och bekräfta när du uppmanas att starta processen. Du kan också kan du ange en e-postadress så att du meddelas när processen är klar och alla aviseringar har flyttats till Azure-aviseringar.
+![Skärmbild av steg 3 i guiden](./media/monitor-alerts-extend/ExtendStep3.png)
 
-När guiden har slutförts kan du se på den **aviseringsinställningar** sida alternativet att utöka aviseringar till Azure har tagits bort.  Aviseringarna flyttas till Azure i bakgrunden, och detta kan ta lite tid.  Under åtgärden, kommer du inte att kunna göra ändringar i aviseringar från OMS-portalen.  Aktuell status visas från banderoll överst i portalen och om du tidigare angav en e-postadress får du ett e-postmeddelande när processen har slutförts.  
+När guiden har slutförts på den **aviseringsinställningar** sida alternativet att utöka aviseringar till Azure har tagits bort. Aviseringarna flyttas till Azure i bakgrunden, och detta kan ta lite tid. Under åtgärden, kan du ändra aviseringar från Operations Management Suite-portalen. Du kan se aktuell status från banderoll överst i portalen. Om du tidigare angav en e-postadress, får du ett e-postmeddelande när processen har slutförts.  
 
 
-Notifieringar fortsätter att visas i OMS-portalen, även när de har flyttats till Azure.<br><br> ![När du har flyttat aviseringar i Log Analytics till Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Notifieringar fortsätter att visas i Operations Management Suite-portalen, även när de har flyttats till Azure.
+![Skärmbild av Operations Management Suite aviseringsinställningar Portalsida](./media/monitor-alerts-extend/PostExtendList.png)
 
 
-## <a name="option-2---using-the-alertsversion-api"></a>Alternativ 2 - med AlertsVersion API
-Du kan använda API: et för Log Analytics AlertsVersion utökar aviseringar från Log Analytics till Azure aviseringar från alla klienter som kan anropa REST-API. Du kan komma åt från PowerShell med [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är en av många alternativ för att få åtkomst till API: et.  Med API kommer skriver resultatet i JSON.  
+## <a name="option-2-use-the-alertsversion-api"></a>Alternativ 2: Använd AlertsVersion API
+Du kan använda API: et för Log Analytics AlertsVersion utökar aviseringar från Log Analytics till Azure aviseringar från alla klienter som kan anropa REST-API. Du kan komma åt API: et från PowerShell med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod. Du kan spara resultatet i JSON.  
 
-För att använda API: N måste skapa du först en GET-begäran som ska utvärdera och returnera en sammanfattning av de föreslagna ändringarna innan du försöker att utöka till Azure med hjälp av en POST-begäran. Resultatlistan aviseringarna och föreslagna lista över [åtgärdsgrupper](monitoring-action-groups.md) i JSON-format.  Om liknande åtgärder ses över mer än en avisering förslag tjänsten kopplar dem till en enda åtgärdsgrupp.  Åtgärdsgrupper föreslagna följer namnkonventionen: *WorkspaceName_AG_ #Number*.
+För att använda API: N måste skapa du först en GET-begäran. Detta utvärderar och returnerar en översikt över föreslagna ändringar innan du försöker att utöka till Azure med en POST-begäran. Resultatlistan aviseringar och en föreslagna lista över [åtgärdsgrupper](monitoring-action-groups.md), i JSON-format. Om liknande åtgärder ses över mer än en avisering, föreslår tjänsten att associera dem med en enda åtgärdsgrupp. Namngivningskonventionen är följande: *WorkspaceName_AG_ #Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Om begäran om att hämta lyckas, returneras en HTTP-statuskod 200 tillsammans med en lista över aviseringar och föreslagna åtgärdsgrupper i JSON-data. Följande är ett exempelsvar:
+Om begäran om att hämta lyckas HTTP-statuskoden 200 returneras, tillsammans med en lista över aviseringar och föreslagna åtgärdsgrupper i JSON-data. Följande är ett exempelsvar:
 
 ```json
 {
@@ -113,7 +115,7 @@ Om begäran om att hämta lyckas, returneras en HTTP-statuskod 200 tillsammans m
 }
 
 ```
-Om den angivna arbetsytan inte har några Varningsregler definierats tillsammans med HTTP 200 OK statusen returnerar koden för åtgärden hämta JSON-data:
+Om den angivna arbetsytan inte har några Varningsregler som definierats returnerar i JSON-data följande:
 
 ```json
 {
@@ -122,7 +124,7 @@ Om den angivna arbetsytan inte har några Varningsregler definierats tillsammans
 }
 ```
 
-Om alla Varningsregler i den angivna arbetsytan redan har utökats till Azure - är svar på GET-begäran:
+Om alla Varningsregler i den angivna arbetsytan har redan utökats till Azure, är svar på GET-begäran:
 
 ```json
 {
@@ -130,7 +132,7 @@ Om alla Varningsregler i den angivna arbetsytan redan har utökats till Azure - 
 }
 ```
 
-Initiera en POST-svar för att initiera migrera aviseringarna till Azure. POST-svar bekräftar din avsikt samt godkännande om du vill att aviseringar som utökas från logganalys till Auzre aviseringar.  Aktiviteten och aviseringarna bearbetas som anges baserat på resultatet när du har utfört GET-svar tidigare.  Du kan också kan du ange en lista över e-postadresser som e logganalys en rapport när schemalagda bakgrund migreringsprocessen av aviseringar har slutförts.  Detta utförs med hjälp av följande exempel för begäran:
+Initiera en POST-svar för att initiera migrera aviseringarna till Azure. POST-svar bekräftar din avsikt, samt godkännande, om du vill att aviseringar som utökas från Log Analytics till Azure-aviseringar. Aktiviteten och aviseringarna bearbetas så som visas, baserat på resultatet när du har utfört GET-svar tidigare. Du kan också kan du ange en lista över e-postadresser som logganalys skickar en rapport när schemalagda bakgrund migreringsprocessen av aviseringar har slutförts. Du kan använda följande exempel för begäran:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -138,7 +140,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Resultatet av migrera aviseringar i Azure aviseringar kan variera beroende på sammanfattningen som tillhandahålls av GET-svar.  När schemat, blir aviseringar i logganalys tillfälligt otillgänglig för redigering/ändring i OMS-portalen.  Dock kan du skapa nya aviseringar. 
+> Resultatet av migrera aviseringar i Azure aviseringar kan variera beroende på sammanfattningen som tillhandahålls av GET-svar. Schemalagd aviseringar i logganalys är tillfälligt otillgänglig för redigering i Operations Management Suite-portalen. Du kan dock skapa nya aviseringar. 
 
 Om det lyckas POST-begäran returnerar statusen HTTP 200 OK tillsammans med följande meddelande:
 
@@ -148,7 +150,7 @@ Om det lyckas POST-begäran returnerar statusen HTTP 200 OK tillsammans med föl
 }
 ```
 
-Svaret anger att aviseringar har har utökats till Azure-aviseringar. Versionsegenskapen är bara för att kontrollera om aviseringar har utökats till Azure och har ingen relation till den [Log Analytics Sök API](../log-analytics/log-analytics-api-alerts.md). När aviseringar har utökats till Azure har, postadresser alla-e-angivna med efter begäran skickas en rapport med information om ändringar som utförs.  Om alla aviseringar i arbetsytan angivna är redan schemalagts utökas, är svaret på POST-begäran en 403 status kod betydelse försöket är förbjuden. Om du vill visa felmeddelanden eller förstå om processen har fastnat kan du skicka en GET-begäran och ett felmeddelande om den finns, returneras tillsammans med en översikt över.
+Svaret anger att aviseringar har har utökats till Azure-aviseringar. Versionsegenskapen är bara för att kontrollera om aviseringar har utökats till Azure och har ingen relation till den [Log Analytics Sök API](../log-analytics/log-analytics-api-alerts.md). Någon e-postadresser angivna med efter begäran skickas en rapport när aviseringar har utökats till Azure har. Om alla aviseringar i den angivna arbetsytan är redan schemalagts utökas, är svaret på POST-begäran att försöket var förbjuden (en 403 statuskod). Om du vill visa felmeddelanden eller förstå om processen har fastnat, kan du skicka en GET-begäran. Om det finns ett felmeddelande, returneras den, tillsammans med en översikt över.
 
 ```json
 {
@@ -212,12 +214,12 @@ Svaret anger att aviseringar har har utökats till Azure-aviseringar. Versionseg
 ```
 
 
-## <a name="option-3---using-custom-powershell-script"></a>Alternativ 3 - med hjälp av anpassade PowerShell-skript
- När du har kanske 14, 2018 - om Microsoft inte har har utökats aviseringarna från OMS-portalen till Azure; sedan tills **5 juli 2018** -användare manuellt kan göra samma via [alternativ 1 - Via GUI](#option-1---initiate-from-the-oms-portal) eller [alternativ 2 - Via API](#option-2---using-the-alertsversion-api).
+## <a name="option-3-use-a-custom-powershell-script"></a>Alternativ 3: Använd ett anpassat PowerShell.skript
+ Om Microsoft inte har utökats aviseringar från Operations Management Suite-portalen till Azure, kan du göra det manuellt till 5 juli 2018. Föregående två avsnitt beskrivs de två alternativen för manuell utökning.
 
-Efter **5 juli 2018** -alla aviseringar från OMS-portalen utökas till Azure. Användare som inte har gjort det [nödvändiga steg förslag](#troubleshooting), notifieringar körs utan startar åtgärder eller meddelanden på grund av bristande kommer har associerat [åtgärdsgrupper](monitoring-action-groups.md). 
+Efter 5 juli 2018, har alla aviseringar från Operations Management Suite-portalen utökats till Azure. Användare som inte har gjort det [nödvändiga steg förslag](#troubleshooting) notifieringar körs utan startar åtgärder eller meddelanden på grund av bristande kommer har associerat [åtgärdsgrupper](monitoring-action-groups.md). 
 
-Att manuellt skapa [åtgärdsgrupper](monitoring-action-groups.md) för aviseringar i logganalys användare kan använda skriptet exemplet nedan.
+Att skapa [åtgärdsgrupper](monitoring-action-groups.md) för aviseringar manuellt i logganalys, Använd följande exempelskript:
 ```PowerShell
 ########## Input Parameters Begin ###########
 
@@ -345,7 +347,7 @@ try
         $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
 
     
-        # ARM call to create action group
+        # Azure Resource Manager call to create action group
         $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
 
         "Created Action Group with name $actionGroupName" 
@@ -435,42 +437,44 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 ```
 
 
-**Använda anpassade PowerShell-skript** 
-- Krav är installationen av [ARMclient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager
-- Användaren som kör dessa skript har medarbetare eller ägare roll i Azure-prenumeration
-- Följande är parametrar måste anges för skriptet:
-    - $subscriptionId: det Azure-prenumerations-ID som är kopplade till arbetsytan OMS/LA
-    - $resourceGroup: Azure-resursgrupp där ligger arbetsytan OMS/LA
-    - $workspaceName: namnet på arbetsytan OMS/LA
+### <a name="about-the-custom-powershell-script"></a>Om anpassade PowerShell-skript 
+Här följer viktig information om hur du använder skriptet:
+- En förutsättning är att installera [ARMclient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager.
+- Du måste ha en medarbetare eller ägare roll i Azure-prenumeration om du vill köra skriptet.
+- Du måste ange följande parametrar:
+    - $subscriptionId: det Azure-prenumerations-ID som är associerade med Operations Management Suite logganalys-arbetsytan.
+    - $resourceGroup: Azure-resursgrupp för Operations Management Suite logganalys-arbetsytan.
+    - $workspaceName: namnet på Operations Management Suite logganalys-arbetsytan.
 
-**Anpassade PowerShell-skriptets utdata** skriptet är utförlig och kommer att bli stegen som körs. 
-- Sammanfattningen, som innehåller information om befintliga OMS/LA aviseringar i arbetsytan och Azure åtgärdsgrupper skapas för de åtgärder som är kopplade till dem visas. 
-- Användaren uppmanas att gå vidare med tillägget eller avsluta efter att visa sammanfattningen.
-- Om användaren uppmanas för att gå vidare med tillägget, nya åtgärdsgrupper i Azure-kommer att skapas och alla befintliga aviseringar kommer att associeras med dem. 
-- I slutändan skriptet avslutas genom att visa meddelandet ”tillägget slutföra!”. Vid eventuella mellanliggande fel visas efterföljande fel.
+### <a name="output-of-the-custom-powershell-script"></a>Utdata från det anpassa PowerShell-skriptet
+Skriptet är utförlig och matar ut steg som körs: 
+- Den visar en sammanfattning som innehåller information om befintliga Operations Management Suite Log Analytics-aviseringar i arbetsytan. Sammanfattningen innehåller även information om Azure åtgärdsgrupper skapas för de åtgärder som är kopplade till. 
+- Du uppmanas att gå vidare med tillägget eller avsluta efter att visa sammanfattningen.
+- Om du går vidare med tillägget nya Azure åtgärdsgrupper skapas och alla befintliga aviseringar som är associerade med. 
+- Skriptet avslutas genom att visa meddelandet ”filnamnstillägget klar”! Vid eventuella mellanliggande fel visar följande fel i skriptet.
 
 ## <a name="troubleshooting"></a>Felsökning 
-Under processen med att utöka aviseringar från OMS i Azure, det kan vara tillfälliga problem som förhindrar att skapa nödvändiga [åtgärdsgrupper](monitoring-action-groups.md). I sådana fall visas ett felmeddelande i OMS-portalen via banderoll i aviseringen och GET-anrop som utfärdat till API: T.
+Under processen med att utöka aviseringar problem kan förhindra att systemet skapar nödvändiga [åtgärdsgrupper](monitoring-action-groups.md). I sådana fall måste du se ett felmeddelande visas i sidhuvudet i den **avisering** avsnittet Operations Management Suite-portalen eller i GET anropa klart-API: et.
 
-> [!WARNING]
-> Om användaren inte tar precribed reparation stegen nedan innan **5 juli 2018** - sedan aviseringar kommer att köras i Azure men utan startar alla åtgärder och meddelanden. Om du vill få meddelanden om aviseringar, måste användare manuellt redigera och lägga till [åtgärdsgrupper](monitoring-action-groups.md) eller använda den [anpassade PowerShell-skript](#option-3---using-custom-powershell-script) som anges ovan.
+> [!IMPORTANT]
+> Om du inte vidta följande steg innan den 5 juli 2018 kommer aviseringar att köras i Azure men kommer inte att utlösa en åtgärd eller ett meddelande. Om du vill få meddelanden om aviseringar kan du manuellt redigera och lägga till [åtgärdsgrupper](monitoring-action-groups.md), eller använda den föregående [anpassade PowerShell-skriptet](#option-3---using-custom-powershell-script).
 
-Nedan visas steg för varje fel:
-1. **Fel: Scope Lås finns på prenumerationen/resursgruppsnivå för skrivåtgärder**: ![OMS aviseringsinställningar Portalsida ScopeLock felmeddelande](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Här följer steg för varje fel:
+- **Fel: Scope Lås finns på prenumerationen/resursgruppsnivå för skrivåtgärder**: ![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan, Scope Lås felmeddelande markerat](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. När Scope låsa är aktiverat, att begränsa nya ändringar prenumeration eller resursgrupp som innehåller arbetsytan logganalys (OMS); systemet kan inte utöka (kopiera) aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
+    När Scope Lock är aktiverat, begränsar funktionen eventuella nya ändringar i prenumerationen eller resursen gruppen som innehåller arbetsytan logganalys (Operations Management Suite). Systemet kan inte utöka aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
     
-    b. Lös genom att ta bort den *ReadOnly* Lås för prenumerationen eller resursen gruppen som innehåller arbetsytan; med Azure-portalen, Powershell, Azure CLI eller API. Mer information läser du artikeln på [Lås Resursanvändning](../azure-resource-manager/resource-group-lock-resources.md). 
+    Lös genom att ta bort den *ReadOnly* Lås för prenumerationen eller resursen gruppen som innehåller arbetsytan. Du kan göra detta med hjälp av Azure portal, PowerShell, Azure CLI eller API: et. Läs mer i [Lås Resursanvändning](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. När löst enligt stegen som beskrivs i artikeln kommer OMS utökar aviseringarna till Azure i nästa dag schemalagda körning; utan att någon åtgärd eller initiering.
+    När du har löst felet med hjälp av stegen som beskrivs i artikeln utökar Operations Management Suite aviseringarna till Azure i nästa dag schemalagda körning. Du behöver inte göra något ytterligare eller starta något.
 
-2. **Fel: Principen finns på prenumerationen/resursgruppsnivå**: ![OMS aviseringsinställningar Portalsida med princip felmeddelande](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Fel: Principen finns på prenumerationen/resursgruppsnivå**: ![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan, med felmeddelande i princip markerat](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. När [Azure princip](../azure-policy/azure-policy-introduction.md) används, att begränsa en ny resurs i prenumeration eller resursgrupp som innehåller arbetsytan logganalys (OMS); systemet kan inte utöka (kopiera) aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
+    När [Azure princip](../azure-policy/azure-policy-introduction.md) är tillämpas, begränsar en ny resurs i en grupp för prenumerationen eller resursen som innehåller arbetsytan logganalys (Operations Management Suite). Systemet kan inte utöka aviseringar i Azure och skapa grupper för nödvändiga åtgärder.
     
-    b. Lös genom att redigera principen orsakar *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fel, vilket förhindrar att skapa nya resurser på din prenumerationen eller resursen grupp som innehåller arbetsytan. Med hjälp av Azure portal, Powershell, Azure CLI eller API; Du kan granska åtgärder för att hitta den lämpliga principen som orsakar felet. Mer information läser du artikeln på [visa aktivitetsloggar om du vill granska åtgärder](../azure-resource-manager/resource-group-audit.md). 
+    Lös genom att redigera principen som orsakar den *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fel, vilket förhindrar att skapa nya resurser på din prenumerationen eller resursen grupp som innehåller arbetsytan. Du kan göra detta med hjälp av Azure portal, PowerShell, Azure CLI eller API: et. Du kan granska åtgärder för att hitta den lämpliga principen som orsakar felet. Läs mer i [visa aktivitetsloggar om du vill granska åtgärder](../azure-resource-manager/resource-group-audit.md). 
     
-    c. När löst enligt stegen som beskrivs i artikeln kommer OMS utökar aviseringarna till Azure i nästa dag schemalagda körning; utan att någon åtgärd eller initiering.
+    När du har löst felet med hjälp av stegen som beskrivs i artikeln utökar Operations Management Suite aviseringarna till Azure i nästa dag schemalagda körning. Du behöver inte göra något ytterligare eller starta något.
 
 
 ## <a name="next-steps"></a>Nästa steg

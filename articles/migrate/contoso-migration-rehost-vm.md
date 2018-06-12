@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 11b5e2a408d3ba514753f3510b36fce02470c6e9
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 13b36398afdf8eb4db3adeee4ebb821411d813f5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825265"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300794"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Rehost en lokal app på virtuella Azure-datorer
 
@@ -26,13 +26,14 @@ Det här dokumentet är i en serie artiklar som visar hur det fiktiva företaget
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-Artikel 1: översikt | En översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
-Artikel 2: Distribuera en Azure-infrastruktur | Beskriver hur Contoso förbereder dess lokalt och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla Contoso-Migreringsscenarier. | Tillgängligt
-Artikel 3: Utvärdera lokala resurser  | Visar hur Contoso körs en bedömning av sina lokala två nivåer SmartHotel app som körs på VMware. De utvärdera app virtuella datorer med den [Azure migrera](migrate-overview.md) tjänsten och SQL Server-databasen app med den [Azure databasen Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
-Artikel 4: Flytta (lift och SKIFT) till virtuella Azure-datorer och en SQL hanteras-instans (den här artikeln) | Visar hur Contoso migrerar SmartHotel appen till Azure. Migrerar appen klientdel VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app databasen med hjälp av [Azure Databasmigrering](https://docs.microsoft.com/azure/dms/dms-overview) tjänsten för att migrera till en hanterad SQL-instans. | Tillgängligt
-Artikel 5: Flytta (lift och SKIFT) till virtuella Azure-datorer (den här artikeln) | Visar hur Contoso migrera SmartHotel appen VMs endast med Site Recovery.
-Artikel 6: Flytta (lift och SKIFT) till virtuella datorer i Azure och SQL Server-Tillgänglighetsgrupper | Visar hur Contoso migrerar SmartHotel appen. De kan använda Site Recovery för att migrera appen virtuella datorer och tjänsten Databasmigrering för att migrera app-databas till en SQL Server-tillgänglighetsgrupp. | Tillgängligt
-Artikel 7: Flytta (lift och SKIFT) till virtuella Azure-datorer och Azure MySQL-Server | Visar hur Contoso migrerar SmartHotel app virtuella datorer med hjälp av Site Recovery och MySQL-arbetsstationen för att migrera (säkerhetskopiering och återställning) till en Azure MySQL Server-instans. | Tillgängligt
+[Artikel 1: översikt](contoso-migration-overview.md) | En översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
+[Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder dess lokalt och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla Contoso-Migreringsscenarier. | Tillgängligt
+[Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av sina lokala två nivåer SmartHotel app som körs på VMware. De utvärdera app virtuella datorer med den [Azure migrera](migrate-overview.md) tjänsten och SQL Server-databasen app med den [Azure databasen Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
+[Artikel 4: Rehost virtuella Azure-datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso migrerar SmartHotel appen till Azure. Migrerar appen klientdel VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app databasen med hjälp av [Azure Databasmigrering](https://docs.microsoft.com/azure/dms/dms-overview) tjänsten för att migrera till en hanterad SQL-instans. | Tillgängligt
+Artikel 5: Rehost till virtuella Azure-datorer (den här artikeln) | Visar hur Contoso migrera SmartHotel appen VMs endast med Site Recovery.
+[Artikel 6: Rehost virtuella Azure-datorer och SQL Server-Tillgänglighetsgrupper](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. De kan använda Site Recovery för att migrera appen virtuella datorer och tjänsten Databasmigrering för att migrera app-databas till en SQL Server-tillgänglighetsgrupp. | Tillgängligt
+[Artikel 7: Rehost en Linux-app på virtuella Azure-datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso migrerar Linux osTicket app till Azure virtuella datorer med Site Recovery. | Tillgängligt
+[Artikel 8: Rehost en app för Linux virtuella Azure-datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket app till Azure virtuella datorer med Site Recovery och migrerar app-databas till en Azure MySQL Server-instans med MySQL-arbetsstationen. | Tillgängligt
 
 I den här artikeln kommer Contoso att migrera Windows två nivåer. NET SmartHotel app som körs på virtuella VMware-datorer, till Azure. Om du vill använda den här appen, den är öppen källkod och du kan ladda ned det från [github](https://github.com/Microsoft/SmartHotel360).
 
@@ -40,7 +41,7 @@ I den här artikeln kommer Contoso att migrera Windows två nivåer. NET SmartHo
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer
 
-IT-ledning har arbetat tillsammans med deras affärspartner att förstå vad de vill nå med migreringen:
+IT-ledning har arbetat tillsammans med affärspartners att förstå vad de vill nå med migreringen:
 
 - **Åtgärda tillväxt**: Contoso växer och det finns därför trycket på sina lokala datorer och infrastruktur.
 - **Begränsa risken**: det SmartHotel appen är viktiga för företaget Contoso. De vill flytta den till Azure med noll risk.
@@ -224,7 +225,7 @@ Om du vill fortsätta, de bekräftar att de har slutfört planera distribution g
 
 ### <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Contoso måste konfigurera sina källmiljön. Om du vill göra detta måste de hämtar ett OVF-mall och distribuera Site Recovery konfigurationsservern med hög tillgänglighet, lokal VMware VM. När konfigurationsservern är igång kan registrera den i den här valvet.
+Contoso måste konfigurera sina källmiljön. Om du vill göra detta måste de hämtar ett OVF-mall och distribuera Site Recovery konfigurationsservern med hög tillgänglighet, lokal VMware VM. När konfigurationsservern är igång kan registrera den i valvet.
 
 Konfigurationsservern körs ett antal komponenter:
 

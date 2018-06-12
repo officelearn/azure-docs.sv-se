@@ -5,22 +5,22 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d3e0f2680cbe703edc553ddff310fba2d1ddf77f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323824"
 ---
 Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som är bra för relationsdatabas servrar, medelstora till stora cacheminnen och analyser i minnet. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
 * M-serien ger högsta vCPU antal (upp till 128 vCPUs) och största minne (upp till 3,8 TiB) för en virtuell dator i molnet.  Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
 
-* Dv2-serien, D-serien, G-serien och DS/GS-motsvarigheterna är idealiska för program som kräver snabbare virtuella processorer, bättre prestanda för temporär lagring eller som har högre minneskrav.  De utgör en kraftfull kombination för många program i företagsklass.
+* Dv2-serien, G-serien och DSv2/GS-motsvarigheter lämpar sig för program som kräver snabbare vCPUs, bättre prestanda för tillfällig lagring, eller ha högre krav på minne.  De utgör en kraftfull kombination för många program i företagsklass.
 
-* Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till virtuell processor”-förhållande och en Solid State-hårddisk (SSD) för temporär lagring. Mer information finns i inlägget om [nya storlekar för virtuella datorer i D-serien](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) i Azure-bloggen.
 
 * Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationen 2,4 GHz Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) eller E5 2673 v4 2,3 GHz (Broadwell) processorer, och med Intel Turbo förstärkningen teknik 2.0 kan gå upp till 3.1 GHz. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
@@ -86,7 +86,7 @@ ACU: 160-180 <sup>1</sup>
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80 000/800 (6 348)       | 40,000 / 1,000                            | 8/16 000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80 000/800 (6 348)       | 40,000 / 1,000                            | 8/16 000          |
 | Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4096           | 64             | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3800        | 4096           | 64             | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30000          |
 
 <sup>1</sup> M-serien VM funktionen Intel® flertrådsteknik
 
@@ -176,31 +176,5 @@ ACU: 210–250
 
 <br>
 
-## <a name="ds-series"></a>DS-serien 
 
-ACU: 160 <sup>1</sup>
-
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2/1 000 |
-| Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4/2 000 |
-| Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8/4 000 |
-| Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
-
-<sup>1</sup> maximal disk-genomströmning (IOPS eller Mbit/s) möjligt med DS-serien VM kan begränsas av hur många storlek och striping av de anslutna diskarna.  Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md).
-
-
-
-## <a name="d-series"></a>D-serien
-
-ACU: 160
-
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
-| Standard_D12 | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
-| Standard_D13 | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
-| Standard_D14 | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
-
-<br>
 

@@ -1,24 +1,20 @@
 ---
-title: Azure Diagnostics 1.0 Konfigurationsschemat | Microsoft Docs
-description: "Detta gäller endast om du använder Azure SDK 2.4 och under med Azure virtuella datorer, virtuella datorer, Service Fabric eller molntjänster."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Azure Diagnostics 1.0 Konfigurationsschemat
+description: Detta gäller endast om du använder Azure SDK 2.4 och under med Azure virtuella datorer, virtuella datorer, Service Fabric eller molntjänster.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: diagnostic-extension
+ms.openlocfilehash: 916e2123262402e23f35778e66683ecce2cec4b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262593"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure Diagnostics 1.0 Konfigurationsschemat
 > [!NOTE]
@@ -107,7 +103,7 @@ Attribut:
 
 |Attribut  |Typ   |Krävs| Standard | Beskrivning|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|Varaktighet|Valfri | PT1M| Anger intervallet i diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
+|**configurationChangePollInterval**|varaktighet|Valfri | PT1M| Anger intervallet i diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
 |**overallQuotaInMB**|unsignedInt|Valfri| 4000 MB. Om du anger ett värde får inte överskrida den här mängden |Den totala mängden filen systemlagringsutrymme som allokerats för alla loggning buffertar.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs Element  
@@ -120,8 +116,8 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|Sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
+|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="logs-element"></a>Loggar Element  
  Definierar konfigurationen buffert för grundläggande Azure loggar.
@@ -133,8 +129,8 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|Sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
+|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="directories-element"></a>Kataloger Element  
 Definierar konfigurationen för filbaserade loggar som du kan definiera buffert.
@@ -147,7 +143,7 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
  Definierar krascher Dumpar katalogen.
@@ -158,7 +154,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**behållaren**|Sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
+|**Behållaren**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs Element  
@@ -170,7 +166,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**behållaren**|Sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
+|**Behållaren**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
 
 ##  <a name="iislogs-element"></a>IISLogs Element  
@@ -182,7 +178,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**behållaren**|Sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
+|**Behållaren**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
 
 ## <a name="datasources-element"></a>Datakällor Element  
@@ -199,7 +195,7 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**behållaren**|Sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
+|**Behållaren**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
 
 ## <a name="absolute-element"></a>Absolut Element  
@@ -211,8 +207,8 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**sökväg**|Sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
-|**expandEnvironment**|Booleskt värde|Krävs. Om värdet **SANT**, miljövariabler i sökvägen expanderas.|  
+|**Sökväg**|sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
+|**expandEnvironment**|boolesk|Krävs. Om värdet **SANT**, miljövariabler i sökvägen expanderas.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
  Definierar en sökväg i förhållande till en lokal resurs som definierats i tjänstdefinitionen.
@@ -223,8 +219,8 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|Sträng|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
-|**relativePath**|Sträng|Krävs. Sökväg i förhållande till den lokala resursen du övervakar.|  
+|**Namn**|sträng|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
+|**RelativePath**|sträng|Krävs. Sökväg i förhållande till den lokala resursen du övervakar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elementet  
  Definierar sökvägen till prestandaräknaren för att samla in.
@@ -237,7 +233,7 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
  Definierar prestandaräknaren för att samla in.
@@ -248,8 +244,8 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|Sträng|Krävs. Sökvägen till prestandaräknaren för att samla in.|  
-|**sampleRate**|Varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
+|**counterSpecifier**|sträng|Krävs. Sökvägen till prestandaräknaren för att samla in.|  
+|**sampleRate**|varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Definierar händelseloggar för att övervaka.
@@ -261,8 +257,8 @@ Attribut:
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger maximal mängd fillagring för system som är tillgängliga för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|Sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
-|**scheduledTransferPeriod**|Varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
+|**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda dataöverföringar, avrundat till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 
 ## <a name="datasource-element"></a>DataSource-Element  
  Definierar händelseloggen för att övervaka.
@@ -273,4 +269,4 @@ Attribut:
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|Sträng|Krävs. Ett XPath-uttryck som anger att loggen ska samlas in.|  
+|**Namn**|sträng|Krävs. Ett XPath-uttryck som anger att loggen ska samlas in.|  

@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
-ms.date: 06/18/2017
-ms.openlocfilehash: 4df5d4294708f2b475adf3fff87b122f261f8fc8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/08/2018
+ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623136"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261468"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics använder Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,9 +34,9 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 Installera följande moduler:
 
 * Den **azure-mgmt-resurs** modulen innehåller andra Azure-moduler för Active Directory, osv.
-* Den **azure-mgmt-datalake-store** modulen innehåller hanteringsåtgärder för Azure Data Lake Store-konto.
 * Den **azure datalake store** modulen innehåller filsystemsåtgärder Azure Data Lake Store. 
-* Den **azure datalake analytics** modulen innehåller Azure Data Lake Analytics-åtgärder. 
+* Den **azure-mgmt-datalake-store** modulen innehåller hanteringsåtgärder för Azure Data Lake Store-konto.
+* Den **azure-mgmt-datalake-analytics** modulen innehåller Azure Data Lake Analytics-åtgärder. 
 
 Kontrollera först att du har senast `pip` genom att köra följande kommando:
 

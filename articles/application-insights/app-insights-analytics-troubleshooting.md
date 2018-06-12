@@ -1,8 +1,8 @@
 ---
-title: "Felsöka analyser i Azure Application Insights | Microsoft Docs"
-description: "Problem med Application Insights analytics? Börja här. "
+title: Felsöka analyser i Azure Application Insights | Microsoft Docs
+description: 'Problem med Application Insights analytics? Börja här. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294167"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](app-insights-analytics.md)? Börja här. Analytics är ett kraftfullt sökverktyg av Azure Application Insights.
@@ -31,7 +32,7 @@ Problem med [Application Insights Analytics](app-insights-analytics.md)? Börja 
 
 Inaktivera tillägget eller Använd en annan webbläsare.
 
-## <a name="e-a"></a>”Fel”
+## <a name="e-a"></a> ”Fel”
 ![Oväntat felskärmen](./media/app-insights-analytics-troubleshooting/010.png)
 
 Internt fel inträffade under portal runtime-undantag.
@@ -54,7 +55,7 @@ Ett autentiseringsrelaterat fel har inträffat (under autentisering eller under 
 2. Använde du en favorit, ett bokmärke eller en sparad länk för att öppna Analytics-portalen? Är du inloggad med andra autentiseringsuppgifter än de du använde när du sparade länken?
 3. Försök att använda webbläsarfönstret i läget privat/inkognito (när du har stängt alla sådana fönster). Du måste ange dina autentiseringsuppgifter. 
 4. Öppna ett nytt webbläsarfönster som (vanlig) och gå till [Azure](https://portal.azure.com). Logga ut. Öppna sedan länken och logga in med rätt autentiseringsuppgifter.
-5. Edge- och Internet Explorer-användare kan också få det här felet om betrodda zoninställningar inte stöds.
+5. Microsoft Edge- och Internet Explorer-användare kan också få det här felet om betrodda zoninställningar inte stöds.
    
     Kontrollera att båda [Analytics-portalen](https://analytics.applicationinsights.io) och [Azure Active Directory-portalen](https://portal.azure.com) finns i samma säkerhetszon:
    
@@ -69,7 +70,7 @@ Ett autentiseringsrelaterat fel har inträffat (under autentisering eller under 
      https://login.windows.net
 
 ## <a name="e-d"></a>404 ... Resursen hittades inte
-![404 ... resursen hittades inte](./media/app-insights-analytics-troubleshooting/040.png)
+![404... resursen hittades inte](./media/app-insights-analytics-troubleshooting/040.png)
 
 Programresursen har tagits bort från Application Insights och är inte tillgänglig längre. Detta kan inträffa om du har sparat Webbadressen till sidan Analytics.
 

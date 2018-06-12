@@ -1,24 +1,19 @@
 ---
-title: "Anropa en webhook för ett Azure log varning | Microsoft Docs"
-description: "Lär dig mer om att skicka aktiviteten logghändelser till andra tjänster för anpassade åtgärder. Du kan exempelvis skicka SMS-meddelanden, loggar buggar eller meddela ett team via en chatt eller meddelandetjänst."
+title: Anropa en webhook för en Azure log varning (klassiskt)
+description: Lär dig mer om att skicka aktiviteten logghändelser till andra tjänster för anpassade åtgärder. Du kan exempelvis skicka SMS-meddelanden, loggar buggar eller meddela ett team via en chatt eller meddelandetjänst.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262468"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Anropa en webhook för ett Azure log varning
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efter bearbetning eller för anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden att logga buggar, för att meddela ett team via chatt eller -tjänster eller för olika åtgärder. Du kan också ställa in en varning för loggen att skicka e-post när en avisering aktiveras.
@@ -111,7 +106,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktiv
 | activityLog | Loggegenskaperna för händelsen.|
 | Auktorisering |Rollbaserad åtkomstkontroll (RBAC)-egenskaperna för händelsen. Dessa egenskaper innehåller vanligtvis **åtgärd**, **rollen**, och **omfång**. |
 | åtgärd | Den åtgärd som avbildas av aviseringen. |
-| Omfång | Omfattningen för aviseringen (resurs).|
+| omfång | Omfattningen för aviseringen (resurs).|
 | kanaler | Åtgärden. |
 | Anspråk | En samling information som relaterar till anspråk. |
 | uppringare |GUID eller användarnamnet för användaren som utförde åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. Kan vara ett null-värde för vissa system-anrop. |

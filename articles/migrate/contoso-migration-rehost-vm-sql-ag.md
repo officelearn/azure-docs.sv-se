@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 97c8430ab5d4e08e52790b898051d5985c3df03c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839902"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301311"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Rehost en lokal app på Azure Virtual Machines och SQL Server AlwaysOn-tillgänglighetsgrupp
 
@@ -29,8 +29,9 @@ Det här dokumentet är i en serie artiklar som visar hur det fiktiva företaget
 [Artikel 4: Rehost en app på Azure VM och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift och SKIFT-migrering till Azure för SmartHotel appen. Contoso migrerar appen klientdel VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databas till en SQL hanteras instans, med hjälp av den [Azure migrering databastjänsten](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
 [Artikel 5: Rehost en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrera appen SmartHotel VMs endast med Site Recovery.
 Artikel 6: Rehost en app på Azure Virtual Machines och SQL Server alltid på Availability Group (den här artikeln) | Visar hur Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera appen virtuella datorer och tjänsten Databasmigrering för att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgruppen. | Tillgängligt
-Artikel 7: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server | Visar hur Contoso migrerar osTicket Linux appen. De migrerar klientdel virtuella datorn med Site Recovery och migrerar (säkerhetskopiering och återställning) databasen till en Azure MySQL-Server-instans med MySQL arbetsstationen | Planerad
-Artikel 8: Rehost en Linux-app på virtuella Azure-datorer | Visar hur Contoso har en lift och SKIFT migrering av fins osTicket app virtuella datorer till Azure med Site Recovery | Planerad
+[Artikel 7: Rehost en Linux-app på virtuella Azure-datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso har en lift och SKIFT migrering av Linux osTicket appen till virtuella Azure-datorer med Site Recovery | Planerad
+[Artikel 8: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket app till Azure virtuella datorer med Site Recovery och migrerar app-databas till en Azure MySQL Server-instans med MySQL-arbetsstationen. | Tillgängligt
+
 
 
 Contoso migrera Windows två nivåer i den här artikeln. NET SmartHotel app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen, den är öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -52,7 +53,7 @@ Contoso molnet team har fäst ned mål för den här migreringen. Dessa mål som
 - Contoso vill inte investera i den här appen.  Det är viktigt att verksamheten, men i sin nuvarande form de vill flytta på ett säkert sätt till molnet.
 - Den lokala databasen för appen har haft problem med tillgänglighet. De vill se den distribuerats i Azure som ett kluster med hög tillgänglighet, med funktioner för redundans.
 - Contoso vill uppgradera från deras aktuella SQL Server 2008 R2-plattformen, till SQL Server 2017.
-- Contoso inte vill använda en Azure SQL Database för den här appen och och är ute efter alternativ.
+- Contoso vill inte använda en Azure SQL Database för den här appen och är ute efter alternativ.
 
 ## <a name="proposed-architecture"></a>Föreslagna arkitektur
 
@@ -179,7 +180,7 @@ Contoso skapar ett lagringskonto på följande sätt:
 
     ![Molnet vittne](media/contoso-migration-rehost-vm-sql-ag/witness-storage.png)
 
-5. När de skapar lagring för primära och sekundära nycklar skapas för den. De måste den primära åtkomstnyckeln för att skapa moln vittne. Nyckeln visas under lagringskontonamn > **åtkomstnycklar**.
+5. När de skapar storage-konto primära och sekundära nycklar skapas för den. De måste den primära åtkomstnyckeln för att skapa moln vittne. Nyckeln visas under lagringskontonamn > **åtkomstnycklar**.
 
     ![Åtkomstnyckel](media/contoso-migration-rehost-vm-sql-ag/access-key.png)
 
@@ -401,7 +402,7 @@ Om du vill fortsätta, de behöver för att bekräfta att de har slutfört plane
 
 ### <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Contoso måste konfigurera sina källmiljön. Om du vill göra detta måste de hämtar ett OVF-mall och distribuera Site Recovery konfigurationsservern med hög tillgänglighet, lokal VMware VM. När konfigurationsservern är igång kan registrera den i den här valvet.
+Contoso måste konfigurera sina källmiljön. Om du vill göra detta måste de hämtar ett OVF-mall och distribuera Site Recovery konfigurationsservern med hög tillgänglighet, lokal VMware VM. När konfigurationsservern är igång kan registrera den i valvet.
 
 Konfigurationsservern körs ett antal komponenter:
 
@@ -532,7 +533,7 @@ DMS ansluter till lokala SQL Server-VM via ett plats-till-plats VPN-anslutning m
 
 ## <a name="step-7-protect-the-database"></a>Steg 7: Skydda databasen
 
-Med app-databas som körs på **SQLAOG1**, Contoso kan nu skydda den med hjälp av AlwaysOn-Tillgänglighetsgrupper. De konfigurera Alwayson med SQL Management Studio och sedan tilldela en lyssnare med hjälp av Windows-kluster. 
+Med app-databas som körs på **SQLAOG1**, Contoso kan nu skydda den med hjälp av AlwaysOn-Tillgänglighetsgrupper. De konfigurera AlwaysOn med SQL Management Studio och sedan tilldela en lyssnare med hjälp av Windows-kluster. 
 
 ### <a name="create-an-alwayson-availability-group"></a>Skapa en AlwaysOn-tillgänglighetsgrupp
 
@@ -624,7 +625,7 @@ Som det sista steget i migreringen uppdatera Contoso anslutningssträngen för a
     ![Redundans](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. De starta om IIS på WEBVM när uppdaterar filen och spara filen. De göra detta med hjälp av IISRESET /RESTART från en kommandotolk.
-2. När IIS har startats, kan nu använda den databas som körs på SQL-MI.
+2. När IIS har startats använder programmet den databas som körs på SQL-MI.
 
 
 **Behöver du mer hjälp?**

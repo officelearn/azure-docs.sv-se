@@ -1,31 +1,26 @@
 ---
-title: Azure Monitor CLI 2.0 Snabbstart-exempel. | Microsoft Docs
+title: Azure CLI övervakaren Snabbstart-exempel
 description: CLI 2.0 exempelkommandon för Azure-Monitor-funktioner. Azure övervakaren är en Microsoft Azure-tjänst som gör att du kan skicka aviseringar, anropa webbadresser som baseras på värden för konfigurerade telemetridata och Autoskala molntjänster, virtuella datorer och Web Apps.
-author: kamathashwin
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: ashwink
-ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ''
+ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262410"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure-Monitor CLI 2.0 Snabbstart-exempel
 Den här artikeln visar exempel kommandoradsgränssnittet (CLI)-kommandon som hjälper dig att komma åt Azure-Monitor-funktioner. Azure-Monitor kan du Autoskala molntjänster, virtuella datorer och Web Apps att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har installerat Azure CLI, följer du instruktionerna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) köra CLI som en interaktiv upplevelse i webbläsaren. 
+Om du inte redan har installerat Azure CLI, följer du instruktionerna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) köra CLI som en interaktiv upplevelse i webbläsaren. Se en fullständig referens för alla tillgängliga kommandon i den [Azure övervakaren CLI referens](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Det första steget är att logga in på ditt Azure-konto.
@@ -90,7 +85,8 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="work-with-alerts"></a>Arbeta med aviseringar 
-[!NOTE] Bara aviseringar (klassiskt) stöds i CLI just nu. 
+> [!NOTE]
+> Bara aviseringar (klassiskt) stöds i CLI just nu. 
 
 ### <a name="get-alert-classic-rules-in-a-resource-group"></a>Hämta Varningsregler (klassiskt) i en resursgrupp
 

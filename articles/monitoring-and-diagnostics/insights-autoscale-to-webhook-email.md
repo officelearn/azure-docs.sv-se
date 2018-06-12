@@ -1,29 +1,24 @@
 ---
-title: "Använda automatiska åtgärder för att skicka e-post och webhook varningsmeddelanden. | Microsoft Docs"
-description: "Lär dig mer om att använda automatiska åtgärder för att anropa webbadresser eller skicka e-postmeddelanden i Azure-Monitor. "
+title: Använda Autoskala för att skicka e-post och webhook aviseringar
+description: 'Lär dig mer om att använda automatiska åtgärder för att anropa webbadresser eller skicka e-postmeddelanden i Azure-Monitor. '
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 65405a6d7f1d49911da1e2a5d26b02098a261c01
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262230"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatiska åtgärder för att skicka e-post och webhook aviseringar i Azure-Monitor
 Den här artikeln lär du hur du konfigurerar utlösare så att du kan anropa specifika webbadresser eller skicka e-postmeddelanden baserat på Autoskala åtgärder i Azure.  
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>Webhook-konfigurationer
 Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden. Till exempel routning aviseringen för tjänster som kan hantera en inkommande webbegäran för att skicka SMS, log buggar, meddela ett team med chatt eller messaging services osv. Webhook-URI måste vara en giltig HTTP eller HTTPS-slutpunkt.
 
 ## <a name="email"></a>E-post
@@ -66,7 +61,7 @@ När du använder mallen REST API: et eller Resource Manager, lägga till meddel
 ```
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
-| åtgärden |ja |Värdet måste vara ”skala” |
+| åtgärd |ja |Värdet måste vara ”skala” |
 | sendToSubscriptionAdministrator |ja |Värdet måste vara ”sant” eller ”false” |
 | sendToSubscriptionCoAdministrators |ja |Värdet måste vara ”sant” eller ”false” |
 | customEmails |ja |Värdet kan vara null [] eller Strängmatrisen för e-post |
@@ -75,7 +70,7 @@ När du använder mallen REST API: et eller Resource Manager, lägga till meddel
 | properties |ja |Värdet måste vara tom {} eller kan innehålla nyckel / värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i webhooks
-Webhooken kan autentisera med hjälp av tokenbaserad autentisering, där du kan spara webhooken URI med ett token-ID som en frågeparameter. Till exempel https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+Webhooken kan autentisera med hjälp av tokenbaserad autentisering, där du kan spara webhooken URI med ett token-ID som en frågeparameter. Till exempel, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Autoskala meddelande webhook nyttolast schemat
 När meddelandet Autoskala genereras ingår följande metadata i nyttolasten webhook:
@@ -110,12 +105,12 @@ När meddelandet Autoskala genereras ingår följande metadata i nyttolasten web
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
 | status |ja |Innebär att en Autoskala åtgärd har skapats |
-| åtgärden |ja |För en ökning av instanser blir ”skala ut” och för en minskning av instanserna blir ”skala i” |
+| åtgärd |ja |För en ökning av instanser blir ”skala ut” och för en minskning av instanserna blir ”skala i” |
 | Kontexten |ja |Kontexten Autoskala åtgärd |
 | tidsstämpel |ja |Tidsstämpel när åtgärden Autoskala utlöstes |
 | id |Ja |Hanteraren för filserverresurser ID autoskalningsinställningens |
 | namn |Ja |Namnet på autoskalningsinställningen |
-| Information |Ja |Förklaring av åtgärden som tjänsten Autoskala tog och ändringen i instansantalet |
+| detaljer |Ja |Förklaring av åtgärden som tjänsten Autoskala tog och ändringen i instansantalet |
 | subscriptionId |Ja |Prenumerations-ID för målresursen som skalas |
 | resourceGroupName |Ja |Resursgruppens namn för målresursen som skalas |
 | resourceName |Ja |Namnet på målresursen som skalas |

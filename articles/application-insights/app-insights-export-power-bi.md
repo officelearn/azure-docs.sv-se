@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294130"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-feed från Application Insights
 [Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera och dela information. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från flera källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).

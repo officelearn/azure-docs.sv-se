@@ -14,11 +14,12 @@ ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: d61907ddbd6eaecc8aeae8d2f1cea204f287daea
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 5da5bd920becdc86e133cb1b4e67fb3125c2638e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260540"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller anvisningar för att skapa och uppdatera grupper med Azure Active Directory (AD Azure) PowerShell-cmdlets. Det här innehållet gäller endast för Office 365-grupper (kallas ibland för enhetlig grupper). 
@@ -72,7 +73,8 @@ De här stegen skapa inställningar på katalognivå, som gäller för alla Offi
 4. Uppdatera sedan riktlinje användarvärde:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "https://guideline.com"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+
   ```  
 5. Slutligen tillämpas inställningarna:
   
@@ -141,7 +143,7 @@ De här stegen läsa inställningar på katalognivå, som gäller för alla Offi
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            https://guideline.com
+  UsageGuidelinesUrl            https://guideline.example.com
   ClassificationList
   EnableGroupCreation           True
   ```

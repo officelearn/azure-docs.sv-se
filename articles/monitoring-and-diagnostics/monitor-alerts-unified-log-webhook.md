@@ -1,25 +1,19 @@
 ---
-title: Webhook-åtgärder för logg-aviseringar i Azure-aviseringar | Microsoft Docs
+title: Webhook-åtgärder för logg-aviseringar i Azure-aviseringar
 description: Den här artikeln beskriver hur till en logg aviseringsregel med hjälp av log analytics eller application insights, skickar data som HTTP-webhook och information om olika anpassningar möjligt.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638678"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264263"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för log Varningsregler
 När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -33,7 +27,7 @@ Webhook-åtgärder kräver egenskaperna i följande tabell:
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Webhook-URL |URL till webhooken. |
+| Webhooksadressen |URL till webhooken. |
 | Anpassad JSON-nyttolast |Anpassad nyttolast skickar med webhooken, när det här alternativet väljs under skapande av varning. Information som finns på [Hantera aviseringar via Azure-aviseringar ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]

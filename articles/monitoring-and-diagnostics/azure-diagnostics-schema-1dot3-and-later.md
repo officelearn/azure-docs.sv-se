@@ -1,30 +1,26 @@
 ---
-title: Azure Diagnostics tillägget 1.3 och senare Konfigurationsschemat | Microsoft Docs
+title: Azure Diagnostics tillägget 1.3 och senare Konfigurationsschemat
 description: Schemaversionen 1.3 och senare Azure diagnostics levereras som en del av Microsoft Azure SDK 2.4 och senare.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262383"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare Konfigurationsschemat
 > [!NOTE]
 > Tillägget för Azure-diagnostik är den komponent som används för att samla in prestandaräknare och annan statistik från:
 > - Azure Virtual Machines 
-> - Skalningsuppsättningar för Virtual Machines
+> - Virtual Machine Scale Sets
 > - Service Fabric 
 > - Cloud Services 
 > - Nätverkssäkerhetsgrupper
@@ -436,7 +432,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-|**containerName**|Valfri. Namnet på blob-behållaren i Azure Storage-konto som används för att lagra krascher Dumpar.|  
+|**ContainerName**|Valfri. Namnet på blob-behållaren i Azure Storage-konto som används för att lagra krascher Dumpar.|  
 |**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik för att samla in Dumpar mini eller fullständig kraschar.|  
 |**directoryQuotaPercentage**|Valfri.  Konfigurerar procentandelen av **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
 
@@ -532,7 +528,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
+## <a name="performancecounters-element"></a>PerformanceCounters elementet  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - prestandaräknarna*
 
  Aktiverar insamlingen av prestandaräknare.  
@@ -557,7 +553,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnat Element|Beskrivning|  
 |-------------------|-----------------|  
-|**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
+|**dataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
 
 
 
@@ -592,7 +588,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**Sink**|Se beskrivning på annan plats på den här sidan.|  
+|**sink**|Se beskrivning på annan plats på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
@@ -619,7 +615,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Channel**|sträng|Se beskrivning på annan plats på den här sidan.|  
+|**Kanal**|sträng|Se beskrivning på annan plats på den här sidan.|  
 
 ## <a name="channel-element"></a>Kanal Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanaler - kanal*
@@ -630,7 +626,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
+|**LogLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
 |**Namn**|**Sträng**|Ett unikt namn för att referera till kanalen|  
 
 

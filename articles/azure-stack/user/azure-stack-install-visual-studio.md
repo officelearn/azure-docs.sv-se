@@ -5,52 +5,88 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3eaefbe011c4d98fe9a76d4f277a76a2f167b191
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.reviewer: unknown
+ms.openlocfilehash: cbd5e5dbcdd2565e8066b0721f45863569bfd90a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295038"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installera Visual Studio och ansluta till Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Använda Visual Studio för att skapa och distribuera Azure Resource Manager [mallar](azure-stack-arm-templates.md) i Azure-stacken. Du kan använda stegen som beskrivs i den här artikeln för att installera Visual Studio från [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller från en Windows-baserad extern klient om du är ansluten via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). Anvisningarna i den här artikeln gäller för en ny installation av Visual Studio 2015 Community Edition. Läs mer om [samexistens](https://msdn.microsoft.com/library/ms246609.aspx) med andra versioner av Visual Studio.
+Du kan använda Visual Studio för att skriva och distribuera Azure Resource Manager [mallar](azure-stack-arm-templates.md) till Azure-stacken. Stegen i den här artikeln vägleder dig genom att installera Visual Studio på den [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller på en extern dator om du planerar att Azure-stacken genom den [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Installera Visual Studio
 
-1. Hämta och kör den [installationsprogram för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx).
-2. Sök efter **Visual Studio Community 2015 med Microsoft Azure SDK - 2.9.6**väljer **Lägg till**, och välj sedan **installera**.
+1. Hämta och kör den [installationsprogram för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx).  
 
-    ![Skärmdump av WebPI installera steg](./media/azure-stack-install-visual-studio/image1.png)
+2. Öppna den **Microsoft Web Platform Installer**.
 
-3. Avinstallera den **Microsoft Azure PowerShell** som installeras som en del av Azure SDK.
+3. Sök efter **Visual Studio Community 2015 med Microsoft Azure SDK - 2.9.6**. Klicka på **lägga till**, och **installera**.
 
-    ![Skärmdump av Lägg till/ta bort program gränssnitt för Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png)
+4. Avinstallera den **Microsoft Azure PowerShell** som installeras som en del av Azure SDK.
 
-4. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)
+    ![Skärmbild av WebPI installera steg](./media/azure-stack-install-visual-studio/image1.png) 
 
-5. Starta om operativsystemet när installationen är klar.
+5. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)
 
-## <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
+6. Starta om operativsystemet när installationen är klar.
+
+## <a name="connect-to-azure-stack-with-azure-ad"></a>Ansluta till Azure-stacken med Azure AD
 
 1. Starta Visual Studio.
 
 2. Från den **visa** väljer du **Cloud Explorer**.
 
-3. Välj i rutan nytt **Lägg till konto** och logga in med dina autentiseringsuppgifter för Azure Active Directory.
-    ![Skärmdump av Cloud Explorer när du loggar in och ansluten till Azure-stacken](./media/azure-stack-install-visual-studio/image6.png)
+3. Välj i rutan nytt **Lägg till konto** och logga in med dina autentiseringsuppgifter för Azure Active Directory (AD Azure).  
 
-När du loggade in kan du [distribuera mallar](azure-stack-deploy-template-visual-studio.md) eller bläddra bland tillgängliga resurstyper och resursgrupper för att skapa egna mallar.
+    ![Skärmbild av Cloud Explorer loggade in en gång och ansluten till Azure-stacken](./media/azure-stack-install-visual-studio/image2.png)
+
+När du loggade in kan du [distribuera mallar](azure-stack-deploy-template-visual-studio.md) eller bläddra bland tillgängliga resurstyper och resursgrupper för att skapa egna mallar.  
+
+## <a name="connect-to-azure-stack-with-ad-fs"></a>Ansluta till Azure-stacken med AD FS
+
+1. Starta Visual Studio.
+
+2. Från **verktyg**väljer **alternativ**.
+
+3. Expandera **miljö** i den **navigeringsfönstret** och välj **konton**.
+
+4. Välj **Lägg till**, och ange användaren Azure Resource Manager-slutpunkten.  
+  För Azure-stacken Development kit, URL-Adressen är: `https://management.local.azurestack/external`.  
+  För Azure-stacken integrerat system URL: en är: `https://management.[Region}.[External FQDN]`.
+
+    ![X](./media/azure-stack-install-visual-studio/image5.png)
+
+5. Välj **Lägg till**.  
+
+    Visual Studio anropar Azure Resource Manager och identifierar slutpunkterna inklusive autentiseringsslutpunkten för Azure Directory Federation Services (AD FS).
+
+    ![Skärmbild av Cloud Explorer loggade in en gång och ansluten till Azure-stacken](./media/azure-stack-install-visual-studio/image6.png)
+
+6. Välj **Cloud Explorer** från den **visa** menyn.
+7. Välj **Lägg till konto** och logga in med dina AD FS-autentiseringsuppgifter.  
+
+    ![X](./media/azure-stack-install-visual-studio/image7.png)
+
+    Cloud Explorer frågar tillgängliga prenumerationer. Du kan välja ett en tillgänglig prenumeration för att hantera.
+
+    ![X](./media/azure-stack-install-visual-studio/image8.png)
+
+8. Bläddra ditt befintliga resurser, resursgrupper eller distribuera mallar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utveckla mallar för Azure-Stack](azure-stack-develop-templates.md)
+ - Läs mer om [samexistens](https://msdn.microsoft.com/library/ms246609.aspx) med andra versioner av Visual Studio.
+ - [Utveckla mallar för Azure-Stack](azure-stack-develop-templates.md)

@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234621"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260422"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -54,7 +54,7 @@ Följande administratörsroller är tillgängliga:
 
 * **Exchange-tjänstadministratör**: användarna med den här rollen har globala behörigheter i Microsoft Exchange Online när tjänsten finns. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Global administratör / företagsadministratör**: användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som federera till Azure Active Directory som Exchange Online, SharePoint Online och Skype för företag – Online. En global administratör blir den person som registrerar sig för Azure Active Directory-klient. Endast globala administratörer kan tilldela andra administratörsroller. Det kan finnas mer än en global administratör i företaget. Globala administratörer kan återställa lösenordet för alla användare och alla andra administratörer.
+* **Global administratör / företagsadministratör / Innehavaradministratör**: användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som federera till Azure Active Directory som Exchange Online SharePoint Online och Skype för företag – Online. En global administratör blir den person som registrerar sig för Azure Active Directory-klient. Endast globala administratörer kan tilldela andra administratörsroller. Det kan finnas mer än en global administratör i företaget. Globala administratörer kan återställa lösenordet för alla användare och alla andra administratörer.
 
   > [!NOTE]
   > Den här rollen identifieras som ”företagets administratör” i Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell. Det är ”Global administratör” i den [Azure-portalen](https://portal.azure.com).

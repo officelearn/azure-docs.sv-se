@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301073"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager vanliga frågor (FAQ)
 
@@ -85,10 +86,18 @@ När en DNS-fråga hamnar på Traffic Manager, anger ett värde i svaret kallas 
 
 Du kan ange på en per profil nivå, DNS TTL vara så lågt som 0 sekunder och lika hög som 2 147 483 647 sekunder (största intervall som är kompatibla med [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). TTL-värdet 0 innebär att den underordnade DNS-matchare cachelagrar inte svar på frågor och alla frågor som förväntas nå Traffic Manager-DNS-servrar för namnmatchning.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Hur kan jag förstår volymen av frågor som kommer till min profil? 
+En av mätvärdena som tillhandahålls av Traffic Manager är antalet frågor som svarade med en profil. Du får den här informationen på en nivå aggregation profil eller dela den ytterligare till finns volymen av frågor om specifika slutpunkter returnerades. Du kan dessutom konfigurera varningar som meddelar dig om frågan svar volymen korsar villkor som du har angett. Mer information [Traffic Manager-mätvärden och -varningar](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager geografiska trafikroutningsmetod
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Vilka är några användningsområden där geografiska routning är användbar? 
 Geografisk routning kan användas i scenarier där en Azure-kund behöver skilja användarna baserat på geografiska områden. Till exempel kan använder geografiska trafikroutningsmetod, du ge användare från vissa regioner en annan användarupplevelse än de från andra regioner. Ett annat exempel uppfyller lokala data suveränitet uppdrag som kräver att användare från en viss region hanteras endast med slutpunkter i den regionen.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Hur avgör jag om jag bör använda routningsmetoden för prestanda eller geografisk routningsmetoden? 
+Den viktigaste skillnaden mellan dessa två populära routningsmetoder är att prestanda routning metoden primära målet är att skicka trafik till den slutpunkt som kan tillhandahålla den lägsta fördröjningen till anroparen, geografiska routning det primära målet är att tillämpa en geo Tidsgränsen för din anropare så att du avsiktligt kan vidarebefordra dem till en viss slutpunkt. Överlappning sker eftersom det inte finns en korrelation mellan geografiskt nära och kortare svarstid, även om detta inte stämmer. Det kan finnas en slutpunkt i en annorlunda geografi som ger en bättre upplevelse av svarstid för anroparen och i så fall prestanda routning skickar användaren till denna slutpunkt men geografiska routning kommer alltid att skicka dem till slutpunkten som du har mappat för sina geografisk region. Ytterligare kan den avmarkera, fundera på följande exempel - med geografiska routning du se ovanliga mappningar som skicka all trafik från Asien till slutpunkterna i USA och all trafik för USA till slutpunkter i Asien. I så fall geografiska routning avsiktligt gör exakt vad du har konfigurerat den att göra och optimera prestanda är inte en faktor. 
+>[!NOTE]
+>Det kan finnas scenarier där du kan behöva både prestanda och geografiska routningsfunktionerna för dessa scenarier kapslade profiler kan vara bra alternativ. Du kan till exempel ställer in en överordnad med geografiska routning där du skicka all trafik från Nordamerika i en kapslad profil som har slutpunkter i USA och använder prestanda routning för att skicka dessa trafik till den bästa slutpunkten inom uppsättningen. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Vilka är de regioner som stöds av Traffic Manager för geografisk Routning? 
 Det land/region som används av Traffic Manager kan hittas [här](traffic-manager-geographic-regions.md). Medan den här sidan hålls uppdaterade med ändringar, kan du också programmässigt hämta samma information med hjälp av den [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -330,6 +339,9 @@ Klicka på [här](https://azuretrafficmanagerdata.blob.core.windows.net/probes/a
 Antalet Traffic Manager hälsa kontrollerar nå slutpunkten beror på följande:
 - Det värde som du har angett för Övervakningsintervall (mindre intervall innebär fler begäranden hamnar på din slutpunkt i en given tidsperiod).
 - antalet platser från där hälsotillståndet kontrollerar kommer (IP-adresser från där du kan förvänta dig kontrollerna visas i föregående FAQ).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Hur vet jag om en av min slutpunkterna kraschar? 
+En av de mätvärden som tillhandahålls av Traffic Manager är hälsostatus för slutpunkter i en profil. Du kan se detta som en aggregering av alla slutpunkter i en profil (till exempel 75% av dina slutpunkter är felfritt), eller på en per slutpunkt nivå. Traffic Manager mått som exponeras via Azure-Monitor och du kan använda dess [aviseringar funktioner](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) få meddelanden när det finns en ändring i hälsostatus för din slutpunkt. Mer information finns i [Traffic Manager-mätvärden och -varningar](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager kapslade profiler
 

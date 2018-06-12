@@ -1,24 +1,19 @@
 ---
-title: "Konfigurera webhooks på Azure mått aviseringar | Microsoft Docs"
-description: "Lär dig mer om att ändra Azure aviseringar till andra system än Azure."
+title: Har en klassiska mått avisering meddela en Azure-dator med hjälp av en webhook
+description: Lär dig mer om att ändra Azure mått aviseringar till andra system än Azure.
 author: johnkemnetz
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262359"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurera en webhook på en Azure mått avisering
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden att logga buggar, för att meddela ett team via chatt eller -tjänster eller för olika åtgärder. 

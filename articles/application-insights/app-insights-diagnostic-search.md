@@ -1,8 +1,8 @@
 ---
-title: "Använda sökning i Azure Application Insights | Microsoft Docs"
-description: "Sök och filtrera rådata telemetri som skickas av ditt webbprogram."
+title: Använda sökning i Azure Application Insights | Microsoft Docs
+description: Sök och filtrera rådata telemetri som skickas av ditt webbprogram.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294392"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Sökningen är en funktion i [Programinsikter](app-insights-overview.md) att du använder för att söka efter och utforska enskilda telemetri objekt, till exempel sidvyer undantag, eller webbförfrågningar. Och du kan visa loggspårningar och händelser som du har kodats.
@@ -113,9 +114,9 @@ Du kanske vill ange en tid som intervall, som söker över ett kortare intervall
 
 Sök efter fullständiga ord, inte delsträngar. Använd citattecken för att omsluta specialtecken.
 
-| Sträng | är *inte* genom | men dessa hittar den |
+| sträng | är *inte* genom | men dessa hittar den |
 | --- | --- | --- |
-| HomeController.About |hem<br/>Domänkontrollant<br/>Ut | homecontroller<br/>Om<br/>”homecontroller.about”|
+| HomeController.About |hem<br/>Domänkontrollant<br/>Ut | homecontroller<br/>om<br/>”homecontroller.about”|
 |USA|UNI<br/>Tomas|Förenade<br/>tillstånd<br/>Förenade och tillstånd<br/>”USA”
 
 Här följer sökuttryck som du kan använda:

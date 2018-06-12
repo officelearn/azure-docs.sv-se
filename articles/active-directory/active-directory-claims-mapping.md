@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261216"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Anspråk mappning i Azure Active Directory (förhandsversion)
 
@@ -67,7 +68,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |app_res|
 |appctx|
 |appctxsender|
-|appid|
+|AppID|
 |appidacr|
 |kontrollen|
 |at_hash|
@@ -79,7 +80,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |azpacr|
 |c_hash|
 |ca_enf|
-|cc|
+|Kopia|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -88,7 +89,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |Koden|
 |kontroller|
 |credential_keys|
-|csr|
+|CSR|
 |csr_type|
 |DeviceID|
 |dns_names|
@@ -98,7 +99,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |e-post|
 |slutpunkt|
 |enfpolids|
-|exp|
+|EXP|
 |expires_on|
 |grant_type|
 |graf|
@@ -132,10 +133,10 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|nbf|
+|NBF|
 |netbios_name|
 |temporärt ID|
-|oid|
+|OID|
 |on_prem_id|
 |onprem_sam_account_name|
 |onprem_sid|
@@ -157,9 +158,9 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |resurs|
 |roll|
 |roles|
-|Omfång|
+|omfång|
 |SCP|
-|sid|
+|SID|
 |Signatur|
 |signin_state|
 |src1|
@@ -173,7 +174,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |tokenAutologonEnabled|
 |trustedfordelegation|
 |unique_name|
-|upn|
+|UPN|
 |user_setting_sync_url|
 |användarnamn|
 |uti|
@@ -284,18 +285,18 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |-----|-----|-----|
 |Användare|Efternamn|Efternamn|
 |Användare|givenName|Förnamn|
-|Användare|displayname|Visningsnamn|
+|Användare|visningsnamn|Visningsnamn|
 |Användare|objekt-ID|ObjectId|
 |Användare|E-post|E-postadress|
-|Användare|userprincipalname|Användarens huvudnamn|
-|Användare|Avdelning|Avdelning|
+|Användare|userPrincipalName|Användarens huvudnamn|
+|Användare|avdelning|Avdelning|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
 |Användare|NetBIOS-namn|NetBios-namn|
-|Användare|dnsdomainname|DNS-domännamn|
+|Användare|DNS-domännamn|DNS-domännamn|
 |Användare|onpremisesecurityidentifier|lokala säkerhetsidentifierare|
 |Användare|Företagsnamn|Organisationens namn|
 |Användare|streetAddress|Gatuadress|
-|Användare|postalcode|Postnummer|
+|Användare|Postnummer|Postnummer|
 |Användare|preferredlanguange|Önskat språk|
 |Användare|onpremisesuserprincipalname|lokal UPN|
 |Användare|mailNickname|Smeknamn för e-post|
@@ -321,7 +322,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |Användare|befattning|Befattning|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|facsimiletelephonenumber|Fax telefonnummer|
-|program, resurs, målgrupp|displayname|Visningsnamn|
+|program, resurs, målgrupp|visningsnamn|Visningsnamn|
 |program, resurs, målgrupp|objekt|ObjectId|
 |program, resurs, målgrupp|tags|Tjänstens huvudnamn tagg|
 |Företag|tenantcountry|Klientens land|
@@ -381,7 +382,7 @@ Baserat på vilken metod som valts, förväntas en uppsättning av in- och utdat
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
 |Användare|E-post|E-postadress|
-|Användare|userprincipalname|Användarens huvudnamn|
+|Användare|userPrincipalName|Användarens huvudnamn|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|extensionattribute1|Attributet för anknytning 1|
@@ -467,7 +468,7 @@ I det här exemplet skapar du en princip som lägger tillför EmployeeID och Ten
     1. Om du vill skapa principen, kör du kommandot:  
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
     2. Se din nya principen och be om principen ObjectId, kör du följande kommando:

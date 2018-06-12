@@ -14,11 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292899"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.
@@ -58,7 +59,7 @@ I det här scenariot när du redan har loggats i Azure AD och du vill komma åt 
 
 Azure AD har stöd för federerad enkel inloggning med program som stöder SAML 2.0, WS-Federation, eller OpenID connect protokoll.
 
-Se även: [hantera certifikat för federerad enkel inloggning](../active-directory-sso-certs.md)
+Se även: [hantera certifikat för federerad enkel inloggning](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Lösenordsbaserad enkel inloggning
 Konfigurera lösenordsbaserade enkel inloggning gör att användare i din organisation kan loggas in automatiskt till en tredje parts SaaS-program med Azure AD med hjälp av informationen om användarkontot från SaaS-program från tredje part. När du aktiverar den här funktionen Azure AD samlar in och lagrar informationen om användarkontot och relaterade lösenordet på ett säkert sätt.
@@ -193,7 +194,7 @@ Dessa länkar använder samma access control mekanismer som åtkomstpanelen och 
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Hitta ej sanktionerad molnprogram med Cloud App Discovery](cloud-app-discovery.md)
-* [Introduktion till att hantera åtkomst till appar](../active-directory-managing-access-to-apps.md)
+* [Introduktion till att hantera åtkomst till appar](what-is-access-management.md)
 * [Jämförelse av funktioner för att hantera externa identiteter i Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

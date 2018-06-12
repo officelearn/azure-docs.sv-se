@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601266"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260489"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -192,7 +192,7 @@ Utvärderar ett villkor om en **fältet** uppfyller vissa villkor. Villkor som s
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken (*) i värdet.
+När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken (*) i värdet. Värdet får inte innehålla fler än 1 jokertecknet (*).
 
 När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra `?` för en bokstav och alla andra tecken som representerar det faktiska tecknet. Exempel finns i [tillåter flera namn mönster](scripts/allow-multiple-name-patterns.md).
 

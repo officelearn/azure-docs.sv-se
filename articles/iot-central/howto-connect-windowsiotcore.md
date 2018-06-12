@@ -1,19 +1,19 @@
 ---
 title: Ansluter en Windows IoT Core-enhet till din Azure IoT centralt program | Microsoft Docs
 description: Som en enhet utvecklare lär du dig hur du ansluter en MXChip IoT DevKit enhet till din Azure IoT centralt program.
-author: miriamb
+author: miriambrus
 ms.author: mriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55c0d9c26cd4e7f8ae9f6ff2359e0f2d2a9970c9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629151"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261907"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT centralt program
 

@@ -16,11 +16,12 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293389"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signering nyckelförnyelse i Azure Active Directory
 Den här artikeln beskrivs vad du behöver känna till om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att Observera att dessa nycklar förnyelse regelbundet och, i nödfall, kan återställas omedelbart. Alla program som använder Azure AD ska kunna hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse programmässigt. Fortsätt läsa för att förstå hur nycklarna fungerar, hur du utvärdera effekten av förnyelsen ditt program och att uppdatera ditt program eller upprätta en periodiska manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
@@ -50,7 +51,7 @@ Hur programmet hanterar nyckelförnyelse beror på olika faktorer, till exempel 
 
 Den här vägledningen är **inte** gäller för:
 
-* Program som har lagts till från Azure AD Application Gallery (inklusive anpassade) har särskilda riktlinjer med avseende på Signeringsnycklar. [Mer information.](../active-directory-sso-certs.md)
+* Program som har lagts till från Azure AD Application Gallery (inklusive anpassade) har särskilda riktlinjer med avseende på Signeringsnycklar. [Mer information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * Lokalt program som publicerats via programproxy inte behöver bry dig om Signeringsnycklar.
 
 ### <a name="nativeclient"></a>Intern klientprogram att komma åt resurser

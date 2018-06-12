@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234503"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261295"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# för utvecklare
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+App-inställningar kan läsas från miljövariabler både när du utvecklar lokalt och när den körs i Azure. När du utvecklar lokalt appinställningar komma från den `Values` samling i den *local.settings.json* fil. I båda miljöerna lokala och Azure, `GetEnvironmentVariable("<app setting name>")` hämtar värdet för den namngivna appinställningen. Till exempel när du kör lokalt, ”Mina platsnamn” returneras om din *local.settings.json* filen innehåller `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 Den [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) egenskapen är en alternativ API för att hämta appen inställningsvärden, men vi rekommenderar att du använder `GetEnvironmentVariable` som visas här.
 

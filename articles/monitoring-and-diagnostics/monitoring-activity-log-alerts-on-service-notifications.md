@@ -1,22 +1,19 @@
 ---
-title: Varningar aktivitet loggen på Azure tjänstmeddelanden | Microsoft Docs
+title: Varningar aktivitet loggen på Azure-tjänstens meddelanden
 description: Håll dig informerad via SMS, e-post eller webhook när Azure-tjänsten inträffar.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: alerts
+ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263124"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aktivitet loggen aviseringar på tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -51,17 +48,22 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
     ![Kommandot ”hälsoavisering för skapa”](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Ange ett namn i den **aktivitet avisering loggnamn** rutan och ange en **beskrivning**.
+4. Välj den **prenumeration**, **Services**, och **regioner** du vill bli aviserad för.
 
-    ![Dialogrutan ”Lägg till loggen varning”](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group-sh.png)
+    ![Dialogrutan ”Lägg till loggen varning”](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
-5. Den **prenumeration** rutan autofills med din aktuella prenumeration. Den här prenumerationen används för att spara aktiviteten loggen aviseringen. Aviseringen resursen har distribuerats till den här prenumerationen och övervakar händelser i aktivitetsloggen för den.
+> [!NOTE]
+> Den här prenumerationen används för att spara aktiviteten loggen aviseringen. Aviseringen resursen har distribuerats till den här prenumerationen och övervakar händelser i aktivitetsloggen för den.
 
-6. Välj den **resursgruppen** i aviseringen resursen har skapats. Det är inte den resursgrupp som övervakas av aviseringen. Det är istället resursgruppen där aviseringen resursen finns.
+5. Välj den **händelsetyper** du vill bli aviserad för: *tjänsten problemet*, *planerat underhåll*, och *hälsa rekommendationerna* 
 
-7. Den **händelsekategori** automatiskt väljer **Hälsotjänst**. Alternativt, Välj den **Service**, **Region**, och **typen** av hälsa tjänstmeddelanden som du vill ta emot.
+6. Ange din information genom att ange en **varningsregelns namn** och **beskrivning**.
 
-8. Under **avisering via**, Välj den **ny** åtgärdsknappen för gruppen. Ange ett namn i den **åtgärd gruppnamn** och anger ett namn i den **kortnamnet** rutan. Det korta namnet refereras i meddelanden som skickas när den här aviseringen utlöses.
+7. Välj den **resursgruppen** där du vill att aviseringen ska sparas.
+
+8. Skapa en ny grupp genom att välja **ny grupp**. Ange ett namn i den **åtgärd gruppnamn** och anger ett namn i den **kortnamnet** rutan. Det korta namnet refereras i meddelanden som skickas när den här aviseringen utlöses.
+
+    ![Skapa en ny grupp](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
 9. Definiera en lista över mottagare genom att tillhandahålla mottagarens:
 
@@ -71,7 +73,7 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
     c. **Information om**: baserat på typen av valt, ange ett telefonnummer, e-postadress, webhook URI och så vidare.
 
-10. Välj **OK** att skapa aviseringen.
+10. Välj **OK** att skapa åtgärdsgruppen och sedan **skapa varningsregeln** att slutföra aviseringen.
 
 Inom några minuter aviseringen är aktiv och börjar att utlösa baserat på de villkor som du angav när du skapar.
 
@@ -86,9 +88,9 @@ Lär dig hur du [konfigurera webhook-meddelanden för befintliga problem system]
 
 1. Följ steg 1 till 7 i föregående avsnitt för att skapa health service-meddelande. 
 
-2. Under **avisering via**, Välj den **befintliga** åtgärdsknappen för gruppen. Markera gruppen lämplig åtgärd.
+2. Under **definiera grupp**, klicka på den **väljer grupp** knappen. Markera gruppen lämplig åtgärd.
 
-3. Välj **OK** att skapa aviseringen.
+3. Välj **Lägg till** att lägga till åtgärdsgruppen och sedan **skapa varningsregeln** att slutföra aviseringen.
 
 Inom några minuter aviseringen är aktiv och börjar att utlösa baserat på de villkor som du angav när du skapar.
 

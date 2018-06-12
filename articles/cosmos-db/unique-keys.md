@@ -6,20 +6,17 @@ keywords: Unik nyckel begränsning, överträdelse av unique key-begränsningen
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261108"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
@@ -34,7 +31,7 @@ Unika nycklar ger utvecklare möjlighet att lägga till ett lager för data i si
 
 Exempelvis ska vi titta på hur en användardatabas som är associerade med en [sociala programmet](use-cases.md#web-and-mobile-applications) kan dra nytta av att ha en unik nyckel princip för e-postadresser. Genom att göra användarens e-postadressen en unik nyckel måste du kontrollera att varje post har en unik e-postadress och inga nya poster kan inte skapas med dubbla e-postadresser. 
 
-Om du vill använda att användarna ska kunna skapa flera poster med samma e-postadress, men inte samma förnamn, efternamn och e-postadress, kan du lägga till andra sökvägar till principen för unik nyckel. Istället för att skapa en unik nyckel som bara baserat på en e-postadress, kan så du skapa en unik nyckel som är en kombination av förnamn, efternamn och e-post. Varje unik kombination av tre sökvägar tillåts i det här fallet, så att databasen kan innehålla objekt som har följande sökväg värden. Var och en av dessa poster skulle skicka den unika nyckeln principen.  
+Om du vill använda att användarna ska kunna skapa flera poster med samma e-postadress, men inte samma förnamn, efternamn och e-postadress, kan du lägga till andra sökvägar till principen för unik nyckel. Istället för att skapa en unik nyckel baserat på en e-postadress, kan så du skapa en unik nyckel som är en kombination av förnamn, efternamn och e-post. Varje unik kombination av tre sökvägar tillåts i det här fallet, så att databasen kan innehålla objekt som har följande sökväg värden. Var och en av dessa poster skulle skicka den unika nyckeln principen.  
 
 **Tillåtna värden för unik nyckel för förnamn, efternamn och e-post**
 
@@ -46,13 +43,13 @@ Om du vill använda att användarna ska kunna skapa flera poster med samma e-pos
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-Om du försöker infoga en annan post med någon av de kombinationer som anges i tabellen ovan, skulle du får ett felmeddelande om att begränsningen för unik nyckel inte har uppfyllts. Felet Azure Cosmos DB Returnerar är ”resursen med angivet id eller namn finns redan”. eller ”med angivet id, namn och unikt index resursen finns redan”. 
+Om du försöker infoga en annan post med någon av de kombinationer som anges i tabellen ovan, skulle du får ett felmeddelande om att begränsningen för unik nyckel inte har uppfyllts. Felet som returnerades av Azure Cosmos DB är ”resursen med angivet id eller namn finns redan”. eller ”med angivet id, namn och unikt index resursen finns redan”. 
 
 ## <a name="using-unique-keys"></a>Med unika nycklar
 
 Unika nycklar måste anges när behållaren har skapats och den unika nyckeln är begränsad till Partitionsnyckeln. Du kan ha poster från tabellen dupliceras i varje partition för att bygga vidare på det tidigare exemplet, om du partitionera baserat på postnummer.
 
-Befintlig behållare kan inte uppdateras för att använda unika nycklar.
+Du kan inte uppdatera en befintlig behållare för att använda unika nycklar.
 
 När du har skapat en behållare med en unik nyckel princip kan inte principen ändras om du återskapa behållaren. Om du har befintliga data som du vill implementera unika nycklar på Skapa nya behållare och sedan använda Migreringsverktyget lämpliga uppgifter för att flytta data till den nya behållaren. SQL-behållare, Använd den [Datamigreringsverktyg](import-data.md). MongoDB-behållare, Använd [mongoimport.exe eller mongorestore.exe](mongodb-migrate.md).
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,17 +111,20 @@ Exempel på JSON-dokument.
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> Kontrollera är Obs unika nyckelnamn skiftlägeskänsliga. Som visas i ovanstående exempel, har unikt namn angetts för /address/zipcode. Om dina data har postnumret, sedan infogas ”null” i Unik nyckel som postnumret inte är lika med postnumret. Och på grund av den här skiftlägeskänslighet alla poster med postnumret kommer inte att kunna infogas som dubbla ”null” bryter mot begränsningen för unik nyckel.
+
 ## <a name="mongodb-api-sample"></a>MongoDB-API-exemplet
 
 I följande exempel kommando visar hur du skapar ett unikt index på fälten Förnamn, efternamn och e-post i mängden användare för MongoDB-API. Detta säkerställer är unikt för en kombination av alla tre fält i alla dokument i samlingen. För MongoDB API samlingar skapas det unika indexet när samlingen har skapats, men innan du fyller i samlingen.
@@ -133,6 +132,20 @@ I följande exempel kommando visar hur du skapar ett unikt index på fälten Fö
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Konfigurera unika nycklar med hjälp av Azure Portal
+
+I avsnitten ovan du hittar kodexempel som visar hur du kan definiera unika nyckelvillkor när en samling har skapats med SQL API eller MongoDB-API. Men det är också möjligt att definiera unika nycklar när du skapar en samling via webbgränssnittet i Azure-portalen. 
+
+- Navigera till den **Data Explorer** i Cosmos-DB-konto
+- Klicka på **ny samling**
+- I avsnittet unika nycklar, ** du kan lägga till önskade unika nyckelvillkor genom att klicka på **Lägg till unik nyckel**
+
+![Definiera unika nycklar i Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
+
+- Om du vill skapa en unik nyckel begränsning i sökvägen till lastName, du lägger till `/lastName`.
+- Om du vill skapa en unik nyckel begränsning för lastName firstName kombination, du lägger till `/lastName,/firstName`
+
+När du är klar klickar du på **OK** att skapa samlingen.
 
 ## <a name="next-steps"></a>Nästa steg
 

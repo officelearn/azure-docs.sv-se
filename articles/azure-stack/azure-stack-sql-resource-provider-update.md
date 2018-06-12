@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av SQL-databaser på Azure-stacken | Microsoft Docs
-description: Lär dig hur du kan distribuera SQL-databaser som en tjänst på Azure-stacken och snabba steg för att distribuera SQL Server resource provider nätverkskort.
+title: Uppdatera Azure Stack SQL resursprovidern | Microsoft Docs
+description: Lär dig hur du kan uppdatera Azure Stack SQL-resursprovidern.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603624"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294868"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>Uppdatera SQL resource provider nätverkskort
-Ett nytt SQL resource provider-kort kan frigöras när Azure Stack-versioner har uppdaterats. Medan det befintliga kortet fortsätter att fungera, rekommenderar vi uppdatera till den senaste versionen så snart som möjligt. Uppdateringar måste installeras i ordning: du kan inte hoppa över versioner (se listan över versioner i [distribuera resource provider krav](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
+# <a name="update-the-sql-resource-provider"></a>Uppdatera SQL-resursprovidern
+En ny SQL-resursprovidern kan frigöras när Azure Stack-versioner har uppdaterats. Medan det befintliga kortet fortsätter att fungera, rekommenderar vi uppdatera till den senaste versionen så snart som möjligt. Uppdateringar måste installeras i ordning: du kan inte hoppa över versioner (se listan över versioner i [distribuera resource provider krav](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
 Uppdatering av resursprovidern som du använder den *UpdateSQLProvider.ps1* skript. Processen påminner om den process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuera resursprovidern](.\azure-stack-sql-resource-provider-deploy.md) artikel. Skriptet ingår i hämtningen av resursprovidern.
 

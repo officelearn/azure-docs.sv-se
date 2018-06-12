@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 973b11cd7bcb46bfb113998ff4a4e0b9c6317042
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593443"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261771"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -207,7 +207,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| info |X |X |X | |
+| Info |X |X |X | |
 | initialer |X |X | | |
 | ipPhone |X |X | | |
 | L |X |X | | |
@@ -419,6 +419,7 @@ Dessa attribut för **användaren** är utöver de andra apparna som du har valt
 | --- |:---:| --- |
 | domainFQDN |X |Kallas även DNS-domännamn. Till exempel contoso.com. |
 | domainNetBios |X |Kallas även NetBIOS-namn. Till exempel CONTOSO. |
+| msDS-KeyCredentialLink |X |När användaren har registrerats i Windows Hello för företag. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Tillbakaskrivning av Exchange-hybrid
 Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när du väljer för att aktivera **Exchange hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.

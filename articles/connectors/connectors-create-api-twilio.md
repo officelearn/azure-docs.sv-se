@@ -1,11 +1,11 @@
 ---
-title: "Lägg till Twilio-koppling i dina Azure Logic apps | Microsoft Docs"
-description: "Översikt över Twilio-anslutningen med REST API-parametrar"
+title: Lägg till Twilio-koppling i dina Azure Logic apps | Microsoft Docs
+description: Översikt över Twilio-anslutningen med REST API-parametrar
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 2bb7961c850fc8a35f3e114d9497941b188cf51b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296143"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Kom igång med Twilio-koppling
 Anslut till Twilio skicka och ta emot globala IP, SMS och MMS-meddelanden. Med Twilio kan du:
@@ -32,7 +33,7 @@ Kom igång genom att skapa en logikapp; Se [skapa en logikapp](../logic-apps/qui
 ## <a name="create-a-connection-to-twilio"></a>Skapa en anslutning till Twilio
 När du lägger till den här anslutningen dina logic apps kan du ange följande Twilio-värden:
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Konto-ID |Ja |Ange ditt Twilio-konto-ID |
 | Åtkomsttoken |Ja |Ange ditt Twilio-åtkomsttoken |

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5db7d57045acea3ded82e880169ebf02f4151ec5
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d78980b69e6598dff349c75527fc27d8a04dfa18
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824735"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301192"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -40,7 +40,7 @@ Konfigurationsservern är en lokal dator som kör Site Recovery-komponenter, ink
 **Komponent** | **Krav**
 --- |---
 Processorkärnor | 8
-RAM | 12 GB
+RAM | 16 GB
 Antal diskar | 3 diskar<br/><br/> Diskar innehåller OS-disk, disk för processen server cache och kvarhållningsenhetens för återställning efter fel.
 Ledigt diskutrymme | 600 GB diskutrymme som krävs för processen serverns cacheminne.
 Ledigt diskutrymme | 600 GB diskutrymme som krävs för kvarhållningsenhetens.
@@ -205,7 +205,7 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven fö
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystemet | Kontrollera [operativsystem](#replicated-machines). | Det går inte att kontrollera om stöds inte.
+Gästoperativsystemet | Kontrollera [operativsystem](#replicated-machines) för replikerade datorer. | Det går inte att kontrollera om stöds inte.
 Gästen operativsystemets arkitektur | 64-bitars. | Det går inte att kontrollera om stöds inte.
 Operativsystemdisken | Upp till 2 048 GB. | Det går inte att kontrollera om stöds inte.
 Operativsystemet disk antal | 1 | Det går inte att kontrollera om stöds inte.  

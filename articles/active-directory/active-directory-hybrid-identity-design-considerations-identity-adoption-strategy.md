@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801804"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260370"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
 I den här uppgiften definierar du hybrid identity införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -67,7 +67,7 @@ Den strategi som du använder styr inloggning för användaren.  Följande tabel
 | Webbläsare |Formulärbaserad autentisering |enkel inloggning, ibland måste du ange organisations-ID |
 | Outlook |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
 | Skype för företag (Lync) |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmanas att ange autentiseringsuppgifter för Exchange |
-| SkyDrive Pro |Fråga efter autentiseringsuppgifter |Enkel inloggning |
+| OneDrive för företag |Fråga efter autentiseringsuppgifter |Enkel inloggning |
 | Office Pro Plus prenumeration |Fråga efter autentiseringsuppgifter |Enkel inloggning |
 
 **Externa eller ej betrodda källor**:
@@ -75,7 +75,7 @@ Den strategi som du använder styr inloggning för användaren.  Följande tabel
 |  | Synkroniserade identiteter | Federerade identiteter |
 | --- | --- | --- |
 | Webbläsare |Formulärbaserad autentisering |Formulärbaserad autentisering |
-| Outlook, Skype för företag (Lync) Skydrive Pro, Office-prenumeration |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
+| Outlook, Skype för företag (Lync) OneDrive för företag, Office-prenumeration |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
 | Exchange ActiveSync |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmanas att ange autentiseringsuppgifter för Exchange |
 | Mobilappar |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
 

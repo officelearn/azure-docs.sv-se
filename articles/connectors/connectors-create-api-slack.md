@@ -1,11 +1,11 @@
 ---
-title: "Använd Slack-kopplingen i dina Azure logic apps | Microsoft Docs"
+title: Använd Slack-kopplingen i dina Azure logic apps | Microsoft Docs
 description: Anslut till Slack i dina logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88b134a90ac385ad957d76f420fe85dc2dbbf751
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296231"
 ---
 # <a name="get-started-with-the-slack-connector"></a>Kom igång med Slack-koppling
-Slack är ett team kommunikationsverktyg som sammanför alla meddelanden i ett team placera, direkt sökbara och tillgänglig överallt. 
+Slack är ett team-kommunikationsverktyg som sammanför hela ditt teams kommunikation på en och samma plats, där du kan söka och ha tillgång till den var du än befinner dig. 
 
 Kom igång genom att skapa en logikapp nu. Se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Skapa en anslutning till Slack
 Om du vill använda Slack-anslutningstjänsten måste du först skapa en **anslutning** ange detaljer för dessa egenskaper: 
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Token |Ja |Ange autentiseringsuppgifter för Slack |
 

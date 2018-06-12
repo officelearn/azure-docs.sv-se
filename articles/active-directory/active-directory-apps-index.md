@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293100"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -31,8 +32,8 @@ Artiklarna nedan är bra startpunkter för dem som för en kort beskrivning av A
 | Artikel Guide |  |
 |:---:| --- |
 | En introduktion till management programproblem som löser Azure AD |[Hantera program med Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| En översikt över de olika funktionerna i Azure AD som härrör aktivering av enkel inloggning, definiera vem som har åtkomst till appar och hur användare starta appar |[Programåtkomst och enkel inloggning i Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](manage-apps/plan-an-application-integration.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Hantera åtkomst till appar](active-directory-managing-access-to-apps.md) |
+| En översikt över de olika funktionerna i Azure AD som härrör aktivering av enkel inloggning, definiera vem som har åtkomst till appar och hur användare starta appar |[Programåtkomst och enkel inloggning i Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
+| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](manage-apps/plan-an-application-integration.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](manage-apps/configure-single-sign-on-portal.md)<br /><br />[Hantera åtkomst till appar](manage-apps/what-is-access-management.md) |
 | En förklaring av hur appar representeras i Azure AD |[Hur och varför program läggs till Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Felsökning av artiklar
@@ -42,7 +43,7 @@ Det här avsnittet ger snabb åtkomst till relevanta riktlinjer för felsökning
 |:---:| --- |
 | Federerad enkel inloggning |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |
 | Lösenordsbaserade enkel inloggning |[Felsökning av Access panelen-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Programproxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
+| Programproxy |[Felsökningsguide för App-Proxy](manage-apps/application-proxy-troubleshoot.md) |
 | Enkel inloggning mellan lokala AD och Azure AD |[Felsöka Lösenordssynkronisering för Hash](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dynamiska gruppmedlemskap |[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -52,12 +53,12 @@ Ger användare åtkomst till en mängd olika appar och tjänster med endast en u
 
 | Artikel Guide |  |
 |:---:| --- |
-| En introduktion till federation och andra typer av inloggning |[Enkel inloggning med Azure AD](active-directory-appssoaccess-whatis.md) |
-| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](active-directory-saas-tutorial-list.md)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
+| En introduktion till federation och andra typer av inloggning |[Enkel inloggning med Azure AD](manage-apps/what-is-single-sign-on.md) |
+| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](active-directory-saas-tutorial-list.md)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
 | Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), och mycket mer |[Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Hur du manuellt konfigurera och anpassa din konfiguration för enkel inloggning |[Hur att konfigurera federerad enkel inloggning för appar som inte ingår i Azure Active Directory-Programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md) |
 | Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |
-| Hur du konfigurerar din app certifikatets förfallodatum och hur du förnyar certifikat |[Hantera certifikat för federerad enkel inloggning i Azure Active Directory](active-directory-sso-certs.md) |
+| Hur du konfigurerar din app certifikatets förfallodatum och hur du förnyar certifikat |[Hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federerad enkel inloggning är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för obegränsade program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), sedan kan du [använda grupper för att tilldela åtkomst till federerade program](#managing-access-to-applications).
 
@@ -66,7 +67,7 @@ Om du vill aktivera enkel inloggning för program som inte stöder federation er
 
 | Artikel Guide |  |
 |:---:| --- |
-| En introduktion till hur lösenordsbaserade fungerar för SSO och en kortfattad teknisk översikt |[Lösenordsbaserade enkel inloggning med Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| En introduktion till hur lösenordsbaserade fungerar för SSO och en kortfattad teknisk översikt |[Lösenordsbaserade enkel inloggning med Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | En sammanfattning av de scenarier som rör konto delning och hur de här problemen lösas av Azure AD |[Dela konton med Azure AD](active-directory-sharing-accounts.md) |
 | Ändra lösenordet för vissa appar automatiskt med jämna mellanrum |[Automatisk förnyelse av lösenord (förhandsgranskning)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Distribution och felsökning för Internet Explorer-versionen av Azure AD-lösenord management-tillägget |[Hur du distribuerar Access panelen-tillägg för Internet Explorer med hjälp av Grupprincip](active-directory-saas-ie-group-policy.md)<br /><br />[Felsökning av Access panelen-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -82,7 +83,7 @@ Om du har program i ditt privata nätverk som ska användas av användare och en
 | Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](manage-apps/application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Hur du publicerar program med App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Hur du använder ett eget domännamn](manage-apps/application-proxy-configure-custom-domain.md) |
 | Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Ge stöd för anspråksmedvetna program](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](manage-apps/application-proxy-connector-groups.md) |
-| Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
+| Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](manage-apps/application-proxy-troubleshoot.md) |
 
 Application Proxy är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för obegränsade program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), sedan kan du [använda grupper för att bevilja åtkomst till program](#managing-access-to-applications).
 
@@ -136,7 +137,7 @@ Automatisera skapande, underhållet och borttagningen av användaridentiteter i 
 |:---:| --- |
 | Läs mer om hur det fungerar och vanliga frågor och svar |[Automatisera användaren etablering och avetablering för SaaS-appar](active-directory-saas-app-provisioning.md) |
 | Konfigurera hur information mappas mellan Azure AD och SaaS-appar |[Anpassa attributmappning](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| Så här aktiverar du Automatisk etablering till någon app som har stöd för protokollet SCIM |[Konfigurera automatisk Användaretablering till någon SCIM-Enabled-App](active-directory-scim-provisioning.md) |
+| Så här aktiverar du Automatisk etablering till någon app som har stöd för protokollet SCIM |[Konfigurera automatisk Användaretablering till någon SCIM-Enabled-App](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | Rapport om och felsökning av användaretablering |[Rapportering om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)<br><br>[Felsökning av användaretablering](active-directory-application-provisioning-content-map.md) |
 | Begränsa vem som hämtar tilldelas en applikation baserat på deras attributvärden |[Omfångsfilter](active-directory-saas-scoping-filters.md) |
 
@@ -159,7 +160,7 @@ För att hjälpa dig att hantera som ska ha åtkomst till vilka resurser, kan du
 
 | Artikel Guide |  |
 |:---:| --- |
-| En översikt över Azure AD access management-funktioner |[Introduktion till att hantera åtkomst till appar](active-directory-managing-access-to-apps.md)<br /><br />[Hur Access Management arbetar i Azure AD](active-directory-manage-groups.md)<br /><br />[Använda grupper för att hantera åtkomst till SaaS-program](active-directory-accessmanagement-group-saasapps.md) |
+| En översikt över Azure AD access management-funktioner |[Introduktion till att hantera åtkomst till appar](manage-apps/what-is-access-management.md)<br /><br />[Hur Access Management arbetar i Azure AD](active-directory-manage-groups.md)<br /><br />[Använda grupper för att hantera åtkomst till SaaS-program](active-directory-accessmanagement-group-saasapps.md) |
 | Aktivera tjänsten hantering av appar och grupper |[Självbetjäning programhantering](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
 | Instruktioner för att konfigurera dina grupper i Azure AD |[Så här skapar du säkerhetsgrupper](active-directory-groups-create-azure-portal.md)<br /><br />[Hur du kan ange ägare för en grupp](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Hur du använder gruppen ”Alla användare”](active-directory-accessmanagement-dedicated-groups.md) |
 | Använda dynamiska grupper för att automatiskt fylla i gruppmedlemskap med attributbaserad medlemskapsregler |[Dynamiska gruppmedlemskap: Avancerade regler](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
@@ -183,11 +184,11 @@ Azure AD-åtkomstpanelen är där slutanvändarna kan starta sina appar och åtk
 
 | Artikel Guide |  |
 |:---:| --- |
-| En jämförelse av de olika alternativ som är tillgängliga för distribution av appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| En jämförelse av de olika alternativ som är tillgängliga för distribution av appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Hur du kommer åt Azure AD-appar från Office 365-webbplatsen |[Med hjälp av Office 365 App starta](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Åtkomstpanelen är tillgänglig för [alla utgåvor av Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

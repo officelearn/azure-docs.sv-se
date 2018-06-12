@@ -4,7 +4,7 @@ description: Azure CDN cachelagring av frågesträng styr hur filer cachelagras 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260439"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Kontrollen Azure CDN cachelagring av frågesträngar med frågesträngar - standardnivån
 > [!div class="op_single_selector"]
@@ -50,17 +51,17 @@ Tre frågan sträng lägen är tillgängliga:
    
 2. I det vänstra fönstret under inställningar klickar du på **cachelagring regler**.
    
-    ![Knappen CDN cachelagring regler](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Knappen CDN-cachelagringsregler](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. I den **cachelagring av frågesträngar** listan, Välj ett sträng-frågeläge och klicka sedan på **spara**.
    
    ![CDN-frågesträng cachelagringsalternativ](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart:
-> - För **Azure CDN Standard från Microsoft** profiler, spridningen vanligtvis är klar på tio minuter. 
-> - För **Azure CDN Standard från Akamai** profiler, spridningen vanligtvis slutförs inom en minut. 
-> - För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter. 
+> Eftersom det tar tid för registreringen ska spridas via Azure CDN kanske cache sträng ändringarna inte visas omedelbart:
+> - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+> - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
+> - För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis är klar på 10 minuter. 
 
 
 

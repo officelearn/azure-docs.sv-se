@@ -14,11 +14,12 @@ ms.date: 05/17/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 38f65804e9166a77278a11d545374461e6f6c38f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261125"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
@@ -110,7 +111,7 @@ motsvarar:
 
 Om du vill jämföra värdet för ett användarattribut mot ett antal olika värden kan du använda-i eller notIn - operatorer. Här är ett exempel med-i-operatorn:
 ```
-    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
 Observera användningen av den ”[” och ”]” i början och slutet av listan med värden. Det här villkoret utvärderas till True för värdet user.department är lika med ett av värdena i listan.
 

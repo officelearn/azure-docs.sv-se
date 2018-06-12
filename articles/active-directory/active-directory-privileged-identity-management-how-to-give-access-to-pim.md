@@ -13,15 +13,15 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 150f994aedfc8d2847a0741792c32114e1b520fe
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: efbfcdd1a50069a943fc57da9d402e4cc7c408ed
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233554"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260567"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Ger tillgång till att hantera Azure AD Privileged Identity Management
-Den globala administratören som aktiverar Azure AD Privileged Identity Management (PIM) för en organisation automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan får skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och säkerhet läsare har skrivskyddad åtkomst till Azure AD PIM. Om du vill ge åtkomst till PIM, kan den första användaren tilldela andra användare till den **administratör av Privilegierade roller** roll. Den här tilldelningen måste göras i PIM sig själv och kan inte ändras via PowerShell eller andra portaler.
+Den globala administratören som aktiverar Azure AD Privileged Identity Management (PIM) för en organisation automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan får skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och säkerhet läsare har skrivskyddad åtkomst till Azure AD PIM. Om du vill ge åtkomst till PIM, kan den första användaren tilldela andra användare till den **administratör av Privilegierade roller** roll.
 
 > [!NOTE]
 > Hantera Azure AD PIM kräver Azure MFA. Eftersom Microsoft-konton inte kan registrera dig för Azure MFA, när en användare loggar in med ett Microsoft-konto kan inte komma åt Azure AD PIM.

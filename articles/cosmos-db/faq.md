@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735172"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261567"
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -159,8 +159,9 @@ Om du vill använda Optimistisk samtidighet i .NET den [AccessCondition](https:/
 SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en enskild partition samling är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Hur kan jag-massinfogning dokument i Cosmos DB?
-Du kan-massinfogning dokument i Azure Cosmos DB på två sätt:
+Du kan-massinfogning dokument i Azure Cosmos DB på något av följande sätt:
 
+* Verktyget bulk-utföraren, enligt beskrivningen i [Using bulk utföraren .NET-bibliotek](bulk-executor-dot-net.md) och [Using bulk utföraren Java-bibliotek](bulk-executor-java.md)
 * Datamigreringsverktyget enligt beskrivningen i [verktyg för Azure Cosmos DB](import-data.md).
 * Lagrade procedurer som beskrivs i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 

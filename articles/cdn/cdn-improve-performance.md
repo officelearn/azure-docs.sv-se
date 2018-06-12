@@ -4,7 +4,7 @@ description: Lär dig att förbättra hastighet för överföring av filen och �
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260404"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filerna i Azure CDN
 Komprimering är ett enkelt och effektivt sätt att filen överföringen snabbare och öka sidinläsning prestanda genom att minska storleken på en fil innan den skickas från servern. Komprimering kan minska kostnader för bandbredd och tillhandahålla snabbare för dina användare.
 
 Det finns två sätt att aktivera komprimering:
 
-- Aktivera komprimering på ursprungsservern. I det här fallet CDN skickar med komprimerade filer och skickar dem till klienter som begär dem.
-- Aktivera komprimering direkt på CDN POP-servrar (”komprimering direkt”). I det här fallet CDN komprimerar filerna och fungerar för slutanvändarna, även om de inte har komprimerats med den ursprungliga servern.
+- Aktivera komprimering på ursprungsservern. I det här fallet Azure CDN skickar med komprimerade filer och skickar dem till klienter som begär dem.
+- Aktivera komprimering direkt på CDN POP-servrar (*komprimering direkt*). I det här fallet CDN komprimerar filerna och fungerar för slutanvändarna, även om de inte har komprimerats med den ursprungliga servern.
 
 > [!IMPORTANT]
-> CDN-konfigurationsändringar kan ta lite tid att spridas via nätverket: 
-- För **Azure CDN Standard från Microsoft** profiler, spridningen vanligtvis är klar på tio minuter. 
-- För **Azure CDN Standard från Akamai** profiler, spridningen vanligtvis slutförs inom en minut. 
-- För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter. 
+> Ändringar av Azure CDN-konfiguration kan ta lite tid att spridas via nätverket: 
+- För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+- För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
+- För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis är klar på 10 minuter. 
 >
 > Om du ställer in komprimering för första gången för CDN-slutpunkten, Överväg att vänta 1 till 2 timmar innan du felsöka för att säkerställa komprimeringsinställningarna har spridits till POP.
 > 
@@ -75,7 +76,7 @@ CDN-nivåerna standard och premium ger samma komprimering funktioner, men använ
 
 1. Välj sidan CDN-profil **hantera**.
    
-    ![CDN hantera markering](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN hantera select](./media/cdn-file-compression/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
 2. Hovra över den **HTTP stora** och klicka sedan hovra över den **cacheinställningarna** utfällbar. Välj **komprimering**.

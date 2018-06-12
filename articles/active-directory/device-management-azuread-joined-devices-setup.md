@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713620"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260937"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Konfigurera Azure Active Directory-anslutna enheter
 
@@ -48,6 +48,10 @@ Registreringstjänsten för enheter måste konfigureras så att du kan registrer
 - Om du använder en hanterad går Windows du till skrivbordet via automatisk inloggning.
 
 - Om du är en federerad användare, måste du logga in med dina autentiseringsuppgifter.
+
+- Om du är federerad måste identitetsprovider stödja slutpunkten för WS-Fed och WS-Trust användarnamn/lösenord. Detta kan vara version 1.3 eller 2005. Den här protokollstöd krävs till både ansluta enheten till Azure AD och logga in på enheten med ett lösenord. 
+
+
 
 
 ## <a name="joining-a-device"></a>Koppla en enhet

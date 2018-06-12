@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850533"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261091"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -47,7 +47,7 @@ I korthet är här hur partitionering fungerar i Azure Cosmos DB:
 
 * Du etablerar en uppsättning Azure Cosmos DB behållare med **T** RU/s (begäranden per sekund) genomflöde.
 * I bakgrunden, etablerar Azure Cosmos DB fysiska partitioner som behövs för att hantera **T** begäranden per sekund. Om **T** är högre än det maximalt dataflödet per fysiska partition **t**, sedan Azure Cosmos DB tillhandahåller **N = T/t** fysiska partitioner. Värdet för maximalt dataflöde per partition(t) konfigureras med Azure Cosmos DB, detta värde tilldelas baserat på totala etablerat dataflöde och maskinvarukonfiguration som används. 
-* Azure Cosmos-DB allokerar viktiga utrymme på partitionen viktiga hashvärden jämnt i bredd i **N** fysiska partitioner. Så här: varje fysiska partition värdar **1/N** partitions nyckelvärdena (logiska partitioner).
+* Azure Cosmos-DB allokerar viktiga utrymme på partitionen viktiga hashvärden jämnt i bredd i **N** fysiska partitioner. Det antal logiska partitioner som är värdar för varje fysiska partition **1/N** * antal nyckelvärden för partitionen.
 * När en fysisk partition **p** når sin lagringsgräns, Azure Cosmos DB sömlöst delar upp **p** till två nya fysiska partitioner **p1** och **p2**. Den distribuerar värden som motsvarar ungefär hälften av nycklar till var och en av de nya fysiska partitionerna. Den här delade åtgärden är helt osynlig för ditt program. Om en fysiska partition når sin lagringsgräns och alla data på den fysiska partitionen tillhör samma logiska partitionsnyckel, uppstår inte split-åtgärden. Det beror på att alla data för en enskild logisk partitionsnyckel måste finnas i samma fysiska partition. I det här fallet bör en annan partition viktiga strategi användas.
 * När du etablerar genomströmning som är högre än **t * N**, Azure Cosmos DB delar upp en eller flera fysiska partitioner att stödja högre genomströmning.
 
@@ -61,6 +61,8 @@ Semantik för partitionsnycklar är något annorlunda att matcha semantiken för
 | Tabell | Åtgärdade `PartitionKey` | Åtgärdade `RowKey` | 
 
 Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objekt Azure Cosmos DB hashar nyckelvärdet partition och använder hashformaterats resultatet för att avgöra vilken partition för att lagra objekt i. Azure Cosmos-DB lagrar alla objekt med samma partitionsnyckel i samma fysiska partition. 
+
+## <a name="best-practices-when-choosing-a-partition-key"></a>Rekommenderade metoder när du väljer en partitionsnyckel
 
 Valet av Partitionsnyckeln är ett viktigt beslut som du behöver göra i designläge. Välj ett egenskapsnamn som har ett stort antal värden och har även åtkomstmönster. Det är bäst att ha en partitionsnyckel med ett stort antal distinkta värden (t.ex. hundratals eller tusentals). Det kan du distribuera din arbetsbelastning jämnt mellan dessa värden. En perfekt Partitionsnyckeln är en som visas ofta som ett filter i dina frågor och kardinalitet är tillräcklig för att säkerställa att din lösning är skalbart.
 

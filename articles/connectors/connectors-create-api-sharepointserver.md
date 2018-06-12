@@ -1,11 +1,11 @@
 ---
-title: "Använda SharePoint Server-anslutningen i dina Logic Apps | Microsoft Docs"
-description: "Komma igång med den SharePoint-Server-anslutningen i dina Logic apps"
+title: Använda SharePoint Server-anslutningen i dina Logic Apps | Microsoft Docs
+description: Komma igång med den SharePoint-Server-anslutningen i dina Logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c153b4987e37a5d97b95d4f1249de1ed92e851b3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295952"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Kom igång med SharePoint-koppling
 SharePoint-kopplingen innehåller ett sätt att arbeta med listor i SharePoint.
@@ -29,9 +30,9 @@ Kom igång genom att skapa en logikapp; Se [skapa en logikapp](../logic-apps/qui
 ## <a name="create-a-connection-to-sharepoint"></a>Skapa en anslutning till SharePoint
 Om du vill använda SharePoint-anslutningstjänsten måste du först skapa en **anslutning** ange detaljer för dessa egenskaper: 
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Ange autentiseringsuppgifter för SharePoint |
+| Token |Ja |Tillhandahåll autentiseringsuppgifter för SharePoint |
 
 Att ansluta till **SharePoint**, ange din identitet (användarnamn och lösenord, autentiseringsuppgifter för smartkort och så vidare). När du har autentiserats, kan du fortsätta att använda SharePoint-kopplingen i din logikapp. 
 

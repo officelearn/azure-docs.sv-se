@@ -1,11 +1,11 @@
 ---
-title: "Schemalägga aktiviteter och regelbundet kör arbetsflöden - Azure Logic Apps | Microsoft Docs"
-description: "Skapa och schemalägga regelbundet kör aktiviteter, åtgärder, arbetsflöden, processer och arbetsbelastningar med logic apps"
+title: Schemalägga aktiviteter och regelbundet kör arbetsflöden - Azure Logic Apps | Microsoft Docs
+description: Skapa och schemalägga regelbundet kör aktiviteter, åtgärder, arbetsflöden, processer och arbetsbelastningar med logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296795"
 ---
 # <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Skapa och schemalägga aktiviteter som regelbundet körs med Azure Logikappar
 
@@ -188,7 +189,7 @@ Här är ett exempel [upprepning utlösardefinition](../logic-apps/logic-apps-wo
 
 | Starttid | Aktuell tid | Upprepning | Schema |
 | ---------- | ------------ | ---------- | -------- | 
-| 2017-09-**07**T14:00:00Z | 2017-09-**08**T13:00:00Z | Varje 2 dagar | {Ingen} | 
+| 2017-09 -**07**T14:00:00Z | 2017-09 -**08**T13:00:00Z | Varje 2 dagar | {Ingen} | 
 ||||| 
 
 I det här scenariot Logikappar motorn beräknar körtider baserat på starttid, tar du bort tidigare körtider och använder nästa framtiden starttid för första gången du kör. Efter den första körningen baserat framtida körs på schemat beräknas från starttiden. Här är hur upprepningen ser ut:

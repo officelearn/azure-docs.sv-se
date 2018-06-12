@@ -1,25 +1,19 @@
 ---
-title: Översikt över mått i Microsoft Azure | Microsoft Docs
+title: Översikt över mått i Microsoft Azure
 description: Översikt över mått och deras användning i Microsoft Azure
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: ceabefa47b7627b8a9f952d487f78a96e338838d
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824752"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264229"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  

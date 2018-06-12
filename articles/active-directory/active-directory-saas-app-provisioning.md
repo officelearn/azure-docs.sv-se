@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247952"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293304"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -71,7 +71,7 @@ Azure AD-funktioner integrerade redan stöd för en mängd olika populära SaaS-
 
 En lista över alla program som stöder Azure AD en förintegrerade etablering koppling, finns det [lista över program självstudier för användaretablering](active-directory-saas-tutorial-list.md).
 
-Mer information om hur du lägger till stöd för Azure AD användaretablering till ett program finns [använda SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md).
+Mer information om hur du lägger till stöd för Azure AD användaretablering till ett program finns [använda SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 Kontakta Azure AD engineering team för att begära etablering support för ytterligare program, skicka ett meddelande via den [Azure Active Directory Feedbackforum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
@@ -106,7 +106,7 @@ På skärmen application management etablering har konfigurerats i den **etabler
 
     * **Filtret på attributvärden** -”källa Objektområde”-menyn i attributet avbildningar kan filtrering på attributvärden. Du kan till exempel ange att endast användare med attributet ”avdelning” med ”försäljning” ska vara i omfånget för etablering. Mer information finns i [med hjälp av målgrupp filter](active-directory-saas-scoping-filters.md).
 
-    * **Filtret på tilldelningar** -”Scope”-menyn i etableringen > Inställningar av portalen kan du ange om endast ”tilldelade” användare och grupper bör vara i omfånget för etablering eller om vara alla användare i Azure AD-katalog etableras. Mer information om ”tilldela” användare och grupper finns [tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filtret på tilldelningar** -”Scope”-menyn i etableringen > Inställningar av portalen kan du ange om endast ”tilldelade” användare och grupper bör vara i omfånget för etablering eller om vara alla användare i Azure AD-katalog etableras. Mer information om ”tilldela” användare och grupper finns [tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
     
 * **Inställningar för** styr driften av tjänsten etablering för ett program, inklusive om den körs för tillfället eller inte.
 
@@ -126,7 +126,7 @@ När Azure AD är källsystemet, etablering tjänsten använder den [differentie
 När etablering tjänsten startas, kommer den första synkroniseringen skulle utföras:
 
 1. Fråga alla användare och grupper från källsystemet, hämtas alla attribut som definierats i den [attributet mappningar](active-directory-saas-customizing-attribute-mappings.md).
-2. Filtrera användare och grupper som returneras genom att använda någon konfigurerad [tilldelningar](active-directory-coreapps-assign-user-azure-portal.md) eller [attributbaserad Omfångsfilter](active-directory-saas-scoping-filters.md).
+2. Filtrera användare och grupper som returneras genom att använda någon konfigurerad [tilldelningar](manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserad Omfångsfilter](active-directory-saas-scoping-filters.md).
 3. När en användare hittas tilldelas eller i omfånget för att etablera tjänsten frågar målsystemet för en matchande användare med hjälp av den avsedda [matchar attribut](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Exempel: Om userPrincipal namn i källsystemet är attributet matchande och mappar till användarnamn i målsystemet och tjänsten etablering frågar målsystemet användarnamn som matchar namnvärden userPrincipal i källsystemet.
 4. Om en matchande användare inte finns i målsystemet, skapas med hjälp av de attribut som returnerades från källsystemet.
 5. Om en matchande användare hittas uppdateras med hjälp av attributen från källsystemet.
@@ -139,7 +139,7 @@ Vissa program som stöd för ServiceNow, Google Apps och rutan inte bara etabler
 Efter den första synkroniseringen kommer alla efterföljande synkroniseringar
 
 1. Fråga källsystemet för alla användare och grupper som har uppdaterats sedan senaste vattenmärket lagrades.
-2. Filtrera användare och grupper som returneras genom att använda någon konfigurerad [tilldelningar](active-directory-coreapps-assign-user-azure-portal.md) eller [attributbaserad Omfångsfilter](active-directory-saas-scoping-filters.md).
+2. Filtrera användare och grupper som returneras genom att använda någon konfigurerad [tilldelningar](manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserad Omfångsfilter](active-directory-saas-scoping-filters.md).
 3. När en användare hittas tilldelas eller i omfånget för att etablera tjänsten frågar målsystemet för en matchande användare med hjälp av den avsedda [matchar attribut](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
 4. Om en matchande användare inte finns i målsystemet, skapas med hjälp av de attribut som returnerades från källsystemet.
 5. Om en matchande användare hittas uppdateras med hjälp av attributen från källsystemet.
@@ -242,7 +242,7 @@ Kontakta oss via den [Azure Active Directory Feedbackforum](https://feedback.azu
 * [Anpassa attributmappning för Användaretablering](active-directory-saas-customizing-attribute-mappings.md)
 * [Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Omfångsfilter för Användaretablering](active-directory-saas-scoping-filters.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](active-directory-scim-provisioning.md)
+* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Översikt av Azure AD-synkronisering API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Stegvisa distributionsplan för utgående användaretablering för ett program](https://aka.ms/userprovisioningdeploymentplan)
 

@@ -1,8 +1,8 @@
 ---
-title: "Analytics - kraftfulla Sök och Frågeverktyg av Azure Application Insights | Microsoft Docs"
-description: "Översikt över Analytics, kraftfullt diagnostiska sökverktyg av Application Insights. "
+title: Analytics - kraftfulla Sök och Frågeverktyg av Azure Application Insights | Microsoft Docs
+description: 'Översikt över Analytics, kraftfullt diagnostiska sökverktyg av Application Insights. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294208"
 ---
 # <a name="analytics-in-application-insights"></a>Analyser i Application Insights
 Analytics är kraftfulla Sök- och verktyg för [Programinsikter](app-insights-overview.md). Analytics är ett Webbverktyg så att inga inställningar krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera data i din app genom att öppna Analytics från din app [översikt bladet](app-insights-dashboards.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 35b4343bac033708a0912f1e129cdfef146e0603
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 933a5c8a9cde9134071a12dd0aed684358cc8696
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698789"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292862"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -70,9 +70,9 @@ Båda dessa bilder visar samma symptom: SSO-fel. Nekad användaråtkomst till pr
 
 Hur du felsöker beror på problemet och de problem du se. Innan du går någon längre utforska i följande artiklar. De ger användbar felsökningsinformation:
 
--   [Felsökning av problem med Application Proxy och felmeddelanden](active-directory-application-proxy-troubleshoot.md)
+-   [Felsökning av problem med Application Proxy och felmeddelanden](manage-apps/application-proxy-troubleshoot.md)
 
--   [Kerberos-fel och problem](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
+-   [Kerberos-fel och problem](manage-apps/application-proxy-troubleshoot.md#kerberos-errors)
 
 -   [Arbeta med enkel inloggning när lokalt och i molnet identiteter är inte identiska](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 

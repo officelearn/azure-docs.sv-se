@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261227"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integrering överväganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -134,9 +135,9 @@ I följande tabell sammanfattas hybrid anslutningen scenarier med experter, nack
 
 | Scenario | Anslutningsmetod | Tekniker | Nackdelar | Bra för |
 | -- | -- | --| -- | --|
-| Enkel klient Azure-stacken, intranät-distribution | Utgående NAT | Bättre bandbredd för överföring av snabbare. Enkel att implementera; Inga gateways som krävs. | Trafik som inte är krypterade; Ingen isolering eller kryptering utöver TOR. | Enterprise-distributioner där alla klienter är lika betrodda.<br><br>Företag som har en Azure ExpressRoute-krets till Azure. |
+| Enkel klient Azure-stacken, intranät-distribution | Utgående NAT | Bättre bandbredd för överföring av snabbare. Enkel att implementera; Inga gateways som krävs. | Trafik som inte är krypterade; Ingen isolering eller -kryptering utanför stacken. | Enterprise-distributioner där alla klienter är lika betrodda.<br><br>Företag som har en Azure ExpressRoute-krets till Azure. |
 | Flera innehavare Azure stacken, intranät-distribution | Plats-till-plats VPN | Trafiken från innehavaren VNet till mål är säker. | Bandbredd begränsas av plats-till-plats VPN-tunnel.<br><br>Kräver en gateway i det virtuella nätverket och en VPN-enhet i målnätverket. | Enterprise-distributioner där vissa klienttrafik måste skyddas från andra klienter. |
-| Enkel klient Azure-stacken, internet-distribution | Utgående NAT | Bättre bandbredd för överföring av snabbare. | Trafik som inte är krypterade; Ingen isolering eller kryptering utöver TOR. | Värdar för scenarier där klienten hämtar sina egna Azure Stack-distribution och en särskild krets Azure Stack-miljön. Till exempel ExpressRoute och Multiprotocol etikett växlar (MPLS).
+| Enkel klient Azure-stacken, internet-distribution | Utgående NAT | Bättre bandbredd för överföring av snabbare. | Trafik som inte är krypterade; Ingen isolering eller -kryptering utanför stacken. | Värdar för scenarier där klienten hämtar sina egna Azure Stack-distribution och en särskild krets Azure Stack-miljön. Till exempel ExpressRoute och Multiprotocol etikett växlar (MPLS).
 | Flera innehavare Azure stacken, internet-distribution | Plats-till-plats VPN | Trafiken från innehavaren VNet till mål är säker. | Bandbredd begränsas av plats-till-plats VPN-tunnel.<br><br>Kräver en gateway i det virtuella nätverket och en VPN-enhet i målnätverket. | Värd för scenarier där providern vill erbjuda ett moln med flera innehavare, där klienterna inte förtroende för varandra och trafik måste vara krypterad.
 |  |  |  |  |  |
 

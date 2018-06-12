@@ -15,12 +15,12 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f6e2cc9b137de48a1d186739a8c76e2f1d18c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590128"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293202"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
 
@@ -32,7 +32,7 @@ Kunder med [Azure Active Directory Premium](active-directory-whatis.md) licens o
 
 * Självbetjäning integrering av alla program som stöder SAML 2.0 identitetsleverantörer (SP-initierad eller IdP-initierad)
 * Självbetjäning integrering av alla webbprogram som har en HTML-baserad inloggningssidan med [lösenordsbaserade SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([beskrivs här](active-directory-scim-provisioning.md))
+* Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([beskrivs här](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Möjligheten att lägga till länkar till alla program i den [Office 365 app programstart](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Detta kan inkludera inte bara SaaS-program som du använder men har inte ännu har publicerat i Azure AD application Gallery utan från tredje part webbprogram som din organisation har distribuerats till servrar som du kontroll över, antingen i molnet eller lokalt.
@@ -123,7 +123,7 @@ Kontrollera att certifikatet har:
 - Statusen aktiv. Ändra status till aktiv om status är inaktiverad. Om du vill ändra statusen Kontrollera **Active** och spara konfigurationen. 
 - Rätt e-postmeddelandet. När det aktiva certifikatet närmar sig förfallodatum, skickar Azure AD ett meddelande till den e-postadress som konfigurerats i det här fältet.  
 
-Mer information finns i [hantera certifikat för federerad enkel inloggning i Azure Active Directory](active-directory-sso-certs.md).
+Mer information finns i [hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Ställ in målprogrammet
 

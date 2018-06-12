@@ -4,7 +4,7 @@ description: Azure CDN cachelagring av frågesträng styr hur filer cachelagras 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260842"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Kontrollen Azure CDN cachelagring av frågesträngar med frågesträngar - premium-nivån
 > [!div class="op_single_selector"]
 > * [Standardnivå](cdn-query-string.md)
 > * [Premiumnivå](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>Översikt
@@ -63,6 +63,6 @@ Tre frågan sträng lägen är tillgängliga:
 3. Välj ett sträng-frågeläge och klicka sedan på **uppdatering**.
 
 > [!IMPORTANT]
-> Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart. För **Azure CDN Premium från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter.
+> Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart. Spridningen är klar vanligtvis på 10 minuter.
  
 

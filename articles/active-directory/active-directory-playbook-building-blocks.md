@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293117"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -140,7 +141,7 @@ Ungefärlig tid till slutförd: 60 minuter
 | --- | --- |
 | Testmiljö för SaaS-program tillgängliga. I den här guiden använder vi ServiceNow som exempel.<br/>Vi rekommenderar starkt för att använda en test-instans för att minimera friktion om navigering befintliga kvalitet och mappningar. | Gå till https://developer.servicenow.com/app.do#! / hemma att starta processen för att få en test-instans |
 | Administratörsåtkomst till ServiceNow-hanteringskonsolen | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Mål uppsättning användare att tilldela program till. En säkerhetsgrupp som innehåller användarna PoC rekommenderas. <br/>Om det inte är möjligt att skapa gruppen, tilldela användare till direkt till programmet för konceptbeviset | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Mål uppsättning användare att tilldela program till. En säkerhetsgrupp som innehåller användarna PoC rekommenderas. <br/>Om det inte är möjligt att skapa gruppen, tilldela användare till direkt till programmet för konceptbeviset | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Steg
 
@@ -148,13 +149,13 @@ Ungefärlig tid till slutförd: 60 minuter
 | --- | --- |
 | Dela guiden för att alla aktörer från Microsoft Documentation  | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Ange ett fungerande möte gör självstudiekurs med varje. | [Självstudier: Azure Active Directory-integrering med ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Koppla appen till den grupp som definieras i förutsättningarna. Om Konceptbeviset har villkorlig åtkomst i omfånget, kan du besöker som senare och lägga till MFA och liknande. <br/>Observera att detta startar i etableringsprocessen (om konfigurerad) |  [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Koppla appen till den grupp som definieras i förutsättningarna. Om Konceptbeviset har villkorlig åtkomst i omfånget, kan du besöker som senare och lägga till MFA och liknande. <br/>Observera att detta startar i etableringsprocessen (om konfigurerad) |  [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Skapa en grupp och lägga till medlemmar i Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Använda Azure AD Portal för att lägga till ServiceNow program från galleriet| [Azure AD management Portal: företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Vad är nytt i Enterprise programhantering i Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Aktivera ”SAML-baserade inloggning” i ”enkel inloggning” bladet ServiceNow-appen |  |
 | Fyll i ”logga URL” och ”ID”-fält med ServiceNow-URL<br/>Markera kryssrutan för ”aktivera nytt certifikat”<br/>och spara inställningar |  |
 | Öppna bladet ”konfigurera ServiceNow” längst ned på panelen om du vill visa anpassade anvisningar för hur du konfigurerar ServiceNow |  |
 | Följ instruktionerna för att konfigurera ServiceNow |  |
-| Bladet för ServiceNow-App i ”etablering” aktivera ”automatisk” etablering | [Hantera användarkonto etablering för företagsappar i den nya Azure-portalen](active-directory-enterprise-apps-manage-provisioning.md) |
+| Bladet för ServiceNow-App i ”etablering” aktivera ”automatisk” etablering | [Hantera användarkonto etablering för företagsappar i den nya Azure-portalen](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Vänta några minuter medan etablering är slutförd.  Under tiden kan du kontrollera etablering rapporter |  |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
 | Klicka på ikonen för programmet som nyss skapades. Bekräfta åtkomst |  |
@@ -175,7 +176,7 @@ Ungefärlig tid till slutförd: 15 minuter
 | --- | --- |
 | Testmiljö för SaaS-program. Ett exempel på lösenord SSO är HipChat och Twitter. För alla andra program måste exakt URL till sidan med inloggningen html-formulär. | [Twitter på Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat på Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testa konton för programmen. | [Registrera dig för Twitter](https://twitter.com/signup?lang=en)<br/>[Registrera dig för gratis: HipChat](https://www.hipchat.com/sign_up) |
-| Mål uppsättning användare att tilldela program till. En säkerhetsgrupp som innehåller användarna rekommenderas. | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Mål uppsättning användare att tilldela program till. En säkerhetsgrupp som innehåller användarna rekommenderas. | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Lokal administratörsåtkomst till en dator för att distribuera Access panelen-tillägg för Internet Explorer, Chrome eller Firefox | [Tillägget för åtkomst-panelen för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Tillägget för åtkomst-panelen för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Tillägget för åtkomst-panelen för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Steg
@@ -184,8 +185,8 @@ Ungefärlig tid till slutförd: 15 minuter
 | --- | --- |
 | Installera webbläsartillägg för | [Tillägget för åtkomst-panelen för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Tillägget för åtkomst-panelen för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Tillägget för åtkomst-panelen för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Konfigurera program från galleriet | [Vad är nytt i Enterprise programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Konfigurera enkel inloggning | [Hantera enkel inloggning för företagsappar i den nya Azure-portalen: lösenordsbaserade inloggning](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Tilldela den grupp som definieras i förutsättningarna appen | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Konfigurera enkel inloggning | [Hantera enkel inloggning för företagsappar i den nya Azure-portalen: lösenordsbaserade inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Tilldela den grupp som definieras i förutsättningarna appen | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst |  |
 | Klicka på ikonen för programmet som nyss skapades. | [Vad är åtkomstpanelen?: lösenordsbaserade SSO utan identitet etablering](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Ange autentiseringsuppgifter för programmet | [Vad är åtkomstpanelen?: lösenordsbaserade SSO utan identitet etablering](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Ungefärlig tid till slutförd: 30 minuter
 | --- | --- |
 | Listan över program och exakt inloggning URL: er i förväg. Du kan exempelvis använda Twitter. | [Twitter på Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Registrera dig för Twitter](https://twitter.com/signup?lang=en) |
 | Delade autentiseringsuppgifter för SaaS-programmet. | [Dela konton med hjälp av Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated lösenord förlängningen för Facebook, Twitter och LinkedIn nu i preview! -Bloggen Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Autentiseringsuppgifter för minst två teammedlemmar som kommer att använda samma konto. De måste vara en del av en säkerhetsgrupp. | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Autentiseringsuppgifter för minst två teammedlemmar som kommer att använda samma konto. De måste vara en del av en säkerhetsgrupp. | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Lokal administratörsåtkomst till en dator för att distribuera Access panelen-tillägg för Internet Explorer, Chrome eller Firefox | [Tillägget för åtkomst-panelen för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Tillägget för åtkomst-panelen för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Tillägget för åtkomst-panelen för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Steg
@@ -219,8 +220,8 @@ Ungefärlig tid till slutförd: 30 minuter
 | --- | --- |
 | Installera webbläsartillägg för | [Tillägget för åtkomst-panelen för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Tillägget för åtkomst-panelen för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Tillägget för åtkomst-panelen för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Konfigurera program från galleriet | [Vad är nytt i Enterprise programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Konfigurera enkel inloggning | [Hantera enkel inloggning för företagsappar i den nya Azure-portalen: lösenordsbaserade inloggning](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Tilldela appen till den grupp som definieras i förutsättningarna vid tilldelning av autentiseringsuppgifter | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Konfigurera enkel inloggning | [Hantera enkel inloggning för företagsappar i den nya Azure-portalen: lösenordsbaserade inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Tilldela appen till den grupp som definieras i förutsättningarna vid tilldelning av autentiseringsuppgifter | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in som olika användare åtkomst till appen som den **samma delade kontot.**  |  |
 | Du kan också kan du kontrollera användningsrapporter program. Observera att det finns vissa svarstid, så du måste vänta ett tag för att se trafik i rapporterna. | [Inloggningsaktivitet rapporterna i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
 

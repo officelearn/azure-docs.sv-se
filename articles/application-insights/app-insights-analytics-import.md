@@ -1,23 +1,24 @@
 ---
 title: Importera data till analyser i Azure Application Insights | Microsoft Docs
-description: "Importera statiska data att ansluta med app telemetri eller importera en separat dataström frågan med Analytics."
+description: Importera statiska data att ansluta med app telemetri eller importera en separat dataström frågan med Analytics.
 services: application-insights
-keywords: "Öppna schema, import av data"
-documentationcenter: 
+keywords: Öppna schema, import av data
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293629"
 ---
 # <a name="import-data-into-analytics"></a>Importera data till Analytics
 
@@ -144,7 +145,7 @@ Du kan utföra följande process manuellt eller konfigurera ett automatiserat sy
 2. [Skapa en nyckel för signatur för delad åtkomst för blobben](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Nyckeln bör ha en utgångsperiod på en dag och ge läsbehörighet.
 3. Skapa ett REST-anrop för att meddela Application Insights som väntar på data.
 
- * Slutpunkt:`https://dc.services.visualstudio.com/v2/track`
+ * Slutpunkt: `https://dc.services.visualstudio.com/v2/track`
  * HTTP-metod: POST
  * Nyttolasten:
 
@@ -172,7 +173,7 @@ Platshållarna är:
 * `Blob URI with Shared Access Key`: Du får detta från proceduren för att skapa en nyckel. Det är specifika för blob.
 * `Schema ID`: Schemat ID genereras för din definierat schema. Informationen i det här blob bör passa schemat.
 * `DateTime`: Den tid då begäran har skickats, UTC. Vi godkänna dessa format: ISO8601 (som ”2016-01-01 13:45:01”); Rfc822 (”ons, 14 Dec 16 14:57:01 + 0000”); RFC850 (”onsdag, 14-Dec-16 14:57:00 UTC”); RFC1123 (”ons, 14 Dec 2016 14:57:00 + 0000”).
-* `Instrumentation key`i Application Insights-resurs.
+* `Instrumentation key` i Application Insights-resurs.
 
 Data är tillgängliga i Analytics efter några minuter.
 

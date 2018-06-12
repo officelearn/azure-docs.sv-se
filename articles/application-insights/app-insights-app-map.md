@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: Soubhagya.Dash
+ms.author: mbullwin
+ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293970"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programavbildningen: Prioritering distribuerade program
 Programavbildningen hjälper dig att upptäcka flaskhalsar eller fel surfpunkter för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; har hälsa KPI och aviseringar status. Du kan klicka på via från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster, kan du också klicka via Azure Diagnostics, till exempel SQL Database Advisor-rekommendationer.

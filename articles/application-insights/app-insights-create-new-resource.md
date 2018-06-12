@@ -1,8 +1,8 @@
 ---
 title: Skapa en ny Azure Application Insights-resurs | Microsoft Docs
-description: "Manuellt konfigurera Application Insights-övervakning för ett nytt live program."
+description: Manuellt konfigurera Application Insights-övervakning för ett nytt live program.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294725"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Azure Application Insights visar data om ditt program i en Microsoft Azure *resurs*. Skapa en ny resurs är därför en del av [ställa in Application Insights för att övervaka ett nytt program][start]. I många fall kan att skapa en resurs göras automatiskt med IDE. Men i vissa fall kan du skapa en resurs manuellt – till exempel om du vill ha separata resurser för utveckling och produktion versioner av programmet.
@@ -29,7 +30,7 @@ Om du inte har en [Microsoft konto måste du skaffa ett nu](http://live.com). (O
 
 Du måste också en prenumeration på [Microsoft Azure](http://azure.com). Om din grupp eller organisation har en Azure-prenumeration, kan ägare lägger du till, med ditt Windows Live ID. Du kan endast debiteras du använder. Grundläggande standardplanen kan under en viss experiment används utan kostnad.
 
-När du har åtkomst till en prenumeration kan logga in till Application Insights på [http://portal.azure.com](https://portal.azure.com), och använda ditt Live ID för inloggning.
+När du har åtkomst till en prenumeration kan logga in till Application Insights på [ http://portal.azure.com ](https://portal.azure.com), och använda ditt Live ID för inloggning.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 I den [portal.azure.com](https://portal.azure.com), Lägg till Application Insights-resurs:

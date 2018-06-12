@@ -1,25 +1,19 @@
 ---
-title: Översikt över Azure aktivitetsloggen | Microsoft Docs
+title: Översikt över Azure-aktivitetsloggen
 description: Lär dig vad Azure-aktivitetsloggen är och hur du kan använda den för att förstå händelser i din Azure-prenumeration.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 060f91e4bdd1dd2690a3e1f148f7c5e5e13d13ef
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: activitylog
+ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235672"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264576"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 
@@ -61,7 +55,7 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 ## <a name="what-you-can-do-with-the-activity-log"></a>Vad du kan göra med aktivitetsloggen
 Här följer några av de saker som du kan göra med aktivitetsloggen:
 
-![Azure-aktivitetslogg](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure-aktivitetsloggen](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Fråga efter och visa den i den **Azure-portalen**.

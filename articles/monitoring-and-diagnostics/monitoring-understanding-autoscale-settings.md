@@ -1,24 +1,19 @@
 ---
-title: "Så här fungerar Autoskala inställningar i Azure | Microsoft Docs"
-description: "En detaljerad uppdelning av Autoskala inställningar och hur de fungerar."
+title: Så här fungerar Autoskala inställningar i Azure-Monitor
+description: En detaljerad uppdelning av Autoskala inställningar och hur de fungerar. Gäller för virtuella datorer, Cloud Services Web Apps
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: 73c79ec4ee1beb5220e088421c78ffffd932eef1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: autoscale
+ms.openlocfilehash: 982bc43fd86a808da07833d77bde17e17789b2d6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265004"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
 Autoskala inställningar hjälper att säkerställa att du har rätt antal resurser som körs för att hantera varierar belastningen på ditt program. Du kan konfigurera inställningar för Autoskala ska utlösas baserat på mått som anger belastningen eller prestanda eller utlösta på schemalagd dag och tid. Den här artikeln tar en närmare titt på en autoskalningsinställning uppbyggnad. Artikeln börjar med schemat och egenskaperna för en inställning och sedan går igenom de olika profiltyper som kan konfigureras. Slutligen beskrivs hur funktionen Autoskala i Azure utvärderar vilken profil som ska köras vid en given tidpunkt.
@@ -101,17 +96,17 @@ Följande autoskalningsinställning används för att illustrera Autoskala inst�
 | Inställning | location | Autoskalningsinställningen plats. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
 | properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en autoskalningsinställning per resurs. |
 | properties | Profiler | En autoskalningsinställning består av en eller flera profiler. Varje gång Autoskala motorn körs, kör en profil. |
-| Profil | namn | Namnet på profilen. Du kan välja vilket namn som hjälper dig att identifiera profilen. |
-| Profil | Capacity.maximum | Den högsta tillåtna kapacitet. Det garanterar att Autoskala när du kör den här profilen inte skala din resurs ovanför det här numret. |
-| Profil | Capacity.minimum | Den minsta kapaciteten som tillåts. Det garanterar att Autoskala när du kör den här profilen inte skala din resurs under det här värdet. |
-| Profil | Capacity.default | Om det inte går att läsa resurs mått (i det här fallet Processorn ”vmss1”), och den aktuella kapaciteten är lägre än standardvärdet, skalas Autoskala ut till standardinställningarna. Detta är att säkerställa tillgängligheten för resursen. Om den aktuella kapaciteten redan är högre än standardkapaciteten, skala inte Autoskala i. |
-| Profil | regler | Autoskala skalas automatiskt mellan de högsta och lägsta kapaciteterna med regler i profilen. Du kan ha flera regler i en profil. Det finns vanligtvis två regler: en för att avgöra när du ska skalas ut och den andra för att avgöra när du vill skala i. |
+| profil | namn | Namnet på profilen. Du kan välja vilket namn som hjälper dig att identifiera profilen. |
+| profil | Capacity.maximum | Den högsta tillåtna kapacitet. Det garanterar att Autoskala när du kör den här profilen inte skala din resurs ovanför det här numret. |
+| profil | Capacity.minimum | Den minsta kapaciteten som tillåts. Det garanterar att Autoskala när du kör den här profilen inte skala din resurs under det här värdet. |
+| profil | Capacity.default | Om det inte går att läsa resurs mått (i det här fallet Processorn ”vmss1”), och den aktuella kapaciteten är lägre än standardvärdet, skalas Autoskala ut till standardinställningarna. Detta är att säkerställa tillgängligheten för resursen. Om den aktuella kapaciteten redan är högre än standardkapaciteten, skala inte Autoskala i. |
+| profil | regler | Autoskala skalas automatiskt mellan de högsta och lägsta kapaciteterna med regler i profilen. Du kan ha flera regler i en profil. Det finns vanligtvis två regler: en för att avgöra när du ska skalas ut och den andra för att avgöra när du vill skala i. |
 | regel | metricTrigger | Definierar mått villkoren i regeln. |
 | metricTrigger | metricName | Namnet på måttet. |
 | metricTrigger |  metricResourceUri | Resurs-ID för den resurs som genererar måttet. I de flesta fall är det samma som den resurs som skalas. I vissa fall kan det vara olika. Du kan exempelvis skala en skaluppsättning för virtuell dator baserat på antalet meddelanden i en kö för lagring. |
-| metricTrigger | timeGrain | Mått provtagning varaktighet. Till exempel **Tidskorn = ”PT1M”** innebär att mätvärdena som ska aggregeras varje 1 minut med hjälp av metoden aggregering som anges i statistik-elementet. |
+| metricTrigger | Tidskorn | Mått provtagning varaktighet. Till exempel **Tidskorn = ”PT1M”** innebär att mätvärdena som ska aggregeras varje 1 minut med hjälp av metoden aggregering som anges i statistik-elementet. |
 | metricTrigger | statistik | Sammanställningsmetod inom Tidskorn period. Till exempel **statistik = ”medel”** och **Tidskorn = ”PT1M”** innebär att mätvärdena som ska aggregeras varje 1 minut, genom att göra medelvärdet. Den här egenskapen anger hur måttet samplas. |
-| metricTrigger | timeWindow | Hur lång tid att gå tillbaka för mått. Till exempel **värdet timeWindow = ”PT10M”** innebär att varje gång Autoskala körs frågar mått för de senaste 10 minuterna. Tidsfönstret kan din mått till normaliseras, och undviker att reagera på tillfälliga toppar. |
+| metricTrigger | värdet timeWindow | Hur lång tid att gå tillbaka för mått. Till exempel **värdet timeWindow = ”PT10M”** innebär att varje gång Autoskala körs frågar mått för de senaste 10 minuterna. Tidsfönstret kan din mått till normaliseras, och undviker att reagera på tillfälliga toppar. |
 | metricTrigger | timeAggregation | Aggregeringen-metod som används för att aggregera provade mått. Till exempel **TimeAggregation = ”medel”** bör aggregera provade mått genom att ta medelvärdet. I föregående fall ta tio 1 minut prover och genomsnittlig dem. |
 | regel | scaleAction | Åtgärd att vidta när metricTrigger regelns utlöses. |
 | scaleAction | riktning | ”Öka” om du vill skala upp eller ”minska” till skalan i.|

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 897121e0dcaaf417430b892c501a243303ae9b6e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7037ad45680b56e26a05352416148432e053423a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292532"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användaretablering
 
@@ -42,7 +43,7 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till Slack-appen. När bestämt, kan du tilldela dessa användare till Slack appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Tilldela en användare eller grupp till en enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Viktiga tips för att tilldela användare till Slack
 
@@ -114,5 +115,5 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användare konto-etablering för företag-appar](active-directory-enterprise-apps-manage-provisioning.md)
+* [Hantera användare konto-etablering för företag-appar](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

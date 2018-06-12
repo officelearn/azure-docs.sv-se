@@ -1,5 +1,5 @@
 ---
-title: Konfigurera om en Azure-SSIS-integrering körning | Microsoft Docs
+title: Konfigurera om Azure-SSIS-integrering runtime | Microsoft Docs
 description: Lär dig hur du konfigurerar om en Azure-SSIS-integrering körning i Azure Data Factory efter redan har etablerats.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f6722ed3bdaf8ed2312a371690e3e9b4b61883f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bb33f2f5062749510906957fda5c8b0eeecdee60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619515"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297778"
 ---
-# <a name="manage-an-azure-ssis-integration-runtime"></a>Hantera en Azure-SSIS-integrering körning
-Den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md) artikeln visar hur du skapar en Azure-SSIS-integrering körning (IR) med hjälp av Azure Data Factory. Den här artikeln innehåller information om hur du konfigurerar om en befintlig Azure-SSIS-integrering körning.  
+# <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Konfigurera om Azure-SSIS-integrering runtime
+Den här artikeln beskriver hur du konfigurerar om en befintlig Azure-SSIS-integrering körning. Om du vill skapa en Azure-SSIS-integrering körning (IR) i Azure Data Factory finns [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md).  
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
@@ -97,7 +97,7 @@ Mer information om Azure-SSIS runtime finns i följande avsnitt:
 
 - [Azure-SSIS-integrering Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integration körningar i allmänhet inklusive Azure SSIS-IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL-hanterade instanser (förhandsversion) och ansluter IR till ett virtuellt nätverk. 
-- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk (VNet). Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med kursen och innehåller instruktioner om med Azure SQL hanteras instans (förhandsversion) och koppla IR till ett virtuellt nätverk. 
+- [Ansluta till en Azure-SSIS-IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller information om att ansluta till en Azure-SSIS-IR till ett Azure virtual network. Det ger också steg för att använda Azure-portalen för att konfigurera virtuella nätverk så att Azure-SSIS IR kan ansluta till det virtuella nätverket. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
  

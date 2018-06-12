@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 98c2934800c739b463b168786e14f6a2a9cb47e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d8df5e4992cd8d51f1b5259947139d3b180ec82
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661139"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267054"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Köra skript i Windows VM
 
@@ -31,14 +31,14 @@ Den [tillägget för anpassat skript](../extensions/custom-script-windows.md) an
 
 ## <a name="run-command"></a>Kör kommando
 
-Den [kommandot Kör](run-command.md) funktionen kan virtuella datorer och hantering och felsökning med hjälp av skript och är tillgängliga även om datorn inte nätverket ansluten.
+Den [kommandot Kör](run-command.md) funktion gör det möjligt för virtuell dator och hantering och felsökning med hjälp av skript och är tillgängliga även när datorn kan inte nås, till exempel om gäst brandväggen inte har RDP eller SSH-port Öppna.
 
 * Köra skript i virtuella Azure-datorer.
 * Kan köras med [Azure-portalen](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 * Snabbt kör ett skript och visa utdata och upprepa efter behov i Azure-portalen.
 * Skriptet kan skrivas direkt eller genom att köra något av de inbyggda skript.
 * Kör PowerShell-skript i Windows-datorer och Bash-skript i Linux-datorer.
-* Användbar för virtuell dator och hantering av program och för att köra skript i virtuella datorer som inte är anslutna.
+* Användbar för virtuell dator och hantering av program och för att köra skript i virtuella datorer som inte kan nås.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 

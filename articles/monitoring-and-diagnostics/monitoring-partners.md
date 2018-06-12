@@ -1,24 +1,19 @@
 ---
-title: "Azure övervakaren partner integreringar | Microsoft Docs"
-description: "Läs mer om Azure-Monitor partners och hur du hittar dokumentationen för att integrera med dem."
+title: Partner som intergrate med Azure-Monitor
+description: Läs mer om Azure-Monitor partners och hur du hittar dokumentationen för att integrera med dem.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: ''
+ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265291"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure övervakaren partner integreringar
 | Partner |  |  |
@@ -140,13 +135,13 @@ SIGNL4 - mobila aviseringar app för team - är det snabbaste sättet att dirige
 
 [Gå till dokumentationen.][splunk-doc]
 
-## <a name="sumo-logic"></a>Sumo Logic
+## <a name="sumo-logic"></a>Sumo logik
 Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahålla realtid, kontinuerlig intelligence från strukturerade, delvis strukturerade och Ostrukturerade data i hela programmet livscykel och stack. Mer än 1 000 kunder över hela världen förlitar sig på Sumo logik för analyser och insikter att bygga, köra, och skydda sina program och molninfrastrukturer. Med Sumo logik få kunder en flera innehavare, service-modell fördel för att öka konkurrensfördel och affärsvärde tillväxt.
 
 [Lära sig mer.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic levererar arbetsbelastning automation för hybrid moln genom att samtidigt optimera prestanda, kostnad och efterlevnad i realtid. Turbonomic hjälper organisationer att elastisk i sina Azure egendom genom att kontinuerligt optimera egendom om du vill få program ständigt de resurser som de behöver för att ge sina SLA och inget mer över beräkna, lagring och nätverk för IaaS och PaaS skiktet. Organisationer kan simulera migreringar, korrekt skala arbetsbelastningen och inaktivera datacenterresurser för att migrera till Azure i tid, inom budgeten, ansvarsfullt samtidigt säkerställa både prestanda och godkännande. Turbonomic är API drivs och körs som en agentlös virtuell dator i Azure och lokalt.
+Turbonomic levererar arbetsbelastning automation för hybrid moln genom att samtidigt optimera prestanda, kostnad och efterlevnad i realtid. Turbonomic hjälper organisationer att elastisk i sina Azure egendom genom att kontinuerligt optimera egendom om du vill få program ständigt de resurser som de behöver för att ge sina SLA och inget mer över beräkna, lagring och nätverk för IaaS och PaaS skiktet. Organisationer kan simulera migreringar, korrekt skala arbetsbelastningen och inaktivera datacenterresurser för att migrera till Azure i tid, inom budgeten, ansvarsfullt samtidigt säkerställa både prestanda och godkännande. Turbonomic drivs med hjälp av API och körs som en virtuell dator utan agent i Azure och lokalt.
 
 [Lära sig mer.][turbonomic-doc]
 

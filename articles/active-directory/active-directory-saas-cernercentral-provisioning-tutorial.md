@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5440f9e747957a017eac109cddc4881244e506eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292695"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
@@ -41,7 +42,7 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till Cerner Central. När du valt, kan du tilldela dessa användare till Cerner Central genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Tilldela en användare eller grupp till en enterprise-app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Viktiga tips för att tilldela användare till Cerner Central
 
@@ -129,7 +130,7 @@ Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering 
 
 * [Cerner Central: Publicering av identitetsdata med Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Självstudier: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
-* [Hantera användare konto-etablering för företag-appar](active-directory-enterprise-apps-manage-provisioning.md)
+* [Hantera användare konto-etablering för företag-appar](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

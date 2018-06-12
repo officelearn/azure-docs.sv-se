@@ -1,6 +1,6 @@
 ---
-title: Anpassad installation för Azure-SSIS-integrering runtime | Microsoft Docs
-description: Den här artikeln beskriver hur du använder anpassad installation gränssnittet för Azure-SSIS-integrering runtime
+title: Anpassa inställningar för Azure-SSIS-integrering runtime | Microsoft Docs
+description: Den här artikeln beskriver hur du använder anpassad installation gränssnittet för Azure-SSIS-integrering runtime att installera ytterligare komponenter eller ändra inställningar
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: cce41a7529367d2e26b89a40593f9564d7e539b6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619599"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298400"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Anpassad installation för Azure-SSIS-integrering runtime
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa inställningar för Azure-SSIS-integrering runtime
 
-Anpassad installation gränssnitt för Azure-SSIS-integrering körning kan du ändra det standardoperativsystem konfiguration eller miljö (exempelvis för att starta ytterligare Windows-tjänster) eller installera ytterligare komponenter (till exempel sammansättningar, drivrutiner, eller Extensions) på varje nod i Azure-SSIS-IR. I allmänhet tillhandahåller det ett gränssnitt för att lägga till egna konfigurationsstegen under etablering eller omkonfiguration av Azure-SSIS-IR.
+Gränssnittet med anpassad installation för Azure-SSIS-integrering Runtime tillhandahåller ett gränssnitt för att lägga till egna konfigurationsstegen under etablering eller omkonfiguration av Azure-SSIS-IR. Anpassad installation kan du ändra det standardoperativsystem konfiguration eller miljö (exempelvis för att starta ytterligare Windows-tjänster) eller installera ytterligare komponenter (till exempel sammansättningar, drivrutiner eller tillägg) på varje nod i Azure-SSIS-IR.
 
 Du kan konfigurera dina egna inställningar genom att förbereda ett skript och dess associerade filer och överför dem till en blobbbehållare i Azure Storage-konto. Du anger en delad signatur åtkomst (SAS) identifierare URI (Uniform Resource) för din behållaren när du etablerar eller konfigurera om Azure-SSIS-IR. Varje nod i Azure-SSIS-IR sedan hämtar skriptet och dess associerade filer från din behållare och kör din anpassad installation med förhöjda privilegier. När anpassade installationen är klar överförs varje nod standardutdata för körning och andra loggar till din behållare.
 
@@ -32,7 +32,7 @@ Du kan installera både ledigt eller olicensierad komponenter och betald eller l
 
 -   Om du vill använda `gacutil.exe` för att installera sammansättningar i den globala sammansättningscachen (GAC), du måste ange den som en del av din anpassade konfiguration, eller använda kopian som tillhandahålls i behållaren Public Preview.
 
--   Om du behöver ansluta till din Azure-SSIS-IR med anpassad installation till ett virtuellt nätverk stöds endast Azure Resource Manager VNet. Klassiska VNet stöds inte.
+-   Om du behöver ansluta till din Azure-SSIS-IR med anpassad installation till ett virtuellt nätverk stöds endast Azure Resource Manager virtuellt nätverk. Klassiskt virtuellt nätverk stöds inte.
 
 -   Administrativ resurs stöds inte för närvarande på Azure-SSIS-IR.
 

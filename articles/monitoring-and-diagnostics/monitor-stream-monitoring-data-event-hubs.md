@@ -1,24 +1,19 @@
 ---
-title: Strömma Azure övervakningsdata i Händelsehubbar | Microsoft Docs
+title: Dataströmmen Azure övervakningsdata i Händelsehubbar
 description: Lär dig mer om att strömma alla Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analytics-verktyget.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 35cdd157469556c071b03a0f25184df141057554
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: ''
+ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639069"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263471"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Dataströmmen Azure övervakningsdata till en händelsehubb för användning av ett externt verktyg
 

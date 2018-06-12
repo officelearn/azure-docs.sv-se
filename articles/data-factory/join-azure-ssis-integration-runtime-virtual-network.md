@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 344bd9beff03f423d3dc3431dec56334e721d811
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619651"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298074"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 
 
-- Du är värd för SQL Server Integration Services (SSIS) katalog databas på Azure SQL-hanterade databasinstans (förhandsgranskning) i ett virtuellt nätverk.
 - Du vill ansluta till lokala datalager från SSIS-paket som körs på Azure-SSIS Integration Runtime.
+
+- Du är värd för SQL Server Integration Services (SSIS) katalog databas på Azure SQL-hanterade databasinstans (förhandsgranskning) i ett virtuellt nätverk.
 
  Azure Data Factory version 2 (förhandsversion) kan du ansluta din Azure-SSIS-integrering runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen och Azure Resource Manager-distributionsmodellen. 
 
@@ -52,7 +53,7 @@ Följande avsnitt innehåller mer information.
 
 ## <a name="requirements-for-virtual-network-configuration"></a>Kraven för konfiguration av virtuellt nätverk
 
--   Se till att `Microsoft.Batch` är en registrerad provider för den här prenumerationen för din VNet-undernät som är värd för Azure-SSIS-IR. Om du använder klassiska VNet kan också ansluta `MicrosoftAzureBatch` till klassiska virtuella deltagarrollen för det virtuella nätverket.
+-   Se till att `Microsoft.Batch` är en registrerad provider för den här prenumerationen för din virtuella undernät som är värd för Azure-SSIS-IR. Om du använder klassiskt virtuellt nätverk kan också ansluta `MicrosoftAzureBatch` till klassiska virtuella deltagarrollen för det virtuella nätverket.
 
 -   Välj rätt undernät som värd för Azure-SSIS-IR. Se [markerar du undernätet](#subnet).
 
@@ -78,7 +79,7 @@ Du bör följande steg:
 
 -   Konfigurera anpassade DNS för att vidarebefordra begäran till Azure DNS. Du kan vidarebefordra olösta DNS-posterna IP-adressen för Azures rekursiv matchare (168.63.129.16) på DNS-servern.
 
--   Skapa anpassad DNS som primär och Azure DNS som sekundär för VNet. Registrera IP-adressen för Azures rekursiv matchare (168.63.129.16) som en sekundär DNS-server om DNS-servern är inte tillgänglig.
+-   Ställ in anpassad DNS som primär och Azure DNS som sekundär för det virtuella nätverket. Registrera IP-adressen för Azures rekursiv matchare (168.63.129.16) som en sekundär DNS-server om DNS-servern är inte tillgänglig.
 
 Mer information finns i [namnmatchning som använder DNS-servern](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -96,7 +97,7 @@ Om du behöver implementera en nätverkssäkerhetsgrupp (NSG) i ett virtuellt n�
 
 Du kan ansluta en [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) kretsen i den virtuella nätverksinfrastrukturen för att utöka ditt lokala nätverk till Azure. 
 
-En vanlig konfiguration är att använda Tvingad tunneling (annonsera en BGP-väg 0.0.0.0/0 till VNet) som styr utgående Internet-trafik från VNet-flödet till lokala nätverksenhet kontroll och loggning. Den här trafikflöde bryts anslutning mellan Azure SSIS-IR i virtuella nätverk med beroende Azure Data Factory-tjänster. Lösningen är att definiera en (eller flera) [användardefinierade vägar (udr: er)](../virtual-network/virtual-networks-udr-overview.md) på det undernät som innehåller Azure SSIS-IR. En UDR definierar undernät-specifika vägar som hanteras i stället för BGP-väg.
+En vanlig konfiguration är att använda Tvingad tunneling (annonsera en BGP-väg 0.0.0.0/0 till det virtuella nätverket) som styr utgående Internet-trafik från det virtuella nätverk flödet till lokala nätverksenhet kontroll och loggning. Den här trafikflöde bryts anslutning mellan Azure SSIS-IR i det virtuella nätverket med beroende Azure Data Factory-tjänster. Lösningen är att definiera en (eller flera) [användardefinierade vägar (udr: er)](../virtual-network/virtual-networks-udr-overview.md) på det undernät som innehåller Azure SSIS-IR. En UDR definierar undernät-specifika vägar som hanteras i stället för BGP-väg.
 
 Eller så kan du definiera användardefinierade vägar (udr: er) för att tvinga utgående Internet-trafik från det undernät som är värd för Azure-SSIS-IR till ett annat undernät som är värd för en virtuell nätverksenhet som en brandvägg eller en DMZ värd för kontroll och loggning.
 
@@ -109,11 +110,11 @@ Om du är orolig för att förlora möjligheten att inspektera utgående Interne
 Se [detta PowerShell-skript](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) ett exempel. Du måste köra skriptet weekly för att hålla Azure data center IP-adresslistan uppdaterade.
 
 ### <a name="resource-group"></a> Krav för resursgrupp
-Azure-SSIS-IR måste skapa vissa nätverksresurser under samma resursgrupp som det VNet, inklusive en Azure belastningsutjämnare, en Azure offentliga IP-adress och en nätverkssäkerhetsgrupp för arbetet.
+Azure-SSIS-IR måste skapa vissa nätverksresurser under samma resursgrupp som det virtuella nätverket, inklusive en Azure belastningsutjämnare, en Azure offentliga IP-adress och en nätverkssäkerhetsgrupp för arbetet.
 
--   Kontrollera att du inte har någon resurslås på den resursgrupp eller prenumeration som VNet tillhör. Om du konfigurerar ett skrivskyddat Lås eller ta bort lås, kan starta och stoppa IR misslyckas eller Lägg.
+-   Kontrollera att du inte har någon resurslås på den resursgrupp eller prenumeration som tillhör det virtuella nätverket. Om du konfigurerar ett skrivskyddat Lås eller ta bort lås, kan starta och stoppa IR misslyckas eller Lägg.
 
--   Kontrollera att du inte har en Azure-princip som förhindrar att följande resurser skapas under den resursgrupp eller prenumeration som VNet tillhör:
+-   Kontrollera att du inte har en Azure-princip som förhindrar att skapas under den resursgrupp eller prenumeration som tillhör det virtuella nätverket i följande resurser:
     -   Microsoft.Network/LoadBalancers
     -   Microsoft.Network/NetworkSecurityGroups
     -   Microsoft.Network/PublicIPAddresses
@@ -228,7 +229,7 @@ Du behöver konfigurera ett virtuellt nätverk innan du kan ansluta till en Azur
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
@@ -282,7 +283,7 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id

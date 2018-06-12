@@ -1,23 +1,19 @@
 ---
-title: Skapa klassiska aktivitet loggen aviseringar | Microsoft Docs
+title: Skapa klassiska aktivitet Logga varningar
 description: Ett meddelande via SMS, webhook och e-post när vissa händelser inträffar i aktivitetsloggen.
 author: johnkemnetz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263532"
 ---
 # <a name="create-activity-log-alerts-classic"></a>Skapa aktivitet Logga varningar (klassisk)
 
@@ -84,7 +80,7 @@ Läs mer om meddelanden om hälsostatus i [varningar aktivitet loggen på meddel
     >
     >
 
-8. Ange ett namn i den **åtgärd gruppnamn** och ange ett namn i den **kortnamnet** rutan. Det korta namnet används i stället för en fullständig åtgärd gruppnamn när meddelanden som skickas med den här gruppen.
+8. Ange ett namn i den **åtgärd gruppnamn** och ange ett namn i den **kortnamnet** rutan. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
 9.  Definiera en lista med åtgärder genom att tillhandahålla åtgärden:
 

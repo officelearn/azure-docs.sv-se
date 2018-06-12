@@ -4,7 +4,7 @@ description: Mönster för fel- och undantagshantering i Logic Apps.
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300070"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Hantera fel och undantag i Logic Apps
 
@@ -42,7 +43,7 @@ Om du vill konfigurera försök principer, om tillämpligt, öppna logik App Des
 
 Mer information om syntax och **indata** avsnittet, finns det [återförsöksprincip avsnittet i arbetsflödesåtgärder och utlösare][retryPolicyMSDN]. Information om begränsningar för återförsök princip finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
-### <a name="default"></a>Standardvärde
+### <a name="default"></a>Standard
 
 När du inte definierar en återförsöksprincip i den **retryPolicy** avsnittet logikappen använder standardprincipen, som är en [exponentiell intervall princip](#exponential-interval) som skickar upp till fyra återförsök vid exponentiellt öka intervall som skalas 7.5 sekunder. Intervallet är begränsat mellan 5 och 45 sekunder. Den här principen motsvarar principen i det här exemplet HTTP arbetsflödesdefinitionen:
 
@@ -64,13 +65,13 @@ När du inte definierar en återförsöksprincip i den **retryPolicy** avsnittet
 }
 ```
 
-### <a name="none"></a>Inget
+### <a name="none"></a>Ingen
 
 Om du ställer in **retryPolicy** till **ingen**, misslyckade begäranden försök inte i den här principen.
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| typ | Ja | Sträng | **none** | 
+| typ | Ja | Sträng | **Ingen** | 
 ||||| 
 
 ### <a name="fixed-interval"></a>Fasta intervaller
@@ -80,8 +81,8 @@ Om du ställer in **retryPolicy** till **fast**, den här principen försöker e
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
 | typ | Ja | Sträng | **Fast** |
-| antal | Ja | Heltal | Antal nya försök, vilket måste vara mellan 1 och 90 | 
-| intervall | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D | 
+| antal | Ja | Integer | Antal nya försök, vilket måste vara mellan 1 och 90 | 
+| interval | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D | 
 ||||| 
 
 <a name="exponential-interval"></a>
@@ -92,9 +93,9 @@ Om du ställer in **retryPolicy** till **exponentiell**, den här principen för
 
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
-| typ | Ja | Sträng | **exponential** |
-| antal | Ja | Heltal | Antal nya försök, vilket måste vara mellan 1 och 90  |
-| intervall | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D. |
+| typ | Ja | Sträng | **Exponentiell** |
+| antal | Ja | Integer | Antal nya försök, vilket måste vara mellan 1 och 90  |
+| interval | Ja | Sträng | Återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och PT1D. |
 | minimumInterval | Nej | Sträng | Minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan PT5S och **intervall** |
 | maximumInterval | Nej | Sträng | Minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), som måste vara mellan **intervall** och PT1D | 
 ||||| 

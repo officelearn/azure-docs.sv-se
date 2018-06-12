@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps B2B lista över fel och lösningar: Azure App Service | Microsoft Docs"
-description: "Logic Apps B2B lista över fel och lösningar"
+title: 'Logic Apps B2B lista över fel och lösningar: Azure App Service | Microsoft Docs'
+description: Logic Apps B2B lista över fel och lösningar
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298346"
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Logic Apps B2B lista över fel och lösningar  
 Den här artikeln hjälper dig att felsöka problem som kan inträffa i Logic Apps B2B-scenarier och ger förslag på åtgärder för att korrigera felen.
@@ -118,7 +119,7 @@ Den här artikeln hjälper dig att felsöka problem som kan inträffa i Logic Ap
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Duplicera kontroll tal |
+| Felbeskrivning | Dubblettkontrollnummer |
 | Användaråtgärd | Det här felet indikerar det mottagna meddelandet har dubbla kontrollen siffror. </br> Korrigera antalet kontroll och skicka meddelandet igen |
 |   |   |
 
@@ -134,11 +135,11 @@ Den här artikeln hjälper dig att felsöka problem som kan inträffa i Logic Ap
 
 |   |   | 
 |---|---| 
-| Felbeskrivning | Meddelandet har en okänd dokumenttyp och matchade inte någon av de befintliga scheman som konfigureras i avtalet. |
+| Felbeskrivning | Meddelandet har en okänd dokumenttyp och matchade inte något av de befintliga scheman som konfigurerats i avtalet. |
 | Användaråtgärd | Konfigurera rätt schema i inställningarna för avtal  |
 |   |   |
 
-## <a name="flat-file"></a>Flat-fil
+## <a name="flat-file"></a>Flat fil
 
 ### <a name="-input-message-with-no-body"></a>* Indatameddelande med ingen brödtext
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 763b13849470079e24aac6aff45584bac33403f0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620545"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297265"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration körning i Azure Data Factory  
 **Integration runtime** är beräkningsinfrastrukturen som används av Azure Data Factory för att ange olika funktioner för integration av data mellan olika nätverksmiljöer. Det finns tre typer av integration körningar som erbjuds av Data Factory:
@@ -167,7 +167,7 @@ Azure-SSIS-integrering runtime är en helt hanterad kluster med Azure virtuella 
 | CatalogAdminUserName | Administratörsanvändarnamnet för den befintliga databas/hanterad Azure SQL-instans (förhandsgranskning)-servern. Data Factory-tjänsten använder denna information för att förbereda och hantera SSISDB å dina vägnar. |
 | CatalogAdminPassword | Admin-lösenordet för den befintliga databas/hanterad Azure SQL-instans (förhandsgranskning)-servern. |
 | CatalogPricingTier | Prisnivån för SSISDB hos den befintliga Azure SQL Database-servern.  Inte tillämpligt för Azure SQL hanteras-instans (förhandsgranskning) värd SSISDB. |
-| VNetId | Virtuella nätverk (VNet) resurs-ID för din Azure-SSIS-integrering runtime att ansluta till. |
+| VNetId | Virtuellt nätverk resurs-ID för din Azure-SSIS-integrering runtime att ansluta till. |
 | Undernät | Undernätsnamn för din Azure-SSIS-integrering runtime att ansluta till. |
 | ID | Resurs-ID för din Azure-SSIS-integrering runtime. |
 | Typ | Typen (hanterade/egen-Hosted) för din Azure-SSIS-integrering runtime. |
@@ -200,9 +200,9 @@ Finns i följande artiklar om du vill veta mer om Azure-SSIS-integrering körnin
 
 - [Azure-SSIS-integrering Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integration körningar i allmänhet inklusive Azure SSIS-IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL-hanterade instanser (förhandsversion) och ansluter IR till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med kursen och innehåller instruktioner om med Azure SQL hanteras instans (förhandsversion) och koppla IR till ett virtuellt nätverk. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
-- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk (VNet). Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
+- [Ansluta till en Azure-SSIS-IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller information om att ansluta till en Azure-SSIS-IR till ett Azure virtual network. Det ger också steg för att använda Azure-portalen för att konfigurera det virtuella nätverket så att Azure-SSIS-IR kan ansluta till det virtuella nätverket. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar för att övervaka pipelines på olika sätt: 

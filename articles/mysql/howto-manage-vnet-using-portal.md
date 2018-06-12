@@ -6,15 +6,15 @@ author: mbolz
 ms.author: mbolz
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/01/2018
-ms.openlocfilehash: 8e4a14eb796875848406b4fc4ff39b90b9a691e9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7520868fd6bd349043ad2c53e62de5db978db8b1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736447"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267228"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MySQL VNet slutpunkter och VNet-regler med hjälp av Azure portal
 Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet i ett virtuellt nätverk till din Azure-databas för MySQL-servern. En översikt över Azure-databas för MySQL VNet slutpunkter, inklusive begränsningar, finns i [Azure-databas för MySQL Server VNet Tjänsteslutpunkter](concepts-data-access-and-security-vnet.md). Slutpunkter för virtuella nätverk är tillgänglig som förhandsversion i alla regioner som stöds för Azure-databas för MySQL.

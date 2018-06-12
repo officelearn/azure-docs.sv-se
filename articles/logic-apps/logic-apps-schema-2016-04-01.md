@@ -1,11 +1,11 @@
 ---
 title: Schemat uppdateras juni 1 2016 - Azure Logic Apps | Microsoft Docs
-description: "Skapa JSON-definitioner för Logic Apps i Azure med schemaversionen 2016-06-01"
+description: Skapa JSON-definitioner för Logic Apps i Azure med schemaversionen 2016-06-01
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1cbb20a96f39ffa6f4c7375a38b3bf8046d0bd3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299699"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema-uppdateringar för Logikappar i Azure - 1 juni 2016
 
@@ -27,13 +28,13 @@ Den [uppdaterat schema](https://schema.management.azure.com/schemas/2016-06-01/M
 
 * [Scope](#scopes) låter dig kapsla åtgärder som en samling åtgärder.
 * [Villkor och slingor](#conditions-loops) är nu förstklassigt åtgärder.
-* Mer exakta ordning för åtgärder med körs den `runAfter` egenskapen ersätta`dependsOn`
+* Mer exakta ordning för åtgärder med körs den `runAfter` egenskapen ersätta `dependsOn`
 
 Att uppgradera dina logic apps från 1 augusti 2015 preview schemat till den 1 juni 2016-schemat [kolla avsnittet Uppgradera](#upgrade-your-schema).
 
 <a name="scopes"></a>
 
-## <a name="scopes"></a>Omfång
+## <a name="scopes"></a>Omfattningar
 
 Det här schemat innehåller scope, så att du kan gruppera tillsammans eller kapslade åtgärder i varandra. Ett villkor kan exempelvis innehålla ytterligare villkor. Lär dig mer om [omfång syntax](../logic-apps/logic-apps-loops-and-scopes.md), eller läsa det här exemplet grundläggande omfång:
 

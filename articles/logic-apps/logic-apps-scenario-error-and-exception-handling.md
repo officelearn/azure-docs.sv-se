@@ -1,12 +1,12 @@
 ---
-title: "Undantagshantering & fel loggning scenario – Azure Logic Apps | Microsoft Docs"
-description: "Beskriver en verklig användningsfall om avancerad undantagshantering och felloggning för Logikappar i Azure"
-keywords: 
+title: Undantagshantering & fel loggning scenario – Azure Logic Apps | Microsoft Docs
+description: Beskriver en verklig användningsfall om avancerad undantagshantering och felloggning för Logikappar i Azure
+keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299366"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logic apps
 
@@ -412,7 +413,7 @@ Du kan skapa en MVC-webbapp för att visa felposter från Cosmos DB om du vill v
 Här följer exempel på vår MVC-appinformation som skapats med metoden som beskrivits tidigare.
 
 #### <a name="error-management-list"></a>Fel vid hantering av lista
-![Fel vid lista](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Lista över fel](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Fel vid hantering av detaljerad vy
 ![Information om fel](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)

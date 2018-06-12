@@ -1,11 +1,11 @@
 ---
-title: "X12 meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs"
-description: "Exchange X12 meddelanden EDI-format för B2B enterprise integrering med Azure Logikappar"
+title: X12 meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange X12 meddelanden EDI-format för B2B enterprise integrering med Azure Logikappar
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299087"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 meddelanden för enterprise-integrering med logic apps
 
@@ -64,7 +65,7 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
 
     ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-    | Egenskap | Beskrivning |
+    | Egenskap  | Beskrivning |
     | --- | --- |
     | Namn |Avtalets namn |
     | Avtalstyp | Ska vara X12 |
@@ -95,18 +96,18 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 ![Ange ID-egenskaper](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | ISA1 (auktoriseringskvalificerare) |Välj auktorisering kvalificerarvärdet från den nedrullningsbara listan. |
 | ISA2 |Valfri. Ange värdet för auktorisering information. Om värdet för ISA1 är än 00 ange minst ett alfanumeriskt tecken och högst 10. |
 | ISA3 (säkerhetskvalificerare) |Välj kvalificerare säkerhetsvärde från den nedrullningsbara listan. |
 | ISA4 |Valfri. Ange information säkerhetsvärde. Om värdet för ISA3 är än 00 ange minst ett alfanumeriskt tecken och högst 10. |
 
-### <a name="acknowledgment"></a>Acknowledgment
+### <a name="acknowledgment"></a>Bekräftelse
 
 ![Ange egenskaper för bekräftelse](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TA1 förväntades |Returnerar en teknisk bekräftelse till interchange avsändaren |
 | MI förväntades |Returnerar en funktionell bekräftelse till interchange avsändaren. Ange om du vill bekräftelser 997 eller 999 baserat på schemaversionen |
@@ -118,7 +119,7 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 
 ![Välj schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Version |Välj X12 version |
 | Transaktionstyp (ST01) |Välj transaktionstyp |
@@ -132,7 +133,7 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 
 ![Ange avgränsaren i en transaktion: Välj Standard identifierare eller upprepning avgränsare](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | ISA11-användning |Anger avgränsare som ska användas i en transaktion: <p>Välj **Standard identifierare** för att använda en punkt (.) för decimalform, i stället för decimalform inkommande dokument i EDI får pipeline. <p>Välj **upprepning avgränsare** att ange avgränsaren för upprepade förekomster av en enkel dataelement eller en upprepad datastruktur. Till exempel används vanligtvis cirkumflex (^) som avgränsare för upprepning. Du kan bara använda cirkumflex för HIPAA scheman. |
 
@@ -140,7 +141,7 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 
 ![Välj hur du vill hantera kontrollen nummer dubbletter](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Tillåt inte Interchange kontrollen antal dubbletter |Blockera dubbla externa utbyten. Kontrollerar interchange kontrollnumret (ISA13) för det mottagna interchange kontrollnummer. Om en matchning hittas bearbeta inte ta emot pipeline utbyte. Du kan ange antalet dagar för att utföra kontrollen genom att ge ett värde för *Sök efter duplicerade ISA13 varje (dagar)*. |
 | Tillåt inte dubletter av gruppkontrollnummer |Blockera interchanges med dubbla grupp kontrollen nummer. |
@@ -152,7 +153,7 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |
@@ -165,7 +166,7 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 
 ![Välj inställningar för internt](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Konvertera underförstådda decimalformat ”Nn” till en bas 10 numeriskt värde |Konverterar ett EDI-nummer som har angetts med formatet ”Nn” till ett numeriskt värde bas 10 |
 | Skapa tomma XML-taggar om avslutande avgränsare är tillåtna |Välj den här kryssrutan om du vill interchange avsändaren är tom XML-taggar för avslutande avgränsare. |
@@ -191,18 +192,18 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 ![Ange ID-egenskaper](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Auktorisering kvalificerare (ISA1) |Välj auktorisering kvalificerarvärdet från den nedrullningsbara listan. |
 | ISA2 |Ange värdet för auktorisering information. Om det här värdet är än 00, ange minst ett alfanumeriskt tecken och högst 10. |
 | Säkerhet kvalificerare (ISA3) |Välj kvalificerare säkerhetsvärde från den nedrullningsbara listan. |
 | ISA4 |Ange information säkerhetsvärde. Om det här värdet är än 00 för textrutan värde (ISA4) ange minst ett alfanumeriskt värde och högst 10. |
 
-### <a name="acknowledgment"></a>Acknowledgment
+### <a name="acknowledgment"></a>Bekräftelse
 
 ![Ange egenskaper för bekräftelse](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TA1 förväntades |Returnera en teknisk bekräftelse (TA1) till interchange avsändaren. Den här inställningen anger att den mottagande partnern som skickar meddelandet begär en bekräftelse från gästen partner i avtalet. Dessa bekräftelser förväntas av partner-värden baserat på inställningarna som visas i avtalet. |
 | MI förväntades |Returnera en funktionell bekräftelse (MI) interchange avsändaren. Välj om du vill bekräftelser 997 eller 999 baserat på schema-versioner som du arbetar med. Dessa bekräftelser förväntas av partner-värden baserat på inställningarna som visas i avtalet. |
@@ -212,11 +213,11 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 ![Välj schema du ska använda](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Version |Välj X12 version |
 | Transaktionstyp (ST01) |Välj transaktionstyp |
-| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. Om du väljer schemat först konfigurerar den automatiskt version och transaktionen typ  |
+| SCHEMAT |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. Om du väljer schemat först konfigurerar den automatiskt version och transaktionen typ  |
 
 > [!NOTE]
 > Konfigurera de nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som överförs till ditt [integrering konto](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -225,7 +226,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 ![Ange avgränsaren i en transaktion: Välj Standard identifierare eller upprepning avgränsare](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | ISA11-användning |Anger avgränsare som ska användas i en transaktion: <p>Välj **Standard identifierare** för att använda en punkt (.) för decimalform, i stället för decimalform inkommande dokument i EDI får pipeline. <p>Välj **upprepning avgränsare** att ange avgränsaren för upprepade förekomster av en enkel dataelement eller en upprepad datastruktur. Till exempel används vanligtvis cirkumflex (^) som avgränsare för upprepning. Du kan bara använda cirkumflex för HIPAA scheman. |
 
@@ -233,9 +234,9 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 ![Ange egenskaper för kontrollen tal](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| Versionsnumret för kontrollen (ISA12) |Välj versionen av X12 standard |
+| Kontrollversionsnummer (ISA12) |Välj versionen av X12 standard |
 | Användning-indikatorn (ISA15) |Välj kontexten för ett utbyte.  Värdena är information produktionsdata, eller testa data |
 | Schema |Genererar GS och ST segment för X12-kodade utbyte som skickas till skicka Pipeline |
 | GS1 |Valfritt, väljer du ett värde för funktionell kod från den nedrullningsbara listrutan |
@@ -257,7 +258,7 @@ Annat än teckenuppsättningen, kan du ange en annan uppsättning avgränsare f�
 
 ![Ange avgränsare för meddelandetyper](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Tecken som ska användas |Att verifiera egenskaper, Välj X12 teckenuppsättningen. Alternativen är grundläggande och utökad UTF8. |
 | Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda utifrån beskrivningarna avgränsare nedan för det aktuella schemat. |
@@ -277,7 +278,7 @@ Annat än teckenuppsättningen, kan du ange en annan uppsättning avgränsare f�
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |

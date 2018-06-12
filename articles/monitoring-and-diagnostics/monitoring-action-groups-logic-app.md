@@ -1,24 +1,19 @@
 ---
-title: Hur du utlöser komplexa åtgärder med Azure övervaka aviseringar och åtgärder grupper | Microsoft Docs
+title: Hur du utlöser komplexa åtgärder med Azure övervaka aviseringar och åtgärder grupper
 description: Lär dig hur du skapar en Logikapp åtgärd att bearbeta Azure övervaka aviseringar.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
-ms.openlocfilehash: 0020f1475d52d01897320062edbd3a66c8acf751
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263892"
 ---
 # <a name="create-a-logic-app-action"></a>Skapa en Logikapp-åtgärd
 ## <a name="overview"></a>Översikt ##
@@ -58,7 +53,7 @@ Processen påminner om du vill Logikappen att utföra olika åtgärder.
 
     ![HTTP-begäran utlösaren formen](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP-begäran utlösaren form")
 
-7.  Välj **Använd exemplet nyttolast för att skapa schema**.
+7.  Välj **Generera schemat genom att använda en exempelnyttolast**.
 
     ![Använda exemplet nyttolast knappen](media/monitoring-action-groups/use-sample-payload-button.png "Använd nyttolast OK")
 

@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297523"
 ---
 # <a name="use-cost-management-reports"></a>Använda Cost Management-rapporter
 
@@ -23,6 +24,8 @@ Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-p
 ## <a name="cost-analysis-reports"></a>Kostnad analysrapporter
 
 Kostnad analysrapporter visa faktureringsinformation från Cloud-providers. Med hjälp av rapporter, kan du gruppera och öka detaljnivån i olika datasegment i filen fakturering. Rapporterna Aktivera detaljerade kostnaden navigering mellan moln leverantörer rådata faktureringsinformation.
+
+När den visas som ett diagram analysrapporter har en y-axeln *kostnaden* och en x-axeln i en *kategori eller taggen* som du väljer. Även om det finns ett område i diagrammet, används de senaste 30 dagarna exempelvis intervallet som filter. Analysrapporter är perfekt att jämföra kategorier. Till exempel kostnaden för varje prenumeration under de senaste 30 dagarna. Eller kostnaden för tjänster som lagring och beräkning under en viss period.
 
 Kostnad analysrapporter gruppera aldrig kostnader efter taggar. Taggen-baserade reporting är endast tillgängligt i de kostnad rapporter ange när du skapar en kostnad modell med kostnaden allokering 360.
 
@@ -50,6 +53,8 @@ Du kan högerklicka på rapportresultat för att öka detaljnivån i dem och vis
 ### <a name="actual-cost-over-time"></a>Verklig kostnad över tid
 
 Verklig kostnad över tid rapporten är en standardkostnaden analysrapporten distribuerar kostnaden över en angiven tidpunkt-lösning. Rapporten visar utgifter över tid så att du kan se trender och identifiera utgiftsgränsen oegentligheter. Den här rapporten visar dina viktigaste kostnaden deltagare inklusive kostnader och enstaka reserverade instans avgifter som används under en vald tidsperiod.
+
+När den visas som ett diagram kostnaden över tidrapporter har en y-axeln *kostnaden* och x-axeln *tidsperiod*. Rapporterna visar utvecklingen av kostnaden under en viss tidsperiod.
 
 Använd rapporten faktiska kostnaden över tid för att:
 
@@ -162,4 +167,4 @@ Här är ett exempel på rapporten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutförts första självstudierna för hantering av kostnader, läsa den på [granska användning och kostnader](tutorial-review-usage.md).
+- Om du inte redan har slutfört den första kursen för Cost Management kan du läsa den i [Granska användning och kostnader](tutorial-review-usage.md).

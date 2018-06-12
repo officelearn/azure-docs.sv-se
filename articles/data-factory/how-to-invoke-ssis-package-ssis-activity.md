@@ -1,6 +1,6 @@
 ---
-title: Kör SSIS-paket med hjälp av aktiviteten för köra SSIS-paket i Azure Data Factory | Microsoft Docs
-description: Den här artikeln beskriver hur du kör en SQL Server Integration Services (SSIS) från ett Azure Data Factory-pipelinen med aktiviteten kör SSIS-paket.
+title: Kör SSIS-paket med köra SSIS-paket aktivitet – Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du kör ett SQL Server Integration Services (SSIS)-paket i ett Azure Data Factory-pipelinen med hjälp av aktiviteten köra SSIS-paket.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,15 +12,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: douglasl
-ms.openlocfilehash: fed4e10fcaaa5282c37b175f355b94522c3b2b46
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ce041813d52e645c336869ef04c9522962c80cf5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700493"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297163"
 ---
-# <a name="run-an-ssis-package-using-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
-Den här artikeln beskriver hur du kör ett SSIS-paket från ett Azure Data Factory-pipelinen med hjälp av aktiviteten köra SSIS-paket. 
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
+Den här artikeln beskriver hur du kör ett SSIS-paket i ett Azure Data Factory-pipelinen med hjälp av aktiviteten köra SSIS-paket. 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Aktiviteten kör SSIS-paket är inte tillgängliga i version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA). Ett annat sätt att köra ett SSIS-paket med version 1 av Data Factory-tjänsten finns [kör SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

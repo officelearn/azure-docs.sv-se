@@ -1,24 +1,19 @@
 ---
-title: Skapa en mått i Azure med en Resource Manager-mall | Microsoft Docs
+title: Skapa en metrisk varning med en Resource Manager-mall
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en mått.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
-ms.openlocfilehash: 4b8b5c8d1991cc65c1efe11c930ddb8956c895ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263454"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera [nyare mått aviseringar](monitoring-near-real-time-metric-alerts.md) i Azure-Monitor. Resource Manager-mallar kan du vill konfigurera aviseringar på ett konsekvent sätt reproduceras i dina miljöer. Nyare mått aviseringar är tillgängliga på [denna uppsättning resurstyper](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).

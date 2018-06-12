@@ -1,25 +1,26 @@
 ---
-title: "Ansluta program till Azure-databas för MySQL"
-description: "Det här dokumentet innehåller för närvarande stöds anslutningssträngar att ansluta till Azure-databas för MySQL, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python eller Ruby-program."
+title: Ansluta program till Azure-databas för MySQL
+description: Det här dokumentet innehåller för närvarande stöds anslutningssträngar att ansluta till Azure-databas för MySQL, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python eller Ruby-program.
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 083c6850151340ba8cb307a237f489e5923761a5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265691"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Så här ansluter du program till Azure-databas för MySQL
 Det här avsnittet listar sträng anslutningstyper som stöds av Azure-databas för MySQL, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutningssträngen.
 
 - Certifikatet finns på [hur du konfigurerar SSL](./howto-configure-ssl.md).
-- {your_host} = <servername>.mysql.database.azure.com
+- {your_host} = <servername>. mysql.database.azure.com
 - {your_user}@{servername} = användar-ID-format för autentisering korrekt.  Om du bara använder det användar-ID, misslyckas autentiseringen.
 
 ## <a name="adonet"></a>ADO.NET

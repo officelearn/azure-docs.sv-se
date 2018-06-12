@@ -4,7 +4,7 @@ description: Flytta eller migrera Azure BizTalk-tjänster (MABS) till Azure Logi
 services: logic-apps
 documentationcenter: ''
 author: jonfancey
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 846386172c0221c217430e62c8560484f799fa7f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299553"
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Flytta från BizTalk-tjänst till Azure Logikappar
 
@@ -39,8 +40,8 @@ Den här tabellen motsvarar Logic Apps BizTalk-tjänst-funktioner.
 
 | BizTalk Services   | Logic Apps            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
-| Anslutning          | Anslutning             | Skicka och ta emot data   |
-| Platslänksbrygga             | Logisk app             | Pipeline-processor           |
+| Koppling          | Koppling             | Skicka och ta emot data   |
+| Platslänksbrygga             | Logikapp             | Pipeline-processor           |
 | Validera fas     | XML-verifiering åtgärd | Validera ett XML-dokument mot ett schema | 
 | Utöka fas       | Data-token           | Befordra egenskaper i meddelanden eller för beslut om routning |
 | Transformera fas    | Transformera åtgärd      | Konvertera XML-meddelanden från ett format till en annan |
@@ -67,9 +68,9 @@ Som standard har varje brygga en HTTP-slutpunkt som är konfigurerad med Runtime
 En brygga är detsamma som en process-pipelinen för BizTalk-tjänst. En brygga arbeta med data som tagits emot från en koppling, gör vissa arbetar med data och skicka resultaten till en annan dator. Logic Apps har samma genom att stödja pipeline-baserade interaktion samma mönster som BizTalk-tjänst och även andra integration mönster. Den [XML-Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) i BizTalk Services kallas en VETER pipelinen, som består av faser som utför dessa uppgifter:
 
 * V Validera
-* (E) Enrich
+* (E) utöka
 * (T) transformera
-* (E) Enrich
+* (E) utöka
 * (R) väg
 
 Den här bilden visar hur bearbetning delas mellan begäran och svar, som ger kontroll över begäran och svar sökvägar separat, till exempel genom att använda olika mappar för varje sökväg:
@@ -84,7 +85,7 @@ I BizTalk-tjänst kan du ta emot olika typer av XML-meddelanden och fastställa 
 
 Logic Apps tillhandahåller liknande funktioner. Du får en flat-fil via olika protokoll som använder olika connector utlösare (filsystem, FTP-, HTTP och så vidare) och använda den [Flat fil avkoda](../logic-apps/logic-apps-enterprise-integration-flatfile.md) åtgärder för att omvandla inkommande data till XML. Du kan flytta dina befintliga scheman flat fil direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt konto för integrering.
 
-### <a name="validation"></a>Verifiering
+### <a name="validation"></a>Validering
 
 När inkommande data har konverterats till XML (eller om XML var meddelandeformat togs emot), kör verifiering för att avgöra om meddelandet följer XSD-schemat. Använd för att utföra den här uppgiften i Logikappar i [XML-verifiering](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) åtgärd. Du kan använda samma scheman från BizTalk-tjänst utan några ändringar.
 
@@ -119,9 +120,9 @@ Om du har anpassade kod i sammansättningar som anropas från BizTalk-tjänst ka
 BizTalk-tjänst och Logic Apps innehåller EDI och B2B bearbetning med stöd för AS2 tillämplighet instruktionen 2, X12 och EDIFACT. I BizTalk Services din skapa EDI bryggor och skapa eller hantera handel partners och avtalen i den dedikerade hantering och uppföljning av portalen.
 I Logic Apps får du den här funktionen via den [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). EIP ger [integrering konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och B2B-åtgärder för EDI och B2B-bearbetning. Du också använda ett konto för integrering för att skapa och hantera [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md). När du har skapat ett konto för integrering kan du länka en eller flera logikappar till kontot. Du kan sedan använda B2B-åtgärder för att komma åt handel partnerinformation från din logikapp. Det finns följande åtgärder:
 
-* AS2 Encode
+* AS2 koda
 * AS2 avkoda
-* X12 Encode
+* Koda X12
 * Avkoda X12
 * EDIFACT koda
 * EDIFACT avkoda

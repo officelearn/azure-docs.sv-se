@@ -33,6 +33,8 @@
 ### [Skapa Kafka-aktiverad Event Hubs](event-hubs-create-kafka-enabled.md) 
 ### [Strömma till Azure Event Hubs för Kafka Ecosystem](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Använda Kafka MirrorMaker med Azure Event Hubs för Kafka Ecosystem](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Använda Apache Flink med Event Hubs för Kafka Ecosystem](event-hubs-kafka-flink-tutorial.md)
+### [Använda Akka Streams med Event Hubs för Kafka Ecosystem](event-hubs-kafka-akka-streams-tutorial.md)
 ## Utveckla
 ### [Skicka händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Ta emot händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

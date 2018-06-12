@@ -6,30 +6,30 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 6efb034f63f65283911f46bbb251b5eb12d517ec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 14ed3ef57da28b6929115cf3e5746653d199b140
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655643"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263756"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikerar data till Azure-databas för MySQL
 
-Data i replikering kan du synkronisera data från en MySQL-server som kör lokalt, i virtuella datorer eller databastjänster hos andra molntjänstleverantörer till Azure-databas för MySQL-tjänst. Data i replikering baseras på den binära logg (binlog) position baserat filreplikeringen inbyggd MySQL. Mer information om binlog replikering finns i [MySQL binlog replikering: översikt](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Data i Replikeringsfunktionen kan du synkronisera data från en MySQL-server som kör lokalt, i virtuella datorer eller databastjänster hos andra molntjänstleverantörer till Azure-databas för MySQL-tjänst. Data i replikering baseras på den binära logg (binlog) position baserat filreplikeringen inbyggd MySQL. Mer information om binlog replikering finns i [MySQL binlog replikering: översikt](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>När du ska använda Data i replikering
 Huvudscenarier överväga att använda Data i replikeringen är:
 
-- **Hybrid datasynkronisering:** med Data i replikeringen, kan du synkronisera data mellan din lokala servrar och Azure-databas för MySQL. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här funktionen är tilltalande när du har en befintlig lokal databasserver, men vill flytta data till en region som ligger närmare till slutanvändare.
+- **Hybrid datasynkronisering:** med Data i replikeringen, kan du synkronisera data mellan din lokala servrar och Azure-databas för MySQL. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här metoden är tilltalande när du har en befintlig lokal databasserver, men vill flytta data till en region som ligger närmare till slutanvändare.
 - **Flera Molnsynkronisering:** för avancerade molnlösningar, Använd Data i replikeringen att synkronisera data mellan Azure-databas för MySQL och annan molntjänstleverantörer inklusive virtuella datorer och databastjänster i dessa moln.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
 ### <a name="data-not-replicated"></a>Data som inte har replikerats
-Den [ *mysql-databas* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) på den primära servern inte har replikerats. Detta omfattar ändringar av konton och behörigheter på den primära servern. Om du skapar ett konto på den primära servern och det här kontot behöver åtkomst till replikservern, sedan manuellt skapa samma konto på serversidan replik. För att förstå vilka tabeller finns i systemdatabasen, finns det [MySQL manuell](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+Den [ *mysql-databas* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) på den primära servern inte har replikerats. Ändringar av konton och behörigheter på den primära servern replikeras inte. Om du skapar ett konto på den primära servern och det här kontot behöver åtkomst till replikservern, sedan manuellt skapa samma konto på serversidan replik. För att förstå vilka tabeller finns i systemdatabasen, finns det [MySQL manuell](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### <a name="requirements"></a>Krav
 - Primär server-version måste vara minst MySQL version 5.6. 

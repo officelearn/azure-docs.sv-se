@@ -1,24 +1,20 @@
 ---
-title: Översikt över Azure-diagnostik tillägget | Microsoft Docs
+title: Översikt över Azure-diagnostik-tillägget
 description: Använda Azure-diagnostik för felsökning, mäta prestanda, övervakning, trafikanalyser i molntjänster, virtuella datorer och service fabric
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267687"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure-diagnostik tillägget
 Tillägget för Azure-diagnostik är en agent i Azure som möjliggör insamling av diagnostikdata på ett distribuerat program. Du kan använda tillägget diagnostik från ett antal olika källor. Stöds för närvarande är Azure Cloud Service (klassisk) webb- och arbetsroller, virtuella datorer, skaluppsättningar för den virtuella datorn och Service Fabric. Andra Azure-tjänster har olika diagnostik-metoder. Se [översikt över övervakning i Azure](monitoring-overview.md). 

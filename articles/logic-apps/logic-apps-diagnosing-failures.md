@@ -1,24 +1,25 @@
 ---
-title: "Felsöka och diagnostisera fel - Azure Logic Apps | Microsoft Docs"
-description: "Förstå hur och varför logikappar misslyckas"
+title: Felsöka och diagnostisera fel - Azure Logic Apps | Microsoft Docs
+description: Förstå hur och varför logikappar misslyckas
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298798"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Felsöka och diagnostisera fel i logik app
 
@@ -44,7 +45,7 @@ Varje logikapp börjar med utlösare. Om utlösaren inte utlösas först histori
    | Status | Beskrivning | 
    | ------ | ----------- | 
    | **Lyckades** | Utlösaren kontrolleras slutpunkten och finns tillgängliga data. Vanligtvis visas statusen ”Fired” också tillsammans med den här statusen. Om utlösardefinition inte kan ha ett condition eller `SplitOn` kommando som inte uppfylldes. <p>Denna status kan använda en manuell utlösare, upprepning utlösare eller avsökningen utlösare. En utlösare kan köras, men kör själva kan fortfarande misslyckas när åtgärderna som genererar ett fel. | 
-   | **Hoppades över** | Utlösaren markerad slutpunkten men inga data påträffades. | 
+   | **Överhoppad** | Utlösaren markerad slutpunkten men inga data påträffades. | 
    | **Det gick inte** | Ett fel uppstod. För att granska eventuella felmeddelanden som genereras för en misslyckad utlösare, markera försöket utlösare och välj **utdata**. Exempelvis kanske indata är inte giltiga. | 
    ||| 
 

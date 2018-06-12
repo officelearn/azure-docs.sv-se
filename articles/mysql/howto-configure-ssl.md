@@ -1,25 +1,26 @@
 ---
-title: "Konfigurera SSL-anslutning för att ansluta säkert till Azure-databas för MySQL"
-description: "Instruktioner för hur du ska konfigurera Azure-databas för MySQL och associerade program använder SSL-anslutningar"
+title: Konfigurera SSL-anslutning för att ansluta säkert till Azure-databas för MySQL
+description: Instruktioner för hur du ska konfigurera Azure-databas för MySQL och associerade program använder SSL-anslutningar
 services: mysql
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: d51d11e0e41ad34f80dced7526883a4bd7c46ade
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ea4fd90670c2137fbe6127ba5c0b7641d846f407
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265435"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure-databas för MySQL
 Azure-databas för MySQL stöder anslutning av din Azure-databas för MySQL-servern till klientprogram som använder Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Steg 1: Få SSL-certifikat
-Hämta certifikat som behövs för att kommunicera via SSL med din Azure-databas för MySQL-servern från [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara filen med certifikat till din lokala enhet (detta kursen använder c:\ssl till exempel).
+Hämta certifikat som behövs för att kommunicera via SSL med din Azure-databas för MySQL-servern från [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara certifikatfilen på den lokala enheten (den här kursen använder c:\ssl till exempel).
 **För Microsoft Internet Explorer och Microsoft Edge:** när hämtningen är slutförd, ändra certifikatet till BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Steg 2: Binda SSL
@@ -36,7 +37,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Steg 3: Framtvinga SSL-anslutningar i Azure 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 Med hjälp av Azure portal finns din Azure-databas för MySQL-servern och klickar sedan på **anslutningssäkerhet**. Använd växlingsknappen för att aktivera eller inaktivera den **framtvinga SSL-anslutning** inställningen och klicka sedan på **spara**. Microsoft rekommenderar för att aktivera alltid den **framtvinga SSL-anslutning** för ökad säkerhet.
-![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
+![Aktivera ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 Du kan aktivera eller inaktivera den **ssl tvingande** parameter med aktiverad eller inaktiverad värden respektive i Azure CLI.

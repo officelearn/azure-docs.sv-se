@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298417"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -28,23 +29,23 @@ När du börjar använda Cloudyn portalen kan du se följande meddelanden om du 
 - ”Direktregistrering – inte” visas i portalen Enterprise-avtal.
 - ”Inga användningsdata hittades för de senaste 30 dagarna. Kontakta din återförsäljare att försäkra markup har aktiverats för ditt Azure-konto ”visas på Cloudyn-portalen.
 
-Föregående meddelanden tyda på att du har köpt en Azure-Företagsavtal genom en återförsäljare eller CSP. Återförsäljaren eller CSP måste aktivera _markup_ för din Azure-konto så att du kan visa dina data i Cloudyn.
+Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller CSP måste aktivera _markup_ för din Azure-konto så att du kan visa dina data i Cloudyn.
 
-Här är hur du löser problem:
+Så här löser du problemen:
 
-1. Din återförsäljare måste aktivera _markup_ för ditt konto. Mer information finns i [indirekt Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
 2. Du genererar nyckeln för användning med Cloudyn Azure-Företagsavtal. Instruktioner finns i [EA lägger till Azure](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) eller [hitta din EA registrering ID och API-nyckeln](https://youtu.be/u_phLs_udig).
 
-Endast en Azure-tjänst-administratör kan aktivera hantering av kostnaden. Behörigheter som medadministratör är otillräcklig.
+Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör.
 
 Innan du kan generera Azure Enterprise-avtal API-nyckel att ställa in Cloudyn, måste du aktivera Azure Billing API genom att följa anvisningarna på:
 
-- [Översikt över Reporting API: er för Enterprise-kunder](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) under **aktivera dataåtkomst till API: et**
+- [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md) (Översikt över rapporterings-API:er för Enterprise-kunder)
+- [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) (Rapporterings-API för Microsoft Azure Enterprise Portal) under **Enabling data access to the API** (Aktivera dataåtkomst till API:et)
 
 
-Kan du behöva ge avdelning administratörer, kontot ägare och enterprise administratörer behörighet till _visa debiteringar_ med fakturerings-API.
+Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterprise-administratörer behörigheter att _visa debiteringar_ med fakturerings-API:et.
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>Varför ser jag optimering rekommendationer
 
@@ -71,16 +72,20 @@ När du har slutfört ovanstående steg kan du visa optimering rekommendationer 
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Hur aktiverar pausat eller utelåst användare?
 
+Först ska vi titta på de vanligaste scenariot som orsakar användarkonton att hämta *initiallySuspended*.
+
+> Admin1 kanske användare Microsoft Cloud Solution Provider eller Enterprise-avtal. Företaget är redo att börja använda hantering av kostnaden.  Han registreras via Azure portal och loggar in på portalen Cloudyn. Som den person som registrerar kostnaden Management-tjänsten och loggar in på portalen Cloudyn han blir den *primär administratör*. Admin1 skapar inte någon konto. Men med hjälp av Cloudyn-portalen han skapar Azure-konton och ställer in en enhetshierarki. Admin1 informerar Admin2 Innehavaradministratör som han måste registrera med hantering av kostnader och logga in på Cloudyn-portalen.
+
+> Admin2 registrerar via Azure-portalen. Men när han försöker att logga in på portalen Cloudyn han får ett fel som anger sitt konto är **avbruten**. En primär administratör Admin1, meddelande om detta konto. Admin1 måste aktivera Admin2's konto och bevilja *entitet administratörsåtkomst* för lämpliga entiteter och låter användaråtkomst och aktiv användarkontot.
+
+
 Om du får en avisering med en begäran om att tillåta åtkomst för en användare måste du aktivera användarkontot.
 
 Aktivera användarkontot:
 
 1. Logga in på Cloudyn med hjälp av Azure administrativa användarkontot som du använde för att ställa in Cloudyn. Eller logga in med ett konto som har beviljats administratörsbehörighet.
-
 2. Välj symbolen växel i det övre högra hörnet och välj **Användarhantering**.
-
 3. Sök efter användaren, markerar du den penna och sedan redigera användaren.
-
 4. Under **användarstatus**, ändra status från **pausad** till **Active**.
 
 Cloudyn användarkonton ansluter med hjälp av enkel inloggning från Azure. Om en användare mistypes sina lösenord, kan de blir utelåst från Cloudyn, även om de har fortfarande åtkomst till Azure.

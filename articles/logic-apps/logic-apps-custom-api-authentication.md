@@ -1,12 +1,12 @@
 ---
-title: "Lägg till autentisering i anpassade API: er – Azure Logic Apps | Microsoft Docs"
-description: "Konfigurera autentisering för anrop till dina anpassade API: er från logikappar"
+title: 'Lägg till autentisering i anpassade API: er – Azure Logic Apps | Microsoft Docs'
+description: 'Konfigurera autentisering för anrop till dina anpassade API: er från logikappar'
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298557"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Säker anrop till dina anpassade API: er från logikappar
 
-Om du vill skydda anrop till dina API: er, kan du ställa in Azure Active Directory (AD Azure) autentisering via Azure-portalen så du behöver uppdatera din kod. Eller så du behöver och ställer in användarautentisering via din API-koden.
+Om du vill skydda anrop till dina API: er, kan du ställa in Azure Active Directory (AD Azure) autentisering via Azure-portalen så du behöver uppdatera din kod. Eller så kan du kräva och ställa in autentisering via API-koden.
 
 ## <a name="authentication-options-for-your-api"></a>Alternativ för autentisering för ditt API
 
@@ -126,7 +127,7 @@ Om ditt webbprogram eller API-app redan har distribuerats, kan du aktivera auten
 
    ![Skapa programidentitet för ditt webbprogram eller API-app](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. På den **autentisering / auktorisering** väljer **spara**.
+4. På sidan **Autentisering/auktorisering** väljer du **Spara**.
 
 Nu måste du hittar klient-ID och klient-ID för Programidentitet som är kopplad till ditt webbprogram eller API-app. Du kan använda dessa ID: N i del 3. Så att fortsätta med de här stegen för Azure-portalen.
 
@@ -145,7 +146,7 @@ Nu måste du hittar klient-ID och klient-ID för Programidentitet som är koppla
 
 4. Under **utfärdar-Url**, kopiera och spara bara GUID för en del 3. Du kan också använda detta GUID i ditt webbprogram eller mallen för distribution av API-app om det behövs.
 
-   Detta GUID är din klient-GUID (”klient-ID”) och som ska visas i den här URL:`https://sts.windows.net/{GUID}`
+   Detta GUID är din klient-GUID (”klient-ID”) och som ska visas i den här URL: `https://sts.windows.net/{GUID}`
 
 5. Utan att spara ändringarna, Stäng av **inställningarna för Azure Active Directory** sidan.
 
@@ -192,10 +193,10 @@ Den tidigare mallen har redan det här tillståndet avsnittet Konfigurera, men o
 
 | Element | Krävs | Beskrivning | 
 | ------- | -------- | ----------- | 
-| Klient | Ja | GUID för Azure AD-klient | 
+| klient | Ja | GUID för Azure AD-klient | 
 | målgrupp | Ja | GUID för målresursen som du vill komma åt, vilket är klient-ID från programidentiteten för ditt webbprogram eller API-app | 
 | clientId | Ja | GUID för klienten som begär åtkomst, vilket är klient-ID från programidentiteten för din logikapp | 
-| hemligt | Ja | Nyckel eller lösenord från programidentiteten för klienten som begär åtkomst-token | 
+| hemlighet | Ja | Nyckel eller lösenord från programidentiteten för klienten som begär åtkomst-token | 
 | typ | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering `ActiveDirectoryOAuth`. | 
 |||| 
 

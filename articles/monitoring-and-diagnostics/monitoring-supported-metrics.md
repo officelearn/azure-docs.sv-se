@@ -1,24 +1,19 @@
 ---
-title: Azure övervakaren mått - stöds mått per resurstypen | Microsoft Docs
+title: Azure-Monitor stöds mått uppdelat efter resurstyp
 description: Lista över tillgängliga för varje resurstyp av med Azure-Monitor mått.
 author: anirudhcavale
-manager: ashwink
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: metrics
+ms.openlocfilehash: d7d51a7c037e109c730dd79005a2c75eeb0697c0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266901"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast tillgängliga med konsoliderade Azure-Monitor mått pipeline mått. Fråga efter och komma åt de här måtten ska du använda den [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -360,16 +355,16 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Per Disk-lästa byte/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under perioden|Fack-ID|
-|Per Disk-skrivna byte/s|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden|Fack-ID|
-|Per Disk läsåtgärder per sekund|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden|Fack-ID|
-|Per Disk skrivåtgärder per sekund|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden|Fack-ID|
-|Per Disk QD|Datadisk QD (förhandsgranskning)|Antal|Medel|Data Disk ködjup (eller Kölängd)|Fack-ID|
-|OS Per Disk-lästa byte/s|OS-Disk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under övervakning för OS-disk|Inga dimensioner|
-|OS Per Disk-skrivna byte/s|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk läsåtgärder per sekund|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk skrivåtgärder per sekund|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk QD|OS-disken QD (förhandsgranskning)|Antal|Medel|OS-disken ködjup (eller Kölängd)|Inga dimensioner|
+|Lästa byte per disk/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Läsåtgärder per disk/sek|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
+|Skrivåtgärder per disk/sek|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
+|Ködjup per disk|Datadisk QD (förhandsgranskning)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|OS-Disk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivåtgärder per operativsystemdisk/sek|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per operativsystemdisk|OS-disken QD (förhandsgranskning)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -384,16 +379,16 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Per Disk-lästa byte/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under perioden|Fack-ID|
-|Per Disk-skrivna byte/s|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden|Fack-ID|
-|Per Disk läsåtgärder per sekund|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden|Fack-ID|
-|Per Disk skrivåtgärder per sekund|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden|Fack-ID|
-|Per Disk QD|Datadisk QD (förhandsgranskning)|Antal|Medel|Data Disk ködjup (eller Kölängd)|Fack-ID|
-|OS Per Disk-lästa byte/s|OS-Disk-lästa byte/sek|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under övervakning för OS-disk|Inga dimensioner|
-|OS Per Disk-skrivna byte/s|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk läsåtgärder per sekund|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk skrivåtgärder per sekund|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk QD|OS-disken QD (förhandsgranskning)|Antal|Medel|OS-disken ködjup (eller Kölängd)|Inga dimensioner|
+|Lästa byte per disk/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Läsåtgärder per disk/sek|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
+|Skrivåtgärder per disk/sek|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
+|Ködjup per disk|Datadisk QD (förhandsgranskning)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|Lästa byte på operativsystemdisk/sek|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivåtgärder per operativsystemdisk/sek|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per operativsystemdisk|OS-disken QD (förhandsgranskning)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -408,23 +403,23 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Per Disk-lästa byte/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under perioden|Fack-ID|
-|Per Disk-skrivna byte/s|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden|Fack-ID|
-|Per Disk läsåtgärder per sekund|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden|Fack-ID|
-|Per Disk skrivåtgärder per sekund|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden|Fack-ID|
-|Per Disk QD|Datadisk QD (förhandsgranskning)|Antal|Medel|Data Disk ködjup (eller Kölängd)|Fack-ID|
-|OS Per Disk-lästa byte/s|OS-Disk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund läsa från en enda disk under övervakning för OS-disk|Inga dimensioner|
-|OS Per Disk-skrivna byte/s|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totalt antal byte per sekund som skrivs till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk läsåtgärder per sekund|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när läsning från en enda disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk skrivåtgärder per sekund|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|IOPS totalt utföras när skrivning till en enskild disk under perioden för OS-disk|Inga dimensioner|
-|OS Per Disk QD|OS-disken QD (förhandsgranskning)|Antal|Medel|OS-disken ködjup (eller Kölängd)|Inga dimensioner|
+|Lästa byte per disk/sek|Datadisk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Data Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Läsåtgärder per disk/sek|Datadisk läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
+|Skrivåtgärder per disk/sek|Data Disk skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
+|Ködjup per disk|Datadisk QD (förhandsgranskning)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|OS-Disk-lästa byte/sek (förhandsgranskning)|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|OS-Disk-skrivna byte/s (förhandsgranskning)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|OS-disken läsåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivåtgärder per operativsystemdisk/sek|OS-disken skrivåtgärder per sekund (förhandsgranskning)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per operativsystemdisk|OS-disken QD (förhandsgranskning)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|ContainerName|
-|MemoryUsage|Minnesanvändning|Byte|Medel|Användning av totalt minne i byte.|ContainerName|
+|MemoryUsage|Minnesanvändning|Byte|Medel|Total minnesanvändning i byte.|ContainerName|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
@@ -646,10 +641,10 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |CaptureBacklog|Hämta kvarvarande uppgifter. (Förhandsversion)|Antal|Totalt|Hämta kvarvarande uppgifter för Microsoft.EventHub. (Förhandsversion)|EntityName|
 |CapturedMessages|Hämtade meddelanden. (Förhandsversion)|Antal|Totalt|Hämtade meddelanden för Microsoft.EventHub. (Förhandsversion)|EntityName|
 |CapturedBytes|Hämtade byte. (Förhandsversion)|Byte|Totalt|Hämtade byte för Microsoft.EventHub. (Förhandsversion)|EntityName|
-|Storlek|Storlek (förhandsgranskning)|Byte|Medel|Storleken på en EventHub i byte. (Förhandsversion)|EntityName|
+|Storlek|Storlek (förhandsgranskning)|Byte|Medel|Storlek på en EventHub i byte. (Förhandsversion)|EntityName|
 |INREQS|Inkommande förfrågningar|Antal|Totalt|Totat antal inkommande sändningsförfrågningar för ett namnområde|Inga dimensioner|
 |SUCCREQ|Slutförda förfrågningar|Antal|Totalt|Totalt antal slutförda begäranden för ett namnområde|Inga dimensioner|
-|FAILREQ|Misslyckade förfrågningar|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
+|FAILREQ|Misslyckade begäranden|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
 |SVRBSY|Upptagen server|Antal|Totalt|Totalt antal fel med upptagen server för ett namnområde|Inga dimensioner|
 |INTERR|Interna serverfel|Antal|Totalt|Totalt antal interna serverfel för ett namnområde|Inga dimensioner|
 |MISCERR|Övriga fel|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
@@ -788,7 +783,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |UnhealthyHostCount|Felaktiga värden antal|Antal|Medel|Antal felaktiga backend-värdar. Du kan filtrera på en per backend-pool för att visa felfri/ohälsosamt värdar i en specifik serverdelspool.|BackendSettingsPool|
 |healthyHostCount|Felfri värden antal|Antal|Medel|Antalet felfri backend-värdar. Du kan filtrera på en per backend-pool för att visa felfri/ohälsosamt värdar i en specifik serverdelspool.|BackendSettingsPool. |
 |TotalRequests|Totalt antal begäranden|Antal|Totalt|Antal slutförda förfrågningar som Application Gateway har hanteras|BackendSettingsPool|
-|FailedRequests|Misslyckade förfrågningar|Antal|Totalt|Antal misslyckade begäranden som har meddelat Programgateway|BackendSettingsPool|
+|FailedRequests|Misslyckade begäranden|Antal|Totalt|Antal misslyckade begäranden som har meddelat Programgateway|BackendSettingsPool|
 |ResponseStatus|Response-Status|Antal|Totalt|HTTP-svarsstatus returnerades av Application Gateway. Svaret status kod distribution kan vara ytterligare categoized att visa svar i 2xx, 3xx, 4xx och 5xx kategorier.|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar med Programgateway|Inga dimensioner|
 
@@ -1016,9 +1011,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |IncomingMessages|Inkommande meddelanden (förhandsgranskning)|Antal|Totalt|Inkommande meddelanden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
 |OutgoingMessages|Utgående meddelanden (förhandsgranskning)|Antal|Totalt|Utgående meddelanden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
 |ActiveConnections|ActiveConnections (förhandsgranskning)|Antal|Totalt|Totalt antal aktiva anslutningar för Microsoft.ServiceBus. (Förhandsversion)|Inga dimensioner|
-|Storlek|Storlek (förhandsgranskning)|Byte|Medel|Storleken på en kö/avsnittet i byte. (Förhandsversion)|EntityName|
-|Meddelanden|Antal meddelanden i kö/avsnittet. (Förhandsversion)|Antal|Medel|Antal meddelanden i kö/avsnittet. (Förhandsversion)|EntityName|
-|ActiveMessages|Antal aktiva meddelanden i kö/avsnittet. (Förhandsversion)|Antal|Medel|Antal aktiva meddelanden i kö/avsnittet. (Förhandsversion)|EntityName|
+|Storlek|Storlek (förhandsgranskning)|Byte|Medel|Storlek på kö/ämne i byte. (Förhandsversion)|EntityName|
+|Meddelanden|Antal meddelanden i kö/ämne. (Förhandsversion)|Antal|Medel|Antal meddelanden i kö/ämne. (Förhandsversion)|EntityName|
+|ActiveMessages|Antal aktiva meddelanden i kö/ämne. (Förhandsversion)|Antal|Medel|Antal aktiva meddelanden i kö/ämne. (Förhandsversion)|EntityName|
 |CPUXNS|Processoranvändning per namnområde|Procent|Maximal|CPU-användningsmått för Service Bus Premium-namnområde|Inga dimensioner|
 |WSXNS|Minnesstorleksanvändning per namnområde|Procent|Maximal|Minnesanvändningsmått för Service Bus Premium-namnområde|Inga dimensioner|
 
@@ -1048,7 +1043,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga dimensioner|
 |connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
 |blocked_by_firewall|Blockeras av brandvägg|Antal|Totalt|Blockeras av brandvägg|Inga dimensioner|
-|deadlock|Deadlocks|Antal|Totalt|Deadlocks|Inga dimensioner|
+|deadlock|Dödlägen|Antal|Totalt|Dödlägen|Inga dimensioner|
 |storage_percent|Databasstorlek i procent|Procent|Maximal|Databasstorlek i procent|Inga dimensioner|
 |xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Medel|Minnesintern OLTP lagring procent|Inga dimensioner|
 |workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|Inga dimensioner|
@@ -1169,7 +1164,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AMLCalloutFailedRequests|Misslyckade funktionsförfrågningar|Antal|Totalt|Misslyckade funktionsförfrågningar|Inga dimensioner|
 |AMLCalloutInputEvents|Funktionshändelser|Antal|Totalt|Funktionshändelser|Inga dimensioner|
 |DeserializationError|Fel vid deserialisering av indata|Antal|Totalt|Fel vid deserialisering av indata|Inga dimensioner|
-|EarlyInputEvents|Händelser vars tillämpningstid ligger tidigare än deras ankomsttid.|Antal|Totalt|Händelser vars tillämpningstid ligger tidigare än deras ankomsttid.|Inga dimensioner|
+|EarlyInputEvents|Händelser som programmet är tidigare än ankomsttid.|Antal|Totalt|Händelser som programmet är tidigare än ankomsttid.|Inga dimensioner|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
@@ -1229,19 +1224,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
-|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
-|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
-|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
-|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
-|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
-|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
-|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
+|IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
+|IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
+|IoReadOperationsPerSecond|I/O-läsningsåtgärder per sekund|BytesPerSecond|Totalt|I/O-läsningsåtgärder per sekund|Instans|
+|IoWriteOperationsPerSecond|I/O-skrivåtgärder per sekund|BytesPerSecond|Totalt|I/O-skrivåtgärder per sekund|Instans|
+|IoOtherOperationsPerSecond|I/O övriga åtgärder per sekund|BytesPerSecond|Totalt|I/O övriga åtgärder per sekund|Instans|
+|RequestsInApplicationQueue|Förfrågningar i programkö|Antal|Medel|Förfrågningar i programkö|Instans|
 |CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
-|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
-|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
-|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
-|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
-|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
+|TotalAppDomains|Totalt antal appdomäner|Antal|Medel|Totalt antal appdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal appdomäner som inte lästs in|Antal|Medel|Totalt antal appdomäner som inte lästs in|Instans|
+|Gen0Collections|Generation 0-skräpinsamlingar|Antal|Totalt|Generation 0-skräpinsamlingar|Instans|
+|Gen1Collections|Generation 1-skräpinsamlingar|Antal|Totalt|Generation 1-skräpinsamlingar|Instans|
+|Gen2Collections|Generation 2-skräpinsamlingar|Antal|Totalt|Generation 2-skräpinsamlingar|Instans|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funktioner)
 
@@ -1254,19 +1249,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
 |FunctionExecutionUnits|Funktionskörningsenheter|Antal|Totalt|Funktionskörningsenheter|Instans|
 |FunctionExecutionCount|Funktionen Antal körningar|Antal|Totalt|Funktionen Antal körningar|Instans|
-|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
-|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
-|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
-|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
-|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
-|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
-|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
+|IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
+|IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
+|IoReadOperationsPerSecond|I/O-läsningsåtgärder per sekund|BytesPerSecond|Totalt|I/O-läsningsåtgärder per sekund|Instans|
+|IoWriteOperationsPerSecond|I/O-skrivåtgärder per sekund|BytesPerSecond|Totalt|I/O-skrivåtgärder per sekund|Instans|
+|IoOtherOperationsPerSecond|I/O övriga åtgärder per sekund|BytesPerSecond|Totalt|I/O övriga åtgärder per sekund|Instans|
+|RequestsInApplicationQueue|Förfrågningar i programkö|Antal|Medel|Förfrågningar i programkö|Instans|
 |CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
-|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
-|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
-|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
-|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
-|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
+|TotalAppDomains|Totalt antal appdomäner|Antal|Medel|Totalt antal appdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal appdomäner som inte lästs in|Antal|Medel|Totalt antal appdomäner som inte lästs in|Instans|
+|Gen0Collections|Generation 0-skräpinsamlingar|Antal|Totalt|Generation 0-skräpinsamlingar|Instans|
+|Gen1Collections|Generation 1-skräpinsamlingar|Antal|Totalt|Generation 1-skräpinsamlingar|Instans|
+|Gen2Collections|Generation 2-skräpinsamlingar|Antal|Totalt|Generation 2-skräpinsamlingar|Instans|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1293,19 +1288,19 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
-|IoReadBytesPerSecond|I/o-lästa byte Per sekund|BytesPerSecond|Totalt|I/o-lästa byte Per sekund|Instans|
-|IoWriteBytesPerSecond|I/o skriva byte Per sekund|BytesPerSecond|Totalt|I/o skriva byte Per sekund|Instans|
-|IoOtherBytesPerSecond|I/o andra byte Per sekund|BytesPerSecond|Totalt|I/o andra byte Per sekund|Instans|
-|IoReadOperationsPerSecond|I/o-läsåtgärder Per sekund|BytesPerSecond|Totalt|I/o-läsåtgärder Per sekund|Instans|
-|IoWriteOperationsPerSecond|I/o-skrivåtgärder Per sekund|BytesPerSecond|Totalt|I/o-skrivåtgärder Per sekund|Instans|
-|IoOtherOperationsPerSecond|I/o andra åtgärder Per sekund|BytesPerSecond|Totalt|I/o andra åtgärder Per sekund|Instans|
-|RequestsInApplicationQueue|Begäranden i kö för programmet|Antal|Medel|Begäranden i kö för programmet|Instans|
+|IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
+|IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
+|IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
+|IoReadOperationsPerSecond|I/O-läsningsåtgärder per sekund|BytesPerSecond|Totalt|I/O-läsningsåtgärder per sekund|Instans|
+|IoWriteOperationsPerSecond|I/O-skrivåtgärder per sekund|BytesPerSecond|Totalt|I/O-skrivåtgärder per sekund|Instans|
+|IoOtherOperationsPerSecond|I/O övriga åtgärder per sekund|BytesPerSecond|Totalt|I/O övriga åtgärder per sekund|Instans|
+|RequestsInApplicationQueue|Förfrågningar i programkö|Antal|Medel|Förfrågningar i programkö|Instans|
 |CurrentAssemblies|Aktuellt antal sammansättningar|Antal|Medel|Aktuellt antal sammansättningar|Instans|
-|TotalAppDomains|Totalt antal programdomäner|Antal|Medel|Totalt antal programdomäner|Instans|
-|TotalAppDomainsUnloaded|Totalt antal programdomäner minnet|Antal|Medel|Totalt antal programdomäner minnet|Instans|
-|Gen0Collections|Skräpinsamling generation 0-insamlingar|Antal|Totalt|Skräpinsamling generation 0-insamlingar|Instans|
-|Gen1Collections|Generation 1 skräp samlingar|Antal|Totalt|Generation 1 skräp samlingar|Instans|
-|Gen2Collections|Generation 2 skräp samlingar|Antal|Totalt|Generation 2 skräp samlingar|Instans|
+|TotalAppDomains|Totalt antal appdomäner|Antal|Medel|Totalt antal appdomäner|Instans|
+|TotalAppDomainsUnloaded|Totalt antal appdomäner som inte lästs in|Antal|Medel|Totalt antal appdomäner som inte lästs in|Instans|
+|Gen0Collections|Generation 0-skräpinsamlingar|Antal|Totalt|Generation 0-skräpinsamlingar|Instans|
+|Gen1Collections|Generation 1-skräpinsamlingar|Antal|Totalt|Generation 1-skräpinsamlingar|Instans|
+|Gen2Collections|Generation 2-skräpinsamlingar|Antal|Totalt|Generation 2-skräpinsamlingar|Instans|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

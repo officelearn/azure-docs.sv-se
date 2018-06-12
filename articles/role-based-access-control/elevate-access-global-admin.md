@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,11 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266517"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Höja åtkomst för en Global administratör i Azure Active Directory
 
@@ -32,6 +34,8 @@ Om du är en [Global administratör](../active-directory/active-directory-assign
 Som standard styra administratörsroller i Azure AD och Azure rollbaserad åtkomst (RBAC) roller gör inte span Azure AD och Azure. Om du är en Global administratör i Azure AD kan du höja din åtkomst för att hantera Azure-prenumerationer och hanteringsgrupper. När du utöka din behörighet får du den [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) roll (en roll med RBAC) i alla prenumerationer för en viss klient. Rollen Administratör för användaråtkomst gör att du kan ge andra användare åtkomst till Azure-resurser vid rotscopet (`/`).
 
 Höjningen ska vara tillfällig och endast när det behövs.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Höja åtkomst för en Global administratör i Azure Portal
 
@@ -75,7 +79,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Ta bort en rolltilldelning definitionsområdet rot (/) med hjälp av PowerShell
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Ta bort en rolltilldelning definitionsområdet rot (/) med hjälp av PowerShell
 
 Ta bort en administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [ta bort AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kommando.
 
@@ -111,10 +115,19 @@ Använd följande grundläggande steg för att höja åtkomst för en Global adm
 
 1. När en administratör för användaråtkomst, du kan också ta bort rolltilldelningar vid rotscopet (`/`).
 
-1. Återkalla din administratörsbehörighet användaren åtkomst tills de behövs igen.
+1. Ta bort användaren åtkomst administratörsbehörighet förrän de behövs igen.
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Visa en lista med rolltilldelningar definitionsområdet rot (/) med hjälp av REST-API
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Hur du ångrar elevateAccess åtgärd med REST API
+Du kan visa en lista över rolltilldelningar för en användare vid rotscopet (`/`).
+
+- Anropa [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) där `{objectIdOfUser}` är objekt-ID för den användare vars rolltilldelningar som du vill hämta.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>Ta bort utökad åtkomst med hjälp av REST-API
 
 När du anropar `elevateAccess`du skapar en rolltilldelning själv, så för att återkalla behörigheter som du behöver ta bort tilldelningen.
 
@@ -170,7 +183,7 @@ När du anropar `elevateAccess`du skapar en rolltilldelning själv, så för att
     >[!NOTE] 
     >En Innehavaradministratör ska inte ha många tilldelningar, om den föregående frågan returnerar för många tilldelningar, du kan också fråga för alla tilldelningar bara på omfångsnivå för klient och filtrera resultatet: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Tidigare anrop returnera en lista över rolltilldelningar. Hitta rolltilldelningen där omfånget är ”/” och `roleDefinitionId` slutar med rollen namn-ID som du hittade i steg 1 och `principalId` matchar objectId för innehavaradministratören. 
+    2. Tidigare anrop returnera en lista över rolltilldelningar. Hitta rolltilldelningen där omfånget är `"/"` och `roleDefinitionId` slutar med rollen namn-ID som du hittade i steg 1 och `principalId` matchar objectId för innehavaradministratören. 
     
     Exempel rolltilldelningen:
 
@@ -198,7 +211,7 @@ När du anropar `elevateAccess`du skapar en rolltilldelning själv, så för att
         
     Igen och spara ID från den `name` parameter i det här fallet e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Använd slutligen tilldelnings-ID för att ta bort tilldelningen som lagts till av `elevateAccess`:
+    3. Slutligen att rollen tilldelnings-ID tar bort tilldelningen som lagts till av `elevateAccess`:
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

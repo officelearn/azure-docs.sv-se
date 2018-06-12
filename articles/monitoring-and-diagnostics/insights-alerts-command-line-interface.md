@@ -1,24 +1,19 @@
 ---
-title: Skapa aviseringar för Azure-tjänster - plattformar CLI | Microsoft Docs
+title: Skapa klassiska aviseringar för Azure-tjänster - plattformar CLI
 description: 'Utlösaren e-postmeddelanden meddelanden, anropa webbplatser URL: er (webhooks) eller automation när angivna villkor uppfylls.'
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 35f87f140772be1777ddfb184e78b61446bb3bd6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267755"
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Skapa klassiska mått aviseringar i Azure-Monitor för Azure-tjänster - plattformar CLI
 > [!div class="op_single_selector"]
@@ -58,7 +53,7 @@ Du kan konfigurera och få information om klassiska mått Varningsregler med
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [Kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Du kan alltid få hjälp för kommandon genom att skriva ett kommando och tas - hjälp i slutet. Exempel:
 

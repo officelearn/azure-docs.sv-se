@@ -1,5 +1,5 @@
 ---
-title: Installera betald eller licensierad komponenter för Azure-SSIS-integrering runtime | Microsoft Docs
+title: Installera licensierade komponenter för Azure-SSIS-integrering runtime | Microsoft Docs
 description: Lär dig hur en ISV kan utveckla och installera betald eller licensierad anpassade komponenter för Azure-SSIS-integrering runtime
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6351381e525d256ef5e9693ea1fb5e3a6f4e5ea3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830851"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298584"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Utveckla betald eller licensierade anpassade komponenter för Azure-SSIS-integrering runtime
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installera betald eller licensierade anpassade komponenter för Azure-SSIS-integrering runtime
 
 Den här artikeln beskrivs hur en ISV kan utveckla och installera betald eller licensierade anpassade komponenter för SQL Server Integration Services (SSIS)-paket som körs i Azure i Azure-SSIS-integrering körningsmiljön.
 

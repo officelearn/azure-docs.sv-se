@@ -1,6 +1,6 @@
 ---
-title: Kör SSIS-paket med lagrade Proceduraktiviteten i Azure Data Factory | Microsoft Docs
-description: Den här artikeln beskriver hur du kör en SQL Server Integration Services (SSIS) från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
+title: Kör SSIS-paket med lagrade Proceduraktiviteten - Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du kör ett SQL Server Integration Services (SSIS)-paket i ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 44c157334306f81a8c9850cfa53e139139ff1db6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618896"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297693"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
-Den här artikeln beskriver hur du kör ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten lagrad procedur i Azure Data Factory
+Den här artikeln beskriver hur du kör ett SSIS-paket i ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

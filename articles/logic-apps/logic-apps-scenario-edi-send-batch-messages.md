@@ -1,13 +1,13 @@
 ---
 title: Batch-processen EDI-meddelanden som en grupp eller samling - Azure Logic Apps | Microsoft Docs
-description: "Skicka EDI-meddelanden för batchbearbetning i logikappar"
+description: Skicka EDI-meddelanden för batchbearbetning i logikappar
 keywords: batch, batch-bearbeta, koda batch
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299298"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Skicka X12 meddelanden i batchen till handelspartner
 
@@ -38,7 +39,7 @@ Det här avsnittet beskrivs hur du kan bearbeta X12 meddelanden som en batch gen
 * [Skapa en logikapp som skickar objekt till en batch](#sender). Den här ”avsändare” logikapp anger var att skicka objekt för batchbearbetning, vilket måste vara en befintlig mottagare logikapp.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa det här exemplet är vad du behöver:
 

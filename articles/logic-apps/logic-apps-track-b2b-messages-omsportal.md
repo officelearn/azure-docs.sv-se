@@ -2,7 +2,7 @@
 title: Spåra B2B-meddelanden med Azure logganalys - Azure Logic Apps | Microsoft Docs
 description: Spåra B2B-kommunikation för ditt konto och logik integrationsappar med Azure logganalys
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299985"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Spåra B2B-kommunikation med Azure logganalys
 
@@ -147,10 +148,10 @@ För varje meddelandetyp är här Egenskapsbeskrivningar och format för hämtad
 
 Här är Egenskapsbeskrivningar för varje AS2-meddelande.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett AS2-avtal |
-| Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett AS2-avtal |
+| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett AS2-avtal |
+| Mottagare | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett AS2-avtal |
 | Logikapp | Logikappen där AS2-åtgärder ställa in |
 | Status | Status för AS2-meddelande <br>Lyckade = mottagna eller skickade ett ogiltigt AS2-meddelande. Ingen MDN har ställts in. <br>Lyckade = mottagna eller skickade ett ogiltigt AS2-meddelande. MDN ställa in och tas emot eller MDN skickas. <br>Det gick inte = tagits emot ett ogiltigt AS2-meddelande. Ingen MDN har ställts in. <br>Väntande = mottagna eller skickade ett ogiltigt AS2-meddelande. MDN ställs in och MDN förväntas. |
 | Ack | Status för MDN-meddelande <br>Godkänt = tagits emot eller skickats positivt MDN. <br>Väntande = väntar på att ta emot och skicka en MDN. <br>Avvisade = mottagna eller skickas en negativ MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
@@ -178,10 +179,10 @@ Här följer namnformat för varje mapp för hämtade AS2-meddelanden och filer.
 
 Här följer Egenskapsbeskrivningar för varje X12 meddelande.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett X12 avtal |
-| Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett X12 avtal |
+| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett X12 avtal |
+| Mottagare | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett X12 avtal |
 | Logikapp | Logikappen där X12 åtgärder ställs in |
 | Status | Den X12 meddelandet status <br>Lyckade = mottagna eller skickas en giltig X12 meddelande. Inga funktionella ack har ställts in. <br>Lyckade = mottagna eller skickas en giltig X12 meddelande. Funktionella ack ställa in och tas emot eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt X12 meddelande. <br>Väntande = mottagna eller skickas en giltig X12 meddelande. Funktionella ack har konfigurerats och en fungerande ack förväntas. |
 | Ack | Funktionella Ack (997)-status <br>Godkänt = mottagna eller skickas en positiv funktionella bekräftelse. <br>Avvisade = mottagna eller skickas en negativ funktionella bekräftelse. <br>Väntande = förväntas en funktionell ack men inte tagits emot. <br>= Fram en funktionell ack men kan inte skicka till partner. <br>Krävs inte = funktionella ack har inte ställts in. |
@@ -211,10 +212,10 @@ Här följer namnformat för för varje hämtat X12 mappar och filer.
 
 Här är Egenskapsbeskrivningar för varje EDIFACT-meddelande.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
-| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
-| Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
+| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
+| Mottagare | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
 | Logikapp | Logikappen där EDIFACT-åtgärder ställa in |
 | Status | Status för EDIFACT-meddelande <br>Lyckade = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Inga funktionella ack har ställts in. <br>Lyckade = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Funktionella ack ställa in och tas emot eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt EDIFACT-meddelande <br>Väntande = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Funktionella ack har konfigurerats och en fungerande ack förväntas. |
 | Ack | Funktionella Ack (997)-status <br>Godkänt = mottagna eller skickas en positiv funktionella bekräftelse. <br>Avvisade = mottagna eller skickas en negativ funktionella bekräftelse. <br>Väntande = förväntas en funktionell ack men inte tagits emot. <br>= Fram en funktionell ack men kan inte skicka till partner. <br>Krävs inte = funktionella Ack har inte ställts in. |

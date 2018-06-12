@@ -1,24 +1,20 @@
 ---
-title: Azure Diagnostics 1.2 Konfigurationsschemat | Microsoft Docs
+title: Azure Diagnostics tillägget 1.2 Konfigurationsschemat
 description: Detta gäller endast om du använder Azure SDK 2.5 med Azure virtuella datorer, virtuella datorer, Service Fabric eller molntjänster.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267704"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 Konfigurationsschemat
 > [!NOTE]
@@ -184,7 +180,7 @@ Definierar konfigurationsinställningar för telemetridata ska hämtas. I följa
 |------------------|-----------------|  
 |**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [XML-datatypen för varaktighet](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
+## <a name="performancecounters-element"></a>PerformanceCounters elementet  
  Aktiverar insamlingen av prestandaräknare. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
@@ -203,4 +199,4 @@ Definierar konfigurationsinställningar för telemetridata ska hämtas. I följa
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Om du vill samla in alla händelser, ange ”*”.|
+|**dataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namnet** - XPath-frågan som beskriver de windows-händelserna som ska hämtas. Exempel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Om du vill samla in alla händelser, ange ”*”.|

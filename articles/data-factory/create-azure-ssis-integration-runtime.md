@@ -1,6 +1,6 @@
 ---
 title: Skapa Azure-SSIS-integrering körning i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du skapar en Azure-SSIS-integrering körning så att du kan köra SSIS-paket i Azure-molnet.
+description: Lär dig hur du skapar en Azure-SSIS-integrering körning i Azure Data Factory så att du kan distribuera och köra SSIS-paket i Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: ae906712b6169f2d352013bf2b786c5cc772aa9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fb5cd00701c6d86af588353119c8e0d189fefa62
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618563"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297248"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integrering körning i Azure Data Factory
-Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure.
+Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Du kan sedan använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services (SSIS) paket i den här körning i Azure.
 
-Självstudier: [Självstudier: distribuera paket för SQL Server Integration Services (SSIS) till Azure](tutorial-create-azure-ssis-runtime-portal.md) visade hur du skapar Azure SSIS Integration Runtime (IR) med hjälp av Azure SQL Database som Arkiv för SSIS-katalogen. Den här artikeln kan utökas med kursen och visar hur du gör följande: 
+Kursen [genomgång: distribuera paket för SQL Server Integration Services (SSIS) till Azure](tutorial-create-azure-ssis-runtime-portal.md) visar hur du skapar Azure SSIS Integration Runtime (IR) med hjälp av Azure SQL Database som värd för SSIS-katalogen. Den här artikeln kan utökas med kursen och visar hur du gör följande: 
 
 - Använd Azure SQL hanteras-instans (förhandsversion) som värd för en SSIS-katalog (SSIDB-databasen).
-- Anslut Azure SSIS IR till Azure-nätverk (VNet). Konceptuell information om att ansluta en Azure-SSIS-IR till ett virtuellt nätverk och konfigurera ett virtuellt nätverk i Azure-portalen finns [ansluta till Azure-SSIS-IR till VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
+- Anslut Azure SSIS IR till Azure-nätverk. Konceptuell information om att ansluta en Azure-SSIS-IR till ett virtuellt nätverk och konfigurera ett virtuellt nätverk i Azure-portalen finns [ansluta till Azure-SSIS-IR till det virtuella nätverket](join-azure-ssis-integration-runtime-virtual-network.md). 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-introduction.md).
@@ -38,7 +38,7 @@ Den här artikeln beskrivs olika sätt att etablera ett Azure-SSIS-IR:
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager-mall](#azure-resource-manager-template)
 
-När du skapar en Azure-SSIS-IR ansluter Data Factory till din Azure SQL Database för att förbereda katalog SSIS-databasen (SSISDB). Skriptet konfigurerar också behörigheter och inställningar för ditt VNet, om det anges, och ansluter den nya instansen för Azure-SSIS Integration Runtime till VNet.
+När du skapar en Azure-SSIS-IR ansluter Data Factory till din Azure SQL Database för att förbereda katalog SSIS-databasen (SSISDB). Skriptet också konfigurerar behörigheter och inställningar för det virtuella nätverket om anges och ansluter till den nya instansen av Azure-SSIS-integrering runtime till det virtuella nätverket.
 
 När du etablerar en instans av en Azure-SSIS IR installeras också Azure Feature Pack för SSIS och Access Redistributable. Med dessa komponenter upprättar du en anslutning till Excel- och Access-filer och till olika Azure-datakällor, utöver de datakällor som stöds av de inbyggda komponenterna. Du kan också installera ytterligare komponenter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
 
@@ -48,7 +48,7 @@ När du etablerar en instans av en Azure-SSIS IR installeras också Azure Featur
 - **Azure SQL Database-server** eller **SQL Server hanteras-instans (förhandsgranskning)**. Om du inte redan har en databasserver kan du skapa en i Azure-portalen innan du börjar. Den här servern är värd för SSISDB (SSIS Catalog Database). Vi rekommenderar att du skapar databasservern i samma Azure-region som Integration Runtime. Den här konfigurationen gör att Integration Runtimes skrivkörning loggas till SSISDB utan att korsa Azure-regioner. Notera prisnivån för din Azure SQL-server. En lista över stöds prisnivåer för Azure SQL Database, se [gränserna för SQL-databas](../sql-database/sql-database-resource-limits.md).
 
     Bekräfta att din Azure SQL Database-server eller SQL Server hanteras-instans (förhandsgranskning) inte har en SSIS-katalogen (SSIDB-databasen). När du ska etablera Azure-SSIS IR kan du inte ha någon befintlig SSIS-katalog.
-- **Klassiska eller Azure Resource Manager virtuella Network(VNet) (valfritt)**. Du måste ha ett klassiskt virtuellt Azure-nätverk (VNet) om minst ett av följande villkor stämmer:
+- **Klassiska eller Azure Resource Manager-nätverk (valfritt)**. Du måste ha ett Azure Virtual Network om minst en av följande villkor föreligger:
     - Du är värd för databasen SSIS-katalog på en SQL Server hanteras-instans (förhandsversion) som ingår i ett virtuellt nätverk.
     - Du vill ansluta till lokala datalager från SSIS-paket som körs på Azure-SSIS Integration Runtime.
 - **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps). Du använder PowerShell för att köra ett skript för att etablera en Azure-SSIS Integration Runtime som kör SSIS-paket i molnet. 
@@ -73,7 +73,7 @@ I det här avsnittet använder Azure-portalen specifikt Data Factory Gränssnitt
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnMyAzureSsisDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
-       `Data factory name �MyAzureSsisDataFactory� is not available`
+       `Data factory name "MyAzureSsisDataFactory" is not available`
 
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
@@ -121,19 +121,19 @@ I det här avsnittet använder Azure-portalen specifikt Data Factory Gränssnitt
 1.  På sidan **Avancerade inställningar** väljer du ett värde för **maximalt antal parallellkörningar per nod**.   
 
     ![Avancerade inställningar](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. Det här steget är **valfritt**. Om du har ett virtuellt nätverk (klassiskt eller Azure Resource Manager) som du vill integration runtime vill delta väljer du den **väljer ett virtuellt nätverk för din Azure-SSIS-integrering runtime att ansluta och ge Azure-tjänster så här konfigurerar du VNet/behörighetsinställningar**alternativ och gör följande: 
+5. Det här steget är **valfritt**. Om du har ett virtuellt nätverk (klassiskt eller Azure Resource Manager) som du vill använda integration runtime vill delta väljer du den **väljer ett virtuellt nätverk för din Azure-SSIS-integrering runtime att ansluta och ge Azure-tjänster så här konfigurerar du VNet behörighetsinställningar**  alternativ och gör följande: 
 
-    ![Avancerade inställningar med virtuella nätverk](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
+    ![Avancerade inställningar med ett virtuellt nätverk](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
-    1. För **prenumeration**, ange den **prenumeration** som har VNet. 
-    2. Typ, ange den **typen** av virtuella nätverk (klassiskt virtuellt nätverk eller virtuella nätverk för Azure Resource Manager). 
-    3. För **VNet namn**, Välj namnet på din **VNet**. 
-    4. För **undernätsnamn**, Välj namnet på den **undernät** i virtuella nätverk.
+    1. För **prenumeration**, ange den **prenumeration** som har det virtuella nätverket. 
+    2. Typ, ange den **typen** för det virtuella nätverket (klassiskt virtuellt nätverk eller virtuella nätverk för Azure Resource Manager). 
+    3. För **VNet namn**, Välj namnet på det virtuella nätverket. 
+    4. För **undernätsnamn**, Välj namnet på undernätet i det virtuella nätverket.
 1. Klicka på **Slutför** för att starta skapandet av Azure SSIS-integreringskörningen. 
 
     > [!IMPORTANT]
     > - Den här processen tar cirka 20 minuter att slutföra
-    > - Data Factory-tjänsten ansluts till din Azure SQL Database för att förbereda SSISDB. Skriptet konfigurerar också behörigheter och inställningar för ditt VNet, om det anges, och ansluter den nya instansen för Azure-SSIS Integration Runtime till VNet.
+    > - Data Factory-tjänsten ansluts till din Azure SQL Database för att förbereda SSISDB. Skriptet också konfigurerar behörigheter och inställningar för det virtuella nätverket om anges och ansluter till den nya instansen av Azure-SSIS-integrering runtime till det virtuella nätverket.
 7. I fönstret **Anslutningar** växlar du till **integreringskörningar** om det behövs. Om du vill uppdatera statusen klickar du på **Uppdatera**. 
 
     ![Skapandestatus](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
@@ -196,9 +196,9 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (Preview) 
-# Specify information about your classic or Azure Resource Manager virtual network (VNet). 
-$VnetId = "[your VNet resource ID or leave it empty]" 
+## These two parameters apply if you are using a virtual network and an Azure SQL Managed Instance (Preview) 
+# Specify information about your classic or Azure Resource Manager virtual network. 
+$VnetId = "[your virtual network resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
 ```
@@ -497,4 +497,4 @@ Finns i andra Azure-SSIS-IR-avsnitt i den här dokumentationen:
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
-- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk (VNet). Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
+- [Ansluta till en Azure-SSIS-IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller information om att ansluta till en Azure-SSIS-IR till ett Azure virtual network. Det ger också steg för att använda Azure-portalen för att konfigurera virtuella nätverk så att Azure-SSIS IR kan ansluta till det virtuella nätverket. 

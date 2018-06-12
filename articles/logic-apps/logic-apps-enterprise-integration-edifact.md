@@ -1,11 +1,11 @@
 ---
-title: "EDIFACT-meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs"
-description: "Exchange EDIFACT-meddelanden i EDI-format för B2B enterprise integrering med Azure Logikappar"
+title: EDIFACT-meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange EDIFACT-meddelanden i EDI-format för B2B enterprise integrering med Azure Logikappar
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300104"
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Exchange EDIFACT-meddelanden för enterprise-integrering med logic apps
 
@@ -67,7 +68,7 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
 
    ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | Egenskap | Beskrivning |
+   | Egenskap  | Beskrivning |
    | --- | --- |
    | Namn |Avtalets namn |
    | Avtalstyp | Ska vara EDIFACT |
@@ -96,21 +97,21 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 ### <a name="identifiers"></a>Identifierare
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNB6.1 (referenslösenord för mottagare) |Ange ett alfanumeriskt värde mellan 1 och 14 tecken. |
 | UNB6.2 (referenskvalificerare för mottagare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
 
-### <a name="acknowledgments"></a>Acknowledgments
+### <a name="acknowledgments"></a>Bekräftelser
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Inleverans av meddelande (CONTRL) |Markera kryssrutan för att returnera en teknisk (CONTRL) bekräftelse till interchange avsändaren. Bekräftelsen skickas till interchange avsändaren baserat på Skicka-inställningar för avtalet. |
 | Bekräftelse (CONTRL) |Markera kryssrutan för att returnera en funktionell (CONTRL) bekräftelse till interchange avsändaren bekräftelsen skickas till interchange avsändaren baserat på Skicka-inställningar för avtalet. |
 
 ### <a name="schemas"></a>Scheman
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNH2.1 (TYP) |Välj en uppsättning transaktionstyp. |
 | UNH2.2 (VERSION) |Ange versionsnummer för meddelandet. (Minimum, ett tecken; maximalt tre tecken). |
@@ -118,10 +119,10 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 | UNH2.5 (ASSOCIERADE TILLDELADE KOD) |Ange den tilldelade koden. (Maximalt sex tecken. Måste vara alfanumeriskt). |
 | UNG2.1 (APP AVSÄNDAR-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. |
 | UNG2.2 (APP AVSÄNDAREN KOD KVALIFICERARE) |Ange ett alfanumeriskt värde med högst fyra tecken. |
-| SCHEMA |Välj tidigare överförda schema som du vill använda från ditt konto med associerade integrering. |
+| SCHEMAT |Välj tidigare överförda schema som du vill använda från ditt konto med associerade integrering. |
 
 ### <a name="control-numbers"></a>Kontrollnummer
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Tillåt inte Interchange kontrollen antal dubbletter |Välj den här egenskapen om du vill blockera dubbla externa utbyten. Om markerad kontrollerar EDIFACT avkoda åtgärden att den interchange kontrollen (UNB5) för mottagna datautbyte inte matchar några tidigare bearbetade interchange kontroll. Om en matchning hittas, bearbetas inte utbyte. |
 | Leta efter UNB5-dubletter varje (dagar) |Om du väljer att inte tillåta dubbla interchange kontrollen siffror, du kan ange antalet dagar när du ska kontrollera genom att ge rätt värde för den här inställningen. |
@@ -133,7 +134,7 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |
@@ -144,7 +145,7 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 
 ### <a name="internal-settings"></a>Interna inställningar
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Skapa tomma XML-taggar om avslutande avgränsare är tillåtna |Välj den här kryssrutan om du vill interchange avsändaren är tom XML-taggar för avslutande avgränsare. |
 | Dela upp interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel|Parsar varje transaktion som anges i ett utbyte i ett annat XML-dokument genom att använda lämpliga kuvertet uppsättningen transaktion. Pausa bara som inte kan valideras mängderna transaktion. |
@@ -169,7 +170,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 ### <a name="identifiers"></a>Identifierare
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNB1.2 (Syntax version) |Välj ett värde mellan **1** och **4**. |
 | UNB2.3 (omvänd routingadress för avsändare) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
@@ -178,23 +179,23 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | UNB6.2 (referenskvalificerare för mottagare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
 | UNB7 (programreferens-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken |
 
-### <a name="acknowledgment"></a>Acknowledgment
-| Egenskap | Beskrivning |
+### <a name="acknowledgment"></a>Bekräftelse
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Inleverans av meddelande (CONTRL) |Markera kryssrutan om den värdbaserade partnern förväntar sig att ta emot en teknisk (CONTRL) bekräftelse. Den här inställningen anger att den värdbaserade partner som skickar meddelandet, begär en bekräftelse från gäst-partner. |
 | Bekräftelse (CONTRL) |Markera kryssrutan om den värdbaserade partnern förväntar sig att ta emot en funktionell (CONTRL) bekräftelse. Den här inställningen anger att den värdbaserade partner som skickar meddelandet, begär en bekräftelse från gäst-partner. |
 | Skapa SG1/SG4-slinga för godkända transaktionsuppsättningar |Om du vill begära en funktionell bekräftelse, markera kryssrutan för att tvinga generering av SG1/SG4 loopar i funktionella CONTRL bekräftelser för godkända transaktionen uppsättningar. |
 
 ### <a name="schemas"></a>Scheman
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNH2.1 (TYP) |Välj en uppsättning transaktionstyp. |
 | UNH2.2 (VERSION) |Ange versionsnummer för meddelandet. |
 | UNH2.3 (VERSION) |Ange versionsnumret för meddelandet. |
-| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. För att komma åt dina scheman länka ditt integration konto till din logikapp. |
+| SCHEMAT |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. För att komma åt dina scheman länka ditt integration konto till din logikapp. |
 
 ### <a name="envelopes"></a>Kuvert
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNB8 (prioritetskod för bearbetning) |Ange en alfabetisk värde som inte är mer än ett tecken lång. |
 | UNB10 (kommunikationsavtal) |Ange ett alfanumeriskt värde med minst ett tecken och högst 40 tecken. |
@@ -206,7 +207,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 Andra än teckenuppsättningen, kan du ange en annan uppsättning avgränsare som ska användas för varje meddelandetyp. Om en teckenuppsättning inte har angetts för ett visst meddelande-schema, används den standardinställda teckenuppsättningen.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNB1.1 (systemidentifierare) |Välj EDIFACT-teckenuppsättningen som ska tillämpas på utgående utbyte. |
 | Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda utifrån beskrivningarna avgränsare nedan för det aktuella schemat. |
@@ -217,7 +218,7 @@ Andra än teckenuppsättningen, kan du ange en annan uppsättning avgränsare so
 | Suffix |Välj det tecken som används med segment-ID. Om du har angett ett suffix kan dataelementet segment Begränsare vara tom. Om segment Begränsare lämnas tomt, måste du ange ett suffix. |
 
 ### <a name="control-numbers"></a>Kontrollnummer
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | UNB5 (Interchange-kontrollnummer) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera ett utgående utbyte. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollera numret ökas för varje nytt meddelande; prefixet och suffixet desamma. |
 | UNG5 (gruppkontrollnummer) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera gruppnummer för kontrollen. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollnumret ökas för varje nytt meddelande tills det största värdet har nåtts. prefixet och suffixet desamma. |
@@ -227,7 +228,7 @@ Andra än teckenuppsättningen, kan du ange en annan uppsättning avgränsare so
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av EDI-egenskaperna för schemat, längd, tom dataelement och avslutande avgränsare. |

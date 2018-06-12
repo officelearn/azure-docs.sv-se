@@ -1,24 +1,20 @@
 ---
-title: "Strömmande data i Azure-diagnostik i varm sökvägen med Händelsehubbar | Microsoft Docs"
-description: "Konfigurera Azure-diagnostik med Händelsehubbar slutpunkt till slutpunkt, inklusive anvisningar för vanliga scenarier."
-services: event-hubs
-documentationcenter: na
+title: Dataströmmen Azure Diagnostics data i Händelsehubbar
+description: Konfigurera Azure-diagnostik med Händelsehubbar slutpunkt till slutpunkt, inklusive anvisningar för vanliga scenarier.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267721"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Direktuppspelning Azure-diagnostik i varm sökvägen med hjälp av Händelsehubbar
 Azure Diagnostics tillhandahåller flexibelt sätt för att samla in mått och loggar från cloud services virtuella maskiner (VMs) och överföra resultaten till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsintervall du skickar diagnostik till anpassade datakällor och överför varm sökväg data i sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -29,7 +25,7 @@ Datatyper som stöds är:
 * Prestandaräknare
 * Windows-händelseloggar
 * Programloggar
-* Azure Diagnostics infrastruktur loggar
+* Azure Diagnostics-infrastrukturloggar
 
 Den här artikeln visar hur du konfigurerar Azure Diagnostics med Händelsehubbar från slutpunkt till slutpunkt. Vägledning ges också för vanliga scenarier för följande:
 
@@ -38,7 +34,7 @@ Den här artikeln visar hur du konfigurerar Azure Diagnostics med Händelsehubba
 * Så här visar du Händelsehubbar dataströmmen data
 * Felsökning av anslutningen  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Event Hubs receieving data från Azure-diagnostik stöds i molntjänster, virtuella datorer, virtuella datorer och Service Fabric från och med Azure SDK 2.9 och motsvarande Azure-verktyg för Visual Studio.
 
 * Azure Diagnostics tillägget 1.6 ([Azure SDK för .NET 2.9 eller senare](https://azure.microsoft.com/downloads/) riktar sig mot detta som standard)

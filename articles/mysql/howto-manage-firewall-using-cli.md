@@ -1,20 +1,21 @@
 ---
-title: "Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI"
-description: "Den här artikeln beskriver hur du skapar och hanterar Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI-kommandoraden."
+title: Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI
+description: Den här artikeln beskriver hur du skapar och hanterar Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI-kommandoraden.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266065"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure-databas för MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med hjälp av lämplig Azure CLI-kommandona, kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för MySQL brandväggar, se [Azure-databas för MySQL serverbrandväggsreglerna](./concepts-firewall-rules.md)
@@ -42,7 +43,7 @@ az login
 ```
 Detta kommando en kod som ska användas i nästa steg.
 
-2. Använda en webbläsare för att öppna sidan [https://aka.ms/devicelogin](https://aka.ms/devicelogin), och ange sedan koden.
+2. Använda en webbläsare för att öppna sidan [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), och ange sedan koden.
 
 3. Logga in med dina autentiseringsuppgifter för Azure när du ombeds göra det.
 

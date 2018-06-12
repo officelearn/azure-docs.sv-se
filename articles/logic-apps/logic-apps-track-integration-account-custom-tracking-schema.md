@@ -2,7 +2,7 @@
 title: Spårning av anpassade scheman för övervakning av B2B - Azure Logic Apps | Microsoft Docs
 description: Skapa anpassade spårning scheman för att övervaka B2B-meddelanden från transaktioner i ditt Azure-konto för integrering.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299842"
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Aktivera spårning att övervaka hela arbetsflödet, slutpunkt-till-slutpunkt
 Det finns inbyggda spåra att du kan aktivera för olika delar av ditt företag att arbetsflödet, till exempel uppföljning AS2 eller X12 meddelanden. När omfattar du skapar arbetsflöden som en logikapp, BizTalk Server, SQL Server eller något annat lager kan du aktivera anpassade spårning loggar händelser från början till slutet av arbetsflödet. 
@@ -61,7 +62,7 @@ Det här avsnittet innehåller anpassad kod som du kan använda i lagren utanfö
 
 ````
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
 | SourceType |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **anpassade**. (Obligatoriskt) |
 | Källa |   | Om källtypen är **Microsoft.Logic/workflows**, källinformation måste följa det här schemat. Om källtypen är **anpassade**, schemat är en JToken. (Obligatoriskt) |

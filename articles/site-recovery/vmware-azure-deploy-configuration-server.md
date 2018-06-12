@@ -2,17 +2,18 @@
 title: Distribuera konfigurationsservern för VMware katastrofåterställning med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware katastrofåterställning med Azure Site Recovery
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267517"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -20,11 +21,19 @@ Du distribuerar ett lokalt konfigurationsservern när du använder [Azure Site R
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Vi rekommenderar att du distribuerar konfigurationsservern som en högtillgänglig VMware VM. Minsta maskinvarukrav sammanfattas i följande tabell.
+Vi rekommenderar att du distribuerar konfigurationsservern som en högtillgänglig VMware VM. Servern konfigurationskrav sammanfattas i följande tabell.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>Förbereda för MySQL-installation
+
+MySQL måste installeras på konfigurationsservern. Du kan göra detta genom att använda någon av följande metoder:
+
+- Kan Site Recovery hämta och installera det när när guiden Konfigurera Server Management körs. Du behöver inte vidta några särskilda åtgärder.
+- Manuellt hämta MySQL och placera den i mappen C:\Temp\ASRSetup. Kör sedan installationen. Site Recovery identifierar den installeras när guiden körs.
+- Manuellt hämta MySQL och placera den i mappen C:\Temp\ASRSetup. När guiden körs kommer den installationsfilen och installera den från den här platsen. 
 
 
 ## <a name="capacity-planning"></a>Kapacitetsplanering
@@ -100,7 +109,7 @@ Om du vill lägga till en extra NIC på konfigurationsservern lägger du till de
 
 1. Välj i guiden Konfigurera server management **Konfigurera anslutningen**. Markera nätverkskortet att ta emot replikeringstrafik och välj sedan **spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
 2. I **Välj Recovery Services-valv** väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
-3. Godkänn licensavtalet i **Installera programvara från tredje part**. Välj **Ladda ned och installera** för att installera MySQL Server.
+3. Godkänn licensavtalet i **Installera programvara från tredje part**. Installera MySQL i enlighet med den [metod som du använder för att installera MySQL](#prepare-for-mysql-installation).
 4. Välj **installera VMware PowerLCI**. Kontrollera att alla fönster stängs innan du gör det här steget. Välj sedan **Fortsätt**.
 5. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
 6. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som avlyssnas av servern och ett eget namn för VMware-servern i valvet.

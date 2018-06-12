@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: douglasl
-ms.openlocfilehash: 8eeed91da3942d00bbab17a2dffc4b4e888a6f70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725116"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297802"
 ---
-# <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
-Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
+# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Hur du startar och stoppar Azure SSIS-integrering runtime enligt ett schema
+Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) kostnader som är kopplade till den. Du vill därför vanligtvis IR endast körs när du behöver köra SSIS-paket i Azure och stoppa IR när det inte behövs. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
 
 Du kan till exempel skapa webb-aktiviteter med webhooks till en Azure Automation PowerShell-runbook och kedja aktiviteten köra SSIS-paket mellan dem. Web-aktiviteter kan starta och stoppa Azure SSIS-IR precis i tid innan och efter att paketet körs. Mer information om aktiviteten köra SSIS-paket finns [kör ett SSIS-paket som använder SSIS-aktivitet i Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 

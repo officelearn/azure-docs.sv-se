@@ -1,13 +1,13 @@
 ---
 title: Batch-bearbeta meddelanden som en grupp eller samling - Azure Logic Apps | Microsoft Docs
-description: "Skicka och ta emot meddelanden för batchbearbetning i logikappar"
+description: Skicka och ta emot meddelanden för batchbearbetning i logikappar
 keywords: batch batchprocess
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298023"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Skicka, ta emot och batch-bearbeta meddelanden i logikappar
 
@@ -77,7 +78,7 @@ Avsändaren logikappar måste veta var att skicka objekt när mottagaren logic a
 
    1. Välj under batch-utlösaren **+ nytt steg** > **lägga till en åtgärd**.
 
-   2. I sökrutan anger du ”e-post” som filter.
+   2. Skriv ”email” (e-post) som filter i sökrutan.
    Baserat på din e-leverantör, Välj en e-anslutning.
    
       Om du har ett arbets- eller skolkonto konto väljer du exempelvis Office 365 Outlook connector. 
@@ -131,7 +132,7 @@ Avsändaren logikappar måste veta var att skicka objekt när mottagaren logic a
 1. Skapa en annan logikapp med detta namn: ”BatchSender”
 
    1. I sökrutan anger du ”återkommande” som filter. 
-   Välj den här utlösaren: **schema - upprepning**
+   Välj den här utlösaren: **Schema – återkommande**
 
       ![Lägga till ”Schemalägg återkommande”-utlösare](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 

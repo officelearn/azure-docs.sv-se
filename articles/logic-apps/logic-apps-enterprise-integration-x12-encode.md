@@ -1,11 +1,11 @@
 ---
 title: Koda X12 meddelanden - Azure Logic Apps | Microsoft Docs
-description: "Validera EDI och konvertera XML-kodade meddelanden med X12 meddelande kodare i Enterprise-Integrationspaket för Logikappar i Azure"
+description: Validera EDI och konvertera XML-kodade meddelanden med X12 meddelande kodare i Enterprise-Integrationspaket för Logikappar i Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec350560f4aca4e9a0b4f00892b690012c9f08dd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299026"
 ---
 # <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Koda X12 meddelanden för Azure Logikappar med Enterprise-Integrationspaket
 
@@ -50,7 +51,7 @@ Här är de objekt som du behöver:
 
     Egenskaper med en asterisk krävs.
 
-    | Egenskap | Information |
+    | Egenskap  | Information |
     | --- | --- |
     | Anslutningsnamn * |Ange ett namn för anslutningen. |
     | Integration konto * |Ange ett namn för ditt konto för integrering. Se till att appen integration konto och logik finns i samma Azure-plats. |

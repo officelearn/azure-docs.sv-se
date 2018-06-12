@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Dokumentation om Terraform på Azure"
+title: Dokumentation om Terraform på Azure
 metadata:
-  title: "Dokumentation om Terraform på Azure – självstudier och referens"
+  title: Dokumentation om Terraform på Azure – självstudier och referens
   meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
   author: rloutlaw
@@ -13,18 +13,19 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 71ffbc2f8d6728a414a8e001198b8c9f9b36c485
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
+  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35300617"
 abstract:
-  description: "Använd Terraform för att på ett tillförlitligt sätt tilldela versionsnummer och skapa infrastruktur på Azure. Lär dig hur du skapar resurser, använder Azure Terraform-moduler och underhåller din infrastruktur med kod med våra snabbstarter och självstudier."
+  description: Använd Terraform för att på ett tillförlitligt sätt tilldela versionsnummer och skapa infrastruktur på Azure. Lär dig hur du skapar resurser, använder Azure Terraform-moduler och underhåller din infrastruktur med kod med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter
   items:
   - type: paragraph
-    text: "Konfigurera Terraform och använd tjänsten för att skapa en virtuell Linux-dator i Azure."
+    text: Konfigurera Terraform och använd tjänsten för att skapa en virtuell Linux-dator i Azure.
   - type: list
     style: icon48
     items:
@@ -36,22 +37,23 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
       text: Skapa en virtuell Linux-dator
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig hur du skapar beräknings- och nätverksinfrastruktur i Azure från kod med Terraform."
+    text: Lär dig hur du skapar beräknings- och nätverksinfrastruktur i Azure från kod med Terraform.
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/terraform/terraform-vm-msi\">Skapa en virtuell Terraform-dator med aktiverad MSI-autentisering med hjälp av en Azure Marketplace-avbildning</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Skapa ett belastningsutjämnat VM-kluster med Azure Terraform-moduler</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">Skapa ett belastningsutjämnat VM-kluster i Azure Cloud Shell</a>."
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">Konfigurera en VM-skalningsuppsättning med nätverk och lagring.</a>"
-    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl\">Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning.</a>"
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Skapa ett Kubernetes-kluster med AKS och Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-vm-msi">Skapa en virtuell Terraform-dator med aktiverad MSI-autentisering med hjälp av en Azure Marketplace-avbildning</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Skapa ett belastningsutjämnat VM-kluster med Azure Terraform-moduler</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Skapa ett belastningsutjämnat VM-kluster i Azure Cloud Shell</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Konfigurera en VM-skalningsuppsättning med nätverk och lagring.</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning.</a>
 - title: Exempel
   items:
   - type: paragraph
-    text: "Exempelkonfigurationsmallar för vanliga distributionsuppgifter."
+    text: Exempelkonfigurationsmallar för vanliga distributionsuppgifter.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -64,4 +66,4 @@ sections:
     className: cardsD
     items:
     - title: Azure Terraform-moduler
-      html: "<p><a href=\"https://registry.terraform.io/modules/Azure/database/azurerm\">Azure RM för databas</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/loadbalancer\">Azure RM för belastningsutjämnare</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/computegroup\">Azure RM-beräkningsgrupp</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/network\">Azure RM-nätverk</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/compute\">Azure RM-beräkning</a></p>"
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM för databas</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM för belastningsutjämnare</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM-beräkningsgrupp</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM-nätverk</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM-beräkning</a></p>

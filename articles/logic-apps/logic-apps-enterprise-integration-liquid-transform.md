@@ -1,12 +1,12 @@
 ---
 title: Konvertera JSON-data med flytande transformeringar - Azure Logic Apps | Microsoft Docs
-description: "Skapa transformeringar eller för avancerade JSON-omformningar med hjälp av Logic Apps och flytande mallen."
+description: Skapa transformeringar eller för avancerade JSON-omformningar med hjälp av Logic Apps och flytande mallen.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: divyaswarnkar
-manager: anneta
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42a102c9b2663380a93d56cc5f8fb82abaa83b74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299519"
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Utföra avancerade JSON-transformationer med en flytande mall
 

@@ -1,11 +1,11 @@
 ---
-title: "Lägg till Yammer-koppling i dina Azure Logic Apps | Microsoft Docs"
-description: "Översikt över Yammer-anslutningen med REST API-parametrar"
+title: Lägg till Yammer-koppling i dina Azure Logic Apps | Microsoft Docs
+description: Översikt över Yammer-anslutningen med REST API-parametrar
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 7f1758e9b95f534b23188f427ae0edaddbb29a48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63f7b341b456d51cbde523684275a99632a672ed
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296483"
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Kom igång med Yammer-koppling
 Ansluta till Yammer till access konversationer i företagsnätverket. Med Yammer kan du:
@@ -33,7 +34,7 @@ Kom igång genom att skapa en logikapp nu. Se [skapa en logikapp](../logic-apps/
 ## <a name="create-a-connection-to-yammer"></a>Skapa en anslutning till Yammer
 Om du vill använda Yammer-anslutningstjänsten måste du först skapa en **anslutning** ange detaljer för dessa egenskaper: 
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | Token |Ja |Ange autentiseringsuppgifter för Yammer |
 

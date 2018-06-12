@@ -1,10 +1,10 @@
 ---
-title: "Skapa lösningar för B2B - Azure Logic Apps | Microsoft Docs"
-description: "Ta emot data i logikappar med hjälp av B2B-funktioner i Enterprise-Integrationspaket"
+title: Skapa lösningar för B2B - Azure Logic Apps | Microsoft Docs
+description: Ta emot data i logikappar med hjälp av B2B-funktioner i Enterprise-Integrationspaket
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.service: logic-apps
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a27a413ba9a0d974cf90fe842d5fc325ab308a56
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298125"
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Ta emot data i logikappar med B2B-funktioner i Enterprise-Integrationspaket
 
 När du har skapat ett konto för integrering med partners och avtal du är redo att skapa ett företag att (B2B) arbetsflöde för din logikapp med den [Enterprise-Integrationspaket](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Att använda AS2 och X12 åtgärder, du måste ha ett Enterprise Integration-konto. Läs [hur du skapar ett konto för Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 

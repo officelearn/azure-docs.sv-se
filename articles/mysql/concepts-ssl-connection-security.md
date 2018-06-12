@@ -1,19 +1,20 @@
 ---
-title: "SSL-anslutning för Azure-databas för MySQL"
-description: "Information för att konfigurera Azure-databas för MySQL och associerade program ska använda SSL-anslutningar"
+title: SSL-anslutning för Azure-databas för MySQL
+description: Information för att konfigurera Azure-databas för MySQL och associerade program ska använda SSL-anslutningar
 services: mysql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f59d5eab9772515a3c59f887a48d597d27bab135
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ee7e0ec8524d66ee89cf7b2c4d44b70efa784f8f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265069"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>SSL-anslutning i Azure för MySQL-databas
 Azure-databas för MySQL stöder anslutning databasservern till klientprogram som använder Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.

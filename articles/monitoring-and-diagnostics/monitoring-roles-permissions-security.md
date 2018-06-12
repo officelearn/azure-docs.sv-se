@@ -1,25 +1,19 @@
 ---
-title: Kom igång med roller, behörigheter och säkerhet med Azure-Monitor | Microsoft Docs
+title: Kom igång med roller, behörigheter och säkerhet med Azure-Monitor
 description: Lär dig hur du använder Azure-Monitor inbyggda roller och behörigheter för att begränsa åtkomsten till övervakning resurser.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 01a785eab1b31b2943184267a3c6496fefaf44cf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: ''
+ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639086"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264610"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure-Monitor
 Många grupper behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har gruppmedlemmar som arbetar enbart om hur du övervakar (supporttekniker, devops engineers) eller om du använder en leverantör av hanterade tjänster, kanske du vill bevilja dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt vill använda en inbyggd övervakning RBAC roll till en användare i Azure eller skapa egna anpassade roll för en användare behöver begränsade behörigheter för övervakning. Sedan diskuterar det säkerhetsaspekter för dina Azure-Monitor-relaterade resurser och hur du kan begränsa åtkomst till de data som de innehåller.

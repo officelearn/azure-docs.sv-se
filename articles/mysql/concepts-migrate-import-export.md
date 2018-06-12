@@ -6,15 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/01/2018
-ms.openlocfilehash: 3f4c813f7c107f769f32cdd6ab66790f937f1c9b
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a4d5fd2bb649b2a0b0d23f4f752442f854e5098
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737001"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264909"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera MySQL-databas genom att importera och exportera
 Den här artikeln förklarar två vanliga sätt att importera och exportera data till en Azure-databas för MySQL-servern genom att använda MySQL-arbetsstationen. 

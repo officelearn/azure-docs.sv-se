@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: ae79d081cc171fe904bf50b2341d7abd8f58e4f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594507"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293042"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -141,7 +141,7 @@ Men i vissa fall skickas har begäran till backend-programmet när det här prog
 ## <a name="next-steps"></a>Nästa steg
 
 * [Så här konfigurerar du ett Application Proxy-program att använda Kerberos-begränsad delegering](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Felsökning av problem med Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+* [Felsökning av problem med Application Proxy](application-proxy-troubleshoot.md)
 
 
 Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)

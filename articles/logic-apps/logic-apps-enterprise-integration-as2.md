@@ -1,11 +1,11 @@
 ---
-title: "AS2-meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs"
-description: "Exchange AS2-meddelanden för B2B enterprise integrering med Azure Logikappar"
+title: AS2-meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange AS2-meddelanden för B2B enterprise integrering med Azure Logikappar
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: acc66f2cc88734b5c15fb9f4ace8339908418463
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298247"
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-meddelanden för enterprise-integrering med logic apps
 
@@ -63,7 +64,7 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
 
     ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Egenskap | Beskrivning |
+    | Egenskap  | Beskrivning |
     | --- | --- |
     | Namn |Avtalets namn |
     | Avtalstyp | Ska vara AS2 |
@@ -101,7 +102,7 @@ Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter 
 
 Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer med dina valda inställningar.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Åsidosätt meddelandeegenskaper |Anger egenskaper i mottagna meddelanden som kan åsidosättas. |
 | Meddelandet ska vara signerat |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
@@ -146,7 +147,7 @@ I den **certifikat** väljer du en befintlig [gäst partner offentliga certifika
 
 Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer med dina valda inställningar.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | Aktivera meddelandesignering |Kräver att alla meddelanden som skickas från avtalet signeras. |
 | MIC-algoritm |Algoritmen som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet MIC algoritmen för att signera meddelanden. |

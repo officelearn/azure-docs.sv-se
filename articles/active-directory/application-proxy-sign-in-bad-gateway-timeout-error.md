@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: c2571a7ca9e92c5088aec600f1865f84736c5bfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592518"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292311"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett program med Application Proxy
 
@@ -110,7 +110,7 @@ Om programmet är konfigurerat för att använda integrerad autentisering IWA (W
 
 Om du ser felet, gå till datorn där kopplingen har installerats, öppna en webbläsare och försöker komma åt den interna URL som används för programmet. Kopplingen fungerar som en annan klient från samma dator. Om du inte kan nå programmet, kan du undersöka varför som datorn är inte når programmet eller använda en koppling på en server som har tillgång till programmet.
 
-Om du kan komma åt programmet från den datorn för att leta efter problem eller fel med kopplingen själv. Du kan se några vanliga fel i den [Felsök dokumentet](active-directory-application-proxy-troubleshoot.md#connector-errors). Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av våra felmeddelanden ska kunna dela mer specifika rekommendationer för korrigeringar. Information om hur du visar loggarna finns [vår dokumentation kopplingar](manage-apps/application-proxy-connectors.md#under-the-hood).
+Om du kan komma åt programmet från den datorn för att leta efter problem eller fel med kopplingen själv. Du kan se några vanliga fel i den [Felsök dokumentet](manage-apps/application-proxy-troubleshoot.md#connector-errors). Du kan också söka direkt på Connector-loggarna för att identifiera eventuella fel. Många av våra felmeddelanden ska kunna dela mer specifika rekommendationer för korrigeringar. Information om hur du visar loggarna finns [vår dokumentation kopplingar](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Nästa steg
 [Förstå Azure AD Application Proxy-kopplingar](manage-apps/application-proxy-connectors.md)

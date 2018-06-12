@@ -10,12 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32313519"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267102"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om diskar lagring för virtuella Azure Windows-datorer
 Precis som andra dator använder virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en disk i Windows-operativsystem och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och image är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 
@@ -32,7 +32,7 @@ Låt oss ta en titt på hur diskarna som används av de virtuella datorerna.
 Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats som en SATA-enhet och märkta som enhet C: som standard. Den här disken har en maximal kapacitet på 2 048 gigabyte (GB). 
 
 ### <a name="temporary-disk"></a>Diskutrymme
-Varje virtuell dator innehåller en tillfällig disk. Den tillfälliga disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att bara lagra data, till exempel sida eller växla filer. Data på den tillfälliga disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data på den tillfälliga enheten under en standard omstart av den virtuella datorn ska sparas.
+Varje virtuell dator innehåller en tillfällig disk. Den tillfälliga disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att bara lagra data, till exempel sida eller växla filer. Data på den tillfälliga disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vid en lyckad standard omstart av den virtuella datorn behålls data på den tillfälliga enheten. 
 
 Den tillfälliga disken är märkt som D: enhet som standard och det används för att lagra pagefile.sys. Om du vill mappa om den här disken till en annan enhetsbeteckning finns [ändra enhetsbeteckningen för den tillfälliga disken i Windows](change-drive-letter.md). Storleken på den tillfälliga disken beror på storleken på den virtuella datorn. Mer information finns i [storlekar för Windows-datorer](sizes.md).
 

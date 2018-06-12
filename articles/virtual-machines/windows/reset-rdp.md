@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b61b7501c94e9682a3b324488caf119ce4aad3df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267211"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Så här återställer du tjänsten Remote Desktop eller dess inloggningslösenord i en Windows VM
 Om du inte kan ansluta till en Windows-dator (VM), kan du återställa det lokala administratörslösenordet eller återställa konfigurationen av Remote Desktop-tjänsten (stöds inte på Windows-domänkontrollanter). Du kan använda Azure-portalen eller tillägget för virtuell dator åtkomst i Azure PowerShell för att återställa lösenordet. När du har loggat in på den virtuella datorn, ska du återställa lösenordet för användaren.  
@@ -57,7 +58,7 @@ Välj **bara återställa konfigurationen** i den nedrullningsbara menyn Klicka 
 Se till att du har den [senaste PowerShell-modulen installerad och konfigurerad](/powershell/azure/overview) och är inloggad på Azure-prenumerationen med den `Connect-AzureRmAccount` cmdlet.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Återställa lösenord för lokala administratörskontot**
-Återställ administratör lösenord eller användarnamn namn med den [Set AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. 
+Återställ administratör lösenord eller användarnamn namn med den [Set AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. TypeHandlerVersion måste vara 2.0 eller senare, som version 1 är föråldrat. 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 

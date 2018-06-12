@@ -10,18 +10,19 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 819071321d5609728e7c62abb5b25bf354107850
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0693fc2fff5735fb2b3c0a9b8f1d3d256746f40d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298329"
 ---
 # <a name="using-kafka-mirrormaker-with-event-hubs-for-kafka-ecosystems"></a>Med Händelsehubbar Kafka MirrorMaker för Kafka ekosystem
 
 > [!NOTE]
-> Det här exemplet är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs)
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs)
 
-En större för moderna molnappar för skalan är det en möjlighet att uppdatera, förbättra och ändra infrastruktur utan att avbryta tjänsten. Den här kursen visar hur en Kafka aktiverat Event Hub och Kafka MirrorMaker kan integrera en befintlig Kafka pipeline i Azure ”mirroring” Kafka Indataströmmen i tjänsten Event Hub. 
+En är större för moderna molnappar för skalan möjligheten att uppdatera, förbättra och ändra infrastruktur utan att avbryta tjänsten. Den här kursen visar hur en Kafka-aktiverade händelsehubb och Kafka MirrorMaker kan integrera en befintlig Kafka pipeline i Azure ”mirroring” Kafka Indataströmmen i händelsehubbtjänsten. 
 
 En Azure Event Hubs Kafka slutpunkt kan du ansluta till Azure Event Hubs genom att använda protokollet Kafka (d.v.s. Kafka klienter). Du kan ansluta till Azure Event Hubs och dra nytta av fördelarna med Azure-ekosystemet genom att göra minimala ändringar till en App som Kafka. Kafka aktiverat Händelsehubbar stöder för närvarande Kafka version 1.0 och senare.
 
@@ -33,7 +34,7 @@ Det här exemplet visar hur du spegling förhandlare Kafka i en Kafka aktiverade
 
 Kontrollera att du har den här kursen:
 
-* En Azure-prenumeration. Om du inte har någon, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+* En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
@@ -61,13 +62,13 @@ Använd den [Kafka Snabbstartsguide](https://kafka.apache.org/quickstart) att ko
 
 ## <a name="kafka-mirrormaker"></a>Kafka MirrorMaker
 
-Kafka MirrorMaker kan ”databasspegling” för en dataström. Angivna käll- och Kafka, kluster, MirrorMaker säkerställer att alla meddelanden som skickas till källklustret tas emot av både käll- och kluster. Det här exemplet visar hur du spegling källa Kafka kluster med ett mål Kafka aktiverat Event Hub. Det här scenariot kan användas för att skicka data från en befintlig Kafka pipeline till Händelsehubbar utan att avbryta flödet av data. 
+Kafka MirrorMaker kan ”databasspegling” för en dataström. Angivna käll- och Kafka, kluster, MirrorMaker säkerställer att alla meddelanden som skickas till källklustret tas emot av både käll- och kluster. Det här exemplet visar hur du spegling källa Kafka kluster med en destination Kafka-aktiverade händelsehubb. Det här scenariot kan användas för att skicka data från en befintlig Kafka pipeline till Händelsehubbar utan att avbryta flödet av data. 
 
 Mer detaljerad information om Kafka MirrorMaker finns i [Kafka spegling/MirrorMaker guiden](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurera Kafka MirrorMaker genom att ge den ett Kafka kluster som konsumenter/källa och en aktiverad händelsehubb Kafka som producenten/mål.
+Om du vill konfigurera Kafka MirrorMaker, ge den ett Kafka kluster som konsumenter/källa och en Kafka-aktiverade händelsehubb som producenten/mål.
 
 #### <a name="consumer-configuration"></a>Konsumenten konfiguration
 
@@ -106,12 +107,13 @@ Kör skriptet Kafka MirrorMaker från roten Kafka katalogen med hjälp av de nyl
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
 ```
 
-Du kontrollerar att händelser ansluter till händelsehubben Kafka aktiverad i ingång statistik i den [Azure-portalen](https://azure.microsoft.com/features/azure-portal/), eller kör en konsument mot händelsehubben.
+Om du vill verifiera att händelser ansluter till Kafka-aktiverade event hub, se ingång statistik i den [Azure-portalen](https://azure.microsoft.com/features/azure-portal/), eller kör en konsument mot händelsehubben.
 
 Eventuella händelser som skickats till källan Kafka klustret tas emot av både Kafka klustret med MirrorMaker körs, och speglade Kafka aktiverat event hub-tjänsten. Med hjälp av MirrorMaker och en slutpunkt för Event Hubs Kafka, kan du migrera en befintlig Kafka pipeline till hanterade Händelsehubbar i Azure-tjänsten utan att ändra det befintliga klustret eller att avbryta alla pågående dataflöde.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om Händelsehubbar](event-hubs-what-is-event-hubs.md)
+* [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Läs mer om Händelsehubbar för Kafka ekosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * Lär dig mer om [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) till dataströmmen händelser från Kafka lokalt till Kafka aktiverat händelsehubbar i molnet.
+* Lär dig att strömma till Kafka aktiverade Händelsehubbar med hjälp av [interna Kafka program](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), eller [Akka dataströmmar](event-hubs-kafka-akka-streams-tutorial.md).

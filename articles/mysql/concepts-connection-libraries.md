@@ -1,19 +1,20 @@
 ---
-title: "Anslutningsbibliotek för Azure-databas för MySQL"
-description: "Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram som kan användas vid anslutning till Azure-databas för MySQL."
+title: Anslutningsbibliotek för Azure-databas för MySQL
+description: Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram som kan användas vid anslutning till Azure-databas för MySQL.
 services: mysql
 author: mswutao
 ms.author: wutao
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: c22bb9b31e7623daa635f82256e28ed466070481
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c826bf1cf17230563b608e764c443b6166f13924
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264011"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Anslutningsbibliotek för Azure-databas för MySQL
 Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram som kan användas vid anslutning till Azure-databas för MySQL.
@@ -21,7 +22,7 @@ Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram som 
 ## <a name="client-interfaces"></a>Klient-gränssnitt
 MySQL erbjuder standard drivrutinen databasanslutning för att använda MySQL med program och verktyg som är kompatibla med branschstandarder ODBC och JDBC. Alla system som fungerar med ODBC eller JDBC kan använda MySQL.
 
-| **Språk** | **Platform** | **Ytterligare resurser** | **Ladda ned** |
+| **Språk** | **Plattform** | **Ytterligare resurser** | **Ladda ned** |
 | :----------- | :------------| :-----------------------| :------------|
 | PHP | Windows, Linux | [Intern MySQL-drivrutin för PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Ladda ned](http://php.net/downloads.php) |
 | ODBC | Windows, Linux, Mac OS X och Unix-plattformar | [MySQL-koppling/ODBC-Guide för utvecklare](https://dev.mysql.com/doc/connector-odbc/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/odbc/) |

@@ -1,24 +1,19 @@
 ---
-title: "Översikt över Autoskala i virtuella datorer i Microsoft Azure Cloud Services och Web Apps | Microsoft Docs"
-description: "Översikt över Autoskala i Microsoft Azure. Gäller för virtuella datorer, Cloud Services och Web Apps."
+title: Översikt över Autoskala i virtuella datorer och molntjänster Web Apps
+description: Autoskala i Microsoft Azure. Gäller för virtuella datorer, virtuella skalningsuppsättningarna, Cloud Services och Web Apps.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264678"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över Autoskala i virtuella datorer i Microsoft Azure Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure-Autoskala är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -110,7 +105,7 @@ Du kan ställa in autoskalning via
 | Tjänst | Schemat & Docs |
 | --- | --- |
 | Web Apps |[Skalning av webbprogram](insights-how-to-scale.md) |
-| Molntjänster |[Autoskala en tjänst i molnet](../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Cloud Services |[Autoskala en tjänst i molnet](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuella datorer: klassiska |[Skalning klassiska virtuella Tillgänglighetsuppsättningar](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtuella datorer: Skalningsuppsättningar Windows |[Skalning virtuella datorn anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtuella datorer: Skalningsuppsättningarna Linux |[Skalning virtuella datorn anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

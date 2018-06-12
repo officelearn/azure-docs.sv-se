@@ -6,19 +6,20 @@ author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265592"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Skapa och hantera Azure-databas för MySQL-servern med hjälp av Azure-portalen
 Det här avsnittet beskrivs hur du snabbt kan skapa en ny Azure-databas för MySQL-servern. Det innehåller även information om hur du hanterar servern med hjälp av Azure portal. Server management innehåller visa serverinformation och databaser, återställer lösenordet, skalning resurser och ta bort servern.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
@@ -48,7 +49,7 @@ Följ dessa steg om du vill skapa en Azure-databas för MySQL-server med namnet 
 
 4. Klicka på **prisnivå** att ange tjänstenivå för tjänstnivå och prestandanivå för den nya servern. Välj den **generella** fliken. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior.
 
-   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
+   ![Skapa-server--prisnivån](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
 
@@ -74,7 +75,7 @@ När den nya servern har etablerats har användaren flera alternativ för att ko
 
 2. Ändra den **vCore** inställningen genom att flytta skjutreglaget till din önskade värdet.
 
-    ![scale-compute](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![skala bearbetning](./media/howto-create-manage-server-portal/scale-compute.png)
 
 3. Spara ändringarna genom att klicka på **OK**.
 
@@ -96,7 +97,7 @@ När den nya servern har etablerats har användaren flera alternativ för att ko
 
 2. Skriv namnet på servern i textrutan för dubbla bekräftelse.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm.png)
+    ![Bekräfta borttagning](./media/howto-create-manage-server-portal/confirm.png)
 
 3. Klicka på den **ta bort** för att bekräfta ta bort servern. Vänta tills ”har tagits bort MySQL-server” pop upp till visas i meddelandefältet.
 

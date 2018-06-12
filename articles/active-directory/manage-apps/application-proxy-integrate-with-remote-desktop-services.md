@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ff91709b52f7378bbc320524781dca7faf2204
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248885"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292549"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -51,7 +51,7 @@ I en RDS-distribution köras för webbrollen och rollen för fjärrskrivbordsgat
 
 - Det här scenariot förutsätter att slutanvändarna går igenom Internet Explorer på Windows 7 eller Windows 10-datorer som ansluter via RD webbsidan. Om du behöver stöd för andra operativsystem, se [stöd för andra klientkonfigurationer](#support-for-other-client-configurations).
 
-- När du publicerar med webbåtkomst är det bäst att använda samma interna och externa FQDN. Om de interna och externa FQDN är olika bör du inaktivera begär sidhuvud översättning om du vill undvika ogiltiga länkar. 
+- När du publicerar webbåtkomst rekommenderas att använda samma interna och externa FQDN. Om de interna och externa FQDN är olika bör du inaktivera begär huvud-översättning för att undvika att klienten tar emot ogiltiga länkar. 
 
 - Aktivera RDS ActiveX-tillägg för Internet Explorer.
 

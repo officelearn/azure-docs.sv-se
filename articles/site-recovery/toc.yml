@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: Hantera konfigurationsservern för fysisk serverreplikering
               href: physical-manage-configuration-server.md
+            - name: Hantera processervrar
+              href: vmware-azure-manage-process-server.md
             - name: Hantera vCenter-servrar
               href: vmware-azure-manage-vcenter.md
             - name: Ta bort servrar och inaktivera skydd

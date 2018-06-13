@@ -75,6 +75,10 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Starta om en virtuell dator
               href: devtest-lab-restart-vm.md
+            - name: Ändra storlek på en virtuell dator
+              href: devtest-lab-resize-vm.md
+            - name: Distribuera om en VM
+              href: devtest-lab-redeploy-vm.md
         - name: Använd miljöer i ett labb
           items:
             - name: Skapa en miljö

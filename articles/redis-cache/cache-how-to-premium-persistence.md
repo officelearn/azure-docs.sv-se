@@ -1,11 +1,11 @@
 ---
-title: "Hur du konfigurerar datapersistence för Premium Azure Redis-Cache"
-description: "Lär dig hur du konfigurerar och hanterar data beständiga din Premium-nivån Azure Redis-Cache-instanser"
+title: Hur du konfigurerar datapersistence för Premium Azure Redis-Cache
+description: Lär dig hur du konfigurerar och hanterar data beständiga din Premium-nivån Azure Redis-Cache-instanser
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910861"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Hur du konfigurerar datapersistence för Premium Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar persistence i en premium Azure Redis-Cache-instans.

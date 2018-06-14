@@ -1,6 +1,6 @@
 ---
 title: Kommunikation Security - verktyget Microsoft Threat modellering - Azure | Microsoft Docs
-description: "ändringar för hot som exponeras i verktyget Modeling hot"
+description: ändringar för hot som exponeras i verktyget Modeling hot
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019491"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Säkerhet ram: KOMMUNIKATIONSSÄKERHET | Åtgärder 
 | Produkter eller tjänster | Artikel |

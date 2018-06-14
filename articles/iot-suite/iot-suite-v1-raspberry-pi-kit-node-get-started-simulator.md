@@ -1,12 +1,12 @@
 ---
 title: Ansluta en hallon Pi till Azure IoT Suite med simulerade telemetri Node.js | Microsoft Docs
-description: "Använd Microsoft Azure IoT-startpaket för Raspberry Pi 3 och Azure IoT Suite. Använd Node.js för att ansluta din hallon Pi till fjärranslutna övervakningslösning skicka telemetri om simulerad till molnet och svara på metoderna som anropas från instrumentpanelen lösning."
-services: 
+description: Använd Microsoft Azure IoT-startpaket för Raspberry Pi 3 och Azure IoT Suite. Använd Node.js för att ansluta din hallon Pi till fjärranslutna övervakningslösning skicka telemetri om simulerad till molnet och svara på metoderna som anropas från instrumentpanelen lösning.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: node.js
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24011961"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Ansluta din hallon Pi 3 till fjärranslutna övervakningslösning och skicka simulerade telemetri med Node.js
 

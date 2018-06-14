@@ -1,11 +1,11 @@
 ---
-title: "SKU-serien otillgänglig | Microsoft Docs"
-description: "Vissa SKU-serien är inte tillgängliga för den valda prenumerationen för den här regionen."
+title: SKU-serien otillgänglig | Microsoft Docs
+description: Vissa SKU-serien är inte tillgängliga för den valda prenumerationen för den här regionen.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870586"
 ---
 # <a name="region-or-sku-unavailable"></a>Region eller SKU är inte tillgänglig
 Den här artikeln beskriver hur du löser problemet med en Azure-prenumeration inte har åtkomst till en region eller en VM-SKU.

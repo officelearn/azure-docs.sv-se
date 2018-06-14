@@ -1,9 +1,9 @@
 ---
-title: "Ställ in tvåstegsverifiering för mitt konto för arbetet eller skolan | Microsoft Docs"
-description: "När ditt företag konfigurerar Azure Multi-Factor Authentication, uppmanas du att registrera sig för tvåstegsverifiering. Lär dig hur du ställer in. "
+title: Ställ in tvåstegsverifiering för mitt konto för arbetet eller skolan | Microsoft Docs
+description: 'När ditt företag konfigurerar Azure Multi-Factor Authentication, uppmanas du att registrera sig för tvåstegsverifiering. Lär dig hur du ställer in. '
 services: multi-factor-authentication
-keywords: "hur du använder azure-katalogen active directory i molnet, active directory-självstudier"
-documentationcenter: 
+keywords: hur du använder azure-katalogen active directory i molnet, active directory-självstudier
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201263"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är en ytterligare säkerhetssteg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln har du förmodligen ett e-postmeddelande från administratören arbets- eller skolkonto om Multifaktorautentisering. Eller kanske du försökte logga in och fick ett meddelande där du vill ställa in ytterligare säkerhetsverifiering. Om så är fallet, **kan inte logga in förrän du har slutfört den automatiska registreringen**.

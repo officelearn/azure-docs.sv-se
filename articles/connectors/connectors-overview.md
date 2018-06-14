@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Logic Apps kopplingar | Microsoft Docs"
-description: "Översikt över kopplingar som kan användas i en logikapp"
-services: 
-documentationcenter: 
+title: Översikt över Logic Apps kopplingar | Microsoft Docs
+description: Översikt över kopplingar som kan användas i en logikapp
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: ca8dab2e-9b69-4b1e-865d-1facd9f0cdac
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27961660"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Med hjälp av anslutningar i en logikapp
 Kopplingar ger snabb åtkomst till händelser, data och åtgärder över tjänster, protokoll och plattformar.  En fullständig lista över kopplingar som har stöd för Logic Apps kan [finns här](apis-list.md).  Kopplingar kan användas som en utlösare eller en åtgärd i en logikapp och kan kräva en konfigurerad *anslutning* att använda (till exempel: auktorisera ett Twitter-konto för att komma åt eller efter åt dig).

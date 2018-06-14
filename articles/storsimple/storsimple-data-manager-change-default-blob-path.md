@@ -1,12 +1,12 @@
 ---
-title: "Ändra blob sökväg från standardvärdet | Microsoft Docs"
-description: "Lär dig hur du ställer in en Azure-funktion för att byta namn på en blob-filsökväg"
+title: Ändra blob sökväg från standardvärdet | Microsoft Docs
+description: Lär dig hur du ställer in en Azure-funktion för att byta namn på en blob-filsökväg
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862408"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Ändra en blobbsökvägen från standardsökvägen
 

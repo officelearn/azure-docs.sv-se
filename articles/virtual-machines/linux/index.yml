@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943703"
 abstract:
   description: Virtuella Linux-datorer i Azure tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet med hjälp av Red Hat, Ubuntu eller valfri annan Linux-distribution. Lär dig hur du skapar, konfigurerar, hanterar, uppdaterar och skalar virtuella Linux-datorer med våra snabbstarter, självstudier och exempel.
   aside:

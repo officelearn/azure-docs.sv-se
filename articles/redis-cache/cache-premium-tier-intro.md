@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till Azure Redis Cache Premium-nivån | Microsoft Docs"
-description: "Lär dig hur du skapar och hanterar Redis-Persistence Redis-kluster och VNET-stöd för din Premium-nivån Azure Redis-Cache-instanser"
+title: Introduktion till Azure Redis Cache Premium-nivån | Microsoft Docs
+description: Lär dig hur du skapar och hanterar Redis-Persistence Redis-kluster och VNET-stöd för din Premium-nivån Azure Redis-Cache-instanser
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911211"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduktion till Azure Redis-cache Premium-nivån
 Azure Redis-Cache är en distribuerad, hanterade cache som hjälper dig att skapa mycket skalbart och dynamisk program genom att tillhandahålla mycket snabb åtkomst till dina data. 

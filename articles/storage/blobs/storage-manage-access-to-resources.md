@@ -1,6 +1,6 @@
 ---
-title: "Aktivera offentlig läsbehörighet för behållare och blobbar i Azure Blob storage | Microsoft Docs"
-description: "Lär dig hur du gör behållare och blobbar som är tillgängliga för anonym åtkomst och hur du kommer åt dem via programmering."
+title: Aktivera offentlig läsbehörighet för behållare och blobbar i Azure Blob storage | Microsoft Docs
+description: Lär dig hur du gör behållare och blobbar som är tillgängliga för anonym åtkomst och hur du kommer åt dem via programmering.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29557071"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till behållare och blob-objekt
 Du kan aktivera anonym, offentlig läsbehörighet till en behållare och dess blobbar i Azure Blob storage. Då kan bevilja du skrivskyddad åtkomst till dessa resurser utan att dela din kontonyckel och utan att kräva en signatur för delad åtkomst (SAS).

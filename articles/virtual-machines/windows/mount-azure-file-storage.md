@@ -1,15 +1,15 @@
 ---
-title: "Montera Azure file storage från en Windows Azure-dator | Microsoft Docs"
-description: "Lagra filen i molnet med Azure file storage och montera din molnbaserade filresurs från en Azure virtuell dator (VM)."
-documentationcenter: 
+title: Montera Azure file storage från en Windows Azure-dator | Microsoft Docs
+description: Lagra filen i molnet med Azure file storage och montera din molnbaserade filresurs från en Azure virtuell dator (VM).
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577559"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Använda Azure-filresurser med virtuella Windows-datorer 
 

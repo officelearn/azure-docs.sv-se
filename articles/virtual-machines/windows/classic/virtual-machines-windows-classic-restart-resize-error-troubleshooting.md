@@ -1,11 +1,11 @@
 ---
-title: "VM att starta om eller ändrar storlek på frågor | Microsoft Docs"
-description: "Felsöka klassisk distributionsproblem med att starta om eller ändrar storlek på en befintlig Windows virtuell dator i Azure"
+title: VM att starta om eller ändrar storlek på frågor | Microsoft Docs
+description: Felsöka klassisk distributionsproblem med att starta om eller ändrar storlek på en befintlig Windows virtuell dator i Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23989302"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Felsöka klassisk distributionsproblem med att starta om eller ändrar storlek på en befintlig Windows virtuell dator i Azure
 > [!div class="op_single_selector"]

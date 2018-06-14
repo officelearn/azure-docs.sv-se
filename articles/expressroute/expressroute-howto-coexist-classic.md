@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera: Azure (klassisk) | Microsoft Docs"
-description: "Den här artikeln vägleder dig genom att konfigurera ExpressRoute och en VPN-anslutning för plats till plats som kan samexistera för den klassiska distributionsmodellen."
+title: 'Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera: Azure (klassisk) | Microsoft Docs'
+description: Den här artikeln vägleder dig genom att konfigurera ExpressRoute och en VPN-anslutning för plats till plats som kan samexistera för den klassiska distributionsmodellen.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710141"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
 > [!div class="op_single_selector"]

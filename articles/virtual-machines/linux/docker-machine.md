@@ -1,8 +1,8 @@
 ---
-title: "Använda Docker-dator för att skapa Linux-värdar i Azure | Microsoft Docs"
-description: "Beskriver hur du kan använda Docker-dator för att skapa Docker-värdar i Azure."
+title: Använda Docker-dator för att skapa Linux-värdar i Azure | Microsoft Docs
+description: Beskriver hur du kan använda Docker-dator för att skapa Docker-värdar i Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125511"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Använda Docker-datorn för att skapa värdar i Azure
 Den här artikeln beskriver hur du använder [Docker datorn](https://docs.docker.com/machine/) att skapa värdar i Azure. Den `docker-machine` kommando skapar en Linux-dator (VM) i Azure och sedan installerar Docker. Du kan sedan hantera Docker-värdar i Azure med hjälp av samma lokala verktyg och arbetsflöden. Om du vill använda docker-dator i Windows 10, måste du använda Linux bash.

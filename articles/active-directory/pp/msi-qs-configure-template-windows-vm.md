@@ -1,11 +1,11 @@
 ---
-title: "Hur du konfigurerar en Användartilldelad MSI för en virtuell Azure-dator med hjälp av en Azure-mall"
-description: "Steg för steg-instruktioner för hur du konfigurerar en Användartilldelad hanteras Service identitet (MSI) för en Azure-dator med en Azure Resource Manager-mall."
+title: Hur du konfigurerar en Användartilldelad MSI för en virtuell Azure-dator med hjälp av en Azure-mall
+description: Steg för steg-instruktioner för hur du konfigurerar en Användartilldelad hanteras Service identitet (MSI) för en Azure-dator med en Azure Resource Manager-mall.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984047"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Konfigurera en Användartilldelad hanteras Service identitet (MSI) för en virtuell dator med hjälp av en Azure-mall
 

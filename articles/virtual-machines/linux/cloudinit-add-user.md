@@ -1,11 +1,11 @@
 ---
-title: "Använda molnet init för att lägga till en användare till en Linux-VM på Azure | Microsoft Docs"
-description: "Hur du använder init moln att lägga till en användare till en Linux-VM under skapande av med Azure CLI 2.0"
+title: Använda molnet init för att lägga till en användare till en Linux-VM på Azure | Microsoft Docs
+description: Hur du använder init moln att lägga till en användare till en Linux-VM under skapande av med Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123471"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Använda molnet init för att lägga till en användare till en Linux-VM i Azure
 Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) lägga till en användare på en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Det här molnet init skriptet körs på startas för första gången när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init översikt](using-cloud-init.md).

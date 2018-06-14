@@ -1,11 +1,11 @@
 ---
-title: "Användaretablering till ett program för Azure AD-galleriet är ta timmar eller mer | Microsoft Docs"
-description: "Ta reda på varför etablering i tillämpningsprogrammet kan ta längre tid än väntat"
+title: Användaretablering till ett program för Azure AD-galleriet är ta timmar eller mer | Microsoft Docs
+description: Ta reda på varför etablering i tillämpningsprogrammet kan ta längre tid än väntat
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614072"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Användaretablering till ett program för Azure AD-galleriet är ta timmar eller mer
 

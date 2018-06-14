@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Container Service
 metadata:
   document_id: 
-  title: "Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs"
+  title: Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068380"
 abstract:
-  description: "Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-, DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen."
+  description: Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-, DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen.
 sections:
 - title: 
   items:
@@ -28,12 +29,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: "Komma igång med Kubernetes-kluster"
+    - title: Komma igång med Kubernetes-kluster
       href: /azure/container-service/kubernetes
       image:
         src: media/index/get-started.svg
         href: /azure/container-service/kubernetes
-    - title: "Komma igång med DC/OS och Docker Swarm-kluster"
+    - title: Komma igång med DC/OS och Docker Swarm-kluster
       href: /azure/container-service/dcos-swarm
       image:
         src: media/index/get-started.svg

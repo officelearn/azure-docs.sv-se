@@ -1,11 +1,11 @@
 ---
-title: "Lägga till flera VPN-gateway för plats-till-plats-anslutningar till ett virtuellt nätverk: Azure-portalen: Resource Manager | Microsoft Docs"
-description: "Lägga till flera platser S2S-anslutningar till en VPN-gateway som har en befintlig anslutning"
+title: 'Lägga till flera VPN-gateway för plats-till-plats-anslutningar till ett virtuellt nätverk: Azure-portalen: Resource Manager | Microsoft Docs'
+description: Lägga till flera platser S2S-anslutningar till en VPN-gateway som har en befintlig anslutning
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398624"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägga till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway
 

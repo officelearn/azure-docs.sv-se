@@ -1,11 +1,11 @@
 ---
-title: "QoS-krav för ExpressRoute | Microsoft Docs"
-description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS för ExpressRoute-kretsar."
+title: QoS-krav för ExpressRoute | Microsoft Docs
+description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS för ExpressRoute-kretsar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709920"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
 Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behandling. Om du tänker använda rösttjänster via ExpressRoute bör du följa kraven som beskrivs nedan.

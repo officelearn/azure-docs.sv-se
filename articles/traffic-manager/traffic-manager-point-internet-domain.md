@@ -1,11 +1,11 @@
 ---
-title: "Peka företagets Internetdomän mot ett Traffic Manager-domännamn | Microsoft Docs"
-description: "Den här artikeln beskriver hur du pekar ditt företags domännamn på ett Traffic Manager-domännamn."
+title: Peka företagets Internetdomän mot ett Traffic Manager-domännamn | Microsoft Docs
+description: Den här artikeln beskriver hur du pekar ditt företags domännamn på ett Traffic Manager-domännamn.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22719933"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Peka företagets Internetdomän mot en Azure Traffic Manager-domän
 

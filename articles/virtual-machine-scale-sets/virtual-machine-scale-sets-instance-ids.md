@@ -1,11 +1,11 @@
 ---
-title: "Förstå instans-ID: N för virtuella datorer för skaluppsättning för virtuell dator i Azure | Microsoft Docs"
-description: "Förstå instans-ID: N för Azure VM scale ange virtuella datorer"
+title: 'Förstå instans-ID: N för virtuella datorer för skaluppsättning för virtuell dator i Azure | Microsoft Docs'
+description: 'Förstå instans-ID: N för Azure VM scale ange virtuella datorer'
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742778"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå instans-ID: N för Azure VM scale ange virtuella datorer
 Den här artikeln beskriver instans-ID: N för skalningsuppsättningar och de olika sätt som de yta.

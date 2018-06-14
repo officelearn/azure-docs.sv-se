@@ -1,12 +1,12 @@
 ---
 title: Hantera StorSimple-volymer (uppdatering 3) | Microsoft Docs
-description: "Beskriver hur du lägger till, ändra, övervaka och ta bort StorSimple-volymer och hur du kopplar dem om det behövs."
+description: Beskriver hur du lägger till, ändra, övervaka och ta bort StorSimple-volymer och hur du kopplar dem om det behövs.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26578881"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att hantera volymer (uppdatering 3 eller senare)
 

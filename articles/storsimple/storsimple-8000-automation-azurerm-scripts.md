@@ -1,12 +1,12 @@
 ---
-title: "Använda Azure Resource Manager-skript för att hantera StorSimple-enheter | Microsoft Docs"
-description: "Lär dig hur du använder Azure Resource Manager-skript för att automatisera StorSimple jobb"
+title: Använda Azure Resource Manager-skript för att hantera StorSimple-enheter | Microsoft Docs
+description: Lär dig hur du använder Azure Resource Manager-skript för att automatisera StorSimple jobb
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26373949"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använda Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 

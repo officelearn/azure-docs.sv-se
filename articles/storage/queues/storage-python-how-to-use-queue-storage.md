@@ -1,6 +1,6 @@
 ---
-title: "Använda Queue storage från Python | Microsoft Docs"
-description: "Lär dig hur du använder Azure-kötjänsten från Python för att skapa och ta bort köer, infoga, hämta och ta bort meddelanden."
+title: Använda Queue storage från Python | Microsoft Docs
+description: Lär dig hur du använder Azure-kötjänsten från Python för att skapa och ta bort köer, infoga, hämta och ta bort meddelanden.
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986757"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Använda Queue Storage från Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

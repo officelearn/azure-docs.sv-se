@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31420744"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Så här konfigurerar du Azure Redis-Cache
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för Azure Redis-Cache-instanser. Det här avsnittet beskrivs även standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.

@@ -1,12 +1,12 @@
 ---
-title: "Felsöka Azure Log Analytics Linux-agenten | Microsoft Docs"
-description: "Beskriv symptom, orsaker och lösningar på vanliga problem med Log Analytics Linux-agent."
+title: Felsöka Azure Log Analytics Linux-agenten | Microsoft Docs
+description: Beskriv symptom, orsaker och lösningar på vanliga problem med Log Analytics Linux-agent.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936483"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Felsökning av problem med Linux-agent för logganalys
 

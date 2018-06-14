@@ -1,6 +1,6 @@
 ---
-title: "Växla över och återställas tillbaka fysiska servrar som replikeras till Azure med Site Recovery | Microsoft Docs"
-description: "Lär dig hur du växla över fysiska servrar till Azure och växla tillbaka till den lokala platsen med Azure Site Recovery"
+title: Växla över och återställas tillbaka fysiska servrar som replikeras till Azure med Site Recovery | Microsoft Docs
+description: Lär dig hur du växla över fysiska servrar till Azure och växla tillbaka till den lokala platsen med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876022"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Växla över och återställas tillbaka fysiska servrar som replikeras till Azure
 

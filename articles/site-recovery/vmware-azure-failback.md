@@ -1,6 +1,6 @@
 ---
-title: "Växla tillbaka från Azure till VMware med Azure Site Recovery | Microsoft Docs"
-description: "Du kan starta en återställning efter fel om du vill flytta virtuella datorer lokala efter en redundansväxling av virtuella datorer till Azure. Lär dig stegen att återställas."
+title: Växla tillbaka från Azure till VMware med Azure Site Recovery | Microsoft Docs
+description: Du kan starta en återställning efter fel om du vill flytta virtuella datorer lokala efter en redundansväxling av virtuella datorer till Azure. Lär dig stegen att återställas.
 services: site-recovery
 author: nsoneji
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944015"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Växla tillbaka från Azure till en lokal plats
 

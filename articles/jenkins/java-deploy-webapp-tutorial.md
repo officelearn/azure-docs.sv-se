@@ -1,10 +1,10 @@
 ---
-title: "Använda Jenkins för att distribuera ditt webbprogram till Azure | Microsoft Docs"
-description: "Ställ in kontinuerlig integration från GitHub till Azure App Service för din Java-webbappar med Jenkins och Docker."
+title: Använda Jenkins för att distribuera ditt webbprogram till Azure | Microsoft Docs
+description: Ställ in kontinuerlig integration från GitHub till Azure App Service för din Java-webbappar med Jenkins och Docker.
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29853007"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Ställ in kontinuerlig integrering och distribution till Azure App Service med Jenkins
 

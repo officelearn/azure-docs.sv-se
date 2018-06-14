@@ -1,11 +1,11 @@
 ---
-title: "Providern Resursanvändning API | Microsoft Docs"
-description: "Referens för Resursanvändning API, som hämtar information om Azure-stacken användning"
+title: Providern Resursanvändning API | Microsoft Docs
+description: Referens för Resursanvändning API, som hämtar information om Azure-stacken användning
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877287"
 ---
 # <a name="provider-resource-usage-api"></a>API för providerresursanvändning
 Termen *provider* gäller tjänstadministratören och inga delegerade providers. Azure Stack-operatorer och delegerad providers kan använda providern användnings-API för att visa användningen av sina direkta klienter. Till exempel som visas i diagrammet P0 kan anropa API för att hämta information om användning på P1's providern och P2's direkt användning och P1 kan anropa användningsinformation för P3 och P4.

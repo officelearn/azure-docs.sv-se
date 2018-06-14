@@ -1,11 +1,11 @@
 ---
-title: "Översikt över olika portalerna som behövs för att skapa ett erbjudande på Marketplace | Microsoft Docs"
-description: "Översikt över de olika portalerna som behövs för att skapa ett erbjudande på Marketplace"
+title: Översikt över olika portalerna som behövs för att skapa ett erbjudande på Marketplace | Microsoft Docs
+description: Översikt över de olika portalerna som behövs för att skapa ett erbjudande på Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938652"
 ---
 # <a name="portals-you-will-need"></a>Portaler som du behöver
 Innan du startar processen för att publicera ett erbjudande ska få lades till på olika portalerna som du behöver. Nedan finns en kort sammanfattning om portalerna--Developer Center, Azure Publishing Portal och Azure Portal – i den ordning som du kommer att interagera med dem.                                                                            

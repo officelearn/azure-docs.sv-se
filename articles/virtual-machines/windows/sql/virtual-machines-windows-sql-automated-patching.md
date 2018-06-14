@@ -1,11 +1,11 @@
 ---
-title: "Automatisk uppdatering för SQL Server-datorer (Resource Manager) | Microsoft Docs"
-description: "Beskriver funktionen för automatisk uppdatering för SQL Server virtuella datorer som körs i Azure med hjälp av hanteraren för filserverresurser."
+title: Automatisk uppdatering för SQL Server-datorer (Resource Manager) | Microsoft Docs
+description: Beskriver funktionen för automatisk uppdatering för SQL Server virtuella datorer som körs i Azure med hjälp av hanteraren för filserverresurser.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29850624"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]

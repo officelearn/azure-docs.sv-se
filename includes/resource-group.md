@@ -13,5 +13,6 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953886"
 ---
 En [resursgrupp](../articles/azure-resource-manager/resource-group-overview.md#terminology) är en logisk behållare som Azure-resurser (t.ex. webbappar, databaser och lagringskonton) distribueras och hanteras i. Du kan exempelvis välja att ta bort hela resursgruppen i ett enkelt steg längre fram.

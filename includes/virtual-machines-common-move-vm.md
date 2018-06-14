@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958715"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Använda portalen för att flytta en virtuell dator till en annan prenumeration
 Du kan flytta en virtuell dator och dess tillhörande resurser till en annan prenumeration med hjälp av portalen.

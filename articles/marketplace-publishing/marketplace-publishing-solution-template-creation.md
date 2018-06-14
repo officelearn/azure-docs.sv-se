@@ -1,11 +1,11 @@
 ---
-title: "Guide för att skapa en lösningsmall för Marketplace | Microsoft Docs"
-description: "Detaljerade anvisningar för hur du skapar, certifiera och distribuera en lösning för flera Virtuella bilden mall för inköp på Azure Marketplace."
+title: Guide för att skapa en lösningsmall för Marketplace | Microsoft Docs
+description: Detaljerade anvisningar för hur du skapar, certifiera och distribuera en lösning för flera Virtuella bilden mall för inköp på Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937316"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide för att skapa en för lösningsmall för Azure Marketplace
 När du har slutfört steg 1, [skapande av konton och registrering][link-acct-creation], vi Interaktiv du vid skapandet av en Azure-kompatibel lösningsmall på [tekniska krav för att skapa en lösningsmall](marketplace-publishing-solution-template-creation-prerequisites.md). Nu går du igenom stegen för att skapa en lösningsmall för för flera virtuella datorer på den [Publiceringsportal] [ link-pubportal] för Azure Marketplace.

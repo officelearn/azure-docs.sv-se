@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30242446"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor och svar om virtuella Linux-datorer
 Den här artikeln tar några vanliga frågor om Linux virtuella datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Windows-versionen av det här avsnittet finns [vanliga frågor om Windows-datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

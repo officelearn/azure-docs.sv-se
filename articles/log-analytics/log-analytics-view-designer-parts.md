@@ -1,11 +1,11 @@
 ---
 title: En referenshandbok Vydesigner delar i Azure Log Analytics | Microsoft Docs
-description: "Du kan skapa anpassade vyer i Azure portal som visar olika datavisualiseringar i logganalys-arbetsytan med hjälp av Vydesigner i logganalys. Den här artikeln är en referens guide till inställningar för visualisering delar som är tillgängliga i din anpassade vyer."
+description: Du kan skapa anpassade vyer i Azure portal som visar olika datavisualiseringar i logganalys-arbetsytan med hjälp av Vydesigner i logganalys. Den här artikeln är en referens guide till inställningar för visualisering delar som är tillgängliga i din anpassade vyer.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949539"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referenshandboken Vydesigner visualiseringen delar i logganalys
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika datavisualiseringar från logganalys-arbetsytan med hjälp av Vydesigner i Azure logganalys. Den här artikeln är en referens guide till inställningar för visualisering delar som är tillgängliga i din anpassade vyer.

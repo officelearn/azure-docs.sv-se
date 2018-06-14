@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911510"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Ställ in Key Vault för virtuella datorer i Azure Resource Manager med Azure CLI 1.0
 I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av Key Vault-resursprovidern. Mer information om Azure Key Vault finns [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md) För Key Vault som ska användas med Azure Resource Manager virtuella datorer i *EnabledForDeployment* egenskapen i Nyckelvalvet måste anges till true. Du kan göra detta i olika klienter. Den här artikeln visar hur du ställer in Key Vault för användning med Azure Virtual Machines.

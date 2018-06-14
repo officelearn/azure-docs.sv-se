@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
-description: "Lär dig skapa virtuella Windows-datorer med den klassiska distributionen."
-title: "Azure Virtual Machines för Windows-dokumentation | Microsoft Docs"
+description: Lär dig skapa virtuella Windows-datorer med den klassiska distributionen.
+title: Azure Virtual Machines för Windows-dokumentation | Microsoft Docs
 services: virtual-machines
 author: czeumault
 manager: carolz
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,4 +17,5 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073106"
 ---

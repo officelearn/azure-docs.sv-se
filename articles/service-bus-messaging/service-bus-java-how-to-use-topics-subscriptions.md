@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30927677"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Hur du använder Service Bus-ämnen och prenumerationer med Java
 

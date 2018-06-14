@@ -2,11 +2,11 @@
 title: Azure Stack Development Kit-arkitektur | Microsoft Docs
 description: Beskriver arkitekturen i Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975869"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure-stacken Development Kit-arkitektur
 Azure Stack Development Kit (ASDK) är en nod distribution av Azure-stacken. Alla komponenter är installerade på virtuella datorer som körs på en enda värddator. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896120"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Hotinformationsrapporter i Azure Security Center
 Det här dokumentet beskriver hur du kan lära dig mer om ett hot som genererat en säkerhetsvarning med hjälp av hotinformationsrapporter i Azure Security Center.

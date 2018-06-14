@@ -1,11 +1,11 @@
 ---
-title: "Integrera Nyckelvalv med SQLServer på virtuella Windows-datorer i Azure (klassisk) | Microsoft Docs"
-description: "Lär dig hur du kan automatisera konfigurationen av SQL Server-kryptering för användning med Azure Key Vault. Det här avsnittet beskriver hur du använder Azure Key Vault-integrering med SQL Server skapar du virtuella datorer i den klassiska distributionsmodellen."
+title: Integrera Nyckelvalv med SQLServer på virtuella Windows-datorer i Azure (klassisk) | Microsoft Docs
+description: Lär dig hur du kan automatisera konfigurationen av SQL Server-kryptering för användning med Azure Key Vault. Det här avsnittet beskriver hur du använder Azure Key Vault-integrering med SQL Server skapar du virtuella datorer i den klassiska distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399737"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]

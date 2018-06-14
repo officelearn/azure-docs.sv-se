@@ -1,11 +1,11 @@
 ---
-title: "Självstudier: Bearbeta EDIFACT fakturor med Azure BizTalk-tjänst | Microsoft Docs"
-description: "Hur du skapar och konfigurerar rutan kopplingen eller API-app och använda den i en logikapp i Azure App Service"
+title: 'Självstudier: Bearbeta EDIFACT fakturor med Azure BizTalk-tjänst | Microsoft Docs'
+description: Hur du skapar och konfigurerar rutan kopplingen eller API-app och använda den i en logikapp i Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633872"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Självstudier: Processen EDIFACT fakturor med hjälp av Azure BizTalk-tjänst
 

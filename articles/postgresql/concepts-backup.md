@@ -1,6 +1,6 @@
 ---
-title: "Säkerhetskopiering och återställning i Azure-databas för PostgreSQL"
-description: "Läs mer om automatisk säkerhetskopiering och återställning av databasen Azure för PostgreSQL-servern."
+title: Säkerhetskopiering och återställning i Azure-databas för PostgreSQL
+description: Läs mer om automatisk säkerhetskopiering och återställning av databasen Azure för PostgreSQL-servern.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693363"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Säkerhetskopiering och återställning i Azure-databas för PostgreSQL
 

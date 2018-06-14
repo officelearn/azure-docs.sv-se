@@ -18,17 +18,18 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684593"
 abstract:
-  description: "Upptäck hur Microsoft Genomics kan användas för genomsekvensering med hjälp av en molnimplementering av BWA (Burrows-Wheeler Aligner) och GATK (Genome Analysis Toolkit) för sekundär analys."
+  description: Upptäck hur Microsoft Genomics kan användas för genomsekvensering med hjälp av en molnimplementering av BWA (Burrows-Wheeler Aligner) och GATK (Genome Analysis Toolkit) för sekundär analys.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Skicka ett arbetsflöde genom Microsoft Genomics-tjänsten."
+    text: Skicka ett arbetsflöde genom Microsoft Genomics-tjänsten.
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/helix-blue-orange.svg
-      text: "Skicka ett arbetsflöde"
+      text: Skicka ett arbetsflöde
       href: quickstart-run-genomics-workflow-portal

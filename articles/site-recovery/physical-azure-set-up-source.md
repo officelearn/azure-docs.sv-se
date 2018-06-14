@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera källmiljön (fysiska servrar till Azure) | Microsoft Docs"
-description: "Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikering av fysiska servrar som kör Windows eller Linux till Azure."
+title: Konfigurera källmiljön (fysiska servrar till Azure) | Microsoft Docs
+description: Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikering av fysiska servrar som kör Windows eller Linux till Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812693"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Konfigurera källmiljön (fysisk server till Azure)
 

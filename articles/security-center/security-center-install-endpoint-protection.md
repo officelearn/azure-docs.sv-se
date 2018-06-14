@@ -1,11 +1,11 @@
 ---
 title: Hantera endpoint protection-problem med Azure Security Center | Microsoft Docs
-description: "Lär dig mer om att hantera problem med endpoint protection i Azure Security Center."
+description: Lär dig mer om att hantera problem med endpoint protection i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23936296"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera endpoint protection-problem med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under bladet Endpoint protection-problem. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra dina virtuella datorer (VM) och datorer sårbar för attacker mot skadlig kod. Med hjälp av informationen under **Endpoint protection-problem**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.

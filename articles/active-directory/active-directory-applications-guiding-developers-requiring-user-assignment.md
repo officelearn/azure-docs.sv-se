@@ -1,11 +1,11 @@
 ---
-title: "Kräver Användartilldelning - Azure AD | Microsoft Docs"
-description: "Så här kräver Användartilldelning för Azure-program."
+title: Kräver Användartilldelning - Azure AD | Microsoft Docs
+description: Så här kräver Användartilldelning för Azure-program.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598836"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD och program: kräver Användartilldelning
 ## <a name="requiring-user-assignment"></a>Kräver Användartilldelning

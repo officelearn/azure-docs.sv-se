@@ -1,15 +1,15 @@
 ---
-title: "Användning av Azure virtuella datorer att förstå | Microsoft Docs"
-description: "Förstå användningsinformation för virtuell dator"
+title: Användning av Azure virtuella datorer att förstå | Microsoft Docs
+description: Förstå användningsinformation för virtuell dator
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345455"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användning av Azure virtuella datorer
 Förbrukning av kraftfulla insikter kan uppnås genom att analysera dina Azure användningsdata – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet ger en djupdykning i din Azure Compute förbrukning information. För mer information om allmänna Azure användning, gå till [förstå fakturan](/billing/billing-understand-your-bill.md).

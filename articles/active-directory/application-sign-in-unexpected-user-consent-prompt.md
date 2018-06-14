@@ -1,11 +1,11 @@
 ---
-title: "Oväntat medgivandetext när du loggar in till ett program | Microsoft Docs"
-description: "Felsökning av när en användare ser en fråga om medgivande för ett program som du har integrerat med Azure AD som du inte förväntar dig"
+title: Oväntat medgivandetext när du loggar in till ett program | Microsoft Docs
+description: Felsökning av när en användare ser en fråga om medgivande för ett program som du har integrerat med Azure AD som du inte förväntar dig
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26611815"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Oväntat medgivandetext när du loggar in till ett program
 

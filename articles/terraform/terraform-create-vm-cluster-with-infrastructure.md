@@ -1,7 +1,7 @@
 ---
 title: Skapa ett VM-kluster med Terraform och LISTAN
-description: "Använda Terraform och HashiCorp konfiguration språk (LISTAN) för att skapa en virtuell Linux-kluster med en belastningsutjämnare i Azure"
-keywords: "terraform, devops, virtuella datorer, nätverk, moduler"
+description: Använda Terraform och HashiCorp konfiguration språk (LISTAN) för att skapa en virtuell Linux-kluster med en belastningsutjämnare i Azure
+keywords: terraform, devops, virtuella datorer, nätverk, moduler
 author: tomarcher
 manager: routlaw
 ms.service: virtual-machines-linux
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518808"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och LISTAN
 

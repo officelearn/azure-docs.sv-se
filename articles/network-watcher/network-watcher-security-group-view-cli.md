@@ -1,11 +1,11 @@
 ---
-title: "Analysera nätverkssäkerhet med Azure Network Watcher säkerhet gruppvyn - Azure CLI 2.0 | Microsoft Docs"
-description: "Den här artikeln beskriver hur du använder Azure CLI 2.0 för att analysera en säkerhet för virtuella datorer med Gruppvy för säkerhet."
+title: Analysera nätverkssäkerhet med Azure Network Watcher säkerhet gruppvyn - Azure CLI 2.0 | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure CLI 2.0 för att analysera en säkerhet för virtuella datorer med Gruppvy för säkerhet.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26409886"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analysera dina virtuella säkerhet med säkerhet gruppvyn använder Azure CLI 2.0
 

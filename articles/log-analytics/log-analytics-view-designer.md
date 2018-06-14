@@ -1,11 +1,11 @@
 ---
-title: "Skapa vyer för att analysera data i Azure Log Analytics | Microsoft Docs"
-description: "Med hjälp av Vydesigner i logganalys kan du skapa anpassade vyer som visas i Azure-portalen och innehåller en mängd olika datavisualiseringar i logganalys-arbetsytan. Den här artikeln innehåller en översikt över Vydesigner och visar procedurer för att skapa och redigera anpassade vyer."
+title: Skapa vyer för att analysera data i Azure Log Analytics | Microsoft Docs
+description: Med hjälp av Vydesigner i logganalys kan du skapa anpassade vyer som visas i Azure-portalen och innehåller en mängd olika datavisualiseringar i logganalys-arbetsytan. Den här artikeln innehåller en översikt över Vydesigner och visar procedurer för att skapa och redigera anpassade vyer.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939877"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i logganalys
 Med hjälp av Vydesigner i [Azure logganalys](log-analytics-overview.md), kan du skapa en mängd olika anpassade vyer i Azure-portalen som kan hjälpa dig att visualisera data i logganalys-arbetsytan. Den här artikeln visar en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.

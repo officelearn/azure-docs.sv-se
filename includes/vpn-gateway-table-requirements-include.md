@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30929333"
 ---
 I följande tabell visas kraven för PolicyBased och RouteBased VPN-gatewayer. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen. Den klassiska modellen PolicyBased VPN-gatewayer är detsamma som statiska gatewayer och ruttbaserade gatewayer är detsamma som dynamiska gatewayer.
 

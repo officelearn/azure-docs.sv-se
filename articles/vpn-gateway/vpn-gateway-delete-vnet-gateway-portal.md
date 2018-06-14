@@ -1,16 +1,16 @@
 ---
-title: "Ta bort en virtuell nätverksgateway: Azure-portalen: Resource Manager | Microsoft Docs"
-description: "Ta bort en virtuell nätverksgateway med Azure-portalen i Resource Manager-distributionsmodellen."
+title: 'Ta bort en virtuell nätverksgateway: Azure-portalen: Resource Manager | Microsoft Docs'
+description: Ta bort en virtuell nätverksgateway med Azure-portalen i Resource Manager-distributionsmodellen.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593464"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Ta bort en virtuell nätverksgateway med hjälp av portalen
 

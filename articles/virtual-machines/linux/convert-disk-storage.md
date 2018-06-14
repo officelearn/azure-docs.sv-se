@@ -1,13 +1,13 @@
 ---
-title: "Konvertera Azure hanterade diskar lagring från standard till premium, och vice versa | Microsoft Docs"
-description: "Så här konverterar du Azure hanterade diskar lagring från standard till premium och vice versa med hjälp av Azure CLI."
+title: Konvertera Azure hanterade diskar lagring från standard till premium, och vice versa | Microsoft Docs
+description: Så här konverterar du Azure hanterade diskar lagring från standard till premium och vice versa med hjälp av Azure CLI.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23950513"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Konvertera Azure hanterade diskar lagring från standard till premium, och vice versa
 

@@ -1,11 +1,11 @@
 ---
-title: "Implementera disaster recovery med säkerhetskopiering och återställning i Azure API Management | Microsoft Docs"
-description: "Lär dig hur du använder säkerhetskopiering och återställning för att utföra katastrofåterställning i Azure API Management."
+title: Implementera disaster recovery med säkerhetskopiering och återställning i Azure API Management | Microsoft Docs
+description: Lär dig hur du använder säkerhetskopiering och återställning för att utföra katastrofåterställning i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019287"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av tjänsten säkerhetskopiering och återställning i Azure API Management
 

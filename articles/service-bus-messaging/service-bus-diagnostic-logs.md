@@ -1,13 +1,13 @@
 ---
 title: Azure Service Bus-diagnostikloggar | Microsoft Docs
-description: "Lär dig hur du ställer in diagnostikloggar för Service Bus i Azure."
-keywords: 
+description: Lär dig hur du ställer in diagnostikloggar för Service Bus i Azure.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122194"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus diagnostikloggar
 

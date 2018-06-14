@@ -20,7 +20,7 @@ För att registrera ditt program och lägga till registreringsinformationen prog
 
 4. Välj **lägga till plattformen**väljer **programspecifika**, och välj sedan **spara**.
 
-5. Under **app** > **java** > **{värden}. { Namespace}**öppnar `MainActivity`. 
+5. Under **app** > **java** > **{värden}. { Namespace}** öppnar `MainActivity`. 
 
 6.  Ersätt *[Ange program-Id här]* i följande rad med program-ID som du just har registrerat:
 

@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera till standardnivån om Security Center för ökad säkerhet | Microsoft Docs"
-description: "Den här artikeln innehåller information om priser för Azure Security Center."
+title: Uppgradera till standardnivån om Security Center för ökad säkerhet | Microsoft Docs
+description: Den här artikeln innehåller information om priser för Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23931921"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån om Security Center för ökad säkerhet
 Azure Security Center ger enhetlig hantering och avancerade threat protection för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger synlighet och kontroll över hybrid cloud arbetsbelastningar, aktiva försvar som minskar din utsättas för hot och intelligent identifiering som hjälper dig att hålla jämna steg med utvecklas snabbt cyber attacker.

@@ -1,6 +1,6 @@
 ---
-title: "Hybridanslutning med 2-nivåprogram | Microsoft Docs"
-description: "Lär dig att distribuera virtuella installationer och UDR att skapa en programmiljö med flera nivåer i Azure"
+title: Hybridanslutning med 2-nivåprogram | Microsoft Docs
+description: Lär dig att distribuera virtuella installationer och UDR att skapa en programmiljö med flera nivåer i Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23943226"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtuella utrustningsscenario
 Ett vanligt scenario bland större Azure kunden är behovet av att tillhandahålla ett två skikt program exponerad mot Internet, samtidigt som åtkomst till den bakre nivån från ett lokalt datacenter. Det här dokumentet vägleder dig genom ett scenario med användaren användardefinierade vägar (UDR), en VPN-Gateway och virtuella nätverksenheter för att distribuera en tvålagers-miljö som uppfyller följande krav:

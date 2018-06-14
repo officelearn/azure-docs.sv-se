@@ -1,12 +1,12 @@
 ---
-title: "Hanterade tjänstidentiteten med Händelsehubbar i Azure preview | Microsoft Docs"
-description: "Använda hanteringstjänster identiteter med Azure Event Hubs"
+title: Hanterade tjänstidentiteten med Händelsehubbar i Azure preview | Microsoft Docs
+description: Använda hanteringstjänster identiteter med Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783475"
 ---
 # <a name="managed-service-identity-preview"></a>Hanterade tjänstidentiteten (förhandsgranskning)
 

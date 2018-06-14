@@ -1,7 +1,7 @@
 ---
-title: "Skicka aviseringar från Azure Application Insights | Microsoft Docs"
-description: "Självstudiekurs om att skicka aviseringar som svar på fel i ditt program med hjälp av Azure Application Insights."
-keywords: 
+title: Skicka aviseringar från Azure Application Insights | Microsoft Docs
+description: Självstudiekurs om att skicka aviseringar som svar på fel i ditt program med hjälp av Azure Application Insights.
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
@@ -11,9 +11,10 @@ ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23947230"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervakaren och aviseringen på programmets hälsotillstånd med Azure Application Insights
 

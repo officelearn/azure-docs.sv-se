@@ -1,11 +1,11 @@
 ---
-title: "Migrera från Azure Active Directory Access Control Service till signatur för delad åtkomst auktorisering | Microsoft Docs"
-description: "Migrera program från åtkomstkontrolltjänsten till SAS"
+title: Migrera från Azure Active Directory Access Control Service till signatur för delad åtkomst auktorisering | Microsoft Docs
+description: Migrera program från åtkomstkontrolltjänsten till SAS
 services: service-bus-relay
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855390"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrera från Azure Active Directory Access Control Service till signatur för delad åtkomst auktorisering
 

@@ -5,6 +5,16 @@
 - name: Rollbaserad åtkomstkontroll (RBAC)
   href: overview.md
   items:
+    - name: Snabbstarter
+      items:
+        - name: Bevilja åtkomst för en användare – Portal
+          href: quickstart-assign-role-user-portal.md
+    - name: Självstudier
+      items:
+        - name: Bevilja åtkomst för en användare – PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Bevilja åtkomst för en grupp – PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Hantera rolltilldelningar
       items:
         - name: Användare
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Förstå rolldefinitioner
+      href: role-definitions.md
     - name: Inbyggda roller
       href: built-in-roles.md
     - name: Anpassade roller
       href: custom-roles.md
-    - name: Tilldela anpassade roller för interna och externa användare
+    - name: Hantera rolltilldelningar för externa användare
       href: role-assignments-external-users.md
     - name: Aktivitetsloggar
       href: change-history-report.md

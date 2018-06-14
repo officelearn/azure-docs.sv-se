@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Program- och tjänstmanifest
           href: service-fabric-application-and-service-manifests.md
+        - name: Exempel på program och tjänstmanifest
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Exempel på Reliable Services-program och tjänstmanifest
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Exempel på program med flera behållare och tjänstmanifest
+              href: service-fabric-manifest-example-container-app.md
         - name: Värdmodell
           href: service-fabric-hosting-model.md
         - name: Programsäkerhet
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Skapa en ASP.NET Core-tjänst
           href: service-fabric-add-a-web-frontend.md
+        - name: Skapa en Apache Tomcat-tjänstbehållare på Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Konfigurera säkerhet
           items:
             - name: Hantera programhemligheter

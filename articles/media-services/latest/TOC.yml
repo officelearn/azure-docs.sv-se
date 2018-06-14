@@ -61,16 +61,14 @@
       href: access-api-cli-how-to.md
     - name: Händelser för jobbstatus – CLI
       href: job-state-events-cli-how-to.md
-    - name: Överföra innehåll – .NET
+    - name: Överföra innehåll
       items:
-        - name: Från HTTP(s)
+        - name: 'Från HTTP(:er) – .NET'
           href: job-input-from-http-how-to.md
-        - name: Från en lokal fil
+        - name: Från en lokal fil – .NET
           href: job-input-from-local-file-how-to.md
-    - name: Anpassa förinställningar för transformering
-      items:
-        - name: Med .NET Core
-          href: customize-encoder-presets-how-to.md
+    - name: Anpassa förinställningar för transformering – .NET Core
+      href: customize-encoder-presets-how-to.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)

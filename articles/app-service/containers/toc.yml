@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: Resurser
   items:
+    - name: Vanliga frågor och svar om App Service på Linux
+      href: app-service-linux-faq.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prissättning

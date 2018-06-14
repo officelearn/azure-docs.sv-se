@@ -1,11 +1,11 @@
 ---
 title: Azure Import/Export manifestfilen format | Microsoft Docs
-description: "Lär dig mer om formatet för enheten manifestfilen som beskriver mappningen mellan blobbar i Azure Blob storage och filer på en enhet i en import eller exportera jobb i tjänsten Import/Export."
+description: Lär dig mer om formatet för enheten manifestfilen som beskriver mappningen mellan blobbar i Azure Blob storage och filer på en enhet i en import eller exportera jobb i tjänsten Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873907"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export service manifest filformat
 Enheten manifestfilen beskriver mappningen mellan blobbar i Azure Blob storage och filer på enheten som består av ett jobb som importeras eller exporteras. För en importen manifestfilen skapas som en del av enheten förberedelseprocessen och lagras på enheten innan enheten skickas till Azure-datacentret. När du exporterar, manifestet skapas och lagras på enheten av tjänsten Azure Import/Export.  

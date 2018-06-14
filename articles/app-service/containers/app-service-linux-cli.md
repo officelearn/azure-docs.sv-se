@@ -1,13 +1,13 @@
 ---
-title: "Hantera webbprogram för behållare som använder Azure CLI 2.0 | Microsoft Docs"
-description: "Hantera webbprogram för behållare med Azure CLI."
-keywords: "Azure apptjänst, webbprogram, cli, linux, oss"
+title: Hantera webbprogram för behållare som använder Azure CLI 2.0 | Microsoft Docs
+description: Hantera webbprogram för behållare med Azure CLI.
+keywords: Azure apptjänst, webbprogram, cli, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24105397"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Hantera webbprogram för behållare med Azure CLI
 

@@ -1,12 +1,12 @@
 ---
-title: "StorSimple-redundans, katastrofåterställning för enheter i 8000-serien | Microsoft Docs"
-description: "Lär dig mer om att växla över din StorSimple-enhet på samma enhet."
+title: StorSimple-redundans, katastrofåterställning för enheter i 8000-serien | Microsoft Docs
+description: Lär dig mer om att växla över din StorSimple-enhet på samma enhet.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874824"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Växla över den fysiska StorSimple-enheten till samma enhet
 

@@ -1,8 +1,8 @@
 ---
-title: "Hur du gör ett telefonsamtal från Twilio (PHP) | Microsoft Docs"
-description: "Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Exempel är för PHP-program."
+title: Hur du gör ett telefonsamtal från Twilio (PHP) | Microsoft Docs
+description: Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Exempel är för PHP-program.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865759"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Hur du gör ett telefonsamtal med Twilio i ett PHP-program på Azure
 I följande exempel visas hur du kan använda Twilio ringa ett samtal från en PHP-webbplats finns i Azure. Exempelprogrammet uppmanas användaren för telefonsamtal värden som visas i följande skärmbild visar.

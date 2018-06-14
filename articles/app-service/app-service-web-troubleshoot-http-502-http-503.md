@@ -1,13 +1,13 @@
 ---
-title: "Åtgärda 502 Felaktig gateway, 503-tjänsten inte är tillgänglig | Microsoft Docs"
-description: "Felsöka 502 Felaktig gateway och 503 tjänsten tillgänglig fel i webbappen i Azure App Service."
+title: Åtgärda 502 Felaktig gateway, 503-tjänsten inte är tillgänglig | Microsoft Docs
+description: Felsöka 502 Felaktig gateway och 503 tjänsten tillgänglig fel i webbappen i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "502 Felaktig gateway 503-tjänsten tillgänglig, fel 503, fel 502"
+keywords: 502 Felaktig gateway 503-tjänsten tillgänglig, fel 503, fel 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836520"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Felsök HTTP-fel ”502 Felaktig gateway” och ”503 inte tillgänglig” i Azure-webbappar
 ”502 Felaktig gateway” och ”503 inte tillgänglig” är vanliga fel i ditt webbprogram som finns i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka felen.

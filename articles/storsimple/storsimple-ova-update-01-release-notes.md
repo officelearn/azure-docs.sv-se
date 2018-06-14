@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23875902"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple virtuell matris uppdatera 0,2 och 0,1 viktig information
 ## <a name="overview"></a>Översikt

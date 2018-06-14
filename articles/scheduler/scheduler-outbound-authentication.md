@@ -1,11 +1,11 @@
 ---
-title: "Schemaläggaren utgående autentisering"
-description: "Schemaläggaren utgående autentisering"
+title: Schemaläggaren utgående autentisering
+description: Schemaläggaren utgående autentisering
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926510"
 ---
 # <a name="scheduler-outbound-authentication"></a>Schemaläggaren utgående autentisering
 Jobb för Schemaläggaren kan behöva anropa till tjänster som kräver autentisering. På så sätt kan en kallas tjänsten kan avgöra om jobb i Schemaläggaren kan komma åt sina resurser. Dessa tjänster bland andra Azure-tjänster, Salesforce.com, Facebook och säker anpassade webbplatser.

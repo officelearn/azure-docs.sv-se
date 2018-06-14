@@ -1,11 +1,11 @@
 ---
-title: "Felsökning av Azure Redis-Cache | Microsoft Docs"
-description: "Lär dig att lösa vanliga problem med Azure Redis-Cache."
+title: Felsökning av Azure Redis-Cache | Microsoft Docs
+description: Lär dig att lösa vanliga problem med Azure Redis-Cache.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984579"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Felsökning av Azure Redis-Cache
 Den här artikeln innehåller anvisningar för felsökning av följande typer av problem med Azure Redis-Cache.

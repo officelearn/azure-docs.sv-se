@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Migrate-dokumentation
 metadata:
-  title: "Dokumentation om Azure Migrate – självstudier, API-referens | Microsoft Docs"
-  description: "Lär dig att utvärdera lokala datorer för migrering till Azure"
+  title: Dokumentation om Azure Migrate – självstudier, API-referens | Microsoft Docs
+  description: Lär dig att utvärdera lokala datorer för migrering till Azure
   services: migration-planner
   author: rayne-wiselman
   manager: carmonm
@@ -18,14 +18,15 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927126"
 abstract:
-  description: "Azure Migrate hjälper dig att identifiera och utvärdera hur lämpliga lokala datorer är för migrering till Azure och beräknar storlekar och kostnader för att köra virtuella Azure-datorer."
+  description: Azure Migrate hjälper dig att identifiera och utvärdera hur lämpliga lokala datorer är för migrering till Azure och beräknar storlekar och kostnader för att köra virtuella Azure-datorer.
 sections:
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig att utvärdera virtuella VMware-datorer för migrering till Azure"
+    text: Lär dig att utvärdera virtuella VMware-datorer för migrering till Azure
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"tutorial-assessment-vmware\">Utforska och utvärdera lokala virtuella VMware-datorer</a>"
+    - html: <a href="tutorial-assessment-vmware">Utforska och utvärdera lokala virtuella VMware-datorer</a>

@@ -1,12 +1,12 @@
 ---
-title: "Kom igång med ämnen och prenumerationer i Azure Service Bus | Microsoft Docs"
-description: "Skriv ett C# .NET Core-konsolprogram som använder meddelandeämnen och prenumerationer i Service Bus."
+title: Kom igång med ämnen och prenumerationer i Azure Service Bus | Microsoft Docs
+description: Skriv ett C# .NET Core-konsolprogram som använder meddelandeämnen och prenumerationer i Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396949"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 

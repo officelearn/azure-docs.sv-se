@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Cloud Services – Självstudier, API-referens | Microsoft Docs"
-description: "Självstudier, API-referenser och annan dokumentation visar hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet."
+title: Dokumentation om Azure Cloud Services – Självstudier, API-referens | Microsoft Docs
+description: Självstudier, API-referenser och annan dokumentation visar hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101890"
 ---
 # <a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
 

@@ -1,8 +1,8 @@
 ---
-title: "Distribuera med Terraform från Bash i Azure-molnet Shell | Microsoft Docs"
-description: "Distribuera med Terraform från Bash i Azure-molnet Shell"
+title: Distribuera med Terraform från Bash i Azure-molnet Shell | Microsoft Docs
+description: Distribuera med Terraform från Bash i Azure-molnet Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386528"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuera med Terraform från Bash i Azure-molnet Shell
 Den här artikeln vägleder dig genom att skapa en resursgrupp med det [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 

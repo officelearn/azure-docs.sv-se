@@ -1,11 +1,11 @@
 ---
-title: "Hur du skapar och distribuerar en tjänst i molnet | Microsoft Docs"
-description: "Lär dig hur du skapar och distribuerar en tjänst i molnet med Azure-portalen."
+title: Hur du skapar och distribuerar en tjänst i molnet | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar en tjänst i molnet med Azure-portalen.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388092"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Hur du skapar och distribuerar en tjänst i molnet
 Azure portal tillhandahåller två sätt att skapa och distribuera en tjänst i molnet: *Snabbregistrering* och *skapa anpassade*.

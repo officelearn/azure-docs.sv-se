@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder egenskaper i Azure API Management-principer"
-description: "Lär dig hur du använder egenskaper i Azure API Management-principer."
+title: Hur du använder egenskaper i Azure API Management-principer
+description: Lär dig hur du använder egenskaper i Azure API Management-principer.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197120"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Hur du använder egenskaper i Azure API Management-principer
 API Management-principer är en kraftfull funktion för systemet som tillåter Azure portal för att ändra funktionssättet för API: et genom konfigurationen. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principrapporter kan konstrueras med literal textvärden, principuttrycken och egenskaper. 

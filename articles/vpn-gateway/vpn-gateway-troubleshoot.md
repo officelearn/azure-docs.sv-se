@@ -1,13 +1,13 @@
 ---
-title: "Felsökning av VPN-Gateway-konfigurationer och anslutningar | Microsoft Docs"
-description: "Den här artikeln hjälper länkar till artiklar att felsöka din VPN-Gateway-konfiguration, anslutning, och för att validera genomflöde."
+title: Felsökning av VPN-Gateway-konfigurationer och anslutningar | Microsoft Docs
+description: Den här artikeln hjälper länkar till artiklar att felsöka din VPN-Gateway-konfiguration, anslutning, och för att validera genomflöde.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934773"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Felsökning av VPN-Gateway
 

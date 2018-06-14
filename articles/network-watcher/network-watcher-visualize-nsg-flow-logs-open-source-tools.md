@@ -1,11 +1,11 @@
 ---
-title: "Visualisera Azure Network Watcher NSG flödet loggar med öppen källkod verktyg | Microsoft Docs"
-description: "Den här sidan beskriver hur du använder verktyg med öppen källkod visualisera NSG flödet loggar."
+title: Visualisera Azure Network Watcher NSG flödet loggar med öppen källkod verktyg | Microsoft Docs
+description: Den här sidan beskriver hur du använder verktyg med öppen källkod visualisera NSG flödet loggar.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394178"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG flödet loggar med öppen källkod verktyg
 

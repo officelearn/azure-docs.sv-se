@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779268"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till felsökning i Azure Nätverksbevakaren resurs
 

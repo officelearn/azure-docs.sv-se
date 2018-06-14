@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery-distribution Planner för Hyper-V-till-Azure | Microsoft Docs"
-description: "Den här artikeln beskriver analys av en genererad rapport från Azure Site Recovery-distribution Planner för Hyper-V till Azure-scenariot."
+title: Azure Site Recovery-distribution Planner för Hyper-V-till-Azure | Microsoft Docs
+description: Den här artikeln beskriver analys av en genererad rapport från Azure Site Recovery-distribution Planner för Hyper-V till Azure-scenariot.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467214"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Azure Site Recovery-distribution Planner rapporten
 Den här artikeln beskriver de blad i Excel-rapport som genererats av Azure Site Recovery-distribution Planner för Hyper-V till Azure-scenariot.

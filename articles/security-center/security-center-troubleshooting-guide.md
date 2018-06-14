@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779234"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.

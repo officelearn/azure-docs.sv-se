@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204899"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför fakturan med filen detaljerad daglig användning och kostnader management rapporterna i Azure-portalen för att förstå fakturan Azure.

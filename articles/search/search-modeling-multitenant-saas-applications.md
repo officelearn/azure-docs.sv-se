@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797183"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Designmönster för multitenant SaaS-program och Azure Search
 Flera program är en som innehåller samma tjänster och funktioner till flera klienter som inte kan se eller dela data med andra innehavare. Det här dokumentet beskrivs klient isolering strategier för flera program som skapats med Azure Search.

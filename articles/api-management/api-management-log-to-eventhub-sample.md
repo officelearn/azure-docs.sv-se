@@ -1,11 +1,11 @@
 ---
-title: "Övervaka API: er med Azure API Management och Händelsehubbar Runscope | Microsoft Docs"
-description: "Exempelprogrammet visar loggen till eventhub-principen som ansluter Azure API Management, Azure Event Hubs och Runscope för HTTP-loggning och övervakning"
+title: 'Övervaka API: er med Azure API Management och Händelsehubbar Runscope | Microsoft Docs'
+description: Exempelprogrammet visar loggen till eventhub-principen som ansluter Azure API Management, Azure Event Hubs och Runscope för HTTP-loggning och övervakning
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117076"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner som förbättrar bearbetning av HTTP-begäranden skickas till HTTP-API. Men är i begäran och svar tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till din serverdel API. Din API behandlar begäran och ett svar som flödar tillbaka via för API-konsumenter. API Management-tjänsten håller viktig statistik om API: er för att visas i Azure portal instrumentpanelen, men senare att information försvinner.

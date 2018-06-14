@@ -2,10 +2,10 @@
 title: Som ska skickas | Microsoft Azure
 description: Som ska skickas.
 services: marketplace
-documentationcenter: 
+documentationcenter: ''
 author: czeumault
 manager: carolz
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 5046cab9-60e4-4f70-a39d-cc5bc97bedad
 ms.service: marketplace
@@ -20,5 +20,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23070250"
 ---
 # <a name="to-be-submitted"></a>Som ska skickas.

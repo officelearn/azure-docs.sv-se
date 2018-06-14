@@ -1,5 +1,5 @@
 ---
-title: "Docker på Azure"
+title: Docker på Azure
 description: Distribuera och integrera Docker med Azure
 services: multiple
 author: czeumault
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23069111"
 ---
 <div class="content">
    <h1>Docker på Azure</h1>   

@@ -1,12 +1,12 @@
 ---
-title: "Automatiskt skala upp Azure Event Hubs genomflödesenheter | Microsoft Docs"
-description: "Aktivera automatisk ökar på ett namnområde för att automatiskt skala upp enheter"
+title: Automatiskt skala upp Azure Event Hubs genomflödesenheter | Microsoft Docs
+description: Aktivera automatisk ökar på ett namnområde för att automatiskt skala upp enheter
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018617"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatiskt skala upp Azure Event Hubs genomflödesenheter
 

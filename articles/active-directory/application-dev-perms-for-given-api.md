@@ -1,11 +1,11 @@
 ---
-title: "Så här väljer du behörigheter för en given API | Microsoft Docs"
-description: "Lär dig mer om hur behörigheter begäranden fungera för klient- och program för program som du utvecklar"
+title: Så här väljer du behörigheter för en given API | Microsoft Docs
+description: Lär dig mer om hur behörigheter begäranden fungera för klient- och program för program som du utvecklar
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614173"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för en given API 
 

@@ -1,11 +1,11 @@
 ---
-title: "Hur du gör ett telefonsamtal från Twilio (.NET) | Microsoft Docs"
-description: "Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kodexempel som skrivits i .NET."
-services: 
+title: Hur du gör ett telefonsamtal från Twilio (.NET) | Microsoft Docs
+description: Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kodexempel som skrivits i .NET.
+services: ''
 documentationcenter: .net
 author: devinrader
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26366012"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Hur du gör ett telefonsamtal med Twilio i en webbroll på Azure
 Den här guiden visar hur du använder Twilio för att ringa ett samtal från en webbsida som finns på Azure. Exempelprogrammet uppmanar användaren att göra anrop med angivet tal och meddelandet som visas i följande skärmbild.

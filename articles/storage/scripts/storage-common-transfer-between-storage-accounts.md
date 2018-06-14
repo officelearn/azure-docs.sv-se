@@ -1,6 +1,6 @@
 ---
-title: "Exempel på Azure CLI-skript – Migrera blobar över lagringskonton med hjälp av AzCopy på Windows | Microsoft Docs"
-description: "Kopierar med hjälp av AzCopy blob-innehållet från ett Azure Storage-konto till ett annat."
+title: Exempel på Azure CLI-skript – Migrera blobar över lagringskonton med hjälp av AzCopy på Windows | Microsoft Docs
+description: Kopierar med hjälp av AzCopy blob-innehållet från ett Azure Storage-konto till ett annat.
 services: storage
 documentationcenter: na
 author: roygara
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "29360725"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrera blobar över lagringskonton med hjälp av AzCopy på Windows
 

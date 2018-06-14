@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Event Hubs – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du använder Event Hubs för att mata in miljontals händelser per sekund från anslutna IoT-enheter och appar på en bred uppsättning plattformar."
+title: Dokumentation om Azure Event Hubs – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du använder Event Hubs för att mata in miljontals händelser per sekund från anslutna IoT-enheter och appar på en bred uppsättning plattformar.
 services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25945762"
 ---
 # <a name="event-hubs-documentation"></a>Dokumentation om Event Hubs
 

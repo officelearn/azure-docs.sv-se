@@ -1,12 +1,12 @@
 ---
-title: "Lägga till meddelanden i en Azure Storage-kö med Functions | Microsoft Docs"
-description: "Använd Azure Functions för att skapa en funktion utan server som startas av en HTTP-begäran och skapar ett meddelande i en Azure Storage-kö."
+title: Lägga till meddelanden i en Azure Storage-kö med Functions | Microsoft Docs
+description: Använd Azure Functions för att skapa en funktion utan server som startas av en HTTP-begäran och skapar ett meddelande i en Azure Storage-kö.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387072"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 

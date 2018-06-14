@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574995"
 ---
 Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten med följande steg, så att inga kostnader uppstår:
 

@@ -1,11 +1,11 @@
 ---
-title: "Core rapporter från Verizon | Microsoft Docs"
-description: "Du kan visa användningsmönster för din CDN med hjälp av följande rapporter: bandbredd, överförda Data, träffar, Cache status, Cache träffar förhållandet, IPV4/IPv6-Data överförs."
+title: Core rapporter från Verizon | Microsoft Docs
+description: 'Du kan visa användningsmönster för din CDN med hjälp av följande rapporter: bandbredd, överförda Data, träffar, Cache status, Cache träffar förhållandet, IPV4/IPv6-Data överförs.'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345255"
 ---
 # <a name="core-reports-from-verizon"></a>Core rapporter från Verizon
 

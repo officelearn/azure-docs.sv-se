@@ -1,11 +1,11 @@
 ---
-title: "Felsökning av problem med cloud service-distribution | Microsoft Docs"
-description: "Det finns några vanliga problem som kan uppstå när du distribuerar en tjänst i molnet till Azure. Den här artikeln innehåller lösningar på några av dem."
+title: Felsökning av problem med cloud service-distribution | Microsoft Docs
+description: Det finns några vanliga problem som kan uppstå när du distribuerar en tjänst i molnet till Azure. Den här artikeln innehåller lösningar på några av dem.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26408187"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsökning av problem med cloud service-distribution
 När du distribuerar ett cloud service-programpaket till Azure kan du få information om hur du distribuerar från den **egenskaper** rutan i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan ange den här informationen för stöd för Azure när du öppnar en ny supportförfrågan.

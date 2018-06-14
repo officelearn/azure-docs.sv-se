@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center-snabbstart – Publicera dina Linux-datorer till Security Center | Microsoft Docs"
-description: "I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center."
+title: Azure Security Center-snabbstart – Publicera dina Linux-datorer till Security Center | Microsoft Docs
+description: I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530174"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.

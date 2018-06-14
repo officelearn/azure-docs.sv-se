@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell-skript sample - beräkna den totala fakturering storleken på en blob-behållare | Microsoft Docs"
-description: "Beräkna den totala storleken på en behållare i Azure Blob storage för fakturering."
+title: Azure PowerShell-skript sample - beräkna den totala fakturering storleken på en blob-behållare | Microsoft Docs
+description: Beräkna den totala storleken på en behållare i Azure Blob storage för fakturering.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368552"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Beräkna den totala fakturering storleken för en blobbbehållare
 

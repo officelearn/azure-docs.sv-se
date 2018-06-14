@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell skriptexempel - åtkomstnyckeln för lagringskontot rotera | Microsoft Docs"
-description: "Skapa ett Azure Storage-konto och sedan hämta och rotera en av dess åtkomstnycklarna för kontot."
+title: Azure PowerShell skriptexempel - åtkomstnyckeln för lagringskontot rotera | Microsoft Docs
+description: Skapa ett Azure Storage-konto och sedan hämta och rotera en av dess åtkomstnycklarna för kontot.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 06/13/2017
 ms.author: tamram
 ms.openlocfilehash: a7aaacf316799540a6a72b699ba8ea8bb389c8a8
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25984176"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera åtkomstnycklar sitt konto
 

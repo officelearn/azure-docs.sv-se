@@ -1,12 +1,12 @@
 ---
-title: "ExpressRoute-anslutningsmodeller: Anslut till Microsoft Azure via nätverkstjänstleverantörer, utbyten och Ethernet-leverantörer | Microsoft Docs"
-description: "I den här artikeln beskrivs olika lägen för anslutningen mellan kundens nätverk och Microsoft Azure-, Office 365- och Dynamics 365-tjänster. Kunder kan använda MPLS-leverantörer, molnutbyten och Ethernet-leverantörer."
+title: 'ExpressRoute-anslutningsmodeller: Anslut till Microsoft Azure via nätverkstjänstleverantörer, utbyten och Ethernet-leverantörer | Microsoft Docs'
+description: I den här artikeln beskrivs olika lägen för anslutningen mellan kundens nätverk och Microsoft Azure-, Office 365- och Dynamics 365-tjänster. Kunder kan använda MPLS-leverantörer, molnutbyten och Ethernet-leverantörer.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709903"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute-anslutningsmodeller
 Du kan skapa en anslutning mellan ditt lokala nätverk och Microsoft-molnet på tre olika sätt, [CloudExchange-samplacering](#CloudExchange), [Ethernet-anslutning mellan punkter](#Ethernet) och [anslutning alla-till-alla (IPVPN)](#IPVPN). Anslutningsleverantörer kan erbjuda en eller flera modeller för anslutningen. Du kan rådfråga din anslutningsleverantör om vilken modell som passar dig bäst.

@@ -1,11 +1,11 @@
 ---
 title: Asymmetrisk routning | Microsoft Docs
-description: "Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i en kunds nätverk som har flera länkar till ett mål."
+description: Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i en kunds nätverk som har flera länkar till ett mål.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710022"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisk routning med flera nätverksvägar
 Den här artikeln förklarar hur utgående och återvändande nätverkstrafik kan ta olika vägar när det finns flera vägar tillgängliga mellan nätverkskällan och målet.

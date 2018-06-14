@@ -1,6 +1,6 @@
 ---
-title: "Säkerheten i Azure-videor på Channel 9 | Microsoft Docs"
-description: "Den här artikeln innehåller en granskad lista över säkerheten i Azure presentationer på Channel 9. Channel 9 är en grupp som ansluter personer som använder våra produkter med personer bakom våra produkter."
+title: Säkerheten i Azure-videor på Channel 9 | Microsoft Docs
+description: Den här artikeln innehåller en granskad lista över säkerheten i Azure presentationer på Channel 9. Channel 9 är en grupp som ansluter personer som använder våra produkter med personer bakom våra produkter.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540143"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Säkerheten i Azure-videor på Channel 9
 [Channel 9](https://channel9.msdn.com/) är en grupp som flyttar framåt personer bakom våra produkter och kopplar dem till kunder.

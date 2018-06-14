@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Trust Center och Azure säkerhetsinformation | Microsoft Docs"
-description: "Microsoft Trust center ger dig den information du behöver att vara säker på att Azure-plattformen som du kör dina tjänster är säker."
+title: Microsoft Trust Center och Azure säkerhetsinformation | Microsoft Docs
+description: Microsoft Trust center ger dig den information du behöver att vara säker på att Azure-plattformen som du kör dina tjänster är säker.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541578"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft Säkerhetscenter
 Information om Azure-webbplats på Azure.com ger dig den information du behöver för att planera, utforma, distribuera, konfigurera och hantera molnlösningar på ett säkert sätt. Med Microsoft Trust center kan har du också den information du behöver att vara säker på att Azure-plattformen som du kör dina tjänster är säker.

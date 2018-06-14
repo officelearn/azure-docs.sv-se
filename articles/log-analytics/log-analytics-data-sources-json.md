@@ -1,8 +1,8 @@
 ---
 title: Samlar in anpassad JSON-data i OMS Log Analytics | Microsoft Docs
-description: "Anpassad JSON-datakällor kan samlas in Log Analytics med hjälp av OMS-Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som curl eller något av Fluentd's 300 + plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen."
+description: Anpassad JSON-datakällor kan samlas in Log Analytics med hjälp av OMS-Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som curl eller något av Fluentd's 300 + plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855224"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Samla in anpassad JSON-datakällor med OMS-Agent för Linux i logganalys
 Anpassad JSON-datakällor kan samlas in Log Analytics med hjälp av OMS-Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON [curl](https://curl.haxx.se/) eller någon av [Fluentd's 300 + plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.

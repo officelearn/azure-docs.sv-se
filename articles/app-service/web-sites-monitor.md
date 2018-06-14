@@ -1,11 +1,11 @@
 ---
-title: "Övervaka appar i Azure App Service | Microsoft Docs"
-description: "Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure portal."
+title: Övervaka appar i Azure App Service | Microsoft Docs
+description: Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure portal.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573811"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Så här: övervaka appar i Azure App Service
 [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) har inbyggda funktioner som övervakning för den [Azure-portalen](https://portal.azure.com).

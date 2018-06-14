@@ -1,11 +1,11 @@
 ---
-title: "Vad är Traffic Manager | Microsoft Docs"
-description: "Den här artikeln hjälper dig att förstå vad Traffic Manager är och oavsett om det är rätt trafik routning valet för ditt program"
+title: Vad är Traffic Manager | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå vad Traffic Manager är och oavsett om det är rätt trafik routning valet för ditt program
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877057"
 ---
 # <a name="overview-of-traffic-manager"></a>Översikt över Traffic Manager
 

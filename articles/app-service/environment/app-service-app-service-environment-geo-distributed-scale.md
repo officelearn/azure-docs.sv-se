@@ -1,11 +1,11 @@
 ---
 title: Geodistribuerad skalning med App Service Environment
-description: "Lär dig mer om att skala horisontellt appar med geo-distribution med Traffic Manager och App-miljöer."
+description: Lär dig mer om att skala horisontellt appar med geo-distribution med Traffic Manager och App-miljöer.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836835"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geodistribuerad skalning med App Service Environment
 ## <a name="overview"></a>Översikt

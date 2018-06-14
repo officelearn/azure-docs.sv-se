@@ -1,11 +1,11 @@
 ---
 title: Reparera ett Azure Import/Export-exportjobb - v1 | Microsoft Docs
-description: "Lär dig mer om att reparera ett exportjobb som har skapats och att köras med tjänsten Azure Import/Export."
+description: Lär dig mer om att reparera ett exportjobb som har skapats och att köras med tjänsten Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873879"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När ett exportjobb har slutförts kan köra du verktyget Azure Import/Export lokal till:  

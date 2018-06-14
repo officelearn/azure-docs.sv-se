@@ -1,11 +1,11 @@
 ---
-title: "Hantera access control-poster för virtuell StorSimple-matrisen | Microsoft Docs"
-description: "Beskriver hur du hanterar access control-poster (ACRs) för att avgöra vilka värdar som kan ansluta till en volym på den virtuella StorSimple-matrisen."
+title: Hantera access control-poster för virtuell StorSimple-matrisen | Microsoft Docs
+description: Beskriver hur du hanterar access control-poster (ACRs) för att avgöra vilka värdar som kan ansluta till en volym på den virtuella StorSimple-matrisen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875944"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera access control-poster för virtuell StorSimple-matris
 

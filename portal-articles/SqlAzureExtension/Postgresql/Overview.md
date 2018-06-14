@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure Database for PostgreSQL | Microsoft Docs"
-description: "Hjälpinnehåll för översikt över Azure Database for PostgreSQL i Azure Portal"
+title: Översikt över Azure Database for PostgreSQL | Microsoft Docs
+description: Hjälpinnehåll för översikt över Azure Database for PostgreSQL i Azure Portal
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073851"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Azure Database för PostgreSQL-dokumentation
 

@@ -1,6 +1,6 @@
 ---
-title: "Visa en lista med Azure Storage-resurser med Storage-klientbibliotek för C++ | Microsoft Docs"
-description: "Lär dig hur du använder lista API: er i Microsoft Azure Storage-klientbibliotek för C++ att räkna upp behållare, blobbar, köer, tabeller och enheter."
+title: Visa en lista med Azure Storage-resurser med Storage-klientbibliotek för C++ | Microsoft Docs
+description: 'Lär dig hur du använder lista API: er i Microsoft Azure Storage-klientbibliotek för C++ att räkna upp behållare, blobbar, köer, tabeller och enheter.'
 documentationcenter: .net
 services: storage
 author: dineshmurthy
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873872"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Visa en lista med Azure Storage-resurser i C++
 Lista över åtgärder är nyckeln till många utvecklingsscenarier för med Azure Storage. Den här artikeln beskrivs mer effektivt att räkna upp objekt i Azure Storage med hjälp av listan API: er som finns i Microsoft Azure Storage-klientbibliotek för C++.

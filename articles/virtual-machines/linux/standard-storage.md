@@ -1,8 +1,8 @@
 ---
-title: "Standardlagring Linux VM-diskar på Azure | Microsoft Docs"
+title: Standardlagring Linux VM-diskar på Azure | Microsoft Docs
 description: Diskutera kostnadseffektiv standardlagring och ohanterade och hanterade Linux VM-diskar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949141"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

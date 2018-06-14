@@ -1,11 +1,11 @@
 ---
 title: Azure Service Bus pausa meddelandeentiteter | Microsoft Docs
-description: "Inaktivera och återaktivera Azure Service Bus meddelandet entiteter."
+description: Inaktivera och återaktivera Azure Service Bus meddelandet entiteter.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197034"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Inaktivera och återaktivera meddelandeentiteter (inaktivera)
 

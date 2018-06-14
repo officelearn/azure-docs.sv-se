@@ -1,11 +1,11 @@
 ---
 title: Azure API Management cachelagring principer | Microsoft Docs
-description: "Läs mer om cachelagring principer som är tillgängliga för användning i Azure API Management."
+description: Läs mer om cachelagring principer som är tillgängliga för användning i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26344830"
 ---
 # <a name="api-management-caching-policies"></a>Cachelagring API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  

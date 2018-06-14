@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS med andra Azure-tjänster | Microsoft Docs"
-description: "Förstå hur du använder Azure DNS för att matcha namn för andra Azure-tjänster"
+title: Azure DNS med andra Azure-tjänster | Microsoft Docs
+description: Förstå hur du använder Azure DNS för att matcha namn för andra Azure-tjänster
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25989851"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Hur Azure DNS fungerar med andra Azure-tjänster
 

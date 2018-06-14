@@ -1,11 +1,11 @@
 ---
-title: "Lägg till instruktionen frågan i logikappar | Microsoft Docs"
-description: "Översikt över frågeåtgärden för att utföra åtgärder som filter matris."
-services: 
-documentationcenter: 
+title: Lägg till instruktionen frågan i logikappar | Microsoft Docs
+description: Översikt över frågeåtgärden för att utföra åtgärder som filter matris.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962653"
 ---
 # <a name="get-started-with-the-query-action"></a>Kom igång med frågeåtgärden
 Genom att använda åtgärden fråga kan arbeta du med batchar och matriser för att utföra arbetsflöden för att:

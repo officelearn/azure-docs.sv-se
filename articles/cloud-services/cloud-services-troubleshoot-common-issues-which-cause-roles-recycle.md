@@ -1,11 +1,11 @@
 ---
-title: "Vanliga orsaker till Molntjänsten roller återvinning | Microsoft Docs"
-description: "En rolltjänst för molnet plötsligt återanvänds kan medföra betydande driftstopp. Här följer några vanliga problem som kan medföra att roller som ska återvinnas, som kan hjälpa dig att minska driftstopp."
+title: Vanliga orsaker till Molntjänsten roller återvinning | Microsoft Docs
+description: En rolltjänst för molnet plötsligt återanvänds kan medföra betydande driftstopp. Här följer några vanliga problem som kan medföra att roller som ska återvinnas, som kan hjälpa dig att minska driftstopp.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984294"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Vanliga problem som gör att roller återvinns
 Den här artikeln beskrivs några vanliga orsaker till problem med distribution och ger felsökningstips som kan hjälpa dig att lösa dessa problem. En indikation på att det finns ett problem med ett program är när instansen inte kan startas eller den cykler emellan initiera upptagen och stoppas.

@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Biztalk Services – Självstudier | Microsoft Docs"
-description: "Lär dig hur du använder BizTalk Services för moln-till-lokal integrering och affärsapplikationer för SAP, Oracle EBS, SQL Server och PeopleSoft."
+title: Dokumentation om Azure Biztalk Services – Självstudier | Microsoft Docs
+description: Lär dig hur du använder BizTalk Services för moln-till-lokal integrering och affärsapplikationer för SAP, Oracle EBS, SQL Server och PeopleSoft.
 services: biztalk-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: biztalk-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26625104"
 ---
 # <a name="biztalk-services-documentation"></a>Dokumentation om BizTalk Services
 

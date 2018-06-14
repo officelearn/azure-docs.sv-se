@@ -1,12 +1,12 @@
 ---
-title: "Hantera Azure Event Hubs resurser med hjälp av PowerShell | Microsoft Docs"
-description: "Använd PowerShell-modulen för att skapa och hantera Händelsehubbar"
+title: Hantera Azure Event Hubs resurser med hjälp av PowerShell | Microsoft Docs
+description: Använd PowerShell-modulen för att skapa och hantera Händelsehubbar
 services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782225"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Använda PowerShell för att hantera resurser för Händelsehubbar
 

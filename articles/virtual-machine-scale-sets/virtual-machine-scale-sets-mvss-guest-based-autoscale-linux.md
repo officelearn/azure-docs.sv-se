@@ -1,11 +1,11 @@
 ---
-title: "Använda Azure Autoskala med gäst mått i en mall för Linux skala | Microsoft Docs"
-description: "Lär dig hur du Autoskala med gäst mått i en Skaluppsättning för Linux virtuella dator mall"
+title: Använda Azure Autoskala med gäst mått i en mall för Linux skala | Microsoft Docs
+description: Lär dig hur du Autoskala med gäst mått i en Skaluppsättning för Linux virtuella dator mall
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781436"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Autoskala med gäst mått i en Linux-skala ange mall
 

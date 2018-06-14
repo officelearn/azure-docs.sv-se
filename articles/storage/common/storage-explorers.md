@@ -1,8 +1,8 @@
 ---
-title: "Verktyg för att arbeta med Azure Storage | Microsoft Docs"
-description: "En lista över verktyg som gör det möjligt att visa/interagera med dina Azure Storage-data."
+title: Verktyg för att arbeta med Azure Storage | Microsoft Docs
+description: En lista över verktyg som gör det möjligt att visa/interagera med dina Azure Storage-data.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933391"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
 Användare av Azure Storage vill ofta kunna visa/interagera med sina data med hjälp av en Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi försätta ett ”X” i varje block om den ger dig möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktygen är ledig. ”Test” anger att det finns en kostnadsfri utvärderingsversion men den fullständiga produkten är inte ledigt. ”Ja” anger att en version är tillgängliga gratis medan en annan version är tillgänglig för inköp.

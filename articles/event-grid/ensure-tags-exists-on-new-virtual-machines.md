@@ -1,12 +1,12 @@
 ---
-title: "Integrera Azure Automation med händelsen rutnät | Microsoft Docs"
-description: "Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skickas till Microsoft-Teams."
-keywords: "Automation runbook, team, händelse rutnät, virtuell dator, VM"
+title: Integrera Azure Automation med händelsen rutnät | Microsoft Docs
+description: Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skickas till Microsoft-Teams.
+keywords: Automation runbook, team, händelse rutnät, virtuell dator, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -16,9 +16,10 @@ ms.date: 12/06/2017
 ms.author: eamono
 ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349078"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrera Azure Automation med händelsen rutnätet och Microsoft team
 

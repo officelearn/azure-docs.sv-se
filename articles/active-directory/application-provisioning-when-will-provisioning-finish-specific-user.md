@@ -1,11 +1,11 @@
 ---
-title: "Ta reda på när en viss användare kommer att kunna komma åt ett program | Microsoft Docs"
-description: "Ta reda på när en ytterst viktigt användare komma åt ett program som du har konfigurerat för användaretablering med Azure AD"
+title: Ta reda på när en viss användare kommer att kunna komma åt ett program | Microsoft Docs
+description: Ta reda på när en ytterst viktigt användare komma åt ett program som du har konfigurerat för användaretablering med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26613630"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Ta reda på när en viss användare kommer att kunna komma åt ett program
 När du använder automatisk användaretablering med ett program, Azure AD automatiskt etablera och uppdatera användarkonton i en app baserat på sådant som [användar- och tilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) vid en schemalagd tid intervall, vanligtvis var 10 minuter.

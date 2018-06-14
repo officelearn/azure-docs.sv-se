@@ -1,12 +1,12 @@
 ---
-title: "Förhandsversionen av Azure Service Bus Role-Based åtkomstkontroll (RBAC) | Microsoft Docs"
-description: "Azure Service Bus-rollbaserad åtkomstkontroll"
+title: Förhandsversionen av Azure Service Bus Role-Based åtkomstkontroll (RBAC) | Microsoft Docs
+description: Azure Service Bus-rollbaserad åtkomstkontroll
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783480"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Åtkomstkontroll för aktiva Directory Role-Based (förhandsgranskning)
 

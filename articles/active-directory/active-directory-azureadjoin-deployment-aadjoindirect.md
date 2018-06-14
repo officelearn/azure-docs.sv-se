@@ -1,11 +1,11 @@
 ---
-title: "Användningsscenarier och överväganden vid distribution för Azure AD Join | Microsoft Docs"
-description: "Förklarar hur administratörer kan konfigurera Azure AD Join för slutanvändarna (anställda, studenter, andra användare). Här beskrivs också olika verkliga scenarier för att använda Azure AD Join."
+title: Användningsscenarier och överväganden vid distribution för Azure AD Join | Microsoft Docs
+description: Förklarar hur administratörer kan konfigurera Azure AD Join för slutanvändarna (anställda, studenter, andra användare). Här beskrivs också olika verkliga scenarier för att använda Azure AD Join.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602438"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Användningsscenarier och överväganden vid distribution för Azure AD Join
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Användningsscenarier för Azure AD Join

@@ -1,6 +1,6 @@
 ---
-title: "Hjälpdokumentation för virtuella Windows-datorer | Microsoft Docs"
-description: "Hjälpinnehåll för översikt över virtuella Windows-datorer i Azure Portal"
+title: Hjälpdokumentation för virtuella Windows-datorer | Microsoft Docs
+description: Hjälpinnehåll för översikt över virtuella Windows-datorer i Azure Portal
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057696"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentation om virtuella Windows-datorer
 

@@ -1,8 +1,8 @@
 ---
 title: Storage-konton i Azure-stacken | Microsoft Docs
-description: "Lär dig hur du skapar ett lagringskonto i Azure-stacken."
+description: Lär dig hur du skapar ett lagringskonto i Azure-stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733731"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Lagringskonton i Azure Stack
 Lagringskonton omfattar Blob- och tabelltjänster och det unika namnområdet för dina lagrade dataobjekt. Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren.

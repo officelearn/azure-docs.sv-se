@@ -1,11 +1,11 @@
 ---
-title: "Övervakning och bearbetning av säkerhetshändelser i Azure Security Center | Microsoft Docs"
-description: "Lär dig hur du kan använda instrumentpanelen för Security Center-händelser för att se säkerhetshändelser från dina virtuella Azure-datorer och Azure-datorer."
+title: Övervakning och bearbetning av säkerhetshändelser i Azure Security Center | Microsoft Docs
+description: Lär dig hur du kan använda instrumentpanelen för Security Center-händelser för att se säkerhetshändelser från dina virtuella Azure-datorer och Azure-datorer.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926531"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
 Händelser instrumentpanelen innehåller en översikt över antalet säkerhetshändelser samlas in med tiden och en lista över viktiga händelser som kan kräva din uppmärksamhet.  

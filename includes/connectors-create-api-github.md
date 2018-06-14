@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29764202"
 ---
 1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp. 
 

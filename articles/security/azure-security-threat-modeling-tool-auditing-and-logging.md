@@ -1,6 +1,6 @@
 ---
 title: Granskning och loggning - Microsoft Threat Modeling verktyget - Azure | Microsoft Docs
-description: "ändringar för hot som exponeras i verktyget Modeling hot"
+description: ändringar för hot som exponeras i verktyget Modeling hot
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926748"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Säkerhet ram: Granskning och loggning | Åtgärder 
 | Produkter eller tjänster | Artikel |

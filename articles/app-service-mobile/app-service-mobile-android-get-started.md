@@ -1,11 +1,11 @@
 ---
-title: "Skapa en Android-app i Azure Apptjänst Mobile Apps | Microsoft Docs"
-description: "Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Android-utveckling"
+title: Skapa en Android-app i Azure Apptjänst Mobile Apps | Microsoft Docs
+description: Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Android-utveckling
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27591971"
 ---
 # <a name="create-an-android-app"></a>Skapa en Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

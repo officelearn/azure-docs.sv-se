@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27704806"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hur du använder den Azure underordnade plugin-program med Hudson kontinuerlig Integration
 Den Azure underordnade plugin-program för Hudson kan du etablera underordnade noder i Azure när distribuerade versioner.

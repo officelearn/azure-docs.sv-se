@@ -1,11 +1,11 @@
 ---
 title: Hur du identifierar skillnaderna mellan delegerad-och | Microsoft Docs
-description: "Lär dig mer om behörighet för delegerad och program, hur de används av klienter och visas av resurser för program som du utvecklar med Azure AD"
+description: Lär dig mer om behörighet för delegerad och program, hur de används av klienter och visas av resurser för program som du utvecklar med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26612893"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Hur du identifierar skillnaderna mellan behörighet för delegerad och program
 

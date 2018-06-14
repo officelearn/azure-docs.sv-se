@@ -1,12 +1,12 @@
 ---
-title: "Installera uppdatering 1.0 på virtuella StorSimple-matrisen | Microsoft Docs"
-description: "Beskriver hur du använder virtuella StorSimple-matris webbgränssnittet för att tillämpa uppdateringar med hjälp av Azure portal och snabbkorrigering metoden"
+title: Installera uppdatering 1.0 på virtuella StorSimple-matrisen | Microsoft Docs
+description: Beskriver hur du använder virtuella StorSimple-matris webbgränssnittet för att tillämpa uppdateringar med hjälp av Azure portal och snabbkorrigering metoden
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012080"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installera uppdatering 1.0 på din virtuella StorSimple-matris
 

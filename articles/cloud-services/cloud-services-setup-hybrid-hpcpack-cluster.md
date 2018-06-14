@@ -1,13 +1,13 @@
 ---
 title: Konfigurera en hybrid HPC Pack kluster i Azure | Microsoft Docs
-description: "Lär dig hur du använder Microsoft HPC Pack och Azure för att konfigurera en liten hybrid med höga prestanda HPC-kluster"
+description: Lär dig hur du använder Microsoft HPC Pack och Azure för att konfigurera en liten hybrid med höga prestanda HPC-kluster
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985314"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Skapa en hybrid med höga prestanda HPC-kluster med Microsoft HPC Pack och på begäran Azure compute-noder
 Använd Microsoft HPC Pack 2012 R2 och Azure för att konfigurera en liten, hybrid med höga prestanda HPC-kluster. Klustret visas i den här artikeln består av en lokal HPC Pack huvudnod och vissa compute-noder som du distribuerar på begäran i ett Azure-Molntjänsten. Sedan kan du köra beräkning jobb på hybrid-klustret.

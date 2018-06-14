@@ -1,6 +1,6 @@
 ---
-title: "Aktivera åtkomst till Azure DC/OS behållaren app"
-description: "Så här aktiverar du offentlig åtkomst till DC/OS-behållare i Azure Container Service."
+title: Aktivera åtkomst till Azure DC/OS behållaren app
+description: Så här aktiverar du offentlig åtkomst till DC/OS-behållare i Azure Container Service.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332287"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Aktivera offentlig åtkomst till ett Azure Container Service-program
 

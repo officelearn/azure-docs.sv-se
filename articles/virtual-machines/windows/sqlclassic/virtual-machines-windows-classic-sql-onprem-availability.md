@@ -1,11 +1,11 @@
 ---
-title: "Utöka lokala Always On-Tillgänglighetsgrupper till Azure | Microsoft Docs"
-description: "Den här kursen använder resurser som har skapats med den klassiska distributionsmodellen och beskriver hur du använder guiden Lägg till replik i SQL Server Management Studio (SSMS) för att lägga till en replik av en Always On-Tillgänglighetsgruppen i Azure."
+title: Utöka lokala Always On-Tillgänglighetsgrupper till Azure | Microsoft Docs
+description: Den här kursen använder resurser som har skapats med den klassiska distributionsmodellen och beskriver hur du använder guiden Lägg till replik i SQL Server Management Studio (SSMS) för att lägga till en replik av en Always On-Tillgänglighetsgruppen i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400485"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka lokala Always On-Tillgänglighetsgrupper till Azure
 Always On-Tillgänglighetsgrupper ger hög tillgänglighet för grupper av databasen genom att lägga till sekundära repliker. De här replikeringarna tillåter inte att redundansväxla databaser om ett fel uppstår. Dessutom kan de användas att avlasta skrivskyddade arbetsbelastningar eller aktiviteter för säkerhetskopiering.

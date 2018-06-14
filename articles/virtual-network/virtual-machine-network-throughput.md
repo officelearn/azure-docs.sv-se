@@ -1,13 +1,13 @@
 ---
-title: "Dataflödet i nätverket virtuell Azure-dator | Microsoft Docs"
-description: "Läs mer om virtuella Azure-datorn dataflödet i nätverket."
+title: Dataflödet i nätverket virtuell Azure-dator | Microsoft Docs
+description: Läs mer om virtuella Azure-datorn dataflödet i nätverket.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27778963"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Virtuella nätverkets bandbredd
 

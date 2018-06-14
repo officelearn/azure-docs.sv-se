@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788727"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostisera artefakt fel i labbet 
 När du har skapat en artefakt, kan du kontrollera om det har lyckats eller misslyckats. Artefakt loggar i Azure DevTest Labs innehåller information som du kan använda för att diagnostisera ett artefakt-fel. Du har ett antal alternativ för att visa artefakt logginformation för en virtuell Windows-dator:

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915318"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Ladda upp och skapa en Linux VM från anpassad avbildning med hjälp av Azure CLI 1.0
 Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till Azure med hjälp av Resource Manager-distributionsmodellen och skapar virtuella Linux-datorer från den här anpassade avbildningen. Den här funktionen kan du installera och konfigurera en Linux-distro enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918446"
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Använda molntjänster init för att anpassa en Linux VM under skapande av med Azure CLI 1.0
 Den här artikeln visar hur du gör ett moln init-skript för att ange värdnamnet, uppdateringspaket installeras och hanterar användarkonton.  Molnet init-skript anropas under den virtuella dator skapandet Azure CLI.  Artikeln kräver:

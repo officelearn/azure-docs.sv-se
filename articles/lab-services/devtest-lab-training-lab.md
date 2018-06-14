@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787999"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Använda Azure DevTest Labs för träning
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier utöver utveckling och testning. En av dessa scenarier är att skapa ett labb för träning. Azure DevTest Labs kan du skapa ett labb där du kan ange anpassade mallar som varje äga rum kan använda för att skapa identiska och isolerade miljöer för utbildning. Du kan tillämpa principer för att säkerställa att utbildning miljöer är tillgängliga för varje äga rum när de behöver dem och innehåller tillräckligt med resurser – till exempel virtuella datorer - krävs för utbildning. Slutligen kan du enkelt dela labbet med praktikanter som de kan komma åt med ett klick.

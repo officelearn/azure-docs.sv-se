@@ -1,6 +1,6 @@
 ---
-title: "Cache-Utdatacacheprovider för ASP.NET"
-description: "Lär dig att cachelagra ASP.NET sidutdata med hjälp av Azure Redis-Cache"
+title: Cache-Utdatacacheprovider för ASP.NET
+description: Lär dig att cachelagra ASP.NET sidutdata med hjälp av Azure Redis-Cache
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909830"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET Utdatacacheprovider för Azure Redis-Cache
 Redis Utdatacacheprovider är en mekanism för lagring av out-of-process för cache-utdata. Informationen är specifikt för fullständig HTTP-svar (sidan cachelagring av utdata). Providern ansluts till den nya utdata cache providern utökningspunkt som introducerades i ASP.NET 4.

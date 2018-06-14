@@ -1,11 +1,11 @@
 ---
-title: "Översikt över Azure Relay .NET Standard API: er | Microsoft Docs"
-description: "Översikt över Azure Relay .NET Standard-API"
+title: 'Översikt över Azure Relay .NET Standard API: er | Microsoft Docs'
+description: Översikt över Azure Relay .NET Standard-API
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016441"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Översikt över Azure Relay Hybrid anslutningar .NET Standard-API
 

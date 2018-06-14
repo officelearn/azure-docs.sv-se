@@ -1,12 +1,12 @@
 ---
-title: "Anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsversion) | Microsoft Docs"
-description: "Den här artikeln visar hur du anpassar security center bedömningar"
+title: Anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsversion) | Microsoft Docs
+description: Den här artikeln visar hur du anpassar security center bedömningar
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200018"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsgranskning)
 

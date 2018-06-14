@@ -1,12 +1,12 @@
 ---
 title: Azure Relay autentisering och auktorisering | Microsoft Docs
-description: "Översikt över delade signatur åtkomst (SAS)-autentisering i Azure-relä"
+description: Översikt över delade signatur åtkomst (SAS)-autentisering i Azure-relä
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018125"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay-autentisering och auktorisering
 

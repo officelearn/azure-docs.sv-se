@@ -1,12 +1,12 @@
 ---
-title: "Använd Azure Automation för att starta ett jobb i StorSimple Data Manager | Microsoft Docs"
-description: "Lär dig hur du använder Azure Automation för att utlösa StorSimple Data Manager-jobb"
+title: Använd Azure Automation för att starta ett jobb i StorSimple Data Manager | Microsoft Docs
+description: Lär dig hur du använder Azure Automation för att utlösa StorSimple Data Manager-jobb
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862204"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Använd Azure Automation för att utlösa ett jobb
 

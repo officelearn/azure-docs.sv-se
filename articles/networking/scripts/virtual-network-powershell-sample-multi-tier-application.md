@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597290"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Skapa ett nätverk för flera nivåer program
 

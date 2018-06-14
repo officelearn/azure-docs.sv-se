@@ -1,11 +1,11 @@
 ---
 title: Etablera webbprogram med Redis-Cache
-description: "Använd Azure Resource Manager-mall för att distribuera webbprogram med Redis-Cache."
+description: Använd Azure Resource Manager-mall för att distribuera webbprogram med Redis-Cache.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909898"
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Skapa en Webbapp plus Redis-Cache med hjälp av en mall
 I det här avsnittet får du lära dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure-Webbapp med Redis-cache. Du kommer lära dig hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.

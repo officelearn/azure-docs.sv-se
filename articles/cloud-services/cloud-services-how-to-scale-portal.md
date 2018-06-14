@@ -1,11 +1,11 @@
 ---
-title: "Automatisk skala en tjänst i molnet i portal | Microsoft Docs"
-description: "Lär dig använda portalen för att konfigurera regler för Automatisk skala för en cloud service-webbroll eller worker-rollen i Azure."
+title: Automatisk skala en tjänst i molnet i portal | Microsoft Docs
+description: Lär dig använda portalen för att konfigurera regler för Automatisk skala för en cloud service-webbroll eller worker-rollen i Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27992280"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en tjänst i molnet i portalen
 

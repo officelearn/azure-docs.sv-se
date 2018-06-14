@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI-skript – Hämta serverloggar i Azure Database for PostgreSQL"
-description: "Det här Azure CLI-exempelskriptet visar hur du aktiverar och hämtar serverloggarna för en Azure Database for PostgreSQL-server."
+title: Azure CLI-skript – Hämta serverloggar i Azure Database for PostgreSQL
+description: Det här Azure CLI-exempelskriptet visar hur du aktiverar och hämtar serverloggarna för en Azure Database for PostgreSQL-server.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849570"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Aktivera och hämta serverns långsamma frågeloggar för en Azure Databas for PostgreSQL-server med Azure CLI
 Det här CLI-exempelskriptet aktiverar och hämtar de långsamma frågeloggarna för en Azure Database for PostgreSQL-server.

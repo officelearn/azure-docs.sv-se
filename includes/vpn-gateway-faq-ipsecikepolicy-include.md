@@ -10,9 +10,10 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
 ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30198238"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassade IPsec/IKE-principer stöds på Azure **VpnGw1, VpnGw2, VpnGw3, Standard** och **HighPerformance** VPN-gatewayer. **Basic** SKU stöds **inte**.

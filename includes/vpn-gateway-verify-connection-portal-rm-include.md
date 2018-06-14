@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929367"
 ---
 Du kan visa anslutningsstatus för en Resource Manager VPN-gateway i Azure Portal genom att navigera till anslutningen. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 

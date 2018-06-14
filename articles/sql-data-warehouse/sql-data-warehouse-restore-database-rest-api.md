@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31524432"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Återställa en Azure SQL Data Warehouse med REST API: er
 Återställa en Azure SQL Data Warehouse med hjälp av REST API: er.

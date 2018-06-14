@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433350"
 ---
 När du är klar kan du ta bort resursgruppen. När du tar bort resursgruppen tar du bort lagringskontot, Azure-filresursen och andra eventuella resurser som du distribuerat i resursgruppen.
 

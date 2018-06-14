@@ -1,11 +1,11 @@
 ---
-title: "Vad är en tjänst i molnet och paketet | Microsoft Docs"
-description: "Beskriver molnet tjänstmodellen (.csdef, .cscfg) och paketet (.cspkg) i Azure"
+title: Vad är en tjänst i molnet och paketet | Microsoft Docs
+description: Beskriver molnet tjänstmodellen (.csdef, .cscfg) och paketet (.cspkg) i Azure
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876567"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är Cloud Service-modell och hur jag paketera den?
 En molnbaserad tjänst skapas från tre komponenter, tjänstdefinitionen *(.csdef)*, service-config *(.cscfg)*, och inget tjänstepaket *(.cspkg)*. Både den **ServiceDefinition.csdef** och **ServiceConfig.cscfg** filer är XML-baserade och beskriver strukturen för Molntjänsten och hur den är konfigurerad, kallade modellen. Den **ServicePackage.cspkg** är en zip-fil som skapas från den **ServiceDefinition.csdef** och bland annat innehåller alla nödvändiga binary-baserade beroenden. Azure skapar en molnbaserad tjänst från både den **ServicePackage.cspkg** och **ServiceConfig.cscfg**.

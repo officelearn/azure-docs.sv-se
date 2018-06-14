@@ -1,6 +1,6 @@
 ---
 title: Fysisk server till Azure replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid replikering av lokala fysiska servrar till Azure med Azure Site Recovery-tjänsten"
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid replikering av lokala fysiska servrar till Azure med Azure Site Recovery-tjänsten
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874900"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysisk server till Azure replikeringsarkitektur
 

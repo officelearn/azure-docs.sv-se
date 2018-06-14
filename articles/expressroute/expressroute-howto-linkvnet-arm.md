@@ -1,11 +1,11 @@
 ---
-title: "Länka ett virtuellt nätverk till en ExpressRoute-krets: PowerShell: Azure | Microsoft Docs"
-description: "Det här dokumentet innehåller en översikt över hur du länkar virtuella nätverk (Vnet) för ExpressRoute-kretsar med Resource Manager-distributionsmodellen och PowerShell."
+title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: PowerShell: Azure | Microsoft Docs'
+description: Det här dokumentet innehåller en översikt över hur du länkar virtuella nätverk (Vnet) för ExpressRoute-kretsar med Resource Manager-distributionsmodellen och PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877559"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]

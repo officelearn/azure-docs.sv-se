@@ -1,6 +1,6 @@
 ---
-title: "Azure-databas för PostgreSQL-videor"
-description: "Den här sidan visas video innehåll som är relevant för Azure-databas för PostgreSQL."
+title: Azure-databas för PostgreSQL-videor
+description: Den här sidan visas video innehåll som är relevant för Azure-databas för PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687908"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure-databas för PostgreSQL-videor
 

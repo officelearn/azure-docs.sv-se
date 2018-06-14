@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949811"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Självstudier: Felsöka en Java-tillämpning som distribuerats i ett lokalt Service Fabric-kluster 
 Den här självstudien är del två i en serie. Du får lära dig att ansluta en fjärrfelsökare till Service Fabric-programmet med Eclipse. Dessutom får du lära dig hur du dirigerar om loggar från program som körs till en plats som passar utvecklaren.

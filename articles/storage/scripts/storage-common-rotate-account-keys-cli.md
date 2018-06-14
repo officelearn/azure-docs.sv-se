@@ -1,12 +1,12 @@
 ---
-title: "Exempel på Azure CLI-skript – Rotera åtkomstnycklar för lagringskonto | Microsoft Docs"
-description: "Skapa ett Azure Storage-konto och sedan hämta och rotera kontoåtkomstnycklarna."
+title: Exempel på Azure CLI-skript – Rotera åtkomstnycklar för lagringskonto | Microsoft Docs
+description: Skapa ett Azure Storage-konto och sedan hämta och rotera kontoåtkomstnycklarna.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847819"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera kontoåtkomstnycklarna
 

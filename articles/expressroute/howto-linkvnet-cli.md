@@ -1,13 +1,13 @@
 ---
-title: "Länka ett virtuellt nätverk till en ExpressRoute-krets: CLI: Azure | Microsoft Docs"
-description: "Det här dokumentet innehåller en översikt över hur du länkar virtuella nätverk (Vnet) för ExpressRoute-kretsar med hjälp av Resource Manager-modellen och CLI."
+title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: CLI: Azure | Microsoft Docs'
+description: Det här dokumentet innehåller en översikt över hur du länkar virtuella nätverk (Vnet) för ExpressRoute-kretsar med hjälp av Resource Manager-modellen och CLI.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlit
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875410"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 

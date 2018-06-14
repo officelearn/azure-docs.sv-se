@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI-skript – Skapa en Azure Database for PostgreSQL"
-description: "Azure CLI-skriptexempel – Skapar en Azure Database for PostgreSQL-server och konfigurerar en brandväggsregel på servernivå."
+title: Azure CLI-skript – Skapa en Azure Database for PostgreSQL
+description: Azure CLI-skriptexempel – Skapar en Azure Database for PostgreSQL-server och konfigurerar en brandväggsregel på servernivå.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847968"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Skapa en Azure Database for PostgreSQL-server och konfigurera en brandväggsregel med hjälp av Azure CLI
 Det här CLI-skriptexemplet skapar en Azure Database for PostgreSQL-server och konfigurerar en brandväggsregel på servernivå. När skriptet har körts utan problem kan PostgreSQL-servern nås från alla Azure-tjänster och den konfigurerade IP-adressen.

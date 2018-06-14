@@ -1,11 +1,11 @@
 ---
-title: "Exemplet Azure-infrastrukturen genomgången | Microsoft Docs"
-description: "Läs mer om viktiga design och implementeringslösning riktlinjer för att distribuera en exempel-infrastruktur i Azure."
-documentationcenter: 
+title: Exemplet Azure-infrastrukturen genomgången | Microsoft Docs
+description: Läs mer om viktiga design och implementeringslösning riktlinjer för att distribuera en exempel-infrastruktur i Azure.
+documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809877"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exemplet Azure-infrastrukturen genomgång för virtuella Windows-datorer
 Den här artikeln beskriver hur bygga ut infrastruktur för ett exempel. Vi i detalj utformar en infrastruktur för en enkel onlinebutik som sammanför de riktlinjer och beslut runt namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar virtuella datorer (VM).
@@ -53,7 +54,7 @@ Alla ovanstående följer du dessa namngivningsregler:
 
 * Adventure Works Cycles använder **[IT arbetsbelastning]-[plats]-[Azure resurs]** som ett prefix
   * I det här exemplet ”**azos**” (Azure onlinebutiken) är det arbetsbelastning namnet och ”**använder**” (östra USA 2) är platsen
-* Virtuella nätverk använder AZOS-Använd-VN**[antal]**
+* Virtuella nätverk använder AZOS-Använd-VN **[antal]**
 * Tillgänglighetsuppsättningar använder azos-Använd-som-**[roll]**
 * Namn på virtuella datorer använda azos-Använd-vm -**[vmname]**
 

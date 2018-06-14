@@ -1,6 +1,6 @@
 ---
-title: "SQL-servertillgänglighet grupper - virtuella datorer i Azure - katastrofåterställning | Microsoft Docs"
-description: "Den här artikeln förklarar hur du konfigurerar en tillgänglighetsgrupp för SQL Server på virtuella Azure-datorer med en replik i en annan region."
+title: SQL-servertillgänglighet grupper - virtuella datorer i Azure - katastrofåterställning | Microsoft Docs
+description: Den här artikeln förklarar hur du konfigurerar en tillgänglighetsgrupp för SQL Server på virtuella Azure-datorer med en replik i en annan region.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852837"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en Always On-tillgänglighetsgrupp på virtuella Azure-datorer i olika regioner
 

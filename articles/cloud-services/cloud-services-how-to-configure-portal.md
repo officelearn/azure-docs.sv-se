@@ -1,11 +1,11 @@
 ---
-title: "Så här konfigurerar du en tjänst i molnet (portal) | Microsoft Docs"
-description: "Lär dig hur du konfigurerar molntjänster i Azure. Lär dig att uppdatera tjänstkonfigurationen för molnet och konfigurera fjärråtkomst till rollinstanser. De här exemplen använder Azure-portalen."
+title: Så här konfigurerar du en tjänst i molnet (portal) | Microsoft Docs
+description: Lär dig hur du konfigurerar molntjänster i Azure. Lär dig att uppdatera tjänstkonfigurationen för molnet och konfigurera fjärråtkomst till rollinstanser. De här exemplen använder Azure-portalen.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874329"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du molntjänster
 

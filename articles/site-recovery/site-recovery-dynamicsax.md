@@ -1,11 +1,11 @@
 ---
-title: "Replikera en flera skikt Dynamics AX-distribution med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du replikera och skydda Dynamics AX med hjälp av Azure Site Recovery"
+title: Replikera en flera skikt Dynamics AX-distribution med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du replikera och skydda Dynamics AX med hjälp av Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876964"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replikera en programarkitektur i Dynamics AX med hjälp av Azure Site Recovery
 

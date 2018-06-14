@@ -1,12 +1,12 @@
 ---
-title: "Felsöka redundans till Azure fel | Microsoft Docs"
-description: "Den här artikeln beskriver hur du felsöker vanliga fel i misslyckande till Azure"
+title: Felsöka redundans till Azure fel | Microsoft Docs
+description: Den här artikeln beskriver hur du felsöker vanliga fel i misslyckande till Azure
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874367"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsöka när det inte att redundansväxla en virtuell dator till Azure
 Får du ett av följande fel medan växling vid fel på en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.

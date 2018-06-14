@@ -1,11 +1,11 @@
 ---
-title: "Felsökning av vanliga problem vid skapandet av VHD | Microsoft Docs"
-description: "Svar på vanliga felsökning frågor och problem under skapande av virtuell Hårddisk."
+title: Felsökning av vanliga problem vid skapandet av VHD | Microsoft Docs
+description: Svar på vanliga felsökning frågor och problem under skapande av virtuell Hårddisk.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941610"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Felsökning av vanliga problem som påträffas under skapande av virtuell Hårddisk
 Den här artikeln för att hjälpa en Azure Marketplace utgivaren och/eller medadministratör som kan ha ett problem eller har frågor när du publicerar eller hantera sina virtuella solution(s).

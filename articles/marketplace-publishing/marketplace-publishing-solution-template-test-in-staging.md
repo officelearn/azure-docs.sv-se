@@ -1,11 +1,11 @@
 ---
-title: "Testa lösningen mallen erbjudandet på Marketplace | Microsoft Docs"
-description: "Förstå hur du testar erbjudandet lösning mall för Azure Marketplace."
+title: Testa lösningen mallen erbjudandet på Marketplace | Microsoft Docs
+description: Förstå hur du testar erbjudandet lösning mall för Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937843"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testa lösningen mallen erbjudandet i Förproduktion
 Mellanlagring innebär distribuera erbjudandet i ett privat ”sandbox” där du kan testa och verifiera dess funktioner innan du skickar den till produktion. Erbjudandet visas i Förproduktion precis som när en kund som har distribuerat den. Erbjudandet måste certifierade pushas till mellanlagring.

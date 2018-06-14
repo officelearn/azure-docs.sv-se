@@ -1,17 +1,17 @@
 ---
-title: "Skriptexempel Azure CLI - Filter VM-nätverkstrafik | Microsoft Docs"
-description: "Azure CLI-skript exempel – filtrera inkommande och utgående VM-nätverkstrafik."
+title: Skriptexempel Azure CLI - Filter VM-nätverkstrafik | Microsoft Docs
+description: Azure CLI-skript exempel – filtrera inkommande och utgående VM-nätverkstrafik.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849988"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrera inkommande och utgående nätverkstrafik för VM
 

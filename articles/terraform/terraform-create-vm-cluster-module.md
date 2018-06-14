@@ -1,7 +1,7 @@
 ---
-title: "Använd Terraform moduler för att skapa ett VM-kluster i Azure"
-description: "Lär dig hur du använder Terraform moduler för att skapa en virtuell Windows-kluster i Azure"
-keywords: "terraform, devops, virtuella datorer, nätverk, moduler"
+title: Använd Terraform moduler för att skapa ett VM-kluster i Azure
+description: Lär dig hur du använder Terraform moduler för att skapa en virtuell Windows-kluster i Azure
+keywords: terraform, devops, virtuella datorer, nätverk, moduler
 author: rloutlaw
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952225"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett VM-kluster med Terraform med hjälp av modulen registret
 

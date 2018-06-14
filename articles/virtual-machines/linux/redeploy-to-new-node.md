@@ -1,6 +1,6 @@
 ---
 title: Distribuera virtuella Linux-datorer i Azure | Microsoft Docs
-description: "Hur du distribuerar virtuella Linux-datorer i Azure för att minimera SSH-anslutningsproblem."
+description: Hur du distribuerar virtuella Linux-datorer i Azure för att minimera SSH-anslutningsproblem.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849315"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera virtuell Linux-dator till den nya noden i Azure
 Om du står inför svårigheter felsökning SSH eller kan bidra till att programmet åtkomst till en Linux-dator (VM) i Azure, omdistribuera den virtuella datorn. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka. Alla konfigurationsalternativ och associerade resurser bevaras. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure CLI eller Azure-portalen.

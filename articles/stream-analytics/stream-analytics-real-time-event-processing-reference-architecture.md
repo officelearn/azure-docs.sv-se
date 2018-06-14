@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30902590"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referera arkitektur: realtid händelsebearbetning med Microsoft Azure Stream Analytics
 Referensarkitektur för realtid händelsebearbetning med Azure Stream Analytics är avsedd att ge en allmän plan för att distribuera en realtid plattform som en tjänst (PaaS) stream-bearbetning med Microsoft Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Ansluta en tjänst i molnet till en anpassad domänkontrollant | Microsoft Docs"
-description: "Lär dig hur du ansluter web/worker-roller till en anpassad AD-domän med PowerShell och tillägg för AD-domänen"
+title: Ansluta en tjänst i molnet till en anpassad domänkontrollant | Microsoft Docs
+description: Lär dig hur du ansluter web/worker-roller till en anpassad AD-domän med PowerShell och tillägg för AD-domänen
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845663"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ansluta Azure Cloud Services-roller till en anpassad AD-domänkontrollant finns i Azure
 Vi kommer först ställa in ett virtuellt nätverk (VNet) i Azure. Vi ska lägga till en Active Directory-domänkontrollant (som finns på en virtuell dator i Azure) VNet. Vi kommer därefter lägga till befintliga molntjänstroller i förväg skapade virtuella nätverk och Anslut dem till domänkontrollanten.

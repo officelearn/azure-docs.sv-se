@@ -1,11 +1,11 @@
 ---
 title: Azure Service Bus-meddelanden undantag | Microsoft Docs
-description: "Lista över Service Bus-meddelanden undantag och föreslagna åtgärder."
+description: Lista över Service Bus-meddelanden undantag och föreslagna åtgärder.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930158"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus – undantag för meddelanden
 Den här artikeln innehåller vissa undantag som genereras av Microsoft Azure Service Bus-meddelanden API: er. Den här referensen kan ändras, så kolla igen efter uppdateringar.

@@ -1,6 +1,6 @@
 ---
-title: "Översikt över Azure Database for MySQL | Microsoft Docs"
-description: "Hjälpinnehåll för översikt över Azure Database for MySQL på Azure Portal"
+title: Översikt över Azure Database for MySQL | Microsoft Docs
+description: Hjälpinnehåll för översikt över Azure Database for MySQL på Azure Portal
 services: mysql
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073902"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Azure Database för MySQL-dokumentation
 

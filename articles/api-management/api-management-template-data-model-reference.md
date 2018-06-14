@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378164"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-mall datamodell referens
 Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som används i datamodeller för developer portal mallar i Azure API Management.  

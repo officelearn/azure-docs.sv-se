@@ -1,8 +1,8 @@
 ---
-title: "Övervaka din ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs"
-description: "Innehåller instruktioner för att snabbt konfigurera en ASP.NET-webbapp för övervakning med Application Insights"
+title: Övervaka din ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs
+description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET-webbapp för övervakning med Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23947678"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 

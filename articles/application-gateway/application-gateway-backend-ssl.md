@@ -1,6 +1,6 @@
 ---
-title: "Aktivera slutpunkt-till-slutpunkt-SSL på Azure Application Gateway | Microsoft Docs"
-description: "Den här sidan ger en översikt över slutpunkt-till-slutpunkt SSL-stöd för Application Gateway."
+title: Aktivera slutpunkt-till-slutpunkt-SSL på Azure Application Gateway | Microsoft Docs
+description: Den här sidan ger en översikt över slutpunkt-till-slutpunkt SSL-stöd för Application Gateway.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704718"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL på Application Gateway
 

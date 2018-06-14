@@ -1,5 +1,5 @@
 ---
-title: "Integrera säkerhet i konstruktionerna för Azure-arkitektur | Microsoft Docs"
+title: Integrera säkerhet i konstruktionerna för Azure-arkitektur | Microsoft Docs
 description: " Den här artikeln hjälper dig att förstå arkitektur för program och tjänster i Azure för att göra det enklare att integrera säkerhet i designen och implementeringen. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/23/2017
+ms.locfileid: "25549449"
 ---
 # <a name="application-architecture-on-azure"></a>Programarkitektur på Azure
 För att säkra din molnbaserade lösningar på Microsoft Azure utgör arkitektur grundläggande är viktigt. Arkitekter, Designer och implementerare nytta av stora kunskaper om arkitektur för program och tjänster. Denna grundläggande kunskap hjälper dig att förstå alla komponenter i din molnbaserade lösningar och gör det enklare att integrera säkerhet i alla aspekter av din design- och implementering.

@@ -1,11 +1,11 @@
 ---
-title: "Flytta ExpressRoute-kretsar från klassisk modell till Resource Manager | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över vad du behöver veta om att skapa en bryggning i klassiska och Resource Manager-distributionsmodeller."
+title: Flytta ExpressRoute-kretsar från klassisk modell till Resource Manager | Microsoft Docs
+description: Den här sidan innehåller en översikt över vad du behöver veta om att skapa en bryggning i klassiska och Resource Manager-distributionsmodeller.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710073"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.

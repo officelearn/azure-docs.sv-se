@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157052"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Mobiltjänst för .NET-Azure till App Service
 Apptjänst Mobile är ett nytt sätt att skapa mobila program med Microsoft Azure. Läs mer i [vad är Mobilappar?].

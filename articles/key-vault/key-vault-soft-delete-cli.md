@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - hur du använder mjuk borttagning med CLI"
-description: "Använda case exempel på mjuk borttagning med CLI-kodstyckena"
+ms.assetid: ''
+title: Azure Key Vault - hur du använder mjuk borttagning med CLI
+description: Använda case exempel på mjuk borttagning med CLI-kodstyckena
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927982"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
 

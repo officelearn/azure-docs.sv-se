@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Dokumentation om Site Recovery
 metadata:
-  title: "Dokumentation om Azure Site Recovery – Självstudier, API-referens | Microsoft Docs"
+  title: Dokumentation om Azure Site Recovery – Självstudier, API-referens | Microsoft Docs
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
   author: czeumault
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 01/10/2018
+  ms.locfileid: "27740093"
 abstract:
-  description: "Azure Site Recovery dirigerar och hanterar haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar. Lär dig att replikera, redundansväxla och återställa med våra snabbstarter och självstudier."
+  description: Azure Site Recovery dirigerar och hanterar haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar. Lär dig att replikera, redundansväxla och återställa med våra snabbstarter och självstudier.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Konfigurera snabbt haveriberedskap för en virtuell Azure-dator"
+    text: Konfigurera snabbt haveriberedskap för en virtuell Azure-dator
   - type: list
     style: icon48
     items:
@@ -32,45 +33,45 @@ sections:
         src: /azure/site-recovery/media/index/portal.svg
       text: Azure Portal
       href: /azure/site-recovery/azure-to-azure-quickstart
-- title: "Stegvisa självstudier"
+- title: Stegvisa självstudier
   items:
   - type: paragraph
-    text: "Lär dig att konfigurera haveriberedskap för virtuella datorer och fysiska servrar."
+    text: Lär dig att konfigurera haveriberedskap för virtuella datorer och fysiska servrar.
   - type: text
     html: <h3>Azure till Azure</h3>
   - type: list
     style: ordered
     items:
     - html: <a href="azure-to-azure-tutorial-enable-replication">Konfigurera haveriberedskap</a>
-    - html: "<a href=\"azure-to-azure-tutorial-dr-drill\">Köra ett återställningstest</a>"
-    - html: "<a href=\"azure-to-azure-tutorial-failover-failback\">Köra redundans och återställning efter fel</a>"
+    - html: <a href="azure-to-azure-tutorial-dr-drill">Köra ett återställningstest</a>
+    - html: <a href="azure-to-azure-tutorial-failover-failback">Köra redundans och återställning efter fel</a>
   - type: text
     html: <h3>VMware</h3>
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-prepare-azure\">Förbereda Azure</a>"
-    - html: "<a href=\"tutorial-prepare-on-premises-vmware\">Förbereda lokal VMware</a>"
+    - html: <a href="tutorial-prepare-azure">Förbereda Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-vmware">Förbereda lokal VMware</a>
     - html: <a href="tutorial-vmware-to-azure">Konfigurera haveriberedskap</a>
-    - html: "<a href=\"tutorial-dr-drill-azure\">Köra ett återställningstest</a>"
-    - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">Köra redundans och återställning efter fel</a>"
+    - html: <a href="tutorial-dr-drill-azure">Köra ett återställningstest</a>
+    - html: <a href="tutorial-vmware-to-azure-failover-failback">Köra redundans och återställning efter fel</a>
   - type: text
     html: <h3>Hyper-V</h3>
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-prepare-azure\">Förbereda Azure</a>"
-    - html: "<a href=\"tutorial-prepare-on-premises-hyper-v\">Förbereda lokala Hyper-V</a>"
-    - html: "<a href=\"tutorial-hyper-v-to-azure\">Konfigurera haveriberedskap för virtuella Hyper-V-datorer</a>"
-    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">Konfigurera katastrofåterställning för virtuella Hyper-V datorer som hanteras av System Center VMM</a>"
-    - html: "<a href=\"tutorial-dr-drill-azure\">Köra ett återställningstest</a>"
-    - html: "<a href=\"tutorial-hyper-v-to-azure-failover-failback\">Köra redundans och återställning efter fel</a>"
+    - html: <a href="tutorial-prepare-azure">Förbereda Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-hyper-v">Förbereda lokala Hyper-V</a>
+    - html: <a href="tutorial-hyper-v-to-azure">Konfigurera haveriberedskap för virtuella Hyper-V-datorer</a>
+    - html: <a href="tutorial-hyper-v-vmm-to-azure">Konfigurera katastrofåterställning för virtuella Hyper-V datorer som hanteras av System Center VMM</a>
+    - html: <a href="tutorial-dr-drill-azure">Köra ett återställningstest</a>
+    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Köra redundans och återställning efter fel</a>
   - type: text
     html: <h3>Migrera till Azure</h3>
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-prepare-azure\">Förbereda Azure</a>"
+    - html: <a href="tutorial-prepare-azure">Förbereda Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Migrera lokala datorer</a> eller <a href="tutorial-migrate-aws-to-azure">AWS-instanser till Azure</a>
 - title: Referens
   items:

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844089"
 ---
 Lagring är begränsad av diskutrymme eller av en hård gräns på den *maximalt antal* för index, dokument eller andra övergripande resurser, beroende på vilket som kommer först. I följande tabell beskrivs Lagringsgränser. Övre gräns för index, dokument och andra objekt finns [gränser som resursen](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

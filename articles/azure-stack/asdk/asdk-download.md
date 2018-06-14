@@ -2,11 +2,11 @@
 title: Ladda ned och extrahera Azure Stack Development Kit (ASDK) | Microsoft Docs
 description: Beskriver hur du ladda ned och extrahera Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975883"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Ladda ned och extrahera Azure Stack Development Kit (ASDK)
 När du har kontrollerat att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK, är nästa steg att ladda ned och extrahera ASDK distributionspaketet för att få Cloudbuilder.vhdx.

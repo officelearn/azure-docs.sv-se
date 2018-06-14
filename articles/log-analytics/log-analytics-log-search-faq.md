@@ -1,11 +1,11 @@
 ---
-title: "Vanliga frågor och svar om log Analytics ny logg sökning | Microsoft Docs"
-description: "Den här artikeln innehåller vanliga frågor och svar om uppgraderingen av logganalys till det nya språket i fråga."
+title: Vanliga frågor och svar om log Analytics ny logg sökning | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor och svar om uppgraderingen av logganalys till det nya språket i fråga.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993877"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nya logganalys logga Sök vanliga frågor och kända problem
 

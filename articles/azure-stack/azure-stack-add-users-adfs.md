@@ -1,11 +1,11 @@
 ---
-title: "Lägg till användare för Azure-stacken ADFS | Microsoft Docs"
-description: "Lär dig hur du lägger till användare för AD FS-distributioner av Azure-stacken"
+title: Lägg till användare för Azure-stacken ADFS | Microsoft Docs
+description: Lär dig hur du lägger till användare för AD FS-distributioner av Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554599"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Lägg till användare i Azure-stacken Development Kit
 

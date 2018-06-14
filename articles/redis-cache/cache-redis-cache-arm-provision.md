@@ -1,11 +1,11 @@
 ---
 title: Etablera ett Redis-Cache med Azure Resource Manager | Microsoft Docs
-description: "Använd Azure Resource Manager-mall för att distribuera ett Azure Redis-Cache."
+description: Använd Azure Resource Manager-mall för att distribuera ett Azure Redis-Cache.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910749"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Skapa en Redis Cache med hjälp av en mall
 Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar ett Azure Redis-Cache i det här avsnittet. Cachen kan användas med ett befintligt lagringskonto för att hålla diagnostikdata. Du också lära dig hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.

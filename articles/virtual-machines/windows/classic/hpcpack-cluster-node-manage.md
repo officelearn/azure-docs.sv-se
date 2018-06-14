@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914943"
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Hantera antalet och tillgängligheten av beräkningsnoder i ett HPC Pack-kluster i Azure
 Om du har skapat ett HPC Pack 2012 R2-kluster i virtuella Azure-datorer kan du kanske sätt enkelt lägga till, ta bort, starta (tillhandahålla) eller stoppa (avetablering) vissa compute-nod virtuella datorer i klustret. Om du vill utföra dessa uppgifter, kör du Azure PowerShell-skript som är installerade på huvudnoden VM. Dessa skript hjälpa dig att styra antalet och tillgängligheten för din HPC Pack klusterresurser så du kan styra kostnader.

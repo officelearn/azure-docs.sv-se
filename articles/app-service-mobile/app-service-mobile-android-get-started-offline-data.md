@@ -1,6 +1,6 @@
 ---
-title: "Aktivera offlinesynkronisering för Azure Mobile App (Android)"
-description: "Lär dig mer om Apptjänst Mobilappar cache och synkronisering offline data i din Android-App"
+title: Aktivera offlinesynkronisering för Azure Mobile App (Android)
+description: Lär dig mer om Apptjänst Mobilappar cache och synkronisering offline data i din Android-App
 documentationcenter: android
 author: conceptdev
 manager: crdun
@@ -18,6 +18,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594199"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Aktivera offlinesynkronisering av din Android-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

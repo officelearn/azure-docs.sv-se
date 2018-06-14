@@ -1,11 +1,11 @@
 ---
 title: Principer i Azure API Management | Microsoft Docs
-description: "Lär dig mer om att skapa, redigera och konfigurera principer i API-hantering."
+description: Lär dig mer om att skapa, redigera och konfigurera principer i API-hantering.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712876"
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
 

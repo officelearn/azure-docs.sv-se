@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs avbilda genomgången | Microsoft Docs"
-description: "Exempel som använder Azure Python SDK för att demonstrera funktionen Event Hubs avbilda."
+title: Azure Event Hubs avbilda genomgången | Microsoft Docs
+description: Exempel som använder Azure Python SDK för att demonstrera funktionen Event Hubs avbilda.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016465"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs avbilda genomgång: Python
 

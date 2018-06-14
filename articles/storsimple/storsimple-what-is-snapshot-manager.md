@@ -1,11 +1,11 @@
 ---
-title: "Vad är StorSimple Snapshot Manager? | Microsoft Docs"
+title: Vad är StorSimple Snapshot Manager? | Microsoft Docs
 description: Beskriver StorSimple Snapshot Manager, dess arkitektur och dess funktioner.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876833"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>En introduktion till StorSimple Snapshot Manager
 

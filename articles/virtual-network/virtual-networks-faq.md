@@ -1,6 +1,6 @@
 ---
-title: "Virtuella Azure-nätverket vanliga frågor och svar | Microsoft Docs"
-description: "Svar på vanliga frågor om Microsoft Azure-nätverk."
+title: Virtuella Azure-nätverket vanliga frågor och svar | Microsoft Docs
+description: Svar på vanliga frågor om Microsoft Azure-nätverk.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854197"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (FAQ) virtuella Azure-nätverket
 

@@ -1,6 +1,6 @@
 ---
-title: "Ställ in katastrofåterställning för Hyper-V virtuella datorer mellan lokala platser med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du ställer in katastrofåterställning för Hyper-V virtuella datorer mellan din lokala platser med Azure Site Recovery."
+title: Ställ in katastrofåterställning för Hyper-V virtuella datorer mellan lokala platser med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du ställer in katastrofåterställning för Hyper-V virtuella datorer mellan din lokala platser med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843467"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Ställ in katastrofåterställning för Hyper-V virtuella datorer till en sekundär lokal plats
 

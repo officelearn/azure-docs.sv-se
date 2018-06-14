@@ -1,12 +1,12 @@
 ---
-title: "Ersätta en PCM på enheten StorSimple 8000-serien | Microsoft Docs"
-description: "Beskriver hur du tar bort och ersätter ström och kylning modul (PCM) på din StorSimple-enhet"
+title: Ersätta en PCM på enheten StorSimple 8000-serien | Microsoft Docs
+description: Beskriver hur du tar bort och ersätter ström och kylning modul (PCM) på din StorSimple-enhet
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875062"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätta en ström och kylning modulen på din StorSimple-enhet
 ## <a name="overview"></a>Översikt

@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple virtuell matris säkerhetskopiering kursen | Microsoft Docs"
-description: "Beskriver hur du säkerhetskopierar virtuella StorSimple-matris filresurser och volymer."
+title: Microsoft Azure StorSimple virtuell matris säkerhetskopiering kursen | Microsoft Docs
+description: Beskriver hur du säkerhetskopierar virtuella StorSimple-matris filresurser och volymer.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875650"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på din virtuella StorSimple-matris
 

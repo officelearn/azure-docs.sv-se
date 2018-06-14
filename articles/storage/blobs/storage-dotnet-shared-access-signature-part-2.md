@@ -1,8 +1,8 @@
 ---
-title: "Skapa och använda en signatur för delad åtkomst (SAS) med Azure Blob storage | Microsoft Docs"
-description: "Den här kursen visar hur du skapar signaturer för delad åtkomst för användning med Blob storage och använda dem i ditt klientprogram."
+title: Skapa och använda en signatur för delad åtkomst (SAS) med Azure Blob storage | Microsoft Docs
+description: Den här kursen visar hur du skapar signaturer för delad åtkomst för användning med Blob storage och använda dem i ditt klientprogram.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -16,9 +16,10 @@ ms.date: 05/15/2017
 ms.author: tamram
 ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873214"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage
 
@@ -112,7 +113,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-Lägg till följande rader längst ned i den **Main()** metoden innan anropet till **Console.ReadLine()**att anropa **GetContainerSasUri()** och skriva signaturen URI till konsolfönstret:
+Lägg till följande rader längst ned i den **Main()** metoden innan anropet till **Console.ReadLine()** att anropa **GetContainerSasUri()** och skriva signaturen URI till konsolfönstret:
 
 ```csharp
 //Generate a SAS URI for the container, without a stored access policy.

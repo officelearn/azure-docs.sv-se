@@ -1,11 +1,11 @@
 ---
 title: Azure CDN regler motorn villkorsuttryck | Microsoft Docs
-description: "I referensdokumentationen för Azure CDN regler motorn matchar villkoren och funktioner."
+description: I referensdokumentationen för Azure CDN regler motorn matchar villkoren och funktioner.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842932"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Azure CDN regler motorn villkorsuttryck
 Det här avsnittet innehåller detaljerade beskrivningar av villkorliga uttryck för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).

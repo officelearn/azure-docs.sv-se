@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191724"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partner
 Välj en mängd olika branschledande verktyg för att skapa din lösning för slutpunkt till slutpunkt data warehouse.  Den här artikeln visar Microsoft partnerföretag med business intelligence (BI)-lösningar stöd för Azure SQL Data Warehouse.

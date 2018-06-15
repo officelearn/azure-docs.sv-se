@@ -1,11 +1,11 @@
 ---
-title: "Maskinvara för StorSimple 10 GbE-gränssnitt | Microsoft Docs"
-description: "Beskriver stöds liten formfaktor pluggable (SFP) mottagarna, kablar och växlar för 10 GbE-nätverkskort på StorSimple-enheten."
+title: Maskinvara för StorSimple 10 GbE-gränssnitt | Microsoft Docs
+description: Beskriver stöds liten formfaktor pluggable (SFP) mottagarna, kablar och växlar för 10 GbE-nätverkskort på StorSimple-enheten.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927756"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Maskinvara som stöds för 10 GbE-nätverkskort på din StorSimple-enhet
 ## <a name="overview"></a>Översikt

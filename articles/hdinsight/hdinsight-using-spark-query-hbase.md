@@ -18,6 +18,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161183"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark för att läsa och skriva HBase-data
 

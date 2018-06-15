@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190098"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene fråga syntaxexemplen för att skapa frågor i Azure Search
 När man skapar frågor för Azure Search kan du använda antingen standard [enkel frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller alternativt [Lucene Frågeparsern i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Frågeparsern Lucene stöder mer komplex fråga konstruktioner fältet omfång frågor, fuzzy sökning, närhet sökning, termen förstärkning och reguljärt uttryck för sökning.

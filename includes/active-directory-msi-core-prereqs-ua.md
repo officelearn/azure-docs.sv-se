@@ -13,5 +13,6 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186145"
 ---
 Om du är bekant med MSI kan ta en titt på [hanterade tjänstidentiteten översikt](~/articles/active-directory/managed-service-identity/overview.md), och **bör du granska den [skillnaden mellan ett system som tilldelats och Användartilldelad MSI](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)** . Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

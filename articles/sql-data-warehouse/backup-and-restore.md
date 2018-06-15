@@ -12,9 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187607"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region. 

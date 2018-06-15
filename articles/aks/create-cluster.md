@@ -14,6 +14,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935087"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Skapa ett kluster som Azure Kubernetes Service (AKS)
 

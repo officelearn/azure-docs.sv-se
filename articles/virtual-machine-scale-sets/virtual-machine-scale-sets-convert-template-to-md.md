@@ -1,9 +1,9 @@
 ---
-title: "Konvertera en Azure Resource Manager skala mall för att använda hanterade disk | Microsoft Docs"
-description: "Konvertera en scale set-mall till en mall för hanterade diskar skala."
-keywords: "Skaluppsättningar för den virtuella datorn"
+title: Konvertera en Azure Resource Manager skala mall för att använda hanterade disk | Microsoft Docs
+description: Konvertera en scale set-mall till en mall för hanterade diskar skala.
+keywords: Skaluppsättningar för den virtuella datorn
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781079"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konvertera en scale set-mall till en mall för hanterade diskar skala
 

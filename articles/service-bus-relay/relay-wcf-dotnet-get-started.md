@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure Relay WCF vidarebefordrar i .NET | Microsoft Docs"
-description: "Lär dig hur du använder Azure Relay WCF reläer för att ansluta två appar som finns på olika platser."
+title: Kom igång med Azure Relay WCF vidarebefordrar i .NET | Microsoft Docs
+description: Lär dig hur du använder Azure Relay WCF reläer för att ansluta två appar som finns på olika platser.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856090"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF vidarebefordrar med .NET
 Den här artikeln beskriver hur du använder tjänsten Azure Relay. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i [översikt över Azure Relay](relay-what-is-it.md).

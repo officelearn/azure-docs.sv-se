@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788769"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
 När du använder Microsoft Azure Media Services kan du få HTTP felkoder från beroende på problem som till exempel autentiseringstoken ut till åtgärder som inte stöds i Media Services-tjänsten. Följande är en lista över **HTTP felkoder** som kan returneras av Media Services och möjliga orsaker för dessa.  

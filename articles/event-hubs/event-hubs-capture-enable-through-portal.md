@@ -1,12 +1,12 @@
 ---
-title: "Aktivera avbildningsfunktionen för Azure Event Hubs via portalen | Microsoft Docs"
-description: "Använd Azure Portal för att aktivera avbildningsfunktionen i Event Hubs."
+title: Aktivera avbildningsfunktionen för Azure Event Hubs via portalen | Microsoft Docs
+description: Använd Azure Portal för att aktivera avbildningsfunktionen i Event Hubs.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855019"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Aktivera avbildningsfunktionen i Event Hubs med Azure Portal
 

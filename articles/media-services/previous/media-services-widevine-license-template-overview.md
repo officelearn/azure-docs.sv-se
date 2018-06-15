@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790484"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine-licens mall översikt
 Du kan använda Azure Media Services för att konfigurera och begära Google Widevine-licenser. När Windows Media player försöker spela upp ditt Widevine-skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, skickar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.

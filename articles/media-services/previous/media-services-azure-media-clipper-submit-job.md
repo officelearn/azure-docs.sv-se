@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788496"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Skicka urklippet jobb från Azure Media Clipper
 Azure Media Clipper kräver en **submitSubclipCallback** metod ska implementeras för att hantera urklippet jobbet. Den här funktionen är för att implementera en HTTP POST Clipper utdata till en webbtjänst. Den här webbtjänsten är där du kan skicka kodningsjobbet. Utdata från Clipper är antingen en Media Encoder Standard kodning förinställda för renderade jobb eller REST API-nyttolasten för dynamiska manifestet filtret-anrop. Den här direkt modellen är nödvändigt eftersom autentiseringsuppgifterna för media services inte är säker i klientens webbläsare.

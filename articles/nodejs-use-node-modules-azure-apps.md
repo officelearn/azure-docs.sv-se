@@ -1,11 +1,11 @@
 ---
 title: Arbeta med Node.js-moduler
-description: "Lär dig hur du arbetar med Node.js-moduler när du använder Azure App Service eller molntjänster."
-services: 
+description: Lär dig hur du arbetar med Node.js-moduler när du använder Azure App Service eller molntjänster.
+services: ''
 documentationcenter: nodejs
 author: TomArcher
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864058"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Använda Node.js-moduler med Azure-program
 Detta dokument ger vägledning om hur du använder Node.js-moduler med program i Azure. Det innehåller vägledning om hur du säkerställer att ditt program använder en viss version av en modul eller någon av Azures egna moduler.

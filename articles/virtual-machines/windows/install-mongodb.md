@@ -1,11 +1,11 @@
 ---
-title: "Installera MongoDB på en Windows-dator i Azure | Microsoft Docs"
-description: "Lär dig hur du installerar MongoDB på en Azure-dator som kör Windows Server 2012 R2 som skapats med Resource Manager-distributionsmodellen."
+title: Installera MongoDB på en Windows-dator i Azure | Microsoft Docs
+description: Lär dig hur du installerar MongoDB på en Azure-dator som kör Windows Server 2012 R2 som skapats med Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745987"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installera och konfigurera MongoDB på en Windows-dator i Azure
 [MongoDB](http://www.mongodb.org) är en populär öppen källkod, högpresterande NoSQL-databas. Den här artikeln visar hur du installerar och konfigurerar MongoDB på en Windows Server 2016 virtuell dator (VM) i Azure. Du kan också [installera MongoDB på en Linux-VM i Azure](../linux/install-mongodb.md).

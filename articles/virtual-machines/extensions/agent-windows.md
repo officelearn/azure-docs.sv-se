@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942657"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure virtuella datorns Agent
 Den virtuella datorns Agent för Microsoft Azure (VM-Agent) är en säker, enkel process som hanterar virtuell dator (VM) interaktion med Azure-Infrastrukturkontrollanten. Den Virtuella Datoragenten har en primär roll i att aktivera och köra tillägg för virtuell dator i Azure. VM-tillägg aktivera efter distributionskonfiguration för virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg också aktivera återställningsfunktioner, till exempel när du återställer lösenordet för administratörer av en virtuell dator. VM-tillägg kan inte köras utan Azure VM-agenten.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203977"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Förstå Azure faktureringen för externa serviceavgifter
 Externa tjänster publiceras av tredje part programleverantörer i Azure marketplace. Till exempel är ClearDB och SendGrid externa tjänster som du kan köpa i Azure, men inte har publicerats av Microsoft.

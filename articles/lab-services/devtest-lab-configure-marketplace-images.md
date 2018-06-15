@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787397"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Konfigurera inställningar för Azure Marketplace-avbildning i Azure DevTest Labs
 DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-bilder beroende på hur du har konfigurerat Azure Marketplace-bilder som ska användas i labbet. Den här artikeln visar hur du anger som eventuellt Azure Marketplace-bilder kan vara används när du skapar virtuella datorer i ett labb. Detta säkerställer att din grupp endast har åtkomst till Marketplace-avbildningar som de behöver. 

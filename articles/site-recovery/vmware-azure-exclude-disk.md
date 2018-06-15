@@ -1,6 +1,6 @@
 ---
-title: "Exkludera diskar från skydd med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Beskriver varför och hur du undantar VM-diskar från replikering för VMware till Azure."
+title: Exkludera diskar från skydd med hjälp av Azure Site Recovery | Microsoft Docs
+description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware till Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812938"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Undanta diskar från replikering för VMware till Azure-scenario
 

@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager säkerhetskopieringsjobb | Microsoft Docs"
-description: "Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att visa och hantera schemalagda pågående och slutförda säkerhetskopieringsjobb."
+title: StorSimple Snapshot Manager säkerhetskopieringsjobb | Microsoft Docs
+description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att visa och hantera schemalagda pågående och slutförda säkerhetskopieringsjobb.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875818"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Använd StorSimple Snapshot Manager för att visa och hantera säkerhetskopieringsjobb
 

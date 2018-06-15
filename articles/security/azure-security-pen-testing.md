@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893375"
 ---
 # <a name="pen-testing"></a>Penna testning
 En av fördelarna med att använda Azure för att testa program och distribution är att du snabbt kan få miljöer som har skapats.  Du behöver inte bry dig om rekvisition, hämta, och ”förflyttning och stapling” lokal maskinvara.

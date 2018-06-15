@@ -1,12 +1,12 @@
 ---
-title: "Snabbreferens för Azure Import/Export verktyget import jobbet kommandon - v1 | Microsoft Docs"
-description: "Azure Import/Export-verktyget kommandoreferens för vanliga importera jobbet kommandon. Detta refererar till v1 i verktyget Import/Export."
+title: Snabbreferens för Azure Import/Export verktyget import jobbet kommandon - v1 | Microsoft Docs
+description: Azure Import/Export-verktyget kommandoreferens för vanliga importera jobbet kommandon. Detta refererar till v1 i verktyget Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873683"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Snabbreferens för ofta använda kommandon för importjobb
 Det här avsnittet innehåller en översikt över för några vanliga kommandon. För detaljerad användning, se [förbereder hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  

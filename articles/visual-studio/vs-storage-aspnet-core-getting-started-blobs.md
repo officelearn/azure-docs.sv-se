@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET Core) | Microsoft Docs"
-description: "Hur du kommer igång anslutna med Azure Blob storage i ASP.NET Core-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio tjänster"
+title: Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET Core) | Microsoft Docs
+description: Hur du kommer igång anslutna med Azure Blob storage i ASP.NET Core-projekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio tjänster
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621231"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (ASP.NET kärnor)
 

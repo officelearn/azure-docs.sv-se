@@ -16,9 +16,10 @@ ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887848"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Målobjekt för hanteringslösningar i Azure (förhandsversion)
 När du lägger till en lösning för din prenumeration distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan.  Du kanske vill hantera kostnaderna och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösning riktad** som är en funktion som gör att du kan använda ett omfång med dina lösningar.

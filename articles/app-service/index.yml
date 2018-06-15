@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Web Apps
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: "Dokumentation om Azure Web Apps – självstudier, API-referens"
+  title: Dokumentation om Azure Web Apps – självstudier, API-referens
   meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
   services: app-service
   author: czeumault
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27785465"
 abstract:
-  description: "Med Azure Web Apps kan du skapa och vara värd för webbappar i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure Web Apps med våra snabbstarter, självstudier och exempel."
+  description: Med Azure Web Apps kan du skapa och vara värd för webbappar i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure Web Apps med våra snabbstarter, självstudier och exempel.
   aside:
     image:
       alt: 
@@ -31,10 +32,10 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Lär dig hur du distribuerar ditt första program till molnet med Web Apps:"
+    text: 'Lär dig hur du distribuerar ditt första program till molnet med Web Apps:'
   - type: list
     style: icon48
     items:
@@ -63,7 +64,7 @@ sections:
       text: HTML
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
   - type: paragraph
-    text: "Lär dig hur du distribuerar kontinuerligt:"
+    text: 'Lär dig hur du distribuerar kontinuerligt:'
   - type: list
     style: icon48
     items:
@@ -71,18 +72,18 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure"
+    text: Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure
   - type: list
     style: ordered
     items:
-    - html: "Skapa ett program med hjälp av <a href=\"/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase\">.NET med Azure SQL DB</a> eller <a href=\"/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app\">Node.js med MongoDB</a>"
-    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-custom-domain\">Mappa en befintlig anpassad domän till ditt program</a>"
+    - html: Skapa ett program med hjälp av <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET med Azure SQL DB</a> eller <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
-    - html: "<a href=\"/azure/app-service/app-service-web-tutorial-content-delivery-network\">Lägga till ett CDN till ditt program</a>"
-- title: "Kostnadsfri videoutbildning för Pluralsight"
+    - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
+- title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list
     style: cards
@@ -101,7 +102,7 @@ sections:
 - title: Exempel
   items:
   - type: paragraph
-    text: "Hitta skript för att hantera vanliga uppgifter."
+    text: Hitta skript för att hantera vanliga uppgifter.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -116,7 +117,7 @@ sections:
     items:
     - title: Kommandorad
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
-    - title: "Språk"
+    - title: Språk
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
       html: <p><a href="/rest/api/appservice">REST API-referens</a></p>

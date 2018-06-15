@@ -1,11 +1,11 @@
 ---
-title: "Inga användare allokeras till ett program för Azure AD-galleriet | Microsoft Docs"
-description: "Felsökning av vanliga problem inför när du inte ser användarna som visas i en en Azure AD-galleriet program som du har konfigurerat för användaretablering med Azure AD"
+title: Inga användare allokeras till ett program för Azure AD-galleriet | Microsoft Docs
+description: Felsökning av vanliga problem inför när du inte ser användarna som visas i en en Azure AD-galleriet program som du har konfigurerat för användaretablering med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26616299"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Inga användare allokeras till ett program för Azure AD-galleriet
 

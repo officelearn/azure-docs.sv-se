@@ -1,12 +1,12 @@
 ---
-title: "Använd StorSimple 8000-serien sammanfattningen | Microsoft Docs"
-description: "Beskriver sammanfattning StorSimple Enhetshanteraren service enheten och hur du använder den för att visa storage-mätvärden och anslutna initierare och hitta serienummer och IQN."
+title: Använd StorSimple 8000-serien sammanfattningen | Microsoft Docs
+description: Beskriver sammanfattning StorSimple Enhetshanteraren service enheten och hur du använder den för att visa storage-mätvärden och anslutna initierare och hitta serienummer och IQN.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874859"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda sammanfattningen i Enhetshanteraren för StorSimple-tjänsten
 

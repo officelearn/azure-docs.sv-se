@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera MPIO på StorSimple Linux-värd | Microsoft Docs"
-description: "Konfigurera MPIO på StorSimple som är ansluten till en Linux-värd som kör CentOS 6.6"
+title: Konfigurera MPIO på StorSimple Linux-värd | Microsoft Docs
+description: Konfigurera MPIO på StorSimple som är ansluten till en Linux-värd som kör CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779099"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskrivs i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.

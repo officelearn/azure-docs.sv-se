@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33951512"
 ---
 Här följer användning begränsningarna för Azure Maps-tjänsten. Information om kostnaden finns [Azure Maps prisinformation](https://azure.microsoft.com/pricing/details/azure-maps/). [Kontakta oss](https://azure.microsoft.com/overview/sales-number/) att öka maximal förfrågningar för din prenumeration.
 

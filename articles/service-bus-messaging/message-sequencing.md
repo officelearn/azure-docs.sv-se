@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus meddelandet ordningsföljd och tidsstämplar | Microsoft Docs"
-description: "Bevara meddelandesekvens för Service Bus och ordning med tidsstämplar"
+title: Azure Service Bus meddelandet ordningsföljd och tidsstämplar | Microsoft Docs
+description: Bevara meddelandesekvens för Service Bus och ordning med tidsstämplar
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200742"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Meddelandet ordningsföljd och tidsstämplar
 

@@ -1,8 +1,8 @@
 ---
 title: Migrera ett aktivt DNS-namn till Azure App Service | Microsoft Docs
-description: "Lär dig hur du migrerar en anpassad DNS-namnet har redan tilldelats en levande plats till Azure Apptjänst utan någon avbrottstid."
+description: Lär dig hur du migrerar en anpassad DNS-namnet har redan tilldelats en levande plats till Azure Apptjänst utan någon avbrottstid.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566499"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 

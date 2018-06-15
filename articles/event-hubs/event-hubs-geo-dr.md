@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs geo-katastrofåterställning | Microsoft Docs"
-description: "Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Event Hubs"
+title: Azure Event Hubs geo-katastrofåterställning | Microsoft Docs
+description: Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Event Hubs
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745902"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-katastrofåterställning
 

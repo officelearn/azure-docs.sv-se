@@ -1,11 +1,11 @@
 ---
-title: "Ställa in ett RDMA-Windows-kluster som kör MPI program | Microsoft Docs"
-description: "Lär dig hur du skapar ett Windows HPC Pack kluster med storlek H16r H16mr, A8 eller A9 virtuella datorer för att köra MPI appar med Azure RDMA-nätverket."
+title: Ställa in ett RDMA-Windows-kluster som kör MPI program | Microsoft Docs
+description: Lär dig hur du skapar ett Windows HPC Pack kluster med storlek H16r H16mr, A8 eller A9 virtuella datorer för att köra MPI appar med Azure RDMA-nätverket.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852552"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Ställa in ett RDMA-Windows-kluster med HPC Pack som kör MPI-program
 Konfigurera ett RDMA för Windows-kluster i Azure med [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) och [RDMA-kompatibla HPC VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) att köra parallella Message Passing Interface (MPI) program. När du ställer in RDMA-kompatibla, Windows Server-baserade noder i ett kluster med HPC Pack kommunikation MPI program effektiv via en låg latens, hög genomströmning nätverk i Azure som är baserad på remote direct memory access (RDMA)-teknik.

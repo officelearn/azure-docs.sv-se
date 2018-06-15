@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894287"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Med Visual Studio på en förkonfigurerad Azure virtuell dator (VM) är ett snabbt, enkelt sätt att gå från grunden till en upp och körs utvecklingsmiljö. -Avbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).

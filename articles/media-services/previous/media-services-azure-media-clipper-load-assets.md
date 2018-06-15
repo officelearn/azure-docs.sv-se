@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788300"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Läsa in tillgångar i Azure Media Clipper
 Tillgångar kan läsas in i Azure Media Clipper av två metoder:

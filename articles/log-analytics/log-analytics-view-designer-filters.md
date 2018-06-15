@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "23945886"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filter i logganalys-vyer
 En **filter** i en [Log Analytics visa](log-analytics-view-designer.md) tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Du kan till exempel användare av vyn för att filtrera vyn för endast data från en viss dator eller datorer.  Du kan skapa flera filter på en enda vy så att användarna kan filtrera efter flera egenskaper.  Den här artikeln beskriver hur du använder ett filter och lägga till ett i en anpassad vy.

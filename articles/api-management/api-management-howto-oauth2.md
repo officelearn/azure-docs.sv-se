@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937240"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar developer konton med hjälp av OAuth 2.0 i Azure API Management
 Stöd för många API: er [OAuth 2.0](http://oauth.net/2/) att skydda API: et och se till att endast giltigt användare har åtkomst och de kan bara komma åt resurser som de är rätt. För att kunna använda Azure API Management interaktiva Utvecklarkonsolen med dessa API: er, kan tjänsten du konfigurera service-instans för att fungera med din OAuth 2.0 aktiverade API.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593499"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera filter för routning för Microsoft-peering: PowerShell
 > [!div class="op_single_selector"]

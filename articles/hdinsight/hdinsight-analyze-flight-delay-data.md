@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770580"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive i HDInsight
 Hive ger dig möjlighet att köra Hadoop MapReduce jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan användas mot sammanfattning, fråga och analys av stora mängder data.

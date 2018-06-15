@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894281"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser och som ger dig de insikter som du behöver för att reagera snabbt.

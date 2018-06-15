@@ -17,11 +17,12 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257539"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Hur du hämtar AppSource certifierade för Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) är mål för användare i verksamheten att upptäcka, försök och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
@@ -43,7 +44,7 @@ För att aktivera flera innehavare för ditt program:
 Läs mer om multitenans: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Stöd för en innehavare program
-Program som accepterar endast inloggningar från användare av en definierad Azure Active Directory-instans kallas *stöd för en innehavare programmet*. Externa användare (inklusive arbetet eller skolan konton från andra organisationer eller personligt konto) kan logga in på en enskild klient programmet när du lägger till varje användare som *gästkontot* till Azure Active Directory-instansen att programmet har registrerats. Du kan lägga till användare som gästkonton till en Azure Active Directory via den [ *Azure AD B2B-samarbete* ](../active-directory-b2b-what-is-azure-ad-b2b.md) - och det kan göras [genom att programmera](../active-directory-b2b-code-samples.md). När du lägger till en användare som gästkontot ett Azure Active Directory, skickas ett e-postinbjudan till användare måste acceptera inbjudan genom att klicka på länken i e-postinbjudan. Inbjudningar som skickas till en ytterligare användare i organisationen bjuda in som även är medlem i resurspartnerns organisation behöver inte acceptera en inbjudan för att logga in.
+Program som accepterar endast inloggningar från användare av en definierad Azure Active Directory-instans kallas *stöd för en innehavare programmet*. Externa användare (inklusive arbetet eller skolan konton från andra organisationer eller personligt konto) kan logga in på en enskild klient programmet när du lägger till varje användare som *gästkontot* till Azure Active Directory-instansen att programmet har registrerats. Du kan lägga till användare som gästkonton till en Azure Active Directory via den [ *Azure AD B2B-samarbete* ](../b2b/what-is-b2b.md) - och det kan göras [genom att programmera](../b2b/code-samples.md). När du lägger till en användare som gästkontot ett Azure Active Directory, skickas ett e-postinbjudan till användare måste acceptera inbjudan genom att klicka på länken i e-postinbjudan. Inbjudningar som skickas till en ytterligare användare i organisationen bjuda in som även är medlem i resurspartnerns organisation behöver inte acceptera en inbjudan för att logga in.
 
 Stöd för en innehavare program kan du aktivera den *kontakta mig* upplevelse, men om du vill aktivera den enkelklickning / kostnadsfria utvärderingsversionen som AppSource rekommenderar aktiverar multitenans för ditt program i stället.
 

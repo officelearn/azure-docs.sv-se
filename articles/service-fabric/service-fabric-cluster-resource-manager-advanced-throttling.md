@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205135"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Begränsning av Service Fabric klustret Resource Manager
 Även om du har konfigurerat klustret Resource Manager korrekt kan kan klustret hämta upplöst. Det kan till exempel vara samtidiga nod och feltolerans domän fel - vad som skulle hända om som uppstod under en uppgradering? Klustret Resource Manager försöker alltid åtgärda allt, förbrukar klusterresurser försök att ordna om och rätta till klustret. Begränsningar ger en backstop så att klustret kan använda resurser för att hålla - noderna komma tillbaka, network-partitioner läka, korrigerade bits distribueras.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208761"
 ---
 # <a name="testability-scenarios"></a>Möjlighet att testa scenarier
 Stora distribuerade system som molninfrastrukturer är natur instabilt. Azure Service Fabric ger utvecklare möjligheten att skriva tjänster som körs ovanpå instabilt infrastruktur. För att kunna skriva hög kvalitet services utvecklare behöver kan orsaka sådana instabilt infrastruktur för att testa stabiliteten för sina tjänster.

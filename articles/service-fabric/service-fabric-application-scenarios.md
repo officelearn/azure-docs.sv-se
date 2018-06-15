@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207544"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric-Programscenarier
 Azure Service Fabric är en tillförlitlig och flexibel plattform som gör att du kan skriva och köra många typer av program och tjänster. Dessa program och mikrotjänster kan vara tillståndslösa och tillståndskänsliga och de är Balanserat resurs för virtuella datorer för att maximera effektiviteten. Unik arkitekturen för Service Fabric kan du utföra nästan dataanalys i realtid, beräkning i minnet, parallella transaktioner och för händelsebearbetning i dina program. Du kan enkelt skala dina program uppåt eller nedåt (verkligen in eller ut), beroende på resurskraven ändras.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200164"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index av Hadoop i HDInsight felsökning artiklar
 Artiklar ordnas efter typer av fel.

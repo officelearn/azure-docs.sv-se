@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212569"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykel för Service Fabric-program
 Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric har förstklassigt stöd för fullständiga programmet livscykeln för molnprogram, från utveckling till distribution, dagliga hantering och underhåll för inaktivering av eventuell. Tjänstmodellen gör det möjligt för flera olika roller separat delta i programmet livscykel. Den här artikeln innehåller en översikt över de API: er och hur de används av olika roller i faserna i livscykeln för Service Fabric-programmet.

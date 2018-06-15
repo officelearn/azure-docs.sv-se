@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157701"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Apptyper för Azure Active Directory v2.0-slutpunkten
 Azure Active Directory (AD Azure) v2.0-slutpunkten stöder autentisering för en rad olika moderna apparkitekturer alla baserat på branschstandardprotokollen [OAuth 2.0- eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskriver typerna av appar som du kan skapa med hjälp av Azure AD v2.0, oavsett din önskat språk eller en plattform. Informationen i den här artikeln är utformat för att hjälpa dig att förstå övergripande scenarierna innan du [börjar arbeta med kod](active-directory-appmodel-v2-overview.md#getting-started).

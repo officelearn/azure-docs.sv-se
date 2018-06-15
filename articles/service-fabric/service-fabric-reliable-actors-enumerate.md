@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207275"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp Service Fabric Reliable Actors
 Reliable Actors-tjänsten kan en klient att räkna upp metadata om aktörer som är värd för tjänsten. Eftersom tjänsten aktören är en partitionerad tillståndskänslig service, utförs uppräkningen per partition. Eftersom varje partition kan innehålla många aktörer, returneras uppräkningen som en uppsättning växlingsbara resultat. Sidorna upprepas över tills alla sidor är skrivskyddade. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition av aktören tjänster:

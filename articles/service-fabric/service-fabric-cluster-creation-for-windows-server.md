@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209162"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att distribuera och köra Service Fabric-program i en miljö som innehåller en uppsättning sammankopplade Windows Server-datorer, att den lokala eller med en molntjänstleverantör för. Service Fabric ger ett installationspaket för att skapa Service Fabric-kluster kallas det fristående installationspaketet för Windows Server.

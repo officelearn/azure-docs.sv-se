@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212508"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Vanliga undantag och fel när du arbetar med FabricClient APIs
 Den [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API: er kan klustret och programmet administratörer att utföra administrativa uppgifter på ett Service Fabric-program, tjänst eller klustret. Programdistribution, uppgradering och borttagning, kontrollerar hälsotillståndet för ett kluster eller testa en tjänst. Programutvecklare och klusteradministratörer kan använda FabricClient APIs för att utveckla verktyg för hantering av Service Fabric-kluster och program.

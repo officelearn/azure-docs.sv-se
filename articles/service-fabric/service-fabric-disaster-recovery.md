@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206444"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Katastrofåterställning i Azure Service Fabric
 En viktig del av ger hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver vissa vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Det beskrivs åtgärder och åtgärder som ska vidtas om en katastrof hände ändå. Målet är att begränsa eller att inga avbrott eller dataförlust när de uppstår fel, planerade eller annars kan uppstå.

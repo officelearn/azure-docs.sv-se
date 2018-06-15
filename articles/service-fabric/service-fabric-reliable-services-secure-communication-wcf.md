@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205747"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Skydda WCF-baserade kommunikationen för en tjänst
 Säkerhet är en av de viktigaste aspekterna av kommunikation. Application framework Reliable Services innehåller några fördefinierade kommunikation stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln handlar om hur du förbättrar säkerheten när du använder tjänsten fjärrkommunikation.

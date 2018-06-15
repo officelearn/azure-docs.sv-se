@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204863"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurera och använda tjänsten tillhörighet i Service Fabric
 Tillhörighet är en kontroll som tillhandahålls huvudsakligen för att underlätta övergången av större gigantiska program till molnet och mikrotjänster världen. Det används också som en optimering för att förbättra prestanda för tjänster, även om du gör det kan ha sidoeffekter.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211073"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets unika namn i stället för tumavtrycket
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller hantering svårt. Flera certifikat kan dock ha samma namn eller ämne.  Ett kluster med certifikatet nätverksnamnen gör det mycket enklare att certifikathantering. Den här artikeln beskriver hur du distribuerar ett Service Fabric-kluster om du vill använda certifikatets unika namn i stället för tumavtrycket för certifikatet.

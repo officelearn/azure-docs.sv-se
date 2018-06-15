@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209346"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism inom ramen för Reliable Actors
 Reliable Actors framework kan du skapa aktörer med många av samma teknik som du vill använda i objektorienterad design. En av dessa tekniker är polymorfism som tillåter typer och gränssnitt för att ärva från flera generaliserad överordnade. Arv inom ramen för Reliable Actors följer vanligtvis .NET modellen med några ytterligare begränsningar. Vid Java-/ Linux följer Java-modellen.

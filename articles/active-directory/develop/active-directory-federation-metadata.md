@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156134"
 ---
 # <a name="federation-metadata"></a>Federationsmetadata
 Azure Active Directory (AD Azure) publicerar en federation metadata dokument för tjänster som är konfigurerad för att acceptera de säkerhetstoken som Azure AD utfärdar. Federation metadata dokumentets format är beskrivs i den [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), som utökar [Metadata för OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

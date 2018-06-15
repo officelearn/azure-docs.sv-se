@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267455"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrera lokala data till molnlagring med AzCopy
 
@@ -22,8 +23,8 @@ AzCopy är ett kommandoradsverktyg med vilket du kan kopiera data till eller fr�
 
 Du kan hämta två versioner av AzCopy:
 
-* [AzCopy på Linux](storage-use-azcopy.md) har byggts med .NET Core Framework. Den är inriktad på Linux-plattformar och erbjuder kommandoradsalternativ av POSIX-typ. 
-* [AzCopy på Windows](../storage-use-azcopy.md) har byggts med .NET Framework. Den tillhandahåller kommandoradsalternativ i Windows-format. 
+* [AzCopy på Linux](storage-use-azcopy-linux.md) har byggts med .NET Core Framework. Den är inriktad på Linux-plattformar och erbjuder kommandoradsalternativ av POSIX-typ. 
+* [AzCopy på Windows](storage-use-azcopy.md) har byggts med .NET Framework. Den tillhandahåller kommandoradsalternativ i Windows-format. 
  
 I den här guiden får du lära dig hur man:
 

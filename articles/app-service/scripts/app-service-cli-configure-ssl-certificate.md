@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281393"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Binda ett anpassat SSL-certifikat till en webbapp
 

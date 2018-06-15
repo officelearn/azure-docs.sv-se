@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207102"
 ---
 # <a name="reliable-actors-reentrancy"></a>Tillförlitliga aktörer återinträde
 Körningsmiljön Reliable Actors tillåter som standard logiska anropet kontext-baserade återinträde. Detta ger aktörer ska fleraktivt om de finns i samma kedja för anrop kontext. Till exempel skickar aktören A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A och är meddelandet fleraktivt, så ska tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills bearbetningen har slutförts.

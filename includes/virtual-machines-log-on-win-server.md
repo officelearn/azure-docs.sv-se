@@ -13,6 +13,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012819"
 ---
 1. Klicka på den **Anslut** på egenskapssidan för virtuell dator. 
 2. I den **Anslut till den virtuella datorn** , hålla väljer lämpliga alternativ och klickar på **ladda ned RDP-filen**.

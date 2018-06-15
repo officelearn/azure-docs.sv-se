@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206690"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Att konvertera webb- och arbetsroller till Service Fabric tillståndslösa tjänster
 Den här artikeln beskriver hur du migrerar din Cloud Services webb- och arbetsroller till Service Fabric tillståndslösa tjänster. Detta är den enklaste migreringsvägen från molntjänster till Service Fabric för program som ska vara ungefär samma vars övergripande arkitektur.

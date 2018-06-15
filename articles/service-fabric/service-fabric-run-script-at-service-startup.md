@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210502"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
 Innan en körbara Service Fabric-tjänsten startar kan det vara nödvändigt att köra vissa konfiguration eller installationen arbete.  Till exempel konfigurera miljövariabler. Du kan ange ett skript köras innan tjänstens körbara fil som startas i service manifest för tjänsten. Konfigurera en RunAs-princip för den installationsprogrammet startpunkten som du kan ändra vilket konto körs installationsprogrammets under.  En startpunkt för separata inställningar kan du köra hög privilged konfigurationen för en kort tidsperiod så tjänstvärden körbara inte behöver köra med högre behörighet under längre tid.

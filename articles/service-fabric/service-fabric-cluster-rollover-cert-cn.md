@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205152"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Distribuera manuellt via ett certifikat för Service Fabric-kluster
 När ett certifikat för Service Fabric-klustret är väg att löpa ut, måste du uppdatera certifikatet.  Förnya certifikatet är enkel om klustret var [till använder certifikat baserat på nätverksnamn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtrycket).  Hämta ett nytt certifikat från en certifikatutfärdare med ett nytt utgångsdatum.  Självsignerade certifikat, inklusive de som skapas när du distribuerar ett Service Fabric-kluster i Azure portal stöds inte.  Det nya certifikatet måste ha samma allmänna namn som det tidigare certifikatet. 

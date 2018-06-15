@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778070"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
 Företag befordras idag gradvis mot skapa mobila program för slutanvändarna (externa) eller för anställda (intern). De har befintliga serverdelssystem på plats vara den stordatorer eller vissa LoB-program som integreras i arkitektur för mobila program. Den här guiden handlar om hur bäst att göra den här integreringen rekommenderar möjlig lösning till vanliga scenarier.

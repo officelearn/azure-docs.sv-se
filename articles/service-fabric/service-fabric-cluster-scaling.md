@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208037"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Skala Service Fabric-kluster
 Ett Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även om arbetsbelastningar som körs på klustret.  När klustret skalas skalas dina program automatiskt samt.

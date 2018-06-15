@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208428"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
 När dina tjänster har problem, beror dina möjligheter att svara på och åtgärda incidenter och avbrott på möjligheten att snabbt identifiera problemen. Om du rapportera problem och fel till Azure Service Fabric health manager från service koden använder du standard hälsoövervakning verktygen i Service Fabric för att kontrollera hälsostatus.

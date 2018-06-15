@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212076"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric-terminologi
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Den här artikeln beskrivs de termer som används av Service Fabric att du förstår de termer som används i dokumentationen.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161996"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i Application Proxy
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till den säkerhet säkerhetstokentjänst (STS). STS begär autentiseringsuppgifter från användare mot en token och omdirigeras användaren till programmet. Det finns några sätt att aktivera Application Proxy ska fungera med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna program. 

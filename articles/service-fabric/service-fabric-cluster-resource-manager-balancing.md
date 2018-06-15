@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213154"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>NLB service fabric-kluster
 Service Fabric klustret Resource Manager stöder dynamisk ändringar reagera på tillägg eller borttagning av noder eller tjänster. Den korrigerar också automatiskt begränsningen överträdelser och balanserar proaktivt klustret. Hur ofta dessa åtgärder vidtas för men vad utlöser dem?

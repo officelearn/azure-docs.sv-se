@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206874"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementera Reliable Actors säkerhetskopiering och återställning
 I följande exempel visas en anpassad aktören tjänst Exponerar en metod att säkerhetskopiera aktören data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`:

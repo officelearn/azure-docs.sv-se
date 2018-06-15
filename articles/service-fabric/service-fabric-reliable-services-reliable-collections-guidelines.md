@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211148"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Riktlinjer och rekommendationer för tillförlitlig samlingar i Azure Service Fabric
 Det här avsnittet innehåller riktlinjer för att använda tillförlitliga Tillståndshanterare och tillförlitlig samlingar. Målet är att hjälpa användare att undvika vanliga fallgropar.

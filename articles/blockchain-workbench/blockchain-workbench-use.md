@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8732d1b87acaa6673ae92b3302fb257dcb134217
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258047"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Använda program i Azure Blockchain arbetsstationen
 
@@ -33,7 +34,7 @@ Du måste logga in som medlem i Blockchain arbetsstationen. Om det finns inga pr
 
 ## <a name="create-new-contract"></a>Skapa nytt kontrakt 
 
-Om du vill skapa ett nytt kontrakt, du måste vara medlem i den **AllowedInstanceRoles** roll. 
+Om du vill skapa ett nytt kontrakt, du måste vara en medlem som angetts som ett kontrakt **initieraren**. Definiera roller för programmet och initierarna för kontraktet information finns i [arbetsflöden i översikt över configuration](blockchain-workbench-configuration-overview.md#workflows). Information om hur du tilldelar medlemmar för programroller finns [lägga till en medlem i programmet](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. Välj panelen program som innehåller kontraktet som du vill skapa under Blockchain arbetsstationen program. En lista över aktiva kontrakt visas.
 
@@ -50,6 +51,8 @@ Om du vill skapa ett nytt kontrakt, du måste vara medlem i den **AllowedInstanc
     ![Lista över aktiva kontrakt](media/blockchain-workbench-use/active-contracts.png)
 
 ## <a name="take-action-on-contract"></a>Utför en åtgärd i kontrakt
+
+Beroende på tillståndet är kontraktet i medlemmar kan vidta åtgärder för att övergå till nästa steg i kontrakt. Åtgärder som har definierats som [övergångar](blockchain-workbench-configuration-overview.md#transitions) inom en [tillstånd](blockchain-workbench-configuration-overview.md#states). Medlemmar som hör till en tillåtna program eller instans roll för övergången kan vidta åtgärder. 
 
 1. Välj panelen program som innehåller kontraktet att vidta åtgärder under Blockchain arbetsstationen program.
 2. Välj kontraktet i listan. I olika avsnitt visas information om kontraktet. 

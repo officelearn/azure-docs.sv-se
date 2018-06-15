@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212865"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Kapacitetsplanering för Service Fabric-program
 Det här dokumentet lär du dig hur du beräkna hur mycket resurser (processorer, minne, disk och lagring) måste du köra dina Azure Service Fabric-program. Det är vanligt att resurskraven att förändras över tid. Du kräver vanligtvis några resurser som du utvecklar och testning i tjänsten och sedan kräver mer resurser som du gå till produktion och programmet växer i större utsträckning. När du skapar ditt program kan tänka igenom de långsiktiga kraven och fatta beslut som gör att din tjänst ska skalas för att uppfylla hög kundernas behov.

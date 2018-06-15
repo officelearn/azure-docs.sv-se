@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071518"
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Hur du återställer en Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk överensstämmelse med hjälp av VMAccess-tillägget
 Om du inte ansluta till en virtuell Linux-dator på Azure på grund av ett nytt lösenord, en felaktigt SSH (Secure Shell) nyckel eller ett problem med SSH-konfigurationen använder VMAccessForLinux-tillägget med Azure CLI för att återställa lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll. 

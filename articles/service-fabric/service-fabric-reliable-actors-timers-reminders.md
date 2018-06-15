@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206799"
 ---
 # <a name="actor-timers-and-reminders"></a>Aktören timers och påminnelser
 Aktörer kan schemalägga regelbunden arbete på själva genom att registrera timers eller påminnelser. Den här artikeln visar hur du använder timers och påminnelser och förklarar skillnaderna mellan dem.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212232"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserad kommunikation stacken för Reliable Services
 Reliable Services framework kan tjänsten författare välja stacken kommunikation som de vill använda för den här tjänsten. De kan ansluta kommunikation stacken valfri via den **ICommunicationListener** returnerades från den [CreateServiceReplicaListeners eller CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) metoder. Ramen tillhandahåller en implementering av kommunikation stacken baserat på Windows Communication Foundation (WCF) för tjänsten programutvecklare som vill använda WCF-baserad kommunikation.

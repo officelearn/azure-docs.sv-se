@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212814"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Omkonfiguration i Azure Service Fabric
 En *configuration* definieras som replikerna och roller för en partition av en tillståndskänslig service.

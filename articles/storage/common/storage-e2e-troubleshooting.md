@@ -18,6 +18,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323312"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -264,7 +265,7 @@ Förutom att använda layouter i Azure Storage kan du också definiera och spara
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Tillämpa färgregler på rutnätet Analysis
 Storage-tillgångar också innefatta färgregler som ger en visuell innebär att identifiera olika typer av fel i rutnätet analys. Fördefinierade färgregler gäller för HTTP-fel, så att de visas endast för serverspårning loggen och nätverk.
 
-Markera för att tillämpa färgregler **färgregler** från verktygsfältet menyfliksområdet. Regler för Azure Storage-färg i menyn visas. Kursen, Välj **klientfel (StatusCode mellan 400 och 499)**som visas i bilden nedan.
+Markera för att tillämpa färgregler **färgregler** från verktygsfältet menyfliksområdet. Regler för Azure Storage-färg i menyn visas. Kursen, Välj **klientfel (StatusCode mellan 400 och 499)** som visas i bilden nedan.
 
 ![Azure Storage visa Layout](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 

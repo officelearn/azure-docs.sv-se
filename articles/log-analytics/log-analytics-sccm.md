@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284004"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ansluta Configuration Manager till logganalys
 Du kan ansluta din miljö för System Center Configuration Manager till Azure logganalys att synkronisera enheten samlingsdata och referera till dessa samlingar i logganalys och Azure Automation.  

@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206328"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric-värdmodell
 Den här artikeln innehåller en översikt över program som är värd för modeller som tillhandahålls av Azure Service Fabric och beskrivs skillnaderna mellan de **delad Process** och **exklusiv processen** modeller. Beskriver hur ett distribuerat program ser ut på en Service Fabric-nod och relationen mellan repliker (eller instanser) och service host-processen.

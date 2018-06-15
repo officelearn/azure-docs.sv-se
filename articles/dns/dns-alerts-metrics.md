@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31591627"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-mätvärden och -varningar
 Azure DNS är en värd-tjänst för DNS-domäner som tillhandahåller namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för Azure DNS-tjänsten.

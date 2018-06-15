@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895460"
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>CHD krav för PCI DSS-kompatibel miljöer
 ## <a name="pci-dss-requirement-3"></a>PCI DSS krav 3

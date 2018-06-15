@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790428"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Försök logiken i Media Services SDK för .NET
 När du arbetar med Microsoft Azure-tjänster, kan tillfälliga problem uppstå. Om ett tillfälligt fel uppstår i de flesta fall efter några försök slutförs åtgärden. Media Services SDK för .NET implementerar logik för omprövning för att hantera tillfälliga problem som är associerade med undantag och fel som orsakas av webbegäranden, köra frågor, sparar ändringar och lagringsåtgärder.  Som standard kör Media Services SDK för .NET fyra återförsök innan nytt undantaget i tillämpningsprogrammet. Koden i ditt program måste sedan hantera undantaget korrekt.  

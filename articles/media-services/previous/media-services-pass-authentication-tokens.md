@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788454"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Lär dig hur klienter skickar token till Azure Media Services viktiga tjänsten
 Kunder be ofta hur en spelare kan skicka token till Azure Media Services viktiga tjänsten för verifiering så spelaren kan hämta nyckeln. Media Services stöder enkel web token (SWT) och JSON-Webbtoken (JWT)-format. Token-autentisering används på någon typ av nyckel, oavsett om du använder vanlig kryptering eller Advanced Encryption Standard (AES) kuvert kryptering i systemet.

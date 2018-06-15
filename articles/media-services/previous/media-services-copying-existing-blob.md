@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788643"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintlig BLOB till ett Media Services tillgång
 Den här artikeln visar hur du kopierar blobar från ett lagringskonto till ett nytt Azure Media Services (AMS) tillgångsinformation med hjälp av [Azure Media Services .NET SDK-tilläggen](https://github.com/Azure/azure-sdk-for-media-services-extensions/).

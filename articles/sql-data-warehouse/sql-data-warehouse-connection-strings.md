@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597157"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Anslutningssträngar för Azure SQL Data Warehouse
 Du kan ansluta till SQL Data Warehouse med flera olika programprotokoll såsom [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] och [JDBC][JDBC]. Nedan följer några exempel på anslutningar strängar för varje protokoll.  Du kan också använda Azure-portalen för att skapa anslutningssträngen.  För att skapa anslutningssträngen med hjälp av Azure portal, navigerar du till ditt databas-blad under *Essentials* klickar du på *visa databasanslutningssträngar*.

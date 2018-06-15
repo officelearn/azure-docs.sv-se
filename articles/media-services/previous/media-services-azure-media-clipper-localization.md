@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788146"
 ---
 # <a name="configure-localization"></a>Konfigurera lokalisering
 Azure Media Clipper är tillgänglig i 18 språk. Om du vill ange widget språk måste du definiera den `language` parametern under initieringen. Skicka in önskat språk kodsträngen i listan nedan:

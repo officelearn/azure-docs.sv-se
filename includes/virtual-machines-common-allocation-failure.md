@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901337"
 ---
 När du skapar en virtuell dator (VM), starta om stoppats (frigjorts) virtuella datorer eller ändra storlek på en virtuell dator allokerar beräkningsresurser till din prenumeration på Microsoft Azure. Vi kontinuerligt investera i ytterligare infrastruktur och funktioner för att se till att vi alltid har alla VM-typer för att stödja kundernas behov. Du kan ibland uppstå fel vid tilldelning av resursen på grund av en oöverträffad ökad efterfrågan på Azure-tjänster i vissa områden. Det här problemet kan uppstå när du försöker skapa eller starta virtuella datorer i en region när de virtuella datorerna visas följande felkod och meddelandet:
 

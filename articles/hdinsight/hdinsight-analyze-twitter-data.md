@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593720"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för stordata införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en användbar datakälla för att analysera och förstå populära trender.

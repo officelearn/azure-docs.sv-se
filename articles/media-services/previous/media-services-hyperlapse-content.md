@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788489"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
 Azure Media Hyperlapse är ett Media Processor (HP) som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Videostabilisera Pro och telefon Videostabilisera Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder massiv skala i plattformen Media-bearbetning i Azure Media Services att skala horisontellt och parallelize masskopiera Videostabilisera bearbetning.

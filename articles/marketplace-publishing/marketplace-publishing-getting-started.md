@@ -1,11 +1,11 @@
 ---
-title: "Översikt över hur du skapar och distribuerar ett erbjudande på Marketplace | Microsoft Docs"
-description: "Förstå de steg som krävs för att bli en godkända Microsoft developer och skapa och distribuera en avbildning av virtuell dator, mall, datatjänst eller utvecklare service i Azure Marketplace"
+title: Översikt över hur du skapar och distribuerar ett erbjudande på Marketplace | Microsoft Docs
+description: Förstå de steg som krävs för att bli en godkända Microsoft developer och skapa och distribuera en avbildning av virtuell dator, mall, datatjänst eller utvecklare service i Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943181"
 ---
 > [!NOTE]
 > Den här dokumentationen är inte längre aktuell och är inte korrekt. I stället gå till Azure Marketplace [säljare guiden](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) anvisningar om hur du publicerar ett erbjudande på Azure Marketplace.

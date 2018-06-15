@@ -1,10 +1,10 @@
 ---
-title: "Lägg till Push-meddelanden i iOS-App med Azure Mobile Apps"
-description: "Lär dig hur du använder Azure Mobile Apps för att skicka push-meddelanden till iOS-app."
+title: Lägg till Push-meddelanden i iOS-App med Azure Mobile Apps
+description: Lär dig hur du använder Azure Mobile Apps för att skicka push-meddelanden till iOS-app.
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29116678"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Lägg till Push-meddelanden i din iOS-App
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

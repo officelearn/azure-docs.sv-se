@@ -1,6 +1,6 @@
 ---
-title: "Storbritannien officiella tre skikt Web Applications Automation - översikt"
-description: "Storbritannien officiella tre skikt Web Applications Automation - översikt"
+title: Storbritannien officiella tre skikt Web Applications Automation - översikt
+description: Storbritannien officiella tre skikt Web Applications Automation - översikt
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151386"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Nationella säkerhetsprinciper för Cyber Security Centre moln-översikt
 

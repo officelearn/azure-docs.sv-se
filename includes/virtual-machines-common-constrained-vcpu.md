@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958749"
 ---
 Vissa arbetsbelastningar som SQL Server eller Oracle kräver RAM-minne, lagring, och i/o-bandbredd, men inte antalet hög kärnor. Många databasarbetsbelastningar är inte processorintensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet VM vCPU att minska kostnaden för programvarulicensiering samtidigt samma minne, lagring och i/o-bandbredd.
 

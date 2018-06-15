@@ -1,11 +1,11 @@
 ---
-title: "Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft Docs"
-description: "Förstå kraven för att skapa och distribuera en avbildning av virtuell dator på Azure Marketplace för andra att köpa."
+title: Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft Docs
+description: Förstå kraven för att skapa och distribuera en avbildning av virtuell dator på Azure Marketplace för andra att köpa.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936663"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace
 Läs noggrant innan du börjar processen och förstå varför och där varje steg utförs. Så mycket som möjligt du ska förbereda företagets information och annan information, hämta nödvändiga verktyg och skapa tekniska komponenter innan du börjar skapa erbjudande. Dessa objekt bör vara klart från granska den här artikeln.  

@@ -1,8 +1,8 @@
 ---
-title: "Felsökning av fel vid återställning av virtuella datorer i Azure till lokala VMware med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskrivs olika sätt att felsöka vanliga återställning och återaktivera skydd vid återställning till VMware från Azure med hjälp av Azure Site Recovery."
+title: Felsökning av fel vid återställning av virtuella datorer i Azure till lokala VMware med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskrivs olika sätt att felsöka vanliga återställning och återaktivera skydd vid återställning till VMware från Azure med hjälp av Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941048"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Felsöka återställning från Azure till VMware
 

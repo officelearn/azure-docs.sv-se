@@ -1,11 +1,11 @@
 ---
-title: "Skapa en avbildning av virtuell dator lokalt för Azure Marketplace | Microsoft Docs"
-description: "Förstå och utföra stegen för att skapa en lokal VM-avbildning och distribuera på Azure Marketplace för andra att köpa."
+title: Skapa en avbildning av virtuell dator lokalt för Azure Marketplace | Microsoft Docs
+description: Förstå och utföra stegen för att skapa en lokal VM-avbildning och distribuera på Azure Marketplace för andra att köpa.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944439"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Utveckla en avbildning av virtuell dator lokalt för Azure Marketplace
 Vi rekommenderar starkt att du utveckla Azure virtuella hårddiskar (VHD) direkt i molnet genom att använda Remote Desktop Protocol. Om du måste går det att hämta en virtuell Hårddisk och utveckla genom att använda lokal infrastruktur.  

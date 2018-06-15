@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29958834"
 ---
 Konceptet för Azure Compute-enhet (ACU) är ett sätt för att jämföra bearbetningsprestanda (CPU) över Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov.  ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest. 
 

@@ -1,8 +1,8 @@
 ---
-title: "Flytta stora mängder data till/från molnlagring i Azure | Microsoft Docs"
-description: "En översikt över de olika metoderna för att flytta data till och från Azure Storage."
+title: Flytta stora mängder data till/från molnlagring i Azure | Microsoft Docs
+description: En översikt över de olika metoderna för att flytta data till och från Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984603"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Flytta data till och från Azure Storage
 Om du vill flytta lokala data till Azure Storage (eller vice versa) finns det flera olika sätt att göra detta. Den metod som passar dig bäst beror på ditt scenario. Den här artikeln ger en snabb överblick över olika scenarier och lämpliga erbjudanden för varje kriterium.

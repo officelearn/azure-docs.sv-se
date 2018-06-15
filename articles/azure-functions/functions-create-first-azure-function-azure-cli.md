@@ -1,8 +1,8 @@
 ---
-title: "Skapa din första funktion med Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar din första Azure-funktion för serverfri körning med Azure CLI."
+title: Skapa din första funktion med Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar din första Azure-funktion för serverfri körning med Azure CLI.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118779"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Skapa din första funktion med Azure CLI
 

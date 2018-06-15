@@ -1,11 +1,11 @@
 ---
-title: "Molntjänster och hanteringscertifikat | Microsoft Docs"
-description: "Lär dig hur du skapar och använder certifikat med Microsoft Azure"
+title: Molntjänster och hanteringscertifikat | Microsoft Docs
+description: Lär dig hur du skapar och använder certifikat med Microsoft Azure
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29969210"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure-molntjänster
 Certifikat används i Azure för molntjänster ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med management API ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.

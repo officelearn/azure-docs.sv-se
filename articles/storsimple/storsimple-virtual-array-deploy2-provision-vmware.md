@@ -1,11 +1,11 @@
 ---
-title: "Etablera virtuella StorSimple-matris på VMware | Microsoft Docs"
-description: "Den här andra kursen i virtuella StorSimple-matris deployment serien innebär att etablera en virtuell enhet i VMware."
+title: Etablera virtuella StorSimple-matris på VMware | Microsoft Docs
+description: Den här andra kursen i virtuella StorSimple-matris deployment serien innebär att etablera en virtuell enhet i VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972348"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple virtuell matris - etablera i VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)

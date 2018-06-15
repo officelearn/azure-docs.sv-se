@@ -1,12 +1,12 @@
 ---
 title: Azure-stacken integrerat system anslutning modeller | Microsoft Docs
-description: "Kontrollera distributionen planeringsbeslut för flera noder Azure Stack."
+description: Kontrollera distributionen planeringsbeslut för flera noder Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118796"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure-stacken integrerat system anslutning modeller
 Om du är intresserad av en Azure-stacken integrerat system, måste du förstå [flera datacenter integration överväganden](azure-stack-datacenter-integration.md) för distribution av Azure-stacken att avgöra hur systemet passar i ditt datacenter. Du måste dessutom bestämma exakt hur du ska integrera Azure Stack i molnmiljön hybrid. Den här artikeln innehåller en översikt över dessa viktiga beslut, inklusive Azure-anslutningen, identitet store och fakturering modellen beslut.

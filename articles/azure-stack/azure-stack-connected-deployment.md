@@ -1,12 +1,12 @@
 ---
-title: "Azure anslutna distributionsbeslut för Azure-Stack integrerat system | Microsoft Docs"
-description: "Kontrollera distributionen planeringsbeslut för flera noder Azure Stack Azure-anslutna distributioner."
+title: Azure anslutna distributionsbeslut för Azure-Stack integrerat system | Microsoft Docs
+description: Kontrollera distributionen planeringsbeslut för flera noder Azure Stack Azure-anslutna distributioner.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120394"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-anslutna distribution planeringsbeslut för Azure-stacken integrerat system
 När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-connection-models.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.

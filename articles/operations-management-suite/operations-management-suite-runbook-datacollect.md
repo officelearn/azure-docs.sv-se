@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597375"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i logganalys med en Azure Automation-runbook
 Du kan samla in data i logganalys mycket från olika källor, till exempel [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier men där du behöver samla in data som inte är tillgängligt via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API: et](../log-analytics/log-analytics-data-collector-api.md) att skriva data till logganalys från valfri REST API-klient.  En vanlig metod för att utföra den här Datasamlingen använder en runbook i Azure Automation.   

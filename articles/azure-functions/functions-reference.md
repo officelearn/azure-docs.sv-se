@@ -1,13 +1,13 @@
 ---
-title: "Riktlinjer för att utveckla Azure Functions | Microsoft Docs"
-description: "Läs om Azure Functions koncept och tekniker som du behöver för att utveckla funktioner i Azure, för alla programming språk och bindningar."
+title: Riktlinjer för att utveckla Azure Functions | Microsoft Docs
+description: Läs om Azure Functions koncept och tekniker som du behöver för att utveckla funktioner i Azure, för alla programming språk och bindningar.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "utvecklare guide, azure-funktion, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur"
+editor: ''
+tags: ''
+keywords: utvecklare guide, azure-funktion, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121754"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela funktioner några grundläggande tekniska begrepp och komponenter, oavsett språk eller bindning som du använder. Innan du går till learning information som är specifika för ett visst språk eller bindning bör du läsa igenom den här översikten som gäller för alla.

@@ -1,8 +1,8 @@
 ---
-title: "Optimera din miljö för System Center Operations Manager med Azure Log Analytics | Microsoft Docs"
-description: "Du kan använda System Center Operations Manager Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall."
+title: Optimera din miljö för System Center Operations Manager med Azure Log Analytics | Microsoft Docs
+description: Du kan använda System Center Operations Manager Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180044"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager Health Check (förhandsgranskning)-lösning
 

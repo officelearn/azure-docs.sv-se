@@ -1,8 +1,8 @@
 ---
-title: "Alternativ för Azure compute - Azure Cloud Services | Microsoft Docs"
-description: "Lär dig mer om Azure compute värd alternativ och hur de fungerar: App Service, Azure-molntjänster och virtuella datorer"
+title: Alternativ för Azure compute - Azure Cloud Services | Microsoft Docs
+description: 'Lär dig mer om Azure compute värd alternativ och hur de fungerar: App Service, Azure-molntjänster och virtuella datorer'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120292"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Ska jag välja Azure Cloud Services eller något annat?
 Är Azure Cloud Services valet för dig? Azure tillhandahåller olika modeller som värd för program som körs. Var och en innehåller en annan uppsättning tjänster. Vilket som du väljer beror på exakt vad du försöker göra.

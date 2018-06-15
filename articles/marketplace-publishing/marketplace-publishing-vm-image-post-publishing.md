@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949029"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Släppts guide för erbjudanden som virtuell dator i Azure Marketplace
 Den här artikeln förklarar hur du kan uppdatera ett erbjudande för Direktmigrering av virtuell dator i Azure Marketplace. Det hjälper dig genom processen att lägga till en eller flera nya SKU: er i ett befintligt erbjudande. Även guidar dig genom processen för att ta bort ett erbjudande för Direktmigrering av virtuell dator eller SKU från på Marketplace.

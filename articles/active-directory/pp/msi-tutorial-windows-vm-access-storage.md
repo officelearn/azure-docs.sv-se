@@ -1,8 +1,8 @@
 ---
-title: "Använda en Windows VM-MSI för åtkomst till Azure Storage"
-description: "En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Storage."
+title: Använda en Windows VM-MSI för åtkomst till Azure Storage
+description: En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Storage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984841"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Använda en Windows VM hanteras tjänstidentitet för åtkomst till Azure Storage via snabbtangent
 

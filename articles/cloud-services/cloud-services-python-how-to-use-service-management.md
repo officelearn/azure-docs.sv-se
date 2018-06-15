@@ -1,11 +1,11 @@
 ---
-title: "Använd Service Management API (Python) - Funktionsguide"
-description: "Lär dig hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python."
+title: Använd Service Management API (Python) - Funktionsguide
+description: Lär dig hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python.
 services: cloud-services
 documentationcenter: python
 author: lmazuel
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124807"
 ---
 # <a name="use-service-management-from-python"></a>Använda service management från Python
 Den här guiden visar hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python. Den **ServiceManagementService** klassen i den [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder Programmeringsåtkomst till stor del av service management-relaterade funktioner som är tillgängliga i den [Azure portalen][management-portal]. Du kan använda den här funktionen för att skapa, uppdatera och ta bort molntjänster, distributioner, tjänster för data och virtuella datorer. Den här funktionen kan vara användbar vid utveckling av program som behöver programmatisk åtkomst till service management.

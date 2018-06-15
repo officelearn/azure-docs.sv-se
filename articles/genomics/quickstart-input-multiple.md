@@ -1,7 +1,7 @@
 ---
-title: "Snabbstart: Skicka ett arbetsflöde med flera indata | Microsoft Docs"
+title: 'Snabbstart: Skicka ett arbetsflöde med flera indata | Microsoft Docs'
 titleSuffix: Azure
-description: "I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten."
+description: I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120003"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Skicka ett arbetsflöde med flera indata från samma prov
 

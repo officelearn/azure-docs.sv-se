@@ -1,11 +1,11 @@
 ---
-title: "Tilldela en MSI-åtkomst till en Azure-resurs som använder Azure portal"
-description: "Stegvisa instruktioner för att tilldela en MSI på en resursåtkomst till en annan resurs med hjälp av Azure portal."
+title: Tilldela en MSI-åtkomst till en Azure-resurs som använder Azure portal
+description: Stegvisa instruktioner för att tilldela en MSI på en resursåtkomst till en annan resurs med hjälp av Azure portal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28978845"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Tilldela en hanterade tjänstidentiteten åtkomst till en resurs med hjälp av Azure portal
 

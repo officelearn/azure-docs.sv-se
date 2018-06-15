@@ -1,11 +1,11 @@
 ---
-title: "Uppgradera Azure logganalys till ny logg sökning | Microsoft Docs"
-description: "Du kan delta i public preview Log Analytics-frågespråket i nya är nästan här.  Den här artikeln beskriver fördelarna med det nya språket och konvertera din arbetsyta."
+title: Uppgradera Azure logganalys till ny logg sökning | Microsoft Docs
+description: Du kan delta i public preview Log Analytics-frågespråket i nya är nästan här.  Den här artikeln beskriver fördelarna med det nya språket och konvertera din arbetsyta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983996"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure logganalys uppgradera till ny logg-sökning
 

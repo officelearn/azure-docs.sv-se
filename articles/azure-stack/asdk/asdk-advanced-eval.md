@@ -1,12 +1,12 @@
 ---
-title: "Avancerade Azure stacken utvärderingsaktiviteter | Microsoft Docs"
-description: "Den här artikeln beskrivs avancerade uppgifter vid utvärdering Azure stacken."
+title: Avancerade Azure stacken utvärderingsaktiviteter | Microsoft Docs
+description: Den här artikeln beskrivs avancerade uppgifter vid utvärdering Azure stacken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975827"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Avancerade Azure Stack Development Kit utvärderingsaktiviteter
 När du har förvärvat om du är bekant med grundläggande Azure Stack Development Kit (ASDK) tjänstens funktioner och kapacitet fördjupa du dig att förstå ytterligare Azure-stacken genom att testa ut mer avancerade scenarier. Dessa avancerade uppgifter vid utvärdering dokumenteras helt i Azure-stacken Operator-dokumentationen.

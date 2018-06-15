@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312492"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Hur du använder Service Bus-köer med Python
 

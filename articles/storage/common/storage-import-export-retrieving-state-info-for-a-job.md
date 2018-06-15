@@ -1,11 +1,11 @@
 ---
-title: "Hämtar information om tillstånd för ett Azure Import/Export-jobb | Microsoft Docs"
-description: "Lär dig mer om att hämta statusinformation om för Microsoft Azure Import/Export service jobb."
+title: Hämtar information om tillstånd för ett Azure Import/Export-jobb | Microsoft Docs
+description: Lär dig mer om att hämta statusinformation om för Microsoft Azure Import/Export service jobb.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874012"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Hämtar information om tillstånd för en Import/Export-jobb
 Du kan anropa den [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) åtgärd för att hämta information om både importera och exportera jobben. Informationen som returneras innehåller:

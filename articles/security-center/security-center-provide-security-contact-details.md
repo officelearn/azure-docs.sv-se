@@ -1,11 +1,11 @@
 ---
-title: "Ange säkerhet kontaktinformation i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du ange säkerhet kontaktinformation i Azure Security Center."
+title: Ange säkerhet kontaktinformation i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du ange säkerhet kontaktinformation i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866529"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhet kontaktinformation i Azure Security Center
 Azure Security Center kommer rekommenderar att du förser säkerhet kontaktinformation för din Azure-prenumeration om du inte redan har gjort. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför väljer säkerhetsövervakning av Azure-nätverk och infrastruktur och tar emot hot intelligence och missbruk klagomål från tredje part.

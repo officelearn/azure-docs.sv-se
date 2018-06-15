@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157361"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scope, behörigheter och medgivande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriseringsmodell som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats och ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för det här tillståndet modellen, inklusive scope, behörigheter och samtycke.

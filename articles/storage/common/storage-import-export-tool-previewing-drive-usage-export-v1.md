@@ -1,11 +1,11 @@
 ---
-title: "Förhandsgranska diskanvändning för ett Azure Import/Export-exportjobb - v1 | Microsoft Docs"
-description: "Lär dig mer om att förhandsgranska listan över blobbar som du har valt för ett exportjobb i tjänsten Azure Import/Export."
+title: Förhandsgranska diskanvändning för ett Azure Import/Export-exportjobb - v1 | Microsoft Docs
+description: Lär dig mer om att förhandsgranska listan över blobbar som du har valt för ett exportjobb i tjänsten Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873648"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Förhandsgranska diskanvändning för ett exportjobb
 Innan du skapar ett exportjobb måste du välja en uppsättning blobbar som ska exporteras. Tjänsten Microsoft Azure Import/Export kan du använda en lista över blob-sökvägar eller blob-prefix för att representera blobbar som du har valt.  

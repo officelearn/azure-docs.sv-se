@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194054"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skaluppsättning för virtuell dator
 Du kan behöva ändra eller uppdatera skaluppsättning för virtuell dator i hela livscykeln för dina program. Dessa uppdateringar kan innehålla hur du uppdaterar konfigurationen av skaluppsättning eller ändra konfigurationen för programmet. Den här artikeln beskriver hur du ändrar en befintlig skaluppsättningen med REST API: er, Azure PowerShell eller Azure CLI 2.0.

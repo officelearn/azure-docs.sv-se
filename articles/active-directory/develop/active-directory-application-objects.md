@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155627"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Programmet och service principal objekt i Azure Active Directory (AD Azure)
 Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure AD. Målet med den här artikeln är att klargöra konceptuell och konkreta aspekter av Azure AD-integrering för programmet, med en illustration av registrering och medgivande för en [flera innehavare programmet](active-directory-dev-glossary.md#multi-tenant-application).

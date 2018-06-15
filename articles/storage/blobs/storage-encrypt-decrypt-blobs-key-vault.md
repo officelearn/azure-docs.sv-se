@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Kryptera och dekryptera blobbar i Azure Storage med hjälp av Azure Key Vault | Microsoft Docs"
-description: "Hur du krypterar och dekrypterar en blob med kryptering på klientsidan för Microsoft Azure Storage med Azure Key Vault."
+title: 'Självstudier: Kryptera och dekryptera blobbar i Azure Storage med hjälp av Azure Key Vault | Microsoft Docs'
+description: Hur du krypterar och dekrypterar en blob med kryptering på klientsidan för Microsoft Azure Storage med Azure Key Vault.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27815821"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med hjälp av Azure Key Vault
 ## <a name="introduction"></a>Introduktion

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190418"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
 Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.

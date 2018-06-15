@@ -16,9 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 67fd5ba9be2de1f79511c806ffaa0ae3001bfdcf
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760297"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 Den här artikeln förklarar självbetjäningsregistrering och hur du stöd i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, se [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).

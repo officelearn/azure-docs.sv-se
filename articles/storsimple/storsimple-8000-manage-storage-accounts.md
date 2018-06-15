@@ -1,12 +1,12 @@
 ---
-title: "Hantera StorSimple autentiseringsuppgifterna för ditt lagringskonto för Microsoft Azure StorSimple 8000-serien enheter | Microsoft Docs"
-description: "Beskriver hur du kan använda sidan StorSimple Enhetshanteraren konfigurera för att lägga till, redigera, ta bort eller rotera tangenterna säkerhet för ett lagringskonto."
+title: Hantera StorSimple autentiseringsuppgifterna för ditt lagringskonto för Microsoft Azure StorSimple 8000-serien enheter | Microsoft Docs
+description: Beskriver hur du kan använda sidan StorSimple Enhetshanteraren konfigurera för att lägga till, redigera, ta bort eller rotera tangenterna säkerhet för ett lagringskonto.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875132"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att hantera autentiseringsuppgifterna för ditt lagringskonto
 

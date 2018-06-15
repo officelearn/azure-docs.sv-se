@@ -1,12 +1,12 @@
 ---
-title: "Den externa filen bindningar för Azure Functions (försök)"
+title: Den externa filen bindningar för Azure Functions (försök)
 description: Med den externa filen bindningar i Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27607929"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions extern fil Bindningar (försök)
 Den här artikeln visar hur du hanterar filer från olika SaaS-providrar (till exempel Dropbox eller Google Drive) i Azure Functions. Azure Functions stöder utlösa indata och utdata bindningar för de externa filerna. Dessa bindningar skapa API-anslutningar till SaaS-providrar, eller Använd befintliga API-anslutningar från appen funktionen resursgrupp.

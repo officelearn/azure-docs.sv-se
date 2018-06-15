@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068160"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Komma igång med att skapa en intern belastningsutjämnare (klassisk) med hjälp av PowerShell
 

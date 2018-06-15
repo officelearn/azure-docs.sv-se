@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181828"
 ---
 # <a name="azure-status"></a>Azure-status
 [Azure status](https://azure.microsoft.com/status/) ger dig en global vy över hälsotillståndet för Azure-tjänster. Du kan få aktuell information på tjänstetillgänglighet med Azure status. Alla har åtkomst till Azure status och kan visa alla tjänster som rapporterar sina tjänstens hälsa. 

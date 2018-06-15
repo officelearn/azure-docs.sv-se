@@ -1,11 +1,11 @@
 ---
 title: ExpressRoute kunden router configuration prover | Microsoft Docs
-description: "Den här sidan innehåller router config-exempel för Cisco och Juniper routrar."
+description: Den här sidan innehåller router config-exempel för Cisco och Juniper routrar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850772"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Router configuration exempel för att konfigurera och hantera routning
 Den här sidan innehåller gränssnitt och routning configuration-exempel för Cisco IOS-XE och Juniper MX serien routrar. Dessa är avsedda att prover för endast vägledning och får inte användas eftersom. Du kan arbeta med leverantören för att få fram lämpliga konfigurationerna för nätverket. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765644"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Hantera förfallodatum för Azure Blob-lagring i Azure CDN
 > [!div class="op_single_selector"]

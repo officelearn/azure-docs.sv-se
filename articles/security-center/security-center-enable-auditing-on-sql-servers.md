@@ -1,11 +1,11 @@
 ---
-title: "Aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** aktivera Auditing & Threat detection på SQL-servrar **."
+title: Aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** aktivera Auditing & Threat detection på SQL-servrar **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 042fca4d-7dab-4172-8614-e8c21ccb4960
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866410"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar granskning och hotidentifiering för alla databaser på Azure SQL-servrar om granskning inte redan är aktiverad. Granskning och hotidentifiering identifiering kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.

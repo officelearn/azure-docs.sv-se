@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764714"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Skapa mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>

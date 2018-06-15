@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Scheduler – Självstudier, API-referens | Microsoft Docs"
-description: "Lär dig hur du använder Scheduler för att schemalägga och anropa jobb, som återkommande programåtgärder och rutinunderhåll. Självstudier, API-referenser och mycket annat."
+title: Dokumentation om Azure Scheduler – Självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du använder Scheduler för att schemalägga och anropa jobb, som återkommande programåtgärder och rutinunderhåll. Självstudier, API-referenser och mycket annat.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071355"
 ---
 # <a name="scheduler-documentation"></a>Dokumentation om Scheduler
 

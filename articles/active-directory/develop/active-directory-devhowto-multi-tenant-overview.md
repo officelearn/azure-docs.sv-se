@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157388"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Hur du loggar in alla Azure Active Directory-användare med flera innehavare programmönster
 Du kan konfigurera programmet att acceptera inloggningar från alla Azure Active Directory (AD)-klient om du tillhandahåller en programvara som en tjänst för många organisationer. Den här konfigurationen kallas för att göra ditt program med flera innehavare. Användare i Azure AD-klient kommer att kunna logga in på ditt program efter principer för att använda sitt konto med ditt program. 

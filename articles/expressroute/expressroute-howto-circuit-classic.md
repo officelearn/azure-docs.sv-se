@@ -1,11 +1,11 @@
 ---
-title: "Ändra en ExpressRoute-krets: PowerShell: klassiska Azure-portalen | Microsoft Docs"
-description: "Den här artikeln vägleder dig genom stegen för att kontrollera status, uppdatera eller ta bort och ta bort etableringen ExpressRoute klassisk distribution modellen kretsen."
+title: 'Ändra en ExpressRoute-krets: PowerShell: klassiska Azure-portalen | Microsoft Docs'
+description: Den här artikeln vägleder dig genom stegen för att kontrollera status, uppdatera eller ta bort och ta bort etableringen ExpressRoute klassisk distribution modellen kretsen.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24102842"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med hjälp av PowerShell (klassisk)
 

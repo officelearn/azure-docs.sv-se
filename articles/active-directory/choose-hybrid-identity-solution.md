@@ -1,23 +1,24 @@
 ---
-title: "Välj en Azure hybrididentitetslösning | Microsoft Docs"
-description: "Hämta en grundläggande förståelse av de tillgängliga hybrididentitetslösningar och rekommendationer att göra det bästa identity styrning beslutet för din organisation."
-keywords: 
+title: Välj en Azure hybrididentitetslösning | Microsoft Docs
+description: Hämta en grundläggande förståelse av de tillgängliga hybrididentitetslösningar och rekommendationer att göra det bästa identity styrning beslutet för din organisation.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800745"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrididentitetslösningar
 [Microsoft Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrididentitetslösningar gör det möjligt att synkronisera lokala katalogobjekt med Azure AD när fortfarande hantera användare lokalt. Det första beslutet att fatta när du planerar att synkronisera dina lokala Windows Server Active Directory med Azure AD är om du vill använda synkroniserade identitet eller federerad identitet. Synkroniserade identiteter och eventuellt lösenordshashvärden, att användarna kan använda samma lösenord för åtkomst till både lokala och molnbaserade organisationens resurser. För mer avancerade krav för scenarier, till exempel enkel inloggning (SSO) eller lokal MFA som du behöver distribuera Active Directory Federation Services (AD FS) för att federera identiteter. 

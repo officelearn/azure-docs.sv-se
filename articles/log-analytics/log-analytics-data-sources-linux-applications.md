@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168290"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i logganalys 
 Den här artikeln innehåller information om hur du konfigurerar den [OMS-Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  Program som ingår i den här artikeln är:  

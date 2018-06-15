@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Service Bus-ämnen (Ruby) | Microsoft Docs"
-description: "Lär dig hur du använder Service Bus-ämnen och prenumerationer i Azure. Kodexemplen är skrivna för Ruby program."
+title: Hur du använder Service Bus-ämnen (Ruby) | Microsoft Docs
+description: Lär dig hur du använder Service Bus-ämnen och prenumerationer i Azure. Kodexemplen är skrivna för Ruby program.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926797"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Hur du använder Service Bus-ämnen och prenumerationer med Ruby
  

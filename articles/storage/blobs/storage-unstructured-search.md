@@ -1,6 +1,6 @@
 ---
-title: "Söka efter Ostrukturerade data i Azure-molnlagring"
-description: "Söker Ostrukturerade data med Azure search."
+title: Söka efter Ostrukturerade data i Azure-molnlagring
+description: Söker Ostrukturerade data med Azure search.
 author: roygara
 manager: timlt
 services: storage
@@ -11,9 +11,10 @@ ms.author: rogara
 ms.custom: mvc
 ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
 ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23930206"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Sök efter ostrukturerade data i molnlagringen
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922781"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.

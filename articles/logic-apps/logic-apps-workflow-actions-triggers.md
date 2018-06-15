@@ -3,7 +3,7 @@ title: Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Doc
 description: Lär dig mer om utlösare och åtgärder i arbetsflödesdefinitioner för Logic Apps i Azure
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300155"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Utlösare och åtgärder för arbetsflödesdefinitioner i Azure Logic Apps
 
@@ -55,7 +56,7 @@ Alla utlösare har de översta elementen, även om vissa är valfria:
 | ------------ | ---- | ----------- | 
 | <*Utlösarnamn*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Utlösaren Skriv till exempel: ”Http” eller ”ApiConnection” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
 | frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
 | interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
@@ -123,7 +124,7 @@ Här är utlösardefinition:
 | ------------ | ---- | ----------- | 
 | Upprepning | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”återkommande” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
 | frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
 | interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
@@ -227,7 +228,7 @@ Den här utlösaren gör din logikapp callable genom att skapa en slutpunkt som 
 | Manuell | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”begär” | 
 | typ | Sträng | Typ av begäran som är ”Http” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 |||| 
 
 *Valfria*
@@ -238,7 +239,7 @@ Den här utlösaren gör din logikapp callable genom att skapa en slutpunkt som 
 | RelativePath | Sträng | Den relativa sökvägen för den parameter som accepterar HTTP-slutpunktens URL | 
 | Schemat | JSON-objekt | JSON-schema som beskriver och validerar nyttolasten eller indata som utlösaren tar emot från den inkommande begäranden. Det här schemat kan efterföljande arbetsflödesåtgärder veta vilka egenskaper som ska referera till. | 
 | properties | JSON-objekt | En eller flera egenskaper i JSON-schema som beskriver nyttolasten | 
-| Krävs | Matris | En eller flera egenskaper som kräver att värden | 
+| obligatorisk | Matris | En eller flera egenskaper som kräver att värden | 
 |||| 
 
 *Exempel*
@@ -315,7 +316,7 @@ Den här utlösaren genomsöker den angivna slutpunkten och kontrollerar svaret.
 | ------------ | ---- | ----------- | 
 | HTTP | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”Http” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | metod | Ja | Sträng | HTTP-metoden för avsökning av den angivna slutpunkten: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
 | URI | Ja| Sträng | HTTP eller HTTPS slutpunkts-URL som utlösaren söker eller avsöker <p>Maximal strängens storlek: 2 KB | 
 | recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
@@ -414,7 +415,7 @@ Här är utlösardefinition, även om många avsnitt är valfria, så den utlös
 | ------------ | ---- | ----------- | 
 | *APIConnectionTriggerName* | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”ApiConnection” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
 | api | JSON-objekt | Slutpunkts-URL för den hanterade API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
 | anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
@@ -515,7 +516,7 @@ Här är utlösardefinition, även om många avsnitt är valfria och utlösarens
 | ------------ | ---- | ----------- | 
 | HTTP_Webhook | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”HttpWebhook” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | prenumerera på | JSON-objekt| Utgående begäran att anropa och utföra registreringen när utlösaren har skapats. Det här anropet sker så att utlösaren kan börja lyssna på händelser på slutpunkten. Mer information finns i [prenumerera och avbryta prenumerationen](#subscribe-unsubscribe). | 
 | metod | Sträng | HTTP-metod som används för prenumerationsbegäran: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
 | URI | Sträng | Slutpunkts-URL att skicka prenumerationsbegäran | 
@@ -615,7 +616,7 @@ Här är utlösardefinition:
 | ------------ | ---- | ----------- | 
 | <*ApiConnectionWebhookTriggerName*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
 | typ | Sträng | Typen av utlösare som är ”ApiConnectionWebhook” | 
-| Indata | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
 | värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
 | anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
 | brödtext | JSON-objekt | I JSON-objekt som beskriver nyttolasten (data) att skicka till hanterade API: et | 

@@ -1,6 +1,6 @@
 ---
-title: "Hur du använder Hudson med Blob storage | Microsoft Docs"
-description: "Beskriver hur du använder Hudson med Azure Blob storage som databas för build-artefakter."
+title: Hur du använder Hudson med Blob storage | Microsoft Docs
+description: Beskriver hur du använder Hudson med Azure Blob storage som databas för build-artefakter.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874166"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt

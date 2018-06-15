@@ -1,11 +1,11 @@
 ---
-title: "Hantera anslutna partnerlösningar i Azure Security Center | Microsoft Docs"
-description: "I det här dokumentet går vi igenom hur du i Azure Security Center  enkelt kan övervaka hälsostatusen på de partnerlösningar som är integrerade i Azureprenumerationen."
+title: Hantera anslutna partnerlösningar i Azure Security Center | Microsoft Docs
+description: I det här dokumentet går vi igenom hur du i Azure Security Center  enkelt kan övervaka hälsostatusen på de partnerlösningar som är integrerade i Azureprenumerationen.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23891029"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Hantera anslutna partnerlösningar med Azure Security Center
 Den här artikeln får du hjälp att hantera och övervaka anslutna säkerhetslösningar i Azure Security Center.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267514"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Använda livsmiljö för att distribuera programmet till Azure
 [Livsmiljö](https://www.habitat.sh/) är en första av dess kind projekt för öppen källkod som erbjuder en helt ny metod för programhantering. Livsmiljö gör programmet och dess automation enheten av distribution. När program placeras i en enkel ”livsmiljö” körningsmiljön, oavsett om det är en behållare, utan operativsystem eller PaaS, inte längre är i fokus och begränsa inte programmet. 

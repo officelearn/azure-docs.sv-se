@@ -1,11 +1,11 @@
 ---
 title: StorSimple Snapshot Manager och volymer | Microsoft Docs
-description: "Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen att visa och hantera volymer och konfigurera säkerhetskopieringar."
+description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen att visa och hantera volymer och konfigurera säkerhetskopieringar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876994"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt

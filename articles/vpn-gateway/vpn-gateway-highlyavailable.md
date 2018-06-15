@@ -1,12 +1,12 @@
 ---
-title: "Översikt över hög tillgänglighet konfigurationer med Azure VPN-gatewayer | Microsoft Docs"
-description: "Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN-gateways."
+title: Översikt över hög tillgänglighet konfigurationer med Azure VPN-gatewayer | Microsoft Docs
+description: Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN-gateways.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928946"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning
 Den här artikeln ger en översikt över konfigurationsalternativen för anslutning på flera platser och VNet-till-VNet-anslutning med Azure VPN-gateways.

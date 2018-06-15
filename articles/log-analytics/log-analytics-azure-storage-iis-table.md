@@ -1,11 +1,11 @@
 ---
-title: "Använda blob storage för IIS- och lagring för händelser i Azure Log Analytics | Microsoft Docs"
-description: "Logganalys kan läsa loggfiler för Azure-tjänster som skriver diagnostik till tabellagring eller IIS-loggar som skrivs till blob storage."
+title: Använda blob storage för IIS- och lagring för händelser i Azure Log Analytics | Microsoft Docs
+description: Logganalys kan läsa loggfiler för Azure-tjänster som skriver diagnostik till tabellagring eller IIS-loggar som skrivs till blob storage.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855448"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure-tabellagring för händelser med logganalys
 

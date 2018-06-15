@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder Azure Service Bus-köer med Ruby | Microsoft Docs"
-description: "Lär dig hur du använder Service Bus-köer i Azure. Kodexempel som skrivits i Ruby."
+title: Hur du använder Azure Service Bus-köer med Ruby | Microsoft Docs
+description: Lär dig hur du använder Service Bus-köer i Azure. Kodexempel som skrivits i Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868447"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Hur du använder Service Bus-köer med Ruby
 

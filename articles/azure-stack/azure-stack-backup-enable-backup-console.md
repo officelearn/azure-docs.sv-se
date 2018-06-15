@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34302264"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure-Stack från administrationsportalen
 Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure-stacken kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopieringar för att återställa din miljö med hjälp av recovery för molnet i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet återställning är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer återställts inklusive rollbaserade behörigheter och roller, ursprungliga planer, erbjudanden och tidigare definierad beräkning, lagring och nätverkskvoter.

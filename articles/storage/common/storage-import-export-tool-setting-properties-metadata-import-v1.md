@@ -1,11 +1,11 @@
 ---
-title: "Ange egenskaper och metadata med hjälp av Azure Import/Export - v1 | Microsoft Docs"
-description: "Lär dig mer om att ange egenskaper och metadata anges på mål-blobbar när du kör verktyget Azure Import/Export till förbereda dina enheter. Detta refererar till v1 i verktyget Import/Export."
+title: Ange egenskaper och metadata med hjälp av Azure Import/Export - v1 | Microsoft Docs
+description: Lär dig mer om att ange egenskaper och metadata anges på mål-blobbar när du kör verktyget Azure Import/Export till förbereda dina enheter. Detta refererar till v1 i verktyget Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873739"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Konfigurera egenskaper och metadata under importeringsprocessen
 När du kör verktyget Microsoft Azure Import/Export för att förbereda dina enheter, kan du ange egenskaper och metadata på mål-BLOB. Följ de här stegen:  

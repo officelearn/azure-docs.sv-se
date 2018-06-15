@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909011"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Med virtuella skalan uppsättningar med Azure DSC-tillägg
 [Skaluppsättningar för den virtuella datorn](virtual-machine-scale-sets-overview.md) kan användas med den [Azure önskad tillstånd Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tillägget hanterare. Skaluppsättningar för den virtuella datorn är ett sätt att distribuera och hantera ett stort antal virtuella datorer och Elastiskt kan skala in eller ut för att läsa in. DSC används för att konfigurera de virtuella datorerna som de är online så att de kör programmet för produktion.

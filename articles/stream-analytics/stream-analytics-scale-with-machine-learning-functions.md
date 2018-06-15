@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909283"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skala Stream Analytics-jobbet med Azure Machine Learning-funktioner
 Det är enkelt att ställa in ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att det skalas. I det här dokumentet fokuserar på särskilda aspekter skalning Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).

@@ -12,9 +12,10 @@ manager: mtillman
 ms.reviewer: sasubram
 ms.openlocfilehash: 64f15095bd260cd5f83e0e834607cd64bb3a47ee
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267499"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering en B2B-samarbete användare
 Med gästanvändare har du granskningsfunktioner liknar med användare. Här är ett exempel av honom eller henne Sam Oogle inbjudan och inlösning tidigare:

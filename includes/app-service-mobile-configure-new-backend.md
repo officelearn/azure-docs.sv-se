@@ -1,5 +1,21 @@
-
-1. Klicka på knappen **Apptjänster**, välj din Mobile Apps-serverdel, välj **Snabbstart** och sedan din klientplattform (iOS, Android, Xamarin, Cordova).
+---
+title: ta med fil
+description: ta med fil
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34664024"
+---
+1. Klicka på knappen **App Services**, välj din Mobile Apps-serverdel, välj **Snabbstart** och sedan din klientplattform (iOS, Android, Xamarin, Cordova).
 
     ![Azure Portal med snabbstarten för Mobile Apps markerad][quickstart]
 
@@ -19,10 +35,10 @@
 
     ![Azure Portal-meddelande, "Du har redan en dataanslutning"][already-connection]
 
-3. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**. 
- 
-4. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.  
-    En ny att göra-post-tabell skapas i din databas. 
+3. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**.
+
+4. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.
+    En ny att göra-post-tabell skapas i din databas.
 
     >[!IMPORTANT]
     > Om du ändrar en befintlig serverdel till Node.js skrivs allt innehåll över. Om du istället vill skapa en .NET-serverdel läser du [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Arbeta med SDK för .NET-serverdelen för Mobile Apps).

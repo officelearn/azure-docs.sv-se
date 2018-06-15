@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921596"
 ---
 1. Gå till och öppna sidan för den virtuella nätverksgatewayen. Det finns flera sätt att göra detta på. Du kan navigera till gatewayen VNet1GW genom att öppna **TestVNet1 -> Översikt -> Anslutna enheter -> VNet1GW**.
 2. Klicka på **Anslutningar** på sidan för VNet1GW. Klicka på **+Lägg till** överst på sidan Anslutningar och öppna sidan **Lägg till anslutning**.

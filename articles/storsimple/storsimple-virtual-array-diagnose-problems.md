@@ -1,11 +1,11 @@
 ---
-title: "Felsöka virtuella StorSimple-matris | Microsoft Docs"
-description: "Beskriver Enhetshanteraren StorSimple diagnostisera kapaciteten och förklarar hur du använder den för att felsöka din virtuella StorSimple-matris."
+title: Felsöka virtuella StorSimple-matris | Microsoft Docs
+description: Beskriver Enhetshanteraren StorSimple diagnostisera kapaciteten och förklarar hur du använder den för att felsöka din virtuella StorSimple-matris.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875258"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att felsöka den virtuella StorSimple-matrisen
 ## <a name="overview"></a>Översikt

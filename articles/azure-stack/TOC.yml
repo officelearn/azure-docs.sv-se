@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Hantera nätverksresurser
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Ändra användare prenumeration ägare
+          href: azure-stack-change-subscription-owner.md
         - name: Hantera virtuella Windows Azure Pack-datorer
           href: azure-stack-manage-windows-azure-pack.md
         - name: Starta och stoppa Azure Stack
@@ -189,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Rotera hemligheter
           href: azure-stack-rotate-secrets.md
+        - name: Uppdatera antivirusprogram
+          href: azure-stack-security-av.md
     - name: Erbjuda tjänster
       items:
         - name: Översikt över erbjudna tjänster
@@ -216,7 +220,7 @@
           items:
             - name: Distribuera SQL Server-resursprovidern
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Lägg till värdservrar
+            - name: Lägg till SQL som värd för servrar
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Skapa SQL-databaser
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +231,20 @@
             - name: Ta bort SQL Server-resursprovidern
               href: azure-stack-sql-resource-provider-remove.md
         - name: Erbjudande MySQL som PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: Distribuera resursprovidern MySQL-Server
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Lägg till MySQL som värd för servrar
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: Skapa MySQL-databaser
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: Uppdatera resursprovidern MySQL-Server
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Underhåll MySQL-Server-resursprovidern
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Ta bort MySQL-Server-resursprovidern
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: Erbjudande om App Service som PaaS
           items:
             - name: Översikt över App Service på Azure Stack

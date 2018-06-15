@@ -1,11 +1,11 @@
 ---
 title: Realtid statistik i Azure CDN | Microsoft Docs
-description: "Realtid statistik ger data i realtid om Azure CDN prestanda när leverera innehåll till dina klienter."
+description: Realtid statistik ger data i realtid om Azure CDN prestanda när leverera innehåll till dina klienter.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842883"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Realtid statistik i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

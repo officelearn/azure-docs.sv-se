@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213188"
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric gör det enklare att skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Detta avsnitt:

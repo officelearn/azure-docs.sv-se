@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915116"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Lägg till på begäran ”burst” noder i ett HPC Pack kluster i Azure
 Om du ställer in en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) kluster i Azure, kan du ett sätt att snabbt skala klustret kapacitet upp eller ned, utan att behålla en uppsättning förinställda beräkningsnod virtuella datorer. Den här artikeln visar hur du lägger till noder på begäran ”burst” (worker-rollinstanser som körs i en tjänst i molnet) som beräkningsresurser till huvudnod i Azure. 

@@ -1,11 +1,11 @@
 ---
 title: Optimera din Azure kod i Visual Studio | Microsoft Docs
-description: "Lär dig mer om hur Azure kod optimering verktyg i Visual Studio gör din kod mer stabilt och bättre prestanda."
+description: Lär dig mer om hur Azure kod optimering verktyg i Visual Studio gör din kod mer stabilt och bättre prestanda.
 services: visual-studio-online
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23890840"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimera din Azure kod
 När du programmering appar som använder Microsoft Azure, finns det vissa kodningsexempel som du bör följa för att undvika problem med appen skalbarhet, beteende och prestanda i en molnmiljö. Microsoft tillhandahåller ett analysverktyg i Azure kod som identifierar och identifierar de dessa ofta påträffade problem och hjälper dig att lösa dem. Du kan hämta verktyget i Visual Studio via NuGet.

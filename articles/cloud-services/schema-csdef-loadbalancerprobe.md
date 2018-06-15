@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360061"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
 Belastningsutjämnaravsökningen är en kund definierade hälsa avsökning av UDP-slutpunkter och slutpunkter i rollinstanser. Den `LoadBalancerProbe` är inte ett fristående element; den kombineras med rollen webb eller arbetare i definitionsfilen för tjänsten. En `LoadBalancerProbe` kan användas av fler än en roll.

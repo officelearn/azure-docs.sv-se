@@ -1,11 +1,11 @@
 ---
 title: Konfigurera virtuella StorSimple-matris som filserver | Microsoft Docs
-description: "Självstudierna tredje i virtuella StorSimple-matris distribution instruerar du ställa in en virtuell enhet som filserver."
+description: Självstudierna tredje i virtuella StorSimple-matris distribution instruerar du ställa in en virtuell enhet som filserver.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927826"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera StorSimple virtuell matris - uppsättningen upp som filserver via Azure-portalen
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

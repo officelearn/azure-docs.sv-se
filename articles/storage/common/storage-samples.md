@@ -1,6 +1,6 @@
 ---
 title: Azure Storage-kodexempel | Microsoft Docs
-description: "Visa, hämta och köra exempelkod och program för Azure Storage. Identifiera komma igång prover för blobbar, köer, tabeller och filer, använda lagringsklientbiblioteken för .NET, Java, Node.js och C++."
+description: Visa, hämta och köra exempelkod och program för Azure Storage. Identifiera komma igång prover för blobbar, köer, tabeller och filer, använda lagringsklientbiblioteken för .NET, Java, Node.js och C++.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927455"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage-exempel
 

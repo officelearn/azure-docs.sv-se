@@ -1,11 +1,11 @@
 ---
 title: Skydda dina program i Azure Security Center | Microsoft Docs
-description: "Det här dokumentet behandlar rekommendationerna i Azure Security Center som hjälper dig skydda dina Azure-program och uppfyller säkerhetsprinciper."
+description: Det här dokumentet behandlar rekommendationerna i Azure Security Center som hjälper dig skydda dina Azure-program och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866270"
 ---
 # <a name="protecting-your-applications-in-azure-security-center"></a>Skydda dina program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsrisker, skapar rekommendationer som hjälper dig att konfigurera nödvändiga kontroller.  Rekommendationer gäller för Azure resurstyper: virtuella datorer (VM), nätverk, SQL och program.

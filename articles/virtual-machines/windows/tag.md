@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917507"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Hur du tagga en virtuell Windows-dator i Azure
 Den här artikeln beskrivs olika sätt att märka en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller lägga till en befintlig resurs. Observera att taggar stöds för resurser som skapats via den Resource Manager distributionsmodellen. Om du vill att märka en Linux-dator, se [så att märka en Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -16,11 +16,12 @@
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Begrepp
+## [Vad är Key Vault?](key-vault-whatis.md)
 ## [Säkerhetsvärldar](key-vault-ovw-security-worlds.md)
 ## [Mjuk borttagning](key-vault-ovw-soft-delete.md)
 ## [Lagringskontonycklar](key-vault-ovw-storage-keys.md)
 ## [Begränsning](key-vault-ovw-throttling.md)
-## [Vad är Key Vault?](key-vault-whatis.md)
+
 
 # Instruktionsguider
 ## Hantera
@@ -68,11 +69,12 @@
 ### [Metoder för att skapa certifikat](create-certificate.md)
 ### [Övervaka och hantera processen för att skapa certifikat](create-certificate-scenarios.md)
 ## [Autentisering, begäranden och svar](authentication-requests-and-responses.md)
+## [Kunddatafunktioner](key-vault-customer-data.md)
 ## [Vanliga parametrar och sidhuvuden](common-parameters-and-headers.md)
 ## [Key Vault-versioner](key-vault-versions.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blogg](http://blogs.technet.com/b/kv/)
-## [Kodexempel](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Kodexempel](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

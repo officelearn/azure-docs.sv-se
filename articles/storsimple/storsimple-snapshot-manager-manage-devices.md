@@ -1,11 +1,11 @@
 ---
 title: Hantera enheter med StorSimple Snapshot Manager | Microsoft Docs
-description: "Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att ansluta och hantera StorSimple-enheter."
+description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att ansluta och hantera StorSimple-enheter.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876812"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Använd StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter
 ## <a name="overview"></a>Översikt

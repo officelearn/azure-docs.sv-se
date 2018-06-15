@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195513"
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autentisera runbooks med den klassiska Azure-distributionen och Resource Manager
 I den här artikeln beskrivs hur du konfigurerar ett Azure AD-användarkonto för Azure Automation-runbooks som körs mot den klassiska Azure-distributionsmodellen eller Azure Resource Manager-resurser. Medan det fortsätter att vara en identitet för autentiseringsmetoder som stöds för dina Azure Resource Manager-baserat runbooks, är den rekommenderade metoden att använda en Azure kör som-konto.       

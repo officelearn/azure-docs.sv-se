@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204931"
 ---
 # <a name="service-movement-cost"></a>Tjänsten förflyttningskostnad
 En faktor som tar hänsyn till Service Fabric klustret Resource Manager när försök att fastställa vilka ändringar du gör i ett kluster är kostnaden för dessa ändringar. Begreppet ”kostnad” säljs ut mot hur mycket klustret kan förbättras. Kostnaden är inberäknade vid flytt av tjänster för belastningsutjämning, defragmentering och andra krav. Målet är att uppfylla kraven på minst störande och dyr sätt. 

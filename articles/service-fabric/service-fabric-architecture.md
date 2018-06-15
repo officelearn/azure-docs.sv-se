@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209978"
 ---
 # <a name="service-fabric-architecture"></a>Arkitektur för Service Fabric
 Service Fabric bygger med överlappande undersystem. Dessa delsystem kan du skriva program som är:

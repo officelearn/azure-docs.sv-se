@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211865"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa Service Fabric-hälsorapporter
 Azure Service Fabric introducerar en [hälsomodell](service-fabric-health-introduction.md) med hälsa entiteter där systemkomponenter och watchdogs kan rapporten lokala villkor som de övervakar. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) aggregerar alla hälsotillståndsdata för att avgöra om enheterna är felfria.

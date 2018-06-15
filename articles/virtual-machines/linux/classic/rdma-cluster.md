@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210383"
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurera ett Linux RDMA-kluster för att köra MPI-program
 Lär dig hur du ställer in ett Linux RDMA-kluster i Azure med [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. Den här artikeln innehåller steg för att förbereda en Linux HPC-avbildning för att köra Intel MPI på ett kluster. Efter förberedelse, kan du distribuera ett kluster för virtuella datorer med hjälp av den här avbildningen och en av RDMA-kompatibla Azure VM-storlekar (för närvarande H16r H16mr, A8 eller A9). Använd klustret för att köra MPI-program som effektiv kommunicerar över ett nätverk för låg latens, hög genomströmning baserat på remote direct memory access (RDMA)-teknik.

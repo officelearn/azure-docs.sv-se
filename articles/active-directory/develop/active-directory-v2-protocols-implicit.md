@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158395"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll - SPA med det implicita flödet
 Med v2.0-slutpunkten du loggar in användare i din ensidesappar med både personliga och arbete/skola konton från Microsoft. Sida och andra JavaScript-appar som körs i första hand i en webbläsare yta några intressanta utmaningar när det gäller att autentisering:

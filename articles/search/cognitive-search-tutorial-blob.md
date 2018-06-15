@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366757"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757578"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -85,7 +85,7 @@ Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma
   Anslutningssträngen ska vara en URL som ser ut ungefär så här:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 Det finns andra sätt att ange anslutningssträngen, till exempel att ange en signatur för delad åtkomst. Om du vill veta mer om autentiseringsuppgifter för datakällor kan du läsa [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials) (Indexera Azure Blob Storage).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210587"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurera klustret resource manager-inställningar för Service Fabric-tjänster
 Service Fabric klustret Resource Manager kan detaljerad kontroll över de regler som styr varje person med namnet på tjänsten. Varje tjänsten kan ange regler för hur den ska allokeras i klustret. Varje tjänsten kan också definiera en uppsättning mått som rapporten, inklusive hur viktigt är de till den tjänsten. Konfigurera services uppdelad i tre olika aktiviteter:

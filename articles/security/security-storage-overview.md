@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365395"
 ---
 # <a name="azure-storage-security-overview"></a>Översikt över säkerheten i Azure Storage
 Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner. Du kan:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210009"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
 Det finns två uppsättningar av konfigurationsinställningar för tillförlitlig tjänster. En uppsättning är globala för alla tillförlitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.

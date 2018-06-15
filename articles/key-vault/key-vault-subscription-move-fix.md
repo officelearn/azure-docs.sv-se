@@ -1,8 +1,8 @@
 ---
-title: "Ändra nyckelvalvsklient-ID efter en prenumerationsflytt | Microsoft Docs"
-description: "Lär dig hur du växlar klient-ID för ett nyckelvalv när en prenumeration flyttas till en annan klient"
+title: Ändra nyckelvalvsklient-ID efter en prenumerationsflytt | Microsoft Docs
+description: Lär dig hur du växlar klient-ID för ett nyckelvalv när en prenumeration flyttas till en annan klient
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 2f007dd4f877b48003cddcefa5f4321049853361
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91c042ebda9e7a2eba4835abc079568e1ed2e537
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725514"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>F: Min prenumeration har flyttats från klient A till klient B. Hur ändrar jag klient-ID för mitt befintliga nyckelvalv och anger rätt åtkomstkontrollistor för säkerhetsobjekt i klient B?
@@ -31,7 +32,7 @@ När du skapar ett nytt nyckelvalv i en prenumeration knyts det automatiskt till
 Om du till exempel har nyckelvalvet ”myvault” i en prenumeration som har flyttats från klient A till klientens B gör du så här för att ändra klient-ID:t för detta nyckelvalv och ta bort gamla åtkomstprinciper.
 
 <pre>
-$Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
+Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
 $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId

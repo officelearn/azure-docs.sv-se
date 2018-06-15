@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206755"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Komma åt, spara och ta bort Reliable Actors tillstånd
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) är enkeltrådad objekt som kan kapsla in både logik och tillstånd och upprätthålla tillstånd på ett tillförlitligt sätt. Varje instans aktören har sin egen [tillståndshanterare](service-fabric-reliable-actors-state-management.md): en ordlista-liknande datastruktur som lagras på ett tillförlitligt sätt nyckel/värde-par. Tillståndshanterarens är en omslutning runt en tillståndsprovidern. Du kan använda för att lagra data oavsett vilket [beständiga inställningen](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) används.

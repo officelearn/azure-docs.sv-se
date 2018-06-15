@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206721"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
 Du kan köra en tjänst som ett grupphanterat tjänstkonto (gMSA) med hjälp av en RunAs-princip på en fristående Windows Server-kluster.  Service Fabric-program körs under kontot som Fabric.exe-processen körs under som standard. Kör program under olika konton, även i en delad värdmiljö gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure). Genom att använda ett gMSA, finns det ingen lösenord eller krypterade lösenordet lagras i programmanifestet.  Du kan också köra en tjänst som en [Active Directory-användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206087"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuera flera körbara gäster
 Den här artikeln visar hur du paketera och distribuera flera gäst körbara filer till Azure Service Fabric. Skapa och distribuera en enda Service Fabric-paket finns att [Distribuera gäst körbara till Service Fabric](service-fabric-deploy-existing-app.md).

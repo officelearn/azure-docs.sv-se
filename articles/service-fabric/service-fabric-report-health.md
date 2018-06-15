@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212535"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägga till anpassade hälsorapporter i Service Fabric
 Azure Service Fabric introducerar en [hälsomodell](service-fabric-health-introduction.md) utformats för att flaggan ohälsosamt klustret och villkoren för programmet på specifika enheter. Hälsomodell använder **hälsa rapportörer** (systemkomponenter och watchdogs). Målet är enkelt och snabbt diagnos och reparation. Service-skrivare måste du tänka igenom summa om hälsotillstånd. Eventuella villkor som kan påverka hälsa redovisas, särskilt om det kan hjälpa flaggan problem nära roten. Information om hälsa kan spara tid och pengar på felsökning och undersökning. Användbarhet är särskilt tydligt när tjänsten är igång och körs i skala i molnet (privat eller Azure).

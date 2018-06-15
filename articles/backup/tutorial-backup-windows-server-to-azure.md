@@ -1,26 +1,21 @@
 ---
-title: "Säkerhetskopiera Windows Server till Azure | Microsoft Docs"
-description: "Den här självstudiekursen förklarar hur du säkerhetskopierar lokala Windows-servrar till ett Recovery Services-valv."
+title: Säkerhetskopiera Windows Server till Azure
+description: Den här självstudiekursen förklarar hur du säkerhetskopierar lokala Windows-servrar till ett Recovery Services-valv.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
 keywords: windows server back up; back up windows server; back up and disaster recovery
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609026"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -38,7 +33,7 @@ Du kan använda Azure Backup för att skydda Windows Server från skador, attack
 
 Logga in på Azure Portal på http://portal.azure.com.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Innan du kan säkerhetskopiera Windows Server måste du skapa en plats för de säkerhetskopior, eller återställningspunkter, som ska lagras. Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en behållare i Azure som lagrar säkerhetskopior från Windows Server. Följ stegen nedan för att skapa ett Recovery Services-valv i Azure-portalen. 
 
@@ -144,10 +139,10 @@ Du har skapat schemat för när säkerhetskopieringsjobb ska köras. Men du har 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använde du Azure-portalen för att: 
+I den här självstudien använder du Azure-portalen till att: 
  
 > [!div class="checklist"] 
-> * Skapa ett Recovery Services-valv 
+> * skapar ett Recovery Services-valv 
 > * Ladda ned Microsoft Azure Recovery Services-agenten 
 > * Installera agenten 
 > * Konfigurera säkerhetskopiering för Windows Server 

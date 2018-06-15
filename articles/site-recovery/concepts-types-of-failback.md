@@ -1,6 +1,6 @@
 ---
-title: "Återställning efter fel i Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över olika typer av återställning efter fel och varningar beaktas vid misslyckas tillbaka till lokala med Azure Site Recovery-tjänsten."
+title: Återställning efter fel i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över olika typer av återställning efter fel och varningar beaktas vid misslyckas tillbaka till lokala med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803560"
 ---
 # <a name="overview-of-failback"></a>Översikt över återställning efter fel
 

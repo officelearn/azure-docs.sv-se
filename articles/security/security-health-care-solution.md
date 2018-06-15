@@ -1,5 +1,5 @@
 ---
-title: "En praktiska guide för att skapa säkra hälsovård lösningar i Azure | Microsoft Docs"
+title: En praktiska guide för att skapa säkra hälsovård lösningar i Azure | Microsoft Docs
 description: " Den här artikeln hjälper dig att förstå hur vi kan förbättra säkerheten för dina hälsovård lösningar med hjälp av Azure-tjänster och funktioner som du konfigurerar. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540983"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>En praktiska guide för att skapa säkra hälsovård lösningar i Azure
 Hälsotillstånd branschen omstarter, systemintegrerare (SIs), oberoende programvaruleverantörer (ISV) och vårdorganisationer som överväger en flytt till Azure letar efter riktlinjer som hjälper dem att inkludera säkerhetsåtgärder för att uppfylla skyldigheterna kompatibilitet.

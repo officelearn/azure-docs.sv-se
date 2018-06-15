@@ -17,6 +17,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32160553"
 ---
 # <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Översikt över routning av URL-sökvägsbaserat innehåll med Azure Application Gateway
 

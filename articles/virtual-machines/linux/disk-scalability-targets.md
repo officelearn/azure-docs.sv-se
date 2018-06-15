@@ -1,6 +1,6 @@
 ---
-title: "Mål för skalbarhet och prestanda för Virtuella diskar på Linux – Microsoft Azure | Microsoft Docs"
-description: "Mer information om skalbarhets- och prestandamål för virtuella diskar som är anslutna till virtuella datorer som kör Linux."
+title: Mål för skalbarhet och prestanda för Virtuella diskar på Linux – Microsoft Azure | Microsoft Docs
+description: Mer information om skalbarhets- och prestandamål för virtuella diskar som är anslutna till virtuella datorer som kör Linux.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24872332"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Mål för skalbarhet och prestanda för Virtuella diskar på Linux
 

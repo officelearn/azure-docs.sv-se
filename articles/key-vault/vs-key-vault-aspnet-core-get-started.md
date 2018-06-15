@@ -15,6 +15,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787516"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-core-projects"></a>Kom igång med Key Vault anslutna Service i Visual Studio (ASP.NET Core projekt)
 

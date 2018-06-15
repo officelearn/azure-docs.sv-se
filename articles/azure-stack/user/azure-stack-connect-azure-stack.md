@@ -1,11 +1,11 @@
 ---
 title: Ansluta till Azure-stacken | Microsoft Docs
-description: "Lär dig hur du ansluter Azure Stack"
+description: Lär dig hur du ansluter Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26636185"
 ---
 # <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 

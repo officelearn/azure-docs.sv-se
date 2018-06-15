@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181978"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Uppgradera till den senaste Azure Söktjänsts-REST API-versionen
 Om du använder en tidigare version av den [Azure Söktjänsts-REST API](https://docs.microsoft.com/rest/api/searchservice/), den här artikeln hjälper dig att uppgradera ditt program att använda senast allmänt tillgänglig API-versionen, 2017-11-11.

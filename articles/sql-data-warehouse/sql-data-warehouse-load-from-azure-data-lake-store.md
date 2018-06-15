@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188386"
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Läs in data från Azure Data Lake Store till SQL Data Warehouse
 Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Store i Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i ADLS, rekommenderar vi att importera data till SQL Data Warehouse för bästa prestanda.

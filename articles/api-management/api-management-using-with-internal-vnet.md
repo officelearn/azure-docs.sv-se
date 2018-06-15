@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151237"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med hjälp av Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks hantera Azure API Management API: er som inte är tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att ansluta. API-hantering kan distribueras i två huvudsakliga lägen i ett virtuellt nätverk:

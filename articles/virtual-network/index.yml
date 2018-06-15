@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32187902"
 abstract:
   description: Lär dig hur du använder Azure Virtual Network. Våra snabbstarter, självstudier och exempel med mera visar dig hur du distribuerar ett virtuellt nätverk, styr trafikfiltrering och routning samt ansluter ett virtuellt nätverk till andra virtuella nätverk.
 sections:

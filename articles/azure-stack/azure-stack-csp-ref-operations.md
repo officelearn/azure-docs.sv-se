@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159119"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera innehavare registrering i Azure-stacken
 

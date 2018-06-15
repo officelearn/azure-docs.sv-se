@@ -1,6 +1,6 @@
 ---
-title: "Mål för skalbarhet och prestanda för Virtuella diskar på Windows - Microsoft Azure | Microsoft Docs"
-description: "Mer information om skalbarhets- och prestandamål för virtuella diskar som är anslutna till virtuella datorer som kör Windows."
+title: Mål för skalbarhet och prestanda för Virtuella diskar på Windows - Microsoft Azure | Microsoft Docs
+description: Mer information om skalbarhets- och prestandamål för virtuella diskar som är anslutna till virtuella datorer som kör Windows.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24872318"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Mål för skalbarhet och prestanda för Virtuella diskar på Windows
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182080"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Index Azure Table storage med Azure Search
 Den här artikeln visar hur du använder Azure Search index-data som lagras i Azure Table storage.

@@ -1,12 +1,12 @@
 ---
-title: "Övervaka en Azure-molntjänst | Microsoft Docs"
-description: "Beskriver vad övervakning av en Azure-molntjänst innebär och vilken del av alternativen är."
+title: Övervaka en Azure-molntjänst | Microsoft Docs
+description: Beskriver vad övervakning av en Azure-molntjänst innebär och vilken del av alternativen är.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149914"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till Molntjänsten övervakning
 

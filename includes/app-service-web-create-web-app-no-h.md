@@ -13,6 +13,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29348905"
 ---
 Skapa i Cloud Shell en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen. Du kan göra det med hjälp av kommandot [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Ersätt *\<app_name>* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. 
 

@@ -1,11 +1,11 @@
 ---
 title: Konfigurera Azure Import/Export verktyget v1 | Microsoft Docs
-description: "Lär dig hur du ställer in enheten förberedelse och reparera verktyg för tjänsten Azure Import/Export. Detta refererar till v1 i verktyget Import/Export."
+description: Lär dig hur du ställer in enheten förberedelse och reparera verktyg för tjänsten Azure Import/Export. Detta refererar till v1 i verktyget Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873942"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera verktyget Azure Import/Export
 Verktyget Microsoft Azure Import/Export är den enhet förberedelse och reparera verktyg som du kan använda med Microsoft Azure Import/Export-tjänsten. Du kan använda verktyget för följande funktioner:  

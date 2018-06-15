@@ -1,11 +1,11 @@
 ---
-title: "Analysera användningsstatistik med Azure CDN avancerade HTTP rapporter | Microsoft Docs"
-description: "Lär dig mer om att skapa avancerade HTTP-rapporter i Microsoft Azure CDN. De här rapporterna ger detaljerad information om CDN-aktivitet."
+title: Analysera användningsstatistik med Azure CDN avancerade HTTP rapporter | Microsoft Docs
+description: Lär dig mer om att skapa avancerade HTTP-rapporter i Microsoft Azure CDN. De här rapporterna ger detaljerad information om CDN-aktivitet.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843618"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera användningsstatistik med Azure CDN avancerade http-rapporter
 ## <a name="overview"></a>Översikt

@@ -1,12 +1,12 @@
 ---
-title: "Säkerhet för din StorSimple-enhet | Microsoft Docs"
-description: "Beskriver konventioner för säkerhet, riktlinjer och överväganden och förklarar hur du på ett säkert sätt installera och använda din StorSimple-enhet."
+title: Säkerhet för din StorSimple-enhet | Microsoft Docs
+description: Beskriver konventioner för säkerhet, riktlinjer och överväganden och förklarar hur du på ett säkert sätt installera och använda din StorSimple-enhet.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875104"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installera och använda din StorSimple-enhet på ett säkert sätt
 ![Varningsikon](./media/storsimple-safety/IC740879.png)

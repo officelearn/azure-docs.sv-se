@@ -1,11 +1,11 @@
 ---
-title: "Hantera Azure Storage med hjälp av Azure Automation"
-description: "Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure Storage i större skala."
+title: Hantera Azure Storage med hjälp av Azure Automation
+description: Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure Storage i större skala.
 services: storage, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873802"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Hantera Azure Storage med hjälp av Azure Automation
 Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur det kan användas för att förenkla hanteringen av dina Azure Storage-blobbar, tabeller och köer.

@@ -1,6 +1,6 @@
 ---
-title: "Åtgärder – Microsoft Threat modellering verktyget - Azure | Microsoft Docs"
-description: "Åtgärder sidan för Microsoft Threat Modeling verktyget syntaxmarkering möjliga lösningar på det mest exponerade genereras hot."
+title: Åtgärder – Microsoft Threat modellering verktyget - Azure | Microsoft Docs
+description: Åtgärder sidan för Microsoft Threat Modeling verktyget syntaxmarkering möjliga lösningar på det mest exponerade genereras hot.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867985"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling verktyget åtgärder
 

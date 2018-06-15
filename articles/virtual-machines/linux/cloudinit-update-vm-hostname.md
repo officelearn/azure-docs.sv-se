@@ -1,11 +1,11 @@
 ---
-title: "Använd molnet init för att ange värdnamnet för en Linux-VM på Azure | Microsoft Docs"
-description: "Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 2.0"
+title: Använd molnet init för att ange värdnamnet för en Linux-VM på Azure | Microsoft Docs
+description: Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124032"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Använd molnet init för att ange värdnamnet för en Linux-VM i Azure
 Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) för att konfigurera specifika värdnamn på en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)

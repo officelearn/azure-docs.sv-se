@@ -1,11 +1,11 @@
 ---
-title: "Testa din VM-erbjudande för Marketplace | Microsoft Docs"
-description: "Förstå hur du testar dina VM-avbildning för Azure Marketplace."
+title: Testa din VM-erbjudande för Marketplace | Microsoft Docs
+description: Förstå hur du testar dina VM-avbildning för Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936947"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testa din VM-erbjudande för Azure Marketplace under mellanlagring
 Mellanlagring innebär att distribuera din SKU i ett privat ”sandbox” där du kan testa och validera dess funktioner innan du distribuerar det till Marketplace. SKU: N visas i Förproduktion precis som när en kund som har distribuerat den. VM-avbildning måste certifierade pushas till mellanlagring.

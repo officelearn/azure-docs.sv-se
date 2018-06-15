@@ -1,6 +1,6 @@
 ---
-title: "Testresultat för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln innehåller information om prestandatestning för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med hjälp av Azure Site Recovery."
+title: Testresultat för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller information om prestandatestning för replikering av Hyper-V virtuella datorer i VMM-moln till en sekundär plats med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378899"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testresultat för Hyper-V-replikering till en sekundär plats
 

@@ -1,12 +1,12 @@
 ---
-title: "Singletons för beständig funktioner – Azure"
-description: "Hur du använder singletons i varaktiga Functons-tillägget för Azure Functions."
+title: Singletons för beständig funktioner – Azure
+description: Hur du använder singletons i varaktiga Functons-tillägget för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972559"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton orchestrators i varaktiga funktioner (Azure-funktioner)
 

@@ -1,11 +1,11 @@
 ---
-title: "Vanliga uppgifter för start för molntjänster | Microsoft Docs"
-description: "Ger exempel på vanliga Start uppgifter som du kanske vill utföra i cloud services webbroll eller worker-rollen."
+title: Vanliga uppgifter för start för molntjänster | Microsoft Docs
+description: Ger exempel på vanliga Start uppgifter som du kanske vill utföra i cloud services webbroll eller worker-rollen.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843702"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga uppgifter för start av Molntjänsten
 Den här artikeln innehåller några exempel på vanliga Start uppgifter som du kanske vill utföra i Molntjänsten. Du kan använda Start uppgifter för att utföra åtgärder innan du startar en roll. Åtgärder som du kanske vill utföra inkluderar installerar en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process. 

@@ -1,7 +1,7 @@
 ---
 title: Skapa anpassade instrumentpaneler i Azure Application Insights | Microsoft Docs
-description: "Självstudie för att skapa anpassade KPI-instrumentpaneler med Azure Application Insights."
-keywords: 
+description: Självstudie för att skapa anpassade KPI-instrumentpaneler med Azure Application Insights.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29178212"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 

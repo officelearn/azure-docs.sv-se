@@ -1,11 +1,11 @@
 ---
-title: "Kom igång med Azure CDN-biblioteket för .NET | Microsoft Docs"
-description: "Lär dig hur du skriver .NET-program för att hantera Azure CDN med Visual Studio."
+title: Kom igång med Azure CDN-biblioteket för .NET | Microsoft Docs
+description: Lär dig hur du skriver .NET-program för att hantera Azure CDN med Visual Studio.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23843051"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ Du måste Visual Studio 2015 att slutföra den här kursen.  [Visual Studio Comm
 ## <a name="create-your-project-and-add-nuget-packages"></a>Skapa projektet och Lägg till Nuget-paket
 Nu när vi har skapat en resursgrupp för våra CDN-profiler och våra Azure AD-programmet behörighet att hantera CDN profiler och slutpunkter inom den gruppen, kan vi börja skapa vårt program.
 
-Klicka på i Visual Studio 2015 **filen**, **ny**, **projekt...**  att öppna dialogrutan Nytt projekt.  Expandera **Visual C#**och välj **Windows** i rutan till vänster.  Klicka på **konsolprogram** i mitten av fönstret.  Namnge projektet och klicka sedan på **OK**.  
+Klicka på i Visual Studio 2015 **filen**, **ny**, **projekt...**  att öppna dialogrutan Nytt projekt.  Expandera **Visual C#** och välj **Windows** i rutan till vänster.  Klicka på **konsolprogram** i mitten av fönstret.  Namnge projektet och klicka sedan på **OK**.  
 
 ![Nytt projekt](./media/cdn-app-dev-net/cdn-new-project.png)
 

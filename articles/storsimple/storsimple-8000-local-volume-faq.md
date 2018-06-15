@@ -1,12 +1,12 @@
 ---
-title: "StorSimple lokalt fästa volymer vanliga frågor och svar | Microsoft Docs"
-description: "Innehåller svar på vanliga frågor om lokalt Fäst StorSimple-volymer."
+title: StorSimple lokalt fästa volymer vanliga frågor och svar | Microsoft Docs
+description: Innehåller svar på vanliga frågor om lokalt Fäst StorSimple-volymer.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875594"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokalt fästa volymer: vanliga frågor (FAQ)
 ## <a name="overview"></a>Översikt
@@ -161,7 +162,7 @@ Mer information om hur du [konvertera en nivåindelad volym till en lokalt Fäst
 
 **F.** Kan jag ändra typen av en volym under återställning?
 
-**A.**Nej, du kan inte ändra volymtypen under återställning.
+**A.** Nej, du kan inte ändra volymtypen under återställning.
 
 * Volymer som har tagits bort återställs som lagras i ögonblicksbilden.
 * Befintliga volymer återställs baserat på aktuell typ, oavsett vilken typ som lagras i ögonblicksbilden (se föregående två frågor).

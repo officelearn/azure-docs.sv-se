@@ -1,11 +1,11 @@
 ---
-title: "Förbereda och testa erbjudandet för distribution till Azure Marketplace | Microsoft Docs"
-description: "Detaljerade anvisningar om att marknadsföring innehåll, konfigurera prisnivå planer och testning erbjudandet innan du distribuerar till Azure Marketplace."
+title: Förbereda och testa erbjudandet för distribution till Azure Marketplace | Microsoft Docs
+description: Detaljerade anvisningar om att marknadsföring innehåll, konfigurera prisnivå planer och testning erbjudandet innan du distribuerar till Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947278"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Skapa erbjudande med marknadsföring innehåll
 I det här steget publiceringsprocessen behöver att tillhandahålla vissa marknadsföring innehåll och information om erbjudandet och/eller SKU: er i Azure Marketplace. Exempelvis kan du ange en beskrivning av produkten, logotyp, pris planer, information om planer och annan information som behövs för att push-erbjudandet och/eller SKU till Förproduktion. Den här informationen används som marknadsföring innehåll i Azure-portalen. Du börjar den här processen i den [Publiceringsportal][link-pubportal].

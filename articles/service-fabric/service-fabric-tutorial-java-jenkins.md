@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949845"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö med Service Fabric
 Den här självstudien är del fem i en serie. Den visar hur du använder Jenkins för att distribuera uppgraderingar till din tillämpning. I den här självstudiekursen används plugin-programmet för Service Fabric Jenkins i kombination med en Github-databas, som är värd för röstningsprogrammet, för att distribuera tillämpningen till ett kluster. 

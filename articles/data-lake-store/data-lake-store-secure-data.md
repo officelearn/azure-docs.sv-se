@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197043"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Att säkra data som lagras i Azure Data Lake Store
 Skydda data i Azure Data Lake Store är en metod för tre steg.  Både rollbaserad åtkomstkontroll (RBAC) och åtkomstkontrollistor (ACL) måste anges till fullständigt Aktivera åtkomst till data för användare och säkerhetsgrupper.

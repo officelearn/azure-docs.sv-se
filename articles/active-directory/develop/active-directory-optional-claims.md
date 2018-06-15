@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157239"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsgranskning)
 

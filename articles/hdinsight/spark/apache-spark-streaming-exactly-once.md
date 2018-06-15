@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164876"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Spark Streaming jobb med exakt-när händelsen bearbetning
 

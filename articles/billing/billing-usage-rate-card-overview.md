@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164983"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att genom programmering få bättre överblick på din användning av Azure
 Använd Azure fakturering API: er som hämtar användnings- och data till din önskade verktyg för dataanalys. Användning av Azure och RateCard APIs kan hjälpa dig korrekt förutsäga och hantera dina kostnader. API: erna implementeras som en Resource Provider och en del av API: er som exponeras av Azure Resource Manager.  

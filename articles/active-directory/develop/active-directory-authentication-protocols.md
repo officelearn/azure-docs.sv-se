@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156525"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-autentiseringsprotokoll
 Azure Active Directory (AD Azure) stöder flera av de vanligaste protokollen för autentisering och auktorisering. I det här avsnittet beskrivs protokoll som stöds och deras implementering i Azure AD. Avsnitten ingår en granskning av anspråkstyper med stöd, en introduktion till användning av federationsmetadata, detaljerad OAuth 2.0. och referensdokumentationen för SAML 2.0-protokollet och instruktioner för felsökning.

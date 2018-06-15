@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068430"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Tilldela användare och grupper till ett program
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196788"
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Jämförelse mellan Azure Data Lake Store och Azure Blob Storage
 Tabellen nedan sammanfattar skillnaderna mellan Azure Data Lake Store och Azure Blob Storage längs vissa viktiga aspekter av stora databearbetning. Azure Blob Storage är en generell, lager skalbara objekt som är avsedd för en mängd olika scenarier för lagring. Azure Data Lake Store är en storskalig lagringsplats som är optimerad för arbetsbelastningar för analyser av stordata.

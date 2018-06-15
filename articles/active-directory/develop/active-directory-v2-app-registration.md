@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157851"
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Hur du registrerar en app med v2.0-slutpunkten
 Om du vill skapa en app som accepterar både personliga Microsoft-konto (MSA) och arbete eller skola inloggning konto (Azure AD), behöver du först registrera en app med Microsoft. För närvarande kan du inte använda några befintliga appar som du kan ha med Azure AD eller MSA - du behöver skapa en helt ny.

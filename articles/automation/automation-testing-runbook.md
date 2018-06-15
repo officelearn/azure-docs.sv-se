@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192106"
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testa en runbook i Azure Automation
 När du testar en runbook i [utkast](automation-creating-importing-runbook.md#publishing-a-runbook) körs och eventuella åtgärder som den utför slutförs. Ingen jobbhistorik skapas, men [utdata](automation-runbook-output-and-messages.md#output-stream) och [varnings- och](automation-runbook-output-and-messages.md#message-streams) dataströmmar visas i testet utdata fönstret. Meddelanden till den [utförliga strömmen](automation-runbook-output-and-messages.md#message-streams) visas i utdatafönstret bara om den [variabeln $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) är inställd på Fortsätt.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943754"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med molnet initiering
 Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den omdistribuerade och klar att använda molnet initiering. Bilden kan användas för att distribuera en ny virtuell dator eller skalningsuppsättningar i virtuella - som kan sedan anpassas ytterligare genom molnet init vid tidpunkten för distribution.  Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)

@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192228"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Självstudier: Skapa en pipeline för kontinuerlig integrering med Visual Studio Team Services och IIS
 Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera bygga, testa och distribution faser för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline med hjälp av Visual Studio Team Services och en Windows-dator (VM) i Azure som kör IIS. Lär dig att:

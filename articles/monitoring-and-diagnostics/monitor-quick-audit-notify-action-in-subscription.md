@@ -1,20 +1,20 @@
 ---
-title: Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration | Microsoft Docs
+title: Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration
 description: Förstå historiken för resurshantering, tjänstehälsa och annan prenumerationsaktivitet i aktivitetsloggen och använd sedan en aktivitetsloggavisering för att få ett e-postmeddelande när en åtgärd med höga privilegier utförs i din prenumeration.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 5a6f4d7ab978543a6871eb0ac3926fa25fb65ad2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263338"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 03/23/2018
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 

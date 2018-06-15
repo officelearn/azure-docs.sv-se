@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929360"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-service-identity-msi-using-the-azure-portal"></a>Skapa, visa eller ta bort en användare som tilldelats hanterade tjänsten identitet (MSI) med Azure-portalen
 

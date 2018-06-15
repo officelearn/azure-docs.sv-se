@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198834"
 ---
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker och Kubernetes utveckling
 Hittills har du en enkel webbapp som kan köra lokalt. Du kommer nu containerize den genom att skapa tillgångar som definierar appens behållare och hur den ska distribuera till Kubernetes. Det är lätt att göra med Azure Dev blanksteg: 

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155348"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Logga in Account och Azure Active Directory-användare i ett enda program
 Tidigare hade programutvecklare som ville stöder både personliga Microsoft-konton och fungerar konton från Azure Active Directory att integrera med två separata system. Azure Active Directory (AD Azure) v2.0-slutpunkten introducerar en ny autentisering-API-version som förenklar processen. Azure AD v2.0-slutpunkten kan logga in från båda typer av konton med hjälp av en enkel integrering. Program som använder Azure AD v2.0-slutpunkten kan också använda REST-API: er från den [Microsoft Graph API](https://graph.microsoft.io) genom att använda någon typ av konto.

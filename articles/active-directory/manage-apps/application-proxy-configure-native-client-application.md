@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161975"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du native client appar att interagera med proxy-program
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796028"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instansen offentlig IP (klassisk): översikt
 En instans nivån offentliga IP-går är en offentlig IP-adress som kan tilldelas direkt till en virtuell dator eller molntjänster rollinstans i stället för till Molntjänsten som din Virtuella eller roll instans finns i. En går äga inte rum för den virtuella IP (VIP) som är tilldelad till Molntjänsten. Det är en ytterligare IP-adress som du kan använda för att ansluta direkt till din Virtuella eller roll-instans.

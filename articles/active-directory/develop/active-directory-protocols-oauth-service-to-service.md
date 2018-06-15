@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158201"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänsten med hjälp av klientens autentiseringsuppgifter (delad hemlighet eller certifikat)-anrop
 OAuth 2.0 klientens autentiseringsuppgifter bevilja flöda tillåter en webbtjänst (*konfidentiell klienten*) kan använda sina egna autentiseringsuppgifter i stället för att personifiera en användare för att autentisera när du anropar en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon tjänst eller webbplats. Azure AD kan även anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en referens för en högre säkerhetsnivå.

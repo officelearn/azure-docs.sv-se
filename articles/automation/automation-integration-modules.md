@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195870"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integreringsmoduler
 PowerShell är den grundläggande tekniken bakom Azure Automation. Eftersom Azure Automation bygger på PowerShell är PowerShell-moduler fundamentala för att kunna expandera Azure Automation. I den här artikeln hur vi du egenskaperna för Azure Automation-användning av PowerShell-moduler som kallas ”integreringsmoduler” och metodtips för att skapa egna PowerShell-moduler för att kontrollera att de fungerar som integreringsmoduler i Azure Automatisering. 

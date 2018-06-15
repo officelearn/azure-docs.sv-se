@@ -17,6 +17,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069074"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Skapa dessa behållare för att bygga en effektiv hierarki som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [baserat åtkomstkontroller i Azure rollen](../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md). 

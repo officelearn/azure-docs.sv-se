@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359602"
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*

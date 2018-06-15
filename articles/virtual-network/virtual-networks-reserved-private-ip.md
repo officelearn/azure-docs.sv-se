@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366621"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Hur du ställer in en statisk internt privat IP-adress med hjälp av PowerShell (klassisk)
 I de flesta fall behöver du inte ange en statisk interna IP-adress för den virtuella datorn. Virtuella datorer i ett virtuellt nätverk får automatiskt en intern IP-adress från det intervall som du anger. Men i vissa fall, ange en statisk IP-adress för en viss virtuell dator är meningsfullt. Till exempel om den virtuella datorn kommer att köra DNS eller om en domänkontrollant. En statiska interna IP-adressen förblir med den virtuella datorn även via ett stoppa/avetablering tillstånd. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365635"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över säkerheten i Azure-nätverk
 Azure innehåller en stabil nätverksinfrastruktur för att stödja dina program och tjänsten anslutningskrav. Nätverksanslutningen är möjlig mellan resurser i Azure, mellan lokala och Azure värdbaserade resurser, och till och från internet och Azure.

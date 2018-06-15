@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325335"
 ---
 >[!NOTE]
 >Den första tillståndskonfigurationen av enhetstvillingen är endast tillgänglig i standardnivån för IoT Hub. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314790"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör vid en Azure-tjänst avbrott som påverkar Azure Cloud Services
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Framtvingar utanför vårt kontroll påverka oss på ett sätt som orsakar avbrott i tjänsten oplanerad ibland.

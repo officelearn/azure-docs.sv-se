@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626402"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudie: Apache Kafka Streams-API
 
@@ -30,7 +31,7 @@ Programmet som används i den här självstudien är en strömmande ordräkning.
 >
 > Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Ställ in din utvecklingsmiljö
@@ -41,7 +42,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på HDInsight-kluster finns i dokumentet [Börja med Kafka på HDInsight](apache-kafka-get-started.md).
+* En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Kafka i HDInsight](apache-kafka-get-started.md).
 
 * Utför stegen i dokumentet [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) (API för Kafka-konsument och -producent). Stegen i det här dokumentet använder exempelprogram och avsnitt som skapats i den här kursen.
 
@@ -78,9 +79,9 @@ Viktiga saker att förstå i `pom.xml`-filen är:
     ```
 
     > [!NOTE]
-    > `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml`, och är konfigurerad till Kafka-versionen av HDInsight-klustret.
+    > `${kafka.version}`-posten har deklarerats i `<properties>..</properties>`-avsnittet i `pom.xml` och är konfigurerad till Kafka-versionen av HDInsight-klustret.
 
-* Plugin-program: Maven-plugin-program innehåller olika funktioner. I det här projektet används följande plugin-program:
+* Plugin-program: Plugin-programmet Maven innehåller olika funktioner. I det här projektet används följande plugin-program:
 
     * `maven-compiler-plugin`: Används för att ange den Java-version som används av projektet till 8. Java 8 krävs av HDInsight 3.6.
     * `maven-shade-plugin`: Används för att generera en Uber-jar som innehåller det här programmet, samt eventuella beroenden. Det används också att ange startpunkt för programmet, så att du kan köra Jar-filen direkt utan att behöva ange huvudklassen.
@@ -178,7 +179,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Använd följande kommandon för att hämta Kafka Service broker-värdar och Zookeeper-värdar. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
+3. Använd följande kommandon för att hämta värdar för Kafka-meddelandeköer och Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -252,7 +253,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
         jumped  13641
    
     > [!NOTE]
-    > Parametern `--from-beggining` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
+    > Parametern `--from-beginning` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
 
 7. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.
 

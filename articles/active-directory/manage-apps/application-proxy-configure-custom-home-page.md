@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161989"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad hemsida för publicerade appar med hjälp av Azure AD Application Proxy
 

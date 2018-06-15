@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364258"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig igenom hur du använder rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-resurser.

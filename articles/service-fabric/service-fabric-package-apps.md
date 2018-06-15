@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205818"
 ---
 # <a name="package-an-application"></a>Paketera ett program
 Den här artikeln beskriver hur du paketerar ett Service Fabric-program och förbereda för distribution.

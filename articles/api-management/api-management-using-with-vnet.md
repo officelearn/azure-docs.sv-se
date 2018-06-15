@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355091"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).

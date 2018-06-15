@@ -1,11 +1,11 @@
 ---
-title: "Avancerade begäran begränsning med Azure API Management"
-description: "Lär dig hur du skapar och använder flexibla kvoten och begränsa principer med Azure API Management hastighet."
+title: Avancerade begäran begränsning med Azure API Management
+description: Lär dig hur du skapar och använder flexibla kvoten och begränsa principer med Azure API Management hastighet.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800031"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerade begäran begränsning med Azure API Management
 Att kunna begränsa inkommande begäranden är en viktig roll i Azure API Management. Antingen genom att kontrollera antalet förfrågningar eller totalt antal begäranden/överförda data kan API Management-API-leverantörer att skydda sina API: er från missbruk och skapa värde för olika nivåer för API-produkten.

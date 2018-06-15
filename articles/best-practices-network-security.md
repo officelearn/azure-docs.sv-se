@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360480"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft cloud services och nätverkssäkerhet
 Microsoft-molntjänster leverera storskaliga tjänster och infrastruktur, funktioner i företagsklass och många alternativ för hybridanslutning. Kunder kan välja att använda dessa tjänster via Internet eller med Azure ExpressRoute som tillhandahåller anslutningar privata nätverk. Microsoft Azure-plattformen gör att kunder vill sömlöst utöka sin infrastruktur till molnet och skapa flera nivåer arkitekturer. Tredje part kan dessutom aktivera förbättrade funktioner genom att erbjuda tjänster och virtuella installationer. Den här rapporten innehåller en översikt över arkitekturen problem som kunder bör tänka på när du använder Microsoft-molntjänster som nås via ExpressRoute och säkerhet. Den omfattar också skapa säkrare tjänster i virtuella Azure-nätverk.

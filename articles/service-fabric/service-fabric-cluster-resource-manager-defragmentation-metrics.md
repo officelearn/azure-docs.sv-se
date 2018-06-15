@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205084"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mätvärden och belastningen i Service Fabric
 Service Fabric klustret resurshanterare standard strategi för att hantera belastningen mått i klustret är att fördela belastningen. Se till att noderna är jämnt utnyttjade undviker varm eller kall punkter som leda till både konkurrens och oanvänt resurser. Distribution av arbetsbelastningar i klustret är också den säkraste vad gäller kvarvarande fel eftersom det garanterar att fel inte ta ut en stor del av en viss arbetsbelastning. 

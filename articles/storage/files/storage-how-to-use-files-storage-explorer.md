@@ -4,8 +4,8 @@ description: Lär dig att hantera Azure Files med Azure Storage Explorer.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: 1953ee18fe878c33a1a0965937f64056278875cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738181"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Hantera Azure-filresurser med Azure Storage Explorer 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.

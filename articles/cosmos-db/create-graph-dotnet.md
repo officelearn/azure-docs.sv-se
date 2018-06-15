@@ -2,23 +2,21 @@
 title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Graph API | Microsoft Docs
 description: Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795891"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
@@ -28,7 +26,7 @@ Den här snabbstarten demonstrerar hur du skapar ett Microsoft Azure Cosmos DB [
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte har Visual Studio 2017 installerat kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 Om du redan har Visual Studio 2017 installerat ser du till att det är installerat upp till [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
@@ -69,7 +67,7 @@ Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och kö
 5. Återställ NuGet-paketen i projektet. Det bör inkludera Gremlin.Net-drivrutinen och Newtonsoft.Json-paketet.
 
 
-6. Du kan också installera Gremlin.Net-drivrutinen manuellt med Nuget-pakethanteraren eller [nuget-kommandoradsverktyget](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. Du kan också installera Gremlin.Net-drivrutinen manuellt med Nuget-pakethanteraren eller [nuget-kommandoradsverktyget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net

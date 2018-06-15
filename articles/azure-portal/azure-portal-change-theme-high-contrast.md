@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165408"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Aktivera hög kontrast eller ändra temat i Azure-portalen
 Om du behöver mer kontrast eller om du vill ändra färgschema i Azure portal, gå till portalinställningar man gör ändringen. 

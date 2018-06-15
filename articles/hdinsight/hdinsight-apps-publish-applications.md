@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201714"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program i Azure Marketplace
 Du kan installera ett Azure HDInsight-program på en Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program i Azure Marketplace. Allmän information om hur du publicerar i Azure Marketplace finns [publicera ett erbjudande på Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30317046"
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Kom igång med Batch SDK för Python
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355958"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation Runbook- och stänga
 Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn istället för att skapa egna runbooks och moduler i Azure Automation.  Du kan antingen använda de här scenarierna utan ändringar eller använda dem som en startpunkt och redigera dem för dina specifika krav.

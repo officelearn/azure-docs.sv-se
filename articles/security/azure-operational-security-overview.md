@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365720"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure operativ säkerhet
 [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Det är ett ramverk som innehåller kunskap via en mängd funktioner som är unika för Microsoft. Dessa funktioner är Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program och djup medvetenhet om hotbild cybersecurity.

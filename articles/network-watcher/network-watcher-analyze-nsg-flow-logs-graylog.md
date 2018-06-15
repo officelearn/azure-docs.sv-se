@@ -1,13 +1,13 @@
 ---
-title: "Analysera Azure-nätverk grupp flödet säkerhetsloggar - Graylog | Microsoft Docs"
-description: "Lär dig att hantera och analysera nätverket grupp flödet säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Graylog."
+title: Analysera Azure-nätverk grupp flödet säkerhetsloggar - Graylog | Microsoft Docs
+description: Lär dig att hantera och analysera nätverket grupp flödet säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Graylog.
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26639291"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera nätverket grupp flödet säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Graylog
 

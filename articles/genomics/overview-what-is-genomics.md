@@ -1,7 +1,7 @@
 ---
-title: "Vad är Microsoft Genomics? | Microsoft Docs"
+title: Vad är Microsoft Genomics? | Microsoft Docs
 titleSuffix: Azure
-description: "Lär dig hur Microsoft Genomics sätta påvisa ordningsföljd nu erbjuder en molnimplementering av BWA-GATK för sekundära analys."
+description: Lär dig hur Microsoft Genomics sätta påvisa ordningsföljd nu erbjuder en molnimplementering av BWA-GATK för sekundära analys.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684797"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
 Microsoft Genomics erbjuder en molnimplementering Burrows Larsson Aligner (BWA) och genom analys Toolkit (GATK) för sekundära analys. Tjänsten ISO-certifierad och kompatibel med HIPAA förordningar och ger pris förutsägbarhet för dina behov för påvisa ordningsföljd. Lär dig mer om att använda tjänsten Microsoft Genomics och integrera med vårt API genom att läsa vår Snabbstart, självstudier och dokumentation.

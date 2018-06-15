@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590793"
 abstract:
   description: Virtuella datorer för datavetenskap och djupinlärning är anpassade VM-avbildningar i Azure med verktyg för datavetenskap som används för att skapa intelligenta program för avancerade analyser.
 sections:

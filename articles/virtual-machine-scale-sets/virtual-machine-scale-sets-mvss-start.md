@@ -1,11 +1,11 @@
 ---
-title: "Lär dig mer om mallar för virtuella datorer scale set | Microsoft Docs"
-description: "Lär dig hur du skapar en lägsta lönsam skala set mall för virtuella datorer"
+title: Lär dig mer om mallar för virtuella datorer scale set | Microsoft Docs
+description: Lär dig hur du skapar en lägsta lönsam skala set mall för virtuella datorer
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781263"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om scale set-mallar för virtuella datorer
 [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här självstudiekursen serien visar hur du skapar en mall för lägsta lönsam skala och hur du ändrar den här mallen så att den passar olika scenarier. Alla exempel kommer från den här [GitHub-lagringsplatsen](https://github.com/gatneil/mvss). 

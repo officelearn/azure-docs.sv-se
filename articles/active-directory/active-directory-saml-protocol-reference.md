@@ -1,11 +1,11 @@
 ---
-title: "Referens för Azure AD-SAML-protokollet | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över enkel inloggning och enkel Sign-Out SAML-profiler i Azure Active Directory."
+title: Referens för Azure AD-SAML-protokollet | Microsoft Docs
+description: Den här artikeln innehåller en översikt över enkel inloggning och enkel Sign-Out SAML-profiler i Azure Active Directory.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26615781"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Hur Azure Active Directory använder SAML-protokoll
 Azure Active Directory (AD Azure) använder SAML 2.0-protokollet för att programmen ska tillhandahålla en enkel inloggning för sina användare. Den [enkel inloggning](active-directory-single-sign-on-protocol-reference.md) och [enkel utloggning](active-directory-single-sign-out-protocol-reference.md) SAML-profiler i Azure AD förklarar hur SAML intyg, protokoll och bindningar används i tjänsten identitet provider.

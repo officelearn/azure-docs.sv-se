@@ -1,6 +1,6 @@
 ---
-title: "Skapa och hantera brandväggsregler i Azure-databas för PostgreSQL"
-description: "Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal"
+title: Skapa och hantera brandväggsregler i Azure-databas för PostgreSQL
+description: Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690347"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal
 Brandväggsregler på servernivå kan administratörer få åtkomst till en Azure-databas för PostgreSQL-Server från en angiven IP-adress eller intervall av IP-adresser. 

@@ -1,12 +1,12 @@
 ---
-title: "Överföra Data med Microsoft Azure Storage Data Movement Library | Microsoft Docs"
-description: "Använd Data Movement Library att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage."
+title: Överföra Data med Microsoft Azure Storage Data Movement Library | Microsoft Docs
+description: Använd Data Movement Library att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564747"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 

@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera en plats-till-plats-VPN över Microsoft Azure ExpressRoute-peering | Microsoft Docs"
-description: "Konfigurera IPsec/IKE-anslutningen till Azure via en peering Microsoft ExpressRoute-krets med hjälp av en plats-till-plats VPN-gateway."
+title: Konfigurera en plats-till-plats-VPN över Microsoft Azure ExpressRoute-peering | Microsoft Docs
+description: Konfigurera IPsec/IKE-anslutningen till Azure via en peering Microsoft ExpressRoute-krets med hjälp av en plats-till-plats VPN-gateway.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357736"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurera en plats-till-plats VPN-anslutning via Microsoft ExpressRoute-peering
 

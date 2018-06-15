@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31600350"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en Linux-VM i Azure 
 Med ett nyckelpar för secure shell (SSH), kan du skapa en virtuell Linux-dator på Azure som standard använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord att logga in. Virtuella datorer som har skapats med Azure-portalen, Azure CLI Resource Manager mallar eller andra verktyg kan innehålla offentliga SSH-nyckeln som en del av distributionen som konfigurerar autentisering för SSH-nycklar för SSH-anslutningar. 

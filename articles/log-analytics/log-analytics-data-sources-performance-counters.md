@@ -1,8 +1,8 @@
 ---
-title: "Samla in och analysera prestandaräknare i Azure Log Analytics | Microsoft Docs"
-description: "Prestandaräknarna samlas in av logganalys att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och analysera dem i Azure-portalen."
+title: Samla in och analysera prestandaräknare i Azure Log Analytics | Microsoft Docs
+description: Prestandaräknarna samlas in av logganalys att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och analysera dem i Azure-portalen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783170"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i logganalys
 Prestandaräknare i Windows och Linux ger kunskaper om prestandan för maskinvarukomponenter, operativsystem och program.  Logganalys kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.

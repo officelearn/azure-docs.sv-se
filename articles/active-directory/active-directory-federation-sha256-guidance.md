@@ -1,12 +1,12 @@
 ---
-title: "Ändra signaturhash-algoritm för förlitande part för Office 365 | Microsoft Docs"
-description: "Den här sidan innehåller riktlinjer för att ändra SHA-algoritmen för federationsförtroende med Office 365"
-keywords: "SHA1, SHA256, O365, federation, aadconnect, adfs, ADFS, ändra sha federationsförtroende förtroende för förlitande part"
+title: Ändra signaturhash-algoritm för förlitande part för Office 365 | Microsoft Docs
+description: Den här sidan innehåller riktlinjer för att ändra SHA-algoritmen för federationsförtroende med Office 365
+keywords: SHA1, SHA256, O365, federation, aadconnect, adfs, ADFS, ändra sha federationsförtroende förtroende för förlitande part
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598968"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Ändra signaturhash-algoritm för Office 365 förtroende för förlitande part
 ## <a name="overview"></a>Översikt

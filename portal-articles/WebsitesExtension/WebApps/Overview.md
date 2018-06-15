@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600921"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.

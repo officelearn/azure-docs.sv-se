@@ -1,11 +1,11 @@
 ---
-title: "Komma igång med Azure Service Bus-köer | Microsoft Docs"
-description: "Skriv ett C#-konsolprogram som använder meddelandeköer i Service Bus."
+title: Komma igång med Azure Service Bus-köer | Microsoft Docs
+description: Skriv ett C#-konsolprogram som använder meddelandeköer i Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26642468"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 

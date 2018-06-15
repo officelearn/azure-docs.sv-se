@@ -1,7 +1,7 @@
 ---
-title: "Snabbstart: Skicka ett arbetsflöde med en BAM-fil som indata | Microsoft Docs"
+title: 'Snabbstart: Skicka ett arbetsflöde med en BAM-fil som indata | Microsoft Docs'
 titleSuffix: Azure
-description: "I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten."
+description: I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684525"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Skicka ett arbetsflöde med en BAM-fil som indata
 

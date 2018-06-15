@@ -1,8 +1,8 @@
 ---
-title: "Använda Azure AD Connect Health med AD DS | Microsoft Docs"
-description: "Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar AD DS."
+title: Använda Azure AD Connect Health med AD DS | Microsoft Docs
+description: Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar AD DS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: arluca
 manager: mtillman
 editor: curtand
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614421"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Använda Azure AD Connect Health med AD DS
 Följande dokumentation är specifik för övervakning av Active Directory Domain Services med Azure AD Connect Health. Följande AD DS-versioner stöds: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016.

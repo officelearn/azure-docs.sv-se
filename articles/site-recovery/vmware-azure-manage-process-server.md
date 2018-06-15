@@ -1,10 +1,10 @@
 ---
 title: Hantera en processerver i Azure Site Recovery | Microsoft Docs
-description: "Den här artikeln beskriver hantera en processerver har ställts in för VMware VM och fysisk server-replikering i Azure Site Recovery."
+description: Den här artikeln beskriver hantera en processerver har ställts in för VMware VM och fysisk server-replikering i Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
-editor: 
+editor: ''
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812742"
 ---
 # <a name="manage-process-servers"></a>Hantera servrar
 

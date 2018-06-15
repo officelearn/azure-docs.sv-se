@@ -1,13 +1,13 @@
 ---
-title: "Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar - hanterade diskar i Azure | Microsoft Docs"
-description: "Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar med PowerShell i Resource Manager-distributionsmodellen"
+title: Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar - hanterade diskar i Azure | Microsoft Docs
+description: Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar med PowerShell i Resource Manager-distributionsmodellen
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29804223"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar
 

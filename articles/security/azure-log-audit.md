@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057945"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion

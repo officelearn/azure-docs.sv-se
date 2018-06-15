@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160333"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera Windows-dator till den nya noden i Azure
 Om du har med svårigheter kan RDP (Remote Desktop)-anslutning eller program åtkomst till Windows-baserad Azure virtuell dator (VM), omdistribuera den virtuella datorn felsökningshjälp. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka, behåller alla konfigurationsalternativ och associerade resurser. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure PowerShell eller Azure-portalen.

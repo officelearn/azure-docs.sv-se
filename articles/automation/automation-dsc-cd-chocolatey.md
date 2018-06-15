@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195275"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exempel på användning: Kontinuerlig distribution till virtuella datorer med hjälp av Automation DSC och Chocolatey
 I en DevOps-värld finns många verktyg för att hjälpa till med olika punkter i pipeline för kontinuerlig Integration.  Azure Automation önskat tillståndskonfigurationen (DSC) är en Välkommen nya tillägg till de alternativ som DevOps team kan använda.  Den här artikeln visar inställningen in kontinuerlig distribution (CD) för en Windows-dator.  Du kan enkelt utöka tekniken för att inkludera så många Windows-datorer som behövs i roll (till exempel en webbplats), och därifrån samt ytterligare roller.

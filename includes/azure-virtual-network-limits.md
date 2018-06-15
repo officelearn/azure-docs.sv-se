@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: bbeceb868466de42cfdffa3991983ac906cb98aa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323739"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568134"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -68,7 +68,6 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Belastningsutjämning | 100 | 1000 |
-| Serverdelsresurser per Load Balancer * | 50 | 150 |
 | Regler per resurs, Basic | 150 | 250 |
 | Regler per resurs, Standard | 1250 | 1500 |
 | Regler per IP-konfiguration | 299 |299 |
@@ -76,9 +75,10 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Frontend-IP-konfigurationer, Standard | 10 | 600 |
 | Serverdelspool Basic | 100, enkel Tillgänglighetsuppsättning | 100, enkel Tillgänglighetsuppsättning |
 | Serverdelspool, Standard | 1000, enkel VNet | 1000, enkel VNet |
+| Serverdelsresurser per belastningsutjämnare, Standard &ast; | 50 | 150 |
 | Hög tillgänglighet portar, Standard | 1 per interna klientdel | 1 per interna klientdel |
 
-* Upp till 150 resurser, valfri kombination av fristående virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar i virtuella datorer.
+&ast; Upp till 150 resurser, valfri kombination av fristående virtuella datorer, tillgänglighetsuppsättningar och skalningsuppsättningar i virtuella datorer.
 
 [Kontakta supporten](../articles/azure-supportability/resource-manager-core-quotas-request.md ) om du måste öka gränserna från standardvärdet.
 

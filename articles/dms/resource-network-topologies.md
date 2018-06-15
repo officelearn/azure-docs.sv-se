@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235408"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Nätverkstopologier för hanterade Azure SQL DB-instans migreringar med tjänsten Azure Database migrering
 I den här artikeln får du lära dig om olika nätverkstopologier som tjänsten Azure Database migrering kan arbeta med för att tillhandahålla en sömlös migrering från lokala SQL-servrar till hanterade Azure SQL Database-instans.

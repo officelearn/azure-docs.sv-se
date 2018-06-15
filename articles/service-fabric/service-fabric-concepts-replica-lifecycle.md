@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211396"
 ---
 # <a name="replicas-and-instances"></a>Repliker och instanser 
 Den här artikeln ger en översikt över livscykeln för repliker av tillståndskänsliga tjänster och instanser av tillståndslösa tjänster.

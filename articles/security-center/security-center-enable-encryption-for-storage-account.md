@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235027"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Aktivera kryptering för Azure storage-konto i Azure Security Center
 Azure Security Center kan rekommenderar att du aktiverar Azure Storage Service-kryptering för data i vila.

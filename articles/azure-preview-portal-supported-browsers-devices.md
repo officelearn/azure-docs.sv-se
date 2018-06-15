@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165119"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Webbläsare som stöds och enheter för Azure-portalen
 Du kan köra den [Azure-portalen](https://portal.azure.com) på skrivbordet för alla moderna Tablet PC-enheter och webbläsare.

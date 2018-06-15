@@ -11,6 +11,7 @@
 ### [Konfigurera med ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Konfigurera med PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Konfigurera med OpsGenie](service-health-alert-webhook-opsgenie.md)
+### [Hämta hälsohändelser med REST](service-health-rest.md)
 # Resurser
 ## [Vanliga frågor och svar](resource-health-faq.md)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

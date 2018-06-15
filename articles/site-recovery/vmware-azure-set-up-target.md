@@ -1,6 +1,6 @@
 ---
-title: "Förbereda målmiljön för VMware-replikering till Azure | Microsoft Docs"
-description: "Den här artikeln beskriver hur du förbereder dina mål Azure-miljön för VMware VM replikering till Azure."
+title: Förbereda målmiljön för VMware-replikering till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du förbereder dina mål Azure-miljön för VMware VM replikering till Azure.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812637"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Förbereda målmiljön för VMware-replikering till Azure
 

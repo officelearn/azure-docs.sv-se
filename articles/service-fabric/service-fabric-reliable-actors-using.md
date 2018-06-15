@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212899"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementering av servicenivå funktioner i din aktören-tjänst
 Enligt beskrivningen i [service Skikta](service-fabric-reliable-actors-platform.md#service-layering), tjänsten aktören är en tillförlitlig tjänst.  Du kan skriva en egen tjänst som härleds från `ActorService` och implementera servicenivå funktioner på samma sätt som vid arv StatefulService, som:

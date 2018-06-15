@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932395"
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Felsöka Azure Active Directory programutveckling
 Följande länkar leder till en innehållskarta som hjälper dig att lösa några av de vanligaste problem med programutveckling med den **programmet registret** i Azure Active Directory.

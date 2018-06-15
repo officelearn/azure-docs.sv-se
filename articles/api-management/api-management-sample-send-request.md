@@ -1,11 +1,11 @@
 ---
-title: "Med API Management-tjänsten för att generera HTTP-begäranden"
-description: "Lär dig att använda principer för förfrågan och svar i API-hantering för att anropa externa tjänster från din API"
+title: Med API Management-tjänsten för att generera HTTP-begäranden
+description: Lär dig att använda principer för förfrågan och svar i API-hantering för att anropa externa tjänster från din API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714679"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Med hjälp av externa tjänster från Azure API Management-tjänsten
 Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en mängd olika användbara arbete baserat enbart på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Dock kan interagera med externa tjänster från API Management principer öppnar många fler möjligheter.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30235333"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka trafik mellan virtuella Azure-nätverk och lokala platser. När du konfigurerar en ExpressRoute-anslutning, måste du skapa och konfigurera en virtuell nätverksgateway och gateway för virtuell nätverksanslutning.

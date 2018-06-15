@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246363"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Skala automatiskt en VM-skalningsuppsättning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 och använder värdbaserade mått för att automatiskt skala allteftersom CPU-belastningen ändras.

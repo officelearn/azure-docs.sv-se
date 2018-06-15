@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165187"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure instrumentpaneler
 Det här dokumentet beskriver hur strukturen för en Azure instrumentpanel med följande instrumentpanelen som exempel:

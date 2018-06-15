@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937833"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identitet 
 Verktyget Azure Stack beredskap Checker (AzsReadinessChecker) att verifiera att din Azure Active Directory (AD Azure) är redo att användas med Azure-stacken. Verifiera din identitetslösning för Azure innan du påbörjar en Azure-Stack-distributionen.  

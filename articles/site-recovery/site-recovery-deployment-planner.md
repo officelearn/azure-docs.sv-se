@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894387"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.

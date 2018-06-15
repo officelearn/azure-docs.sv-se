@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210604"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till resurshanteraren för Service Fabric-kluster
 Traditionellt hantera IT-system eller onlinetjänster avsedda för dessa specifika tjänster eller system trafikklass särskilda fysiska eller virtuella datorer. Tjänster har konstruerad som nivåer. Det vore en nivå med ”web” och ”data” eller ”lagring”-nivån. Program skulle ha en meddelanden nivå där förfrågningar gått in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller en typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen får några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade datorer som du ville på Kör för hot och du har lagt till flera datorer med samma konfigurationen nivån. Dock inte alla arbetsbelastningar kan inte skalas ut så enkelt - särskilt med datanivå du vanligtvis ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet på lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roligt).

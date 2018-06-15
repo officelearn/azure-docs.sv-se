@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246533"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anslut och använd datadiskar med en VM-skalningsuppsättning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning och bifogar och förbereder datadiskar.

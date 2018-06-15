@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204642"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modellen är ett program i Service Fabric
 Den här artikeln innehåller en översikt över Azure Service Fabric-programmodell och hur du definierar ett program och tjänsten via manifest-filer.

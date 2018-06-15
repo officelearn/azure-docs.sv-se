@@ -1,6 +1,6 @@
 ---
-title: "Replikera en flera nivåer IIS-baserade webbapp med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig mer om att replikera IIS web grupp virtuella datorer med hjälp av Azure Site Recovery."
+title: Replikera en flera nivåer IIS-baserade webbapp med Azure Site Recovery | Microsoft Docs
+description: Lär dig mer om att replikera IIS web grupp virtuella datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: nsoneji
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809428"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replikera en IIS-baserade webbprogram med flera nivåer
 

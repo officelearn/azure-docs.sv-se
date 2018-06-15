@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30196839"
 ---
 > [!NOTE]
 > De nya SKU:erna för VPN-gateway (VpnGw1 VpnGw2 och VpnGw3) stöds endast för Resource Manager-distributionsmodellen. Klassiska virtuella nätverk ska fortsätta att använda de gamla (äldre) SKU: er.

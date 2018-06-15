@@ -10,9 +10,10 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: cfdf7c723416471d733e2bc9c71e0f519020fbe6
 ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196927"
 ---
 Du kan visa anslutningsstatus i Azure Portal för en klassisk VNet VPN-gateway genom att navigera till anslutningen. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 

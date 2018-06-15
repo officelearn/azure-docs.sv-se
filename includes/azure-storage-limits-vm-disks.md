@@ -3,9 +3,17 @@ En virtuell dator i Azure stöder tillkoppling av ett antal datadiskar. Den här
 > [!IMPORTANT]
 > Begränsa antalet hög utnyttjade diskar som är anslutna till den virtuella datorn för att undvika möjlig begränsning för optimala prestanda. Om alla anslutna diskar inte används hög samtidigt, kan den virtuella datorn stöder ett större antal diskar.
 
-* **För Azure Managed diskar:** disk gränsen för hanterade diskar är per region och typ av disk. Den maximala gränsen och Standardgränsen, är 10 000 hanterade diskar per region och typ av disk för en prenumeration. Du kan till exempel skapa upp till 10 000 standard hanteras diskarna och även 10 000 premium hanterade diskar i en region per prenumeration.
+* **För Azure-hanterade diskar:** 
 
-    Hanterad ögonblicksbilder och bilder räknas av mot gränsen för hanterade diskar.
+> | Resurs | Standardgräns | Övre gräns |
+> | --- | --- | --- |
+> | Standard Managed Disks | 10 000 | 50,000 |
+> | Standard SSD Managed Disks | 10 000 | 50,000 |
+> | Premium Managed Disks | 10 000 | 50,000 |
+> | Standard_LRS ögonblicksbilder | 10 000 | 50,000 |
+> | Standard_ZRS ögonblicksbilder | 10 000 | 50,000 |
+> | Premium_LRS ögonblicksbilder | 10 000 | 50,000 |
+> | Hanterad avbildning | 10 000 | 50,000 |
 
 * **För standardlagringskonton:** Ett standardlagringskonto har en högsta totala begärandefrekvens på 20 000 IOPS. Det totala antalet IOPS för alla virtuella datordiskar på ett standardlagringskonto bör inte överskrida den här gränsen.
   

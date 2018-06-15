@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205570"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor för Service Fabric
 

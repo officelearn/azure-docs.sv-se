@@ -15,9 +15,10 @@ ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 3eb9d6851c30f11980d47d4e48b158217e41995d
 ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233793"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).

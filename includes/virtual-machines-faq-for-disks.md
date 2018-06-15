@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826556"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414577"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS-VM och hanterade och ohanterade premiumdiskar
 
@@ -45,13 +45,9 @@ Priser för premiumdiskar hanteras är samma som ohanterad premiumdiskar.
 
 Ja. Du kan ändra lagringskontotypen hanterade diskar med hjälp av Azure portal, PowerShell eller Azure CLI.
 
-**Finns det ett sätt att jag kan kopiera eller exportera hanterade diskar till ett privat storage-konto?**
-
-Ja. Du kan exportera dina hanterade diskar med hjälp av Azure portal, PowerShell eller Azure CLI.
-
 **Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk med en annan prenumeration?**
 
-Nej.
+Ja.
 
 **Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk i en annan region?**
 
@@ -59,7 +55,7 @@ Nej.
 
 **Finns det några begränsningar för skalan för kunder som använder hanterade diskar?**
 
-Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. Den maximala gränsen och Standardgränsen, är dock 10 000 hanterade diskar per region och typ av disk för en prenumeration.
+Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. Den maximala gränsen är dock 50 000 hanterade diskar per region och typ av disk för en prenumeration.
 
 **Kan jag göra en inkrementell ögonblicksbild av hanterade diskar?**
 
@@ -95,7 +91,7 @@ Hanterade diskar stöder tre viktiga standardroller:
 
 **Finns det ett sätt att jag kan kopiera eller exportera hanterade diskar till ett privat storage-konto?**
 
-Du kan hämta en skrivskyddad delad åtkomstsignatur URI för hanterade diskar och använda den för att kopiera innehållet till en privat lagring konto eller lokal lagring.
+Du kan generera en skrivskyddad delad åtkomstsignatur (SAS) URI för den hantera disken och använda den för att kopiera innehållet till en privat lagring konto eller lokal lagring. Du kan använda SAS-URI med Azure-portalen, Azure PowerShell, Azure CLI eller [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Kan jag skapa en kopia av min hanterade diskar?**
 

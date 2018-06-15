@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30241019"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad liknande Oracle och DB2 databas med öppen källkod. Den innehåller funktioner för enterprise-redo som fullständig ACID kompatibilitet, tillförlitlig transaktionell bearbetning och flera version samtidighetskontroll. Det stöder också standarder, till exempel ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatial data och flera NoSQL-liknande funktioner för JSON- eller key-värde-baserade program.

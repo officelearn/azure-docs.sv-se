@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312709"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute-nod miljövariabler
 Den [Azure Batch-tjänsten](https://azure.microsoft.com/services/batch/) anger följande miljövariabler för compute-noder. Du kan referera till dessa miljövariabler i aktiviteten kommandorader och i program och skript som körs av kommandorader.

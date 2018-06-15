@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211658"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurera uppgraderingen av ett Service Fabric-program i Visual Studio
 Visual Studio tools för Azure Service Fabric stödja uppgradering för publicering till lokal eller fjärransluten kluster. Det finns tre scenarier som du vill uppgradera ditt program till en nyare version i stället för att ersätta program under testning och felsökning:

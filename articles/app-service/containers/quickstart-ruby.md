@@ -16,15 +16,16 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: def1e3f3de25478e51a069bc64c98d650f59072f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158621"
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
 
-Med [App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du skapar en grundläggande Ruby on Rails-app och distribuerar den till Azure som en Web App on Linux.
+Med [Azure App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du skapar en grundläggande [Ruby on Rails](https://rubyonrails.org/)-app som sedan kan distribueras till Azure som en Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -45,7 +46,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-Kör rails-servern för att programmet ska fungera. Byt till kataglogen *hello-world* så startar kommandot `rails server` servern.
+Rails-servern måste köras för att programmet ska fungera. Ändra till katalogen `hello-world` och använd kommandot `rails server` för att starta servern.
 
 ```bash
 cd hello-world\bin

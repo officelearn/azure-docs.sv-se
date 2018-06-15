@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196826"
 ---
 Om du arbetar med Resource Manager-distributionsmodellen kan ändra du till den nya gatewayen SKU: er. När du byter från en äldre gateway-SKU till en ny SKU du ta bort den befintliga VPN-gatewayen och skapa en ny VPN-gateway.
 

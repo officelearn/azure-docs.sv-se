@@ -2,24 +2,26 @@
 title: Självstudier – Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C | Microsoft Docs
 description: Självstudiekurs som visar hur du använder Active Directory B2C för att skydda ett Node.js-webb-API och anropar det från en .NET-skrivbordsapp.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: parja
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: ef92a7fbbc3b84195eff251b0224cb0fd51a6c88
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711604"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
 I den här självstudiekursen ser du hur du kan anropa en Node.js-webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från en WPF-skrivbordsapp (Windows Presentation Foundation).
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Registrera ett webb-API i en Azure AD B2C-klientorganisation

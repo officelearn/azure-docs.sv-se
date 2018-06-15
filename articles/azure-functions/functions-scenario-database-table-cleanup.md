@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231284"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i Azure SQL-databas. Nytt C# skript funktionen skapas baserat på en fördefinierad timer utlösaren mall i Azure-portalen. För att stödja det här scenariot måste du också ange en anslutningssträng för databasen som en appinställning i funktionen appen. Det här scenariot använder en massåtgärd mot databasen. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198481"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Viktiga funktioner och koncept i Azure-stacken
 Om du har använt Microsoft Azure-stacken kan dessa villkor och funktionsbeskrivning vara användbart.

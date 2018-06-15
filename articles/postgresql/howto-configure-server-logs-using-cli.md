@@ -15,6 +15,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235543"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och använda server-loggar med hjälp av Azure CLI
 Du kan hämta PostgreSQL server-felloggarna genom att använda kommandoradsgränssnittet (Azure CLI). Dock stöds åtkomst till transaktionsloggar inte. 

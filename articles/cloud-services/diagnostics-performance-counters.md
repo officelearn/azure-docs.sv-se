@@ -1,12 +1,12 @@
 ---
-title: "Samla in på prestandaräknare i Azure-molntjänster | Microsoft Docs"
-description: "Lär dig att upptäcka, använda och skapa prestandaräknare i Cloud Services med Azure Diagnostics och Application Insights."
+title: Samla in på prestandaräknare i Azure-molntjänster | Microsoft Docs
+description: Lär dig att upptäcka, använda och skapa prestandaräknare i Cloud Services med Azure Diagnostics och Application Insights.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29134353"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestandaräknare för Azure-molntjänst
 

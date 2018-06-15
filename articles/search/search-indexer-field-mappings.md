@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796867"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Fältet avbildningar i Azure Search indexerare
 När du använder Azure Search indexerare hittar ibland du själv i situationer där dina indata ganska inte matchar schemat för mål-index. I sådana fall kan du använda **fältet mappningar** att omvandla dina data till önskad form.

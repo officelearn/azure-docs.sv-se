@@ -1,12 +1,12 @@
 ---
-title: "Border anslutningen integration Nätverksöverväganden för Azure-stacken integrerat system | Microsoft Docs"
-description: "Lär dig vad du kan göra för att planera för datacenter kantlinje nätverksanslutning med flera noder Azure Stack."
+title: Border anslutningen integration Nätverksöverväganden för Azure-stacken integrerat system | Microsoft Docs
+description: Lär dig vad du kan göra för att planera för datacenter kantlinje nätverksanslutning med flera noder Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919442"
 ---
 # <a name="border-connectivity"></a>Kantlinje anslutning 
 Planering för nätverket integrering är en viktig nödvändig komponent för lyckad distribution av Azure-stacken integrerat system, åtgärden och hantering. Kantlinje anslutningen planera börjar genom att välja om du vill använda dynamisk routning med border gateway protocol (BGP) eller inte. Detta kräver att tilldela ett 16-bitars BGP autonoma systemnummer (offentliga eller privata) eller med statisk routning, där en statisk standardväg tilldelas till enheter som kantlinje.

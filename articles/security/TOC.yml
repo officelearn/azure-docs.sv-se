@@ -56,8 +56,6 @@
     - name: IaaS-säkerhet
       href: security-virtual-machines-overview.md
       items:
-        - name: Metodtips – virtuella Azure-datorer
-          href: azure-security-best-practices-vms.md
         - name: Metodtips – IaaS-arbetsbelastningar
           href: azure-security-iaas.md
         - name: Azure Marketplace-avbildningar

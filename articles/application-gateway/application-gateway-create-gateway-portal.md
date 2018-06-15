@@ -16,6 +16,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202396"
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Skapa en Programgateway med Azure-portalen
 

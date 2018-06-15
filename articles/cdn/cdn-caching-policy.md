@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765293"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Hantera Azure CDN cachelagring principen i Azure Media Services
 Azure Media Services innehåller HTTP-baserade anpassningsbar strömning och progressiv hämtning. HTTP-baserade direktuppspelning är mycket skalbart med fördelarna med cachelagring i proxy och CDN lager samt klientcachelagring. Strömningsslutpunkter innehåller allmänna strömmande funktioner och konfiguration för cache-HTTP-huvuden. Strömningsslutpunkter anger HTTP Cache-Control: maximal ålder och Expires-huvuden. Du kan få mer information om HTTP-huvuden cache från [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

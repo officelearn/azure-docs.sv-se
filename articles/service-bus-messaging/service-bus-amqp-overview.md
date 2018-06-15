@@ -1,11 +1,11 @@
 ---
-title: "Översikt över AMQP 1.0 i Azure Service Bus | Microsoft Docs"
-description: "Lär dig mer om hur du använder den avancerade Message Queuing-protokollet (AMQP) 1.0 i Azure."
+title: Översikt över AMQP 1.0 i Azure Service Bus | Microsoft Docs
+description: Lär dig mer om hur du använder den avancerade Message Queuing-protokollet (AMQP) 1.0 i Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926605"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1.0-stöd i Service Bus
 Både Azure Service Bus tjänst i molnet och lokala [Service Bus för Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) stöder den avancerade Message Queueing Protocol (AMQP) 1.0. AMQP låter dig skapa plattformsoberoende, hybridprogram med ett öppet standardprotokoll. Du kan skapa program med hjälp av komponenter som är byggda med olika språk och ramverk och som körs på olika operativsystem. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyter strukturerade meddelanden effektivt och fullständig återgivning.

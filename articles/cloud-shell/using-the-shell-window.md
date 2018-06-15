@@ -1,12 +1,12 @@
 ---
-title: "Med hjälp av fönstret Azure Cloud Shell | Microsoft Docs"
-description: "Översikt över hur du använder Azure Cloud Shell-fönstret."
+title: Med hjälp av fönstret Azure Cloud Shell | Microsoft Docs
+description: Översikt över hur du använder Azure Cloud Shell-fönstret.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28920002"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Med hjälp av fönstret Azure Cloud Shell
 

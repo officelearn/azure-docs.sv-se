@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788559"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services tillgångar över flera Storage-konton
 Från och med Microsoft Azure Media Services 2.2 kan koppla du flera lagringskonton till ett enda Media Services-konto. Möjligheten att koppla flera lagringskonton till ett Media Services-konto ger följande fördelar:

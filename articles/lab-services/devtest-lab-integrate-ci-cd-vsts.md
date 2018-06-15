@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787670"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din VSTS kontinuerlig integrering och leverans pipeline
 Du kan använda den *Azure DevTest Labs uppgifter* som är installerad i Visual Studio Team Services (VSTS) att enkelt integrera din CI/CD-version och utgåva pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 

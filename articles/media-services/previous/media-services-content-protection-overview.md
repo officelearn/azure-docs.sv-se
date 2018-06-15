@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788741"
 ---
 # <a name="content-protection-overview"></a>Översikt över innehållsskydd
  Du kan använda Azure Media Services för att skydda mediet från den tidpunkt som den lämnar din dator via lagring, bearbetning och leverans. Du kan leverera live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre huvudsakliga digital rights management (DRM) system med Media Services: Microsoft PlayReady och Google Widevine Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady Widevine och FairPlay) licenser till auktoriserade klienter. 

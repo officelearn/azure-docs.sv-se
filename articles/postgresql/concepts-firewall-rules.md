@@ -1,6 +1,6 @@
 ---
-title: "Azure-databas för PostgreSQL serverbrandväggsreglerna"
-description: "Den här artikeln beskriver brandväggsregler för din Azure-databas för PostgreSQL-servern."
+title: Azure-databas för PostgreSQL serverbrandväggsreglerna
+description: Den här artikeln beskriver brandväggsregler för din Azure-databas för PostgreSQL-servern.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689895"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure-databas för PostgreSQL serverbrandväggsreglerna
 Azure-databas för PostgreSQL serverbrandvägg förhindrar all åtkomst till databasservern förrän du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern, baserat på den ursprungliga IP-adressen för varje begäran.

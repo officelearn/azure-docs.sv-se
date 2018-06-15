@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403142"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 

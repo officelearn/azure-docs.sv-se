@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156195"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering
 Det här dokumentet innehåller kontexten och beskrivningar av olika funktioner som finns i portalen för registrering av Microsoft App [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

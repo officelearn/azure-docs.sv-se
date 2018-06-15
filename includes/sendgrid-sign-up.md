@@ -61,9 +61,9 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
 Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigera till SendGrid-instrumentpanelen.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Mer information om hur du skickar e-post via SendGrid finns i [e-API översikt][Email API Overview].
 
 <!--images-->
 

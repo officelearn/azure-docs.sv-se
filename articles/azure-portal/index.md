@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163854"
 ---
 # <a name="azure-portal-documentation"></a>Dokumentation om Azure Portal
 Läs om vilka funktioner du kan använda för att distribuera resurser i Azure Portal. Självstudier, API-referenser och annan dokumentation som visar hur du distribuerar, hanterar och övervakar Azure-resurser.

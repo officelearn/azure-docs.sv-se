@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341014"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Hur du distribuerar Access panelen-tillägg för Internet Explorer med hjälp av Grupprincip
 Den här kursen visar hur du använder grupprinciper för att fjärrinstallera åtkomstpanelen-tillägg för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som är konfigurerade med [lösenordsbaserade enkel inloggning](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).

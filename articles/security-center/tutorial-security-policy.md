@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779476"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Självstudie: Definiera och utvärdera säkerhetsprinciper
 Security Center hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav med säkerhetsprinciper för att definiera den önskade konfigurationen för arbetsbelastningarna. När du definierar principer för dina Azure-prenumerationer och anpassar dem till typen av arbetsbelastning eller dina datas känslighet kan Security Center tillhandahålla säkerhetsrekommendationer för dina resurser för beräkning, nätverk, SQL och lagring och program. I den här självstudien får du lära dig hur man:

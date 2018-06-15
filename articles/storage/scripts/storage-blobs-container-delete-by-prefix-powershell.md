@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell skriptexempel - ta bort behållare efter prefix | Microsoft Docs"
-description: "Ta bort Azure Storage blob-behållare baserat på namnprefixet för en behållare."
+title: Azure PowerShell skriptexempel - ta bort behållare efter prefix | Microsoft Docs
+description: Ta bort Azure Storage blob-behållare baserat på namnprefixet för en behållare.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 06/13/2017
 ms.author: tamram
 ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983906"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort behållare baserat på namnprefixet för behållaren
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075677"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 

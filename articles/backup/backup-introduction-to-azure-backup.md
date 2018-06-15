@@ -1,26 +1,21 @@
 ---
-title: Vad är Azure Backup? | Microsoft Docs
+title: Vad är Azure Backup?
 description: Du kan använda Azure Backup till att säkerhetskopiera och återställa data och arbetsbelastningar från Windows-servrar, Windows-arbetsstationer, System Center DPM-servrar och virtuella datorer i Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: säkerhetskopiering och återställning, återställningstjänster, lösningar för säkerhetskopiering
-ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607107"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -118,7 +113,7 @@ Med Azure Backup kan du återställa en hel virtuell dator med hanterade diskar 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Vilka är funktionerna i varje Backup-komponent?
 Följande avsnitt innehåller tabeller som sammanfattar tillgänglighet eller stöd för olika funktioner i varje komponent i Azure Backup. Titta på informationen efter varje tabell för ytterligare support eller information.
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 | Funktion | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |
 | Recovery Services-valv |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |

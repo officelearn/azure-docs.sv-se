@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165425"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure-portalen
 Den här artikeln visar kortkommandon som fungerar i Azure-portalen. Enskilda tjänster kan ha sina egna kortkommandon.

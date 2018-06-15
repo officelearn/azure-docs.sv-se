@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213137"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Skapa Service Fabric-kluster på Windows Server- eller Linux
 Ett Azure Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partition repliker och instanser för det ökade antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrens om åtkomst till minnet. Om noderna i klustret inte används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partition repliker och instanser för det minska antalet noder för att bättre utnyttja maskinvara på varje nod.

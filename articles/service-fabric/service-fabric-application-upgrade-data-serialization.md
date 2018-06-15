@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213171"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Hur dataserialisering påverkar en uppgradering av programmet
 I en [löpande uppgradering av programmet](service-fabric-application-upgrade.md), uppgraderingen tillämpas på en del noder, en domän i taget. Vissa uppgraderingsdomäner finns på den nya versionen av ditt program under den här processen och vissa uppgraderingsdomäner finns på den äldre versionen av programmet. Den nya versionen av programmet måste kunna läsa den tidigare versionen av data under driftsättningen, och den gamla versionen av programmet måste kunna läsa den nya versionen av dina data. Om formatet inte är kompatibel med framåt och bakåt, misslyckas uppgraderingen eller värre, data kan försvinna eller skadas. Den här artikeln beskrivs vad som utgör ditt dataformat och ger bästa praxis för att säkerställa att dina data är framåt och bakåt kompatibel.

@@ -1,6 +1,6 @@
 ---
-title: "Anslutningsbibliotek för Azure-databas för PostgreSQL"
-description: "Den här artikeln beskriver flera bibliotek och drivrutiner som utvecklare kan använda när kodning Anslut och fråga Azure-databas för PostgreSQL-program."
+title: Anslutningsbibliotek för Azure-databas för PostgreSQL
+description: Den här artikeln beskriver flera bibliotek och drivrutiner som utvecklare kan använda när kodning Anslut och fråga Azure-databas för PostgreSQL-program.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687014"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Anslutningsbibliotek för Azure-databas för PostgreSQL
 Den här artikeln innehåller bibliotek och drivrutiner som utvecklare kan använda för att utveckla program för att ansluta till och frågar Azure-databas för PostgreSQL.

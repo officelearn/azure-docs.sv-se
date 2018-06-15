@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209060"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Information om Service Fabric Reliable Actors skriver serialisering
 Argumenten för alla metoder resultattyper uppgifter som returneras av varje metod i ett gränssnitt för aktören och objekt som lagras i en aktör tillståndshanterare måste vara [data minimera serialiserbara](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även för argumenten metoderna som definieras i [aktören händelsegränssnitt](service-fabric-reliable-actors-events.md). (Aktören händelse gränssnittsmetoder alltid returnerar void.)

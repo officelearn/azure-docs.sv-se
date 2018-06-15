@@ -1,12 +1,12 @@
 ---
-title: "Använda beräkningsintensiva virtuella Azure-datorer med Batch | Microsoft Docs"
+title: Använda beräkningsintensiva virtuella Azure-datorer med Batch | Microsoft Docs
 description: Hur du drar nytta av RDMA-kompatibla eller GPU-aktiverade Virtuella datorstorlekar i Azure Batch-pooler
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762449"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler
 

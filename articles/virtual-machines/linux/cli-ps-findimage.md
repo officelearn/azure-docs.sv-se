@@ -1,11 +1,11 @@
 ---
-title: "Välj Linux VM-avbildningar med Azure CLI | Microsoft Docs"
-description: "Lär dig hur du använder Azure CLI för att fastställa utgivare, erbjudande, SKU och version för Marketplace VM-avbildningar."
+title: Välj Linux VM-avbildningar med Azure CLI | Microsoft Docs
+description: Lär dig hur du använder Azure CLI för att fastställa utgivare, erbjudande, SKU och version för Marketplace VM-avbildningar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29740891"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hur du hittar Linux VM avbildningar i Azure Marketplace med Azure CLI
 Det här avsnittet beskriver hur du använder Azure CLI 2.0 för att hitta VM-avbildningar i Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med CLI Resource Manager-mallar eller andra verktyg.

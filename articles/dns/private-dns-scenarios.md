@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771879"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scenarier för Azure privata DNS-zoner
 Azure DNS privata zoner ange namnmatchning i ett virtuellt nätverk samt mellan virtuella nätverk. I den här artikeln titta vi på några vanliga scenarier som kan genomföras med den här funktionen. 

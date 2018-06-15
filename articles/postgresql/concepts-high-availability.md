@@ -1,6 +1,6 @@
 ---
-title: "Hög tillgänglighet koncept i Azure-databas för PostgreSQL"
-description: "Den här artikeln innehåller information för hög tillgänglighet när du använder Azure-databas för PostgreSQL."
+title: Hög tillgänglighet koncept i Azure-databas för PostgreSQL
+description: Den här artikeln innehåller information för hög tillgänglighet när du använder Azure-databas för PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687090"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Hög tillgänglighet koncept i Azure-databas för PostgreSQL
 Azure-databasen för PostgreSQL-tjänsten tillhandahåller garanterad hög tillgänglighet. Ekonomiskt säkerhetskopieras servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget inget program stillestånd när du använder den här tjänsten.

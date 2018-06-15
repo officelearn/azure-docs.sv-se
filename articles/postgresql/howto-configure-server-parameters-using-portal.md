@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera parametrar för server i Azure-databas för PostgreSQL via Azure-portalen"
-description: "Den här artikeln beskriver hur du konfigurerar parametrar för server i Azure-databas för PostgreSQL via Azure portal."
+title: Konfigurera parametrar för server i Azure-databas för PostgreSQL via Azure-portalen
+description: Den här artikeln beskriver hur du konfigurerar parametrar för server i Azure-databas för PostgreSQL via Azure portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687874"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Konfigurera serverparametrar för i Azure-portalen
 Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure-databas för PostgreSQL-servern via Azure-portalen.

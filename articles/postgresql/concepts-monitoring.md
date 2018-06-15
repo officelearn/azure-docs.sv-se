@@ -1,6 +1,6 @@
 ---
-title: "Övervakning i Azure-databas för PostgreSQL"
-description: "Den här artikeln beskriver mätvärden för övervakning och avisering för Azure-databas för PostgreSQL, inklusive CPU, lagring och anslutningen statistik."
+title: Övervakning i Azure-databas för PostgreSQL
+description: Den här artikeln beskriver mätvärden för övervakning och avisering för Azure-databas för PostgreSQL, inklusive CPU, lagring och anslutningen statistik.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687616"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Övervakning i Azure-databas för PostgreSQL
 Övervakning av data om dina servrar hjälper dig att felsöka och optimera för din arbetsbelastning. Azure-databas för PostgreSQL innehåller olika mått som ger inblick i beteendet för de resurser som stödjer PostgreSQL-server. 

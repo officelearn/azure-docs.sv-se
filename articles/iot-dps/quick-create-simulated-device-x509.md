@@ -1,29 +1,27 @@
 ---
 title: Etablera en simulerad X.509-enhet på Azure IoT Hub med C | Microsoft Docs
 description: Azure Quickstart – Skapa och etablera en simulerad X.509-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/16/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e5fe9282dd10bd6bdc41c63718a884a92da4d7c6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3cf91709b0c4a6b95d27159a842bf28779e0c13b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629746"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
-Om du inte är bekant med processen för automatisk etablering ska du även läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter. 
+Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -74,7 +72,7 @@ Om du inte är bekant med processen för automatisk etablering ska du även läs
 
 5. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
 
-6. Under panelen för att **lägga till registrering** anger du följande information:
+6. Under panelen **Lägg till registrering** anger du följande information:
     - Välj **X.509** som identitet för bestyrkande *mekanism*.
     - Under *den primära .pem- eller .cer-certifikatfilen* klickar du på *Välj en fil* för att välja certifikatfilen **X509testcert.pem** som skapades i föregående steg.
     - Du kan även ange följande information:

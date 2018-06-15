@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795100"
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Bevara ett konstant virtuella IP-adressen för en Azure-molntjänst
 När du uppdaterar en molnbaserad tjänst som finns i Azure kan du behöva se till att den virtuella IP-adressen (VIP) för tjänsten inte ändras. Många domän hanteringstjänster använda Domain Name System (DNS) för att registrera domännamn. DNS fungerar bara om VIP är densamma. Du kan använda den **Publiceringsguiden** i Azure-verktyg för att se till att VIP för Molntjänsten inte ändras när du uppdaterar den. Mer information om hur du använder DNS-domän management för molntjänster finns [konfigurera ett anpassat domännamn för en Azure-molntjänst](cloud-services/cloud-services-custom-domain-name-portal.md).

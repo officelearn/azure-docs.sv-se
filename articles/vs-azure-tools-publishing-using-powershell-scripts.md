@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798129"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Använda Windows PowerShell-skript för att publicera i utvecklings- och testmiljöer
 
@@ -320,7 +321,7 @@ Om du vill få hjälp med funktioner som du kan använda Kommandotolken för Win
 | Find-AzureVM |Hämtar den angivna virtuella Azure-datorn. |
 | Formatet DevTestMessageWithTime |Annat datum och tid till ett meddelande. Den här funktionen är avsedd för meddelanden som skrivs till fel och utförlig dataströmmar. |
 | Get-AzureSQLDatabaseConnectionString |Monterar en anslutningssträng för att ansluta till en Azure SQL database. |
-| Get-AzureVMStorage |Returnerar namnet på det första storage-kontot med namnmönster ”devtest*” (skiftlägesokänsligt) i den angivna platsen eller tillhörighetsgruppen. Om den ”devtest*” lagringskontot matchar inte platsen eller tillhörighetsgruppen, funktionen ignoreras. Ange en plats eller en tillhörighetsgrupp. |
+| Get-AzureVMStorage |Returnerar namnet på det första storage-kontot med namnmönster ”devtest *” (skiftlägesokänsligt) i den angivna platsen eller tillhörighetsgruppen. Om den ”devtest*” lagringskontot matchar inte platsen eller tillhörighetsgruppen, funktionen ignoreras. Ange en plats eller en tillhörighetsgrupp. |
 | Get-MSDeployCmd |Returnerar ett kommando för att köra verktyget MsDeploy.exe. |
 | New-AzureVMEnvironment |Söker efter eller skapar en virtuell dator i den prenumeration som matchar värden i JSON-konfigurationsfil. |
 | Publicera WebPackage |Publicera paketet använder MsDeploy.exe och en webbplats. ZIP-filen för att distribuera resurser till en webbplats. Den här funktionen genererar inte inga utdata. Om anropet till MSDeploy.exe misslyckas, genereras ett undantag. Om du vill ha mer detaljerad information, Använd den **-Verbose** alternativet. |

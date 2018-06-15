@@ -1,11 +1,11 @@
 ---
-title: "Använda molntjänster init för att konfigurera en växlingsfil på en Linux-VM | Microsoft Docs"
-description: "Hur du använder molnet init för att konfigurera en växlingsfil i en Linux-VM under genereringen av med Azure CLI 2.0"
+title: Använda molntjänster init för att konfigurera en växlingsfil på en Linux-VM | Microsoft Docs
+description: Hur du använder molnet init för att konfigurera en växlingsfil i en Linux-VM under genereringen av med Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952606"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Använda molntjänster init för att konfigurera en växlingsfil på en Linux-VM
 Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) att konfigurera växlingsfil på olika Linux-distributioner. Växlingsfil konfigurerades traditionellt av den Linux Agent (WALA) baserat på vilka distributioner krävs en.  Det här dokumentet kommer beskriver processen för att bygga växlingsfil på begäran under etablering tid som använder molnet initiering.  Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)

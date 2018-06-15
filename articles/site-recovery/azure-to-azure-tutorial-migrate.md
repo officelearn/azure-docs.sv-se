@@ -5,21 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9f186e682ef8f4606c50452f2e26b0d11580933
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209716"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715997"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av virtuella Azure-datorer till en sekundär region. För att migrera virtuella datorer i Azure måste du aktivera replikering för dem, och redundansväxla dem från den primära regionen till den sekundära regionen du önskar.
 
-I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig att:
+I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
@@ -28,9 +28,7 @@ I den här självstudien får du lära dig att migrera virtuella Azure-datorer t
 
 I den här självstudien förutsätts att du redan har en Azure-prenumeration. Om du inte har det kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
->[!NOTE]
->
-> Site Recovery-replikering för virtuella Azure-datorer är nu i förhandsversion.
+
 
 
 
@@ -38,7 +36,7 @@ I den här självstudien förutsätts att du redan har en Azure-prenumeration. O
 
 - Kontrollera att du har virtuella Azure-datorer i den Azure-region dit du vill migrera.
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
-- Granska [begränsningar i stöd samt krav](azure-to-azure-support-matrix.md).
+- Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
 
 
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34305233"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portal användargränssnittet för det hanterade programmet
 Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa en hanterad App.

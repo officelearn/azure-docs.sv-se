@@ -2,24 +2,26 @@
 title: Självstudiekurs – Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C | Microsoft Docs
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ensidesapplikation (JavaScript).
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: paraj
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 9f5f98ae5798cabd90c453221fe36f17052f77aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712529"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ensidesapp (SPA). Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Registrera en exempelensides-applikation i Azure AD B2C-klienten.
@@ -57,7 +59,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
     | **Ta med webbapp/webb-API** | Ja | Välj **Ja** för en ensidesapp. |
     | **Tillåt implicit flöde** | Ja | Välj **Ja** eftersom appen använder [OpenID Connect-inloggning](active-directory-b2c-reference-oidc.md). |
     | **Svarswebbadress** | `http://localhost:6420` | Svarswebbadresser är slutpunkter där Azure AD B2C returnerar de token som appen begär. I den här självstudien körs exemplet lokalt (lokal värd) och lyssnar på port 6420. |
-    | **Inkludera Native Client** | Nej | Eftersom det här är en ensidesapp och inte en intern klient väljer du Nej. |
+    | **Inkludera intern klient** | Nej | Eftersom det här är en ensidesapp och inte en intern klient väljer du Nej. |
     
 3. Klicka på **Skapa** för att registrera din app.
 
@@ -154,7 +156,7 @@ Så här ändrar du appinställningarna:
 ## <a name="run-the-sample"></a>Kör exemplet
 
 1. Starta en kommandotolk för Node.js.
-2. Ändra till den katalog som innehåller Node.js-exemplet. Till exempel `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
+2. Gå till den katalog som innehåller Node.js-exemplet. Till exempel `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
 3. Kör följande kommandon:
     ```
     npm install && npm update
@@ -173,7 +175,7 @@ Exempelappen har stöd för registrering av användare, inloggning, redigering a
 
 ### <a name="sign-up-using-an-email-address"></a>Registrera sig med en e-postadress
 
-1. Klicka på **Logga in** för att logga in som användare av SPA-appen. Principen **B2C_1_SiUpIn** som du definierade i ett tidigare steg används.
+1. Klicka på **Logga in** för att logga in som användare av SPA-appen. Då används principen **B2C_1_SiUpIn** som du definierade i ett tidigare steg.
 
 2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**. 
 

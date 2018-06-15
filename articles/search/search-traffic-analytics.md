@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777267"
 ---
 # <a name="what-is-search-traffic-analytics"></a>Vad är Sök trafik analytics
 Sök trafik analytics är ett mönster för att implementera en feedback-slinga för din söktjänst. Det här mönstret beskriver nödvändiga data och hur du samlar in den med hjälp av Application Insights, marknadsledande för övervakning av tjänster på flera plattformar.

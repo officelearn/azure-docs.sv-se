@@ -1,9 +1,9 @@
 ---
-title: "Hantera dina inställningar för tvåstegsverifiering | Microsoft Docs"
-description: "Hantera hur du använder Azure Multi-Factor Authentication inklusive ändrar kontaktinformation eller konfigurera dina enheter."
+title: Hantera dina inställningar för tvåstegsverifiering | Microsoft Docs
+description: Hantera hur du använder Azure Multi-Factor Authentication inklusive ändrar kontaktinformation eller konfigurera dina enheter.
 services: multi-factor-authentication
 keywords: flerfunktionsautentisering klienten, problem med autentisering, Korrelations-ID
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626664"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Hantera inställningar för tvåstegsverifiering
 Den här artikeln innehåller svar på frågor om hur du uppdaterar inställningar för tvåstegsverifiering verifieringen eller Multi-Factor authentication. Om du har problem att logga in på ditt konto, se [har problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) för hjälp med felsökning.

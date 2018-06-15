@@ -1,9 +1,9 @@
 ---
-title: "Företagsroaming | Microsoft Docs"
-description: "Innehåller information om Enterprise tillstånd centrala inställningar i Windows-enheter. Enterprise tillstånd centrala ger användarna en enhetlig miljö på sina Windows-enheter och minskar den tid som krävs för att konfigurera en ny enhet."
+title: Företagsroaming | Microsoft Docs
+description: Innehåller information om Enterprise tillstånd centrala inställningar i Windows-enheter. Enterprise tillstånd centrala ger användarna en enhetlig miljö på sina Windows-enheter och minskar den tid som krävs för att konfigurera en ny enhet.
 services: active-directory
-keywords: "Vad är Enterprise tillstånd växling enterprise synkronisering molnet för windows"
-documentationcenter: 
+keywords: Vad är Enterprise tillstånd växling enterprise synkronisering molnet för windows
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -17,9 +17,10 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 2e1ebf5a9bfc4a1f0f92ff85f9406ecc7d538819
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614956"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Översikt över enterprise tillståndsväxling
 Med Windows 10 [Azure Active Directory (AD Azure)](active-directory-whatis.md) användare få möjlighet att på ett säkert sätt synkronisera sina användarinställningar och inställningar för programdata till molnet. Enterprise tillstånd centrala ger användarna en enhetlig miljö på sina Windows-enheter och minskar den tid som krävs för att konfigurera en ny enhet. Enterprise tillstånd centrala fungerar liknar vanlig [synkronisera inställningar för konsumenten](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) som introducerades i Windows 8. Dessutom erbjuder Enterprise tillstånd centrala:

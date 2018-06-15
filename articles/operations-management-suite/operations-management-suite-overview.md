@@ -1,8 +1,8 @@
 ---
-title: "Översikt över Operations Management Suite (OMS) | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur.  Den här artikeln beskriver värdet med OMS, identifierar olika tjänster och erbjudanden som ingår i OMS och innehåller länkar till detaljerat innehåll om tjänsterna."
+title: Översikt över Operations Management Suite (OMS) | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur.  Den här artikeln beskriver värdet med OMS, identifierar olika tjänster och erbjudanden som ingår i OMS och innehåller länkar till detaljerat innehåll om tjänsterna.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684022"
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Vad är Operations Management Suite (OMS)?
 Den här artikeln ger en introduktion till Operations Management Suite (OMS) med en kort översikt över affärsvärdet, tjänsterna, hanteringslösningarna samt paketerbjudanden med olika tjänster och lösningar.  Det finns också länkar till detaljerad dokumentation om hur du distribuerar och använder varje tjänst och lösning.

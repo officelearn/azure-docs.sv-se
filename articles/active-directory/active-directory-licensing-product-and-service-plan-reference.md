@@ -1,13 +1,13 @@
 ---
-title: "Produktnamn och tjänsten planera identifierare för licensiering i Azure Active Directory | Microsoft Docs"
-description: "Identifierare för kartan för att hantera Azure AD-licensiering i Azure-portalen, Office 365-portalen, PowerShell eller Microsoft Graph"
+title: Produktnamn och tjänsten planera identifierare för licensiering i Azure Active Directory | Microsoft Docs
+description: Identifierare för kartan för att hantera Azure AD-licensiering i Azure-portalen, Office 365-portalen, PowerShell eller Microsoft Graph
 services: active-directory
 keywords: Azure Active Directory licensing service-planer
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609334"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamn och service plan identifierare för licensiering
 

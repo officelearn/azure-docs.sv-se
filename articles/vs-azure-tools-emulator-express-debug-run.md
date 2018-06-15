@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292208"
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Med hjälp av Express-emulatorn att köra och felsöka en Azure-molntjänst på en lokal dator
 Du kan testa och felsöka en molnbaserad tjänst utan att köra Visual Studio som administratör genom att använda emulatorn Express. Du kan ange dina Projektinställningar att använda emulatorn Express eller den fullständiga emulatorn, beroende på kraven för din tjänst i molnet. Mer information om den fullständiga emulatorn finns [kör ett Azure-program i Compute Emulator](storage/common/storage-use-emulator.md).

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30320245"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel med Azure CLI
 

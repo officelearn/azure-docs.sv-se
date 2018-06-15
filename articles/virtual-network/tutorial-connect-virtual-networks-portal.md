@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841796"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 

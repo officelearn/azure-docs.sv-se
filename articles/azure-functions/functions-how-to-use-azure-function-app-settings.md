@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283810"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure-portalen 
 

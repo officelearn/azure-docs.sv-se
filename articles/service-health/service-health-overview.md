@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262882"
 ---
 # <a name="service-health"></a>Service Health
 Tjänstens hälsa ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för din Azure-tjänster i regioner där du använder. Du kan spåra aktiva händelser som löpande service problem, kommande planerade maintence eller relevanta hälsa rekommendationerna i den här instrumentpanelen. När händelser blir inaktiva, placeras de i historiken hälsa för upp till 90 dagar. Slutligen kan du använda instrumentpanelen tjänstens hälsa för att skapa och hantera tjänsten health-aviseringar som att meddela dig när tjänsten problem påverkar du.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528502"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Hantera beräkning i Azure SQL Data Warehouse
 Lär dig mer om hur du hanterar beräkningsresurser i Azure SQL Data Warehouse. Lägre kostnader genom att pausa datalagret eller skala datalagret för att uppfylla krav på prestanda. 

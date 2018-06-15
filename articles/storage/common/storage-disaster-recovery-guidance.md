@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323159"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver våra styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hantera dessa sällsynta förekomster ska ger vi följande övergripande riktlinjer för Azure Storage-tjänster.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841701"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Kom igång med beräkningsnoder för Linux i ett HPC Pack-kluster i Azure
 Konfigurera en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) kluster i Azure som innehåller en huvudnod som kör Windows Server och flera compute-noder som kör ett Linux-distribution som stöds. Utforska alternativ för att flytta data mellan noder för Linux och Windows huvudnod i klustret. Lär dig mer om att skicka Linux HPC-jobb till klustret.

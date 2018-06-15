@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30282206"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292565"
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>Felsökning av en publicerad Azure cloud service med Visual Studio och IntelliTrace
 Med IntelliTrace, kan du logga omfattande felsökningsinformation för en rollinstans när den körs i Azure. Om du behöver ta reda på orsaken till ett problem kan du använda IntelliTrace-loggar för att stega igenom koden från Visual Studio som om den kördes i Azure. I praktiken key IntelliTrace poster kodkörning och miljödata när ditt Azure-program körs som en tjänst i molnet i Azure och du kan upprepa inspelade data från Visual Studio. 

@@ -10,9 +10,10 @@ ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: b656001c8a7d1bed21c208bc643018c5f751e09c
 ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31429215"
 ---
 Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
 

@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: Hantera
       items:
+        - name: Skapa en slutpunkt
+          href: cdn-create-endpoint-how-to.md
         - name: Hantera med Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Begränsa åtkomst efter land

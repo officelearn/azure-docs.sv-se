@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: Autentiseringsuppgifter för certifikat
               href: active-directory-certificate-credentials.md
+            - name: Oauth 2.0-exempelkod
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Token
           href: active-directory-v2-tokens.md
         - name: Omfång och medgivande

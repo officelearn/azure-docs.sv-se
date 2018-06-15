@@ -222,6 +222,8 @@
           href: scheduled-events.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
+        - name: Hämta användningsstatistik med REST
+          href: metrics-vm-usage-rest.md
     - name: Använda avbildningar
       items:
         - name: Hitta och använda avbildningar

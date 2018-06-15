@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: Bevilja åtkomst för en grupp – PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: Skapa en anpassad roll – PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Skapa en anpassad roll – CLI
+          href: tutorial-custom-role-cli.md
     - name: Hantera rolltilldelningar
       items:
-        - name: Användare
-          href: role-assignments-users.md
-        - name: Resurs
+        - name: Portalen
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md

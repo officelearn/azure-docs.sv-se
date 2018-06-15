@@ -2,13 +2,13 @@
 
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
-## [Om Azures identitetshantering](identity-fundamentals.md)
-## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
+## [Om Azures identitetshantering](fundamentals/identity-fundamentals.md)
+## [Förstå Azure-identitetslösningar](fundamentals/understand-azure-identity-solutions.md)
 ## [Välj en hybrididentitetslösning](choose-hybrid-identity-solution.md)
 ## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
-## [Överväganden för lagring och data](active-directory-data-storage-eu.md)
-## [Vanliga frågor och svar](active-directory-faq.md)
-## [Nyheter](whats-new.md)
+## [Överväganden för lagring och data](fundamentals/active-directory-data-storage-eu.md)
+## [Vanliga frågor och svar](fundamentals/active-directory-faq.md)
+## [Nyheter](fundamentals/whats-new.md)
 
 
 # Kom igång
@@ -17,14 +17,14 @@
 ## [Lägga till ett anpassat domännamn](add-custom-domain.md)
 ## [Konfigurera varumärkesexponering](customize-branding.md)
 ## [Lägga till användare i Azure AD](add-users-azure-active-directory.md)
-## [Tilldela licenser till användare](license-users-groups.md)
+## [Tilldela licenser till användare](fundamentals/license-users-groups.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](authentication/quickstart-sspr.md)
 ## [Lägg till din organisations sekretessinformation i Azure AD](active-directory-properties-area.md)
 
 
 # Gör så här för att
 ## Planera och designa
-### [Förstå Azure AD-arkitektur](active-directory-architecture.md)
+### [Förstå Azure AD-arkitektur](fundamentals/active-directory-architecture.md)
 ### [Anspråksmappning i Azure Active Directory](active-directory-claims-mapping.md)
 ### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Fastställa krav
@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
-### [Hantera gruppmedlemskap](active-directory-groups-membership-azure-portal.md)
+### [Hantera gruppmedlemskap](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [Framtvinga en namnprincip för grupper](groups-naming-policy.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
-### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
+### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Hantera gruppinställningar](active-directory-groups-settings-azure-portal.md) 
 ### Skapa avancerade regler
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -134,8 +134,6 @@
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Fel i innehållspaket för Azure Active Directory-aktivitetsloggar](active-directory-reporting-troubleshoot-content-pack.md)
 ### [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Granska referens](active-directory-reporting-api-audit-reference.md)
-#### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Granska exempel](active-directory-reporting-api-audit-samples.md)
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -281,7 +279,8 @@
 ### Egna domännamn
 #### [Snabbstart](add-custom-domain.md)
 #### [Lägga till anpassade domännamn](active-directory-domains-manage-azure-portal.md)
-### [Administrera din katalog](active-directory-administer.md)
+### [Administrera din katalog](fundamentals/active-directory-administer.md)
+### [Ta bort en katalog](directory-delete-howto.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
 ### [Registrering av självbetjäning](active-directory-self-service-signup.md)
 ### [Ta över en ohanterad katalog](domains-admin-takeover.md)
@@ -300,12 +299,12 @@
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
 #### [Tilldela administratörsroll till en användare](active-directory-users-assign-role-azure-portal.md) 
-#### [Jämföra behörigheter för medlemmar och gästanvändare](users-default-permissions.md) 
+#### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md) 
 ### [Säker privilegierad åtkomst](admin-roles-best-practices.md)  
 ### [Skapa åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [Standardinställningar för användarbehörigheter](users-default-permissions.md)
+#### [Standardinställningar för användarbehörigheter](fundamentals/users-default-permissions.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 ### [Skydda privilegierade roller](admin-roles-best-practices.md)
@@ -323,27 +322,29 @@
 
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
-#### [Villkor](active-directory-conditional-access-conditions.md)
-#### [Platsvillkor](active-directory-conditional-access-locations.md)
-#### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Bästa praxis](active-directory-conditional-access-best-practices.md)
-#### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
-#### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
-#### [Konsekvensverktyg](active-directory-conditional-access-whatif.md)
-#### Snabbstart
+#### Snabbstarter
 ##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
-#### Uppgifter
+#### Självstudier
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
+#### Begrepp
+##### [Villkor](active-directory-conditional-access-conditions.md)
+##### [Platsvillkor](active-directory-conditional-access-locations.md)
+##### [Kontroller](active-directory-conditional-access-controls.md)
+##### [Konsekvensverktyg](active-directory-conditional-access-whatif.md)
+##### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
+#### Instruktionsguider
+##### [Bästa praxis](active-directory-conditional-access-best-practices.md)
+##### [Konfigurera principer för villkorlig åtkomst för åtkomstförsök från ej betrodda nätverk](active-directory-conditional-access-untrusted-networks.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
+##### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
 ##### [Konfigurera VPN-anslutning](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Konfigurera SharePoint och Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
-
 
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)

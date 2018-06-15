@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Distribuera om en VM
               href: devtest-lab-redeploy-vm.md
+            - name: Importera en virtuell dator
+              href: devtest-lab-import-vm.md
         - name: Använd miljöer i ett labb
           items:
             - name: Skapa en miljö

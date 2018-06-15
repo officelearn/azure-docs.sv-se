@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 3157f5db58be5735fa7b194393b0ab6d0e143a91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414645"
 ---
 ## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
-Du måste först skapa ett Media Services-konto. Det här avsnittet beskriver vad du behöver för att skapa konto med hjälp av CLI 2.0.
+Du måste först skapa ett Media Services-konto. Det här avsnittet beskriver vad du behöver för att skapa konto med hjälp av Azure CLI.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -30,7 +31,7 @@ az group create --name amsResourceGroup --location westus2
 
 När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
-Du måste ha ett **Primärt** lagringskonto och du kan ha valfritt antal **Sekundära** lagringskonton som är associerade med Media Services-kontot. Media Services stöder **allmänna v2**- (GPv2) eller **allmänna v1**-konton (GPv1). Endast BLOB-konton tillåts inte som **Primära**. Mer information om lagringskonton finns i [Azure Storage-konto](../articles/storage/common/storage-account-options.md). 
+Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). Endast blob-konton tillåts inte som **primära**. Mer information om lagringskonton finns i [Azure Storage-konto](../articles/storage/common/storage-account-options.md). 
 
 Mer information om hur lagringskonton används i Media Services finns i [Lagringskonton](../articles/media-services/latest/storage-account-concept.md).
 

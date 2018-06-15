@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Självstudier
   items:
-    - name: 1 – Skapa Azure SSIS Integration Runtime
+    - name: 1. Etablera Azure-SSIS-integreringskörning
       items:
         - name: Användargränssnitt
           href: tutorial-deploy-ssis-packages-azure.md

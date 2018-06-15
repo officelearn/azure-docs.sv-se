@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: Snabbstarter
   items:
-    - name: Skapa DNS-zon och -post – portalen
+    - name: Namnmatchning – portalen
       href: dns-getstarted-portal.md
     - name: Skapa DNS-zon och -post – PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: Självstudier
   items:
-    - name: Skapa privat DNS-zon och -post
-      href: private-dns-getstarted-powershell.md
-    - name: Delegera din domän till Azure DNS
+    - name: Använd Azure DNS som värd för din domän
       href: dns-delegate-domain-azure-dns.md
     - name: Skapa anpassade DNS-poster för en webbapp
       href: dns-web-sites-custom-domain.md
+    - name: Skapa privat DNS-zon och -post
+      href: private-dns-getstarted-powershell.md
 - name: Exempel
   items:
     - name: Azure CLI

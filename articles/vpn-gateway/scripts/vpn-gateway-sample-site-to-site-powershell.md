@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32313417"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Skapa en VPN-gateway och lägga till en plats-till-plats-anslutning med hjälp av PowerShell
 

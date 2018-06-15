@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792556"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i logganalys
 Logganalys samlar in data från dina anslutna källor och lagrar den i logganalys-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i logganalys lagras som en uppsättning poster.  Varje datakälla skapar poster för en viss typ med varje typ med en egen uppsättning egenskaper.

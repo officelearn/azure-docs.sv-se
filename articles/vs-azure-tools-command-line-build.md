@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791434"
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Skapa Azure-projekt från kommandoraden
 Med Microsoft skapa Engine (MSBuild) kan skapa du produkter i build-labbmiljöer där Visual Studio inte har installerats. MSBuild använder ett XML-format för projektfiler som extensible och stöds fullt ut av Microsoft. Använder formatet MSBuild, kan du beskriva vad objekt måste vara inbyggda för en eller flera plattformar och konfigurationer.

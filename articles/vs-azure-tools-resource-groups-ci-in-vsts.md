@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192952"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integration i Visual Studio Team Services med hjälp av projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall måste du utföra uppgifter i olika faser: skapa, testa, kopiera till Azure (kallas även ”mellanlagring”) och distribuerar mallen. Det finns två olika sätt att distribuera mallar till Visual Studio Team Services (VS Team Services). Båda metoderna ger samma resultat, så Välj det alternativ som passar bäst för ditt arbetsflöde.

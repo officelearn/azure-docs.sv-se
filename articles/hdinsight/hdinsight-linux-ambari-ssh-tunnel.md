@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311530"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, jobbhistorik, NameNode, Oozie och andra webb-användargränssnitt
 

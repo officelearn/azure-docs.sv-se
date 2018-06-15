@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195506"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport för kapacitetsplaneraren i Azure Site Recovery
 Den genererade rapporten i Microsoft Excel innehåller följande ark:

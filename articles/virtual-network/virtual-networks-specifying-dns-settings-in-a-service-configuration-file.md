@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790754"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Ange DNS-inställningar i en konfigurationsfil för tjänsten
 ## <a name="dns-elements"></a>DNS-element

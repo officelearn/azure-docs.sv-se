@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/30/2018
+  ms.locfileid: "32308873"
 abstract:
   description: Azure Active Directory (Azure AD) B2C är en identitetshanteringstjänst som hjälper dig att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklas för bland annat iOS, Android och .NET. Azure AD B2C möjliggör dessa åtgärder samtidigt som kundernas identiteter skyddas. Lär dig hur du använder Azure AD B2C med våra snabbstarter, självstudier och exempel.
   aside:

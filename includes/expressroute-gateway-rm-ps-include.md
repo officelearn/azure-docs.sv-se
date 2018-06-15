@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31613627"
 ---
 Stegen för den här aktiviteten använder ett VNet baserat på värdena i följande konfiguration är en lista. Ytterligare inställningar och namn också beskrivs i den här listan. Vi använder inte den här listan i steg, även om vi lägger till variabler baserat på värdena i den här listan. Du kan kopiera listan om du vill använda som en referens, där du ersätter värdena med dina egna.
 

@@ -3,17 +3,18 @@ title: Självstudie om Kubernetes i Azure – Uppdatera program
 description: Självstudie om AKS – Uppdatera program
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934064"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
@@ -164,10 +165,10 @@ I den här självstudien har du uppdaterat ett program och distribuerat uppdater
 > * Push-överförde behållaravbildningen till Azure Container Registry
 > * Distribuerade det uppdaterade programmet
 
-Gå vidare till nästa självstudiekurs om du vill lära dig hur du övervakar Kubernetes med Log Analytics.
+Gå vidare till nästa självstudie om du vill lära dig om att uppgradera Kubernetes till en ny version.
 
 > [!div class="nextstepaction"]
-> [Övervaka Kubernetes med Log Analytics][aks-tutorial-monitor]
+> [Uppgradera Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +179,5 @@ Gå vidare till nästa självstudiekurs om du vill lära dig hur du övervakar K
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

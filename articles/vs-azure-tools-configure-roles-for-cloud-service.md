@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798734"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Konfigurera roller för Azure cloud service med Visual Studio
 En Azure-molntjänst kan ha en eller flera worker webbroller. För varje roll måste du definiera hur rollen har ställts in och även konfigurera hur rollen körs. Mer information om roller i molntjänster finns videon [introduktion till Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 

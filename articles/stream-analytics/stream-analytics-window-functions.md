@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893658"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics fönsterhantering funktioner
 Utför åtgärder på data i den temporala windows är vanliga mönstret i tid-direktuppspelning scenarier. Stream Analytics har inbyggt stöd för fönsterhantering funktioner, så att utvecklare kan författare komplexa dataströmmen bearbetar jobb med minsta möjliga ansträngning.

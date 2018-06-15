@@ -33,7 +33,6 @@
 ### [Hantera virtuella datorer med hjälp av Azure PowerShell](manage-psh-classic.md)
 ### [Om VM-agenten och tillägg](agents-and-extensions-classic.md)
 ### [Hantera VM-tillägg](manage-extensions-classic.md)
-### [Anpassat skripttillägg för virtuella datorer](extensions-customscript-classic.md)
 
 ## Hantera arbetsbelastningar
 ### [Databehandling med höga prestanda (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)

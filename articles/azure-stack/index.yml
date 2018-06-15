@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786544"
 abstract:
   description: Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du hanterar Azure Stack integrerade system-infrastrukturen och hur du vill erbjuda tjänster med våra Snabbstart och självstudier.<br/><br/>Om du använder en Azure-stacken som använder tjänster eller bygger appar för Azure-stacken, se vår <a href="/azure/azure-stack/user">användardokumentation</a>.<br/><br/>Om du är operatör Azure-stacken är intresserad av i den Azure Stack Development Kit (ASDK), en enda nod distribution av Azure-stacken som du kan hämta och använda gratis Se vår <a href="/azure/azure-stack/asdk">ASDK dokumentationen</a>.
 sections:

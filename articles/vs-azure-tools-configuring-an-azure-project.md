@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792179"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Konfigurera ett Azure cloud service-projekt i Visual Studio
 Du kan konfigurera ett Azure cloud service-projekt, beroende på dina krav för projektet. Du kan ange egenskaper för projektet i följande kategorier:

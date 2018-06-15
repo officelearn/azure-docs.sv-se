@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312091"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Samråd Azure Marketplace-tjänster
 Rådgivning i Azure Marketplace innehåller Microsoft-partner målet vid anslutning av kunder med stöd för och utöka användningen av Azure-tjänster. Lista över samråd Tjänsterbjudanden från partner System Integrator (SI) av Microsoft har stöd för Azure Marketplace. 

@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 7843410043b726526380b2a916d96f414a2decda
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29532326"
 ---
 Du kan visa kostnaderna för resurser med taggarna när taggar till resurser. Det tar ett tag för kostnadsanalys att visa den senaste användningen, så du inte kan visa kostnaderna ännu. När kostnader, kan du visa kostnader för resurser över resursgrupper i din prenumeration. Användarna måste ha [prenumeration åtkomst till faktureringsinformationen](../articles/billing/billing-manage-access.md) att visa kostnaderna.
 

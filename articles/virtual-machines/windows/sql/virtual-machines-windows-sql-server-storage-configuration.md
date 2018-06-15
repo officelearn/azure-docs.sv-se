@@ -1,6 +1,6 @@
 ---
-title: "Konfiguration för lagring för virtuella SQL Server-datorer | Microsoft Docs"
-description: "Det här avsnittet beskrivs hur Azure konfigurerar lagring för virtuella SQL Server-datorer under etableringen (Resource Manager-modellen). Här beskrivs också hur du konfigurerar lagring för din befintliga SQL Server-datorer."
+title: Konfiguration för lagring för virtuella SQL Server-datorer | Microsoft Docs
+description: Det här avsnittet beskrivs hur Azure konfigurerar lagring för virtuella SQL Server-datorer under etableringen (Resource Manager-modellen). Här beskrivs också hur du konfigurerar lagring för din befintliga SQL Server-datorer.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399091"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguration för lagring för virtuella SQL Server-datorer
 När du konfigurerar en avbildning av virtuell dator för SQL Server i Azure hjälper portalen till att automatisera konfigurationen för lagring. Detta inkluderar ansluter lagringsenheter till den virtuella datorn, vilket gör att lagring tillgänglig för SQL Server och konfigurera den att optimera för dina specifika krav.

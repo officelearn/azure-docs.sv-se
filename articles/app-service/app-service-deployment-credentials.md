@@ -1,8 +1,8 @@
 ---
-title: "Autentiseringsuppgifter för distribution av Azure App Service | Microsoft Docs"
-description: "Lär dig hur du använder autentiseringsuppgifter för Azure App Service-distribution."
+title: Autentiseringsuppgifter för distribution av Azure App Service | Microsoft Docs
+description: Lär dig hur du använder autentiseringsuppgifter för Azure App Service-distribution.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778555"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](app-service-deploy-local-git.md) och [FTP/S distribution](app-service-deploy-ftp.md). Dessa är inte samma som din Azure Active Directory-autentiseringsuppgifter.

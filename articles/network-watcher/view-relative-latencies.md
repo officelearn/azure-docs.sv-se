@@ -1,13 +1,13 @@
 ---
-title: "Visa relativa svarstiderna till Azure-regioner från specifika platser | Microsoft Docs"
-description: "Lär dig mer om att visa relativa svarstiderna över Internetleverantörer till Azure-regioner från specifika platser."
+title: Visa relativa svarstiderna till Azure-regioner från specifika platser | Microsoft Docs
+description: Lär dig mer om att visa relativa svarstiderna över Internetleverantörer till Azure-regioner från specifika platser.
 services: network-watcher
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27600959"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativa fördröjning till Azure-regioner från specifika platser
 

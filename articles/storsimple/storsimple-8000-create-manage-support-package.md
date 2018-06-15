@@ -1,12 +1,12 @@
 ---
-title: "Skapa ett supportpaket för StorSimple 8000-serien | Microsoft Docs"
-description: "Lär dig hur du skapar, dekryptera och redigera ett supportpaket för enheten StorSimple 8000-serien."
+title: Skapa ett supportpaket för StorSimple 8000-serien | Microsoft Docs
+description: Lär dig hur du skapar, dekryptera och redigera ett supportpaket för enheten StorSimple 8000-serien.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743586"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett stödpaket för StorSimple 8000-serien
 

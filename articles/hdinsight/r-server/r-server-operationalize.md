@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412849"
 ---
 # <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>Operationalisera R Server-kluster i Azure HDInsight
 

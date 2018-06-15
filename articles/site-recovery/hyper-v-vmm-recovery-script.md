@@ -1,11 +1,11 @@
 ---
-title: "Lägga till ett skript i en återställningsplan i Azure Site Recovery | Microsoft Docs"
-description: "Lär dig mer om kraven för att lägga till ett nytt skript i System Center Virtual Machine Manager (VMM) till en återställningsplan i Azure."
+title: Lägga till ett skript i en återställningsplan i Azure Site Recovery | Microsoft Docs
+description: Lär dig mer om kraven för att lägga till ett nytt skript i System Center Virtual Machine Manager (VMM) till en återställningsplan i Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: shons
-editor: 
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402435"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till en VMM-skript till en återställningsplan
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405953"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Köra Hive-frågor med hjälp av konsolen för frågan
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

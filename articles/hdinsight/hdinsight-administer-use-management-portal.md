@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405372"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -82,7 +83,7 @@ Installation av anpassade program i klustret med hjälp av anslutning till fjär
 
    * Om du vill anpassa menyn högerklickar du någonstans på menyn och klicka sedan på **anpassa**.
    * **Inställningar för** och **alla inställningar**: Visar den **inställningar** bladet för klustret, där du kan komma åt detaljerad konfigurationsinformation för klustret.
-   * **Instrumentpanelen**, **Klusterinstrumentpanel** och **URL: dessa är alla sätt att komma åt instrumentpanelen kluster, vilket är Ambari Web för Linux-baserade kluster. -**Secure Shell **: Visar instruktionerna för att ansluta till klustret med SSH (Secure Shell)-anslutning.
+   * **Instrumentpanelen**, **Klusterinstrumentpanel** och **URL: dessa är alla sätt att komma åt instrumentpanelen kluster, vilket är Ambari Web för Linux-baserade kluster. -** Secure Shell **: Visar instruktionerna för att ansluta till klustret med SSH (Secure Shell)-anslutning.
    * **Skala klustret**: du kan ändra antalet arbetarnoder för det här klustret.
    * **Ta bort**: tar bort klustret.
    * **Snabbstart**: Visar information som hjälper dig att komma igång med HDInsight.

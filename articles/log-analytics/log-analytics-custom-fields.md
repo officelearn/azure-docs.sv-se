@@ -1,8 +1,8 @@
 ---
-title: "Anpassade fält i Azure Log Analytics | Microsoft Docs"
-description: "Funktionen anpassade fält i logganalys kan du skapa egna sökbara fält från logganalys-poster som lägger till egenskaperna för en post som samlats in.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genomgång en exempelhändelse."
+title: Anpassade fält i Azure Log Analytics | Microsoft Docs
+description: Funktionen anpassade fält i logganalys kan du skapa egna sökbara fält från logganalys-poster som lägger till egenskaperna för en post som samlats in.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genomgång en exempelhändelse.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030725"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i logganalys
 Den **anpassade fält** funktionen för Log Analytics kan du utöka befintliga poster i logganalys genom att lägga till egna sökbara fält.  Anpassade fält fylls automatiskt i från data som hämtats från andra egenskaper i samma post.

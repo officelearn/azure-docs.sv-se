@@ -1,12 +1,12 @@
 ---
-title: "Visa och hantera aviseringar för StorSimple 8000-serieenhet | Microsoft Docs"
-description: "Beskriver StorSimple avisering villkor och allvarlighetsgrad, hur du konfigurerar aviseringar och hur du använder tjänsten StorSimple Device Manager för att hantera aviseringar."
+title: Visa och hantera aviseringar för StorSimple 8000-serieenhet | Microsoft Docs
+description: Beskriver StorSimple avisering villkor och allvarlighetsgrad, hur du konfigurerar aviseringar och hur du använder tjänsten StorSimple Device Manager för att hantera aviseringar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745786"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att visa och hantera aviseringar för StorSimple
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Automation användardokumentation"
+title: Azure Automation användardokumentation
 metadata:
   document_id: 
-  title: "Dokumentation om Azure Automation – Självstudier, API-referens"
-  description: "Lär dig hur du använder Azure Automation"
+  title: Dokumentation om Azure Automation – Självstudier, API-referens
+  description: Lär dig hur du använder Azure Automation
   services: automation
   author: georgewallace
   manager: carmonm
@@ -19,13 +19,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 01/11/2018
+  ms.locfileid: "27773833"
 abstract:
-  description: "Lär dig hur du använder Automation för att konfigurera och automatisera åtgärdsuppgifter i en hybridmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer, utföra uppdateringshantering, leverera önskad tillståndskonfiguration, spåra ändringar och samla inventering."
+  description: Lär dig hur du använder Automation för att konfigurera och automatisera åtgärdsuppgifter i en hybridmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer, utföra uppdateringshantering, leverera önskad tillståndskonfiguration, spåra ändringar och samla inventering.
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: "Lär dig hur du kan automatisera och konfigurera Azure och hybrid-miljön med hjälp av Automation:"
+    text: 'Lär dig hur du kan automatisera och konfigurera Azure och hybrid-miljön med hjälp av Automation:'
   - type: list
     style: icon48
     items:
@@ -41,18 +42,18 @@ sections:
         src: /azure/automation/media/index/dscconfig.svg
       text: Skapa en DSC-konfiguration
       href: /azure/automation/automation-quickstart-dsc-configuration
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Lär dig mer om att integrera, distribuera och hantera dina Azure och hybrid-miljöer."
+    text: Lär dig mer om att integrera, distribuera och hantera dina Azure och hybrid-miljöer.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Konfigurera bevakaruppgifter</a>
-    - html: "<a href=\"/azure/automation/automation-tutorial-update-management\">Hantera uppdateringar på din virtuella dator</a>"
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Hantera uppdateringar på din virtuella dator</a>
     - html: <a href="/azure/automation/automation-onboard-solutions">Publicera i skala</a>
-    - html: "<a href=\"/azure/automation/automation-tutorial-installed-software\">Identifiera program installerade på en virtuell dator</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-troubleshoot-changes\">Felsök ändringar på en virtuell dator</a>"
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifiera program installerade på en virtuell dator</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Felsök ändringar på en virtuell dator</a>
 - title: Referens
   items:
   - type: list
@@ -61,7 +62,7 @@ sections:
     items:
     - title: Kommandorad
       html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-    - title: "Språk"
+    - title: Språk
       html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
     - title: REST
       html: <p><a href="/rest/api/automation">Automation REST API</a></p>

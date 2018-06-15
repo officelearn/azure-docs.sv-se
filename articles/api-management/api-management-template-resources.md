@@ -1,11 +1,11 @@
 ---
 title: Resurser med Azure API Management-mall | Microsoft Docs
-description: "Lär dig mer om vilka typer av resurser som är tillgängliga för användning i developer portal mallar i Azure API Management."
+description: Lär dig mer om vilka typer av resurser som är tillgängliga för användning i developer portal mallar i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23835400"
 ---
 # <a name="azure-api-management-template-resources"></a>Resurser med Azure API Management-mall
 Azure API Management ger följande typer av resurser för användning i developer portal mallar.  

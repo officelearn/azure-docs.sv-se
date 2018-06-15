@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178831"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).

@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797166"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Metodtips för elastiska frågan i Azure SQL Database att komma åt data i Azure SQL Data Warehouse
 Läs om metodtips för elastiska fråga att komma åt data i Azure SQL Data Warehouse från Azure SQL-databas. 

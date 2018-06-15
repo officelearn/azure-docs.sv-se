@@ -1,11 +1,11 @@
 ---
-title: "Visa replikeringsstatus för Active Directory med Azure Log Analytics | Microsoft Docs"
-description: "Active Directory-replikeringsstatus lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel."
+title: Visa replikeringsstatus för Active Directory med Azure Log Analytics | Microsoft Docs
+description: Active Directory-replikeringsstatus lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179342"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Visa replikeringsstatus för Active Directory med logganalys
 

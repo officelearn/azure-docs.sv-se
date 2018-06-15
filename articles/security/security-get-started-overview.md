@@ -1,6 +1,6 @@
 ---
-title: "Översikt över säkerheten i Azure | Microsoft Docs"
-description: "Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor."
+title: Översikt över säkerheten i Azure | Microsoft Docs
+description: Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25542154"
 ---
 # <a name="azure-security-overview"></a>Översikt över Azure-säkerhet
 Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor. Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).

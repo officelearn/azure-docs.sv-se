@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796541"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att reducera Azure sökresultat med hjälp av Active Directory identiteter
 

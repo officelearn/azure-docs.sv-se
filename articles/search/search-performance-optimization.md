@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797777"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure Search-prestanda och optimering överväganden
 En bra sökinställningar är en nyckel till slutförd för många mobila och webbprogram. Från fastigheter, för bil marknadsplatser till onlinekataloger, påverkar Snabbsökning och relevanta resultat kundupplevelsen. Det här dokumentet är avsett att hjälp du identifiera bästa praxis för att få ut mesta möjliga av Azure Search, särskilt för avancerade scenarier med avancerad krav för skalbarhet, flerspråkig stöd eller anpassade rangordning.  Dessutom kan det här dokumentet beskrivs internals och täcker metoder fungera effektivt i verkliga kunden appar.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011466"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN regelmotor
 HTTP-variabler innehåller det sätt som du kan hämta metadata för HTTP-begäran och svar. Dessa metadata kan sedan användas för att ändra dynamiskt en begäran eller ett svar. Användning av HTTP-variabler är begränsat till följande regler motorn funktioner:

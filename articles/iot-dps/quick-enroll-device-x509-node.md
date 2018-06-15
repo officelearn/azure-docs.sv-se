@@ -1,22 +1,21 @@
 ---
 title: Registrera X.509-enhet på Azure Device Provisioning Service-tjänsten med Node.js | Microsoft Docs
 description: Azure snabbstart – Registrera X.509-enhet på Azure IoT Hub Device Provisioning-tjänsten med Node.js-tjänst-SDK
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 12/21/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 0d255cd3a076b892f0732766e0084f78a7859aa4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 207dcc4651a9f3e3712ad67fe1718bcbcd715e27
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629940"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Registrera X.509-enheter på IoT Hub Device Provisioning-tjänsten med Node.js-tjänst-SDK
 

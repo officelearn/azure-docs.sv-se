@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866360"
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Välj den Azure Multi-Factor Authentication-lösning som passar dig
 Eftersom det finns flera varianter av Azure Multi-Factor Authentication (MFA) måste vi ställa oss några frågor för att ta reda på vilken version som är lämpligast.  Dessa frågor är:

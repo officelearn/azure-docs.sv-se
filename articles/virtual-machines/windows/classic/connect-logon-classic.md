@@ -21,6 +21,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012367"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Logga in på en virtuell Windows-dator med Azure Portal
 I Azure portal ska du använda den **Anslut** för att starta en fjärrskrivbordssession och logga in på en virtuell Windows-dator.

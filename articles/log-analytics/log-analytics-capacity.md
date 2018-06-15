@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170041"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapaciteten för Hyper-V-virtuella datorer med kapacitet och prestanda för lösning (förhandsgranskning)
 

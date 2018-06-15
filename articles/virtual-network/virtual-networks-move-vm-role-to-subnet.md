@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792655"
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Flytta en virtuell dator (klassisk) eller molntjänster roll till ett annat undernät med hjälp av PowerShell
 Du kan använda PowerShell för att flytta din virtuella dator (klassisk) från ett undernät till en annan i samma virtuella nätverk (VNet). Du kan flytta rollinstanser genom att redigera filen CSCFG i stället för med hjälp av PowerShell.

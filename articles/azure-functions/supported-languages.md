@@ -1,12 +1,12 @@
 ---
-title: "Språk som stöds i Azure Functions"
-description: "Lär dig vilka språk som stöds (GA) och som är experiment eller i förhandsgranskningen."
+title: Språk som stöds i Azure Functions
+description: Lär dig vilka språk som stöds (GA) och som är experiment eller i förhandsgranskningen.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24879442"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 

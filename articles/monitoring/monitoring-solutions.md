@@ -16,9 +16,10 @@ ms.date: 04/20/2018
 ms.author: bwren
 ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885276"
 ---
 # <a name="management-solutions-in-azure"></a>Lösningar för hantering i Azure
 Hanteringslösningar utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om använda och installera dem.

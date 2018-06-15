@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363061"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center
 Azure Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slutpunkter om någon av dina Nätverkssäkerhetsgrupper (NSG: er) har en eller flera regler för inkommande trafik som tillåter åtkomst från ”alla” källans IP-adress. Öppna åtkomst till ”” kan du aktivera angripare att få åtkomst till dina resurser. Security Center rekommenderar att du redigera dessa regler för inkommande trafik för att begränsa åtkomsten till källans IP-adresser som verkligen behöver åtkomst.

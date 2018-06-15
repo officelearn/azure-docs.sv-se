@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212372"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Skala anger Azure Service Fabric-nodtyper och den virtuella datorn
 [Skaluppsättningar för den virtuella datorn](/azure/virtual-machine-scale-sets) är en Azure compute resurs. Du kan använda skaluppsättningar för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Ange den Service Fabric som är installerad på varje virtuell dator i skalan. Du kan oberoende skala varje nodtyp upp eller ned, ändra OS-SKU som körs på varje nod i klustret, har olika uppsättningar av portar är öppna och använda olika kapacitetsdata.

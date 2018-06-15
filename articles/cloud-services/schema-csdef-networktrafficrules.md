@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360044"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services Definition NetworkTrafficRules Schema
 Den `NetworkTrafficRules` noden är ett valfritt element i tjänstdefinitionsfilen som anger hur roller kommunicerar med varandra. Det begränsar vilka roller kan komma åt interna slutpunkter för den specifika-rollen. Den `NetworkTrafficRules` är inte ett fristående element; den kombineras med två eller flera roller i en tjänstdefinitionsfilen.

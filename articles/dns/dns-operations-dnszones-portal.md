@@ -17,6 +17,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779047"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hur du hanterar DNS-zoner i Azure-portalen
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193058"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Skicka ett JSON-objekt till en Azure Automation-runbook
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211437"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Översikt över kluster resource manager-arkitektur
 Service Fabric klustret Resource Manager är en central tjänst som körs i klustret. Den hanterar tillståndet som tjänster i klustret, särskilt i form av resursförbrukning och regler för placering. 

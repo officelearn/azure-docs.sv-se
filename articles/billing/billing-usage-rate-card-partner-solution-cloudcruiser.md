@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771505"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Molnet Cruiser och Microsoft Azure Billing API-integrering
 Den här artikeln beskrivs hur informationen som samlas in från den nya Microsoft Azure Billing API: er kan användas i molnet Cruiser för arbetsflödet kostnaden simulering och analys.

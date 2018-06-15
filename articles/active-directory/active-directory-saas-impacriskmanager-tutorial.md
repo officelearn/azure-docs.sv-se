@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Självstudier: Azure Active Directory-integrering med IMPAC Risk Manager
 

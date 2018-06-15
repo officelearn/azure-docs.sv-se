@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201796"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Köra Hive-frågor med hjälp av Data Lake-verktyg för Visual Studio
 

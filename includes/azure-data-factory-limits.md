@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371328"
 ---
 Datafabriken är en tjänst med flera klienter som har följande standardgränser för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna som kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 

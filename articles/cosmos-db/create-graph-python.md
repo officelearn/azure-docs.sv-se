@@ -2,23 +2,21 @@
 title: 'Snabbstart: Graph API med Python – Azure Cosmos DB | Microsoft Docs'
 description: Den här snabbstarten visar hur du använder Graph API i Azure Cosmos DB för att skapa ett konsolprogram med Azure-portalen och Python
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795796"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Python och Azure Portal
 
@@ -79,7 +77,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -104,7 +102,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 2. Öppna filen connect.py och i rad 104 klistrar du in URI-värdet `<YOUR_ENDPOINT>` här:
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -112,14 +110,12 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     URI-delen av klientobjektet bör nu likna den här koden:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. Ändra `graphs.azure.com` i klientnamnet till `gremlin.cosmosdb.azure.com`. (Om grafdatabaskontot skapades före den 20 december 2017 så gör du inga ändringar och går vidare till nästa steg.)
-
-4. Ändra den andra parametern för objektet `client` för att ersätta strängarna `<YOUR_DATABASE>` och `<YOUR_COLLECTION_OR_GRAPH>`. Om du använde de föreslagna värdena bör parametern se ut som den här koden:
+3. Ändra den andra parametern för objektet `client` för att ersätta strängarna `<YOUR_DATABASE>` och `<YOUR_COLLECTION_OR_GRAPH>`. Om du använde de föreslagna värdena bör parametern se ut som den här koden:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -131,7 +127,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
         password="<YOUR_PASSWORD>")
     ```
 
-5. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `<YOUR_PASSWORD>` i parametern `password=<YOUR_PASSWORD>`.
+4. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `<YOUR_PASSWORD>` i parametern `password=<YOUR_PASSWORD>`.
 
     Hela objektdefinitionen `client` bör nu se ut som den här koden:
     ```python

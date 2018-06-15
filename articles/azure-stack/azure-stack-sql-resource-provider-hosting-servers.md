@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359432"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovidern
 Du kan använda SQL-instanser på virtuella datorer i i din [Azure Stack](azure-stack-poc.md), eller en instans utanför din Azure Stack-miljö tillhandahålls resursprovidern kan ansluta till den. Allmänna krav är:

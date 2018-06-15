@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205995"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När Paketera en befintlig körbar fil som en [gäst körbara](service-fabric-guest-executables-introduction.md), kan du antingen använda en mall för Visual Studio-projekt eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application paketet struktur och manifest-filer av den nya projektmallen.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367332"
 ---
 # <a name="azure-network-security-best-practices"></a>Säkerhetsmetoder för Azure-nätverk
 Microsoft Azure kan du ansluta virtuella datorer och enheter till andra nätverksenheter genom att placera dem på Azure-nätverk. Ett virtuellt Azure-nätverk är en konstruktion som gör det möjligt att ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserade kommunikation mellan nätverksenheter som aktiveras. Azure virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter på samma Azure virtuella nätverk, olika virtuella Azure-nätverk, på Internet eller även på din egen lokala nätverk.

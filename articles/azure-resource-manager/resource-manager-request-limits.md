@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358871"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsning av Resource Manager-begäranden
 För varje prenumeration och klient Resource Manager gränser förfrågningar till 15 000 per timme Skriv- och läsbegäranden till 1 200 per timme. Dessa begränsningar gäller för varje instans av Azure Resource Manager. Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  Så i praktiken gränserna är effektivt mycket högre än dessa gränser, som användare hanteras begäranden vanligtvis av många olika instanser.

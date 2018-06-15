@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364241"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över säkerheten i Azure virtuella datorer
 Du kan använda Azure virtuella datorer för att distribuera en mängd olika lösningar för datorer i en flexibel metod. Tjänsten stöder Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP och Azure BizTalk-tjänst. Så kan du distribuera alla arbetsbelastningar och alla språk på nästan alla operativsystem.

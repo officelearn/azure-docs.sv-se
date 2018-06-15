@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160248"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Hantera domänanslutna HDInsight-kluster
 Läs om användarna och roller för domänanslutna HDInsight och hur du hanterar domänanslutna HDInsight-kluster.

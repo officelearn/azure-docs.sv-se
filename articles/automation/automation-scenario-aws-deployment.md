@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193489"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario – etablera en virtuell dator i AWS
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i prenumerationen Amazon Web Service (AWS) och ge den virtuella datorn ett specifikt namn – AWS refererar till som ”märkning” den virtuella datorn.

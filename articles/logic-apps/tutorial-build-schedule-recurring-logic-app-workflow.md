@@ -1,12 +1,12 @@
 ---
-title: "Skapa schemabaserade automatiserade arbetsflöden – Azure Logic Apps | Microsoft Docs"
-description: "Den här självstudiekursen visar hur du skapar ett återkommande, automatiserad arbetsflöde enligt ett schema med Azure Logic Apps"
+title: Skapa schemabaserade automatiserade arbetsflöden – Azure Logic Apps | Microsoft Docs
+description: Den här självstudiekursen visar hur du skapar ett återkommande, automatiserad arbetsflöde enligt ett schema med Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300777"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Kontrollera trafik med en schemabaserad logikapp
 
@@ -96,7 +97,7 @@ Sedan lägger du till en [utlösare](../logic-apps/logic-apps-overview.md#logic-
    | ------- | ----- | ----------- | 
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
    | **Frekvens** | Vecka | Den tidsenhet som används för upprepningen | 
-   | **Tidszon** | Inget | Gäller bara när du anger en starttid. Det här är användbart när du anger en tidszon som inte är lokal. | 
+   | **Tidszon** | Ingen | Gäller bara när du anger en starttid. Det här är användbart när du anger en tidszon som inte är lokal. | 
    | **Starttid** | Ingen | Skjut upp upprepningen till en viss tidpunkt. Mer information finns i [Schemalägga aktiviteter och arbetsflöden som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
    | **Dessa dagar** | Måndag,Tisdag,Onsdag,Torsdag,Fredag | Endast tillgängligt när Vecka har valts i fältet **Frekvens** | 
    | **Vid dessa timmar** | 7,8,9 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka timmar på dagen den här upprepningen ska köras. Det här exemplet körs vid 7, 8 och 9. | 
@@ -143,11 +144,11 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    | ------- | ----- | ----------- |
    | **Waypoint 1** (Platsmarkör 1) | <*start-location*> | Startpunkt för resvägen | 
    | **Waypoint 2** (Platsmarkör 2) | <*end-location*> | Slutpunkten för resvägen | 
-   | **Avoid** (Undvik) | Inget | Alla objekt som ska undvikas längs vägen, till exempel motorvägar, vägtullar och så vidare | 
+   | **Avoid** (Undvik) | Ingen | Alla objekt som ska undvikas längs vägen, till exempel motorvägar, vägtullar och så vidare | 
    | **Optimize** (Optimera) | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj den här parametern: ”timeWithTraffic” | 
    | **Avståndsenhet** | <*your-preference*> | Avståndsenhet för din resväg. I den här artikeln används enheten ”Mile”  | 
    | **Travel mode** (Färdsätt) | Driving (Bil) | Färdsättet för din resväg. Välj det här färdsättet: ”Driving” (Bil) | 
-   | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inget | Gäller endast ”transit mode” (kollektivtrafik) | 
+   | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
    | **Date-Time Type** (Typ av datum/tid) | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
    |||| 
 

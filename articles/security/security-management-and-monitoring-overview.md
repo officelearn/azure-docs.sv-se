@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364377"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure-säkerhetshantering och övervakning-översikt
 Azure tillhandahåller säkerhetsmekanismer att underlätta hantering och övervakning av Azure-molntjänster och virtuella datorer (VM). Den här artikeln innehåller en översikt över dessa kärnfunktioner för säkerhet och tjänster. Länkar som artiklar som ger information om varje så kan du läsa mer.

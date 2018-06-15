@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367138"
 ---
 Den här artikeln innehåller en uppsättning beprövade metoder för att köra en virtuell Linux-dator på Azure, med hänsyn till skalbarhet, tillgänglighet, hanterbarhet och säkerhet. Azure har stöd för körning av olika populära Linux-distributioner, inklusive CentOS, Debian, Red Hat Enterprise, Ubuntu och FreeBSD. Mer information finns i [Azure och Linux][azure-linux].
 

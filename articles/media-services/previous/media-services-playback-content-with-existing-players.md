@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788482"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
 Azure Media Services stöder många populära strömmande format, till exempel Smooth Streaming HTTP Live Streaming och MPEG-Dash. Det här avsnittet hänvisar till befintliga spelare som du kan använda för att testa din dataströmmar.

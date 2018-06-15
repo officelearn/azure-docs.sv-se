@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell script exempel – ha en hanterad resursgrupp och ändra storlek på virtuella datorer | Microsoft Docs"
-description: "Azure PowerShell skriptexempel - ha en hanterad resursgrupp och ändra storlek på virtuella datorer"
+title: Azure PowerShell script exempel – ha en hanterad resursgrupp och ändra storlek på virtuella datorer | Microsoft Docs
+description: Azure PowerShell skriptexempel - ha en hanterad resursgrupp och ändra storlek på virtuella datorer
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: f549f26cb3f9fdb2d805d2efb2c0e1706abe3edb
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940944"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Hämta resurser i en hanterad resursgrupp och ändra storlek på virtuella datorer med PowerShell
 

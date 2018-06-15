@@ -1,6 +1,6 @@
 ---
-title: "Exempel på Azure CLI - Azure hanterade program | Microsoft Docs"
-description: "Exempel på Azure CLI - Azure hanterade program"
+title: Exempel på Azure CLI - Azure hanterade program | Microsoft Docs
+description: Exempel på Azure CLI - Azure hanterade program
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 38ebea86783970e0b045dcf5a8a91f54ae6c6d6a
 ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23939936"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Premium Storage: Utforma prestanda på virtuella Windows-datorer | Microsoft Docs"
-description: "Utforma program med höga prestanda med Azure Premium-lagring. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens."
+title: 'Azure Premium Storage: Utforma prestanda på virtuella Windows-datorer | Microsoft Docs'
+description: Utforma program med höga prestanda med Azure Premium-lagring. Premium-lagring ger stöd för I/O-intensiva arbetsbelastningar som körs på Azure Virtual Machines diskar med hög prestanda, låg latens.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949484"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

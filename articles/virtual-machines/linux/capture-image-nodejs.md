@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942242"
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Avbilda en Linux-dator som körs på Azure
 Följ stegen i den här artikeln för att generalisera och avbilda dina Azure Linux-dator (VM) i Resource Manager-distributionsmodellen. När du generaliserar den virtuella datorn, ta bort personlig information och förbereda den virtuella datorn som ska användas som en bild. Du sedan avbilda en generaliserad virtuell hårddisk (VHD) avbildas för Operativsystemet, virtuella hårddiskar för bifogade datadiskar och en [Resource Manager-mall](../../azure-resource-manager/resource-group-overview.md) för nya VM-distributioner. Den här artikeln beskriver hur du hämta en datoravbildning av virtuell med Azure CLI 1.0 för en virtuell dator med hjälp av ohanterade diskar. Du kan också [avbilda en virtuell dator i Azure hanterade diskar med Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Hanterade diskar hanteras av Azure-plattformen och behöver inte alla förberedelse eller plats att lagra dem. Mer information finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

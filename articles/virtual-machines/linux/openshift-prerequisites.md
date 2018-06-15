@@ -1,25 +1,26 @@
 ---
 title: OpenShift i Azure krav | Microsoft Docs
-description: "Förutsättningar för att distribuera OpenShift i Azure."
+description: Förutsättningar för att distribuera OpenShift i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
 ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
 ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847132"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Gemensamma krav för distribution av OpenShift i Azure
 

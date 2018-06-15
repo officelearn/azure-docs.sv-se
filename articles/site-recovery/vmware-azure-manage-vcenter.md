@@ -1,6 +1,6 @@
 ---
 title: " Hantera VMware vCenter-servrar i Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur lägga till och hantera VMware vCenter i Azure Site Recovery."
+description: Den här artikeln beskriver hur lägga till och hantera VMware vCenter i Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852310"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>Hantera VMware vCenter-servrar 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell-skript sample - skapa en definition för hanterade | Microsoft Docs"
-description: "Azure PowerShell-skript sample - skapa en definition för hanterade program"
+title: Azure PowerShell-skript sample - skapa en definition för hanterade | Microsoft Docs
+description: Azure PowerShell-skript sample - skapa en definition för hanterade program
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: ee721b7c68924f5e05fbdc4bc4b919837d4cc05b
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940958"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Skapa en definition för hanterade med PowerShell
 

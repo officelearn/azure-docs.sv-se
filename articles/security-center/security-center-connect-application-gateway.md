@@ -1,11 +1,11 @@
 ---
 title: Ansluta Microsoft Azure Programgateway till Azure Security Center | Microsoft Docs
-description: "Lär dig hur du integrerar Programgateway och Azure Security Center för att förbättra den övergripande säkerheten för dina resurser."
+description: Lär dig hur du integrerar Programgateway och Azure Security Center för att förbättra den övergripande säkerheten för dina resurser.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854495"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Ansluta Microsoft Azure Programgateway till Azure Security Center
 Det här dokumentet hjälper dig att konfigurera integrationen med Brandvägg för Programgateway webbaserade program (Brandvägg) och Security Center.

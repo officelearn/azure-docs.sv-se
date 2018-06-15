@@ -1,12 +1,12 @@
 ---
-title: "Exempel på Azure CLI-skript – Beräkna blob-behållarens storlek | Microsoft Docs"
-description: "Beräkna storleken på en behållare i Azure Blob-lagring genom att addera storleken på blobarna i behållaren."
+title: Exempel på Azure CLI-skript – Beräkna blob-behållarens storlek | Microsoft Docs
+description: Beräkna storleken på en behållare i Azure Blob-lagring genom att addera storleken på blobarna i behållaren.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847115"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en behållare för Blob-lagring
 

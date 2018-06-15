@@ -1,6 +1,6 @@
 ---
-title: "Översikt över SQL-databas | Microsoft Docs"
-description: "Hjälpinnehåll för översikt över SQL-databas på Azure Portal"
+title: Översikt över SQL-databas | Microsoft Docs
+description: Hjälpinnehåll för översikt över SQL-databas på Azure Portal
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073936"
 ---
 # <a name="sql-database-documentation"></a>Dokumentation om SQL Database
 

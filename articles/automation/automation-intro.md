@@ -15,6 +15,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053784"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33766214"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stora filer download med Azure CDN
 

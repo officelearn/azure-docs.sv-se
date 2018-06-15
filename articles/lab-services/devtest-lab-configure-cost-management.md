@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787635"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Visa de månatliga kostnadstrend beräknade labbkostnaden i Azure DevTest Labs
 Funktionen hantering av kostnaden för DevTest Labs hjälper dig att spåra kostnaden för ditt labb. Den här artikeln beskrivs hur du använder den **månatlig uppskattad Kostnadstrend** diagram om du vill visa den aktuella kalendermånaden uppskattade kostnaden-till-date och planerade sista månad kostnaden för den aktuella kalendermånaden. Den här artikeln visar även hur för enklare hantering lab kostnader genom att ange utgiftsgränsen mål och tröskelvärden som, när uppnåtts utlösaren DevTest Labs att rapportera resultatet till dig.

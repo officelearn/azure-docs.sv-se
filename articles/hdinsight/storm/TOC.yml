@@ -2,7 +2,8 @@
   href: /azure/hdinsight
 - name: Storm på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: |
+        Översikt
       href: apache-storm-overview.md
     - name: Versionshantering för komponenter
       href: ../hdinsight-component-versioning.md

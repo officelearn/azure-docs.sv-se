@@ -1,7 +1,7 @@
 ---
-title: "Använd Terraform för att skapa en virtuell dator i Azure-skala ange från en anpassad avbildning förpackaren"
-description: "Använd Terraform för att konfigurera och version Ange skalan för en virtuell Azure-dator från en anpassad avbildning som genererats av förpackaren (slutförd med ett virtuellt nätverk och hanterade anslutna diskar)."
-keywords: "terraform, devops, skala ange, virtuella datorer, nätverk, lagring, moduler, anpassade avbildningar, förpackaren"
+title: Använd Terraform för att skapa en virtuell dator i Azure-skala ange från en anpassad avbildning förpackaren
+description: Använd Terraform för att konfigurera och version Ange skalan för en virtuell Azure-dator från en anpassad avbildning som genererats av förpackaren (slutförd med ett virtuellt nätverk och hanterade anslutna diskar).
+keywords: terraform, devops, skala ange, virtuella datorer, nätverk, lagring, moduler, anpassade avbildningar, förpackaren
 author: VaijanathB
 ms.author: tarcher
 ms.date: 10/29/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23945858"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en virtuell dator i Azure-skala ange från en anpassad avbildning förpackaren
 

@@ -1,6 +1,6 @@
 ---
-title: "Etablera Azure Batch-pool i ett virtuellt nätverk | Microsoft Docs"
-description: "Du kan skapa en Batch-pool i ett virtuellt nätverk så att beräkningsnoderna kan kommunicera på ett säkert sätt med andra virtuella datorer i nätverket, till exempel en filserver."
+title: Etablera Azure Batch-pool i ett virtuellt nätverk | Microsoft Docs
+description: Du kan skapa en Batch-pool i ett virtuellt nätverk så att beräkningsnoderna kan kommunicera på ett säkert sätt med andra virtuella datorer i nätverket, till exempel en filserver.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846816"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603852"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatiskt växa eller krympa HPC Pack klusterresurserna i Azure enligt klustrets arbetsbelastning
 Om du distribuerar Azure ”burst” noder i klustret HPC Pack, eller skapar du ett HPC Pack-kluster i virtuella Azure-datorer, kanske ett sätt att automatiskt öka eller minska klustrets resurser, till exempel noder eller kärnor enligt belastningen på klustret. Skalning klusterresurserna på så sätt kan du använda resurserna i Azure mer effektivt och kontrollera deras kostnader.

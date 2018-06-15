@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787565"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Använd Azure DevTest Labs för utvecklare
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier, men ett av scenarierna för primära är med hjälp av DevTest Labs till utveckling värddatorerna för utvecklare. I det här scenariot har DevTest Labs följande fördelar:

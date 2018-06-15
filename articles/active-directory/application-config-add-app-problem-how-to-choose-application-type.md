@@ -18,6 +18,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054605"
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Så här väljer du vilken typ som programmet ska använda när du lägger till ett program
 

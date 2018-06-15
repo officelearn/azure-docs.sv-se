@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927789"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Felsöka Azure Active Directory programhantering
 Följande länkar leder till en innehållskarta som hjälper dig att lösa några av de vanligaste problem som du kan stöta på när du hanterar **företagsprogram** i Azure Active Directory.

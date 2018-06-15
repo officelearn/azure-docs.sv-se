@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788671"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använda Azure Media innehåll kontrollanten för att identifiera möjliga innehåll för vuxna och dyr
 

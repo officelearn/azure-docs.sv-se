@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787495"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera claimable virtuella datorer i Azure DevTest Labs
 Du lägger till en claimable virtuell dator i ett labb på liknande sätt att hur du [lägga till en standard VM](devtest-lab-add-vm.md) – från en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formeln](devtest-lab-manage-formulas.md) , eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudiekursen vägleder dig genom att använda Azure portal för att lägga till en claimable virtuell dator i ett labb i DevTest Labs och visar processerna som en användare följer för att begära och unclaim den virtuella datorn.

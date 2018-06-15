@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788944"
 ---
 # <a name="input-metadata"></a>Ange Metadata
 Ett kodningsjobb är associerad med en inkommande tillgång (eller tillgångar) om du vill utföra vissa uppgifter som kodning.  En utdatatillgången skapas vid slutförandet av uppgiften.  Utdatatillgången innehåller video, ljud, miniatyrer, manifestet osv. Utdatatillgången innehåller också en fil med metadata om inkommande tillgången. Namnet på XML-metadatafilen har följande format: &lt;asset_id&gt;_metadata.xml (till exempel 41114ad3-eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), där &lt;asset_id&gt; AssetId värdet för den inkommande tillgången.  

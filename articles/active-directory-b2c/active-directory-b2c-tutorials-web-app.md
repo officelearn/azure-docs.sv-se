@@ -3,22 +3,25 @@ title: Självstudiekurs – Aktivera en webbapp för autentisering med konton me
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711621"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Självstudie:Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ASP.NET webbapp. Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Registrera en ASP.NET exempelwebbapp i en Azure AD B2C-klientorganisation.

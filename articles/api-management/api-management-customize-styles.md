@@ -15,10 +15,11 @@ ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33933719"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklarportalens sidor
 
@@ -28,7 +29,7 @@ Det finns tre vanliga sätt att anpassa utvecklarportalen i Azure API Management
 * Uppdatera stilarna som används för sidelement i utvecklarportalen (förklaras i den här guiden)
 * [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (t.ex. API-dokumentation, produkter, användarautentisering)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Anpassa stilen på elementen på sidorna i **utvecklarportalen**

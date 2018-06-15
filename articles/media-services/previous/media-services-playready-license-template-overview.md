@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788832"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady licens mall översikt
 Azure Media Services innehåller nu en tjänst för att leverera PlayReady-licenser. När Windows Media player (till exempel Silverlight) försöker spela upp ditt PlayReady-skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.

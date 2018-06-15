@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943186"
 abstract:
   description: Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier. <p/><b>Ny kognitiv förhandsversion för sökning.</b> Använd en förhandsversion av REST API för att binda AI-drivna algoritmer för indexering av pipeline. Extrahera data och anropa bearbetning av naturligt språk och bilder för att omvandla ostrukturerat innehåll i råformat till sökbart innehåll i ett Azure Search-index. <p/>Kom igång med <a href="/azure/search/cognitive-search-quickstart-blob">resurser och exempeldata</a> eller läs mer i <a href="/azure/search/cognitive-search-concept-intro">Koncept</a>.
   aside:

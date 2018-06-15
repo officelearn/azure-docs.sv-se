@@ -1,11 +1,11 @@
 ---
-title: "Lodrätt skala skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs"
-description: "Hur man lodrätt skala en virtuell dator för att övervaka aviseringar med Azure Automation"
+title: Lodrätt skala skalningsuppsättningar i virtuella Azure-datorn | Microsoft Docs
+description: Hur man lodrätt skala en virtuell dator för att övervaka aviseringar med Azure Automation
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781827"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Anger lodrät Autoskala med virtuella datorn
 Den här artikeln beskriver hur man lodrätt skala Azure [Skalningsuppsättningar i virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/) med eller utan reprovisioning. Lodrät skalning för virtuella datorer som inte ingår i skalningsuppsättningar, finns i [lodrätt skala virtuella Azure-datorn med Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

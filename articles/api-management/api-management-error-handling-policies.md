@@ -1,11 +1,11 @@
 ---
 title: Hantera fel i Azure API Management-principer | Microsoft Docs
-description: "Lär dig att svara på felförhållanden som kan uppstå under bearbetning av begäranden i Azure API Management."
+description: Lär dig att svara på felförhållanden som kan uppstå under bearbetning av begäranden i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128234"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Hantera fel i API Management-principer
 Azure API Management gör utgivare att svara på felförhållanden som kan uppstå under bearbetning av begäranden till proxyservern genom att tillhandahålla en `ProxyError` objekt. Den `ProxyError` objektet nås via de [kontext. LastError](api-management-policy-expressions.md#ContextVariables) egenskap och kan användas av principer i den `on-error` princip. Det här avsnittet innehåller en referens för felet funktioner för hantering i Azure API Management.  

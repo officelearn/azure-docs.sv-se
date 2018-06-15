@@ -1,12 +1,12 @@
 ---
-title: "Hantera Azure Service Bus-resurser med hjälp av PowerShell | Microsoft Docs"
-description: "Använd PowerShell-modulen för att skapa och hantera Service Bus-resurser"
+title: Hantera Azure Service Bus-resurser med hjälp av PowerShell | Microsoft Docs
+description: Använd PowerShell-modulen för att skapa och hantera Service Bus-resurser
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159746"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
 

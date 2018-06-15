@@ -1,8 +1,8 @@
 ---
-title: "Samla in och analysera händelseloggarna för Windows i Azure Log Analytics | Microsoft Docs"
-description: "Windows-händelseloggar är en av de vanligaste datakällor som används av logganalys.  Den här artikeln beskriver hur du konfigurerar insamling av Windows-händelseloggar och information om poster skapas i logganalys-arbetsytan."
+title: Samla in och analysera händelseloggarna för Windows i Azure Log Analytics | Microsoft Docs
+description: Windows-händelseloggar är en av de vanligaste datakällor som används av logganalys.  Den här artikeln beskriver hur du konfigurerar insamling av Windows-händelseloggar och information om poster skapas i logganalys-arbetsytan.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782038"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-händelseloggen datakällor i logganalys
 Windows-händelseloggar är en av de vanligaste [datakällor](log-analytics-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggar, till exempel System och program samt göra eventuella anpassade loggar som skapas av program som du behöver övervaka.

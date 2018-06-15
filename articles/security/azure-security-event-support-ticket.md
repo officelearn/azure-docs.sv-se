@@ -1,6 +1,6 @@
 ---
-title: "Hur du ansluter en säkerhet händelse supportärende - Azure | Microsoft Docs"
-description: "Som en säljare på Azure Marketplace har identifierat en potentiell säkerhetshändelse som jag behöver veta hur du ansluter en lämplig biljett."
+title: Hur du ansluter en säkerhet händelse supportärende - Azure | Microsoft Docs
+description: Som en säljare på Azure Marketplace har identifierat en potentiell säkerhetshändelse som jag behöver veta hur du ansluter en lämplig biljett.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129948"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Logga ett supportärende för säkerhet händelse
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603750"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Kryptera virtuella diskar på en Windows VM
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad krypteras virtuella diskar i Azure. Diskar krypteras med kryptografiska nycklar som skyddas i ett Azure Key Vault. Du styr dessa kryptografiska nycklar och granska deras användning. Den här artikeln beskrivs hur du krypterar virtuella diskar på en virtuell Windows-dator med hjälp av Azure PowerShell. Du kan också [kryptera en Linux VM som använder Azure CLI 2.0](../linux/encrypt-disks.md).

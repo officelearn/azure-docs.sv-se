@@ -1,11 +1,11 @@
 ---
 title: Nyheter i Azure Log Analytics? | Microsoft Docs
-description: "Den här artikeln innehåller vanliga frågor och svar om uppgraderingen av logganalys till det nya språket i fråga."
+description: Den här artikeln innehåller vanliga frågor och svar om uppgraderingen av logganalys till det nya språket i fråga.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039867"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Nyheter i Azure Log Analytics?
 Förutom frågespråket själva finns flera förbättringar och ändringar som du bör vara medveten om när logganalys-arbetsytan är [uppgraderas till det nya frågespråket](log-analytics-log-search-new.md).  Den här artikeln beskrivs kortfattat ändringar mellan en äldre och uppgraderade arbetsyta med länkar till detaljerad innehåll. 

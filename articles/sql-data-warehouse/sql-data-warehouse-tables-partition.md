@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526785"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionering tabeller i SQL Data Warehouse
 Rekommendationer och exempel för att använda tabellpartitioner i Azure SQL Data Warehouse.

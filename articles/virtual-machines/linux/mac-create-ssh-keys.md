@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31602638"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabbsteg: skapar och använder ett SSH privat-offentligt nyckelpar för Linux virtuella datorer i Azure
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket gör att inga lösenord krävs för att logga in. Den här artikeln visar hur du snabbt skapa och använda en SSH nyckelfilen privat-offentligt nyckelpar för Linux virtuella datorer. Du kan utföra dessa steg med Azure Cloud Shell, en macOS eller Linux-värden, Windows-undersystem för Linux och andra verktyg som stöder OpenSSH. 

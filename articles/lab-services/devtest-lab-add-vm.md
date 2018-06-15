@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787600"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Lägga till en virtuell dator i ett labb i Azure DevTest Labs
 Om du redan har [skapat din första virtuella dator](devtest-lab-create-first-vm.md), du förmodligen gjorde det från en förinstallerade [marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Nu om du vill lägga till följande virtuella datorer i labbet, du kan också välja en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md) eller en [formeln](devtest-lab-manage-formulas.md). Den här självstudiekursen vägleder dig genom att använda Azure portal för att lägga till en virtuell dator i ett labb i DevTest Labs.

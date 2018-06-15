@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788335"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard
 Du kan använda Media Encoder Standard (MES) Beskär indata video. Beskär är en process för att markera ett rektangulärt fönster i videon bildruta och kodning bara bildpunkter i fönstret. Följande diagram hjälper illustrerar processen.

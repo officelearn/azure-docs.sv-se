@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941136"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 

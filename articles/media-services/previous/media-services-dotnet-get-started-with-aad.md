@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33789469"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använda Azure AD-autentisering för att komma åt Azure Media Services-API med .NET
 

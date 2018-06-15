@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788909"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexering mediefiler med Azure Media indexeraren
 Azure Media Indexer gör det möjligt att göra innehåll för mediefiler sökbara och för att generera en fulltext betyg för stängd textning och nyckelord. Du kan bearbeta en mediefil eller flera mediefiler i en batch.  

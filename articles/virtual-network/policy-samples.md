@@ -21,6 +21,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779591"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Exempel på Azure-principmallar för virtuellt nätverk
 

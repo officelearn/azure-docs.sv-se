@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779508"
 abstract:
   description: Lär dig hur du konfigurerar, skapar och hanterar Azure VPN Gateway. Skapa krypterade anslutningar mellan olika platser till det virtuella nätverket från lokala platser, eller skapa krypterade anslutningar mellan virtuella nätverk.
 sections:

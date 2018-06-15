@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31602509"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure PowerShell
 Dessa steg visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen till Azure Resource Manager-distributionsmodellen.

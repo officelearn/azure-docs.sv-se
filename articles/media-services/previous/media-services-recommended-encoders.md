@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790274"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
 När direktsänd strömning med Azure Media Services kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du väljer att använda en lokal kodare med en live encoding kanal din kodare ska push-installera en dataström med enkel bithastighet av hög kvalitet som utdata. Om du väljer att använda en lokal kodare med en sändning via kanalen din kodare ska push-installera en dataström med multibithastighet som utdata med alla önskade utgående egenskaper. Mer information finns i [direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).

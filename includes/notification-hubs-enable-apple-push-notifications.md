@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814738"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för begäran om certifikatsignering
 APNS (Apple Push Notification Service) använder sig av certifikat för att autentisera dina push-meddelanden. Följ de här instruktionerna för att skapa nödvändiga push-certifikat för att skicka och ta emot meddelanden. Mer information om de här koncepten finns i den officiella [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584)-dokumentationen.

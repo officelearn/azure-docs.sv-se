@@ -33,7 +33,8 @@ Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-p
    * **{Lösenord}:** ett lösenord som används för att autentisera med din app.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Anteckna den **ApplicationId** för det program som du skapade. Du behöver detta senare.
 5. Skapa ett nytt huvudnamn för tjänsten med följande kommando, där du ersätter **{MyApplicationId}** med den **ApplicationId** från föregående steg:

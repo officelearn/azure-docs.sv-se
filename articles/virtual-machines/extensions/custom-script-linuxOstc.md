@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942776"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använda Azure anpassade skript tillägget Version 1 med Linux virtuella datorer
 Anpassade skript tillägget Version 1 hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för efter distributionen konfiguration, installation av programvara eller andra uppgifter konfiguration och hantering. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller kan du ge dem till tillägget körningsmiljön. 

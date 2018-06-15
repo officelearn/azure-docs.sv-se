@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764214"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (AD Azure) enhetsregistreringstjänsten kan sina enheter markeras som kända för din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.

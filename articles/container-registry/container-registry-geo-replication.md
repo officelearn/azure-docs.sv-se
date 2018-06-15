@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33768217"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 

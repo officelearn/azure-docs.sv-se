@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788874"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
 Från och med 2.17 kan Media Services du definiera filter för dina tillgångar. Dessa filter är server sida regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället alla återgivningar som är kopplade till tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.

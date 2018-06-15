@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011102"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i logganalys
 Syslog är en händelse loggning protokoll som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-Agent för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till logganalys där motsvarande post har skapats i OMS-databasen.  

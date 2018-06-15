@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788979"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services fragmenterad MP4 live infognings-specifikationen
 Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade direktsänd strömning införandet för Azure Media Services. Media Services tillhandahåller en liveströmningstjänst som kunder använder för att strömma direktsända händelser och broadcast innehåll i realtid med hjälp av Azure som molnplattform. Det här dokumentet beskriver också bästa praxis för att skapa mycket överflödiga och robusta live infognings-metoder.

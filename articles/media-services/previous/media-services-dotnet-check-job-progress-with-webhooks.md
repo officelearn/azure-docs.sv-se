@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33789413"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks att övervaka Media Services jobbet meddelanden med .NET
 När du kör jobb behöver du ofta ett sätt att spåra jobbförloppet. Du kan övervaka Media Services jobbet meddelanden med hjälp av Azure Webhooks eller [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med webhooks.

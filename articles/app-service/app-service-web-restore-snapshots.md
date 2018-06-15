@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33767303"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställa en app i Azure från en ögonblicksbild
 Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) från en ögonblicksbild. Du kan återställa din app till ett tidigare tillstånd, baserat på en av appens ögonblicksbilder. Du behöver inte aktivera säkerhetskopiering av ögonblicksbilder, plattformen som sparar automatiskt en ögonblicksbild av alla appar för återställning i data.

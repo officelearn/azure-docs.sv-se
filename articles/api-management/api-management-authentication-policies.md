@@ -1,11 +1,11 @@
 ---
 title: Azure API Management autentiseringsprinciper | Microsoft Docs
-description: "Läs mer om autentiseringsprinciper som är tillgängliga för användning i Azure API Management."
+description: Läs mer om autentiseringsprinciper som är tillgängliga för användning i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127767"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för autentisering av API-hantering
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  

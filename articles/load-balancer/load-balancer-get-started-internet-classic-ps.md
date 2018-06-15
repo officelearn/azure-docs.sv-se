@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067596"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare (klassisk) i PowerShell
 

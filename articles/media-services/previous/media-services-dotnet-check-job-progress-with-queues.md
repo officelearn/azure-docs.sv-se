@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788664"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använda Azure Queue storage för att övervaka Media Services jobbet meddelanden med .NET
 När du kör kodning jobben behöver du ofta ett sätt att spåra jobbförloppet. Du kan konfigurera Media Services för att leverera meddelanden till [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Du kan övervaka jobbförloppet genom att hämta meddelanden från Queue storage. 

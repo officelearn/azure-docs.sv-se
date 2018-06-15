@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790386"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera innehållsskydd principer med hjälp av Azure portal
  Du kan skydda mediet från den tidpunkt som den lämnar din dator via lagring, bearbetning och leverans med Azure Media Services. Du kan använda Media Services för att leverera ditt innehåll krypterad dynamiskt med den Standard AES (Advanced Encryption) med 128-bitars krypteringsnycklar. Du kan också använda den med vanliga kryptering (CENC) med hjälp av PlayReady och/eller Widevine DRM digital rights management () och Apple FairPlay. 

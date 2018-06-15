@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213052"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
 Reliable Actors är ett ramverk för Service Fabric-program som baseras på den [virtuella aktören](http://research.microsoft.com/en-us/projects/orleans/) mönster. API: et för tillförlitlig aktörer är en enkeltrådig programmeringsmodell som bygger på skalbarhet och tillförlitlighet garantier som Service Fabric.

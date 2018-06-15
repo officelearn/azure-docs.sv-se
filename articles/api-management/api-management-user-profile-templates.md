@@ -1,11 +1,11 @@
 ---
-title: "Användarens profilmallar i Azure API Management | Microsoft Docs"
-description: "Lär dig hur du anpassar innehållet användarprofil sidor i developer-portalen i Azure API Management."
+title: Användarens profilmallar i Azure API Management | Microsoft Docs
+description: Lär dig hur du anpassar innehållet användarprofil sidor i developer-portalen i Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23835204"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Användarens profilmallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  

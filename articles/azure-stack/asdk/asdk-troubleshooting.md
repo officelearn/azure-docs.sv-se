@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30167910"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Felsökning av Microsoft Azure Stack Development Kit (ASDK)
 Det här dokumentet innehåller vanliga felsökningsinformation för ASDK. Om det uppstår ett problem som inte beskrivs, se till att markera den [Azure Stack MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) för ytterligare hjälp och information.  

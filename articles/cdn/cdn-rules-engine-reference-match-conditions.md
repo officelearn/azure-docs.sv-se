@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30173329"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN regelmotor matchar villkoren 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).

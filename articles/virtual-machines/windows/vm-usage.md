@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425188"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användning av Azure virtuella datorer
 Förbrukning av kraftfulla insikter kan uppnås genom att analysera dina Azure användningsdata – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet ger en djupdykning i din Azure Compute förbrukning information. För mer information om allmänna Azure användning, gå till [förstå fakturan](../../billing/billing-understand-your-bill.md).

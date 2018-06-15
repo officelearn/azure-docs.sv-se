@@ -1,11 +1,11 @@
 ---
-title: "Viktig information för Azure BizTalk-tjänst | Microsoft Docs"
-description: "Visar en lista över kända problem för Azure BizTalk-tjänst"
+title: Viktig information för Azure BizTalk-tjänst | Microsoft Docs
+description: Visar en lista över kända problem för Azure BizTalk-tjänst
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f4906fdc-4cd9-4a57-a007-a88c2e51a18f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633823"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk-tjänst
 

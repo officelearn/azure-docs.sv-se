@@ -1,11 +1,11 @@
 ---
-title: "Azure AD och program: tilldela användare till ett program | Microsoft Docs"
-description: "Hur du implementerar Användartilldelning för Azure-program."
+title: 'Azure AD och program: tilldela användare till ett program | Microsoft Docs'
+description: Hur du implementerar Användartilldelning för Azure-program.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598630"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD och program: tilldela användare till ett program
 Innan du kan tilldela användare och grupper till ett program, måste du begära Användartilldelning.  Information om hur du kräver Användartilldelning finns i [kräver Användartilldelning](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.

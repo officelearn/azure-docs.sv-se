@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416048"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Skapa en VM-skalningsuppsättning med en zon med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 i en enda tillgänglighetszon. När du kört skriptet har du åtkomst till den virtuella datorn över RDP.

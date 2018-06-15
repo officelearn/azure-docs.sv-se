@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera SSL för en molnbaserad tjänst | Microsoft Docs"
-description: "Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur man överför ett SSL-certifikat för att skydda ditt program. De här exemplen använder Azure-portalen."
+title: Konfigurera SSL för en molnbaserad tjänst | Microsoft Docs
+description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur man överför ett SSL-certifikat för att skydda ditt program. De här exemplen använder Azure-portalen.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24859784"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
 

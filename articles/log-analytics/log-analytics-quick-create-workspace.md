@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833140"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en logganalys-arbetsyta i Azure-portalen
 I Azure-portalen kan du ställa in en logganalys-arbetsyta som är en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:

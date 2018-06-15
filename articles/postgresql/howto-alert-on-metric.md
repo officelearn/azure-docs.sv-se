@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera aviseringar för mått för Azure-databas för PostgreSQL i Azure-portalen"
-description: "Den här artikeln beskriver hur du konfigurerar och åtkomst mått aviseringar för Azure-databas för PostgreSQL från Azure-portalen."
+title: Konfigurera aviseringar för mått för Azure-databas för PostgreSQL i Azure-portalen
+description: Den här artikeln beskriver hur du konfigurerar och åtkomst mått aviseringar för Azure-databas för PostgreSQL från Azure-portalen.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690266"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Använda Azure portal för att ställa in aviseringar på mått för Azure-databas för PostgreSQL 
 

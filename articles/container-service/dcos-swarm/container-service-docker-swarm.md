@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Swarm-kluster med Docker API
-description: "Distribuera behållare till Docker Swarm-kluster i Azure Container Service"
+description: Distribuera behållare till Docker Swarm-kluster i Azure Container Service
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331553"
 ---
 # <a name="container-management-with-docker-swarm"></a>Behållarhantering med Docker Swarm
 

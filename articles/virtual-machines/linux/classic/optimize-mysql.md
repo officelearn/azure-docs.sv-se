@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841511"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimera MySQL prestanda på virtuella Azure Linux-datorer
 Det finns många faktorer som påverkar prestanda MySQL på Azure, både i val av virtuell maskinvara och konfiguration av programvara. Den här artikeln fokuserar på optimera prestanda via lagring, system och konfigurationer för databasen.

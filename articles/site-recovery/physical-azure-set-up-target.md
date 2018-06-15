@@ -1,6 +1,6 @@
 ---
-title: "Förbereda mål (fysisk till Azure) | Microsoft Docs"
-description: "Den här artikeln beskriver hur du förbereder din Azure-miljön att starta replikering av fysiska servrar som kör Windows eller Linux till Azure."
+title: Förbereda mål (fysisk till Azure) | Microsoft Docs
+description: Den här artikeln beskriver hur du förbereder din Azure-miljön att starta replikering av fysiska servrar som kör Windows eller Linux till Azure.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812630"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Förbereda mål (VMware till Azure)
 

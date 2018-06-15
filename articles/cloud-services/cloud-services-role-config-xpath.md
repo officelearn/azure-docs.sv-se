@@ -1,11 +1,11 @@
 ---
 title: Cloud Services-rollen config XPath fusklapp | Microsoft Docs
-description: "Olika XPath-inställningar du kan använda i cloud service rollen config för att exponera inställningar som en miljövariabel."
+description: Olika XPath-inställningar du kan använda i cloud service rollen config för att exponera inställningar som en miljövariabel.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860379"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponera konfigurationsinställningar för rollen som en miljövariabel med XPath
 I cloud service worker eller web rollen tjänstdefinitionsfilen exponera du runtime konfigurationsvärden som miljövariabler. Följande XPath-värden stöds (som motsvarar API värden).

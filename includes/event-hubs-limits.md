@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "29717038"
 ---
 I följande tabell visas kvoter och begränsar specifika för [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om priser för Händelsehubbar finns [priser för Händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513643"
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Lägga till en Java-program i Azure App Service Web Apps
 När du har initierat Java-webbappen i [Azure App Service] [ Azure App Service] som beskrivs i [skapar en Java-webbapp i Azure App Service](app-service-web-get-started-java.md), kan du överföra ditt program genom att placera din WAR i den **webbappar** mapp.

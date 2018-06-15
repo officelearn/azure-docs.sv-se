@@ -1,11 +1,11 @@
 ---
-title: "Uppgifter som tillåts i olika tillstånd eller status i BizTalk-tjänst | Microsoft Docs"
-description: "Åtgärder/operationer som tillåts i olika MABS status: stoppa, starta, starta om, pausa, återuppta, ta bort, skala, uppdatera konfigurationen och säkerhetskopiera upp"
+title: Uppgifter som tillåts i olika tillstånd eller status i BizTalk-tjänst | Microsoft Docs
+description: 'Åtgärder/operationer som tillåts i olika MABS status: stoppa, starta, starta om, pausa, återuppta, ta bort, skala, uppdatera konfigurationen och säkerhetskopiera upp'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102750"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Vad du kan och inte kan göra med BizTalk Service-tillstånd
 

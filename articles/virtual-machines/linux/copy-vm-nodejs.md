@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906947"
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Skapa en kopia av en Linux-dator som körs på Azure med Azure CLI 1.0
 Den här artikeln visar hur du skapar en kopia av din Azure virtuell dator (VM kör Linux med hjälp av Resource Manager-distributionsmodellen). Först du kopiera över operativsystemet och datadiskar till en ny behållare och sedan konfigurera nätverksresurserna och skapa den nya virtuella datorn.

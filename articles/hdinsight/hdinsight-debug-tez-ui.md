@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406515"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använd Tez-UI för att felsöka Tez-jobb på Windows-baserade HDInsight
 Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn för körning. Tez UI visualizes jobbet som ett diagram över anslutna objekt kan detaljer om varje objekt och hämta statistik och loggningsinformation.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911765"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario du använder programvarubaserad RAID på Linux virtuella datorer i Azure för att presentera flera diskar i bifogade data som en enkel RAID-enhet. Vanligtvis kan detta användas för att förbättra prestanda och möjliggöra bättre genomflöde jämfört med bara en enda disk.

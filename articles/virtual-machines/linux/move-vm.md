@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907506"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en Linux VM till en annan prenumeration eller resurs
 Den här artikeln får du veta hur du flyttar en Linux VM mellan resursgrupper eller prenumerationer. Flytta en virtuell dator mellan prenumerationer kan vara användbar om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta den till din företagsprenumeration.

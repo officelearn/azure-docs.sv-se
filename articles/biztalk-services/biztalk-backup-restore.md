@@ -1,11 +1,11 @@
 ---
-title: "Skapa och återställa en säkerhetskopia i BizTalk-tjänst | Microsoft Docs"
-description: "BizTalk-tjänster omfattar säkerhetskopiering och återställning. Lär dig hur du skapar och återställer en säkerhetskopia och Bestäm vad säkerhetskopieras. MABS WABS"
+title: Skapa och återställa en säkerhetskopia i BizTalk-tjänst | Microsoft Docs
+description: BizTalk-tjänster omfattar säkerhetskopiering och återställning. Lär dig hur du skapar och återställer en säkerhetskopia och Bestäm vad säkerhetskopieras. MABS WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102349"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Säkerhetskopiering och återställning
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell-skript exempel – Lägg till en grupp för nätverkssäkerhetsregeln | Microsoft Docs"
-description: "Azure PowerShell skriptexempel - lägger till en nätverkssäkerhetsgrupp som tillåter inkommande trafik på en specifik port."
+title: Azure PowerShell-skript exempel – Lägg till en grupp för nätverkssäkerhetsregeln | Microsoft Docs
+description: Azure PowerShell skriptexempel - lägger till en nätverkssäkerhetsgrupp som tillåter inkommande trafik på en specifik port.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -17,9 +17,10 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: fd3c648ee63c45bef305658832a4d31dfdb213be
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25987386"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Lägg till en grupp för inkommande nätverk säkerhetsregel
 

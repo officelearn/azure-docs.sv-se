@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918123"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installera MySQL på en virtuell dator som skapats med den klassiska distributionsmodellen som kör Windows Server 2016
 [MySQL](https://www.mysql.com) är en populär öppen källkod, SQL-databas. Den här kursen visar hur du installerar och kör den **av MySQL 5.7.18** som en MySQL-Server på en virtuell dator som kör **Windows Server 2016**. Din upplevelse kan skilja sig något för andra versioner av MySQL eller Windows Server.

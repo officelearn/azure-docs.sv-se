@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914854"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Skapa Windows kluster för högpresterande datorbearbetning (HPC) med HPC Pack IaaS-distributionsskriptet
 Kör PowerShell-skript för att distribuera en komplett HPC Pack 2012 R2-kluster för Windows-arbetsbelastningar på virtuella Azure-datorer för distributionen av HPC Pack IaaS. Klustret består av en Active Directory-anslutna huvudnod som kör Windows Server och Microsoft HPC Pack och ytterligare Windows beräkningsresurser som du anger. Om du vill distribuera ett HPC Pack kluster i Azure för Linux-arbetsbelastningar, se [skapar ett Linux-HPC-kluster med HPC Pack IaaS-distributionsskriptet](../../linux/classic/hpcpack-cluster-powershell-script.md). 

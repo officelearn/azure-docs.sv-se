@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Jenkins på Azure"
+title: Jenkins på Azure
 metadata:
   description: Distribuera och integrera Jenkins med Azure
   services: multiple
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 11/08/2017
+  ms.locfileid: "24052165"
 abstract:
-  description: "Använd Jenkins-servern med öppen källkod för att skapa dina appar i molnet och distribuera dem till Azure. Lär dig hur du installerar, konfigurerar och skalar Jenkins på Azure samt konfigurerar kontinuerlig integrering (CI) för dina appar med våra snabbstarter, självstudier och exempel på pipeliner."
+  description: Använd Jenkins-servern med öppen källkod för att skapa dina appar i molnet och distribuera dem till Azure. Lär dig hur du installerar, konfigurerar och skalar Jenkins på Azure samt konfigurerar kontinuerlig integrering (CI) för dina appar med våra snabbstarter, självstudier och exempel på pipeliner.
   aside:
     image:
       alt: Jenkins logo
@@ -29,7 +30,7 @@ abstract:
       src: media/Jenkins.png
     title: 
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
     text: Skapa ett Jenkins-system i Azure och skapa en app.
@@ -40,10 +41,10 @@ sections:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
       href: https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: "Konfigurera kontinuerlig integrering för dina appar, kör agenter i molnet och använd Azure-tjänster i dina jobb."
+    text: Konfigurera kontinuerlig integrering för dina appar, kör agenter i molnet och använd Azure-tjänster i dina jobb.
   - type: list
     style: ordered
     items:
@@ -53,12 +54,12 @@ sections:
 - title: Exempel
   items:
   - type: paragraph
-    text: "Exempel på skript och faser för dina pipeliner."
+    text: Exempel på skript och faser för dina pipeliner.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: "<a href=\"https://github.com/Azure/azure-devops-utils/tree/master/jenkins\">Faser och kodavsnitt för Jenkinsfile</a>"
+    - html: <a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Faser och kodavsnitt för Jenkinsfile</a>
 - title: Referens
   items:
   - type: list
@@ -66,6 +67,6 @@ sections:
     className: cardsD
     items:
     - title: Plugin-program
-      html: "<p><a href=\"https://plugins.jenkins.io/azure-vm-agents\">Agenter för virtuell Azure-dator</a><p><a href=\"https://plugins.jenkins.io/azure-app-service\">Azure App Service</a></p><p><a href=\"https://plugins.jenkins.io/windows-azure-storage\">Azure Storage</a></p><p><a href=\"https://plugins.jenkins.io/azure-container-agents\">Azure Container Agents</a><p><a href=\"https://plugins.jenkins.io/azure-function\">Plugin-program för Azure Function</a><p><a href=\"https://plugins.jenkins.io/azure-acs\">Plugin-program för Azure Container Service</a>"
+      html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Agenter för virtuell Azure-dator</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Container Agents</a><p><a href="https://plugins.jenkins.io/azure-function">Plugin-program för Azure Function</a><p><a href="https://plugins.jenkins.io/azure-acs">Plugin-program för Azure Container Service</a>
 - type: paragraph
-  text: "<h4>Jenkins® är ett registrerat varumärke som tillhör Software in the Public Interest, Inc. [Jenkins®-logotypen](https://wiki.jenkins.io/display/JENKINS/Logo) är licensierad under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) från [Jenkins-projektet](https://jenkins.io).</h4>"
+  text: <h4>Jenkins® är ett registrerat varumärke som tillhör Software in the Public Interest, Inc. [Jenkins®-logotypen](https://wiki.jenkins.io/display/JENKINS/Logo) är licensierad under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) från [Jenkins-projektet](https://jenkins.io).</h4>

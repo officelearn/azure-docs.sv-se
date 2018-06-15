@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394585"
 abstract:
   description: Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-kluster. Lär dig hur du använder Azure Container Service med Kubernetes med de här snabbstarterna, självstudierna och exemplen.
 sections:

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917286"
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Med hjälp av interna DNS för namnmatchning för virtuell dator på Azure
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30912237"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
 Det här dokumentet innehåller information om hur du konfigurerar logiska volymen Manager (LVM) i ditt virtuella Azure-datorn. Det är möjligt att konfigurera LVM på en disk ansluten till den virtuella datorn, som standard de flesta molnet bilder inte LVM som konfigurerats på OS-disk. Detta är att förhindra problem med dubbla volym grupper om OS-disken någonsin kopplas till en annan virtuell dator med samma distribution och typ, dvs. under en återställningsscenario. Därför rekommenderas endast för att använda LVM på datadiskar med.

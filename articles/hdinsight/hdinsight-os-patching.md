@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409763"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 Som en hanterad tjänst i Hadoop hand HDInsight tar om uppdatering av Operativsystemet för de underliggande virtuella datorer som används av HDInsight-kluster. Från och med 1 augusti 2016 har vi ändrat gästen OS uppdatering principen för Linux-baserade HDInsight-kluster (version 3.4 eller högre). Syftet med den nya principen är att avsevärt minska antalet omstarter på grund av korrigering. Den nya principen kommer att fortsätta korrigering virtuella maskiner (VMs) på Linux-kluster varje måndag eller torsdag som börjar vid 12: 00 UTC successiva överskrids över noderna i alla kluster. Alla angivna VM startas dock endast högst en gång var 30 dagar på grund av gäst OS-korrigering. Dessutom kan sker den första omstarten för ett nyskapat kluster inte tidigare än 30 dagar från datumet då klustret skapades. Korrigeringsfiler börjar gälla när de virtuella datorerna startas om.

@@ -1,6 +1,6 @@
 ---
-title: "Minimal avbrottstid migrering till Azure-databas för PostgreSQL"
-description: "Den här artikeln beskriver hur du utför en migrering med minimal avbrottstid genom att extrahera en PostgreSQL-databas i den här filen, återställa PostgreSQL-databas från en fil skapas av pg_dump i Azure-databas för PostgreSQL och ställa in första last och kontinuerlig datasynkronisering från källdatabasen till måldatabasen med hjälp av Attunity replikera för Microsoft Migrations."
+title: Minimal avbrottstid migrering till Azure-databas för PostgreSQL
+description: Den här artikeln beskriver hur du utför en migrering med minimal avbrottstid genom att extrahera en PostgreSQL-databas i den här filen, återställa PostgreSQL-databas från en fil skapas av pg_dump i Azure-databas för PostgreSQL och ställa in första last och kontinuerlig datasynkronisering från källdatabasen till måldatabasen med hjälp av Attunity replikera för Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692097"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimal avbrottstid migrering till Azure-databas för PostgreSQL
 Du kan migrera dina befintliga PostgreSQL-databas till Azure-databas för PostgreSQL med hjälp av Attunity replikera för Microsoft Migrations. Attunity replikera är en gemensam erbjudande från Attunity och Microsoft. Tillsammans med Azure för migrering databastjänsten ingår det utan extra kostnad för Microsoft-kunder. 

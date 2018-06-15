@@ -1,6 +1,6 @@
 ---
-title: "Hjälpdokumentation för virtuella datorer | Microsoft Docs"
-description: "Hjälpinnehåll för översikt över virtuella datorer i Azure Portal"
+title: Hjälpdokumentation för virtuella datorer | Microsoft Docs
+description: Hjälpinnehåll för översikt över virtuella datorer i Azure Portal
 services: virtual-machines
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057679"
 ---
 # <a name="virtual-machines-documentation"></a>Dokumentation om virtuella datorer
 Virtuella Azure-datorer tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet. Du kan skapa virtuella Windows-datorer eller virtuella Linux-datorer som kör Red Hat, Ubuntu eller valfri annan Linux-distribution. Ta reda på hur genom att läsa:

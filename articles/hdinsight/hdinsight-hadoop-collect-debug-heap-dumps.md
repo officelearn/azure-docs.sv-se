@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398126"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Samla in heap Dumpar i Blob storage för att felsöka och analysera Hadoop-tjänster
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]

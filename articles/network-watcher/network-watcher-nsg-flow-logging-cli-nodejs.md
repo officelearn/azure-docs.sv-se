@@ -1,11 +1,11 @@
 ---
-title: "Hantera Network Security Group flöda loggar med Nätverksbevakaren Azure - Azure CLI 1.0 | Microsoft Docs"
-description: "Den här sidan förklarar hur du hanterar Network Security Group flöda loggar i Azure Nätverksbevakaren med Azure CLI 1.0"
+title: Hantera Network Security Group flöda loggar med Nätverksbevakaren Azure - Azure CLI 1.0 | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar Network Security Group flöda loggar i Azure Nätverksbevakaren med Azure CLI 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774496"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Konfigurera Network Security Group flöda loggar med Azure CLI 1.0
 

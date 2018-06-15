@@ -1,8 +1,8 @@
 ---
-title: "Kom igång med tvåstegsverifiering | Microsoft Docs"
-description: "Detta är Azure Multi-Factor authentication-sidan som hjälper slutanvändarna med komma igång med Azure Multi-Factor Authentication."
+title: Kom igång med tvåstegsverifiering | Microsoft Docs
+description: Detta är Azure Multi-Factor authentication-sidan som hjälper slutanvändarna med komma igång med Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198113"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Vad innebär Azure Multi-Factor Authentication för mig?
 Så du har tagit emot ett e-postmeddelande från någon i IT eller chefen säger att de har lagt till ytterligare säkerhetsverifiering till ditt konto.  Så vad innebär det?

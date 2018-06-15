@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30190529"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Skala automatiskt virtuella datorer i Azure
 

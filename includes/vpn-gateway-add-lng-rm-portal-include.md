@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196940"
 ---
 1. Klicka på **+Lägg till** från **Alla resurser** i portalen.
 2. I den **allt** sidan sökrutan, Skriv **lokal nätverksgateway**, och sedan klicka om du vill returnera en lista över resurser. Klicka på **Lokal nätverksgateway** för att öppna sidan och klicka sedan på **Skapa** för att öppna sidan **Skapa lokal nätverksgateway**.

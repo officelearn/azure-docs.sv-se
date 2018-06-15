@@ -1,11 +1,11 @@
 ---
-title: "Använda molnet init för att köra ett bash-skript i en Linux-VM i Azure | Microsoft Docs"
-description: "Hur du använder molntjänster init för att köra ett bash-skript i en Linux-VM under skapande av med Azure CLI 2.0"
+title: Använda molnet init för att köra ett bash-skript i en Linux-VM i Azure | Microsoft Docs
+description: Hur du använder molntjänster init för att köra ett bash-skript i en Linux-VM under skapande av med Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123726"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Använda molnet init för att köra ett bash-skript i en Linux VM i Azure
 Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) för att köra en befintlig bash-skript på en Linux-dator (VM) eller virtuella datorn anger (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)

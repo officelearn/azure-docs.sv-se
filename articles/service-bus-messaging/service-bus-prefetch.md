@@ -1,11 +1,11 @@
 ---
 title: Azure Service Bus prefetch meddelanden | Microsoft Docs
-description: "Förbättra prestanda genom att förhämtar Azure Service Bus-meddelanden."
+description: Förbättra prestanda genom att förhämtar Azure Service Bus-meddelanden.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28928169"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prefetch Azure Service Bus-meddelanden
 

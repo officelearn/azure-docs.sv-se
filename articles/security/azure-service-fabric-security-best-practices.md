@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894137"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric-säkerhetsmetoder
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar ditt moln program i produktion bör granska vår lista över viktiga och rekommenderade säkerhetsmetoder för att implementera skyddade kluster i ditt program.

@@ -1,11 +1,11 @@
 ---
-title: "Administration och utveckling aktivitetslista i BizTalk-tjänst | Microsoft Docs"
-description: "Planerings- och jobbet stöd för att distribuera Azure BizTalk-tjänst."
+title: Administration och utveckling aktivitetslista i BizTalk-tjänst | Microsoft Docs
+description: Planerings- och jobbet stöd för att distribuera Azure BizTalk-tjänst.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626594"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Administration och utveckling uppgiftslista i BizTalk-tjänst
 

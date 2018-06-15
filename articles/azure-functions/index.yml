@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33868083"
 abstract:
   description: Azure Functions är en beräkningstjänst <a href="https://azure.microsoft.com/overview/serverless-computing/">utan server</a> som gör det möjligt att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel.
   aside:

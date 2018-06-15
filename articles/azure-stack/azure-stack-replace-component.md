@@ -1,11 +1,11 @@
 ---
-title: "Ersätta en maskinvarukomponent på ett Azure skala enhet stacknod | Microsoft Docs"
-description: "Lär dig mer om att ersätta en maskinvarukomponent på ett Azure-stacken integrerat system."
+title: Ersätta en maskinvarukomponent på ett Azure skala enhet stacknod | Microsoft Docs
+description: Lär dig mer om att ersätta en maskinvarukomponent på ett Azure-stacken integrerat system.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919720"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersätta en maskinvarukomponent på Azure-stacken skala enhet nod
 

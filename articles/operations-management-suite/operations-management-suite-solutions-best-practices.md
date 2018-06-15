@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 0bd5e19e00dbae1d0ece27d0498a1f599dba05b7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887841"
+ms.lasthandoff: 02/01/2018
+ms.locfileid: "28924422"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Metodtips för att skapa lösningar för hantering i Azure (förhandsversion)
 > [!NOTE]
 > Den här är dokumentationen preliminär för att skapa lösningar för hantering i Azure som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.  
 
-Den här artikeln innehåller metodtips för [att skapa en management lösningsfil](monitoring-solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras när ytterligare metodtips identifieras.
+Den här artikeln innehåller metodtips för [att skapa en management lösningsfil](operations-management-suite-solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras när ytterligare metodtips identifieras.
 
 ## <a name="data-sources"></a>Datakällor
 - Datakällor kan vara [konfigurerats med en Resource Manager-mall](../log-analytics/log-analytics-template-workspace-configuration.md), men de bör inte ingå i en lösningsfil.  Det beror på att konfigurera datakällor inte är för närvarande idempotent vilket innebär att din lösning kan du skriva över befintliga konfigurationen i användarens arbetsyta.<br><br>Lösningen kan exempelvis kräva varnings- och händelser från i programmets händelselogg.  Om du anger detta som en datakälla i din lösning, riskerar du att ta bort händelser med Information om användaren har konfigurerat i arbetsytan.  Om du ingår alla händelser, det kan du samla mycket informationshändelser i användarens arbetsyta.
@@ -36,23 +36,23 @@ Den här artikeln innehåller metodtips för [att skapa en management lösningsf
 
 ## <a name="runbooks"></a>Runbooks
 - Lägg till en [Automation schema](../automation/automation-schedules.md) för varje runbook i din lösning som ska köras enligt ett schema.
-- Inkludera den [IngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) i din lösning som ska användas av runbooks data skrivs till Log Analytics-databasen.  Konfigurera lösningen till [referens](monitoring-solutions-solution-file.md#solution-resource) resursen så att den förblir om lösningen har tagits bort.  Detta gör att flera metoder för att modulen.
+- Inkludera den [IngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) i din lösning som ska användas av runbooks data skrivs till Log Analytics-databasen.  Konfigurera lösningen till [referens](operations-management-suite-solutions-solution-file.md#solution-resource) resursen så att den förblir om lösningen har tagits bort.  Detta gör att flera metoder för att modulen.
 - Använd [automationsvariabler](../automation/automation-schedules.md) att ange värden i lösningen som användare kan ändra senare.  Även om lösningen har konfigurerats så att den innehåller variabeln kan fortfarande så är dess värde ändras.
 
 ## <a name="views"></a>Vyer
 - Alla lösningar ska innehålla en enda vy som visas i användarens portal.  Vyn kan innehålla flera [visualiseringen delar](../log-analytics/log-analytics-view-designer-parts.md) att illustrera olika datauppsättningar.
 - Lägg till en [flöda dataverifieringen](../log-analytics/log-analytics-view-designer-tiles.md) meddelandet till alla vyer i din lösning för att instruera användaren på datakällor som måste konfigureras för nödvändiga data samlas in.
-- Konfigurera lösningen till [innehåller](monitoring-solutions-solution-file.md#solution-resource) vyn så att den har tagits bort om lösningen har tagits bort.
+- Konfigurera lösningen till [innehåller](operations-management-suite-solutions-solution-file.md#solution-resource) vyn så att den har tagits bort om lösningen har tagits bort.
 
 ## <a name="alerts"></a>Aviseringar
 - Definiera mottagarlistan som en parameter i lösningsfilen så att användaren kan ange dem när de installerar lösningen.
-- Konfigurera lösningen till [referens](monitoring-solutions-solution-file.md#solution-resource) avisering regler så att användaren kan ändra sin konfiguration.  De kanske vill göra ändringar, till exempel ändra listan över mottagare, ändra tröskelvärdet för aviseringen eller inaktivera regeln. 
+- Konfigurera lösningen till [referens](operations-management-suite-solutions-solution-file.md#solution-resource) avisering regler så att användaren kan ändra sin konfiguration.  De kanske vill göra ändringar, till exempel ändra listan över mottagare, ändra tröskelvärdet för aviseringen eller inaktivera regeln. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Gå igenom den grundläggande processen för [designa och skapa en lösning för](monitoring-solutions-creating.md).
-* Lär dig hur du [skapa en lösningsfil](monitoring-solutions-solution-file.md).
-* [Lägg till sparade sökningar och aviseringar](monitoring-solutions-resources-searches-alerts.md) att din lösning för hantering.
-* [Lägga till vyer](monitoring-solutions-resources-views.md) att din lösning för hantering.
-* [Lägg till Automation-runbooks och andra resurser](monitoring-solutions-resources-automation.md) att din lösning för hantering.
+* Gå igenom den grundläggande processen för [designa och skapa en lösning för](operations-management-suite-solutions-creating.md).
+* Lär dig hur du [skapa en lösningsfil](operations-management-suite-solutions-solution-file.md).
+* [Lägg till sparade sökningar och aviseringar](operations-management-suite-solutions-resources-searches-alerts.md) att din lösning för hantering.
+* [Lägga till vyer](operations-management-suite-solutions-resources-views.md) att din lösning för hantering.
+* [Lägg till Automation-runbooks och andra resurser](operations-management-suite-solutions-resources-automation.md) att din lösning för hantering.
 

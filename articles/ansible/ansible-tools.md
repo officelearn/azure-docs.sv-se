@@ -1,8 +1,8 @@
 ---
-title: "Verktyg för att använda Ansible med Azure"
-description: "Installera och använda verktygen för Ansible med Azure"
+title: Verktyg för att använda Ansible med Azure
+description: Installera och använda verktygen för Ansible med Azure
 ms.service: ansible
-keywords: "ansible, azure, devops, verktyg, vs-kod, visual studio-koden, tillägg"
+keywords: ansible, azure, devops, verktyg, vs-kod, visual studio-koden, tillägg
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28212052"
 ---
 # <a name="tools-for-using-ansible-with-azure"></a>Verktyg för att använda Ansible med Azure
 

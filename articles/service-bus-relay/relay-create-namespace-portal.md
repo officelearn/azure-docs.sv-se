@@ -1,11 +1,11 @@
 ---
-title: "Skapa ett Relay-namnområde med Azure Portal | Microsoft Docs"
-description: "Så här skapar du ett Relay-namnområde med Azure Portal."
+title: Skapa ett Relay-namnområde med Azure Portal | Microsoft Docs
+description: Så här skapar du ett Relay-namnområde med Azure Portal.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159899"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Skapa ett Relay-namnområde med Azure Portal
 

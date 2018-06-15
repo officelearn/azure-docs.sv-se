@@ -1,8 +1,8 @@
 ---
-title: "Skapa FQDN för en virtuell Windows-dator i Azure portal | Microsoft Docs"
-description: "Lär dig hur du skapar ett fullständigt domännamn eller FQDN för Resource Manager-baserad virtuell dator i Azure-portalen."
+title: Skapa FQDN för en virtuell Windows-dator i Azure portal | Microsoft Docs
+description: Lär dig hur du skapar ett fullständigt domännamn eller FQDN för Resource Manager-baserad virtuell dator i Azure-portalen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26707415"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Skapa ett fullständigt kvalificerat domännamn i Azure-portalen för en virtuell Windows-dator
 

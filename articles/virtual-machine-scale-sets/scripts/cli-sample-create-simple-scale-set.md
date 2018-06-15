@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246465"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Skapa en VM-skalningsuppsättning med Azure CLI 2.0
 Det här skriptet skapar en Azure VM-skalningsuppsättning med ett Ubuntu-operativsystem och relaterade nätverksresurser inklusive en belastningsutjämnare. När skriptet har körts får du åtkomst till de virtuella datorinstanserna via SSH.

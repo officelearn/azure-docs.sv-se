@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197138"
 ---
 Du kan antingen använda ett rotcertifikat som genererades med en företagslösning (rekommenderas) eller så kan du generera ett självsignerat rotcertifikat. När du har skapat rotcertifikatet exporterar du offentliga certifikatdata (inte den privata nyckeln) som en Base64-kodad X.509 .cer-fil och laddar upp offentliga certifikatdata till Azure.
 

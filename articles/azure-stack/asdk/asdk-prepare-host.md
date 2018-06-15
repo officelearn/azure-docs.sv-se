@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30165678"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Förbereda värddatorn ASDK
 Innan du kan installera ASDK på värddatorn, måste du förbereda miljön ASDK för installation. När värddatorn development kit har förberetts, startas den från CloudBuilder.vhdx virtuella hårddisken för att påbörja ASDK distributionen.

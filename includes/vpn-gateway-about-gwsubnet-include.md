@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197881"
 ---
 Den virtuella nätverksgatewayen använder specifika undernät som kallas gateway-undernät. Gateway-undernätet ingår i det virtuella nätverkets IP-adressintervall som du anger när du konfigurerar det virtuella nätverket. Det innehåller de IP-adresser som gateway-resurserna och tjänsterna för det virtuella nätverket använder. Undernätet måste ha namnet ”GatewaySubnet' för att Azure ska kunna distribuera gateway-resurserna. Du kan inte ange ett annat undernät som gateway-resurserna ska distribueras till. Om du inte har ett undernät med namnet GatewaySubnet, kommer du inte kunna skapa din VPN-gateway.
 

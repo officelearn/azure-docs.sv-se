@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841460"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Hantera tillägg för virtuell dator
 Beskriver hur du hittar, lägga till, ändra eller ta bort tillägg för virtuell dator med Windows eller Linux-datorer i Azure.

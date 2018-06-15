@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196810"
 ---
 * **PolicyBased:** PolicyBased VPN kallades tidigare statiska routnings-gatewayer i den klassiska distributionsmodellen. Principbaserade VPN: er krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration. Värdet för en PolicyBased VPN-typ är *PolicyBased*. När du använder en PolicyBased VPN, Tänk på följande begränsningar:
   

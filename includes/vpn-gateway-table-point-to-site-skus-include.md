@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197677"
 ---
 | **SKU** | **P2S-anslutningar**| **Sammanställda genomflöde prestandamått** | **RADIUS-autentisering** | **IKEv2 P2S VPN** |
 |---|---|---|---| --- |

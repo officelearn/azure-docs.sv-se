@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246720"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI 2.0
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:

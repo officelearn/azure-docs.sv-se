@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30179097"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) att utföra olika funktioner i logganalys från en kommandorad eller som en del av ett skript.  Exempel på uppgifter som du kan utföra med PowerShell:

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169747"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell-skript - inkrementellt Läs in data med hjälp av Azure Data Factory
 PowerShell-exempelskriptet läser bara nya eller uppdaterade poster från ett dataarkiv som källa till ett datalager för sink efter den inledande fullständig kopian av data från källan till sink.  

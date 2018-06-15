@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30245455"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +66,7 @@ Under krypteringen klientbiblioteket Generera en slumpmässig initieringen Vecto
 > 
 > 
 
-Hämtar en krypterad blob omfattar hämtar innehållet i hela blob med hjälp av den **DownloadTo *** /**BlobReadStream ** bekvämlighet metoder. Omslutna CEK oförpackade och används tillsammans med IV (som lagras som blobbmetadata i det här fallet) för att returnera dekrypterade data till användarna.
+Hämtar en krypterad blob omfattar hämtar innehållet i hela blob med hjälp av den **DownloadTo *** /** BlobReadStream ** bekvämlighet metoder. Omslutna CEK oförpackade och används tillsammans med IV (som lagras som blobbmetadata i det här fallet) för att returnera dekrypterade data till användarna.
 
 Hämta ett godtyckligt intervall (**DownloadRange*** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att dekryptera har det begärda intervallet i krypterade blob.
 

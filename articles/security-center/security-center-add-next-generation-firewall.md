@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363697"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Lägg till nästa generations brandvägg i Azure Security Center
 Azure Security Center kan rekommenderar att du lägger till nästa generations brandvägg (nästa generations Brandvägg) från en Microsoft-partner att öka din säkerhetsskydd. Det här dokumentet vägleder dig genom ett exempel på hur du gör detta.

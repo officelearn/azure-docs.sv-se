@@ -1,10 +1,10 @@
 ---
-title: Exempelskript för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG | Microsoft Docs
-description: Exempelskript för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG
+title: Skriptexempel för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG | Microsoft Docs
+description: Skriptexempel för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: a74eead266451d15ea22538e19c5f12bf04c08b8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7a43bd6a7f64278553c3e1d83a7ef9d57831f998
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654325"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>Säkra nätverkstrafik mellan virtuella datorer
 
@@ -60,4 +61,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Windows-datorer](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Windows-datorer](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

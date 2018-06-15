@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera och hantera replikeringsprinciper för VMware-replikering med Azure Site Recovery | Microsoft Docs"
-description: "Beskriver hur du konfigurerar replikeringsinställningar för VMware-replikering till Azure med Azure Site Recovery."
+title: Konfigurera och hantera replikeringsprinciper för VMware-replikering med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du konfigurerar replikeringsinställningar för VMware-replikering till Azure med Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812672"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Konfigurera och hantera replikeringsprinciper för VMware-replikering
 Den här artikeln beskriver hur du konfigurerar en replikeringsprincip när du vill replikera virtuella VMware-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).

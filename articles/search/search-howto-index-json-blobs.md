@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363010"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexering JSON-blobbar med Azure Search blob indexeraren
 Den här artikeln visar hur du konfigurerar en indexerare med Azure Search blob för att extrahera strukturerade innehåll från JSON-blobbar i Azure Blob storage.

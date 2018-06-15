@@ -1,6 +1,6 @@
 ---
-title: "Hämtningen av ARP tabeller: klassiska: Azure ExpressRoute felsökning | Microsoft Docs"
-description: "Den här sidan innehåller instruktioner för att hämta ARP tabeller för en ExpressRoute-krets."
+title: 'Hämtningen av ARP tabeller: klassiska: Azure ExpressRoute felsökning | Microsoft Docs'
+description: Den här sidan innehåller instruktioner för att hämta ARP tabeller för en ExpressRoute-krets.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850800"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Hämtningen av ARP tabeller i den klassiska distributionsmodellen
 > [!div class="op_single_selector"]

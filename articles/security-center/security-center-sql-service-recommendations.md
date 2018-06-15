@@ -1,11 +1,11 @@
 ---
-title: "Skydda SQL Azure-tjänsten och data i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet behandlar rekommendationerna i Azure Security Center som hjälper dig skydda dina data och Azure SQL-tjänsten och vara kompatibla med säkerhetsprinciper."
+title: Skydda SQL Azure-tjänsten och data i Azure Security Center | Microsoft Docs
+description: Det här dokumentet behandlar rekommendationerna i Azure Security Center som hjälper dig skydda dina data och Azure SQL-tjänsten och vara kompatibla med säkerhetsprinciper.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866277"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda SQL Azure-tjänsten och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsrisker, skapar rekommendationer som hjälper dig att konfigurera nödvändiga kontroller.  Rekommendationer gäller för Azure resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.

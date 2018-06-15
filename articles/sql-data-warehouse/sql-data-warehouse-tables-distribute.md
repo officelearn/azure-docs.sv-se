@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526261"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
 Rekommendationer för att utforma hash-distribueras och resursallokering distribuerade tabeller i Azure SQL Data Warehouse.

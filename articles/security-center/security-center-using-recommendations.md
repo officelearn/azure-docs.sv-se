@@ -1,12 +1,12 @@
 ---
-title: "Använda Azure Security Center rekommendationer för att förbättra säkerheten | Microsoft Docs"
+title: Använda Azure Security Center rekommendationer för att förbättra säkerheten | Microsoft Docs
 description: " Lär dig använda säkerhetsprinciper och säkerhetsrekommendationer i Azure Security Center för att minska en säkerhetsattack med. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866669"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använda Azure Security Center rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera en säkerhetsprincip och implementera rekommendationerna i Azure Security Center. Den här artikeln visar hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsattack med.

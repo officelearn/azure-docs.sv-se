@@ -1,11 +1,11 @@
 ---
 title: Automatisk vidarebefordring Azure Service Bus meddelandeentiteter | Microsoft Docs
-description: "Hur du kopplar en Service Bus-kö eller en prenumeration på en annan kö eller ett ämne."
+description: Hur du kopplar en Service Bus-kö eller en prenumeration på en annan kö eller ett ämne.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558100"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Länkning Service Bus-entiteter med automatisk vidarebefordring
 

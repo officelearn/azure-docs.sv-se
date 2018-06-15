@@ -1,11 +1,11 @@
 ---
-title: "Klona en virtuell StorSimple-matris säkerhetskopia | Microsoft Docs"
-description: "Lär dig mer om att klona en säkerhetskopia och återställa en fil från din virtuella StorSimple-matris."
+title: Klona en virtuell StorSimple-matris säkerhetskopia | Microsoft Docs
+description: Lär dig mer om att klona en säkerhetskopia och återställa en fil från din virtuella StorSimple-matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: af6e979c-55e3-477c-b53e-a76a697f80c9
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875993"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhetskopia av din virtuella StorSimple-matris
 

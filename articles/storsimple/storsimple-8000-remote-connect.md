@@ -1,12 +1,12 @@
 ---
-title: "Fjärransluta till din StorSimple-enhet | Microsoft Docs"
-description: "Beskriver hur du konfigurerar enheten för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple via HTTP eller HTTPS."
+title: Fjärransluta till din StorSimple-enhet | Microsoft Docs
+description: Beskriver hur du konfigurerar enheten för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple via HTTP eller HTTPS.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103963"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärransluta till enheten StorSimple 8000-serien
 

@@ -1,11 +1,11 @@
 ---
-title: "Så här skapar du en Apptjänst miljö v1"
-description: "Beskrivningen av paketflödet skapas för en app service-miljö v1"
+title: Så här skapar du en Apptjänst miljö v1
+description: Beskrivningen av paketflödet skapas för en app service-miljö v1
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386630"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en Apptjänst miljö v1 
 

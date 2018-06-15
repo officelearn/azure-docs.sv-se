@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera användaretablering till ett program för Azure AD-galleriet | Microsoft Docs"
-description: "Hur du snabbt kan konfigurera omfattande användarkonto etablering och borttagning till program som redan finns i Azure AD Application Gallery"
+title: Konfigurera användaretablering till ett program för Azure AD-galleriet | Microsoft Docs
+description: Hur du snabbt kan konfigurera omfattande användarkonto etablering och borttagning till program som redan finns i Azure AD Application Gallery
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464433"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Konfigurera användaretablering till ett program för Azure AD-galleriet
 

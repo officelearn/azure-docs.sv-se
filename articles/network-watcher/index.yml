@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32777187"
 abstract:
   description: Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.
 sections:

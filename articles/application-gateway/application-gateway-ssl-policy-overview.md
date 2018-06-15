@@ -1,11 +1,11 @@
 ---
-title: "Översikt över princip SSL för Azure Programgateway | Microsoft Docs"
-description: "Lär dig mer om hur Azure Application Gateway kan du konfigurera SSL-policy"
+title: Översikt över princip SSL för Azure Programgateway | Microsoft Docs
+description: Lär dig mer om hur Azure Application Gateway kan du konfigurera SSL-policy
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836954"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Översikt över princip Gateway SSL
 

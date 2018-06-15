@@ -1,11 +1,11 @@
 ---
-title: "Med belastningsutjämning tjänster i Azure | Microsoft Docs"
-description: "Den här kursen visar hur du skapar ett scenario med hjälp av Azure belastningsutjämning portfölj: Traffic Manager Application Gateway och belastningsutjämnare."
+title: Med belastningsutjämning tjänster i Azure | Microsoft Docs
+description: 'Den här kursen visar hur du skapar ett scenario med hjälp av Azure belastningsutjämning portfölj: Traffic Manager Application Gateway och belastningsutjämnare.'
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401114"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Med belastningsutjämning tjänster i Azure
 

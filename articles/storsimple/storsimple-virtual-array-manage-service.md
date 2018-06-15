@@ -1,11 +1,11 @@
 ---
-title: "Distribuera StorSimple enheten Manager-tjänsten | Microsoft Docs"
-description: "Beskriver hur du skapar och tar bort StorSimple enheten Manager-tjänsten i Azure-portalen och beskriver hur du hanterar nyckeln för tjänstregistrering."
+title: Distribuera StorSimple enheten Manager-tjänsten | Microsoft Docs
+description: Beskriver hur du skapar och tar bort StorSimple enheten Manager-tjänsten i Azure-portalen och beskriver hur du hanterar nyckeln för tjänstregistrering.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 28499494-8c4d-4a7f-9d44-94b2b8a93c93
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876105"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple enheten Manager-tjänsten för virtuell StorSimple-matris
 ## <a name="overview"></a>Översikt

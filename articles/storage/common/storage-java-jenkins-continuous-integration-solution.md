@@ -1,6 +1,6 @@
 ---
-title: "Med hjälp av Azure Storage med en Jenkins kontinuerlig integrationslösning | Microsoft Docs"
-description: "Den här kursen visar hur du använder Azure blob-tjänsten medan en lagringsplats för skapar artefakter som skapats av en lösning för kontinuerlig integrering av Jenkins."
+title: Med hjälp av Azure Storage med en Jenkins kontinuerlig integrationslösning | Microsoft Docs
+description: Den här kursen visar hur du använder Azure blob-tjänsten medan en lagringsplats för skapar artefakter som skapats av en lösning för kontinuerlig integrering av Jenkins.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874138"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en Jenkins-baserad CI-lösning
 ## <a name="overview"></a>Översikt

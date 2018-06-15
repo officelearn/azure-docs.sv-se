@@ -1,11 +1,11 @@
 ---
 title: Traffic Manager-Slutpunktstyper | Microsoft Docs
-description: "Den här artikeln beskrivs olika typer av slutpunkter som kan användas med Azure Traffic Manager"
+description: Den här artikeln beskrivs olika typer av slutpunkter som kan användas med Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877519"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 Microsoft Azure Traffic Manager kan du styra hur nätverkstrafik distribueras till distribution av program körs i olika datacenter. Konfigurera varje programdistribution som en slutpunkt i Traffic Manager. När Traffic Manager tar emot en begäran om DNS-, väljer en tillgänglig slutpunkt ska returneras i DNS-svaret. Traffic manager baserar valet på den aktuella statusen för slutpunkten och metoden routning av nätverkstrafik. Mer information finns i [så Traffic Manager fungerar](traffic-manager-how-traffic-manager-works.md).

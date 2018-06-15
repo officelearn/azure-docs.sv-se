@@ -1,11 +1,11 @@
 ---
 title: StorSimple virtuell matris web UI administration | Microsoft Docs
-description: "Beskriver hur du utför grundläggande enhet administrationsuppgifter via webbgränssnittet för virtuell StorSimple-matris."
+description: Beskriver hur du utför grundläggande enhet administrationsuppgifter via webbgränssnittet för virtuell StorSimple-matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875888"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Använda Webbgränssnittet för att administrera din virtuella StorSimple-matris
 ![processflöde för installationen](./media/storsimple-ova-web-ui-admin/manage4.png)

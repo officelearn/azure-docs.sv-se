@@ -1,11 +1,11 @@
 ---
-title: "Hantera volymer på virtuella StorSimple-matrisen | Microsoft Docs"
-description: "Beskriver Enhetshanteraren StorSimple och förklarar hur du hanterar volymer på din virtuella StorSimple-matrisen."
+title: Hantera volymer på virtuella StorSimple-matrisen | Microsoft Docs
+description: Beskriver Enhetshanteraren StorSimple och förklarar hur du hanterar volymer på din virtuella StorSimple-matrisen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876056"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Använd Enhetshanteraren för StorSimple-tjänsten för att hantera volymer på den virtuella StorSimple-matris
 

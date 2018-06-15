@@ -1,11 +1,11 @@
 ---
-title: "Lägga till Mobile Services med anslutna tjänster i Visual Studio | Microsoft Docs"
-description: "Lägga till Mobile Services med hjälp av dialogrutan Visual Studio Lägg till anslutna tjänster"
+title: Lägga till Mobile Services med anslutna tjänster i Visual Studio | Microsoft Docs
+description: Lägga till Mobile Services med hjälp av dialogrutan Visual Studio Lägg till anslutna tjänster
 services: visual-studio-online
 documentationcenter: na
 author: mlhoop
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884218"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Lägga till Mobile Services med hjälp av Visual Studio anslutna Services
 Med Visual Studio 2015, som du kan ansluta till Azure Mobile Services med hjälp av den **Lägg till ansluten tjänst** dialogrutan. Du kan ansluta från alla klientappar för C#, JavaScript-app eller plattformsoberoende Cordova-app. När du ansluter kan du skapa och komma åt data, skapa anpassade API: er och schemalagda jobb eller lägga till stöd för push-meddelanden.  Anslutna tjänster åtgärden lägger till alla lämpliga referenser och anslutningen kod. Du kan också dra nytta av inbyggt stöd för autentisering med en mängd olika populära identitet system, t.ex Azure AD, Facebook, Twitter och Microsoft Accounts.

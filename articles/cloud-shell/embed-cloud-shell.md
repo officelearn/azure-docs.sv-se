@@ -1,12 +1,12 @@
 ---
-title: "Bädda in Azure-molnet Shell | Microsoft Docs"
-description: "Lär dig att bädda in Shell för Azure-molnet."
+title: Bädda in Azure-molnet Shell | Microsoft Docs
+description: Lär dig att bädda in Shell för Azure-molnet.
 services: cloud-shell
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27864892"
 ---
 # <a name="embed-azure-cloud-shell"></a>Bädda in Azure-molnet Shell
 

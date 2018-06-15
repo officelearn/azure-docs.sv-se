@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera en proxyserver för StorSimple 8000-serien enheten | Microsoft Docs"
-description: "Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera inställningar för proxy för din StorSimple-enhet."
+title: Konfigurera en proxyserver för StorSimple 8000-serien enheten | Microsoft Docs
+description: Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera inställningar för proxy för din StorSimple-enhet.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874999"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera en proxyserver för din StorSimple-enhet
 

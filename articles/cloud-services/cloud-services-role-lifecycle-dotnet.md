@@ -1,11 +1,11 @@
 ---
-title: "Hantera Molntjänsten Livscykelhändelser | Microsoft Docs"
-description: "Lär dig hur livscykel metoder för en tjänst i molnet roll kan användas i .NET"
+title: Hantera Molntjänsten Livscykelhändelser | Microsoft Docs
+description: Lär dig hur livscykel metoder för en tjänst i molnet roll kan användas i .NET
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843450"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Anpassa livscykeln för en webb- eller arbetsroll i .NET
 När du skapar en arbetsroll kan du utöka den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen som innehåller metoder för att åsidosätta att svara på Livscykelhändelser. Den här klassen är valfritt, för webbroller som måste använda för att svara på Livscykelhändelser.

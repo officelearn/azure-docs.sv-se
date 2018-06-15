@@ -1,6 +1,6 @@
 ---
 title: Integrera Azure DNS med Azure-resurser | Microsoft Docs
-description: "Lär dig hur du använder Azure DNS längs DNS för att Azure-resurser."
+description: Lär dig hur du använder Azure DNS längs DNS för att Azure-resurser.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994390"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst
 

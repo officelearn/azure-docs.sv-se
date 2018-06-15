@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32767971"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Bearbeta konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics
 Den här artikeln beskriver hur du använder referensdata för att uppnå ett aviseringslösning som använder konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics.

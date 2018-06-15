@@ -1,11 +1,11 @@
 ---
-title: "Installationsprogrammet för Microsoft Azure StorSimple virtuell matris iSCSI-server | Microsoft Docs"
-description: "Beskriver hur du utför installationen, registrera StorSimple iSCSI-servern och slutför Enhetsinställningar."
+title: Installationsprogrammet för Microsoft Azure StorSimple virtuell matris iSCSI-server | Microsoft Docs
+description: Beskriver hur du utför installationen, registrera StorSimple iSCSI-servern och slutför Enhetsinställningar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877309"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera StorSimple virtuell Array – Set in som en iSCSI-server via Azure-portalen
 

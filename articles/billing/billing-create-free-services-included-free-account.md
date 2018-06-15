@@ -17,6 +17,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771413"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Skapa tjänster som ingår i kostnadsfritt Azure-konto
 

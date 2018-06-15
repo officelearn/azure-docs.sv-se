@@ -1,6 +1,6 @@
 ---
-title: "Hur du använder Azure Service Bus-köer med Java | Microsoft Docs"
-description: "Lär dig hur du använder Service Bus-köer i Azure. Kodexempel som skrivits i Java."
+title: Hur du använder Azure Service Bus-köer med Java | Microsoft Docs
+description: Lär dig hur du använder Service Bus-köer i Azure. Kodexempel som skrivits i Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868433"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Hur du använder Service Bus-köer med Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

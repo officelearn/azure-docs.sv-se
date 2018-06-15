@@ -1,11 +1,11 @@
 ---
-title: "Med hjälp av Twilio för röst-, VoIP- och SMS-meddelanden i Azure"
-description: "Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kodexempel som skrivits i Node.js."
-services: 
+title: Med hjälp av Twilio för röst-, VoIP- och SMS-meddelanden i Azure
+description: Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kodexempel som skrivits i Node.js.
+services: ''
 documentationcenter: nodejs
 author: devinrader
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865885"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Med hjälp av Twilio för röst-, VoIP- och SMS-meddelanden i Azure
 Den här guiden visar hur man skapar appar som kommunicerar med Twilio och node.js i Azure.

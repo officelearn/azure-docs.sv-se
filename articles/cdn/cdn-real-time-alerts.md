@@ -1,11 +1,11 @@
 ---
-title: "Aviseringar i realtid för Azure CDN | Microsoft Docs"
+title: Aviseringar i realtid för Azure CDN | Microsoft Docs
 description: Aviseringar i realtid i Microsoft Azure CDN. Meddelanden om resultat av slutpunkterna i CDN-profilen med realtid aviseringar.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843156"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Aviseringar i realtid i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32772134"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbprogram med hjälp av automatiserade skript
 

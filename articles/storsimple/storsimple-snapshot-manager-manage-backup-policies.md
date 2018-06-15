@@ -1,11 +1,11 @@
 ---
-title: "Principer för säkerhetskopiering av StorSimple Snapshot Manager | Microsoft Docs"
-description: "Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att skapa och hantera principer för säkerhetskopiering som styr schemalagda säkerhetskopieringar."
+title: Principer för säkerhetskopiering av StorSimple Snapshot Manager | Microsoft Docs
+description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att skapa och hantera principer för säkerhetskopiering som styr schemalagda säkerhetskopieringar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875475"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Använd StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering
 ## <a name="overview"></a>Översikt

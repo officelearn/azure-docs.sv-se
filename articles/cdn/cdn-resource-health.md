@@ -1,11 +1,11 @@
 ---
-title: "Övervaka hälsotillståndet hos Azure CDN resurser | Microsoft Docs"
-description: "Lär dig att övervaka hälsotillståndet hos dina Azure CDN-resurser med hjälp av Azure Resource Health."
+title: Övervaka hälsotillståndet hos Azure CDN resurser | Microsoft Docs
+description: Lär dig att övervaka hälsotillståndet hos dina Azure CDN-resurser med hjälp av Azure Resource Health.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
 ms.service: cdn
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842897"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Övervaka hälsotillståndet hos Azure CDN-resurser
   

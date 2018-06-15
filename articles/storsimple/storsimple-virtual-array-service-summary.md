@@ -1,11 +1,11 @@
 ---
 title: StorSimple virtuell matris service sammanfattning bladet | Microsoft Docs
-description: "Beskriver bladet service sammanfattning för StorSimple Enhetshanteraren och förklarar hur du använder den för att övervaka hälsotillståndet för din virtuella StorSimple-matris."
+description: Beskriver bladet service sammanfattning för StorSimple Enhetshanteraren och förklarar hur du använder den för att övervaka hälsotillståndet för din virtuella StorSimple-matris.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 8a2b9a84-b0e6-48b9-b366-d16f004241a5
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875741"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använd service sammanfattning bladet för StorSimple Enhetshanteraren anslutna till virtuella StorSimple-matris
 ## <a name="overview"></a>Översikt

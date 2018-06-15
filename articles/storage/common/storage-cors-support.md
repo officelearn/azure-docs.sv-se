@@ -16,9 +16,10 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
 ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23873977"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) stöd för Azure Storage-tjänster
 Från och med version 2013-08-15, stöd Azure-lagringstjänster för Cross-Origin Resource Sharing (CORS) för tjänster Blob, tabell, kö och fil. CORS är en HTTP-funktion som gör att ett webbprogram som körs i en domän kan komma åt resurser i en annan domän. Webbläsare som implementerar en säkerhetsbegränsningar som kallas [samma ursprung princip](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS ger ett säkert sätt att tillåta en domän (ursprungsdomän) att anropa API: er i en annan domän. Finns det [CORS-specifikationen](http://www.w3.org/TR/cors/) information om CORS.

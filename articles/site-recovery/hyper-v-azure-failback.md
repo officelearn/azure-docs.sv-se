@@ -1,6 +1,6 @@
 ---
-title: "Köra en återställning till en lokal plats för Hyper-v-datorer | Microsoft Docs"
-description: "Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Mer information om återställning från Azure till lokala datacenter."
+title: Köra en återställning till en lokal plats för Hyper-v-datorer | Microsoft Docs
+description: Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Mer information om återställning från Azure till lokala datacenter.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467123"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Köra en återställning efter fel för Hyper-V virtuella datorer
 

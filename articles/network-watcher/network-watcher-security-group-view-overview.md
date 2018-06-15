@@ -1,11 +1,11 @@
 ---
-title: "Introduktion till säkerhetsvyn grupp i Azure-Nätverksbevakaren | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över Nätverksbevakaren säkerhet visa kapaciteten"
+title: Introduktion till säkerhetsvyn grupp i Azure-Nätverksbevakaren | Microsoft Docs
+description: Den här sidan innehåller en översikt över Nätverksbevakaren säkerhet visa kapaciteten
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864212"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introduktion till vyn av grupp för nätverk i Azure Nätverksbevakaren
 

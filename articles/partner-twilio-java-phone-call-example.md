@@ -1,7 +1,7 @@
 ---
-title: "Hur du gör ett telefonsamtal från Twilio (Java) | Microsoft Docs"
-description: "Lär dig att ringa ett samtal från en webbsida med Twilio i ett Java-program på Azure."
-services: 
+title: Hur du gör ett telefonsamtal från Twilio (Java) | Microsoft Docs
+description: Lär dig att ringa ett samtal från en webbsida med Twilio i ett Java-program på Azure.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865941"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Hur du gör ett telefonsamtal med Twilio i ett Java-program på Azure
 I följande exempel visas hur du kan använda Twilio ringa ett samtal från en webbsida som finns på Azure. Exempelprogrammet uppmanas användaren för telefonsamtal värden som visas i följande skärmbild visar.

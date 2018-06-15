@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera BGP på en Azure VPN-gateway: Resource Manager och CLI | Microsoft Docs"
-description: "Den här artikeln vägleder dig genom att konfigurera BGP med en Azure VPN-gateway med hjälp av Azure Resource Manager och CLI."
+title: 'Konfigurera BGP på en Azure VPN-gateway: Resource Manager och CLI | Microsoft Docs'
+description: Den här artikeln vägleder dig genom att konfigurera BGP med en Azure VPN-gateway med hjälp av Azure Resource Manager och CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884043"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Hur du konfigurerar BGP på en Azure VPN-gateway med hjälp av CLI
 

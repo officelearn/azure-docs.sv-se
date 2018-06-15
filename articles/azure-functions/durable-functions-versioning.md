@@ -1,12 +1,12 @@
 ---
-title: "Versionshantering i varaktiga funktioner – Azure"
-description: "Lär dig hur du implementerar versionshantering i tillägget varaktiga funktioner för Azure Functions."
+title: Versionshantering i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar versionshantering i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23838557"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versionshantering i varaktiga funktioner (Azure-funktioner)
 

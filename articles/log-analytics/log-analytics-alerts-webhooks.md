@@ -1,8 +1,8 @@
 ---
-title: "Webhook Aviseringsåtgärd provet i OMS Log Analytics | Microsoft Docs"
-description: "En av de åtgärder som du kan köra som svar på en avisering om Log Analytics är en * webhook *, där du kan anropa en extern process via en HTTP-begäran. Den här artikeln beskriver hur ett exempel på hur du skapar en webhook-åtgärd i en Log Analytics-avisering med Slack."
+title: Webhook Aviseringsåtgärd provet i OMS Log Analytics | Microsoft Docs
+description: En av de åtgärder som du kan köra som svar på en avisering om Log Analytics är en * webhook *, där du kan anropa en extern process via en HTTP-begäran. Den här artikeln beskriver hur ett exempel på hur du skapar en webhook-åtgärd i en Log Analytics-avisering med Slack.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855175"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Skapa en avisering webhook-åtgärd i OMS Log Analytics för att skicka meddelanden till Slack
 En av åtgärderna som du kan köra som svar på en [logganalys avisering](log-analytics-alerts.md) är en *webhook*, där du kan anropa en extern process via en HTTP-begäran.  Du kan läsa om information om aviseringar och webhooks i [aviseringar i logganalys](log-analytics-alerts.md)

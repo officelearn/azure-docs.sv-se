@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center-självstudie – Skydda dina resurser med Azure Security Center | Microsoft Docs"
-description: "I den här självstudien får du se hur du konfigurerar en princip för Just-in-time-åtkomst till virtuell dator och en princip för programkontroll."
+title: Azure Security Center-självstudie – Skydda dina resurser med Azure Security Center | Microsoft Docs
+description: I den här självstudien får du se hur du konfigurerar en princip för Just-in-time-åtkomst till virtuell dator och en princip för programkontroll.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529422"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-time-åtkomst till virtuell dator (VM) minskar din exponering för attacker genom att göra det möjligt för dig att neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.

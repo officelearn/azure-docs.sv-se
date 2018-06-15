@@ -1,11 +1,11 @@
 ---
 title: Hantera virtuella StorSimple-matris lagringskontouppgifter | Microsoft Docs
-description: "Beskriver hur du kan använda sidan Konfigurera Enhetshanteraren för StorSimple för att lägga till, redigera, ta bort eller rotera säkerhetsnycklarna för lagringskontouppgifter som är associerade med den virtuella StorSimple-matrisen."
+description: Beskriver hur du kan använda sidan Konfigurera Enhetshanteraren för StorSimple för att lägga till, redigera, ta bort eller rotera säkerhetsnycklarna för lagringskontouppgifter som är associerade med den virtuella StorSimple-matrisen.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876987"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera lagringskontouppgifter för virtuell StorSimple-matris
 

@@ -1,11 +1,11 @@
 ---
-title: "Hantera paket insamlingar med Azure Nätverksbevakaren - REST API | Microsoft Docs"
-description: "Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren med hjälp av Azure REST API"
+title: Hantera paket insamlingar med Azure Nätverksbevakaren - REST API | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren med hjälp av Azure REST API
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23863386"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Hantera paket insamlingar med Azure Nätverksbevakaren med hjälp av Azure REST API
 

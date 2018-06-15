@@ -1,11 +1,11 @@
 ---
-title: "Åtgärda säkerhetskonfigurationer i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar en rekommendation för Azure Security Center, ”reparera säkerhetskonfigurationer”."
+title: Åtgärda säkerhetskonfigurationer i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar en rekommendation för Azure Security Center, ”reparera säkerhetskonfigurationer”.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103939"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystem (OS) på virtuella datorer (VM) och för en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommenderade konfigurationen säkerhetsreglerna och rekommenderar konfigurationsändringar för att åtgärda dessa problem.

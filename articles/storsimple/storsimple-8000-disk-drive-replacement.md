@@ -1,12 +1,12 @@
 ---
-title: "Ersätta en enhet på en enhet för StorSimple 8000-serien | Microsoft Docs"
-description: "Förklarar hur du ersätter en enhet på en primär StorSimple-enhet eller en EBOD bilaga."
+title: Ersätta en enhet på en enhet för StorSimple 8000-serien | Microsoft Docs
+description: Förklarar hur du ersätter en enhet på en primär StorSimple-enhet eller en EBOD bilaga.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874894"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Ersätta en diskenhet på enheten StorSimple 8000-serien
 

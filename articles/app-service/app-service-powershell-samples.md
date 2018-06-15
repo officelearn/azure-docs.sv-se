@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell-exempel - Apptjänst | Microsoft Docs"
-description: "Azure PowerShell-exempel - Apptjänst"
+title: Azure PowerShell-exempel - Apptjänst | Microsoft Docs
+description: Azure PowerShell-exempel - Apptjänst
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -18,9 +18,10 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: ba2bd2b185c395e54f2f085317a424a2aa1b4421
 ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713424"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
 

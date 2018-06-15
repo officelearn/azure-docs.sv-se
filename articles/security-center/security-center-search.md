@@ -1,11 +1,11 @@
 ---
-title: "Sök i Azure Security Center | Microsoft Docs"
-description: "Lär dig hur Azure Security Center använder logganalys-sökning för att hämta och analysera säkerhetsdata med."
+title: Sök i Azure Security Center | Microsoft Docs
+description: Lär dig hur Azure Security Center använder logganalys-sökning för att hämta och analysera säkerhetsdata med.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866403"
 ---
 # <a name="azure-security-center-search"></a>Sök i Azure Security Center
 Azure Security Center använder [logganalys söka](../log-analytics/log-analytics-log-searches.md) att hämta och analysera säkerhetsdata med. Logganalys innehåller ett frågespråk för att snabbt hämta och konsolidera data. Du kan utnyttja logganalys-sökning för att skapa frågor och analysera data som samlats in från Security Center.

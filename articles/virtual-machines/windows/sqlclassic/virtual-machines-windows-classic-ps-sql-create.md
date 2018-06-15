@@ -1,6 +1,6 @@
 ---
-title: "Skapa en virtuell dator för SQL Server i Azure PowerShell (klassisk) | Microsoft Docs"
-description: "Innehåller steg och PowerShell-skript för att skapa en virtuell Azure-dator med SQL Server virtuella galleriavbildningar. Det här avsnittet använder läget för klassisk distribution."
+title: Skapa en virtuell dator för SQL Server i Azure PowerShell (klassisk) | Microsoft Docs
+description: Innehåller steg och PowerShell-skript för att skapa en virtuell Azure-dator med SQL Server virtuella galleriavbildningar. Det här avsnittet använder läget för klassisk distribution.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399669"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en virtuell dator med SQL Server med hjälp av Azure PowerShell (klassisk)
 

@@ -1,11 +1,11 @@
 ---
-title: "Skapa Docker-värdar i Azure med Docker-dator | Microsoft Docs"
-description: "Beskriver användningen av Docker-datorn för att skapa docker-värdar i Azure."
+title: Skapa Docker-värdar i Azure med Docker-dator | Microsoft Docs
+description: Beskriver användningen av Docker-datorn för att skapa docker-värdar i Azure.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883882"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Skapa Docker-värdar i Azure med Docker-dator
 Kör [Docker](https://www.docker.com/) behållare kräver en virtuell dator som kör daemonen docker-värd.

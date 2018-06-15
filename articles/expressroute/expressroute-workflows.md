@@ -1,11 +1,11 @@
 ---
-title: "Arbetsflöden för att konfigurera en ExpressRoute-krets | Microsoft Docs"
-description: "Den här sidan vägleder dig genom arbetsflödena för att konfigurera ExpressRoute-krets och peerkopplingar"
+title: Arbetsflöden för att konfigurera en ExpressRoute-krets | Microsoft Docs
+description: Den här sidan vägleder dig genom arbetsflödena för att konfigurera ExpressRoute-krets och peerkopplingar
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850779"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
 Den här sidan vägleder dig genom tjänsten etablering och routning configuration arbetsflöden på en hög nivå.

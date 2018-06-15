@@ -2,12 +2,12 @@
 title: Azure PowerShell-skript Sample - skapa en logganalys-arbetsytan | Microsoft Docs
 description: Azure PowerShell-skript Sample - skapa en logganalys-arbetsytan till
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: sample
@@ -17,9 +17,10 @@ ms.date: 09/07/2017
 ms.author: magoedte
 ms.openlocfilehash: 30d036ae56acc3a798d2776f292243f65cbea43d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855441"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Skapa en logganalys-arbetsyta med PowerShell
 

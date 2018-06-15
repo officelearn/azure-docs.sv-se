@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera ett anpassat domännamn för din Azure Blob storage-slutpunkt | Microsoft Docs"
-description: "Använd Azure-portalen för att mappa dina egna kanoniskt namn (CNAME) till slutpunkt för Blob-lagring i Azure Storage-konto."
+title: Konfigurera ett anpassat domännamn för din Azure Blob storage-slutpunkt | Microsoft Docs
+description: Använd Azure-portalen för att mappa dina egna kanoniskt namn (CNAME) till slutpunkt för Blob-lagring i Azure Storage-konto.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559935"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurera ett eget domännamn för din Blob Storage-slutpunkt
 

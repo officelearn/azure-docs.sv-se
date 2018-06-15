@@ -1,11 +1,11 @@
 ---
 title: Visa och hantera Microsoft Azure StorSimple virtuell matris aviseringar | Microsoft Docs
-description: "Beskriver virtuella StorSimple-matris avisering villkor och allvarlighetsgrad och hur du använder StorSimple Manager-tjänsten för att hantera aviseringar."
+description: Beskriver virtuella StorSimple-matris avisering villkor och allvarlighetsgrad och hur du använder StorSimple Manager-tjänsten för att hantera aviseringar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27786415"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple enheten Manager för att hantera aviseringar för den virtuella StorSimple-matrisen
 

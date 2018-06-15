@@ -1,11 +1,11 @@
 ---
-title: "Lägg till en fördröjning i logikappar | Microsoft Docs"
-description: "Översikt över fördröjning och fördröjning-tills åtgärder och hur du använder dem med en Azure logikapp."
-services: 
-documentationcenter: 
+title: Lägg till en fördröjning i logikappar | Microsoft Docs
+description: Översikt över fördröjning och fördröjning-tills åtgärder och hur du använder dem med en Azure logikapp.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27963680"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Kom igång med fördröjning och fördröjning-tills åtgärder
 Med hjälp av fördröjningen och ”fördröjning-tills” åtgärder, kan du slutföra arbetsflödet scenarier.

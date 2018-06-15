@@ -1,12 +1,12 @@
 ---
-title: "Ersätta en StorSimple 8000-serien enhetskontroll | Microsoft Docs"
-description: "Beskriver hur du tar bort och ersätter en eller båda controller moduler på enheten StorSimple 8000-serien."
+title: Ersätta en StorSimple 8000-serien enhetskontroll | Microsoft Docs
+description: Beskriver hur du tar bort och ersätter en eller båda controller moduler på enheten StorSimple 8000-serien.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875391"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en domänkontrollant modul på din StorSimple-enhet
 ## <a name="overview"></a>Översikt

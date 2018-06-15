@@ -1,12 +1,12 @@
 ---
 title: Distribuera StorSimple 8000-serien enheten i Government portal | Microsoft Docs
-description: "Beskriver stegen och bästa praxis för att distribuera StorSimple 8000-serien enheten med uppdatering 3 och senare och tjänsten Azure Government-portalen."
+description: Beskriver stegen och bästa praxis för att distribuera StorSimple 8000-serien enheten med uppdatering 3 och senare och tjänsten Azure Government-portalen.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875153"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuera din lokala StorSimple-enhet i Government-portal
 

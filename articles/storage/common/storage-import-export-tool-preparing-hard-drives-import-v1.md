@@ -1,11 +1,11 @@
 ---
-title: "Förbereda hårddiskar för ett Azure Import/Export-importjobb - v1 | Microsoft Docs"
-description: "Lär dig hur du förbereder hårddiskar med hjälp av verktyget WAImportExport v1 för att skapa ett importjobb för tjänsten Azure Import/Export."
+title: Förbereda hårddiskar för ett Azure Import/Export-importjobb - v1 | Microsoft Docs
+description: Lär dig hur du förbereder hårddiskar med hjälp av verktyget WAImportExport v1 för att skapa ett importjobb för tjänsten Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874096"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 Följ dessa steg för att förbereda en eller flera hårddiskar för importen:

@@ -1,11 +1,11 @@
 ---
-title: "Installera MySQL på en OpenSUSE virtuell dator i Azure | Microsoft Docs"
-description: "Lär dig att installera MySQL på en OpenSUSE VMirtual för Linux-dator i Azure."
+title: Installera MySQL på en OpenSUSE virtuell dator i Azure | Microsoft Docs
+description: Lär dig att installera MySQL på en OpenSUSE VMirtual för Linux-dator i Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28001180"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 

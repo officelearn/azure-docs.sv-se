@@ -1,12 +1,12 @@
 ---
 title: Administrationen av StorSimple Enhetshanteraren | Microsoft Docs
-description: "Lär dig hur du hanterar din StorSimple-enhet med hjälp av Enhetshanteraren för StorSimple-tjänsten i Azure-portalen."
+description: Lär dig hur du hanterar din StorSimple-enhet med hjälp av Enhetshanteraren för StorSimple-tjänsten i Azure-portalen.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875041"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att administrera din StorSimple-enhet
 

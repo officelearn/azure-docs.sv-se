@@ -1,12 +1,12 @@
 ---
-title: "Använd StorSimple 8000-serien sammanfattningen | Microsoft Docs"
-description: "Beskriver bladet StorSimple-tjänsten sammanfattning och förklarar hur du använder den för att övervaka hälsotillståndet för din StorSimple-lösning."
+title: Använd StorSimple 8000-serien sammanfattningen | Microsoft Docs
+description: Beskriver bladet StorSimple-tjänsten sammanfattning och förklarar hur du använder den för att övervaka hälsotillståndet för din StorSimple-lösning.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874831"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Använda tjänsten sammanfattning bladet för StorSimple 8000-serieenhet
 

@@ -1,12 +1,12 @@
 ---
-title: "Ny autentisering för virtuell StorSimple-matriser | Microsoft Docs"
-description: "Beskriver hur du använder AAD-baserad autentisering för tjänsten, generera en ny registreringsnyckel och utföra manuell registrering av enheter."
+title: Ny autentisering för virtuell StorSimple-matriser | Microsoft Docs
+description: Beskriver hur du använder AAD-baserad autentisering för tjänsten, generera en ny registreringsnyckel och utföra manuell registrering av enheter.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030956"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Använd den nya autentiseringen för din StorSimple
 

@@ -1,6 +1,6 @@
 ---
 title: VPN Gateway Classic till Resource Manager migreringen | Microsoft Docs
-description: "Den här sidan innehåller en översikt över den VPN-Gateway klassiska till hanteraren för filserverresurser."
+description: Den här sidan innehåller en översikt över den VPN-Gateway klassiska till hanteraren för filserverresurser.
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885219"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN-Gateway classic till Resource Manager-migreringen
 VPN-gatewayer kan nu migreras från classic till Resource Manager-distributionsmodellen. Du kan läsa mer om Azure Resource Manager [funktioner och fördelar](../azure-resource-manager/resource-group-overview.md). I den här artikeln får information om hur du migrerar från klassiska distributioner till nyare Resource Manager-baserat modellen. 

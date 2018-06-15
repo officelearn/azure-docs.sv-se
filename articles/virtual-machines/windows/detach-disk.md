@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913509"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Hur du koppla från en datadisk från en Windows-dator
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Detta tar bort disken från den virtuella datorn, men ta bort inte den från lagring.

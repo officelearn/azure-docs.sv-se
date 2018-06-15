@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera Tvingad tunneltrafik för Azure plats-till-plats-anslutningar: klassiska | Microsoft Docs"
-description: "Så här dirigerar eller 'tvinga' alla Internet-bunden trafik tillbaka till den lokala platsen."
+title: 'Konfigurera Tvingad tunneltrafik för Azure plats-till-plats-anslutningar: klassiska | Microsoft Docs'
+description: Så här dirigerar eller 'tvinga' alla Internet-bunden trafik tillbaka till den lokala platsen.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23883525"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 

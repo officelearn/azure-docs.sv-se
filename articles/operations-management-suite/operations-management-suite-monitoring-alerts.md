@@ -1,8 +1,8 @@
 ---
 title: Varna hantering i Microsoft monitoring produkter | Microsoft Docs
-description: "En avisering anger vissa problem som kräver uppmärksamhet från en administratör.  Den här artikeln beskriver skillnaderna i hur aviseringar skapas och hanteras i System Center Operations Manager (SCOM) och logganalys och ger bästa praxis i utnyttja de här två produkterna för en strategi för avisering hybrid."
+description: En avisering anger vissa problem som kräver uppmärksamhet från en administratör.  Den här artikeln beskriver skillnaderna i hur aviseringar skapas och hanteras i System Center Operations Manager (SCOM) och logganalys och ger bästa praxis i utnyttja de här två produkterna för en strategi för avisering hybrid.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865773"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Hantera aviseringar med övervakning av Microsoft
 En avisering anger vissa problem som kräver uppmärksamhet från en administratör.  Det finns specifika skillnader mellan System Center Operations Manager (SCOM) och logganalys i Operations Management Suite (OMS) när det gäller hur aviseringar skapas, hur de hanteras och analyseras och hur du meddelas att ett allvarligt problem har upptäckts.

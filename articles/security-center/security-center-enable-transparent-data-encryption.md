@@ -1,11 +1,11 @@
 ---
 title: Aktivera Transparent datakryptering i Azure Security Center | Microsoft Docs
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** aktivera Transparent Data kryptering **."
+description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** aktivera Transparent Data kryptering **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866298"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Aktivera Transparent datakryptering i Azure Security Center
 Azure Security Center kommer rekommenderar att du aktiverar Transparent Data kryptering (TDE) på SQL-databaser om TDE inte redan är aktiverad. TDE skyddar dina data och hjälper dig att uppfylla efterlevnadskrav genom att kryptera din databas, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att ändra ditt program. Läs mer finns [Transparent datakryptering med Azure SQL Database](https://msdn.microsoft.com/library/dn948096).

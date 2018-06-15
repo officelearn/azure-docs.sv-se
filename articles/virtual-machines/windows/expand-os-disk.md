@@ -1,11 +1,11 @@
 ---
-title: "Expandera OS-enhet på en Windows-dator i ett Azure | Microsoft Docs"
-description: "Utöka storleken på OS-enhet på en virtuell dator med Azure Powershell i Resource Manager-distributionsmodellen."
+title: Expandera OS-enhet på en Windows-dator i ett Azure | Microsoft Docs
+description: Utöka storleken på OS-enhet på en virtuell dator med Azure Powershell i Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: kirpasingh
 manager: roshar
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879437"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine-in-an-azure-resource-group"></a>Så här expanderar OS-enhet på en virtuell dator i Azure-resursgrupp
 [!INCLUDE [virtual-machine-common-expand-os-disk](../../../includes/virtual-machines-common-expand-os-disk.md)]

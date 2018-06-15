@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera filter för routning för Azure ExpressRoute Microsoft peering: CLI | Microsoft Docs"
-description: "Den här artikeln beskriver hur du konfigurerar filter för routning för Microsoft-Peering med Azure CLI"
+title: 'Konfigurera filter för routning för Azure ExpressRoute Microsoft peering: CLI | Microsoft Docs'
+description: Den här artikeln beskriver hur du konfigurerar filter för routning för Microsoft-Peering med Azure CLI
 documentationcenter: na
 services: expressroute
 author: anzaman
 manager: ganesr
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850821"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera filter för routning för Microsoft-peering: Azure CLI
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779285"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Säkerhetsspelbok i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda strategiböcker för säkerhet i Azure Security Center för att svara på säkerhetsrelaterade problem.

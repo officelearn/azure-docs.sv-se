@@ -1,7 +1,7 @@
 ---
 title: store-sendgrid-Java-How-to-Send-email-example
-description: "Hur du skickar e-post med SendGrid från Java i en Azure-distribution"
-services: 
+description: Hur du skickar e-post med SendGrid från Java i en Azure-distribution
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873949"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hur du skickar e-post med SendGrid från Java i Azure-distribution
 I följande exempel visas hur du kan använda SendGrid för att skicka e-post från en webbsida som finns på Azure. Exempelprogrammet uppmanas användaren för e-värden som visas i följande skärmbild visar.

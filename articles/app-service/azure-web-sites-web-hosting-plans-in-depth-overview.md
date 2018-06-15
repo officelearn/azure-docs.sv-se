@@ -1,12 +1,12 @@
 ---
-title: "Översikt av Azure App Service-plan | Microsoft Docs"
-description: "Lär dig hur App Service-planer för Azure App Service och hur de får din hanteringsupplevelse."
-keywords: "App service, azure app service, skala, skalbar, skalbarhet, apptjänstplan, kostnad för app service"
+title: Översikt av Azure App Service-plan | Microsoft Docs
+description: Lär dig hur App Service-planer för Azure App Service och hur de får din hanteringsupplevelse.
+keywords: App service, azure app service, skala, skalbar, skalbarhet, apptjänstplan, kostnad för app service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862367"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt av Azure App Service-plan
 

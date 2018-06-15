@@ -1,13 +1,13 @@
 ---
-title: "Migrera ExpressRoute associerade virtuella nätverk från classic till Resource Manager: Azure: PowerShell | Microsoft Docs"
-description: "Den här sidan beskrivs hur du migrerar tillhörande virtuella nätverk till Resource Manager när du har flyttat kretsen."
+title: 'Migrera ExpressRoute associerade virtuella nätverk från classic till Resource Manager: Azure: PowerShell | Microsoft Docs'
+description: Den här sidan beskrivs hur du migrerar tillhörande virtuella nätverk till Resource Manager när du har flyttat kretsen.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850828"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute associerade virtuella nätverk från classic till Resource Manager
 

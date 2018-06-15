@@ -10,13 +10,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32775650"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-klustret för att läsa och skriva data till Azure SQL-databas
 
@@ -87,7 +88,7 @@ I det här avsnittet kan du läsa data från en tabell (till exempel **SalesLT.A
 
     Kör kodcellen genom att trycka på **SKIFT + RETUR**.  
 
-2. Följande kodavsnitt bygger en JDBC-URL som du kan överföra till Spark-dataframe API: er skapas en `Properties` objekt som innehåller parametrar. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
+2. Använd kodfragmentet nedan för att skapa en JDBC-URL som du kan överföra till Spark-dataframe API: er skapas en `Properties` objekt som innehåller parametrar. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 
        import java.util.Properties
 
@@ -96,7 +97,7 @@ I det här avsnittet kan du läsa data från en tabell (till exempel **SalesLT.A
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. Följande kodutdrag skapar en dataframe med data från en tabell i Azure SQL database. I det här kodstycket vi använder en **SalesLT.Address** tabell som är tillgängliga som en del av den **AdventureWorksLT** databas. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
+3. Använd kodfragmentet nedan om du vill skapa en dataframe med data från en tabell i Azure SQL database. I det här kodstycket vi använder en **SalesLT.Address** tabell som är tillgängliga som en del av den **AdventureWorksLT** databas. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +142,7 @@ I det här avsnittet använder vi en CSV-exempelfil tillgängliga i klustret att
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. Följande kodavsnitt extraherar schemat för data i HVAC.csv och använder schemat för att läsa in data från CSV i ett dataframe `readDf`. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
+3. Använd följande fragment för att extrahera schemat för data i HVAC.csv och Använd schemat för att läsa in data från CSV i ett dataframe `readDf`. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +166,10 @@ I det här avsnittet använder vi en CSV-exempelfil tillgängliga i klustret att
 
     ![Anslut till SQL database med SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Anslut till SQL database med SSMS")
 
+7. Köra en fråga i SSMS att visa kolumnerna i tabellen.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Dataströmmen data till Azure SQL-databas
 
 I det här avsnittet vi strömma data till den **hvactable** att du redan har skapats i Azure SQL database i föregående avsnitt.
@@ -184,7 +189,7 @@ I det här avsnittet vi strömma data till den **hvactable** att du redan har sk
 3. Vi strömma data från den **HVAC.csv** till hvactable. HVAC.csv-filen är tillgänglig på klustret i */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. I följande fragment hämta vi först schemat för data som strömmas. Sedan skapar vi en strömmande dataframe med schemat. Klistra sammandraget i en kod cell och tryck på **SKIFT + RETUR** ska köras.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. Utdata visar schemat för **HVAC.csv**. Den **hvactable** har det samma scheman. Utdata visar kolumnerna i tabellen.

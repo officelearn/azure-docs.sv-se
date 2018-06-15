@@ -1,11 +1,11 @@
 ---
-title: "Logga supportärende via StorSimple Enhetshanteraren | Microsoft Docs"
-description: "Beskriver Enhetshanteraren StorSimple diagnostisera kapaciteten och förklarar hur du använder den för att felsöka din virtuella StorSimple-matris."
+title: Logga supportärende via StorSimple Enhetshanteraren | Microsoft Docs
+description: Beskriver Enhetshanteraren StorSimple diagnostisera kapaciteten och förklarar hur du använder den för att felsöka din virtuella StorSimple-matris.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875916"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att logga en supportförfrågan för den virtuella StorSimple-matrisen
 

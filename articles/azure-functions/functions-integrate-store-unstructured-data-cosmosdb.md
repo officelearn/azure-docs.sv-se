@@ -1,14 +1,14 @@
 ---
 title: Lagra ostrukturerade data i Azure Cosmos DB och Functions | Microsoft Docs
-description: "Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner"
+description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure-funktioner, funktioner, händelsebearbetning, Cosmos DB, dynamisk beräkning, serverlös arkitektur"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: azure-funktioner, funktioner, händelsebearbetning, Cosmos DB, dynamisk beräkning, serverlös arkitektur
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767561"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
 

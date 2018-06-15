@@ -1,8 +1,8 @@
 ---
-title: "Hur du använder SendGrid e-posttjänst (PHP) | Microsoft Docs"
-description: "Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i PHP."
+title: Hur du använder SendGrid e-posttjänst (PHP) | Microsoft Docs
+description: Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i PHP.
 documentationcenter: php
-services: 
+services: ''
 manager: sendgrid
 editor: mollybos
 author: thinkingserious
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874033"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Hur du använder tjänsten SendGrid e-post från PHP
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna i PHP.

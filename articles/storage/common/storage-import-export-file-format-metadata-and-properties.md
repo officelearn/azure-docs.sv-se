@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export metadata och egenskaper för nytt filformat | Microsoft Docs"
-description: "Lär dig hur du anger metadata och egenskaperna för en eller flera blobbar som är en del av en importera eller exportera jobb."
+title: Azure Import/Export metadata och egenskaper för nytt filformat | Microsoft Docs
+description: Lär dig hur du anger metadata och egenskaperna för en eller flera blobbar som är en del av en importera eller exportera jobb.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873655"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export service metadata och egenskaper filformat
 Du kan ange egenskaper för en eller flera blobbar och metadata som en del av ett importjobb eller ett exportjobb. Om du vill ange egenskaper för blob som skapas som en del av ett importjobb eller metadata, kan du ange en egenskaper eller metadata fil på hårddisken som innehåller data som ska importeras. För ett exportjobb skrivs metadata och egenskaper till en fil för metadata eller egenskaper som ingår på hårddisken till dig.  

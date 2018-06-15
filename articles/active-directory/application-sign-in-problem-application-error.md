@@ -1,11 +1,11 @@
 ---
-title: "Fel på sidan för ett program när du har loggat in | Microsoft Docs"
-description: "Så här löser du problem med Azure AD inloggningen när programmet genererar ett fel"
+title: Fel på sidan för ett program när du har loggat in | Microsoft Docs
+description: Så här löser du problem med Azure AD inloggningen när programmet genererar ett fel
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384913"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fel på sidan för ett program när du loggar in
 

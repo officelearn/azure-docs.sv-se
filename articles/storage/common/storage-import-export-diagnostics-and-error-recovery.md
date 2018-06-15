@@ -1,11 +1,11 @@
 ---
-title: "Diagnostik- och återställning för Azure Import/Export jobb | Microsoft Docs"
-description: "Lär dig hur du aktiverar utförlig loggning för Microsoft Azure Import/Export service jobb."
+title: Diagnostik- och återställning för Azure Import/Export jobb | Microsoft Docs
+description: Lär dig hur du aktiverar utförlig loggning för Microsoft Azure Import/Export service jobb.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873641"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostik- och återställning för Azure Import/Export-jobb
 Tjänsten Azure Import/Export skapar en fellogg i det associerade lagringskontot för varje enhet som bearbetas. Du kan också aktivera utförlig loggning genom att ange den `LogLevel` egenskapen `Verbose` när du anropar den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs#Jobs_Update) operations.

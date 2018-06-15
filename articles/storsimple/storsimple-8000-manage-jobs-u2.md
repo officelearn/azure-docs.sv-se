@@ -1,12 +1,12 @@
 ---
-title: "Visa och hantera jobb för StorSimple 8000-serien | Microsoft Docs"
-description: "Beskriver StorSimple Enhetshanteraren service jobb-bladet och hur du använder den för att spåra senaste aktuella och schemalagda säkerhetskopieringsjobb."
+title: Visa och hantera jobb för StorSimple 8000-serien | Microsoft Docs
+description: Beskriver StorSimple Enhetshanteraren service jobb-bladet och hur du använder den för att spåra senaste aktuella och schemalagda säkerhetskopieringsjobb.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874817"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att visa och hantera jobb (uppdatering 3 och senare)
 

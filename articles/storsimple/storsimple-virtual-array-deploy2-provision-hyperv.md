@@ -1,11 +1,11 @@
 ---
 title: Etablera virtuella StorSimple-matris i Hyper-V | Microsoft Docs
-description: "Självstudierna andra i virtuella StorSimple-matris distribution innebär att etablera en virtuell Hyper-V-matris."
+description: Självstudierna andra i virtuella StorSimple-matris distribution innebär att etablera en virtuell Hyper-V-matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876595"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuera StorSimple virtuell matris - etablera i Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)

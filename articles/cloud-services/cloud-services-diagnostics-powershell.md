@@ -1,11 +1,11 @@
 ---
-title: "Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig hur du aktiverar diagnostik för molntjänster med hjälp av PowerShell"
+title: Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell | Microsoft Docs
+description: Lär dig hur du aktiverar diagnostik för molntjänster med hjälp av PowerShell
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843429"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell
 Du kan samla in diagnostikdata som programloggarna, prestandaräknare etc. från en tjänst i molnet med Azure-diagnostik. Den här artikeln beskriver hur du aktiverar tillägget för Azure-diagnostik för en tjänst i molnet med hjälp av PowerShell.  Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.

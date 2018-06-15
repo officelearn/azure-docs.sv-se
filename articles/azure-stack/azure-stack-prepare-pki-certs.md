@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203484"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Förbereda Azure Stack PKI-certifikat för distribution
 Certifikatfiler [från din Certifikatutfärdare väljer](azure-stack-get-pki-certs.md) måste importeras och exporteras med egenskaper matchar Azure-stacken certifikatkrav.

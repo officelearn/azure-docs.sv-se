@@ -1,12 +1,12 @@
 ---
-title: "Exempelarbetsflöde till Förbered dig hårddiskar för ett Azure Import/Export-importjobb | Microsoft Docs"
-description: "Se en genomgång för fullständig processen med att förbereda enheter för ett importjobb i tjänsten Azure Import/Export."
+title: Exempelarbetsflöde till Förbered dig hårddiskar för ett Azure Import/Export-importjobb | Microsoft Docs
+description: Se en genomgång för fullständig processen med att förbereda enheter för ett importjobb i tjänsten Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873795"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 

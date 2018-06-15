@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32787424"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbereda för AKV-integreringen
 Om du vill använda Azure Key Vault-integrering för att konfigurera SQL Server-VM, finns det flera förutsättningar: 

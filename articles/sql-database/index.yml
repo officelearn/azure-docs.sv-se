@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/06/2018
+  ms.locfileid: "30922390"
 abstract:
   description: Azure SQL Database är en relationsdatabas-som-tjänst som bygger på Microsoft SQL Server-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:

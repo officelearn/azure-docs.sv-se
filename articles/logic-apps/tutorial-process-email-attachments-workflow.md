@@ -1,12 +1,12 @@
 ---
-title: "Skapa arbetsflöden för att bearbeta e-postmeddelanden och bifogade filer – Azure Logic Apps | Microsoft Docs"
-description: "I den här självstudien får du lära dig hur du skapar automatiska arbetsflöden för bearbetning av e-postmeddelanden och bifogade filer med Azure Logic Apps, Azure Storage och Azure Functions"
+title: Skapa arbetsflöden för att bearbeta e-postmeddelanden och bifogade filer – Azure Logic Apps | Microsoft Docs
+description: I den här självstudien får du lära dig hur du skapar automatiska arbetsflöden för bearbetning av e-postmeddelanden och bifogade filer med Azure Logic Apps, Azure Storage och Azure Functions
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300641"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Bearbeta e-postmeddelanden och bilagor med en logikapp
 
@@ -139,11 +140,11 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
    | **Application Insights** | Av | Aktiverar programövervakning med [Application Insights](../application-insights/app-insights-overview.md), men för den här självstudien ska du behålla inställningen **Av**. | 
    |||| 
 
-   Om funktionsappen inte automatiskt öppnas efter distributionen kan hitta din app i <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>. På Azures huvudmeny väljer du **Apptjänster** och sedan din funktionsapp.
+   Om funktionsappen inte automatiskt öppnas efter distributionen kan hitta din app i <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>. På Azures huvudmeny väljer du **App Services** och sedan din funktionsapp.
 
    ![Skapad funktionsapp](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Om **Apptjänster** inte visas på Azure-menyn går du istället till **More services** (Fler tjänster). I sökrutan letar du upp och väljer **Function Apps**. Mer information finns i [Create your function](../azure-functions/functions-create-first-azure-function.md) (Skapa funktion).
+   Om **App Services** inte visas på Azure-menyn går du istället till **Fler tjänster**. I sökrutan letar du upp och väljer **Function Apps**. Mer information finns i [Create your function](../azure-functions/functions-create-first-azure-function.md) (Skapa funktion).
 
    Du kan också använda [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), [PowerShell- och Resource Manager-mallar](../azure-resource-manager/resource-group-template-deploy.md).
 

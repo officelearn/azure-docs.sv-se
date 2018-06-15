@@ -3,7 +3,7 @@ title: Arbetsflödet Definition Language schema - Azure Logic Apps | Microsoft D
 description: Skriva anpassade arbetsflödesdefinitioner för Logic Apps i Azure med arbetsflödet Definition Language
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300189"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Logic Apps arbetsflödesdefinitioner med språk i Arbetsflödesdefinitionen för schemat
 
@@ -358,7 +359,7 @@ Om du vill ändra ett värde typ eller format kan du använda dessa konvertering
 
 <a name="math-functions"></a>
 
-### <a name="math-functions"></a>Matematiska funktioner
+### <a name="math-functions"></a>Matematikfunktioner
 
 Du kan använda dessa matematiska funktioner för att fungera med heltal och flyttal. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -408,7 +409,7 @@ Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](..
 
 <a name="workflow-functions"></a>
 
-### <a name="workflow-functions"></a>Funktioner för arbetsflöde
+### <a name="workflow-functions"></a>Arbetsflödesfunktioner
 
 Med hjälp av dessa funktioner i arbetsflödet kan du:
 
@@ -444,7 +445,7 @@ Du kan till exempel referera till utdata från en åtgärd och använda dessa da
 
 <a name="uri-parsing-functions"></a>
 
-### <a name="uri-parsing-functions"></a>URI parsning av funktioner
+### <a name="uri-parsing-functions"></a>URI-parsningsfunktioner
 
 Du kan använda dessa URI parsning funktioner för att arbeta med (uniform resource Identifier) och hämta olika egenskapsvärden för dessa URI: er. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942797"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar
 Azure Diagnostics tillägget tillhandahåller funktioner för övervakning och diagnostik på en Windows-baserad Azure virtuella. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Se [redigera Azure Resource Manager-mallar med VM-tillägg](../windows/template-description.md#extensions) mer information om inklusive alla tillägg som en del av en mall för virtuella datorer. Den här artikeln beskriver hur du lägger till tillägget Azure Diagnostics en windows-mall för virtuell dator.  

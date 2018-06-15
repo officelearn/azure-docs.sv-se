@@ -2,29 +2,26 @@
 title: Skapa en HTTP-utlösare med en Azure Cosmos DB-indatabindning | Microsoft Docs
 description: Lär dig att använda Azure Functions med HTTP-utlösare för frågor i Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818907"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Skapa en HTTP-utlösare i Azure Functions med en Azure Cosmos DB-indatabindning
 
 Azure Cosmos DB är en globalt distribuerad databas för flera modeller som är både schemalös och serverlös. Azure Function är en serverlös beräkningstjänst som gör det möjligt att köra kod på begäran. När du kombinerar dessa två Azure-tjänster får du en bra grund för en serverlös arkitektur, där du kan fokusera på att skapa bra appar och inte oroa dig för att behöva etablera och underhålla servrar för din beräknings- och databasbehov.
 
-Den här självstudien bygger på koden som skapades i [Snabbstart för Graph API i .NET](create-graph-dotnet.md). Självstudien lägger till en Azure Function som innehåller en [HTTP-utlösare](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). HTTP-utlösaren använder en Azure Cosmos DB-[indatabindning](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) till att hämta data från grafdatabasen som skapades i snabbstarten. Den här specifika HTTP-utlösaren frågar Azure Cosmos DB om data, men indatabindningarna från Azure Cosmos DB kan användas till att hämta indatavärden oavsett vad din funktion kräver.
+Den här självstudien bygger på koden som skapades i [Snabbstart för Graph API i .NET](create-graph-dotnet.md). Självstudien lägger till en Azure Function som innehåller en [HTTP-utlösare](../azure-functions/functions-bindings-http-webhook.md). HTTP-utlösaren använder en Azure Cosmos DB-[indatabindning](../azure-functions/functions-triggers-bindings.md) till att hämta data från grafdatabasen som skapades i snabbstarten. Den här specifika HTTP-utlösaren frågar Azure Cosmos DB om data, men indatabindningarna från Azure Cosmos DB kan användas till att hämta indatavärden oavsett vad din funktion kräver.
 
 Den här självstudien omfattar följande uppgifter:
 

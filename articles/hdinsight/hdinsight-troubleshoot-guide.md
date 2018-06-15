@@ -1,11 +1,11 @@
 ---
-title: "Azure HDInsight felsökning | Microsoft Docs"
-description: "Felsöka Hadoop-arbetsbelastningar med Azure HDInsight. Steg för steg-dokumentationen visar hur du använder HDInsight för att lösa vanliga problem med Hive, Spark, YARN, HBase, HDFS och Storm."
+title: Azure HDInsight felsökning | Microsoft Docs
+description: Felsöka Hadoop-arbetsbelastningar med Azure HDInsight. Steg för steg-dokumentationen visar hur du använder HDInsight för att lösa vanliga problem med Hive, Spark, YARN, HBase, HDFS och Storm.
 services: hdinsight
 author: arijitt
 manager: arijitt
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984747"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Felsöka med Azure HDInsight
 

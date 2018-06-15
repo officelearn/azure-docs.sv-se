@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213103"
 ---
 # <a name="service-state"></a>Tjänsttillstånd
 **Tjänsten tillstånd** refererar till det i minnet eller på disk som en tjänst kräver att fungera. Det innehåller till exempel datastrukturer och medlemsvariabler som tjänsten läser och skriver till fungerar. Beroende på hur tjänsten är konstruerad, kan den också innehålla filer eller andra resurser som är lagrade på disken. Till exempel filerna en-databas skulle använda att lagra data och transaktionsloggarna.

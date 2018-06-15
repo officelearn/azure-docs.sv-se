@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260159"
 ---
 # <a name="using-chef-with-azure"></a>Med Azure Chef
 [Chef](http://www.chef.io) är en kraftfull automatiseringsplattform som omvandlar virtuella infrastrukturen i Azure till kod. Chef automatiserar hur infrastrukturen konfigureras, distribueras och hanteras i nätverket, oavsett dess storlek.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358718"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona åtgärder i Azure
 Vissa Azure REST-åtgärder körs asynkront eftersom åtgärden inte går att slutföra snabbt. Det här avsnittet beskriver hur du spåra statusen för asynkrona åtgärder via värden som returneras i svaret.  

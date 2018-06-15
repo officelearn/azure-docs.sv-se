@@ -13,6 +13,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203101"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Allokera partitioner och repliker för fråga och indexering arbetsbelastningar i Azure Search
 När du [Välj prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att om du vill öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal fakturering enheter. Den här artikeln beskriver hur du tilldela dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för körning av fråga, indexering och lagring.

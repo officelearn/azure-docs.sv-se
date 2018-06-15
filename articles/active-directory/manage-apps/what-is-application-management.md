@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058324"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Hantera program med Azure Active Directory
 Utöver det faktiska arbetsflödet eller innehåll har företag två grundläggande krav för alla program:

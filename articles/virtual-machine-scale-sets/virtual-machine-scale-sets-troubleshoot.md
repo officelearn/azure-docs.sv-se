@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161030"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka Autoskala med virtuella datorer
 **Problem** – du har skapat en autoskalning infrastruktur i Azure Resource Manager med skaluppsättningar för den virtuella datorn – t.ex, genom att distribuera en mall som det här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har din definierade regler för skala och den passar utmärkt, utom Nej betydelse hur mycket inläsning på de virtuella datorerna kan den inte Autoskala.

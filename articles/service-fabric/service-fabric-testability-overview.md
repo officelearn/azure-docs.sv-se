@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209692"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till fel Analysis Service
 Fel Analysis Service är utformad för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med fel Analysis Service kan du framkalla meningsfulla fel och kör scenarier för testning mot dina program. Dessa fel och scenarier utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under dess livslängd i en kontrollerad, säker och konsekvent sätt.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075297"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Hämta Azure Stack-verktyg från GitHub
 

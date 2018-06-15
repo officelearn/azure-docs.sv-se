@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257496"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identity-arkitektur för Azure-Stack
 Innan du väljer en identitetsleverantör ska användas med Azure-stacken, Förstå viktiga skillnader mellan alternativen i Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS). 

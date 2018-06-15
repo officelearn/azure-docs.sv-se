@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155505"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Enkel utloggning SAML-protokoll
 Azure Active Directory (AD Azure) stöder SAML 2.0 web webbläsare enskild utloggning profil. För enstaka utloggning ska fungera korrekt, den **LogoutURL** för programmet explicit måste registreras med Azure AD under registreringen av program. Azure AD används LogoutURL för att omdirigera användare när de har loggat.

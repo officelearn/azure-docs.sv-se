@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212933"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster
 Tillförlitliga samlingar kan du skriva hög tillgänglighet, skalbara och låg latens molnprogram som om du skriver datorprogram. Klasserna i den **Microsoft.ServiceFabric.Data.Collections** namnområde ger en uppsättning av samlingar som automatiskt ge ditt tillstånd hög tillgänglighet. Utvecklare måste programmet bara tillförlitliga samling API: er och låta tillförlitliga samlingar som hanterar replikeras och lokala tillstånd.

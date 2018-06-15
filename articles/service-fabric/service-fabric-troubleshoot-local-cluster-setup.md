@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212025"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Felsöka din konfiguration av lokal utveckling
 Om du stöter på ett problem vid interaktion med din lokala Azure Service Fabric-klustret för utveckling, granska följande rekommendationer för möjliga lösningar.

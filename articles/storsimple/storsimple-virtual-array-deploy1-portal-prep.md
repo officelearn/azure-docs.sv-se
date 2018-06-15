@@ -1,11 +1,11 @@
 ---
-title: "Portalen prep för virtuell StorSimple-matrisen | Microsoft Docs"
-description: "Första självstudierna för att distribuera StorSimple virtuell matris innebär att förbereda Azure-portalen"
+title: Portalen prep för virtuell StorSimple-matrisen | Microsoft Docs
+description: Första självstudierna för att distribuera StorSimple virtuell matris innebär att förbereda Azure-portalen
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24526561"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple virtuell matris – förbereda den Azure-portalen
 

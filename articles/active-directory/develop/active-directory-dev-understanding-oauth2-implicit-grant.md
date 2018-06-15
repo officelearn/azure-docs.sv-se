@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155787"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå OAuth2 implicit bevilja flödet i Azure Active Directory (AD)
 OAuth2 implicit bevilja är kända för att ge en längsta lista med säkerhetsfrågor i OAuth2-specifikationen. Och ännu, som är den metod som implementeras av ADAL JS och det rekommenderas när du skriver SPA-program. Vad ger? Det är en fråga kompromisser: och det visar sig implicit bevilja är det bästa sättet att försöka för program som använder ett Web API via JavaScript från en webbläsare.

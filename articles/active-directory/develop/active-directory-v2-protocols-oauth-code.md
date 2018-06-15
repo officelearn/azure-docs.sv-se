@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158245"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokoll - OAuth 2.0-Auktoriseringskodflödet
 OAuth 2.0 auktorisering kod bevilja kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel web API: er. App model v2.0 implementering av OAuth 2.0 kan, du använda API tillgång till dina appar och program och logga in. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av de [autentiseringsbibliotek för Azure öppen källkod](active-directory-authentication-libraries.md).

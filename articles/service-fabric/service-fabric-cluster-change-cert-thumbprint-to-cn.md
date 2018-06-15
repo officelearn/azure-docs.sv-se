@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210349"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikatet till eget namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller hantering svårt. Flera certifikat kan dock ha samma namn eller ämne.  Växla ett installerat kluster från att använda certifikattumavtryck till att använda certifikat namn gör certifikathantering mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster som körs för att använda certifikatets unika namn i stället för tumavtrycket för certifikatet.

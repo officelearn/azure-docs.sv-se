@@ -1,12 +1,12 @@
 ---
 title: Ansluta en Raspberry Pi till Azure IoT Suite | Microsoft Docs
-description: "Självstudier med Node.js eller C för att hjälpa dig att lära dig hur du använder Microsoft Azure IoT-startpaket för hallon Pi 3 och fjärranslutna övervakningslösning IoT Suite. Du kan välja en självstudiekurs som simulerar telemetri, som använder verkliga sensorer eller som gör att fjärranslutna firmware-uppdateringar."
-services: 
+description: Självstudier med Node.js eller C för att hjälpa dig att lära dig hur du använder Microsoft Azure IoT-startpaket för hallon Pi 3 och fjärranslutna övervakningslösning IoT Suite. Du kan välja en självstudiekurs som simulerar telemetri, som använder verkliga sensorer eller som gör att fjärranslutna firmware-uppdateringar.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24011793"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Ansluta din Microsoft Azure IoT hallon Pi 3 startpaket till fjärranslutna övervakningslösning
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205373"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurationsinställningarna för ett fristående Windows-kluster
 Den här artikeln beskriver hur du konfigurerar ett fristående Azure Service Fabric-kluster med hjälp av filen ClusterConfig.json. Du använder den här filen med information om den klusternoder, säkerhetskonfigurationer samt nätverkstopologin vad gäller fel- och domäner.

@@ -10,11 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ab2631b8a6c9bb2ec8804717d9a3aef4376e2a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258268"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med lösningen för ändringsspårning
 
@@ -97,6 +98,7 @@ Använd följande steg för att konfigurera registret viktiga spårning på Wind
 * Mappar (kataloger) för Windows-spårning
 * Rekursion för Windows-spårning
 * Jokertecken för Windows-spårning
+* Rekursion för spårning av Windows-registret
 * Sökvägsvariabler
 * Network file system
 * Filinnehåll

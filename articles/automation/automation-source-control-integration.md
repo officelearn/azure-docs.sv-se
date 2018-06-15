@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194493"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 Källkontrollintegrering kan du associera runbooks i ditt Automation-konto till en GitHub-källkontroll. Källkontrollen kan du enkelt samarbeta med din grupp, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontrollen du synkronisera olika filialer i källkontrollen till din utvecklings-, test- eller produktion Automation-konton, vilket gör det enkelt att befordra kod som har testats i din utvecklingsmiljö produktionsmiljön Automation-konto.

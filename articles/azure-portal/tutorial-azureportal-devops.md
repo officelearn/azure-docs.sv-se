@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164847"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Självstudier: DevOps med Azure-portalen
 Azure-plattformen är full av flexibla DevOps-arbetsflöden. Lär dig hur man utnyttjar funktionerna i Azure portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs i den här självstudiekursen. Den här självstudiekursen fokuserar på följande:

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31389721"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Åtgärder i Azure Active Directory Connect Health
 Det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (AD Azure) Connect Health.

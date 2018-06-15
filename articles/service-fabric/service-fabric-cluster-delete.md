@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211277"
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Ta bort ett Service Fabric-kluster på Azure och resurser som används
 Service Fabric-klustret består av många andra Azure-resurser förutom klusterresursen sig själv. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av.

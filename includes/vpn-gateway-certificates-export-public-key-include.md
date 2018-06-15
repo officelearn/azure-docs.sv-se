@@ -8,20 +8,21 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4ae4cfb91fb3a746c73d6b098a1adc9e4dee8698
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414713"
 ---
 När du har skapat ett självsignerat rotcertifikat, exportera rot certifikatets offentliga nyckel .cer-fil (inte den privata nyckeln). Du kommer senare att överföra filen till Azure. Följande steg hjälper dig att exportera .cer-filen för ditt självsignerade rotcertifikat:
 
-1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas.
+1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuella User\Personal\Certificates bero det på att du har öppnat certifikat Manager för de lokala datorcertifikat (rubrik är ”certifikat – lokal dator” som motsats till ”certifikat – aktuell användare”). Öppna certifikat Manager i aktuella användarens scope startar du den från samma PowerShell där certifikat som har skapats genom att skriva ```certmgr```.
 
   ![Exportera](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Klicka på **Nästa** i guiden.
 
-  ![Exportera certifikat](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
+  ![Exportera certifikatet](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
 3. Välj **Nej, exportera inte den privata nyckeln** och klicka sedan på **Nästa**.
 
   ![Exportera inte den privata nyckeln](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)

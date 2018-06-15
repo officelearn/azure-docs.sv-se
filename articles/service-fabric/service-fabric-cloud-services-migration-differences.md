@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206490"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan molntjänster och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations molnet programmet plattform för mycket skalbar, tillförlitlig hög distribuerade program. Det har många nya funktioner för paketering, distribution, uppgradera och hantera distribuerade molnprogram. 

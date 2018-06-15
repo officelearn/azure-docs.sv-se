@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207918"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program och tjänster
 Arkitektur för mikrotjänster kan ta [många fördelar](service-fabric-overview-microservices.md). Hantera säkerheten för mikrotjänster, är dock en utmaning och annat än traditionella gigantiska program säkerhetshantering. 

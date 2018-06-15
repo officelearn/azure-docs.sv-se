@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257979"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise tillstånd växling är tillgängliga för en organisation med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du skaffa en Azure AD-prenumeration finns i [produktsida för Azure AD](https://azure.microsoft.com/services/active-directory).

@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156712"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 Den här artikeln beskriver SAML 2.0 autentiseringsbegäranden och svar som har stöd för Azure Active Directory (Azure AD) för enkel inloggning.

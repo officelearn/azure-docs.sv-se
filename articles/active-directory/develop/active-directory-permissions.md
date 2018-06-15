@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156899"
 ---
 # <a name="permissions-in-azure-ad"></a>Behörigheter i Azure AD
 Azure Active Directory (Azure AD) använder sig av behörigheter för både OAuth-flöden och OIDC-flöden (OpenID Connect). När appen tar emot en åtkomsttoken från Azure AD, innehåller den anspråk som beskriver de behörigheter (även kallat omfång) som appen har för en viss resurs. Detta gör auktoriseringen enkel för resursen, eftersom den endast behöver kontrollera att din token innehåller lämplig behörighet för den API som du anropar. 

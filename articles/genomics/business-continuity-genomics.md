@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427168"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Översikt över kontinuitet för företag med Microsoft Genomics
 Den här översikten beskriver funktionerna som Microsoft Genomics ger för affärskontinuitet och haveriberedskap. Läs mer om alternativ för att återställa från avbrott, till exempel ett avbrott för Azure-region som kan orsaka förlust av data. 

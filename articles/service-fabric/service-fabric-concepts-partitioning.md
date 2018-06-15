@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206541"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionen Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för partitionering tillförlitliga Azure Service Fabric-tjänster. Källkoden som används i artikeln finns även på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

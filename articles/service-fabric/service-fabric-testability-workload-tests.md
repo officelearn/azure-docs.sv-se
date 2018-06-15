@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208904"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
 Möjlighet att testa scenarier i Azure Service Fabric ger utvecklare möjligheten att oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interfoliering av klienten arbetsbelastning och fel kan behövas. Interfoliering av klienten arbetsbelastning och fel innebär att tjänsten faktiskt utför någon åtgärd när fel inträffar. Angivna kontrollnivån som ger möjlighet att testa kan det vara på exakt punkterna i körningen arbetsbelastning. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212627"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
 Den här artikeln beskriver de olika parametrar som gäller under uppgraderingen av ett program i Azure Service Fabric. Parametrarna inkluderar namnet och versionen av programmet. De är rattar som styr timeout och hälsokontroller som tillämpas under uppgraderingen och de anger de principer som måste tillämpas när uppgraderingen misslyckas.

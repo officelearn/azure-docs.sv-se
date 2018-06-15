@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187376"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse data management partners
 Välj en mängd olika branschledande verktyg för att skapa din data warehouse-lösning. Den här artikeln visar Microsoft partnerföretag med verktyg för hantering av data och lösningar som stöder Azure SQL Data Warehouse.

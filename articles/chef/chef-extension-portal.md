@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260152"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installera klienten Chef från Azure-portalen
 När du skapar eller ändrar en Linux- eller Windows virtuell dator från Azure portal, kan du lägga till filnamnstillägget Chef till den virtuella datorn. Den här artikeln vägleder dig genom processen med hjälp av en ny virtuell Linux-dator.

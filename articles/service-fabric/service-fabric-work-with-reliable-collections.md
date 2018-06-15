@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210825"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgängliga för .NET-utvecklare via tillförlitliga samlingar. Mer specifikt ger Service Fabric tillförlitliga ordlista och tillförlitlig kön klasser. När du använder dessa klasser är ditt tillstånd partitionerad (för skalbarhet) replikeras (för tillgänglighet) och överförd inom en partition (för ACID-semantik). Nu ska vi titta på en vanlig användning av en tillförlitlig Ordlisteobjekt och se vilka dess faktiskt gör.

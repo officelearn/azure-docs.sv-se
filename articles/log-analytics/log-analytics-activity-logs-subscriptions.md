@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636978"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
 
@@ -113,7 +114,7 @@ Kontrollera att du har följande information från föregående steg innan du sk
 - Arbetsyte-ID för Log Analytics
 - Delad nyckel för Log Analytics
 
-Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen i [Kontrollera namnområdesbehörigheter i Event Hubs och hitta anslutningssträngen](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
+Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen i [Kontrollera namnområdesbehörigheter i Event Hubs och hitta anslutningssträngen](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Skapa en ny tom logikapp

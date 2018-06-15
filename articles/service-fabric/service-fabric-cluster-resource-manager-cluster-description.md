@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208819"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric klustret Resource Manager tillhandahåller mekanismer för att beskriva ett kluster. Under körning använder informationen i klustret Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Medan reglerna viktigt, försöker den också Optimera resursanvändningen i klustret.

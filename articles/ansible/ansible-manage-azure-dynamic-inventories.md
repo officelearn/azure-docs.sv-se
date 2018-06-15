@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153117"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använd Ansible för att hantera dina Azure dynamiska inventeringar
 Ansible kan användas för att hämta inventeringsinformation från olika källor (inklusive molnet källor, till exempel Azure) till en *dynamiska inventering*. I den här artikeln använder du den [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tagga en av de virtuella datorerna för att konfigurera en Ansible Azure dynamiska inventering som du skapar två virtuella datorer och installera Nginx på taggade virtuell dator.

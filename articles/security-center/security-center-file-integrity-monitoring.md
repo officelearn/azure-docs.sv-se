@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34162178"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Filen integritet övervakning i Azure Security Center (förhandsgranskning)
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292548"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Konfigurera diagnostik för Azure-molntjänster och virtuella datorer
 När du behöver felsöka ett Azure-molntjänst eller den virtuella datorn använder du Visual Studio enklare ställa in Azure-diagnostik. Diagnostik avbildar systemdata och loggningsdata på virtuella datorer och instanser för virtuella datorer som kör Molntjänsten. Diagnostikdata överförs till ett lagringskonto som du väljer. Mer information om diagnostik loggning i Azure, se [aktivera diagnostikloggning för Web Apps i Azure App Service](app-service/web-sites-enable-diagnostic-log.md).

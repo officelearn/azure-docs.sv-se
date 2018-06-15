@@ -1,6 +1,6 @@
 ---
-title: "Använd inkrementella ögonblicksbilder för säkerhetskopiering och återställning av ohanterade Virtuella för Windows Azure-diskar | Microsoft Docs"
-description: "Skapa en anpassad lösning för säkerhetskopiering och återställning av Windows Azure virtuella diskar med hjälp av inkrementell ögonblicksbilder."
+title: Använd inkrementella ögonblicksbilder för säkerhetskopiering och återställning av ohanterade Virtuella för Windows Azure-diskar | Microsoft Docs
+description: Skapa en anpassad lösning för säkerhetskopiering och återställning av Windows Azure virtuella diskar med hjälp av inkrementell ögonblicksbilder.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879892"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

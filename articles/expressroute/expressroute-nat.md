@@ -1,11 +1,11 @@
 ---
-title: "NAT-krav för ExpressRoute-kretsar | Microsoft Docs"
-description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera NAT för ExpressRoute-kretsar."
+title: NAT-krav för ExpressRoute-kretsar | Microsoft Docs
+description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera NAT för ExpressRoute-kretsar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23409273"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoutes NAT-krav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera NAT. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av NAT som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 

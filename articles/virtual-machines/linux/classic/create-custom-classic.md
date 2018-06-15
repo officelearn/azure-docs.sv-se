@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841443"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Så här skapar du en klassisk virtuell Linux-dator med Azure CLI 1.0
 > [!IMPORTANT] 

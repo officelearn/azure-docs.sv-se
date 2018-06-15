@@ -1,11 +1,11 @@
 ---
 title: Kapslade Traffic Manager-profiler | Microsoft Docs
-description: "Den här artikeln beskriver funktionen kapslade profiler för Azure Traffic Manager"
+description: Den här artikeln beskriver funktionen kapslade profiler för Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876980"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Kapslade Traffic Manager-profiler
 

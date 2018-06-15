@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323261"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Hitta och ta bort ej anslutna Azure hanterade och ohanterade diskar
 Diskar som är kopplade till den virtuella datorn inte att ta bort när du tar bort en virtuell dator (VM) i Azure, som standard. Den här funktionen hjälper till att förhindra dataförlust på grund av oavsiktlig borttagning av virtuella datorer. När en virtuell dator tas bort, fortsätter att betala för ej anslutna diskar. Den här artikeln visar hur du hittar och tar bort ej anslutna diskarna och minska onödiga kostnader. 

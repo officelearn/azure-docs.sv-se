@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31422019"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Oozie-koordinator med Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln lär du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobb, baserat på tid. Är det bra att gå igenom [Använd Oozie med HDInsight] [ hdinsight-use-oozie] innan den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Information om Azure Data Factory finns [Use Pig och Hive med Data Factory](../data-factory/transform-data.md).

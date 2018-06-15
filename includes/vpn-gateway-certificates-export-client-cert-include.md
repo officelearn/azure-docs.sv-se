@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30198136"
 ---
 När du skapar ett certifikat installeras den automatiskt på den dator som du använde för att skapa den. Om du vill installera klientcertifikatet på en annan dator måste du exportera det klientcertifikat som du genererade.
 

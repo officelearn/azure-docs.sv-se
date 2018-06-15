@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905559"
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Så här skapar du en Linux VM som använder Azure CLI 1.0 en Azure Resource Manager-mall
 Den här artikeln visar hur du snabbt distribuerar en Linux-dator med hjälp av Azure CLI 1.0 och en Azure Resource Manager-mall. Artikeln kräver:

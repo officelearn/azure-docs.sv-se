@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180801"
 abstract:
   description: Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Självstudier, API-referenser och annan dokumentation visar hur du skapar och underhåller nycklar som ger åtkomst till och krypterar dina resurser och lösningar.
 sections:

@@ -1,14 +1,14 @@
 ---
-title: "Skapa behållaravbildningar för Azure Service Fabric | Microsoft Docs"
-description: "I den här självstudiekursen lär du dig hur du skapar behållaravbildningar för ett Service Fabric-program med flera behållare."
+title: Skapa behållaravbildningar för Azure Service Fabric | Microsoft Docs
+description: I den här självstudiekursen lär du dig hur du skapar behållaravbildningar för ett Service Fabric-program med flera behållare.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558193"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>Självstudiekurs: Skapa behållaravbildningar för Service Fabric
 

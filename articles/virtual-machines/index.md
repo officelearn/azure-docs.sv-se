@@ -1,11 +1,11 @@
 ---
-title: "Dokumentation om Azure Virtual Machines – Självstudier, API Reference | Microsoft Docs"
-description: "Lär dig hur du skapar, distribuerar och hanterar virtuella Windows- eller Linuxdatorer. Självstudier, API-referenser och annan dokumentation."
+title: Dokumentation om Azure Virtual Machines – Självstudier, API Reference | Microsoft Docs
+description: Lär dig hur du skapar, distribuerar och hanterar virtuella Windows- eller Linuxdatorer. Självstudier, API-referenser och annan dokumentation.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072868"
 ---
 # <a name="virtual-machines-documentation"></a>Dokumentation om Virtual Machines
 

@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator-appen för mobila enheter | Microsoft Docs"
-description: "Lär dig hur du uppgraderar till den senaste versionen av Azure Authenticator."
+title: Microsoft Authenticator-appen för mobila enheter | Microsoft Docs
+description: Lär dig hur du uppgraderar till den senaste versionen av Azure Authenticator.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201005"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Kom igång med Microsoft Authenticator-appen
 Ger en extra nivå av säkerhet i arbets-eller skolkonto för Microsoft Authenticator-appen (till exempel bsimon@contoso.com) eller Microsoft-konto (till exempel bsimon@outlook.com).

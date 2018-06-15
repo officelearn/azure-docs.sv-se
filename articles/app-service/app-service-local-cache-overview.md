@@ -1,13 +1,13 @@
 ---
-title: "Översikt över Azure App Service lokalt cacheminne | Microsoft Docs"
-description: "Den här artikeln beskriver hur du aktiverar, ändra storlek och fråga status för funktionen Azure App Service lokalt cacheminne"
+title: Översikt över Azure App Service lokalt cacheminne | Microsoft Docs
+description: Den här artikeln beskriver hur du aktiverar, ändra storlek och fråga status för funktionen Azure App Service lokalt cacheminne
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836387"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokalt cacheminne
 Azure web appinnehåll lagras på Azure Storage och är anslutna upp en beständig sätt som ett delat innehåll. Den här designen är avsedd att fungera med en rad olika appar och har följande attribut:  

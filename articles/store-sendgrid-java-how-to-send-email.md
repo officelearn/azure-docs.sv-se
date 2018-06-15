@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364909"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Hur du skickar e-post med SendGrid från Java
 Den här guiden visar hur du utför vanliga programmeringsuppgifter med SendGrid-e-posttjänsten på Azure. Exemplen är skrivna i Java. Scenarier som tas upp inkluderar **konstruera e-post**, **skicka e-post**, **lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i [nästa steg](#next-steps) avsnitt.

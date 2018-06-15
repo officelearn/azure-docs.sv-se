@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348119"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudier: Konfigurera GoToMeeting för automatisk användaretablering
 

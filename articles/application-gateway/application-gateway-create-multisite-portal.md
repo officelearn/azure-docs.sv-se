@@ -15,6 +15,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354751"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Skapa en Programgateway med flera för webbplatsen med hjälp av Azure portal
 

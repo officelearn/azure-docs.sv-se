@@ -11,18 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192232"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233122"
 ---
 # <a name="retrieve-access-review-results"></a>Hämta resultat av åtkomstgranskningar
 
 Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program.  Användare med rollen **Global administratör**, **Säkerhetsadministratör** eller **Säkerhetsläsare** kan också läsa resultatet av en åtkomstgranskning.  För att tilldela användare en av de här rollerna kan en privilegierad rolladministratör använda Azure AD PIM för att göra så att en användare kan aktivera rollen, eller så kan en global administratör permanent [tilldela användaren rollen](active-directory-users-assign-role-azure-portal.md).
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Hitta en åtkomstgranskning
 
@@ -42,8 +45,6 @@ Om du vill visa resultatet av en slutförd instans av en återkommande åtkomstg
 
 
 ## <a name="removing-users-from-an-access-review"></a>Ta bort användare från en åtkomstgranskning
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 Som standard är en användare som tas bort borttagen i Azure AD i 30 dagar. Under den här perioden kan användaren återställas av en administratör om det behövs.  Efter 30 dagar tas användaren bort permanent.  En global administratör kan också använda Azure Active Directory-portalen för att uttryckligen och [permanent ta bort en användare som nyligen lagts till](active-directory-users-restore.md) innan perioden är slut.  När en användare har tagits bort permanent tas efterföljande data om den användaren bort från aktiva åtkomstgranskningar.  Granskningsinformation om borttagna användare finns kvar i spårningsloggen.
 

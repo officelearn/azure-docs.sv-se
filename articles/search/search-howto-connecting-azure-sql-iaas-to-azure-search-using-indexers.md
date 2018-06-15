@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366468"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en indexerare för Azure Search till SQL Server på en Azure VM
 Enligt beskrivningen i [ansluter Azure SQL Database på Azure Sök med hjälp av indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), skapa indexerare mot **SQL Server på Azure Virtual Machines** (eller **SQL Azure Virtual Machines** för kort) stöds av Azure Search men det finns några säkerhetsrelaterade förutsättningar för att ta hand om först. 

@@ -1,11 +1,11 @@
 ---
 title: Reparera ett Azure Import/Export-importjobb - v1 | Microsoft Docs
-description: "Lär dig mer om att reparera ett importjobb som har skapats och att köras med tjänsten Azure Import/Export."
+description: Lär dig mer om att reparera ett importjobb som har skapats och att köras med tjänsten Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927469"
 ---
 # <a name="repairing-an-import-job"></a>Reparera ett importjobb
 Microsoft Azure Import/Export-tjänsten kanske inte kan kopiera vissa av dina filer eller delar av en fil till Windows Azure Blob-tjänsten. Vissa fel anledningar:  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210910"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. En säker klustret är särskilt viktigt när du kör produktionsarbetsbelastningar på klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 

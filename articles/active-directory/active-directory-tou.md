@@ -2,7 +2,7 @@
 title: Användningsvillkor för Azure Active Directory | Microsoft Docs
 description: Användningsvillkoren för Azure AD låter dig och ditt företag tillhandahålla användningsvillkor till användarna av Azure AD-tjänsterna.
 services: active-directory
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/15/2018
-ms.author: billmath
-ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 8fea445a4cd02da3cf3c3239a119b491327abf54
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192963"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234125"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare.  Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav.

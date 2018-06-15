@@ -1,8 +1,8 @@
 ---
-title: "Konfigurera TLS ömsesidig autentisering för webbapp"
-description: "Lär dig hur du konfigurerar ditt webbprogram om du vill använda klientcertifikatautentisering på TLS."
+title: Konfigurera TLS ömsesidig autentisering för webbapp
+description: Lär dig hur du konfigurerar ditt webbprogram om du vill använda klientcertifikatautentisering på TLS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836310"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Konfigurera TLS ömsesidig autentisering för webbapp
 ## <a name="overview"></a>Översikt

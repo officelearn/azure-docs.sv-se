@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192497"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232973"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-åtkomstgranskningar
 
@@ -33,10 +34,6 @@ Med Azure Active Directory (Azure AD) kan du enkelt se till att användarna har 
 
 
 Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Varje användare som använder den här funktionen, inklusive för att skapa en granskning, fylla i en granskning eller bekräfta sin åtkomst, behöver en licens. 
-
-Åtkomstgranskningar är tillgängliga med Premium P2-versionen av Azure AD, som ingår i Microsoft Enterprise Mobility + Security, E5. Mer information finns i [Azure Active Directory-versioner](active-directory-whatis.md). Varje användare som använder den här funktionen för att skapa en granskning, få åtkomst till en granskning eller tillämpa en granskning kräver en licens.
-
-
 
 ## <a name="create-and-perform-an-access-review"></a>Skapa och utför du en åtkomstgranskning
 

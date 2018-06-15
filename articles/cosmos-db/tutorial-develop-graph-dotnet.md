@@ -2,25 +2,22 @@
 title: 'Azure Cosmos DB: Utveckla med Graph API i .NET | Microsoft Docs'
 description: Lär dig utveckla med Azure Cosmos DB:s SQL API med .NET
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: ''
-ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6026e4d27a341a7354ca3fe9fb92f7671b02eb66
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271297"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798686"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 

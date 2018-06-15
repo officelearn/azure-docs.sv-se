@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23928988"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exempel 1 – skapa en enkel DMZ med NSG: er med en Azure Resource Manager-mall
 [Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]

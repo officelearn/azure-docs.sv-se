@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271623"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärd skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärder för HDInsight. Information om hur du använder skriptåtgärd skript finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster, se [utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md).

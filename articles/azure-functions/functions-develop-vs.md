@@ -1,23 +1,24 @@
 ---
-title: "Utveckla Azure-funktioner med hjälp av Visual Studio | Microsoft Docs"
-description: "Lär dig mer om att utveckla och testa Azure Functions med hjälp av Azure Functions verktyg för Visual Studio-2017."
+title: Utveckla Azure-funktioner med hjälp av Visual Studio | Microsoft Docs
+description: Lär dig mer om att utveckla och testa Azure Functions med hjälp av Azure Functions verktyg för Visual Studio-2017.
 services: functions
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260462"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -31,7 +32,7 @@ Azure Functions verktyg ger följande fördelar:
 * Utveckla och distribuera före kompilerade C#-funktioner. Före följt funktioner ge en bättre kall start prestanda än C# skript-baserad funktion. 
 * Felkod dina funktioner i C# med alla fördelar med Visual Studio-utveckling. 
 
-Det här avsnittet visar hur du använder Azure Functions-verktyg för Visual Studio 2017 för att utveckla dina funktioner i C#. Du också lära dig hur du publicerar projektet till Azure som en .NET-sammansättning.
+Den här artikeln visar hur du använder Azure Functions-verktyg för Visual Studio 2017 för att utveckla dina funktioner i C#. Du också lära dig hur du publicerar projektet till Azure som en .NET-sammansättning.
 
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du publicerar från ett lokalt projekt till en funktionsapp distributionsprocessen skriver över alla funktioner som du har utvecklat i portalen.
@@ -74,31 +75,29 @@ Om du vill skapa och distribuera funktioner, måste du också:
 
 4. När uppdateringen är klar väljer **Stäng** och starta om Visual Studio.
 
-## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt 
+## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Functions` NuGet-paketet och anger Målversionen av framework. Fungerar 1.x mål .NET Framework och fungerar 2.x mål .NET Standard. Det nya projektet har följande filer:
 
 * **Host.JSON**: kan du konfigurera funktioner värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [host.json referens](functions-host-json.md).
-    
-* **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de används av den [Azure Functions grundläggande verktyg](functions-run-local.md). Använd den här filen för att ange inställningar, till exempel anslutningssträngar till andra Azure-tjänster. Lägg till en ny nyckel till den **värden** matris för varje anslutning som krävs av funktionerna i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i avsnittet om Azure Functions grundläggande verktyg.
+
+* **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de används av den [Azure Functions grundläggande verktyg](functions-run-local.md). Använd den här filen för att ange app-inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning krävs för funktioner bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions grundläggande verktyg artikeln.
 
 Mer information finns i [funktioner klassbiblioteksprojektet](functions-dotnet-class-library.md#functions-class-library-project).
 
 ## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
-Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa typer än HTTP och webhooks, måste du ange den **Values.AzureWebJobsStorage** nyckel till en giltig anslutningssträng för Azure Storage-konto. 
+Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa typer än HTTP och webhooks, måste du ange den **Values.AzureWebJobsStorage** nyckel till en giltig anslutningssträng för Azure Storage-konto. Funktionen appen kan också använda den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) för den **AzureWebJobsStorage** anslutning inställningen att krävs för projektet. Om du vill använda emulatorn värdet för **AzureWebJobsStorage** till `UseDevelopmentStorage=true`. Du måste ändra den här inställningen till en anslutning för faktiska lagringsplatsen före distributionen.
 
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
+Ange anslutningssträngen för lagring konto:
 
- Ange anslutningssträngen för lagring konto:
-
-1. Öppna i Visual Studio **Cloud Explorer**, expandera **Lagringskonto** > **Your Lagringskonto**och välj **egenskaper**och kopiera den **primära anslutningssträngen** värde.   
+1. Öppna i Visual Studio **Cloud Explorer**, expandera **Lagringskonto** > **Your Lagringskonto**och välj **egenskaper**och kopiera den **primära anslutningssträngen** värde.
 
 2. Öppna filen local.settings.json i ditt projekt och ange värdet för den **AzureWebJobsStorage** nyckel i anslutningssträngen som du kopierade.
 
-3. Upprepa det föregående steget för att lägga till unika nycklar till den **värden** matris för alla anslutningar som krävs av dina funktioner.  
+3. Upprepa det föregående steget för att lägga till unika nycklar till den **värden** matris för alla anslutningar som krävs av dina funktioner.
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
@@ -108,11 +107,11 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
 
 2. Välj utlösaren, ange de bindande egenskaperna och klicka på **skapa**. I följande exempel visar inställningar när du skapar en Queue storage aktiveras funktionen. 
 
-    ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
-    
-    Den här utlösaren exempel används en anslutningssträng med en nyckel som heter **QueueStorage**. Den här inställningen för anslutningssträngen måste definieras i filen local.settings.json. 
- 
-3. Granska nyligen tillagda klassen. Du ser en statisk **kör** metod som har den **FunctionName** attribut. Det här attributet anger att metoden är startpunkten för funktionen. 
+    ![Skapa en kö som utlöste-funktion](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+
+    Den här utlösaren exempel används en anslutningssträng med en nyckel som heter **QueueStorage**. Den här inställningen för anslutningssträngen måste definieras i den [local.settings.json filen](functions-run-local.md#local-settings-file).
+
+3. Granska nyligen tillagda klassen. Du ser en statisk **kör** metod som har den **FunctionName** attribut. Det här attributet anger att metoden är startpunkten för funktionen.
 
     Till exempel följande C# klassen representerar en grundläggande kön utlöses lagringsfunktionen:
 
@@ -120,25 +119,56 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    
+
     namespace FunctionApp1
     {
         public static class Function1
         {
-            [FunctionName("QueueTriggerCSharp")]        
+            [FunctionName("QueueTriggerCSharp")]
             public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
             {
                 log.Info($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
-    } 
+    }
     ````
- 
     En bindning-specifika attributet används för varje bindning-parameter som skickades till metoden. Attributet tar bindningsinformationen som parametrar. I föregående exempel är den första parametern har en **QueueTrigger** -attribut som används, som anger kön aktiveras funktionen. Könamnet och namn för anslutningssträngen inställningen överförs som parametrar till den **QueueTrigger** attribut.
+    
+Du kan använda proceduren ovan för att lägga till fler funktioner i projektet funktionen app. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).
+
+## <a name="add-bindings"></a>Lägga till bindningar
+
+Som utlösare, läggs inkommande och utgående bindningar till din funktion som binder attribut. Lägga till bindningar till en funktion på följande sätt:
+
+1. Kontrollera att du har [konfigureras projektet för lokal utveckling](#configure-the-project-for-local-development).
+
+2. Lägg till lämpligt NuGet-tillägg-paket för specifika bindningen. Mer information finns i [lokala C# utveckling med hjälp av Visual Studio](functions-triggers-bindings.md#local-csharp) i artikeln utlösare och bindningar. Bindningen-specifika NuGet-paketet krav finns i referensartikeln för bindningen. Till exempel hitta paketet krav för Händelsehubbar utlösaren i den [Händelsehubbar bindning referensartikeln](functions-bindings-event-hubs.md).
+
+3. Om app-inställningar som bindningen måste du lägga till dem i den **värden** samling i den [lokala filen](functions-run-local.md#local-settings-file). Dessa värden används när funktionen körs lokalt. När funktionen körs i funktionsapp i Azure, den [fungerar appinställningar](#function-app-settings) används.
+
+4. Lägga till attributet passande bindande i Metodsignaturen. I följande exempel visas ett meddelande i kön utlöser funktionen och utdata bindningen skapar ett nytt meddelande i kön med samma namn i en annan kö.
+
+    ```csharp
+    public static class SimpleExampleWithOutput
+    {
+        [FunctionName("CopyQueueMessage")]
+        public static void Run(
+            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
+            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
+            TraceWriter log)
+        {
+            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            myQueueItemCopy = myQueueItem;
+        }
+    }
+    ```
+Anslutningen till Queue storage hämtas från den `AzureWebJobsStorage` inställningen. Mer information finns i referensartikeln för specifika bindningen. 
+
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="testing-functions"></a>Testa funktioner
 
-Med Azure Functions Core Tools kan du köra Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.  
+Med Azure Functions Core Tools kan du köra Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.
 
 Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
 
@@ -152,9 +182,9 @@ Mer information om hur du använder Azure Functions grundläggande verktygen fin
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Funktionsappinställningar   
+## <a name="function-app-settings"></a>Funktionsappinställningar
 
-Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsapp i Azure. De här inställningarna överförs inte automatiskt när du publicerar projektet. 
+Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsapp i Azure. De här inställningarna överförs inte automatiskt när du publicerar projektet.
 
 Det enklaste sättet att överföra nödvändiga inställningar i appen funktionen i Azure är att använda den **hantera programinställningar...**  länk som visas när du har publicerat projektet. 
 
@@ -176,4 +206,4 @@ Mer information om Azure Functions verktyg finns i avsnittet vanliga frågor fö
 
 Läs mer om Azure Functions grundläggande verktyg i [koden och testa Azure functions lokalt](functions-run-local.md).
 
-Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns [Azure Functions C#-utvecklare](functions-dotnet-class-library.md). Det här avsnittet innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    
+Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns [Azure Functions C#-utvecklare](functions-dotnet-class-library.md). Den här artikeln innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    

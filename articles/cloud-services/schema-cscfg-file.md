@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358225"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services Config Schema (.cscfg-fil)
 Tjänstkonfigurationsfilen anger antalet rollinstanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurationsinställningar och tumavtryck för certifikat som är kopplade till en roll. Om tjänsten är en del av ett virtuellt nätverk, måste konfigurationsinformation för nätverket anges i tjänstkonfigurationsfilen, såväl som virtuella nätverk konfigurationsfilen. Standardfilnamnstillägget för tjänstkonfigurationsfilen är .cscfg.

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 05/04/2018
+  ms.locfileid: "33205439"
 abstract:
   description: Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href="/azure/azure-stack/">operatorn dokumentationen</a>.<br/><br/>Om du är operatör Azure-stacken är intresserad av i den Azure Stack Development Kit (ASDK), en enda nod distribution av Azure-stacken som du kan hämta och använda gratis Se vår <a href="/azure/azure-stack/asdk">ASDK dokumentationen</a>.
 sections:

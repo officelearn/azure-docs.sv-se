@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/02/2018
 ms.author: anzaman
-ms.openlocfilehash: 0d93161cbc30ea1e310e35cb22f6bb7f6ebbf6e5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8136ed2537b63fbba0bafc2ef00e7a65e176fde8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210859"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757458"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -157,8 +157,8 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Skapar ett virtuellt nätverk. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Skapar en offentlig IP-adress. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Skapar en ny IP-gatewaykonfiguration. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | Skapar en VPN-gateway. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/ new-azurermvirtualnetworkgatewayconnection) | Skapar en vnet-till-vnet-anslutning. |
+| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway) | Skapar en VPN-gateway. |
+| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) | Skapar en vnet-till-vnet-anslutning. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Anger undernätskonfiguration för det virtuella nätverket. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | Anger konfiguration för VPN-gatewayen. |

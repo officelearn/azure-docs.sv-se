@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206473"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric-programmet och nästa steg
 Azure Service Fabric-programmet har skapats. Den här artikeln beskriver vissa självstudiekurser för att testa, makeup av projektet, mer information du kan vara intresserad och potentiella nästa steg.

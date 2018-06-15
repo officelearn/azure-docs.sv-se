@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260158"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Använd InSpec för kompatibilitet automatisering av Azure-infrastrukturen
 [InSpec](https://www.chef.io/inspec/) är ett gratis och öppen källkod ramverk för testning och granska dina program och infrastruktur. InSpec fungerar genom att jämföra systemet bibliotekets tillstånd med det tillstånd som du express i lätt att läsa och enkelt att skriva InSpec kod. InSpec identifierar överträdelser och visar resultatet i form av en rapport, men ger dig kontroll av korrigeringar. Du kan använda InSpec för att kontrollera tillståndet för dina virtuella datorer som körs i Azure. Du kan också använda InSpec för att söka igenom och kontrollera tillståndet för resurser och resursgrupper i en prenumeration.

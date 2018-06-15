@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071501"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure virtuella aktivering
 

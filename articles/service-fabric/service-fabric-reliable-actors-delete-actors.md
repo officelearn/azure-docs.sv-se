@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208343"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Ta bort Reliable Actors och deras tillstånd
 Skräpinsamling inaktiverade aktörer endast rensar aktören objektet, men det tar inte bort data som lagras i en aktör tillstånd Manager. När en aktör återaktiveras få data igen ska tillgång till den via hanteraren tillstånd. I fall där aktörer lagra data i Tillståndshanterare och är inaktiverad men aldrig återaktivera kan det vara nödvändigt att rensa sina data.

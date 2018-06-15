@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787593"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ansluta eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
 [Azure-hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterar storage-konton som är kopplade till virtuella hårddiskar. En användare bifogar nya data disken till en virtuell dator Anger typ och storlek på disken som behövs, och Azure skapar och hanterar disken automatiskt. Datadisken kan sedan kopplas från den virtuella datorn och antingen anbringas på nytt senare till samma virtuella dator, eller till en annan virtuell dator som hör till samma användare.

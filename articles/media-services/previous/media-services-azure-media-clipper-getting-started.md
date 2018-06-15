@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788573"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
 Det här avsnittet visas de grundläggande stegen för att komma igång med Azure Media Clipper. De följande avsnitten finns information om hur du konfigurerar Azure Media Clipper.

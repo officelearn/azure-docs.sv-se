@@ -1,11 +1,11 @@
 ---
-title: "Logga sökningar i Azure Log Analytics | Microsoft Docs"
-description: "Du behöver en logg-sökning för att hämta data från logganalys.  Den här artikeln beskriver hur ny logg sökningar används i logganalys och innehåller begrepp som du behöver förstå innan du skapar en."
+title: Logga sökningar i Azure Log Analytics | Microsoft Docs
+description: Du behöver en logg-sökning för att hämta data från logganalys.  Den här artikeln beskriver hur ny logg sökningar används i logganalys och innehåller begrepp som du behöver förstå innan du skapar en.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953317"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Förstå loggen söker i logganalys
 

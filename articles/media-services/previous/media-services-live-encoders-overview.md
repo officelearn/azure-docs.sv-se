@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788174"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Hur du konfigurerar lokala kodare när du använder Azure Media Services för att skapa dataströmmar i multibithastighet
 Det här avsnittet listar lokal livekodare som du kan använda för att avbilda dina direktsända händelser och skicka en direktsänd dataström med enkel bithastighet till AMS kanaler (som är live encoding aktiverat) för vidare bearbetning. Avsnittet innehåller också länkar till kurser som visar hur du konfigurerar listade kodare.

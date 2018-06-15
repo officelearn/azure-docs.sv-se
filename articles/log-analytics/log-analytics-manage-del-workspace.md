@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938700"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Ta bort en Azure logganalys-arbetsytan med Azure-portalen
 Den här artikeln visar hur du använder Azure-portalen för att ta bort logganalys-arbetsytan som du kan inte längre behöver. 

@@ -17,9 +17,10 @@ ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7f32cc47c96f6fc8adaedef8f8ea3156ee70115
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887897"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Lägga till Azure Automation-resurser för en lösning (förhandsgranskning)
 > [!NOTE]

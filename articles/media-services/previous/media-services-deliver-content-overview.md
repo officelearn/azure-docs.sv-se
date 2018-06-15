@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788895"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 När du levererar vi din strömning eller video-on-demand-innehåll till kunder, är målet att leverera video med hög kvalitet till olika enheter under olika nätverksförhållanden.

@@ -1,11 +1,11 @@
 ---
-title: "Utvärdera Service Fabric-program med Log Analytics med hjälp av Azure portal | Microsoft Docs"
-description: "Du kan använda Service Fabric-lösning i logganalys med Azure-portalen för att bedöma risken och hälsotillståndet för Service Fabric program, micro-tjänster, noder och kluster."
+title: Utvärdera Service Fabric-program med Log Analytics med hjälp av Azure portal | Microsoft Docs
+description: Du kan använda Service Fabric-lösning i logganalys med Azure-portalen för att bedöma risken och hälsotillståndet för Service Fabric program, micro-tjänster, noder och kluster.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932689"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Utvärdera Service Fabric-program och micro-tjänster med Azure-portalen
 

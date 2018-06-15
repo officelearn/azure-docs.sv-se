@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794532"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Ange DNS-inställningar i en konfigurationsfil för virtuellt nätverk
 En konfigurationsfil för nätverk innehåller två element som du kan använda för att ange inställningar för Domain Name System (DNS): **DnsServers** och **DnsServerRef**. Du kan lägga till en lista över DNS-servrar genom att ange sina IP-adresser och namn för att referera den **DnsServers** element. Du kan sedan använda en **DnsServerRef** element för att ange vilka DNS-server transaktioner från DnsServers-element som används för olika nätverksplatserna i det virtuella nätverket.

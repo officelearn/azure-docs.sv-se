@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777961"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Skicka plattformsoberoende meddelanden till användare med Notification Hubs
 I en tidigare självstudiekursen [meddela användare med Notification Hubs], du har lärt dig hur du push-meddelanden till alla enheter som är registrerade på en specifik autentiserad användare. Flera begäranden var tvungen att skicka ett meddelande till varje klientplattform som stöds i den här självstudien. Azure Notification Hub har stöd för mallar som du kan ange hur en specifik enhet vill ta emot meddelanden. Den här metoden förenklar skicka plattformsoberoende meddelanden. 

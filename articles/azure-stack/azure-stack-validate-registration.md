@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937844"
 ---
 # <a name="validate-azure-registration"></a>Verifiera Azure registrering 
 Verktyget Azure Stack beredskap Checker (AzsReadinessChecker) att verifiera att din Azure-prenumeration är redo att användas med Azure-stacken. Verifiera registrering innan du påbörjar en Azure-Stack-distributionen. Validerar beredskap layout:

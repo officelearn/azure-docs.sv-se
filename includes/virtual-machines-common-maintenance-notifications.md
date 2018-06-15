@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958902"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa VMs schemalagt underhåll i portalen
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402498"
 ---
 Resurslås användarna i din organisation av misstag tas bort eller ändra viktiga resurser. Till skillnad från rollbaserad åtkomstkontroll gäller resurslås en begränsning för alla användare och roller. 
 

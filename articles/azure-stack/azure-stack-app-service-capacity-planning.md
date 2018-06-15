@@ -1,12 +1,12 @@
 ---
-title: "Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken | Microsoft Docs"
-description: "Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken"
+title: Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken | Microsoft Docs
+description: Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388591"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*

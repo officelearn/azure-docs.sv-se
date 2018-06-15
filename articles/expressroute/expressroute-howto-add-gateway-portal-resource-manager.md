@@ -1,13 +1,13 @@
 ---
-title: "Lägga till en virtuell nätverksgateway till ett virtuellt nätverk för ExpressRoute: Portal: Azure | Microsoft Docs"
-description: "Den här artikeln vägleder dig genom att lägga till en virtuell nätverksgateway till ett redan har skapat Resource Manager-VNet för ExpressRoute."
+title: 'Lägga till en virtuell nätverksgateway till ett virtuellt nätverk för ExpressRoute: Portal: Azure | Microsoft Docs'
+description: Den här artikeln vägleder dig genom att lägga till en virtuell nätverksgateway till ett redan har skapat Resource Manager-VNet för ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850870"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med Azure-portalen
 > [!div class="op_single_selector"]

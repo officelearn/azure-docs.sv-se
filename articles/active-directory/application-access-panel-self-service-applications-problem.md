@@ -1,11 +1,11 @@
 ---
-title: "Problemet med hjälp av självbetjäning programåtkomst | Microsoft Docs"
-description: "Felsöka problem som rör självbetjäning programåtkomst"
+title: Problemet med hjälp av självbetjäning programåtkomst | Microsoft Docs
+description: Felsöka problem som rör självbetjäning programåtkomst
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382363"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problemet med hjälp av självbetjäning programåtkomst
 

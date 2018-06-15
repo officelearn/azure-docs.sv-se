@@ -1,12 +1,12 @@
 ---
-title: "Ersätt batteri på Microsoft Azure StorSimple 8000-serieenhet | Microsoft Docs"
-description: "Beskriver hur du tar bort, ersätta och underhålla batterimodulen säkerhetskopiering på StorSimple-enheten."
+title: Ersätt batteri på Microsoft Azure StorSimple 8000-serieenhet | Microsoft Docs
+description: Beskriver hur du tar bort, ersätta och underhålla batterimodulen säkerhetskopiering på StorSimple-enheten.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742821"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersätt batterimodulen säkerhetskopiering på din StorSimple-enhet
 

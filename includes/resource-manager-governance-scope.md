@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529963"
 ---
 Innan du skapar objekt nu ska vi se begreppet omfång. Azure erbjuder fyra olika management: hanteringsgrupper, prenumerationen, resursgruppen och resursen. [Hanteringsgrupper](../articles/billing/billing-enterprise-mgmt-group-overview.md) finns i en förhandsversionen. Följande bild visar ett exempel på dessa lager.
 

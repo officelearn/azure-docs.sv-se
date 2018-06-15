@@ -1,11 +1,11 @@
 ---
-title: "Ansluta ett virtuellt nätverk till flera platser med hjälp av VPN-Gateway och PowerShell: klassiska | Microsoft Docs"
-description: "Ansluta flera lokala lokala platser till ett klassiskt virtuellt nätverk med en VPN-Gateway."
+title: 'Ansluta ett virtuellt nätverk till flera platser med hjälp av VPN-Gateway och PowerShell: klassiska | Microsoft Docs'
+description: Ansluta flera lokala lokala platser till ett klassiskt virtuellt nätverk med en VPN-Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399380"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägga till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig VPN-gateway-anslutning (klassiskt)
 

@@ -1,13 +1,13 @@
 ---
-title: "Konfigurera filter för routning för Azure ExpressRoute Microsoft peering: Portal | Microsoft Docs"
-description: "Den här artikeln beskriver hur du konfigurerar filter för routning för Microsoft-Peering i Azure Portal"
+title: 'Konfigurera filter för routning för Azure ExpressRoute Microsoft peering: Portal | Microsoft Docs'
+description: Den här artikeln beskriver hur du konfigurerar filter för routning för Microsoft-Peering i Azure Portal
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387735"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera filter för routning för Microsoft-peering: Azure-portalen
 > [!div class="op_single_selector"]

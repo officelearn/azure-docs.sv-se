@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427155"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Starta och stoppa Azure Stack Development Kit (ASDK)
 Det rekommenderas inte att starta om värddatorn ASDK. I stället bör du följa procedurerna i den här artikeln Stäng och starta om tjänsterna ASDK korrekt. 

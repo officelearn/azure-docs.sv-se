@@ -1,11 +1,11 @@
 ---
-title: "Köra uppgifter för start i Azure-molntjänster | Microsoft Docs"
-description: "Start hjälper förbereda din molntjänstmiljö för din app. Det här lär du dig hur start aktiviteter fungerar och hur du gör dem"
+title: Köra uppgifter för start i Azure-molntjänster | Microsoft Docs
+description: Start hjälper förbereda din molntjänstmiljö för din app. Det här lär du dig hur start aktiviteter fungerar och hur du gör dem
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843681"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurera och köra startade aktiviteter för en tjänst i molnet
 Du kan använda Start uppgifter för att utföra åtgärder innan du startar en roll. Åtgärder som du kanske vill utföra inkluderar installerar en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process.

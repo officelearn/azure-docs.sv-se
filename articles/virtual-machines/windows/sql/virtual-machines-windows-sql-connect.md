@@ -1,6 +1,6 @@
 ---
-title: "Ansluta till en virtuell dator för SQL Server (Resource Manager) | Microsoft Docs"
-description: "Lär dig hur du ansluter till SQL Server som körs på en virtuell dator i Azure. Det här avsnittet använder den klassiska distributionsmodellen. Scenarier som skiljer sig åt beroende på nätverkskonfigurationen och platsen för klienten."
+title: Ansluta till en virtuell dator för SQL Server (Resource Manager) | Microsoft Docs
+description: Lär dig hur du ansluter till SQL Server som körs på en virtuell dator i Azure. Det här avsnittet använder den klassiska distributionsmodellen. Scenarier som skiljer sig åt beroende på nätverkskonfigurationen och platsen för klienten.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400247"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 

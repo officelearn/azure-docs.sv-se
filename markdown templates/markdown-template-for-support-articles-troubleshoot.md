@@ -1,11 +1,11 @@
 ---
-title: "42 tecken följt av | Microsoft Docs"
-description: "Visas i sökmotorer under rubriken. Du har mer utrymme här, använda fler nyckelord och en mer beskrivande förklaring än rubrik"
+title: 42 tecken följt av | Microsoft Docs
+description: Visas i sökmotorer under rubriken. Du har mer utrymme här, använda fler nyckelord och en mer beskrivande förklaring än rubrik
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: top-support-issue
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "23886255"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Rubrik (maximalt 120 tecken, mål nyckelordet primär)
 *Använd sekundära 2-3-nyckelord i beskrivningen.*

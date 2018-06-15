@@ -1,11 +1,11 @@
 ---
 title: Aktivera och inaktivera enheten StorSimple 8000-serien | Microsoft Docs
-description: "Beskriver hur du aktiverar en ny StorSimple-enhet, aktivera en enhet som har stängts av eller drabbades av strömavbrott och stänga av en enhet som körs."
+description: Beskriver hur du aktiverar en ny StorSimple-enhet, aktivera en enhet som har stängts av eller drabbades av strömavbrott och stänga av en enhet som körs.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779456"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Aktivera eller inaktivera enheten StorSimple 8000-serien
 

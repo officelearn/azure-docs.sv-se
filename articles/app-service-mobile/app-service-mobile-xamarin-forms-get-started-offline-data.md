@@ -1,10 +1,10 @@
 ---
-title: "Aktivera offlinesynkronisering för Azure Mobile App (Xamarin.Forms) | Microsoft Docs"
-description: "Lär dig mer om Apptjänst Mobile App till cache och synkronisera offlinedata i Xamarin.Forms-program"
+title: Aktivera offlinesynkronisering för Azure Mobile App (Xamarin.Forms) | Microsoft Docs
+description: Lär dig mer om Apptjänst Mobile App till cache och synkronisera offlinedata i Xamarin.Forms-program
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594725"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Aktivera synkronisering offline för din Xamarin.Forms-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

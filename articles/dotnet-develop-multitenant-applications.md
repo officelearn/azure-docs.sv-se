@@ -1,11 +1,11 @@
 ---
-title: "Flera innehavare Web programmönster | Microsoft Docs"
-description: "Hitta arkitektur översikter och designmönster som beskriver hur du implementerar ett webbprogram med flera innehavare i Azure."
-services: 
+title: Flera innehavare Web programmönster | Microsoft Docs
+description: Hitta arkitektur översikter och designmönster som beskriver hur du implementerar ett webbprogram med flera innehavare i Azure.
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850716"
 ---
 # <a name="multitenant-applications-in-azure"></a>Flera program i Azure
 Ett multitenant program är en delad resurs som gör att olika användare eller ”innehavare” visa programmet som om den har sina egna. Ett typiskt scenario som lämpar sig för en multitenant program är en där alla användare av programmet kan vilja anpassa användarupplevelsen men annars har samma grundläggande affärsbehov. Exempel på stora multitenant program är Office 365, Outlook.com och visualstudio.com.

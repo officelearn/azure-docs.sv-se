@@ -1,12 +1,12 @@
 ---
-title: "Användarinitierad Azure Automation Runbook-åtgärden i logganalys | Microsoft Docs"
-description: "Den här artikeln beskriver hur du kör en Automation-runbook från en logganalys Sök resultat på begäran."
+title: Användarinitierad Azure Automation Runbook-åtgärden i logganalys | Microsoft Docs
+description: Den här artikeln beskriver hur du kör en Automation-runbook från en logganalys Sök resultat på begäran.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394623"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utför en åtgärd med en Automation-Runbook från ett sökresultat för logganalys-logg
 

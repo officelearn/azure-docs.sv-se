@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31413438"
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Komma igång med Azure Scheduler på Azure-portalen
 Det är enkelt att skapa schemalagda jobb i Azure Scheduler. I den här självstudiekursen lär du dig hur du skapar ett jobb. Du lär dig också om övervaknings- och hanteringsfunktionerna i Scheduler.

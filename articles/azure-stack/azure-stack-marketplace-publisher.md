@@ -1,12 +1,12 @@
 ---
-title: "Använda Marketplace toolkit för att skapa och publicera marketplace-objekt | Microsoft Docs"
-description: "Lär dig att snabbt skapa marketplace-objekt med publicering Toolkit"
+title: Använda Marketplace toolkit för att skapa och publicera marketplace-objekt | Microsoft Docs
+description: Lär dig att snabbt skapa marketplace-objekt med publicering Toolkit
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386885"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Lägg till marketplace-objekt med hjälp av Publiceringsverktyget
 Lägger till ditt innehåll till den [Azure Stack Marketplace](azure-stack-marketplace.md) tillgängliggör dina lösningar för dig och dina klienter för distribution.  Marketplace-Toolkit skapar Azure Marketplace-paket (.azpkg) filer baserat på din IaaS Azure Resource Manager-mallar eller VM-tillägg.  Du kan också använda Marketplace Toolkit för att publicera .azpkg filer skapas med verktyget eller med hjälp av [manuell](azure-stack-create-and-publish-marketplace-item.md) steg.  Det här avsnittet hjälper dig att hämta verktyget, skapa en marketplace-objekt baserat på en mall och sedan publicera elementet i stapeln Azure Marketplace.     

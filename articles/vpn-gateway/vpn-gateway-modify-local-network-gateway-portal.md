@@ -1,13 +1,13 @@
 ---
-title: "Ändra lokala nätverket gateway IP-adressprefix och VPN-Gateway IP-adress | Azure | Portal | Microsoft Docs"
-description: "Den här artikeln vägleder dig genom att ändra IP-adressprefix för din lokala nätverksgateway som använder Azure portal."
+title: Ändra lokala nätverket gateway IP-adressprefix och VPN-Gateway IP-adress | Azure | Portal | Microsoft Docs
+description: Den här artikeln vägleder dig genom att ändra IP-adressprefix för din lokala nätverksgateway som använder Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23883826"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra inställningar för lokalt nätverk gateway med Azure-portalen
 

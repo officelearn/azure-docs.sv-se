@@ -1,8 +1,8 @@
 ---
-title: "Använd Azure storage för SQL Server-säkerhetskopiering och återställning | Microsoft Docs"
-description: "Lär dig mer om att säkerhetskopiera SQL Server till Azure Storage. Förklarar fördelarna med att säkerhetskopiera SQL-databaser till Azure Storage."
+title: Använd Azure storage för SQL Server-säkerhetskopiering och återställning | Microsoft Docs
+description: Lär dig mer om att säkerhetskopiera SQL Server till Azure Storage. Förklarar fördelarna med att säkerhetskopiera SQL-databaser till Azure Storage.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399057"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använd Azure Storage för SQL Server-säkerhetskopiering och återställning
 ## <a name="overview"></a>Översikt

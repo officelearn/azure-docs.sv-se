@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31518621"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Pausa och återuppta beräkningen för en Azure SQL Data Warehouse i Azure-portalen
 Använda Azure portal för att pausa beräkning i Azure SQL Data Warehouse och spara kostnader. [Återuppta databearbetning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda datalagret.

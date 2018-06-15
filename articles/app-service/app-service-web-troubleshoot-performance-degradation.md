@@ -1,13 +1,13 @@
 ---
-title: "Långsam web app i App Service | Microsoft Docs"
-description: "Den här artikeln hjälper dig att felsöka problem med långsam web app prestanda i Azure App Service."
+title: Långsam web app i App Service | Microsoft Docs
+description: Den här artikeln hjälper dig att felsöka problem med långsam web app prestanda i Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "Web app prestanda, långsam app app som är långsam"
+keywords: Web app prestanda, långsam app app som är långsam
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461850"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Felsöka problem med långsam web app prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam web app prestanda i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).

@@ -1,11 +1,11 @@
 ---
-title: "Ansluta en dator till ett virtuellt nätverk med punkt-till-plats och certifikatautentisering: den klassiska Azure-portalen | Microsoft Docs"
+title: 'Ansluta en dator till ett virtuellt nätverk med punkt-till-plats och certifikatautentisering: den klassiska Azure-portalen | Microsoft Docs'
 description: Skapa en klassisk gatewayanslutning med en punkt-till-plats-VPN med Azure-portalen.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464335"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: den klassiska Azure-portalen
 

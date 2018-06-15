@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416497"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding till Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard dra nytta av förbättrad säkerhet, hantering och skydd för dina hybrid cloud arbetsbelastningar.  Du kan försöka Standard gratis under 60 dagar. Se Security Center [sida med priser](https://azure.microsoft.com/pricing/details/security-center/) för mer information.

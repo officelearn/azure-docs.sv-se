@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper | Microsoft Docs"
-description: "Den här självstudiekursen vägleder dig genom stegen för att skapa en alltid på tillgänglighetsgruppens lyssnare i Azure som är tillgänglig externt med hjälp av den offentliga virtuella IP-adressen för tjänsten associerade molnet."
+title: Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper | Microsoft Docs
+description: Den här självstudiekursen vägleder dig genom stegen för att skapa en alltid på tillgänglighetsgruppens lyssnare i Azure som är tillgänglig externt med hjälp av den offentliga virtuella IP-adressen för tjänsten associerade molnet.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398870"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper i Azure
 > [!div class="op_single_selector"]

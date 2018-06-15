@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514027"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 

@@ -1,12 +1,12 @@
 ---
-title: "Konfigurera routningsmetoden för geografisk trafik med hjälp av Azure Traffic Manager | Microsoft Docs"
-description: "Den här artikeln förklarar hur du konfigurerar geografiska trafikroutningsmetod med hjälp av Azure Traffic Manager"
+title: Konfigurera routningsmetoden för geografisk trafik med hjälp av Azure Traffic Manager | Microsoft Docs
+description: Den här artikeln förklarar hur du konfigurerar geografiska trafikroutningsmetod med hjälp av Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397811"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Konfigurera geografiska trafikroutningsmetod med Traffic Manager
 

@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter växling vid fel med Azure Site Recovery | Microsoft Docs"
-description: "Beskriver hur du ställer in IP-adresser för att ansluta till virtuella datorer på en sekundär lokal plats efter redundans Azure Site Recovery."
+title: Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter växling vid fel med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella datorer på en sekundär lokal plats efter redundans Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378892"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter växling vid fel
 

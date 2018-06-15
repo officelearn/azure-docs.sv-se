@@ -1,8 +1,8 @@
 ---
-title: "Samla in data från CollectD i OMS Log Analytics | Microsoft Docs"
-description: "CollectD är en öppen källkod Linux-demonen som regelbundet samlar in data från program och information om systemet.  Den här artikeln innehåller information om att samla in data från CollectD i logganalys."
+title: Samla in data från CollectD i OMS Log Analytics | Microsoft Docs
+description: CollectD är en öppen källkod Linux-demonen som regelbundet samlar in data från program och information om systemet.  Den här artikeln innehåller information om att samla in data från CollectD i logganalys.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855210"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Samla in data från CollectD på Linux-agenter i logganalys
 [CollectD](https://collectd.org/) är en öppen källkod Linux-demonen som regelbundet samlar in prestandastatistik från program och information om systemet. Exempelprogram inkluderar Java Virtual Machine (JVM), MySQL-servern och Nginx. Den här artikeln innehåller information om att samla in prestandadata från CollectD i logganalys.

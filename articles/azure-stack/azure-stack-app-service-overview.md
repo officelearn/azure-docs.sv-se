@@ -1,12 +1,12 @@
 ---
-title: "Översikt över App Service: Azure Stack | Microsoft Docs"
-description: "Översikt över Apptjänst på Azure-stacken"
+title: 'Översikt över App Service: Azure Stack | Microsoft Docs'
+description: Översikt över Apptjänst på Azure-stacken
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386086"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Översikt över App Service på Azure Stack
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*

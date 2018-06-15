@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421563"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitlig och konsekvent, och program för högpresterande databearbetning. Det är byggt ovanpå [Apache Storm](http://storm.incubator.apache.org/) – en dataström som bearbetar system utformas av OSS communities. Storm är utformat av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](http://zookeeper.apache.org/), ett annat Apache-projekt att aktivera hög tillförlitliga distribuerade samordning och tillstånd. 

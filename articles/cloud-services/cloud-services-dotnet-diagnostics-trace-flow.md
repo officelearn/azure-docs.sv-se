@@ -1,11 +1,11 @@
 ---
-title: "Spåra flödet i Cloud Services-program med Azure-diagnostik | Microsoft Docs"
-description: "Lägga till spårning av meddelanden till ett Azure-program för att felsöka mäta prestanda, övervakning, trafik analys och mer."
+title: Spåra flödet i Cloud Services-program med Azure-diagnostik | Microsoft Docs
+description: Lägga till spårning av meddelanden till ett Azure-program för att felsöka mäta prestanda, övervakning, trafik analys och mer.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
 ms.service: cloud-services
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461255"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Spåra flödet av ett Cloud Services-program med Azure-diagnostik
 Spårning är ett sätt att övervaka körning av ditt program när den körs. Du kan använda den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), och [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) klasser för att registrera information om fel och program som körs i loggar, textfiler eller andra enheter för senare analys. Mer information om spårning finns [spårning och instrumentering program](https://msdn.microsoft.com/library/zs6s4h68.aspx).

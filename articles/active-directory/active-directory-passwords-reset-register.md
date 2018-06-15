@@ -1,13 +1,13 @@
 ---
-title: "Registrera dig för lösenordsåterställning via självbetjäning - Azure Active Directory"
-description: "Registrera autentiseringsdata för Azure AD-lösenordet för självbetjäning återställa"
+title: Registrera dig för lösenordsåterställning via självbetjäning - Azure Active Directory
+description: Registrera autentiseringsdata för Azure AD-lösenordet för självbetjäning återställa
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460483"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registrera för återställning av lösenord med självbetjäning
 

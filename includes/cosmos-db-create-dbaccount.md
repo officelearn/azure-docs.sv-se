@@ -10,9 +10,10 @@ ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
 ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31429415"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt webbläsarfönster.
 2. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.

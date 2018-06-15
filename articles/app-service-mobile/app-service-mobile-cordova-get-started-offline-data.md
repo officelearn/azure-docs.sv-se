@@ -1,10 +1,10 @@
 ---
-title: "Aktivera offlinesynkronisering för Azure Mobile App (Cordova) | Microsoft Docs"
-description: "Lär dig mer om Apptjänst Mobile App till cache och synkronisera offlinedata i Cordova-program"
+title: Aktivera offlinesynkronisering för Azure Mobile App (Cordova) | Microsoft Docs
+description: Lär dig mer om Apptjänst Mobile App till cache och synkronisera offlinedata i Cordova-program
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593722"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Aktivera offlinesynkronisering av Cordova-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

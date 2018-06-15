@@ -1,11 +1,11 @@
 ---
-title: "Hur du använder SendGrid e-posttjänst (.NET) | Microsoft Docs"
-description: "Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i C# och använder .NET-API."
-services: 
+title: Hur du använder SendGrid e-posttjänst (.NET) | Microsoft Docs
+description: Lär dig hur skicka e-post med SendGrid-e-posttjänsten på Azure. Kodexempel som skrivits i C# och använder .NET-API.
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534863"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Hur du skickar e-post med SendGrid med Azure
 ## <a name="overview"></a>Översikt

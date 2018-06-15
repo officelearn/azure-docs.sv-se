@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus-slutpunkt till slutpunkt-spårning och diagnostik | Microsoft Docs"
-description: "Översikt över Service Bus klientdiagnostik och spårning för slutpunkt till slutpunkt"
+title: Azure Service Bus-slutpunkt till slutpunkt-spårning och diagnostik | Microsoft Docs
+description: Översikt över Service Bus klientdiagnostik och spårning för slutpunkt till slutpunkt
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741337"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerade spårning och korrelation via Service Bus-meddelanden
 

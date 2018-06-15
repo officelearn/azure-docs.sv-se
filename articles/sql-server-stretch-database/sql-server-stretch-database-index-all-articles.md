@@ -1,8 +1,8 @@
 ---
-title: "Alla ämnen för SQL Server Stretch Database-tjänsten | Microsoft Docs"
-description: "Tabell med alla ämnen för Azure-tjänsten med namnet SQL Server Stretch Database, som finns på http://azure.microsoft.com/documentation/articles/, rubrik och beskrivning."
+title: Alla ämnen för SQL Server Stretch Database-tjänsten | Microsoft Docs
+description: Tabell med alla ämnen för Azure-tjänsten med namnet SQL Server Stretch Database, som finns på http://azure.microsoft.com/documentation/articles/, rubrik och beskrivning.
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23872948"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Alla ämnen för Azure SQL Server Stretch Database-tjänsten
 Det här avsnittet listar alla avsnittet som särskilt gäller direkt till den **SQL Server Stretch Database** tjänsten Azure. Du hittar den här webbsidan för nyckelord med hjälp av **Ctrl + F**, för att hitta de aktuella intresseområden.

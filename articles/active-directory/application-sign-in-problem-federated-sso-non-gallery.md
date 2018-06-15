@@ -1,11 +1,11 @@
 ---
-title: "Problem som loggar in på ett icke-galleriet program konfigurerade för federerad enkel inloggning | Microsoft Docs"
-description: "Riktlinjer för de specifika problem som du kan stöta på när du loggar in till ett program som konfigurerats för SAML-baserade federerad enkel inloggning med Azure AD"
+title: Problem som loggar in på ett icke-galleriet program konfigurerade för federerad enkel inloggning | Microsoft Docs
+description: Riktlinjer för de specifika problem som du kan stöta på när du loggar in till ett program som konfigurerats för SAML-baserade federerad enkel inloggning med Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "29383471"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på ett icke-galleriet program som konfigurerats för federerad enkel inloggning
 

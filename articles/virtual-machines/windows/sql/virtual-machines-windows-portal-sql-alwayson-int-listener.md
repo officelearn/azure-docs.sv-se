@@ -1,6 +1,6 @@
 ---
-title: "Skapa en SQL Server tillgänglighetsgruppens lyssnare i virtuella Azure-datorer | Microsoft Docs"
-description: "Stegvisa instruktioner för att skapa en lyssnare för en Always On-tillgänglighetsgrupp för SQL Server på virtuella Azure-datorer"
+title: Skapa en SQL Server tillgänglighetsgruppens lyssnare i virtuella Azure-datorer | Microsoft Docs
+description: Stegvisa instruktioner för att skapa en lyssnare för en Always On-tillgänglighetsgrupp för SQL Server på virtuella Azure-datorer
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400638"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en tillgänglighetsgrupp alltid på i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i virtuella Azure-datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanser finns på virtuella Azure-datorer. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.

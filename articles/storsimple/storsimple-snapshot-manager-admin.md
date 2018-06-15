@@ -1,11 +1,11 @@
 ---
 title: StorSimple Snapshot Manager administration | Microsoft Docs
-description: "Ger en översikt och länkar till mer information om administrationsuppgifter för StorSimple Snapshot Manager lösning och arbetsflöden."
+description: Ger en översikt och länkar till mer information om administrationsuppgifter för StorSimple Snapshot Manager lösning och arbetsflöden.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875433"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Använd StorSimple Snapshot Manager för att administrera din StorSimple-lösning
 

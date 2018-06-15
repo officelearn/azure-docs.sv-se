@@ -1,11 +1,11 @@
 ---
-title: "Web App kloning med hjälp av PowerShell"
-description: "Lär dig mer om att klona ditt webbprogram till nya webbprogram med hjälp av PowerShell."
+title: Web App kloning med hjälp av PowerShell
+description: Lär dig mer om att klona ditt webbprogram till nya webbprogram med hjälp av PowerShell.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27867486"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure Apptjänst-App kloning med hjälp av PowerShell
 Med versionen av Microsoft Azure PowerShell version 1.1.0, ett nytt alternativ har lagts till `New-AzureRMWebApp` som hjälper dig att klona en befintlig Webbapp till en nyligen skapade appen i en annan region eller i samma region. Det här alternativet gör det möjligt för kunder att distribuera flera appar över olika regioner, snabbt och enkelt.

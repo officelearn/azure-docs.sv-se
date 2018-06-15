@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera Load Balancer TCP timeout för inaktivitet | Microsoft Docs"
-description: "Konfigurera timeout för inaktivitet Load Balancer TCP"
+title: Konfigurera Load Balancer TCP timeout för inaktivitet | Microsoft Docs
+description: Konfigurera timeout för inaktivitet Load Balancer TCP
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855231"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera inställningar för TCP-tidsgränsen för inaktivitet för Azure belastningsutjämnare
 

@@ -1,8 +1,8 @@
 ---
-title: "Etablera och distribuera mikrotjänster förutsägbart i Azure"
-description: "Lär dig hur du distribuerar ett program som består av mikrotjänster i Azure App Service som en enhet och förutsägbart med hjälp av JSON resurs mallar och PowerShell-skript."
+title: Etablera och distribuera mikrotjänster förutsägbart i Azure
+description: Lär dig hur du distribuerar ett program som består av mikrotjänster i Azure App Service som en enhet och förutsägbart med hjälp av JSON resurs mallar och PowerShell-skript.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23837101"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här kursen visar hur du etablera och distribuera ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](/services/app-service/) som en enhet och förutsägbart JSON resurs mallar och PowerShell-skript. 

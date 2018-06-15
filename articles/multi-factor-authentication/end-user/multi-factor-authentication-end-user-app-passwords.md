@@ -1,8 +1,8 @@
 ---
-title: "Hur du använder Applösenord i Azure MFA? | Microsoft Docs"
-description: "Den här sidan hjälper användarna att förstå vad applösenord är och vad de används med hänsyn till Azure MFA."
+title: Hur du använder Applösenord i Azure MFA? | Microsoft Docs
+description: Den här sidan hjälper användarna att förstå vad applösenord är och vad de används med hänsyn till Azure MFA.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700358"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Vad är Applösenord i Azure Multi-Factor Authentication?
 Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt. Du kan inte skapa applösenord om du tillämpar Multifaktorautentisering via principer för villkorlig åtkomst och inte via MFA per användare. Program som använder principer för villkorlig åtkomst för åtkomstkontroll behöver inte applösenord.

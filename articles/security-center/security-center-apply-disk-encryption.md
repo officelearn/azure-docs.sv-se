@@ -1,11 +1,11 @@
 ---
-title: "Tillämpa diskkryptering i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** gäller disk encryption **."
+title: Tillämpa diskkryptering i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** gäller disk encryption **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866263"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Tillämpa diskkryptering i Azure Security Center
 Azure Security Center rekommenderar att du tillämpar kryptering om du har Windows eller Linux VM diskar som inte är krypterade med hjälp av Azure Disk Encryption. Diskkryptering kan du kryptera din Windows- och Linux IaaS-VM-diskar.  Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn.

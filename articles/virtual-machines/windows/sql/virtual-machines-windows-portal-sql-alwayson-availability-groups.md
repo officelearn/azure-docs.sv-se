@@ -1,11 +1,11 @@
 ---
-title: "Konfigurera hög tillgänglighet för virtuella datorer i Azure Resource Manager | Microsoft Docs"
-description: "Den här kursen visar hur du skapar en Always On-tillgänglighetsgrupp med virtuella Azure-datorer i Azure Resource Manager-läge."
+title: Konfigurera hög tillgänglighet för virtuella datorer i Azure Resource Manager | Microsoft Docs
+description: Den här kursen visar hur du skapar en Always On-tillgänglighetsgrupp med virtuella Azure-datorer i Azure Resource Manager-läge.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401029"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always On-Tillgänglighetsgrupper i Azure Virtual Machines automatiskt: Resource Manager
 

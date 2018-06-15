@@ -1,8 +1,8 @@
 ---
 title: Integrera med Operations Management Suite (OMS) | Microsoft Docs
-description: "Förutom att använda standard OMS-funktionerna kan integrera du den med andra av hanteringsprogram och tjänster att tillhandahålla en hybridmiljö för hantering, att tillhandahålla anpassade hanteringsscenarier som är unik för din miljö eller ange en anpassad hantering upplevelse för kunderna.  Den här artikeln innehåller en översikt över olika alternativ för att integrera med OMS och länkar till artiklar som ger detaljerad teknisk information."
+description: Förutom att använda standard OMS-funktionerna kan integrera du den med andra av hanteringsprogram och tjänster att tillhandahålla en hybridmiljö för hantering, att tillhandahålla anpassade hanteringsscenarier som är unik för din miljö eller ange en anpassad hantering upplevelse för kunderna.  Den här artikeln innehåller en översikt över olika alternativ för att integrera med OMS och länkar till artiklar som ger detaljerad teknisk information.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865864"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integrera med Operations Management Suite (OMS)
 Operations Management Suite är Microsofts molnbaserade IT lösning som hjälper dig att hantera och skydda dina lokala och molnet infrastruktur.  Förutom att använda standard OMS-funktionerna kan integrera du den med andra av hanteringsprogram och tjänster att tillhandahålla en hybridmiljö för hantering, att tillhandahålla anpassade hanteringsscenarier som är unik för din miljö eller ange en anpassad hantering upplevelse för kunderna.  Den här artikeln innehåller en översikt över olika alternativ för att integrera med OMS-tjänster och länkar till artiklar som ger detaljerad teknisk information. 

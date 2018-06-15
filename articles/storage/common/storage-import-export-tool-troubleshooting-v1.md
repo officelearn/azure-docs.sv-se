@@ -1,11 +1,11 @@
 ---
-title: "Felsökning av verktyget Azure Import/Export | Microsoft Docs"
-description: "Lär dig mer om några vanliga problem som visas när du använder verktyget Azure Import/Export och hur du hanterar dem."
+title: Felsökning av verktyget Azure Import/Export | Microsoft Docs
+description: Lär dig mer om några vanliga problem som visas när du använder verktyget Azure Import/Export och hur du hanterar dem.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b91ca5eb-c557-460a-9afc-0590b38471f9
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873697"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Felsökning av Azures import-/exportverktyg
 Verktyget Microsoft Azure Import/Export returnerar felmeddelanden om den körs i problem. Det här avsnittet beskrivs några vanliga problem som användarna kan köra till.  

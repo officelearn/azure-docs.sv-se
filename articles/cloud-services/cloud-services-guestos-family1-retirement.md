@@ -1,11 +1,11 @@
 ---
-title: "Lägg märke till gäst-OS-familjen 1 pensionering | Microsoft Docs"
-description: "Innehåller information om när Azure gäst OS-familjen 1 pensionering har inträffat och hur man avgör om påverkas"
+title: Lägg märke till gäst-OS-familjen 1 pensionering | Microsoft Docs
+description: Innehåller information om när Azure gäst OS-familjen 1 pensionering har inträffat och hur man avgör om påverkas
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843135"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Gäst-OS-familjen 1 pensionering meddelande
 Tillbakadragning av OS-familjen 1 först har meddelat den 1 juni 2013.

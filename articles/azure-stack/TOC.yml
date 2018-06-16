@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Ändra användare prenumeration ägare
           href: azure-stack-change-subscription-owner.md
-        - name: Hantera virtuella Windows Azure Pack-datorer
-          href: azure-stack-manage-windows-azure-pack.md
         - name: Starta och stoppa Azure Stack
           href: azure-stack-start-and-stop.md
         - name: Hantera kapacitet

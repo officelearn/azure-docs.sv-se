@@ -1,8 +1,19 @@
 ---
- Rubrik: inkludera Filbeskrivning: inkludera Filtjänster: azure-policy författare: eross msft
- 
-MS.Service: azure-policy ms.topic: inkludera ms.date: 04/24/2018 ms.author: lizross ms.custom: include-filen
+title: ta med fil
+description: ta med fil
+services: active-directory
+author: eross-msft
+ms.service: active-directory
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: lizross
+ms.custom: include file
+ms.openlocfilehash: cb7bb8e03ed027e140cc3c6f7bba7c8497ea7f45
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35661714"
 ---
-
 >[!Note] 
->Om du letar efter allmän information om BNPR finns i [BNPR avsnitt av tjänsten förtroende portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Om du letar efter allmän information om GDPR hittar du det i [GDPR-avsnittet på Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

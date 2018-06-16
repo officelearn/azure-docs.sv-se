@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568134"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35683040"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -50,7 +50,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Nätverkssäkerhetsgrupper (NSG) |100 |5000 |
 | NSG-regler per NSG |1000 ** |1000 |
 | IP-adresser och intervall som angetts för källan eller målet i en säkerhetsgrupp |2000 |4000 |
-| Programsäkerhetsgrupper |200 |500 |
+| Programsäkerhetsgrupper |500 |3000 |
 | Programmet säkerhetsgrupper per IP-konfiguration per NIC |10 |20 |
 | IP-konfigurationer per program säkerhetsgrupp |1000 |4000 |
 | Säkerhetsgrupper för program som kan anges i alla säkerhetsregler för en nätverkssäkerhetsgrupp |50 |100 |

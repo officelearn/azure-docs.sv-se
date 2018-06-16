@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307574"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683057"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala virtuella datorer med Azure reserverade VM-instanser
 
@@ -16,7 +16,14 @@ Du kan köpa Azure reserverade instanser den [Azure-portalen](https://portal.azu
 -   Enterprise-prenumerationer, reserverade inköp måste vara aktiverade i den [EA portal](https://ea.azure.com).
 -   Endast admin agenter eller försäljning agenter kan köpa reserverade instanserna för Cloud Solution Providers (CSP) program.
 
-## <a name="buy-a-reserved-instance"></a>Köp en reserverad instans
+[!IMPORTANT]
+Du måste använda en av de metoder som beskrivs nedan för att identifiera den korrekt VM-storlek för ett reservation inköp.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Bestämma rätt storlek för virtuell dator innan du köper
+1. Finns i AdditionalInfo-fältet i din användning av filen eller användning API för att bestämma rätt VM-storlek för ett reservation inköp. Använd inte värdena från underkategori för mätaren eller produkten fält eftersom de här fälten inte skiljer och icke versioner av en virtuell dator.
+2. Du kan också få korrekt information om Virtuellt storlek med hjälp av Powershell, Azure Resource Manager eller från VM information i Azure-portalen.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Köp en reserverad virtuell dator-instans
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** > **reservationer**.
 3. Välj **Lägg till** att köpa en ny reserverad instans.

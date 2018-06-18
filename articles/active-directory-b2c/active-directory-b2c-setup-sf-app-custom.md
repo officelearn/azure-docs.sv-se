@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Lägga till en Salesforce SAML-provider med hjälp av anpassade principer | Microsoft Docs'
+title: Lägga till en Salesforce SAML-provider med hjälp av anpassade principer i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig mer om hur du skapar och hanterar Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: davidmu
-ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: f4399730755c15fe5e171bf7fd5826c2b7ffea0a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709656"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: Logga in med hjälp av Salesforce konton via SAML
 

@@ -13,7 +13,7 @@
 
 # Kom igång
 ## [Kom igång med Azure AD](fundamentals/get-started-azure-ad.md)
-## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
+## [Registrera dig för Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Lägga till ett anpassat domännamn](fundamentals/add-custom-domain.md)
 ## [Konfigurera varumärkesexponering](fundamentals/customize-branding.md)
 ## [Lägga till användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### Hantera grupper
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell för Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
+### [Hantera gruppmedlemmar](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Tilldela licenser med hjälp av grupper](fundamentals/active-directory-licensing-whatis-azure-portal.md)

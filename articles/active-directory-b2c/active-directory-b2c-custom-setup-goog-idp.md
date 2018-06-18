@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer'
-description: Exempel med hjälp av Google + som identitetsleverantör med OAuth2-protokollet
+title: Lägga till Google + som en OAuth2-identitetsleverantör med anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: Exempel med hjälp av Google + som identitetsleverantör med OAuth2-protokollet.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 3be17ca815910b7472a8760529971bd6c2016792
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709282"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer
 

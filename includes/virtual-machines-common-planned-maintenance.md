@@ -9,10 +9,11 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "30196448"
 ---
 Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerhet för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar mellan korrigering programvarukomponenter i värdmiljön (till exempel operativsystem, hypervisor och olika agenter distribueras på värden), uppgraderar nätverkskomponenter, till inaktivering av maskinvara. Flesta av de här uppdateringarna utförs utan någon inverkan på de virtuella datorerna. Det finns dock fall där uppdateringar har konsekvenser:
 

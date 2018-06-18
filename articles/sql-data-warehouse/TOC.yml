@@ -49,8 +49,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Säkerhetskopiering och återställning
           href: backup-and-restore.md
-        - name: Granskning
-          href: sql-data-warehouse-auditing-overview.md
         - name: Kapacitetsbegränsningar
           href: sql-data-warehouse-service-capacity-limits.md
         - name: Underhåll
@@ -61,8 +59,22 @@
       items:
         - name: Översikt
           href: sql-data-warehouse-overview-manage-security.md
+        - name: Åtkomstkontroll
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Brandväggsregler
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Brandväggsregler för virtuellt nätverk
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Autentisering
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Azure AD
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Inloggningar och användare
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Multifaktorautentisering
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Granskning
+          href: sql-data-warehouse-auditing-overview.md
         - name: Säkerhet på kolumnnivå
           href: column-level-security.md
     - name: Migrera till SQL Data Warehouse
@@ -181,6 +193,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Säkerhet
       items:
+        - name: Konfigurera Azure AD-autentisering
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Villkorlig åtkomst
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Regler för Virtual Network av PowerShell
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Aktivera kryptering – portalen
           href: sql-data-warehouse-encryption-tde.md
         - name: Aktivera kryptering – T-SQL

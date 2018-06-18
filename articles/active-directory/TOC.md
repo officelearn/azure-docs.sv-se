@@ -1,22 +1,22 @@
 # [Dokumentation om Azure Active Directory](index.md)
 
 # Översikt
-## [Vad är Azure Active Directory?](active-directory-whatis.md)
+## [Vad är Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Om Azures identitetshantering](fundamentals/identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](fundamentals/understand-azure-identity-solutions.md)
 ## [Välj en hybrididentitetslösning](choose-hybrid-identity-solution.md)
-## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
+## [Associera Azure-prenumerationer](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Överväganden för lagring och data](fundamentals/active-directory-data-storage-eu.md)
 ## [Vanliga frågor och svar](fundamentals/active-directory-faq.md)
 ## [Nyheter](fundamentals/whats-new.md)
 
 
 # Kom igång
-## [Kom igång med Azure AD](get-started-azure-ad.md)
+## [Kom igång med Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
-## [Lägga till ett anpassat domännamn](add-custom-domain.md)
-## [Konfigurera varumärkesexponering](customize-branding.md)
-## [Lägga till användare i Azure AD](add-users-azure-active-directory.md)
+## [Lägga till ett anpassat domännamn](fundamentals/add-custom-domain.md)
+## [Konfigurera varumärkesexponering](fundamentals/customize-branding.md)
+## [Lägga till användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [Tilldela licenser till användare](fundamentals/license-users-groups.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](authentication/quickstart-sspr.md)
 ## [Lägg till din organisations sekretessinformation i Azure AD](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Hantera användare
-### [Lägga till nya användare i Azure AD](add-users-azure-active-directory.md)
-### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
+### [Lägga till nya användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
+### [Hantera användarprofiler](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
-### [Tilldela användare administrativa roller](active-directory-users-assign-role-azure-portal.md)
-### [Återställa en borttagen användare](active-directory-users-restore.md)
+### [Tilldela användare administrativa roller](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Återställa en borttagen användare](fundamentals/active-directory-users-restore.md)
 ### [Lägga till gästanvändare från annan katalog (B2B)](b2b/what-is-b2b.md)
 #### [Administratörer som lägger till B2B-användare](b2b/add-users-administrator.md)
 #### [Informationsarbetare som lägger till B2B-användare](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [Jämför B2B-samarbete med B2C](b2b/compare-with-b2c.md)
 #### [Få support för B2B](b2b/get-support.md)
 
-## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
+## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### Hantera grupper
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell för Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
-### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
+### [Hantera gruppägare](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
+### [Tilldela licenser med hjälp av grupper](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
 ### [Framtvinga en namnprincip för grupper](groups-naming-policy.md)
-### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
+### [Visa alla grupper](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Hantera gruppinställningar](active-directory-groups-settings-azure-portal.md) 
+### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Skapa avancerade regler
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR-rapportering](authentication/howto-sspr-reporting.md)
 ### IT-administratörer: Återställ lösenord
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licensiera SSPR](authentication/concept-sspr-licensing.md)
 ### [Tillbakaskrivning av lösenord](authentication/howto-sspr-writeback.md)
 ### [Felsöka](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## Hantera din katalog
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
-#### [Snabbstart](add-custom-domain.md)
+#### [Snabbstart](fundamentals/add-custom-domain.md)
 #### [Lägga till anpassade domännamn](active-directory-domains-manage-azure-portal.md)
 ### [Administrera din katalog](fundamentals/active-directory-administer.md)
 ### [Ta bort en katalog](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Hantera åtkomst till Azure](../role-based-access-control/toc.yml)
-
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
-#### [Tilldela administratörsroll till en användare](active-directory-users-assign-role-azure-portal.md) 
+#### [Tilldela administratörsroll till en användare](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Jämföra behörigheter för medlemmar och gästanvändare](fundamentals/users-default-permissions.md) 
 ### [Säker privilegierad åtkomst](admin-roles-best-practices.md)  
 ### [Skapa åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snabbstarter
 ##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
+##### [Kräv att användningsvillkoren godkänns](active-directory-conditional-access-tou.md)
 #### Självstudier
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 #### Begrepp
@@ -371,7 +370,7 @@
 ### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Ändra signaturens hashalgoritm](active-directory-federation-sha256-guidance.md)
 
-## [Felsöka](active-directory-troubleshooting-support-howto.md)
+## [Felsöka](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Distribuera Azure AD PoC (Proof of Concept)
 ### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)

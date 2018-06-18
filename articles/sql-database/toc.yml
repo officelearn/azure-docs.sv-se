@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Elastic Database-jobb
+      items:
+        - name: Översikt
+          href: elastic-jobs-overview.md
+        - name: Skapa och hantera (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: Skapa och hantera (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Migrera (från gamla elastiska jobb)
+          href: elastic-jobs-migrate.md
+        - name: Elastiska jobb (inaktuella)
+          items:
+            - name: Översikt (inaktuell)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Installera elastiska jobb (inaktuellt)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: Skapa jobb – Portal (inaktuellt)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: Skapa jobb – Azure PowerShell (inaktuellt)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: Skapa jobb – exempelapp (inaktuellt)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Avinstallera elastiskt jobb (inaktuellt)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Skala ut
       items:
         - name: Översikt
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Elastiska transaktioner
           href: sql-database-elastic-transactions-overview.md
-        - name: Elastiska jobb
-          href: sql-database-elastic-jobs-overview.md
         - name: Shardkartor
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routning för frågor
@@ -276,16 +298,6 @@
       items:
         - name: Uppgradera klientbibliotek för elastiska databaser
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Installera elastiska jobb
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Skapa jobb – Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Skapa jobb – Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Skapa jobb – Exempelapp
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Avinstallera elastiskt jobb
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Fråga lodrätt partitionerade data
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Rapportera över utskalad datanivå
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (Elastic Database)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET

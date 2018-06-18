@@ -1,51 +1,57 @@
 - name: Översikt över att hantera åtkomst
   href: manage-access-to-azure-resources.md
-- name: Resursåtkomst i Azure
-  href: rbac-and-directory-admin-roles.md
-- name: Rollbaserad åtkomstkontroll (RBAC)
-  href: overview.md
+  items: null
+- name: Översikt
   items:
-    - name: Snabbstarter
-      items:
-        - name: Bevilja åtkomst för en användare – Portal
-          href: quickstart-assign-role-user-portal.md
-    - name: Självstudier
-      items:
-        - name: Bevilja åtkomst för en användare – PowerShell
-          href: tutorial-role-assignments-user-powershell.md
-        - name: Bevilja åtkomst för en grupp – PowerShell
-          href: tutorial-role-assignments-group-powershell.md
-        - name: Skapa en anpassad roll – PowerShell
-          href: tutorial-custom-role-powershell.md
-        - name: Skapa en anpassad roll – CLI
-          href: tutorial-custom-role-cli.md
-    - name: Hantera rolltilldelningar
-      items:
-        - name: Portalen
-          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: REST
-          href: role-assignments-rest.md
+    - name: Vad är RBAC?
+      href: overview.md
+    - name: Förstå de olika rollerna
+      href: rbac-and-directory-admin-roles.md
+- name: Snabbstarter
+  items:
+    - name: Bevilja åtkomst för en användare
+      href: quickstart-assign-role-user-portal.md
+- name: Självstudier
+  items:
+    - name: Bevilja åtkomst för en användare – PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: Bevilja åtkomst för en grupp – PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: Skapa en anpassad roll – PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: Skapa en anpassad roll – CLI
+      href: tutorial-custom-role-cli.md
+- name: Begrepp
+  items:
     - name: Förstå rolldefinitioner
       href: role-definitions.md
     - name: Inbyggda roller
       href: built-in-roles.md
     - name: Anpassade roller
       href: custom-roles.md
-    - name: Hantera rolltilldelningar för externa användare
-      href: role-assignments-external-users.md
+    - name: Åtgärder för resursprovider
+      href: resource-provider-operations.md
+    - name: Privileged Identity Management (PIM) för RBAC
+      href: pim-azure-resource.md
+    - name: Villkorlig åtkomst för hantering av Azure
+      href: conditional-access-azure-management.md
+- name: Instruktionsguider
+  items:
+    - name: Hantera åtkomst
+      items:
+        - name: Portalen
+          href: role-assignments-portal.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
     - name: Aktivitetsloggar
       href: change-history-report.md
     - name: Öka åtkomsten för global administratör
       href: elevate-access-global-admin.md
+    - name: Hantera åtkomst för externa användare
+      href: role-assignments-external-users.md
     - name: Felsöka
       href: troubleshooting.md
-    - name: Åtgärder för resursprovider
-      href: resource-provider-operations.md
-- name: Privileged Identity Management (PIM) för RBAC
-  href: pim-azure-resource.md
-- name: Villkorlig åtkomst för hantering av Azure
-  href: conditional-access-azure-management.md

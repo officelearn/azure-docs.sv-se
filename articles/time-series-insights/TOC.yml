@@ -16,6 +16,8 @@
       href: tutorial-explore-js-client-lib.md
     - name: Skapa en TSI-miljö
       href: tutorial-create-populate-tsi-environment.md
+    - name: Skapa en TSI-webbapp med en sida
+      href: tutorial-create-tsi-sample-spa.md
 - name: Begrepp
   items:
     - name: Planera din miljö

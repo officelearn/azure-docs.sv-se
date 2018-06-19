@@ -2,8 +2,7 @@
   href: /azure/hdinsight
 - name: Storm på HDInsight
   items:
-    - name: |
-        Översikt
+    - name: Översikt
       href: apache-storm-overview.md
     - name: Versionshantering för komponenter
       href: ../hdinsight-component-versioning.md
@@ -235,13 +234,10 @@
         - name: Ansluta HDInsight till det lokala nätverket
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Övervaka med OMS
+    - name: Övervakning med hjälp av Log Analytics
       items:
         - name: Använda Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Klusterspecifika instrumentpaneler
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Använda frågor med Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

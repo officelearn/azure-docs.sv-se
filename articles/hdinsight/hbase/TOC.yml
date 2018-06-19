@@ -2,8 +2,7 @@
   href: /azure/hdinsight
 - name: HBase på HDInsight
   items:
-    - name: |
-        Översikt
+    - name: Översikt
       href: apache-hbase-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -250,15 +249,10 @@
           href: apache-hbase-replication.md
         - name: Konfigurera säkerhetskopiering och replikering för HBase och Phoenix
           href: apache-hbase-backup-replication.md
-    - name: Övervaka med OMS
+    - name: Övervakning med hjälp av Log Analytics
       items:
         - name: Använda Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Övervaka HBase med OMS
-          href: apache-hbase-monitor-with-oms.md
-        - name: Klusterspecifika instrumentpaneler
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Använda frågor med Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac4298b6a386ca40d5fd054ba8712b45c61f653d
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202555"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "36205628"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Anropa Microsoft Graph API från ett JavaScript Single-Page Application (SPA)
 
@@ -31,7 +31,7 @@ Den här guiden visar hur en JavaScript enda sidan program (SPA) kan logga in pe
 ![Så här fungerar sample-appen som genererats av den här guiden](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>Mer information
+### <a name="more-information"></a>Mer information
 
 Det exempelprogram som skapats av den här guiden kan en JavaScript-SPA frågar Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2-slutpunkten. För det här scenariot, när en användare loggar in, begärt en åtkomst-token och lägga till HTTP-förfrågningar via authorization-huvud. Token förvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
 

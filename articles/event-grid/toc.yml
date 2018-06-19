@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
+    - name: Hantera händelseleverans
+      href: manage-event-delivery.md
     - name: Övervaka händelseleverans
       href: monitor-event-delivery.md
     - name: Prenumerationer på frågehändelser

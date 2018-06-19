@@ -1,5 +1,5 @@
-- name: Översikt över att hantera åtkomst
-  href: manage-access-to-azure-resources.md
+- name: Dokumentation om rollbaserad åtkomstkontroll
+  href: index.yml
   items: null
 - name: Översikt
   items:
@@ -36,6 +36,7 @@
     - name: Villkorlig åtkomst för hantering av Azure
       href: conditional-access-azure-management.md
 - name: Instruktionsguider
+  expanded: true
   items:
     - name: Hantera åtkomst
       items:

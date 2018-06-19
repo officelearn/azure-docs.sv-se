@@ -16,6 +16,8 @@
   items:
     - name: Lägga till Azure CDN till en webbapp
       href: cdn-add-to-web-app.md
+    - name: Få åtkomst till blobar med hjälp av en anpassad domän via HTTPS
+      href: cdn-storage-custom-domain-https.md
     - name: Lägga till en anpassad domän
       href: cdn-map-content-to-custom-domain.md
     - name: Konfigurera HTTPS på en anpassad domän

@@ -37,13 +37,10 @@
     - name: Replikering av HBase-kluster i ett virtuellt Azure-nätverk
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Övervaka med OMS
+- name: Övervakning med hjälp av Log Analytics
   items:
     - name: Använda Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Klusterspecifika instrumentpaneler
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Använda frågor med Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

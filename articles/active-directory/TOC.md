@@ -122,7 +122,6 @@
 ### Referens
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
-#### [Meddelanden](active-directory-reporting-notifications.md)
 #### [Granska aktivitetsreferens](active-directory-reporting-activity-audit-reference.md)
 #### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR-anpassning](authentication/concept-sspr-customization.md)
 ### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR-rapportering](authentication/howto-sspr-reporting.md)
+### [Eliminera svaga lösenord](authentication/concept-password-ban-bad.md)
+### [Konfigurera listan med förbjudna lösenord](authentication/howto-password-ban-bad.md)
+### [Lokal integration](authentication/concept-password-ban-bad-on-premises.md)
+### [Distribuera Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises.md)
+### [Konfigurera Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Övervaka Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT-administratörer: Återställ lösenord
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Licensiera SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)
 ### [Komma igång](manage-apps/plan-an-application-integration.md)
-### [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
+### [Självstudier om SaaS-appintegration](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Skapa ögonblicksrapporter](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [Användaretablering och -avetablering till SaaS-appar](active-directory-saas-app-provisioning.md) 
-#### [Självstudier om appintegration](active-directory-saas-tutorial-list.md) 
+#### [Självstudier om appintegration](saas-apps/tutorial-list.md) 
 #### [Automatisera etablering till SCIM-aktiverade appar](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Anpassa attributmappningar](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Skriva uttryck för attributmappningar](active-directory-saas-writing-expressions-for-attribute-mappings.md) 

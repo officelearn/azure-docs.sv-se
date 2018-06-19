@@ -54,11 +54,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Konfigurera varningar
           href: stream-analytics-set-up-alerts.md
-        - name: Testa ditt jobb
+        - name: Testa ett jobb
           href: stream-analytics-test-query.md
         - name: Visa resultat på en instrumentpanel
           href: stream-analytics-power-bi-dashboard.md
-        - name: Rensa ditt jobb
+        - name: Rensa ett jobb
           href: stream-analytics-clean-up-your-job.md
         - name: Koppla jobb för tillförlitlighet
           href: stream-analytics-job-reliability.md

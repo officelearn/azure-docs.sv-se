@@ -53,7 +53,7 @@
     - name: Övervaka säkerhetshälsa
       href: security-center-monitoring.md
       items:
-        - name: Compute-säkerhet
+        - name: Säkerhet för Compute och appar
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: Tillämpa diskkryptering
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: Sårbarhetsbedömning inte installerad
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: Lägg till en brandvägg för webbappar
+              href: security-center-add-web-application-firewall.md
+            - name: Slutföra programskydd
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Nätverkssäkerhet
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: Aktivera transparent datakryptering
               href: security-center-enable-transparent-data-encryption.md
-        - name: Programsäkerhet
-          href: security-center-application-recommendations.md
-          items:
-            - name: Lägg till en brandvägg för webbappar
-              href: security-center-add-web-application-firewall.md
-            - name: Slutföra programskydd
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Identitet och åtkomst
           href: security-center-identity-access.md
     - name: Tillämpa molnskydd

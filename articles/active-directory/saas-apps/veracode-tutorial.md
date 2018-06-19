@@ -1,0 +1,288 @@
+---
+title: 'Självstudier: Azure Active Directory-integrering med Veracode | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Veracode.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: mtillman
+ms.reviewer: joflore
+ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2017
+ms.author: jeedes
+ms.openlocfilehash: 3a6818c65b461dd989b1516191b845811642608d
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35966663"
+---
+# <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Självstudier: Azure Active Directory-integrering med Veracode
+
+I kursen får lära du att integrera Veracode med Azure Active Directory (AD Azure).
+
+Integrera Veracode med Azure AD ger dig följande fördelar:
+
+- Du kan styra i Azure AD som har åtkomst till Veracode.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Veracode (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
+
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att konfigurera Azure AD-integrering med Veracode, behöver du följande:
+
+- En Azure AD-prenumeration
+- En Veracode enkel inloggning aktiverad prenumeration
+
+> [!NOTE]
+> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+
+Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Scenariobeskrivning
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+
+1. Lägg till Veracode från galleriet
+2. Konfigurera och testa Azure AD enkel inloggning
+
+## <a name="add-veracode-from-the-gallery"></a>Lägg till Veracode från galleriet
+Du måste lägga till Veracode från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Veracode i Azure AD.
+
+**Utför följande steg för att lägga till Veracode från galleriet:**
+
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+
+    ![Azure Active Directory-knappen][1]
+
+2. Gå till **företagsprogram**. Gå till **alla program**.
+
+    ![Bladet Enterprise program][2]
+    
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+
+    ![Knappen Nytt program][3]
+
+4. I sökrutan skriver **Veracode**väljer **Veracode** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+
+    ![Veracode i resultatlistan](./media/veracode-tutorial/tutorial_veracode_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Veracode baserat på en testanvändare som kallas ”Britta Simon”.
+
+Azure AD måste du känna till användaren i Veracode motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Veracode upprättas.
+
+I Veracode, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+
+Om du vill konfigurera och testa Azure AD enkel inloggning med Veracode, måste du utföra följande byggblock:
+
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Veracode](#create-a-veracode-test-user)**  – du har en motsvarighet för Britta Simon i Veracode som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Veracode program.
+
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Veracode:**
+
+1. I Azure-portalen på den **Veracode** integreringssidan för programmet, klickar du på **enkel inloggning**.
+
+    ![Konfigurera enkel inloggning länk][4]
+
+2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+ 
+    ![Enkel inloggning dialogrutan](./media/veracode-tutorial/tutorial_veracode_samlbase.png)
+
+3. På den **Veracode domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen före redan är integrerad med Azure. 
+
+    ![Konfigurera enkel inloggning](./media/veracode-tutorial/tutorial_veracode_url.png)
+
+4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+
+    ![Länken hämta certifikatet](./media/veracode-tutorial/tutorial_veracode_certificate.png) 
+
+5. Syftet med det här avsnittet är att beskriva hur användarna att autentisera till Veracode med sitt konto i Azure AD med hjälp av federation baserat på SAML-protokoll.
+
+    Tillämpningsprogrammet Veracode förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till attributmappningar till din **saml-token attribut** konfiguration. Följande skärmbild visar ett exempel för det här.
+    
+    ![Attribut](./media/veracode-tutorial/tutorial_veracode_attr.png "attribut")
+
+6. Utför följande steg för att lägga till nödvändiga attributmappning:
+
+    | Attributnamn | Attributvärde |
+    |--- |--- |
+    | Förnamn |User.givenName |
+    | Efternamn |User.surname |
+    | e-post |User.Mail |
+    
+    a. För varje datarad i tabellen ovan, klickar du på **lägga till användarattribut**.
+    
+    ![Attribut](./media/veracode-tutorial/tutorial_veracode_addattr.png "attribut")
+    
+    ![Attribut](./media/veracode-tutorial/tutorial_veracode_addattr1.png "attribut")
+    
+    b. I den **attributnamn** textruta ange attributets namn visas för den raden.
+    
+    c. I den **attributvärdet** textruta Välj attributvärde som visas för den raden.
+    
+    d. Klicka på **OK**.
+
+7. Klicka på **spara** knappen.
+
+    ![Konfigurera enkel inloggning spara](./media/veracode-tutorial/tutorial_general_400.png)
+
+8. På den **Veracode Configuration** klickar du på **konfigurera Veracode** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID** från den **Snabbreferens avsnitt.**
+
+    ![Veracode konfiguration](./media/veracode-tutorial/tutorial_veracode_configure.png) 
+
+9. Logga in på webbplatsen Veracode företag som en administratör i en annan webbläsarfönster.
+
+10. Klicka på menyn högst upp **inställningar**, och klicka sedan på **Admin**.
+   
+    ![Administration](./media/veracode-tutorial/ic802911.png "Administration")
+
+11. Klicka på den **SAML** fliken.
+
+12. I den **SAML organisationsinställningar** avsnittet, utför följande steg:
+   
+    ![Administration](./media/veracode-tutorial/ic802912.png "Administration")
+   
+    a.  I **utfärdaren** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen.
+    
+    b. Om du vill överföra din hämtat certifikat från Azure-portalen klickar du på **Välj fil**.
+   
+    c. Välj **aktivera självregistrering**.
+
+13. I den **Self Registreringsinställningar** avsnittet, utför följande steg och klicka sedan på **spara**:
+   
+    ![Administration](./media/veracode-tutorial/ic802913.png "Administration")
+   
+    a. Som **aktivera nya användare**väljer **Nej-aktivering krävs**.
+   
+    b. Som **Data uppdateras**väljer **inställningar Veracode användardata**.
+   
+    c. För **SAML attributinformation**, Välj följande:
+      * **Användarroller**
+      * **Princip för administratör**
+      * **granskare**
+      * **Säkerhet Lead**
+      * **Verkställande**
+      * **Avsändaren**
+      * **Skapare**
+      * **Alla typer av genomgångar**
+      * **Medlemskap i gruppen**
+      * **Standard-teamet**
+
+> [!TIP]
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+
+   ![Skapa en testanvändare i Azure AD][100]
+
+**Utför följande steg för att skapa en testanvändare i Azure AD:**
+
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+
+    ![Azure Active Directory-knappen](./media/veracode-tutorial/create_aaduser_01.png)
+
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+
+    ![”Användare och grupper” och ”alla användare” länkar](./media/veracode-tutorial/create_aaduser_02.png)
+
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+
+    ![Knappen Lägg till](./media/veracode-tutorial/create_aaduser_03.png)
+
+4. I den **användaren** dialogrutan utför följande steg:
+
+    ![Dialogrutan användare](./media/veracode-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+
+    d. Klicka på **Skapa**.
+ 
+### <a name="create-a-veracode-test-user"></a>Skapa en testanvändare Veracode
+För att aktivera Azure AD-användare att logga in på Veracode etableras de i Veracode. När det gäller Veracode är etablering en automatisk uppgift. Det finns ingen åtgärd-objekt. Användare skapas automatiskt om det behövs under det första enkla inloggning försöket.
+
+> [!NOTE]
+> Du kan använda något annat Veracode användarens konto skapas verktyg eller API: er som tillhandahålls av Veracode att etablera Azure AD-användarkonton.
+> 
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Veracode.
+
+![Tilldela rollen][200] 
+
+**Om du vill tilldela Veracode Britta Simon utför du följande steg:**
+
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+
+    ![Tilldela användare][201] 
+
+2. Välj i listan med program **Veracode**.
+
+    ![Länken Veracode i listan med program](./media/veracode-tutorial/tutorial_veracode_app.png)  
+
+3. Klicka på menyn till vänster **användare och grupper**.
+
+    ![Länken ”användare och grupper”][202]
+
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+
+    ![Fönstret Lägg till tilldelning][203]
+
+5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+
+6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+
+7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+    
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+
+När du klickar på panelen Veracode på åtkomstpanelen du bör få automatiskt loggat in på ditt Veracode program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/veracode-tutorial/tutorial_general_01.png
+[2]: ./media/veracode-tutorial/tutorial_general_02.png
+[3]: ./media/veracode-tutorial/tutorial_general_03.png
+[4]: ./media/veracode-tutorial/tutorial_general_04.png
+
+[100]: ./media/veracode-tutorial/tutorial_general_100.png
+
+[200]: ./media/veracode-tutorial/tutorial_general_200.png
+[201]: ./media/veracode-tutorial/tutorial_general_201.png
+[202]: ./media/veracode-tutorial/tutorial_general_202.png
+[203]: ./media/veracode-tutorial/tutorial_general_203.png
+

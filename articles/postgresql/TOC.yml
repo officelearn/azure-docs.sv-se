@@ -146,7 +146,21 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Videoklipp
-      href: videos.md
+      items:
+        - name: Produktvideor
+          href: videos.md
+        - name: Videoserier med instruktioner
+          items:
+            - name: Lär dig mer om produktfunktioner och fördelar
+              href: 'https://aka.ms/postg-intro-vid'
+            - name: Migrera din PostgreSQL-app till Azure
+              href: 'https://aka.ms/postg-migrate-vid'
+            - name: Skapa intelligenta appar med Cognitive Services
+              href: 'https://aka.ms/postg-cogsvs-vid'
+            - name: Anslut behållare med OSBA
+              href: 'https://aka.ms/postg-osba-vid'
+            - name: Anslut din apps data till Power BI
+              href: 'https://aka.ms/postg-powerbi-vid'
     - name: Feedback-forum
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
     - name: Regional tillgänglighet

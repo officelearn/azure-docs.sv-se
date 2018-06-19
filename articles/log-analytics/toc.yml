@@ -33,14 +33,6 @@
           href: log-analytics-oms-portal-transition.md
         - name: Vanliga frågor
           href: log-analytics-oms-portal-faq.md
-    - name: Uppgradering av arbetsyta
-      items:
-        - name: Översikt över uppgradering
-          href: log-analytics-log-search-upgrade.md
-        - name: Sammanfattning av ändringar
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: Vanliga frågor och svar om uppgraderingar
-          href: log-analytics-log-search-faq.md
     - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
     - name: Datasäkerhet

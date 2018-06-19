@@ -1,4 +1,4 @@
-# [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
+# [Grunderna i Azure IoT](/azure/iot-fundamentals)
 # [Dokumentation om IoT Hub](index.yml)
 
 # Översikt
@@ -84,10 +84,10 @@
 ### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 
-## [Säkerhet från grunden](iot-hub-security-ground-up.md)
-## [Metodtips för säkerhet](iot-hub-security-best-practices.md)
-## [Säkerhetsarkitektur](iot-hub-security-architecture.md)
-## [Skydda distributionen av IoT](iot-hub-security-deployment.md)
+## [Säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Metodtips för säkerhet](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Säkerhetsarkitektur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Skydda distributionen av IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Skydda med X.509 CA-certifikat
 ### [Översikt över certifikatsäkerhet med X.509 CA](iot-hub-x509ca-overview.md)
 #### [Koncept för certifikatsäkerhet med X.509 CA](iot-hub-x509ca-concept.md)
@@ -206,7 +206,7 @@
 ### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 ## Använda riktiga enheter
-### [Komma igång](iot-hub-get-started.md)
+### [Kom igång](iot-hub-get-started.md)
 ### [Använda en onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Använda en fysisk enhet](iot-hub-get-started-physical.md)
 #### [Raspberry Pi med Python](iot-hub-raspberry-pi-kit-python-get-started.md)

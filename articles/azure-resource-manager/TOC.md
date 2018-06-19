@@ -17,6 +17,7 @@
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
 #### [Parametrar](resource-manager-templates-parameters.md)
 #### [Variabler](resource-manager-templates-variables.md)
+#### [Funktioner](resource-group-authoring-templates.md#functions)
 #### [Resurser](resource-manager-templates-resources.md)
 #### [Utdata](resource-manager-templates-outputs.md)
 ### [Länkade och kapslade mallar](resource-group-linked-templates.md)

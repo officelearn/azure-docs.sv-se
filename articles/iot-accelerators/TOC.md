@@ -1,4 +1,4 @@
-# [Grunderna i Azure IoT](../iot-fundamentals/index.yml)
+# [Grunderna i Azure IoT](/azure/iot-fundamentals)
 # [Dokumentation för IoT-lösningsacceleratorer](index.md)
 
 # Översikt
@@ -94,10 +94,10 @@
 # Referens
 ## [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Säkerhetsarkitektur](iot-security-architecture.md)
-## [Metodtips för säkerhet](iot-security-best-practices.md)
-## [Skydda distributionen av IoT](iot-accelerators-security-deployment.md)
-## [Säkerhet från grunden](securing-iot-ground-up.md)
+## [Säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [Metodtips för säkerhet](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [Säkerhetsarkitektur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [Skydda distributionen av IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # Relaterat
 ## Lösningar 

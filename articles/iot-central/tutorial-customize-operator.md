@@ -1,27 +1,28 @@
 ---
 title: Anpassa operatörsvyerna i Azure IoT Central | Microsoft Docs
 description: Som byggare anpassar du operatörsvyerna i Azure IoT Central-programmet.
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202330"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235376"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 – Anpassa operatörsvyn i Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudie: Anpassa operatörsvyn i Azure IoT Central
 
 Den här självstudien visar hur du som är byggare anpassar operatörsvyn för programmet. När du som byggare gör en ändring i programmet kan du förhandsgranska operatörsvyn i Microsoft Azure IoT Central.
 
 I den här självstudien anpassar du programmet så att det visar relevant information om en ansluten luftkonditioneringsenheten för en operatör. Med dina anpassningar kan operatören hantera de luftkonditioneringsenheter som är anslutna till programmet.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera enhetens instrumentpanel
@@ -35,8 +36,8 @@ I den här guiden får du lära dig att:
 
 Innan du börjar bör du slutföra de två föregående självstudierna:
 
-1. [Definiera en ny enhetstyp i Azure IoT Central-programmet](tutorial-define-device-type.md).
-1. [Konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md).
+* [Definiera en ny enhetstyp i Azure IoT Central-programmet](tutorial-define-device-type.md).
+* [Konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Konfigurera enhetens instrumentpanel
 
@@ -46,17 +47,17 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     ![Sidan Explorer](media/tutorial-customize-operator/explorer.png)
 
-1. Börja anpassa instrumentpanelen för den anslutna luftkonditioneringsenheten genom att välja enhetsmallen **Ansluten luftkonditionering (1.0.0)**. Välj enheten **Ansluten luftkonditionering-1** som du skapade i självstudien [Definiera en ny enhetstyp i programmet](tutorial-define-device-type.md):
+2. Börja anpassa instrumentpanelen för den anslutna luftkonditioneringsenheten genom att välja enhetsmallen **Ansluten luftkonditionering (1.0.0)**. Välj enheten **Ansluten luftkonditionering-1** som du skapade i självstudien [Definiera en ny enhetstyp i programmet](tutorial-define-device-type.md):
 
     ![Välja den anslutna luftkonditioneringsenheten](media/tutorial-customize-operator/selectdevice.png)
 
     När du gör en ändring i en enhet, till exempel **Ansluten luftkonditionering-1**, görs ändringen i den underliggande mallen. Mer information finns i [Skapa en ny version av enhetsmallen](howto-version-devicetemplate.md).
 
-1. Om du vill redigera instrumentpanelen väljer du **Instrumentpanel**:
+3. Om du vill redigera instrumentpanelen väljer du **Instrumentpanel**:
 
     ![Sidan Instrumentpanel för enhetsmall](media/tutorial-customize-operator/dashboard.png)
 
-1. Om du vill lägga till en KPI-panel på instrumentpanelen väljer du **KPI**:
+4. Om du vill lägga till en KPI-panel på instrumentpanelen väljer du **KPI**:
 
     ![Lägga till KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +70,11 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
     | Sammansättning | Maximal |
     | Tidsintervall  | Senaste veckan |
 
-1. Välj **Spara**. Du kan nu se KPI-panelen på instrumentpanelen:
+5. Välj **Spara**. Du kan nu se KPI-panelen på instrumentpanelen:
 
     ![KPI-panel](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Om du vill flytta eller ändra storlek för en panel på instrumentpanelen, flyttar du muspekaren över panelen. Du kan dra panelen till en ny plats eller ändra dess storlek:
+6. Om du vill flytta eller ändra storlek för en panel på instrumentpanelen, flyttar du muspekaren över panelen. Du kan dra panelen till en ny plats eller ändra dess storlek:
 
     ![Redigera instrumentpanelens layout](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +86,7 @@ Som byggare kan du också konfigurera operatörsvyn för enhetsinställningarna.
 
     ![Sidan Inställningar](media/tutorial-customize-operator/settings.png)
 
-1. Du kan flytta och ändra storlek på inställningspanelerna:
+2. Du kan flytta och ändra storlek på inställningspanelerna:
 
     ![Redigera inställningslayouten](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +101,7 @@ Du kan också konfigurera operatörsvyn för enhetsegenskaperna, förutom instru
 
     ![Sidan Egenskaper](media/tutorial-customize-operator/properties.png)
 
-1. Du kan flytta och ändra storlek på egenskapsfälten:
+2. Du kan flytta och ändra storlek på egenskapsfälten:
 
     ![Redigera egenskapslayouten](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +114,17 @@ I **Designläge** kan du anpassa instrumentpanel, inställningar och egenskaper 
 
 1. Om du vill se den anslutna luftkonditioneringsenheten som operatör måste du stänga av **Designläge**. Stäng av **Designläge** i **Designläge** högst upp till höger på sidan.
 
-1. Om du vill uppdatera serienumret för enheten, redigerar du värdet i serienummerpanelen och väljer **Spara**:
+2. Om du vill uppdatera serienumret för enheten, redigerar du värdet i serienummerpanelen och väljer **Spara**:
 
     ![Redigera ett egenskapsvärde](media/tutorial-customize-operator/editproperty.png)
 
-1. Om du vill skicka en inställning till din anslutna luftkonditionering väljer du **Inställningar** och ändrar inställningsvärdet i panelen. Välj sedan **Uppdatera**:
+3. Om du vill skicka en inställning till din anslutna luftkonditionering väljer du **Inställningar** och ändrar inställningsvärdet i panelen. Välj sedan **Uppdatera**:
 
     ![Skicka inställningen till enheten](media/tutorial-customize-operator/sendsetting.png)
 
     När enheten får det nya inställningsvärdet, visas inställningen som **synkroniserad** i panelen.
 
-1. Som operatör kan du se enhetsinstrumentpanelen som konfigurerats av byggaren:
+4. Som operatör kan du se enhetsinstrumentpanelen som konfigurerats av byggaren:
 
     ![Operatörsvy för enhetsinstrumentpanelen](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -131,18 +132,18 @@ I **Designläge** kan du anpassa instrumentpanel, inställningar och egenskaper 
 
 När en byggare eller operatör loggar in på ett Azure IoT Central-program, ser de en startsida. Som byggare kan du konfigurera innehållet på startsidan så att det mest användbara och relevanta innehållet visas för operatören.
 
-1. Anpassa standardstartsidan genom att gå till sidan **Start** och aktivera **Designläge** högst upp till höger på sidan. När du aktiverar **Designläge** visas en panel från höger med en lista över objekt som du kan lägga till på startsidan.
+1. Anpassa standardstartsidan genom att gå till sidan **Start** och aktivera **Designläge** högst upp till höger på sidan. När **Designläge** aktiveras visas en panel från höger med en lista över objekt som du kan lägga till på startsidan.
 
     ![Sidan Application Builder](media/tutorial-customize-operator/builderhome.png)
 
-1. Om du vill anpassa startsidan lägger du till paneler från **Biblioteket**. Välj **Länk** och lägg till information om din organisations webbplats. Välj sedan **Spara**:
+2. Om du vill anpassa startsidan lägger du till paneler från **Biblioteket**. Välj **Länk** och lägg till information om din organisations webbplats. Välj sedan **Spara**:
 
     ![Lägga till en länk på startsidan](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Du kan också lägga till länkar på sidor i ditt Azure IoT Central-program. Du kan till exempel lägga till en länk på en enhetsinstrumentpanel eller inställningssida.
 
-1. Dessutom kan du välja **Bild** och ladda upp en bild som ska visas på startsidan. Bilden kan innehålla en webbadress som du kommer till när du klickar på den:
+3. Dessutom kan du välja **Bild** och ladda upp en bild som ska visas på startsidan. Bilden kan innehålla en URL som du kommer till när du klickar på den:
 
     ![Lägga till en bild på startsidan](media/tutorial-customize-operator/addimage.png)
 
@@ -169,7 +170,7 @@ I självstudien har du lärt dig att anpassa operatörsvyn för programmet.
 > * Konfigurera standardstartsidan
 > * Förhandsgranska standardstartsidan som operatör
 
-Nu när du har lärt dig att anpassa operatörsvyn för programmet, kan du gå vidare för att:
+Nu när du har lärt dig att anpassa operatörsvyn för programmet kan du gå vidare för att:
 
 * [Övervaka dina enheter (som operatör)](tutorial-monitor-devices.md)
 * [Lägga till en ny enhet i programmet (som operatör och enhetsutvecklare)](tutorial-add-device.md)

@@ -3,23 +3,21 @@ title: Utveckling av webbprogram i Python Flask med Azure Cosmos DB | Microsoft 
 description: Den här självstudiekursen om databaser beskriver hur du använder Azure Cosmos DB för att lagra och komma åt data från ett Python Flask-webbprogram i Azure. Hitta apputvecklingslösningar.
 keywords: Application development, python flask, python web application, python web development
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824225"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Utveckla ett webbprogram i Python Flask med Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,18 +28,18 @@ ms.lasthandoff: 04/16/2018
 > 
 > 
 
-Den här kursen visar hur du använder Azure Cosmos DB för att lagra och komma åt data från en Python flask finns i Azure App Service. Den här kursen förutsätter att du har tidigare erfarenhet av Python och Azure websites.
+Den här självstudien beskriver hur du kan använda Azure Cosmos DB för lagring av och åtkomst till data från en Python Flask-webbapp på Azure App Service. Den här självstudien förutsätter att du har viss tidigare erfarenhet av Python och Azure-webbplatser.
 
 I den här självstudien om databaser tar vi upp följande:
 
-1. Skapa och etablera ett Azure DB som Cosmos-konto.
-2. Skapa en Python Flask-App.
-3. Ansluta till och använda Azure Cosmos DB från ditt webbprogram.
+1. Skapa och etablera ett Microsoft Azure Cosmos DB-konto.
+2. Skapa ett Python Flask-program.
+3. Ansluta till och använda Azure Cosmos DB från webbappen.
 4. Distribuera webbappen till Azure App Service.
 
 Genom att följa den här självstudien skapar du en enkel röstningsapp där du kan delta i en omröstning.
 
-![Skärmbild som visar röstningsapp som skapats av den här database-självstudier](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Skärmdump av det omröstningsprogram som skapats i denna självstudie om databaser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Förutsättningar för självstudien om databaser
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
@@ -50,12 +48,12 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio-2017](https://www.visualstudio.com/downloads/) med **Azure-utveckling** och **utveckling av Python** aktiverat. Du kan kontrollera om dessa krav är installerade och installera dem genom att öppna **Visual Studio Installer** lokalt.   
+* [Visual Studio-2017](https://www.visualstudio.com/downloads/) med **Azure-utveckling** och **Python-utveckling** aktiverat. Du kan kontrollera om dessa krav är installerade, och installera dem, genom att öppna **Visual Studio Installer** lokalt.   
 * [Microsoft Azure SDK för Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7](https://www.python.org/downloads/windows/). Du kan använda 32-bitars eller 64-bitars installation.
 
 > [!IMPORTANT]
-> Om du installerar Python 2.7 för första gången måste du se till att på skärmen anpassa Python 2.7.13 du väljer **Lägg till python.exe i sökväg**.
+> Om du installerar Python 2.7 för första gången ska du på skärmen Customize Python 2.7.13 välja **Add python.exe to Path** (Lägg till python.exe till sökväg).
 > 
 > ![Skärmdump av skärmen Customize Python 2.7.11 där du ska välja Lägg till python.exe i sökväg](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
@@ -69,7 +67,7 @@ Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
-Nu ska vi gå igenom hur du skapar en ny Python flask från grunden upp.
+Nu går vi igenom hur du skapar en ny Python Flask-webbapp från grunden.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>Steg 2: Skapa en ny webbapp i Python Flask
 1. I Visual Studio klickar du på menyn **Arkiv**, pekar på **Nytt** och klickar sedan på **Projekt**.
@@ -84,7 +82,7 @@ Nu ska vi gå igenom hur du skapar en ny Python flask från grunden upp.
 4. I fönstret **Python-verktyg för Visual Studio** klickar du på **Installera i virtuell miljö**. 
    
     ![Skärmdump av databasen tutorial – fönstret Python-verktyg för Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
-5. I den **Lägg till virtuell miljö** fönster, Välj Python 2.7 eller Python 3.5 i rutan Välj en tolken, Godkänn andra standardinställningarna och klickar sedan på **skapa**. Då konfigureras den nödvändiga virtuella Python-miljön för projektet.
+5. I fönstret **Add Virtual Environment** (Lägg till virtuell miljö) väljer du Python 2.7 eller Python 3.5 i rutan Select an interpreter (Välj en interpretator), godkänner de andra standardinställningarna och klickar sedan på **Create** (Skapa). Då konfigureras den nödvändiga virtuella Python-miljön för projektet.
    
     ![Skärmdump av databasen tutorial – fönstret Python-verktyg för Visual Studio](./media/sql-api-python-application/image10_A.png)
    
@@ -92,7 +90,7 @@ Nu ska vi gå igenom hur du skapar en ny Python flask från grunden upp.
 
 ## <a name="step-3-modify-the-python-flask-web-application"></a>Steg 3: Ändra Python Flask-webbappen
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Lägga till Python Flask-paket i ditt projekt
-När projektet har konfigurerats, behöver du lägga till nödvändiga Flask-paket i projektet, inklusive pydocumentdb, Python-paketet för Azure Cosmos DB SQL API.
+När projektet har konfigurerats måste du lägga till nödvändiga Flask-paket till ditt projekt, inklusive pydocumentdb, Python-paketet för Azure Cosmos DB SQL API.
 
 1. Öppna filen **requirements.txt** i Solution Explorer och ersätt innehållet med följande:
    
@@ -117,7 +115,7 @@ När projektet har konfigurerats, behöver du lägga till nödvändiga Flask-pak
         Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
    
    > [!NOTE]
-   > I sällsynta fall kan det visas ett fel i utdatafönstret. Om det händer kan du kontrollera om felet beror på att rensa. Ibland slutförs rensningen misslyckas, men installationen ändå (Rulla uppåt i utdatafönstret för att kontrollera detta). Du kan kontrollera installationen genom att [verifiera den virtuella miljön](#verify-the-virtual-environment). Om installationen misslyckades men verifieringen lyckas kan du fortsätta.
+   > I sällsynta fall kan det visas ett fel i utdatafönstret. Om det händer kan du kontrollera om felet är relaterat till rensning. Rensningen misslyckas ibland, men installationen slutförs ändå (rulla uppåt i utdatafönstret för att kontrollera). Du kan kontrollera installationen genom att [verifiera den virtuella miljön](#verify-the-virtual-environment). Om installationen misslyckades men verifieringen lyckas kan du fortsätta.
    > 
    > 
 
@@ -150,7 +148,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Lägg till nödvändiga importer i views.py
 1. Expandera mappen **tutorial** i Solution Explorer och öppna filen **views.py**. 
-2. Lägg till nedanstående importuttryck överst i filen **views.py** och spara sedan filen. De importerar Azure Cosmos DB s PythonSDK och Flask-paket.
+2. Lägg till nedanstående importuttryck överst i filen **views.py** och spara sedan filen. Dessa importerar Azure Python SDK för Cosmos DB samt Flask-paketen.
    
     ```python
     from forms import VoteForm
@@ -249,7 +247,7 @@ def vote():
 
 
 ### <a name="create-the-html-files"></a>Skapa HTML-filerna
-1. I Solution Explorer i den **kursen** mappen, högerklicka på den **mallar** mapp, klickar du på **Lägg till**, och klicka sedan på **nytt objekt**. 
+1. I Solution Explorer, i mappen **tutorial**, högerklickar du på mappen **templates**, klickar på **Add** (Lägg till) och klickar sedan på **New Item** (Nytt objekt). 
 2. Välj **HTML-sida** och skriv **create.html** i namnrutan. 
 3. Upprepa steg 1 och 2 för att skapa två ytterligare HTML-filer: results.html och vote.html.
 4. Lägg till nedanstående kod i **create.html** i elementet `<body>`. Ett meddelande visas om att vi har skapat en ny databas, en samling och ett dokument.
@@ -287,7 +285,7 @@ def vote():
     <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     {% endblock %}
     ```
-6. Lägg till nedanstående kod i **vote.html** i elementet `<body`>. Den visar omröstningen och godkänner rösterna. När rösterna registreras skickas kontrollen till views.py där Azure Cosmos DB identifierar omvandlingen rösten och lägger till dokumentet därefter.
+6. Lägg till nedanstående kod i **vote.html** i elementet `<body`>. Den visar omröstningen och godkänner rösterna. När rösterna registreras skickas kontrollen till views.py där Microsoft Azure Cosmos DB bekräftar den lagda rösten och lägger till den i dokumentet.
    
     ```html
     {% extends "layout.html" %}
@@ -313,8 +311,8 @@ def vote():
     ```
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Lägg till en konfigurationsfil och ändra \_\_init\_\_.py
-1. I Solution Explorer högerklickar du på den **kursen** projektet, klicka på **Lägg till**, klickar du på **nytt objekt**väljer **tom Python-fil**, och Byt namn filen **config_cosmos.py**. Den här konfigurationsfilen krävs av formulär i Flask. Du kan även använda den för att tillhandahålla en hemlig nyckel. Nyckeln behövs inte i den här självstudien.
-2. Lägg till följande kod i config_cosmos.py, måste du ändra värden för **COSMOSDB\_värden** och **COSMOSDB\_NYCKELN** i nästa steg.
+1. Högerklicka på projektet **tutorial** i Solution Explorer. Klicka på **Add** (Lägg till) och **New Item** (Nytt objekt), välj **Empty Python File** (Tom Python-fil) och namnge filen **config_cosmos.py**. Den här konfigurationsfilen krävs av formulär i Flask. Du kan även använda den för att tillhandahålla en hemlig nyckel. Nyckeln behövs inte i den här självstudien.
+2. Lägg till nedanstående config_cosmos.py. I nästa steg behöver du ändra värdena för **COSMOSDB\_HOST** och **COSMOSDB\_KEY**.
    
     ```python
     CSRF_ENABLED = True
@@ -327,9 +325,9 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. I den [Azure-portalen](https://portal.azure.com/), navigera till den **nycklar** genom att klicka **Bläddra**, **Azure Cosmos DB konton**, dubbelklicka på namnet på den kontot om du vill använda och klicka sedan på den **nycklar** knappen i den **Essentials** område. På den **nycklar** sidan, kopiera den **URI** värdet och klistrar in det i den **config.py** som värdet för den **COSMOSDB\_värden**egenskapen. 
-4. Tillbaka i Azure-portalen på den **nycklar** sidan, kopierar du värdet för den **primärnyckel** eller **sekundärnyckeln**, och klistrar in det i den **config_cosmos.py** som värdet för den **COSMOSDB\_NYCKELN** egenskapen.
-5. I den  **\_ \_init\_\_.py** lägger du till följande rader för att inkludera den config-fil läsningen och viss grundläggande loggning: 
+3. På [Azure-portalen](https://portal.azure.com/) går du till sidan **Keys** (Nycklar) genom att klicka på **Browse** (Bläddra) och **Azure Cosmos DB Accounts** (Azure Cosmos DB-konton). Dubbelklicka på namnet på det konto som du vill använda och klicka sedan på knappen **Keys** (Nycklar) i området **Essentials**. På sidan **Keys** (Nycklar) kopierar du **URI**-värdet och klistrar in det i filen **config.py** som värdet för egenskapen **COSMOSDB\_HOST**. 
+4. Tillbaka i Azure Portal, på sidan **Keys** (Nycklar), kopierar du värdet för **Primary Key** (primärnyckel) eller **Secondary Key** (sekundärnyckel) och klistrar in det i filen **config_cosmos.py** som värdet för egenskapen **COSMOSDB\_KEY**.
+5. I filen **\_\_init\_\_.py** lägger du till följande rader för att inkludera config-filläsningen och viss grundläggande loggning: 
    
         app.config.from_object('config_cosmos')
         logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -368,11 +366,11 @@ def vote():
 6. Stoppa felsökningen av projektet genom att trycka på SKIFT + F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Steg 5: Distribuera webbappen till Azure
-Nu när du har hela appen fungerar mot Azure Cosmos DB lokalt, är det dags att skapa en web.config-fil, uppdatera filer på servern för att matcha den lokala miljön och sedan visa den färdiga appen på Azure. Den här proceduren är specifikt för Visual Studio-2017. Om du använder en annan version av Visual Studio finns [publicering till Azure App Service](/visualstudio/python/publishing-to-azure.md).
+Nu när hela programmet fungerar korrekt mot Azure Cosmos DB lokalt är det dags att skapa en web.config-fil, uppdatera filerna på servern för att matcha den lokala miljön och sedan visa det färdiga programmet på Azure. Den här proceduren är specifik för Visual Studio 2017. Om du använder en annan version av Visual Studio kan du läsa artikeln om att [publicera till Azure App Service](/visualstudio/python/publishing-to-azure).
 
-1. I Visual Studio **Solution Explorer**, högerklicka på projektet och välj **Lägg till > Nytt objekt...** . I dialogrutan som visas genom att välja den **Azure web.config (snabb CGI)** mall och välj **OK**. Detta skapar en `web.config` filen i projektroten. 
+1. I Visual Studio **Solution Explorer** högerklickar du på projektet och väljer **Add > New Item...** (Lägg till > Nytt objekt...). I den dialogruta som visas väljer du mallen **Azure web.config (Fast CGI)** och sedan **OK**. Då skapas en `web.config`-fil i rotmappen för projektet. 
 
-2. Ändra den `<system.webServer>` i avsnittet `web.config` så att sökvägen matchar Python-installationen. Till exempel för Python 2.7 x64 ska posten visas på följande sätt:
+2. Ändra `<system.webServer>`-avsnittet i `web.config` så att sökvägen matchar Python-installationen. Till exempel ska posten för Python 2.7 x64 se ut på följande sätt:
     
     ```xml
     <system.webServer>
@@ -382,47 +380,47 @@ Nu när du har hela appen fungerar mot Azure Cosmos DB lokalt, är det dags att 
     </system.webServer>
     ```
 
-3. Ange den `WSGI_HANDLER` post i `web.config` till `tutorial.app` så att den matchar ditt projektnamn. 
+3. Ange `WSGI_HANDLER`-posten i `web.config` till `tutorial.app` för att matcha projektnamnet. 
 
     ```xml
     <!-- Flask apps only: change the project name to match your app -->
     <add key="WSGI_HANDLER" value="tutorial.app"/>
     ```
 
-4. I Visual Studio **Solution Explorer**, expandera den **kursen** mapp, högerklickar du på den `static` mapp, Välj **Lägg till > Nytt objekt...** , väljer mallen ”Azure statiska filer web.config” och väljer **OK**. Den här åtgärden skapar en annan `web.config` i den `static` mapp som inaktiverar Python bearbetning för mappen. Den här konfigurationen skickar förfrågningar efter statiska filer till standardwebbservern i stället för Python-programmet.
+4. I Visual Studio **Solution Explorer** expanderar du mappen **tutorial** och högerklickar på `static`-mappen. Välj **Add > New Item...** (Lägg till > Nytt objekt...), mallen ”Azure static files web.config” och sedan **OK**. Den här åtgärden skapar en till `web.config` i `static`-mappen som inaktiverar Python-bearbetning för den mappen. Den här konfigurationen skickar förfrågningar efter statiska filer till standardwebbservern i stället för att använda Python-programmet.
 
-5. Spara filerna och högerklicka på projektet i Solution Explorer (Kontrollera att du inte fortfarande körs lokalt) och välj **publicera**.  
+5. Spara filerna och högerklicka sedan på projektet i Solution Explorer (kontrollera att det inte fortfarande körs lokalt). Välj **Publicera**.  
    
      ![Skärmdump som visar tutorial markerad i Solution Explorer med alternativet Publicera markerat](./media/sql-api-python-application/image20.png)
-6. I den **publicera** dialogrutan **Microsoft Azure App Service**väljer **Skapa nytt**, och klicka sedan på **publicera**.
+6. I dialogrutan **Publish** (Publicera) väljer du **Microsoft Azure App Service** och sedan **Create New** (Skapa nytt). Klicka sedan på **Publish** (publicera).
    
     ![Skärmbild som visar fönstret Publicera till webben med Microsoft Azure App Service markerat](./media/sql-api-python-application/cosmos-db-python-publish.png)
-7. I den **skapa App Service** dialogrutan Ange namn för ditt webbprogram tillsammans med din **prenumeration**, **resursgruppen**, och **Apptjänstplan**, klicka på **skapa**.
+7. I dialogrutan **Create App Service** (Skapa apptjänst) anger du namnet på webbappen och **Subscription** (Prenumeration), **Resource Group** (Resursgrupp) samt **App Service Plan** och klickar sedan på **Create** (Skapa).
    
     ![Skärmdump av fönstret Microsoft Azure-webbappar](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
-8. I några sekunder har Visual Studio är klar kopieras filerna till servern och visar ”sidan kan inte visas eftersom ett internt serverfel har inträffat”. på den `http://<your app service>.azurewebsites.net/` sidan.
+8. Efter några sekunder kopierar Visual Studio klart filerna till servern och visar ”The page cannot be displayed because an internal server error has occurred.” (Sidan kan inte visas eftersom ett internt serverfel har inträffat) på sidan `http://<your app service>.azurewebsites.net/`.
 
-9. Öppna din nya App Service-konto i Azure-portalen och klicka sedan på navigeringsmenyn, rulla ned till den **utvecklingsverktyg** väljer **tillägg**, klicka på **+ Lägg till**.
+9. I Azure-portalen öppnar du ditt nya App Service-konto. På navigeringsmenyn rullar du ned till avsnittet **Development Tools** (Utvecklingsverktyg), väljer **Extensions** (Tillägg) och klickar sedan på **+ Add** (+ Lägg till).
 
-10. I den **Välj tillägg** sidan, bläddra ned den senaste Python 2.7 installationen och väljer alternativet x86 eller x64 bitar och sedan på **OK** att acceptera de juridiska villkoren.  
+10. På sidan **Choose extension** (Välj tillägg) rullar du ned till den senaste Python 2.7-installationen, väljer alternativet x86-bitars eller x64-bitars och klickar sedan på **OK** för att godkänna de juridiska villkoren.  
    
-11. Använd Kudu-konsolen, som du kan bläddra till vid `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, för att installera paketen som listas i din app `requirements.txt` fil. Om du vill göra detta, i konsolen Kudu diagnostiska, navigera till mappen Python `D:\home\Python27` kör följande kommando som beskrivs i den [Kudu-konsolen](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console) avsnitt:
+11. Använd Kudu-konsolen, som du kan bläddra till på `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, för att installera de paket som listas i appens `requirements.txt`-fil. I Kudu Diagnostic Console (Kudu diagnostisk konsol) gör du det här genom att navigera till Python-mappen `D:\home\Python27` och sedan köra följande kommando som beskrivs i avsnittet om [Kudu-konsolen](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console):
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
     ```          
 
-12. Starta om tjänsten App i Azure-portalen när du har installerat de nya paket genom att trycka på **starta om** knappen. 
+12. Starta om App Service i Azure-portalen när du har installerat de nya paketen genom att trycka på knappen **Restart** (Starta om). 
 
     > [!Tip] 
-    > Om du gör några ändringar i appens `requirements.txt` fil, se till att använda igen Kudu-konsolen för att installera alla paket som visas nu i den filen. 
+    > Om du gör några ändringar i appens `requirements.txt`-fil ska du se till att återigen använda Kudu-konsolen för att installera paket som nu visas i den filen. 
 
-13. När du har konfigurerat servermiljön, uppdatera sidan i webbläsaren och webbprogrammet ska visas.
+13. När du har konfigurerat klart servermiljön uppdaterar du sidan i webbläsaren, så bör webbappen visas.
 
-    ![Resultat för publicering av Bottle, Flask och Django-appar till App Service](./media/sql-api-python-application/python-published-app-services.png)
+    ![Resultatet av publicering av apparna Bottle, Flask och Django till App Service](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Om sidan visas inte, eller om du fortfarande få den ”sidan kan inte visas eftersom ett internt serverfel har inträffat”. meddelande, öppna filen web.config i Kudo och lägga till ` <httpErrors errorMode="Detailed"></httpErrors>` till avsnittet system.webServer sedan uppdatera sidan. Detta tar angetts detaljerade Felutdata till webbläsaren. 
+    > Om sidan inte visas, eller om du fortfarande får meddelandet ”The page cannot be displayed because an internal server error has occurred” (sidan kan inte visas eftersom ett internt serverfel har inträffat), öppnar du filen web.config i Kudo och lägger till ` <httpErrors errorMode="Detailed"></httpErrors>` i avsnittet system.webServer och uppdaterar sedan sidan. Detta skickar detaljerade felutdata till webbläsaren. 
 
 ## <a name="troubleshooting"></a>Felsökning
 Om det här är den första Python-appen du kör på datorn kontrollerar du att följande mappar (eller motsvarande installationsplatser) ingår i PATH-variabeln:
@@ -432,16 +430,10 @@ Om det här är den första Python-appen du kör på datorn kontrollerar du att 
 Om du får ett felmeddelande på din röstningssida och du har gett ditt projekt ett annat namn än **tutorial**, kontrollerar du att **\_\_init\_\_.py** refererar rätt projektnamn i raden: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Nästa steg
-Grattis! Du har slutfört din första Python-webbapp med Azure Cosmos DB och publicerat den på Azure.
+Grattis! Du har skapat din första Python-webbapp med hjälp av Azure Cosmos DB och publicerat den på Azure.
 
-Om du vill lägga till ytterligare funktioner i ditt webbprogram, granska API: er finns i den [Azure Cosmos DB Python SDK](sql-api-sdk-python.md).
+Om du vill lägga till ytterligare funktioner i webbappen kan du ta en titt på tillgängliga API:er i [Azure Cosmos DB Python SDK](sql-api-sdk-python.md).
 
 Mer information om Azure, Visual Studio och Python finns i [Python Developer Center](https://azure.microsoft.com/develop/python/). 
 
 Ytterligare självstudier om Python Flask finns i [Ingående självstudie om Flask, del I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com

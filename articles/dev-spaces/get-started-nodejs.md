@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361481"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823919"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -32,7 +32,7 @@ Nu är du redo att skapa en Kubernetes-baserad utvecklingsmiljö i Azure.
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklingsmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.32 eller högre.
+> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.33 eller senare.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -185,25 +185,25 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`.
 1. Lägg till följande kodrader längst upp i `server.js`:
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. *Ersätt* koden för `/api`-GET-hanteraren. När du hanterar en begäran gör den i sin tur ett anrop till `mywebapi` och returnerar sedan resultatet från båda tjänsterna.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Observera hur Kubernetes DNS-tjänstidentifiering används för att referera till tjänsten som `http://mywebapi`. **Koden i din utvecklingsmiljö körs på samma sätt som den kommer att köras i produktionsmiljön**.
-
-I kodexemplet ovan används en hjälpmodul med namnet `propagateHeaders`. Den här hjälpkomponenten lades till i din kodmapp när du körde `azds prep`. Funktionen `propagateHeaders.from()` distribuerar specifika meddelandehuvuden från ett befintligt http.IncomingMessage-objekt till ett headers-objekt för en utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
+I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den inkommande till den utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
@@ -212,7 +212,7 @@ I kodexemplet ovan används en hjälpmodul med namnet `propagateHeaders`. Den h�
 1. Tryck på F5 i `webfrontend`-projektet.
 1. Öppna webbappen och stega igenom koden i båda tjänsterna. Webbappen bör visa ett sammanslaget meddelande för de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.
 
-Bra gjort! Nu har du ett program för flera behållare där varje behållare kan utvecklas och distribueras separat.
+Bra gjort! Nu har du ett program med flera behållare där varje behållare kan utvecklas och distribueras separat.
 
 ## <a name="learn-about-team-development"></a>Lär dig mer om utveckling i team
 

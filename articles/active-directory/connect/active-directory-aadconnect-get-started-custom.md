@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849999"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -214,12 +216,11 @@ På en dator med verktyg för grupprinciphantering.
 1.  Öppna verktygen för grupprinciphantering
 2.  Redigera grupprincipen som ska tillämpas på alla användare. Till exempel standarddomänprincipen.
 3.  Gå till **Användarkonfiguration\Administrativa mallar\Windows-komponenter\Internet Explorer\Internet på Kontrollpanelen\Sidan Säkerhet** och välj **Tilldelning av platser till zoner** enligt bilden nedan.
-4.  Aktivera principen och ange följande två poster i dialogrutan.
+4.  Aktivera principen och ange följande post i dialogrutan.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  Det bör se ut ungefär så här:  
 ![Intranätszoner](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -227,7 +228,7 @@ På en dator med verktyg för grupprinciphantering.
 6.  Klicka på **OK** två gånger.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurera federation med AD FS
-Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.
+Du kan enkelt konfigurera AD FS med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.
 
 * En Windows Server 2012 R2-server eller senare för federationsservern med fjärrhantering aktiverat
 * En Windows Server 2012 R2-server eller senare för webbprogramproxyservern med fjärrhantering aktiverat
@@ -303,7 +304,7 @@ När du väljer domänen som ska vara federerad får du nödvändig information 
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>Konfigurera federation med PingFederate
-Du kan konfigurera PingFederate med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.  Dock krävs följande villkor.
+Du kan enkelt konfigurera PingFederate med Azure AD Connect med bara några klickningar. Dock krävs följande villkor.
 - PingFederate 8.4 eller högre.  Mer information finns i [PingFederate-integrering med Azure Active Directory och Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - Ett SSL-certifikat för federationstjänstnamnet som du tänker använda (t.ex. sts.contoso.com)
 

@@ -11,22 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196512"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261278"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
 
 När du har skapat en CDN-slutpunkt i din profil inkluderas slutpunktsnamnet (det vill säga en underdomän till azureedge.net) i URL för leverans av CDN-innehåll som standard (till exempel https:\//contoso.azureedge.net/photo.png). Med Azure CDN kan du associera en anpassad domän med en CDN-slutpunkt. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för slutpunktsnamnet (till exempel https:\//www.contoso.com/photo.png). 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > - Skapa en CNAME DNS-post
 > - Associera den anpassade domänen med CDN-slutpunkten
@@ -132,9 +132,9 @@ När du har registrerat din anpassade domän kan du lägga till den i din CDN-sl
    Azure verifierar att det finns en CNAME-post för det anpassade domännamnet som du har angett. Om CNAME är korrekt verifieras din anpassade domän. 
 
    Det kan ta lite tid innan inställningarna för den nya anpassade domänen sprids till alla CDN-gränsnoder: 
-    - För **Azure CDN Standard från Microsoft**-profiler är spridningen vanligtvis klar inom 10 minuter. 
+    - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
     - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
-    - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 90 minuter.   
+    - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 10 minuter.   
 
 
 ## <a name="verify-the-custom-domain"></a>Verifiera den anpassade domänen

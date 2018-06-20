@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 manager: carmonm
 ms.topic: tutorial
-ms.date: 03/16/2018
+ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 97db493b77483d68860c6124f1063bc4a743c3be
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830528"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
 
@@ -36,7 +37,7 @@ Följande krävs för att genomföra kursen:
 
 ## <a name="onboard-an-azure-vm"></a>Publicera en virtuell Azure-dator
 
-Det finns flera sätt att registrera datorer. Du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md) eller via en runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
+Det finns flera sätt att registrera datorer. Du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från bläddring av flera datorer](automation-onboard-solutions-from-browse.md), [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md) eller via en runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 

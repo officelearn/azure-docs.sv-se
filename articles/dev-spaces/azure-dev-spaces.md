@@ -5,30 +5,35 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/01/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 344947b7906d15e819e372e0affe4af3c34ba69b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198766"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823052"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
-Med Azure Dev Spaces får du hjälp att utveckla snabbt på Kubernetes. Dessutom kan du med Azure Dev Spaces lägga till fullständiga utvecklingsfunktioner såsom felsökning till Azure Kubernetes-behållare. Det går även att iterativt utveckla behållare i molnet med hjälp av välbekanta verktyg som VS Code, Visual Studio och kommandoraden. Azure Dev Spaces är särskilt användbart för teamutveckling där isolering av enskilda kodgrenar i egna utrymmen är en viktig del i utvecklingslivscykeln.
+Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Med minimal konfiguration av utvecklingsdatorer kan du iterativt köra och felsöka behållare direkt i Azure Kubernetes Service (AKS). Utveckla på Windows, Mac eller Linux med välbekanta verktyg som Visual Studio, Visual Studio Code eller kommandoraden.
+
+[!INCLUDE[](includes/dev-spaces-preview.md)]
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Så förenklas Kubernetes-utveckling av Azure Dev Spaces 
 
-Det finns flera fördelar med den här metoden:
-
-* Få en infrastrukturlös utvecklingsmiljö som är representativ för produktionen, med fullständig åtkomst till molnresurser.
-* Felsök Node.js och .NET Core-behållare direkt i Kubernetes med VS Code eller Visual Studio. Alla andra språk kan användas för utveckling med kommandoradsgränssnittet.
-* Dela en Kubernetes-instans med utvecklingsteamet för att spara kostnader och minimera konfiguration av lokala datorer för nya teammedlemmar.
-* Utveckla koden isolerat och utför testning från slutpunkt till slutpunkt med andra komponenter utan replikerings- eller simuleringsberoenden.
+Med Azure Dev Spaces kan utvecklingsgrupper bli mer produktiva på Kubernetes på följande sätt:
+- Minimera konfiguration av lokala utvecklingsdatorer för varje teammedlem och arbeta direkt i AKS, ett hanterat Kubernetes-kluster i Azure.
+- Iterera och felsök snabbt koden direkt i Kubernetes med hjälp av Visual Studio 2017 eller Visual Studio Code.
+- Generera ”konfiguration som kod-tillgångar” för Docker och Kubernetes som du kan använda hela vägen från utveckling till produktion. 
+- Dela ett hanterat Kubernetes-kluster med ditt team och samarbeta. Utveckla koden isolerat och utför testning från slutpunkt till slutpunkt med andra komponenter utan replikerings- eller simuleringsberoenden.
 
 [!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
+
+## <a name="see-also"></a>Se även
+
+[Azure Kubernetes Service](/azure/aks)

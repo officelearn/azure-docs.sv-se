@@ -1,69 +1,72 @@
 ---
-title: Skapa en molnbaserad Kubernetes-utvecklingsmiljö | Microsoft Docs
+title: Skapa ett Kubernetes dev utrymme i molnet | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 9c9a485a5c59342149027798e118b97b7305c640
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 764606d838ac067a09072b84222a8ec092c4c124
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361540"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823215"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-nodejs"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (Node.js)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Snabbstart: Skapa ett Kubernetes-utvecklarutrymme med Azure Dev Spaces (Node.js)
 
+I den här guiden får du lära dig hur du:
 
-[!INCLUDE[](includes/learning-objectives.md)]
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Utveckla kod iterativt i behållare med VS Code och kommandoraden.
+- Felsök kod som körs i ditt kluster.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-nodejs.md).
 
-Nu är du redo att skapa en Kubernetes-baserad utvecklingsmiljö i Azure.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- Ett [Kubernetes-kluster](https://ms.portal.azure.com/#create/microsoft.aks) som kör Kubernetes 1.9.6, i regionerna Usa, östra, Europa, västra eller Kanada, östra med **Http-programroutning** aktiverat.
 
-## <a name="install-the-azure-cli"></a>Installera Azure CLI
-Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklingsmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+  ![Se till att aktivera HTTP-programroutning.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-> [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.32 eller högre.
+- Visual Studio Code som du kan hämta [här](https://code.visualstudio.com/download).
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 eller högre).
+1. Ställ in Dev Spaces på ditt AKS-kluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
+1. Ladda ned [Azure Dev Spaces-tillägget](https://aka.ms/get-azds-code) för VS Code.
+1. Installera tillägget: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 
-Du kan börja skriva kod medan du väntar på att miljön skapas.
+1. Hämta exempelkoden från GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
+1. Ändra katalogen till mappen webfrontend: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
+1. Skapa Docker- och Helm-diagramtillgångar: `azds prep --public`
+1. Skapa dina utvecklarutrymmen i AKS. Kör det här kommandot från webbklientdelen **rotkodsmappen** i terminalfönstret: `azds up`
+1. Skanna konsolens utdata för information om den URL som skapades av `up`-kommandot. Den kommer att vara i formen: 
 
-## <a name="create-a-nodejs-container-in-kubernetes"></a>Skapa en Node.js-behållare i Kubernetes
+   `Service 'webfrontend' port 'http' is available at <url>` 
 
-I det här avsnittet ska du skapa en Node.js-webbapp och köra den i en behållare i Kubernetes.
-
-### <a name="create-a-nodejs-web-app"></a>Skapa en Node.js-webbapp
-Ladda ned kod från GitHub genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till den lokala miljön. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
-
-[!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+   Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. 
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./public/index.html` och göra en ändring i HTML-koden. Ändra till exempel sidans bakgrundsfärg till en blå nyans:
+1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Ändra till exempel sidans bakgrundsfärg till en blå nyans:
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva behållaren har uppdaterats.
+1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva behållaren har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Nu bör du se färguppdateringen som du gjorde.
 
 Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node.js-processen startas om. Ett aktivt `azds up`-kommando synkroniserar i stället automatiskt modifierade innehållsfiler direkt i den aktiva behållaren i Azure, så att du snabbt ser dina innehållsändringar.
@@ -71,7 +74,7 @@ Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node
 ### <a name="test-from-a-mobile-device"></a>Testa från en mobil enhet
 Om du öppnar webbappen på en mobil enhet ser du att användargränssnittet inte visas korrekt på en liten enhet.
 
-Du kan lösa det här problemet genom att lägga till en `viewport`-metatagg:
+Du kan komma runt det här problemet genom att lägga till en `viewport`-metatagg:
 1. Öppna filen `./public/index.html`
 1. Lägg till en `viewport`-metatagg i det befintliga `head`-elementet:
 
@@ -85,7 +88,7 @@ Du kan lösa det här problemet genom att lägga till en `viewport`-metatagg:
 1. Spara filen.
 1. Uppdatera enhetens webbläsare. Nu bör webbappen återges korrekt på enheten. 
 
-Detta är ett exempel på hur vissa problem inte upptäcks förrän du testar på de enheter som appen är avsedd att användas på. Med VS Azure Dev Spaces kan du snabbt omarbeta koden och kontrollera ändringarna på målenheterna.
+Detta är ett exempel på hur vissa problem inte upptäcks förrän du testar på de enheter som appen är avsedd att användas på. Med Azure Dev Spaces kan du snabbt omarbeta koden och kontrollera ändringarna på målenheterna.
 
 ### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler på serversidan kräver lite mer arbete eftersom en Node.js-app måste startas om.
@@ -102,13 +105,22 @@ Uppdateringar av kodfiler på serversidan kräver lite mer arbete eftersom en No
 
 När du gör det återskapas behållaravbildningen och Helm-diagrammet distribueras på nytt. Bekräfta att kodändringarna har tillämpats genom att läsa in sidan i webbläsaren igen.
 
-Men det finns en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
+Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
 
 ## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+I det här avsnittet ska du använda VS Code för att direkt felsöka våra behållare som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+![](./media/common/edit-refresh-see.png)
+
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
+Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
+
+Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Create configuration files for connected development`. 
+
+Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`.
+
+![](./media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Välj AZDS-felsökningskonfigurationen
 1. Du öppnar felsökningsvyn genom att klicka på felsökningsikonen i **aktivitetsfältet** längs kanten i VS Code.
@@ -120,18 +132,19 @@ Men det finns en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare
 > Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
-Tryck på **F5** för att felsöka koden i Kubernetes!
+Tryck på **F5** för att felsöka koden i Kubernetes.
 
-På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en behållare skapas och distribueras till Kubernetes. Den här gången är felsökare kopplad till fjärrbehållaren.
+Ungefär som `up`-kommandot så synkroniseras koden till utvecklarutrymmet när du startar felsökning och en behållare har skapats och distribuerats till Kubernetes. Den här gången är felsökaren kopplad till fjärrbehållaren.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+> [!Tip]
+> Statusfältet i VS Code innehåller en klickbar URL.
 
-Ange en brytpunkt i en kodfil på serversidan, t.ex. i `app.get('/api'...` i `server.js`. Uppdatera sidan i webbläsaren eller tryck på knappen ”Say It Again” (Säg det igen), så kommer du till brytpunkten och kan börja stega igenom koden.
+Lägg till en brytpunkt i en kodfil på serversidan, t.ex. i `app.get('/api'...` i `server.js`. Uppdatera sidan i webbläsaren eller tryck på knappen ”Say It Again” (Säg det igen), så kommer du till brytpunkten och kan börja stega igenom koden.
 
 Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Redigera koden och uppdatera felsökningssessionen
-Gör en kodändring medan felsökaren är aktiv. Du kan till exempel ändra välkomstmeddelandet igen:
+Gör en kodändring medan felsökaren är aktiv. Du kan till exempel ändra hello-meddelandet igen:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -143,24 +156,23 @@ Spara filen och klicka på knappen **Uppdatera** i **fönstret Felsökningsåtg�
 
 ![](media/get-started-node/debug-action-refresh-nodejs.png)
 
-I stället för att skapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för en snabbare redigerings- och felsökningsförlopp.
+I stället för att skapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för att snabba upp redigerings- och felsökningsförloppet.
 
 Uppdatera webbappen i webbläsaren eller tryck på knappen *Say It Again* (Säg det igen). Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
 ### <a name="use-nodemon-to-develop-even-faster"></a>Snabba upp utvecklingen ännu mer med NodeMon
-*Nodemon* är ett populärt verktyg som Node.js-utvecklare använder för snabb utveckling. I stället för att starta om Node-processen manuellt varje gång en kodredigering på serversidan görs, konfigurerar utvecklare ofta Node-projektet så att *nodemon* övervakar filändringar och startar om serverprocessen automatiskt. I detta fall behöver utvecklaren bara uppdatera webbläsaren efter en kodändring.
 
-Med Azure Dev Spaces kan du använda många av de utvecklingsarbetsflöden som du använder när du utvecklar lokalt. För att illustrera detta har `webfrontend`-exempelprojektet konfigurerats att använda *nodemon* (det har konfigurerats som ett utvecklingsberoende i `package.json`).
+`webfrontend`-exempelprojektet har konfigurerats för att använda [nodemon](https://nodemon.io/), ett populärt verktyg för snabbare Node.js-utveckling som är fullt kompatibelt med Azure Dev Spaces.
 
 Prova följande steg:
 1. Stoppa VS Code-felsökaren.
 1. Klicka på ikonen Felsök i **aktivitetsfältet** längs kanten i VS-kod. 
-1. Välj **Attach (AZDS)** (Koppla AZDS) som aktiv felsökningskonfiguration.
+1. Välj **Attach (AZDS)** (Koppla (AZDS)) som aktiv felsökningskonfiguration.
 1. Tryck på F5.
 
-I den här konfigurationen konfigureras behållaren att starta *nodemon*. När kodredigeringar görs på servern startar *nodemon* automatiskt om Node-processen, precis som den gör när du utvecklar lokalt. 
-1. Redigera välkomstmeddelande igen i `server.js` och spara filen.
-1. Bekräfta att ändringarna har tillämpats genom att uppdatera webbläsaren eller klicka på knappen *Say It Again* (Säg det igen).
+I den här konfigurationen konfigureras behållaren att starta *nodemon*. När kodredigeringar görs på servern startar *nodemon* automatiskt om Node-processen, precis som när du utvecklar lokalt. 
+1. Redigera hello-meddelande igen i `server.js` och spara filen.
+1. Bekräfta att ändringarna har tillämpats genom att uppdatera webbläsaren eller genom att klicka på knappen *Say It Again* (Säg det igen).
 
 **Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!**
 

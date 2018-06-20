@@ -2,23 +2,21 @@
 title: Skapa en Azure Cosmos DB-grafdatabas med Java | Microsoft Docs
 description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB via Gremlin.
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: a7c86ab78704baf4048bc0415d89c1ab826e16bc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac9d0291b38e7a8679e9c6e7707e13a90554b914
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796187"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Java och Azure Portal
 
@@ -85,7 +83,7 @@ Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-gr
     client = cluster.connect();
     ```
 
-* En mängd Gremlin-steg utförs med metoden `client.submit`.
+* Serier med Gremlin-steg körs med `client.submit`-metoden.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -113,7 +111,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Ändra `graphs` till `gremlin.cosmosdb` i värdet `endpoint`. (Om du skapade grafdatabaskontot före den 20 december 2017 så gör du inga ändringar i slutpunktsvärdet och går vidare till nästa steg.)
+3. Ändra `graphs` till `gremlin.cosmosdb` i värdet `endpoint`. (Om du skapade grafdatabaskontot innan 20 december, 2017 så gör du inga ändringar i slutpunktsvärdet och går vidare till nästa steg.)
 
     Slutpunktsvärdet bör nu se ut så här:
 
@@ -172,7 +170,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **Ben** och lägg märke till att han är kopplad till Robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
+2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och lägg märke till att användaren är kopplad till robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
@@ -191,7 +189,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     teknik | Java | 
 
     > [!NOTE]
-    > I den här snabbstartsguiden skapar vi en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
+    > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
 6. Klicka på **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
@@ -213,11 +211,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka det till `g.V()` och klickar på **Tillämpa filter** om du vill visa alla resultaten igen.
 
-12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **ashley** markeras i listan **Resultat** och klicka sedan på ![Ändra målet för en brytpunkt i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se knappen.
+12. Nu kan du koppla ihop rakesh och ashley. Se till att **ashley** markeras i listan **Resultat** och klicka sedan på ![Ändra målet för en brytpunkt i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se knappen.
 
    ![Ändra mål för ett hörn i en graf](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label**  (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
+13. I rutan **Mål** skriver du in *rakesh* och i rutan **Kantetikett** skriver du *känner* och klickar sedan på kryssrutan.
 
    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

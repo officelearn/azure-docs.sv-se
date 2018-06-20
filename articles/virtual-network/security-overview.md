@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657595"
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -138,7 +139,7 @@ Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skap
 
 Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper. Funktionen gör att du kan återanvända din säkerhetsprincip i stor skala utan manuellt underhåll av explicita IP-adresser. Plattformen hanterar komplexiteten med explicita IP-adresser och flera regeluppsättningar så att du kan fokusera på affärslogik.
 
-Du kan ange en programsäkerhetsgrupp som källa och mål i en säkerhetsregel. När din säkerhetsprincip har definierats kan du skapa virtuella datorer och tilldela nätverksgränssnitt i den virtuella datorn till en programsäkerhetsgrupp. Principen tillämpas baserat på programsäkerhetsgruppens medlemskap i varje nätverksgränssnitt inom en virtuell dator. I följande exempel visas hur du kan använda en programsäkerhetsgrupp för alla webbservrar i din prenumeration:
+Du kan ange en programsäkerhetsgrupp som källa och mål i en säkerhetsregel. Du kan inte ange flera programsäkerhetsgrupper i källan och målet. När din säkerhetsprincip har definierats kan du skapa virtuella datorer och tilldela nätverksgränssnitt i den virtuella datorn till en programsäkerhetsgrupp. Principen tillämpas baserat på programsäkerhetsgruppens medlemskap i varje nätverksgränssnitt inom en virtuell dator. I följande exempel visas hur du kan använda en programsäkerhetsgrupp för alla webbservrar i din prenumeration:
 
 1. Skapa en programsäkerhetsgrupp som heter *WebServers*.
 2. Skapa en nätverkssäkerhetsgrupp som heter *MyNSG*.
@@ -152,7 +153,7 @@ Mer information om begränsningar när du skapar programsäkerhetsgrupper och hu
 Programmet säkerhetsgrupper har följande begränsningar:
 
 -   Alla nätverksgränssnitt som har tilldelats till en programsäkerhetsgrupp måste finnas i samma virtuella nätverk som det första nätverksgränssnittet som programsäkerhetsgruppen finns i. Om exempelvis det första nätverksgränssnittet som tilldelats till en säkerhetsgrupp för program som heter *ASG1* finns i det virtuella nätverket med namnet *VNet1* måste alla efterföljande nätverksgränssnitt som tilldelats *ASG1* vara i *VNet1*. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program.
-- Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1.
+- Om du anger en programsäkerhetsgrupp som källa och mål i en säkerhetsregel, måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1.
 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden
 

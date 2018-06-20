@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: bde17a47e0e3e70daf52f4c460118c054b7c1152
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 29d843e2752046e8ab66a4f46fcbb212f6fb57c6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824405"
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
@@ -61,7 +62,7 @@ Med det nödvändiga konfigurationsskriptet för Azure Disk Encryption ställs a
 
 Nu när skriptinnehållet har sparats öppnar du skriptet i PowerShell ISE:
 
-1. Klicka på **Cortana** i Start-menyn. Fråga **Cortana** ”PowerShell” genom att skriva **PowerShell** i Cortana-sökrutan.
+1. Starta – Windows PowerShell ISE
 2. Högerklicka på **Windows PowerShell ISE** och klicka på **Kör som administratör**.
 3. I fönstret **Administratör: Windows PowerShell ISE** klickar du på **Visa** och sedan på **Visa skriptfönster**.
 4. Om du ser fönstret **Kommandon** till höger klickar du på **”x”** i det övre högra hörnet för att stänga det. Om texten är för liten för att se använder du **CTRL + Lägg till** (”Lägg till” är tecknet ”+”). Om texten är för stor använder du **CTRL + subtrahera** (subtrahera är tecknet ”-”).
@@ -74,8 +75,8 @@ Du bör nu se något som liknar bilden nedan.
 
 Det översta fönstret kallas ”skriptfönster” och det längst ned kallas ”konsolen”. Vi använder dessa termer senare i den här artikeln.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Kör de PowerShell-kommandon som krävs för Azure Disk Encryption
-Skriptet med kraven för Azure Disk Encryption ber dig om följande information när du har startat skriptet:
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-script"></a>Kör det PowerShell-skript som krävs för Azure Disk Encryption
+Skriptet som krävs för Azure Disk Encryption accepterar följande parametrar: 
 
 * **Resursgruppens namn** – namnet på den resursgrupp som du vill placera nyckelvalvet i.  Om det inte redan finns en med samma namn skapas en ny resursgrupp med det namn som du anger. Om du redan har en resursgrupp som du vill använda i den här prenumerationen anger du namnet på den.
 * **Nyckelvalvets namn** – namnet på det nyckelvalv där krypteringsnycklarna ska placeras. Om det inte redan finns ett nyckelvalv med samma namn skapas ett nytt nyckelvalv med det här namnet. Om du redan har ett nyckelvalv som du vill använda anger du namnet på det befintliga nyckelvalvet.
@@ -92,18 +93,18 @@ Kryptera en virtuell Azure-dator genom att utföra följande steg:
 1. Om du har stängt PowerShell ISE öppnar du en upphöjd PowerShell ISE-instans. Följ anvisningarna tidigare i den här artikeln om PowerShell ISE inte redan är öppet. Om du har avslutat skriptet öppnar du **ADEPrereqScript.ps1** genom att klicka på **Arkiv**. Klicka sedan på **Öppna** och välj skriptet i mappen **c:\AzureADEScript**. Om du har följt den här artikeln från början går du bara vidare till nästa steg.
 2. I PowerShell ISE-konsolen (längst ned i PowerShell ISE) ändrar du fokus till det lokala skriptet genom att skriva **cd c:\AzureADEScript** och trycka på **RETUR**.
 3. Ange körningsprincipen på datorn så att du kan köra skriptet. Skriv **Set-ExecutionPolicy Unrestricted** i konsolen och tryck på RETUR. Om du ser en dialogruta om effekterna av att ändra körningsprincipen klickar du antingen på **Ja till alla** eller **Ja** (om du ser **Ja till alla** markerar du det alternativet. Om du inte ser **Ja till alla** klickar du på **Ja**).
-4. Logga in på Azure-kontot. Skriv **Connect-AzureRmAccount** i konsolen och tryck på **RETUR**. En dialogruta visas där du anger dina autentiseringsuppgifter (kontrollera att du har behörighet att ändra de virtuella datorerna – om du inte har det kan du inte kryptera dem. Om du inte är säker frågar du din prenumerationsägare eller administratör). Du bör se information om din **miljö**, ditt **konto**, **klient-ID**, **prenumerations-ID** och **aktuellt lagringskonto**. Kopiera ditt **prenumerations-ID** till anteckningar. Du behöver använda det i steg 6.
+4. Logga in på Azure-kontot. Skriv **Login-AzureRmAccount** i konsolen och tryck på **RETUR**. En dialogruta visas där du anger dina autentiseringsuppgifter (kontrollera att du har behörighet att ändra de virtuella datorerna – om du inte har det kan du inte kryptera dem. Om du inte är säker frågar du din prenumerationsägare eller administratör). Du bör se information om din **miljö**, ditt **konto**, **klient-ID**, **prenumerations-ID** och **aktuellt lagringskonto**. Kopiera ditt **prenumerations-ID** till anteckningar. Du behöver använda det i steg 6.
 5. Sök efter vilken prenumeration som den virtuella datorn tillhör och vilken plats den har. Gå till [https://portal.azure.com](ttps://portal.azure.com) och logga in.  Klicka på **virtuella datorer** till vänster. Du får se en lista över dina virtuella datorer och de prenumerationer som de tillhör.
 
    ![Virtuella datorer](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Gå tillbaka till PowerShell ISE. Ställ in den prenumerationskontext som skriptet ska köras i. I konsolen skriver du **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (ersätt **< your_subscription_Id >** med ditt faktiska prenumerations-ID) och tryck på **RETUR**. Du ser information om din miljö, ditt **konto**, **klient-ID**, **prenumerations-ID** och **aktuellt lagringskonto**.
-7. Du är nu redo att köra skriptet. Klicka på knappen **Kör skript** eller tryck på **F5** på tangentbordet.
+7. Inom kommandotolken kör du skriptkommandot som skickar följande som parametrar: 
 
    ![Köra PowerShell-skript](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Skriptet begär **resourceGroupName:** – ange namnet på den *resursgrupp* du vill använda och tryck sedan på **RETUR**. Ange ett namn som du vill använda för en ny resursgrupp om du inte har en. Om du redan har en *resursgrupp* som du vill använda (till exempel den som den virtuella datorn är i) anger du namnet på den befintliga resursgruppen.
-9. Skriptet begär **KeyVaultName:** – Ange namnet på det *nyckelvalv* du vill använda och tryck sedan på RETUR. Ange ett namn som du vill använda för ett nytt nyckelvalv om du inte har ett. Om du redan har ett nyckelvalv som du vill använda anger du namnet på det befintliga *nyckelvalvet*.
+8. **-resourceGroupName:** – ange namnet på den *resursgrupp* du vill använda. Ange ett namn som du vill använda för ett nytt program om du inte har ett. Om du redan har en *resursgrupp* som du vill använda (till exempel den som den virtuella datorn är i) anger du namnet på den befintliga resursgruppen.
+9. **KeyVaultName:** – Ange namnet på det *nyckelvalv* du vill använda. Ange ett namn som du vill använda för ett nytt program om du inte har ett. Om du redan har ett nyckelvalv som du vill använda anger du namnet på det befintliga *nyckelvalvet*.
 10. Skriptet begär **plats:** – Ange namnet på den plats där den virtuella datorn som du vill kryptera finns och tryck sedan på **RETUR**. Om du inte kommer ihåg platsen går du tillbaka till steg 5.
-11. Skriptet begär **aadAppName:** – Ange namnet på det *Azure Active Directory*-program du vill använda och tryck sedan på **RETUR**. Ange ett namn som du vill använda för ett nytt program om du inte har ett. Om du redan har ett *Azure Active Directory-program*  som du vill använda anger du namnet på det befintliga *Azure Active Directory-programmet*.
+11. **aadAppName:** – Ange namnet på det *Azure Active Directory*-program du vill använda. Ange ett namn som du vill använda för ett nytt program om du inte har ett. Om du redan har ett *Azure Active Directory-program*  som du vill använda anger du namnet på det befintliga *Azure Active Directory-programmet*.
 12. En logg i dialogrutan visas. Ange dina autentiseringsuppgifter (ja, du har loggat in en gång, men nu måste du göra det igen).
 13. Skriptet körs och när det är klart uppmanas du att kopiera värdena i **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**, och **keyVaultResourceId**. Kopiera vart och ett av dessa värden till Urklipp och klistra in dem i anteckningar.
 14. Gå tillbaka till PowerShell ISE och placera markören i slutet av den sista raden. Tryck på **RETUR**.

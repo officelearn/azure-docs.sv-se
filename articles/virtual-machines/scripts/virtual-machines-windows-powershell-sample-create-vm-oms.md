@@ -1,13 +1,13 @@
 ---
-title: Azure PowerShell skriptexempel - OMS | Microsoft Docs
-description: Azure PowerShell skriptexempel - OMS
+title: Azure PowerShell-skriptexempel – OMS | Microsoft Docs
+description: Azure PowerShell-skriptexempel – OMS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -16,15 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2f9303568838113335343a420913b8dcb84cb49c
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: dc6cda6490740488e60f380d99952fa3f8d0c3fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34655970"
 ---
-# <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Skapa en Operations Management Suite övervakas virtuell dator med PowerShell
+# <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Skapa en Operations Management Suite-övervakad virtuell dator med PowerShell
 
-Det här skriptet skapar en virtuell dator i Azure, installerar du agenten med Operations Management Suite (OMS) och registrerar system med en OMS-arbetsyta. När skriptet har körts, visas den virtuella datorn i OMS-konsolen. Du måste dessutom uppdatera OMS-ID och arbetsytan arbetsytans.
+Det här skriptet skapar en virtuell dator i Azure, installerar agenten Operations Management Suite (OMS) och registrerar systemet med en OMS-arbetsyta. När skriptet har körts visas den virtuella datorn i OMS-konsolen. Du behöver dessutom uppdatera OMS-arbetsytans ID och arbetsytans nyckel.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,25 +37,25 @@ Det här skriptet skapar en virtuell dator i Azure, installerar du agenten med O
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa distributionen. Varje objekt i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Ny AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Skapar den virtuella datorn och ansluter till nätverkskort, virtuella nätverk, undernät och nätverkssäkerhetsgruppen. Det här kommandot också öppnar port 80 och anger administratörsautentisering. |
-| [Ange AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Lägg till en VM-tillägget till den virtuella datorn. I det här fallet används filnamnstillägget Operations Management Suite-agenten för att installera OMS-agenten och registrera den virtuella datorn i en OMS-arbetsyta. |
-|[Ta bort AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i. |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en nätverkssäkerhetsgrupp. Det här kommandot öppnar också port 80 och anger administrativa autentiseringsuppgifter. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Lägg till ett virtuellt datortillägg till den virtuella datorn. I det här fallet används agenttillägget Operations Management Suite för att installera OMS-agenten och registrera den virtuella datorn i en OMS-arbetsyta. |
+|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare virtuella PowerShell-skript-exempel finns i den [Virtuella för Windows Azure-dokumentationen](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ytterligare PowerShell-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Windows-datorer](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

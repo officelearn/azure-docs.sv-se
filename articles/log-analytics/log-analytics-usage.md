@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802059"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 Log Analytics innehåller information om hur mycket data som samlas in, vilka källor som skickade data och vilka typer av data som skickas.  Med instrumentpanelen för **Log Analytics-användning** kan du granska och analysera dataanvändning. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
@@ -116,7 +117,7 @@ I följande skärmbild skickar datatypen *Log Management/Perf* mest data för da
 
 Gå sedan tillbaka till instrumentpanelen *Användning* och titta på diagrammet *Datavolym per lösning*. Klicka på namnet på lösningen i listan om du vill se de datorer som skickar mest data för en lösning. Klicka på namnet på den första lösningen i listan. 
 
-I följande skärmbild bekräftas att datorn *acmetomcat* skickar mest data för Log Management-lösningen.<br><br> ![datavolymen för en lösning](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+I följande skärmbild bekräftas att datorn *mycon* skickar mest data för Log Management-lösningen.<br><br> ![datavolymen för en lösning](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Vid behov kan du utföra ytterligare analyser för att identifiera stora volymer inom en lösning eller datatyp. Exempelfrågor omfattar:
 

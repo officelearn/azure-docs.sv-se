@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211804"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726337"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -167,7 +167,9 @@ När du åsidosätter adressprefixet 0.0.0.0/0 sker följande ändringar med Azu
         - Kunna nätadressöversätta och vidarebefordra eller skicka trafik via proxy till målresursen i undernätet och leda trafiken tillbaka till Internet. 
     - **Virtuell nätverksgateway**: Om gatewayen är en virtuell ExpressRoute-nätverksgateway kan en Internet-ansluten enhet lokalt nätadressöversätta och vidarebefordra eller skicka trafik via proxy till målresursen i undernätet via ExpressRoutes [privata peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering). 
 
-  Läs [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMS mellan Azure och ditt lokala datacenter) och [DMZ mellan Azure och Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) om implementeringsdetaljer när du använder virtuella nätverksgatewayer och virtuella installationer mellan Internet och Azure.
+Om ditt virtuella nätverk är anslutet till en Azure VPN-gateway, associerar du inte en routingtabell till det [gatewayundernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) som innehåller en väg med målet 0.0.0.0/0. Om du gör det så förhindrar du gatewayen från att fungera korrekt.
+
+Läs [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMS mellan Azure och ditt lokala datacenter) och [DMZ mellan Azure och Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) om implementeringsdetaljer när du använder virtuella nätverksgatewayer och virtuella installationer mellan Internet och Azure.
 
 ## <a name="routing-example"></a>Exempel på dirigering
 
@@ -260,5 +262,5 @@ Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar o
 - 
   [Konfigurera BGP för Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Använda BGP med ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Visa alla vägar för ett undernät](virtual-network-routes-troubleshoot-portal.md). En användardefinierad routningstabell visar bara de användardefinierade vägarna och inte standardvägarna och BGP-vägarna för ett undernät. Om du visar alla vägar ser du standardvägarna, GBP- och de användardefinierade vägarna för undernätet som ett nätverksgränssnitt finns i.
+- [Visa alla vägar för ett undernät](diagnose-network-routing-problem.md). En användardefinierad routningstabell visar bara de användardefinierade vägarna och inte standardvägarna och BGP-vägarna för ett undernät. Om du visar alla vägar ser du standardvägarna, GBP- och de användardefinierade vägarna för undernätet som ett nätverksgränssnitt finns i.
 - [Bestäm nästa hopptyp](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mellan en virtuell dator och en mål-IP-adress. Nästa hopp-funktionen Azure Network Watcher gör att du kan bestämma om trafik som lämnar ett undernät dirigeras dit du önskar.

@@ -2,23 +2,21 @@
 title: 'Snabbstart: Cassandra API med Node.js – Azure Cosmos DB | Microsoft Docs'
 description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Node.js
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cc8fd5ef77407274187411da593be7b68ae114d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 08ac75ca008f3054a85d9c90834720e26cefcfea
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796459"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Node.js och Azure Cosmos DB
 
@@ -186,7 +184,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     
 ## <a name="use-the-x509-certificate"></a>Använda X509-certifikatet 
 
-1. Om du behöver lägga till Baltimore CyberTrust Root har den serienummer 02:00:00:b9 och SHA1-fingeravtrycket d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Den kan laddas ner från https://cacert.omniroot.com/bc2025.crt och sparas som en lokal fil med filnamnstillägget .cer. 
+1. Om du behöver lägga till Baltimore CyberTrust Root så har det serienummer 02:00:00:b9 och SHA1 fingeravtrycket d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2 c: 78:db:28:52:ca:e4:74. Den kan laddas ner från https://cacert.omniroot.com/bc2025.crt och sparas som en lokal fil med filnamnstillägget .cer. 
 
 2. Öppna uprofile.js och ändra ”path\to\cert” så att det leder till det nya certifikatet. 
 

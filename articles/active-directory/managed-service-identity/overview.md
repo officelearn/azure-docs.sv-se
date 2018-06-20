@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724106"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Vad är Hanterad tjänstidentitet (MSI) för Azure-resurser?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 En vanligt utmaning när man skapar molnprogram är hur man hanterar de autentiseringsuppgifter som måste finnas i koden för att kunna autentisera till molntjänster. Att skydda dessa autentiseringsuppgifter är en viktig uppgift. Vi rekommenderar att de aldrig visas på utvecklarnas arbetsstationer eller att de checkas in i källkodskontrollen. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
+Hanterad tjänstidentitet är en kostnadsfri del av Azure Active Directory, vilket är standard för Azure-prenumerationer. Det finns ingen ytterligare kostnad för Hanterad tjänstidentitet.
+
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
 Det finns två typer av hanterade tjänstidentiteter: **Systemtilldelade** och **Användartilldelade**.
 
 - En **Systemtilldelad identitet** aktiveras direkt på en instans av Azure-tjänsten. När den är aktiverad skapar Azure en identitet för tjänstinstansen i Azure AD-klientorganisationen, som är betrodd av prenumerationen för tjänstinstansen. När identiteten har skapats etableras autentiseringsuppgifterna på tjänstinstansen. Livscykeln för en systemtilldelad identitet är direkt knuten till den tjänstinstans i Azure som den är aktiverad på. Om tjänstinstansen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
-- En **Användartilldelad identitet** (offentlig granskning) skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den har tilldelats till.
+- En **Användartilldelad identitet** skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den har tilldelats till.
 
 Koden kan därför antingen använda en systemtilldelad eller användartilldelad identitet, och begära åtkomsttokens för tjänster som stöder Azure AD-autentisering. Samtidigt tar Azure hand om de autentiseringsuppgifter som används av tjänstinstansen.
 
@@ -103,17 +106,6 @@ Testa självstudien Hanterad tjänstidentitet för att lära dig scenarier från
 
 Hanterade identiteter kan användas för att autentisera till tjänster som stöder Azure AD-autentisering. En lista med Azure-tjänster som stöder hanterad tjänstidentitet finns i följande artikel:
 - [Tjänster som stöder Hanterad tjänstidentitet (MSI)](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Hur mycket kostar Hanterad tjänstidentitet?
-
-Hanterad tjänstidentitet levereras med Azure Active Directory Free, vilket är standard för Azure-prenumerationer. Det finns ingen ytterligare kostnad för Hanterad tjänstidentitet.
-
-## <a name="support-and-feedback"></a>Support och feedback
-
-Vi vill gärna höra vad du har att säga!
-
-* Ställ frågor i Stack Overflow med taggen [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Efterfråga funktioner eller ge feedback på [Azure AD:s feedbackforum för utvecklare](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Nästa steg
 

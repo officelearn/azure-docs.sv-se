@@ -1,25 +1,24 @@
 ---
 title: Snabbstart – Skicka telemetri till Azure IoT Hub | Microsoft Docs
 description: I den här snabbstarten kör du ett iOS-exempelprogram som skickar simulerad telemetri till en IoT-hubb, läser telemetrin från IoT-hubben och bearbetar den i molnet.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808187"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Skicka telemetri från en enhet till en IoT-hubb (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här artikeln skickar du telemetri från ett simulerat program till IoT Hub. Sedan kan du visa data från ett program på serversidan. 
 
@@ -42,32 +41,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Det första steget är att använda Azure Portal till att skapa en IoT-hubb i din prenumeration. IoT-hubben gör att du kan mata in stora mängder telemetri i molnet från många enheter. Via hubben aktiveras sedan en eller flera servertjänster som körs i molnet, för läsning och bearbetning av telemetrin.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
-
-1. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**. 
-
-   ![Välj för att installera IoT Hub](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. När du skapar din IoT-hubb använder du värdena i tabellen nedan:
-
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange ett unikt namn för din hubb |
-    | Pris- och skalnivå | F1 Kostnadsfri |
-    | IoT Hub-enheter | 1 |
-    | Partitioner från enhet till moln | 2 partitioner |
-    | Prenumeration | Din Azure-prenumeration. |
-    | Resursgrupp | Skapa ny. Ange ett namn för resursgruppen. |
-    | Plats | Den plats som är närmast dig. |
-    | Fäst vid instrumentpanelen | Ja |
-
-1. Klicka på **Skapa**.  
-
-   ![Inställningar för hubben](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. Anteckna namnen på din IoT-hubb och resursgrupp. Du använder de här värdena senare i den här snabbstarten.
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -168,10 +143,13 @@ Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i po
 
 I den här artikeln konfigurerade du en IoT-hubb, registrerade en enhet, skickade simulerad telemetri till hubben från en iOS-enhet och läste telemetrin från hubben. 
 
-Om du vill lära dig mer om hur iOS-enheter fungerar med IoT Hub kan du läsa [Skicka meddelanden från moln till enhet med iOS (Swift)](iot-hub-ios-swift-c2d.md)
+Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208846"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715963"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replikera en virtuell Azure-dator till en annan Azure-region
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region. Azure till Azure-replikering finns för närvarande i förhandsversion
+I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -47,7 +47,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra inställningar för replikering och testa distributionen.
 
-1. Klicka på **Haveriberedskap (förhandsversion)** i VM-menyn.
+1. I den virtuella datormenyn, klickar du på **Haveriberedskap**.
 2. Du kan kontrollera replikeringshälsan, återställningspunkter som har skapats samt käll- och målregioner på kartan.
 
    ![Replikeringsstatus](media/azure-to-azure-quickstart/replication-status.png)

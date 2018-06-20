@@ -1,57 +1,55 @@
 ---
-title: Azure DB Cosmos-funktionsstöd för MongoDB | Microsoft Docs
-description: Mer information om funktionsstöd Azure Cosmos DB MongoDB API ger för MongoDB 3.4.
+title: Azure DB Cosmos stöder MongoDB | Microsoft Docs
+description: Läs om det funktionsstöd som Azure Cosmos DB MongoDB API:t erbjuderr för MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796363"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Stöd för MongoDB-API för MongoDB-funktioner och -syntax
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med databasens MongoDB API genom någon av klienten för öppen källkod MongoDB [drivrutiner](https://docs.mongodb.org/ecosystem/drivers). MongoDB-API som möjliggör användning av befintliga klientdrivrutiner genom att följa MongoDB [tråd protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med databasens MongoDB API via någon av MongoDB-klient[drivrutinerna](https://docs.mongodb.org/ecosystem/drivers) med öppen källkod. MongoDB API:t tillåter användning av befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Med hjälp av Azure Cosmos DB MongoDB API kan du dra nytta av fördelarna av MongoDB-APIs du ofta, med alla enterprise-funktioner som ger Azure Cosmos DB: [global distributionsplatsen](distribute-data-globally.md), [automatisk delning](partition-data.md), tillgänglighet och svarstid garantier, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
+Med hjälp av Azure Cosmos DB MongoDB API:t kan du dra nytta av fördelarna av de MongoDB API:er som du är van vid och alla enterprise-funktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
-## <a name="mongodb-query-language-support"></a>Språkstöd för MongoDB-fråga
+## <a name="mongodb-query-language-support"></a>Stöd för MongoDB-frågespråk
 
-Azure Cosmos DB MongoDB API ger omfattande stöd för MongoDB språkkonstruktioner för frågan. Nedan hittar du detaljerad lista över de åtgärder som för närvarande stöds, operatorer, steg, kommandon och alternativ.
+Azure Cosmos DB MongoDB API:t erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder som för närvarande stöds, operatorer, steg, kommandon och alternativ.
 
 
-## <a name="database-commands"></a>Databasen kommandon
+## <a name="database-commands"></a>Databaskommandon
 
-Azure Cosmos-DB stöder följande kommandon för databasen på alla MongoDB-API-konton. 
+Azure Cosmos DB stöder följande databaskommandon på alla MongoDB API-konton. 
 
-### <a name="query-and-write-operation-commands"></a>Fråga och Skriv åtgärden-kommandon
-- radera
-- hitta
+### <a name="query-and-write-operation-commands"></a>Fråga och skriv-åtgärdskommandon
+- delete
+- find
 - findAndModify
 - getLastError
 - getMore
-- Infoga
-- Uppdatering
+- insert
+- update
 
-### <a name="authentication-commands"></a>Kommandon för autentisering
-- logga ut
-- autentisera
+### <a name="authentication-commands"></a>Autentiseringskommandon
+- logout
+- authenticate
 - getnonce
 
-### <a name="administration-commands"></a>Kommandon för administration
+### <a name="administration-commands"></a>Administrationskommandon
 - dropDatabase
 - listCollections
-- ta bort
+- drop
 - skapa
 - filemd5
 - createIndexes
@@ -60,7 +58,7 @@ Azure Cosmos-DB stöder följande kommandon för databasen på alla MongoDB-API-
 - connectionStatus
 - reIndex
 
-### <a name="diagnostics-commands"></a>Diagnostik-kommandon
+### <a name="diagnostics-commands"></a>Diagnostiska kommandon
 - buildInfo
 - collStats
 - dbStats
@@ -70,21 +68,21 @@ Azure Cosmos-DB stöder följande kommandon för databasen på alla MongoDB-API-
 
 <a name="aggregation-pipeline"/>
 
-## <a name="aggregation-pipelinea"></a>Aggregeringen pipeline</a>
+## <a name="aggregation-pipelinea"></a>Sammansättningspipeline</a>
 
-Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azure blogg](https://aka.ms/mongodb-aggregation) anvisningar för hur du integrerar till public preview.
+Azure Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen](https://aka.ms/mongodb-aggregation) för anvisningar om hur du registrerar för den allmänna förhandsversionen.
 
-### <a name="aggregation-commands"></a>Aggregeringen kommandon
-- mängd
-- antal
-- Distinkta
+### <a name="aggregation-commands"></a>Sammansättningskommandon
+- aggregate
+- count
+- distinct
 
-### <a name="aggregation-stages"></a>Aggregeringen faser
+### <a name="aggregation-stages"></a>Sammansättningsfaser
 - $project
 - $match
 - $limit
 - $skip
-- $uppnystning
+- $unwind
 - $group
 - $sample
 - $sort
@@ -93,14 +91,14 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $count
 - $addFields
 
-### <a name="aggregation-expressions"></a>Mängduttryck
+### <a name="aggregation-expressions"></a>Sammansättningsuttryck
 
 #### <a name="boolean-expressions"></a>Booleska uttryck
-- $och
-- $eller
+- $and
+- $or
 - $not
 
-#### <a name="set-expressions"></a>Ange uttryck
+#### <a name="set-expressions"></a>Uttryck för angivelse
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -120,7 +118,7 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 
 #### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
 - $abs
-- Lägg till $
+- $add
 - $ceil
 - $divide
 - $exp
@@ -129,13 +127,13 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $log
 - $log10
 - $mod
-- $multiplicera
+- $multiply
 - $pow
 - $sqrt
-- $Subtrahera
+- $subtract
 - $trunc
 
-#### <a name="string-expressions"></a>Uttryck för anslutningssträng
+#### <a name="string-expressions"></a>Stränguttryck
 - $concat
 - $indexOfBytes
 - $indexOfCP
@@ -149,7 +147,7 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $toLower
 - $toUpper
 
-#### <a name="array-expressions"></a>Array-uttryck
+#### <a name="array-expressions"></a>Matrisuttryck
 - $arrayElemAt
 - $concatArrays
 - $filter
@@ -159,7 +157,7 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $reverseArray
 - $size
 - $slice
-- $i
+- $in
 
 #### <a name="date-expressions"></a>Datumuttryck
 - $dayOfYear
@@ -170,20 +168,20 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 - $week
 - $hour
 - $minute
-- $andra
+- $second
 - $millisecond
 - $isoDayOfWeek
 - $isoWeek
 
-#### <a name="conditional-expressions"></a>Villkorsuttryck
+#### <a name="conditional-expressions"></a>Villkorliga uttryck
 - $cond
 - $ifNull
 
-## <a name="aggregation-accumulators"></a>Aggregeringen ackumulatorer
+## <a name="aggregation-accumulators"></a>Sammansättningsackumulatorer
 - $sum
 - $avg
-- $första
-- $senaste
+- $first
+- $last
 - $max
 - $min
 - $push
@@ -191,7 +189,7 @@ Azure Cosmos-DB stöder aggregering pipeline i förhandsversion. Finns den [Azur
 
 ## <a name="operators"></a>Operatorer
 
-Följande operatorer stöds med motsvarande användningsexempel. Överväg att det här exemplet dokumentet som används i frågorna nedan:
+Följande operatorer stöds med motsvarande användningsexempel. Överväg det här exempeldokumentet som används i frågorna nedan:
 
 ```json
 {
@@ -220,49 +218,49 @@ $gte | ``` { "Elevation": { $gte: 4392 } } ``` |  | -
 $lt | ``` { "Elevation": { $lt: 5000 } } ``` |  | -
 $lte | ``` { "Elevation": { $lte: 5000 } } ``` | | -
 $ne | ``` { "Elevation": { $ne: 1 } } ``` |  | -
-$i | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
+$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
 $nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` | | -
-$eller | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
-$och | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
 $not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|  | -
-$eller | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
-$finns | ``` { "Status": { $exists: true } } ```|  | -
+$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
+$exists | ``` { "Status": { $exists: true } } ```|  | -
 $type | ``` { "Status": { $type: "string" } } ```|  | -
 $mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |  | -
 $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 ### <a name="notes"></a>Anteckningar
 
-Vänster förankrad uttryck kan indexsökning i $regex frågor. Dock med ”i” modifierare (detta) och 'M ' modifierare (multiline) medför samling genomsökningen i alla uttryck.
-När det är nödvändigt att innehålla '$' eller ' |', är det bäst att skapa två (eller fler) regex-frågor. Till exempel få följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})```, den måste ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Den första delen använder indexet för att begränsa sökningen till dessa dokument från och med ^ abc och den andra delen matchar exakt samma värden. I fältet operator ' |' fungerar som en ”eller” funktion - frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokument i vilka fält 'x' har värden som börjar med ”abc” eller ”def”. Om du vill använda indexet rekommenderar vi för att dela frågan i två olika frågor ansluten av $eller operatör: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+I $regex-frågor, tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
+När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor. Med till exempel följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})``` så måste den ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna. Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
-### <a name="update-operators"></a>Uppdatera operatorer
+### <a name="update-operators"></a>Uppdateringsoperatorer
 
-#### <a name="field-update-operators"></a>Fältet uppdatering operatorer
+#### <a name="field-update-operators"></a>Fältuppdateringsoperatorer
 - $inc
 - $mul
 - $rename
 - $setOnInsert
 - $set
-- ta bort $
+- $unset
 - $min
 - $max
 - $currentDate
 
-#### <a name="array-update-operators"></a>Matrisen update operatorer
+#### <a name="array-update-operators"></a>Matrisuppdateringsoperatorer
 - $addToSet
 - $pop
 - $pullAll
 - $pull (Obs: $pull med villkor stöds inte)
 - $pushAll
 - $push
-- $varje
+- $each
 - $slice
 - $sort
 - $position
 
-#### <a name="bitwise-update-operator"></a>Uppdatering av binär operator
+#### <a name="bitwise-update-operator"></a>Binär uppdateringsoperator
 - $bit
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
@@ -271,7 +269,7 @@ Operator | Exempel
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Ja
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
-$nära | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
 $nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Ja
 $geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja
 $minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Ja
@@ -289,7 +287,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Stöds ej. Använd $regex i stället 
+$text |  | Stöds ej. Använd $regex istället 
 
 ### <a name="methods"></a>Metoder
 
@@ -299,32 +297,32 @@ Följande metoder stöds:
 
 Metod | Exempel | Anteckningar 
 --- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel inte returneras
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel returneras inte
 
 ## <a name="unique-indexes"></a>Unika index
 
-Azure Cosmos-DB indexerar varje fält i dokument som skrivs till databasen som standard. Unika index se till att ett visst fält saknar duplicerade värden i alla dokument i en samling liknande sätt unikhet bevaras för nyckeln som standard ”_id”. Nu kan du skapa anpassade index i Azure Cosmos-databasen med hjälp av kommandot createIndex, inklusive 'unique-begränsningen.
+Azure Cosmos DB indexerar som standard varje fält i dokument som skrivs till databasen. Unika index ser till att ett visst fält inte har duplicerade värden i alla dokument i en samling, på samma sätt som unikhet bevaras för standardnyckeln _id. Nu kan du skapa anpassade index i Azure Cosmos DB med hjälp av kommandot createIndex, inklusive unique-begränsningen.
 
-Unikt index är tillgängliga för alla MongoDB-API-konton.
+Unika index är tillgängliga för alla MongoDB API-konton.
 
-## <a name="time-to-live-ttl"></a>Time-to-live (TTL)
+## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
-Azure Cosmos-DB stöder en relativ time to live (TTL) baserat på tidsstämpel för dokumentet. TTL-värde kan aktiveras för MongoDB API samlingar via den [Azure-portalen](https://portal.azure.com).
+Azure Cosmos DB stöder en relativ time to live (TTL) baserat på tidsstämpeln för dokumentet. TTL kan aktiveras för MongoDB API-samlingar via [Azure-portalen](https://portal.azure.com).
 
-## <a name="user-and-role-management"></a>Hantering av användare och roller
+## <a name="user-and-role-management"></a>Användar- och rollhantering
 
-Azure Cosmos-DB stöder ännu inte användare och roller. Azure Cosmos-DB stöder rollbaserad åtkomstkontroll (RBAC) och läs-och skrivbara och skrivskyddade lösenord/nycklar som kan hämtas via den [Azure-portalen](https://portal.azure.com) (anslutningssträngen sidan).
+Azure Cosmos DB stöder ännu inte användare och roller. Azure Cosmos DB stöder rollbaserad åtkomstkontroll (RBAC) och läs- och skrivbara lösenord/nycklar som kan hämtas via [Azure-portalen](https://portal.azure.com) (sidan Anslutningssträng).
 
 ## <a name="replication"></a>Replikering
 
-Azure Cosmos-DB stöder automatisk, ursprunglig replikering på de lägsta lager. Denna logik utökas ut för att uppnå samt låg latens, globala replikering. Azure Cosmos-DB stöder inte manuell replikering kommandon.
+Azure Cosmos DB stöder automatisk, inbyggd replikering på de understa lagren. Denna logik utökas för att även uppnå global replikering med låga svarstider. Azure Cosmos DB stöder inte manuella replikeringskommandon.
 
 ## <a name="sharding"></a>Horisontell partitionering
 
-Azure Cosmos-DB stöder automatisk, serversidan horisontell partitionering. Azure Cosmos-DB stöder inte manuell delning kommandon.
+Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Azure Cosmos DB stöder inte manuella kommandon för horisontell partitionering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [använda Studio 3T](mongodb-mongochef.md) med en API för MongoDB-databas.
-- Lär dig hur du [använda Robo 3T](mongodb-robomongo.md) med en API för MongoDB-databas.
-- Utforska Azure Cosmos DB med Protokollstöd för MongoDB [exempel](mongodb-samples.md).
+- Läs hur du [använder Studio 3T](mongodb-mongochef.md) med ett API för MongoDB-databasen.
+- Läs hur du [använder Robo 3T](mongodb-robomongo.md) med ett API för MongoDB-databasen.
+- Utforska Azure Cosmos DB med protokollstöd för MongoDB-[exempel](mongodb-samples.md).

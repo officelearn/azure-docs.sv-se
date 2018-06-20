@@ -1,71 +1,71 @@
 ---
-title: Skapa en molnbaserad Kubernetes-utvecklingsmiljö | Microsoft Docs
+title: Skapa ett Kubernetes dev utrymme i molnet | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 279b7a8c20717668c0ff4be541e9168e2d8706fd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361589"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823234"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och VS Code)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes dev-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
+I den här guiden får du lära dig hur du:
 
-[!INCLUDE[](includes/learning-objectives.md)]
+- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Utveckla kod iterativt i behållare med VS Code och kommandoraden.
+- Felsök koden i ditt dev-utrymme från VS Code
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också testa den mer detaljerade [självstudien](get-started-netcore.md).
 
-Nu är du redo att skapa en Kubernetes-baserad utvecklingsmiljö i Azure.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+- En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- Ett [Kubernetes-kluster](https://ms.portal.azure.com/#create/microsoft.aks) som kör Kubernetes 1.9.6, i regionerna Usa, östra, Europa, västra eller Kanada, östra med **Http-programroutning** aktiverat.
 
-## <a name="install-the-azure-cli"></a>Installera Azure CLI
-Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklingsmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+  ![Se till att aktivera HTTP-programroutning.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-> [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.32 eller högre.
+- [Visual Studio Code](https://code.visualstudio.com/download).
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 eller högre).
+1. Ställ in Dev Spaces på ditt AKS-kluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
+1. Ladda ned [Azure Dev Spaces-tillägget](https://aka.ms/get-azds-code) för VS Code.
+1. Installera tillägget: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 
-Du kan börja skapa kod medan klustret skapas.
+1. Hämta exempelkoden från GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
+1. Ändra katalogen till webfrontend-mappen: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
+1. Skapa Docker- och Helm-diagramtillgångar: `azds prep --public`
+1. Skapa och kör din kod i AKS. Kör det här kommandot från webbklientdelen **rotkodsmappen** i terminalfönstret: `azds up`
+1. Skanna konsolens utdata för information om den URL som skapades av `up`-kommandot. Den kommer att vara i formen: 
 
-## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
-Om du har [.NET Core](https://www.microsoft.com/net) installerat kan du snabbt skapa en ASP.NET Core-webbapp i en mapp med namnet `webfrontend`.
+   `Service 'webfrontend' port 'http' is available at <url>` 
 
-```cmd
-   dotnet new mvc --name webfrontend
-```
+   Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. 
 
-Du kan också **ladda ned exempelkod från GitHub** genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till din lokala miljö. Koden för den här guiden finns i `samples/dotnetcore/getting-started/webfrontend`.
+### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 
-[!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
-
-## <a name="update-a-content-file"></a>Uppdatera en innehållsfil
-Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
-
-1. Leta upp filen `./Views/Home/Index.cshtml` och göra en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
+1. Leta upp en fil som `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
 1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva behållaren har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
 
 Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. Ett aktivt `azds up`-kommando synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i Azure, så att du genast kan se dina innehållsändringar.
 
-## <a name="update-a-code-file"></a>Uppdatera en kodfil
+### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
@@ -75,15 +75,22 @@ Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måst
 
 Det här kommandot återskapar behållaravbildningen och distribuerar Helm-diagrammet på nytt. Bekräfta kodändringarna i det aktiva programmet genom att gå till menyn Om i webbappen.
 
-
-Men det finns en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
+Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
 
 ## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+I det här avsnittet ska du använda VS Code för att direkt felsöka din behållare som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+![](./media/common/edit-refresh-see.png)
 
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
+Först måste du konfigurera ditt kodprojekt så att VS Code kommunicerar med utvecklarmiljön i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
+
+Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Create configuration files for connected development`. 
+
+Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`.
+
+![](./media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Välj AZDS-felsökningskonfigurationen
 1. Du öppnar felsökningsvyn genom att klicka på felsökningsikonen i **aktivitetsfältet** längs kanten i VS Code.
@@ -98,9 +105,10 @@ Men det finns en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
 
-Precis som med `up`-kommandot synkroniseras koden med utvecklingsmiljön, och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
+Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+> [!Tip]
+> Statusfältet i VS Code innehåller en klickbar URL.
 
 Lägg till en brytpunkt i en kodfil på serversidan, t.ex. i funktionen `Index()` i källfilen `Controllers/HomeController.cs`. Brytpunkten aktiveras när du uppdaterar sidan i webbläsaren.
 
@@ -128,6 +136,8 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 **Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!**
 
 ## <a name="next-steps"></a>Nästa steg
+
+Lär dig hur Azure Dev Spaces hjälper dig utveckla mer komplexa appar över flera behållare och hur du kan förenkla utveckling i samarbete genom att arbeta med olika versioner eller grenar av kod i olika utrymmen. 
 
 > [!div class="nextstepaction"]
 > [Arbeta med flera behållare och utveckling i team](get-started-netcore.md#call-a-service-running-in-a-separate-container)

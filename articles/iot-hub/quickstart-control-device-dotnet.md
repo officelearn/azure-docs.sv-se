@@ -1,23 +1,21 @@
 ---
 title: Kontrollera en enhet från Azure IoT Hub (.NET) | Microsoft Docs
 description: I den här snabbstarten kör du två C#-exempelprogram. Ett program är en serverdel som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
+ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d0233d2bd68397491e22cc7eb6993d0909f92218
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eefb66e50b4dfd601428eec90784b0991276b5a
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807897"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (.NET)
 
@@ -91,7 +89,7 @@ Anteckna tjänstanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. D
 
 Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar tillbaka en bekräftelse till din hubb när den har kört den direkta metoden.
 
-1. Navigera till C#-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **Quickstarts\simulated-device-2**.
+1. Navigera till C#-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
 
@@ -156,4 +154,4 @@ I den här snabbstarten har du anropat en direktmetod på en enhet från ett ser
 Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](iot-hub-csharp-csharp-process-d2c.md)
+> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

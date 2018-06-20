@@ -1,6 +1,6 @@
 ---
 title: Skapa din första funktion i Azure med Visual Studio | Microsoft Docs
-description: Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions Tools för Visual Studio.
+description: Skapa och publicera en HTTP-utlöst Azure Function med Visual Studio.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 05/22/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: a1f0a022b4620b15e2d76a127ed48e5472e4a5bb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc, devcenter, 23113853-34f2-4f
+ms.openlocfilehash: d815bf3fa4b63f12ac9f0d871e353e872a5aca25
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699979"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
@@ -29,23 +30,17 @@ Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.co
 
 I den här artikeln får du lära dig hur du använder Visual Studio 2017-verktyg med Azure Functions för att skapa och testa en ”Hello World”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbetsbelastningen Azure Development i Visual Studio 2017.
 
-![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
-
 Det här avsnittet innehåller [en video](#watch-the-video) som visar samma grundläggande steg.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
-* Installera [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) eller en senare version, inklusive arbetsbelastningen **Azure-utveckling**.
+* Installera [Visual Studio 2017](https://azure.microsoft.com/downloads/) och kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
 
-    ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+* Kontrollera att du har de [senaste Azure Functions-verktygen](functions-develop-vs.md#check-your-tools-version).
 
-    Om du redan har installerat Visual Studio kontrollerar du att du har installerat eventuella väntande uppdateringar. 
-
-* Om du har installerat arbetsbelastningen för Azure-utveckling med Visual Studio 2017 version 15.4 eller tidigare kan du också behöva [uppdatera Azure Functions-verktygen](functions-develop-vs.md#check-your-tools-version). 
-    
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-function-app-project"></a>Skapa ett funktionsapprojekt
 
@@ -53,17 +48,15 @@ För att slutföra den här kursen behöver du:
 
 Visual Studio skapar ett projekt och i det en klass som innehåller formaterad exempelkod för den valda typen. Attributet **FunctionName** i metoden anger namnet på funktionen. Attributet **HttpTrigger** anger att funktionen utlöses av en HTTP-förfrågan. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen. Du kan lägga till bindningar för indata och utdata i en funktion genom att lägga till lämpliga attribut i metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
 
-![Funktionens kodfil](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
 Nu när du har skapat ditt funktionsprojekt och en HTTP-utlöst funktion kan du testa den på en lokal dator.
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
-Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.  
+Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.
 
 1. Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
 
-2. Kopiera URL:en för funktionen från dina Azure Functions-utdata.  
+2. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
 
     ![Lokal Azure-körningsmiljö](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
@@ -89,7 +82,7 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Nedan visas svaret på fjärr-GET-begäran som returnerades av funktionen i webbläsaren: 
+2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Nedan visas svaret på fjärr-GET-begäran som returnerades av funktionen i webbläsaren:
 
     ![Funktionssvar i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
 
@@ -99,9 +92,8 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu använt Visual Studio till att skapa och publicera en C#-funktionsapp med en enkel HTTP-utlöst funktion. 
+Du har nu använt Visual Studio till att skapa och publicera en C#-funktionsapp med en enkel HTTP-utlöst funktion.
 
-+ Information om hur du konfigurerar ditt projekt för att ge stöd för andra typer av utlösare och bindningar finns i [Configure the project for local development](functions-develop-vs.md#configure-the-project-for-local-development) (Konfigurera projektet för lokal utveckling) i avsnittet [Azure Functions Tools for Visual Studio](functions-develop-vs.md) (Azure Functions Tools för Visual Studio).
-+ Läs mer om lokal testning och felsökning med hjälp av Azure Functions Core Tools i [Code and test Azure Functions locally](functions-run-local.md) (Koda och testa Azure Functions lokalt). 
-+ Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns i [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Använda .NET-klassbibliotek med Azure Functions). 
-
+* [Läs hur du lägger till indata- och utdatabindningar som integreras med andra tjänster.](functions-develop-vs.md#add-bindings)
+* [Läs mer om lokal testning och felsökning med Azure Functions Core-verktygen.](functions-run-local.md#vs-debug)
+* [Läs mer om hur du utvecklar funktioner som .NET-klassbibliotek](functions-dotnet-class-library.md).

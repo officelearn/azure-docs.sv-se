@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303985"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725249"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure Event Grid
 
@@ -71,8 +71,6 @@ För närvarande stöder följande Azure-tjänster hantering av händelser från
 * Queue Storage
 * WebHooks
 
-När du använder Azure Functions som hanterare kan du använda Event Grid-utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
-
 Länkar till artiklar som visar hur du använder varje händelsehanterare finns i [Händelsehanterare i Azure Event Grid](event-handlers.md).
 
 ## <a name="concepts"></a>Begrepp
@@ -80,7 +78,7 @@ Länkar till artiklar som visar hur du använder varje händelsehanterare finns 
 Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 
 * **Händelser** – Vad hände?
-* **Händelsekällor/utgivare** – Var ägde händelsen rum?
+* **Händelsekällor** – där händelsen ägde rum.
 * **Ämnen** – Slutpunkten som utgivarna skickar händelser till.
 * **Händelseprenumerationer** – Den slutpunkt eller inbyggda mekanism som dirigerar händelser, ibland till flera hanterare. Prenumerationer används också av hanterarna för att filtrera inkommande händelser på ett intelligent sätt.
 * **Händelsehanterare** – Den app eller tjänst som reagerar på händelsen.
@@ -126,7 +124,7 @@ Event Grid ansluter din app till andra tjänster. Skapa till exempel ett anpassa
 
 ## <a name="how-much-does-event-grid-cost"></a>Hur mycket kostar Event Grid?
 
-Azure Event Grid använder en prismodell med betalning per händelse, så du betalar bara för det du använder. De första 100 000 åtgärderna per månad är gratis. Åtgärder definieras som ingångshändelser, avancerad matchning, leveransförsök och hanteringsanrop. Se [sidan med våra priser](https://azure.microsoft.com/pricing/details/event-grid/) för mer information.
+Azure Event Grid använder en prismodell med betalning per händelse, så du betalar bara för det du använder. De första 100 000 åtgärderna per månad är gratis. Åtgärder definieras som händelsens ingång, leveransförsök av prenumeration, hanteringsanrop och filtrering av ämnessuffix. Se [sidan med våra priser](https://azure.microsoft.com/pricing/details/event-grid/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

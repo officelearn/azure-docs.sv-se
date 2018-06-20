@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/28/2018
-ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/02/2018
+ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737239"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 
@@ -22,7 +23,7 @@ Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet 
 
 - Inbyggd hög tillgänglighet utan extra kostnad
 - Förutsägbara prestanda med hjälp av priser enligt principen Betala per användning
-- Skala direkt inom några sekunder
+- Skala efter behov inom några sekunder
 - Säkert skydd av känsliga data som är vilande eller aktiva
 - Automatisk säkerhetskopiering och återställning av tidpunkter i upp till 35 dagar
 - Säkerhet och efterlevnad i företagsklass
@@ -52,7 +53,15 @@ Azure-databastjänster har en tradition av datasäkerhet som Azure Database for 
 
 Tjänsten Azure Database for PostgreSQL använder lagringskryptering för data i vila. Data, inklusive säkerhetskopior, krypteras på disk (med undantag för tillfälliga filer som skapas av motorn vid körning av frågor). Tjänsten använder chiffer med AES 256 bitar som ingår i Azures lagringskryptering, och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
-Tjänsten Azure Database for PostgreSQL är som standard konfigurerad för att kräva [SSL-anslutningssäkerhet](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.  Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
+Tjänsten Azure Database for PostgreSQL är som standard konfigurerad för att kräva [SSL-anslutningssäkerhet](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
+
+## <a name="contacts"></a>Contacts
+För frågor eller förslag som du kan ha om att arbeta med Azure Database for MySQL, skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([@Ask Azure DB för PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Observera att detta inte är ett alias för teknisk support.
+
+Tänk dessutom på följande kontaktpunkter efter behov:
+- Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
+- Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Nästa steg
 - På [prissättningssidan](https://azure.microsoft.com/pricing/details/postgresql/) finns kostnadsjämförelser och kostnadsberäknare.

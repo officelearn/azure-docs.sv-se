@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809291"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
 Microsoft Azure Media Services (AMS) gör det möjligt att på ett säkert sätt överföra, lagra, koda och paketera video- eller ljudinnehåll för att strömma både på begäran och live till olika klienter (till exempel TV, datorer och mobila enheter).
 
-AMS körs på ett antal datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). 
+AMS körs på flera datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). 
 
-Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live](#live_scenarios) eller [på begäran](#vod_scenarios). Avsnittet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
+Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live](#live_scenarios) eller [på begäran](#vod_scenarios). Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
 
 ## <a name="overview"></a>Översikt
 
@@ -165,7 +166,7 @@ Det här avsnittet innehåller information om tillgängligheten för Media Servi
 
 #### <a name="availability"></a>Tillgänglighet
 
-Om du vill se om Media Services är tillgängligt i ett datacenter kan du gå till https://azure.microsoft.com/status/ och bläddra till tabellen MEDIA.
+Om du vill fastställa om Media Services är tillgängligt i ett datacenter, går du till https://azure.microsoft.com/status/ och bläddra till MEDIA-tabellen.
 
 ### <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 

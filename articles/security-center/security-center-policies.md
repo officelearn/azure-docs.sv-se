@@ -3,7 +3,7 @@ title: Ange säkerhetsprinciper i Azure Security Center | Microsoft Docs
 description: Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364394"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756999"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
 Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Center.
@@ -28,7 +28,7 @@ Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Cen
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. I Security Center kan du redigera principer och övervaka efterlevnaden av principer.
 
 > [!NOTE]
-> Nu kan du även utöka Security Center-principerna med hjälp av Azure Policy, som nu finns i en begränsad förhandsversion. Gå till [Registrera dig för Azure Policy](https://aka.ms/getpolicy) för att ansluta dig till förhandsversionen. Mer information finns i [Integrera Security Center-säkerhetsprinciper med Azure Policy](security-center-azure-policy.md).
+> Du kan nu utöka Security Center-principer med [Azure Policy](../azure-policy/azure-policy-introduction.md). Mer information finns i [Integrera Security Center-säkerhetsprinciper med Azure Policy](security-center-azure-policy.md).
 
 Säkerhetskraven för de resurser som används för utveckling eller testning kan skilja sig från säkerhetskraven för resurser som används för program i produktionen. Det kanske även krävs en högre säkerhetsnivå för sådant som det finns lagar om, till exempel personligt identifierbar information. Säkerhetsprinciperna i Azure Security Center innehåller säkerhetsrekommendationer och möjlighet till övervakning som gör att du kan upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig bäst finns i [Planering- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md).
 
@@ -75,3 +75,5 @@ I den här artikeln har vi berättat hur du ställer in säkerhetsprinciper i Se
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+
+Mer information om Azure Policy finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)

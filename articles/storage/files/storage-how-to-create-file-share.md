@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737868"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Skapa en filresurs i Azure Files
 Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure.com/), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. I den här kursen lär du dig:
-* [Hur du skapar en Azure-filresurs med hjälp av Azure Portal](#Create file share through the Portal)
-* [Hur du skapar en Azure-filresurs med hjälp av Powershell](#Create file share using PowerShell)
-* [Hur du skapar en Azure-filresurs med hjälp av CLI](#create-file-share-using-command-line-interface-cli)
+* [Så här skapar du en Azure-filresurs med Azure-portalen](#create-file-share-through-the-azure-portal)
+* [Så här skapar du en Azure-filresurs med Powershell](#create-file-share-through-powershell)
+* [Så här skapar du en Azure-filresurs med CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Om du vill skapa en Azure-filresurs kan du använda ett lagringskonto som redan finns eller [skapa ett nytt Azure Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du vill skapa en Azure-filresurs med PowerShell behöver du kontonyckeln och namnet på ditt lagringskonto. Du behöver din lagringskontonyckel om du avser att använda Powershell eller CLI.
+Om du vill skapa en Azure-filresurs, kan du använda ett lagringskonto som redan finns eller [skapa ett nytt Azure Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du vill skapa en Azure-filresurs med PowerShell behöver du kontonyckeln och namnet på ditt lagringskonto. Du behöver din lagringskontonyckel om du avser att använda Powershell eller CLI.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Skapa filresurs via Azure-portalen
 1. **Gå till bladet Lagringskonto i Azure-portalen**:    

@@ -10,11 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798448"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -34,7 +35,9 @@ Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+Om du föredrar Spring-ramverket, testa [Guiden konfigurera en Spring Boot-startapp att använda Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 

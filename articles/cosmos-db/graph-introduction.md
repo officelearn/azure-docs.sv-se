@@ -1,143 +1,141 @@
 ---
-title: 'Introduktion till Azure Cosmos DB Graph API: er | Microsoft Docs'
-description: Lär dig hur du kan använda Azure Cosmos DB för att lagra, fråga och passerar massiv diagram med låg latens med hjälp av frågespråket för Apache TinkerPop Gremlin diagram.
+title: Introduktion till Azure Cosmos DB Graph API:er | Microsoft Docs
+description: Läs hur du kan använda Azure Cosmos DB för att lagra, fråga och bläddra igenom massiva diagram med låga svarstider med hjälp av Gremlin-diagramfrågespråket för Apache TinkerPop.
 services: cosmos-db
 author: LuisBosquez
-documentationcenter: ''
 manager: kfile
-ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-graph
+ms.devlang: na
+ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6deaf57b6314ed4077369beb3195e97281d918e6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796146"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
-[Azure Cosmos-DB](introduction.md) är globalt distribuerade, multimodel databastjänsten från Microsoft för verksamhetskritiska program. Azure Cosmos-DB tillhandahåller följande funktioner, som alla backas upp av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
+[Azure Cosmos DB](introduction.md) är den globalt distribuerade databastjänsten för flera datamodeller från Microsoft för verksamhetskritiska program. Azure Cosmos DB erbjuder följande funktioner, som alla backas upp av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
 
 * [Nyckelfärdig global distribution](distribute-data-globally.md)
-* [Elastisk skalbarhet av dataflöden och lagringsutrymmen](partition-data.md) över hela världen
-* En siffra millisekunders latens vid 99th percentilen
+* [Elastisk skalbarhet av dataflöden och lagringsutrymme](partition-data.md) över hela världen
+* Svarstider på enstaka millisekunder vid 99:e percentilen
 * [Fem väldefinierade konsekvensnivåer](consistency-levels.md)
 * Garanterat hög tillgänglighet 
 
-Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det är multimodel och har stöd för dokument, nyckelvärde, diagram och kolumner datamodeller.
+Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Den stöder flera modeller och dokument, nyckelvärden, diagram och kolumndatamodeller.
 
-Vi rekommenderar att du titta på nedanstående video, där Kirill Gavrylyuk förklarar hur du kommer igång med diagram på Azure Cosmos DB:
+Vi rekommenderar att du tittar på följande video där Kirill Gavrylyuk förklarar hur man kommer igång med diagram i Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
 > 
 > 
 
-Azure Cosmos DB Graph API innehåller:
+Azure Cosmos DB Graph API erbjuder:
 
-- Diagram över modellering.
-- Traversal API: er.
-- Nyckelfärdig global distributionsplatsen.
-- Elastisk skalbarhet av lagring och dataflöde med mindre än 10 ms läsa svarstiderna och mindre än 15 ms vid 99th percentilen.
-- Automatisk indexering med snabbmeddelanden frågan tillgänglighet.
+- Diagrammodellering.
+- Bläddrings-API:er.
+- Nyckelfärdig global distribution.
+- Elastisk skalbarhet av lagring och dataflöde med mindre än 10 ms svarstider för läsning och mindre än 15 ms vid 99:e percentilen.
+- Automatisk indexering med omedelbar frågetillgänglighet.
 - Justerbara konsekvensnivåer.
-- Omfattande SLA: er, inklusive 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.
+- Serviceavtal med 99,99 % tillgänglighet för alla konton i en region och alla konton i flera regioner med avslappnad konsekvens och 99,999 % lästillgänglighet för alla flerregions-databaskonton.
 
-Om du vill fråga Azure Cosmos DB, du kan använda den [Apache TinkerPop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), eller andra TinkerPop-kompatibel graph-system som [Apache Spark GraphX](spark-connector-graph.md).
+Om du vill fråga Azure Cosmos DB, kan du använda [Apache TinkerPop](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), eller andra TinkerPop-kompatibla diagramsystem som [Apache Spark GraphX](spark-connector-graph.md).
 
-Den här artikeln innehåller en översikt över Azure Cosmos DB Graph API och förklarar hur du kan använda den för att lagra massiv diagram med miljarder hörn och kanter. Du kan fråga diagram med millisekunds fördröjning och enkelt utvecklas diagrammet struktur och schema.
+Den här artikeln ger en översikt över Azure Cosmos DB Graph API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga diagrammen med svarstider på millisekunder och enkelt utveckla diagrammets struktur och schema.
 
-## <a name="graph-database"></a>Diagram-databas
-Data är som det visas i verkligheten naturligt kopplade. Traditionella modellering fokuserar på enheter. För många program krävs också en modell eller modell både enheter och relationer naturligt.
+## <a name="graph-database"></a>Diagramdatabas
+Data som de visas i verkligheten är naturligt sammanlänkade. Traditionell datamodellering fokuserar på entiteter. För många program finns det även ett behov av att modellera eller att modellera både entiteter och relationer på ett naturligt sätt.
 
-En [diagram](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [formhörnen](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Både formhörnen och kanter kan ha ett godtyckligt antal egenskaper. Formhörnen betecknar diskreta objekt, till exempel en person, en plats eller en händelse. Kanter anger relationer mellan formhörnen. Till exempel kan en person känna av en annan person, vara inblandad i en händelse och nyligen använts på en plats. Egenskaper för snabba och information om formhörnen och kanter. Exempel egenskaper innehåller en nod som har ett namn, ålder och kant som har en tidsstämpel och/eller en vikt. Mer formellt den här modellen kallas en [egenskapen diagram](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos-DB stöder egenskapen graph-modell.
+Ett [diagram](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [brytpunkter](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Både brytpunkterna och kanterna kan ha ett godtyckligt antal egenskaper. Brytpunkter betecknar diskreta objekt, till exempel en person, en plats eller en händelse. Kanter betecknar relationer mellan brytpunkter. En person kan till exempel känna till en annan person, vara inblandad i en händelse och nyligen ha varit på en plats. Egenskaper uttrycker information om brytpunkterna och kanterna. Exempelegenskaper inkluderar en brytpunkt som har ett namn, ålder och kant som har en tidsstämpel och/eller en vikt. Mer formellt, kallas den här modellen för ett [egenskapsdiagram](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB stöder egenskapsdiagram-modellen.
 
-Till exempel visar följande exempel diagram relationerna mellan personer, mobila enheter, intressen och operativsystem:
+Följande exempeldiagram visar till exempel relationerna mellan personer, mobila enheter, intressen och operativsystem:
 
-![Visar personer, enheter och intressen exempeldatabasen](./media/graph-introduction/sample-graph.png)
+![Exempeldatabas som visar personer, enheter och intressen](./media/graph-introduction/sample-graph.png)
 
-Diagram är användbar för att förstå en mängd olika datauppsättningar i vetenskap, teknik och företag. Diagrammet databaser kan du modellera och lagra diagram naturligt och effektivt, vilket gör dem användbart i många fall. Diagrammet databaser är vanligtvis NoSQL-databaser, eftersom dessa används ofta också fall måste schemaflexibilitet och snabb iteration.
+Diagram är användbara för att förstå en mängd olika datauppsättningar inom vetenskap, teknik och företagsvärlden. Diagramdatabaser låter dig modellera och lagra diagram på ett naturligt och effektivt sätt, vilket gör dem användbara för många scenarier. Diagramdatabaser är vanligtvis NoSQL-databaser eftersom användningsfallen ofta också kräver schemaflexibilitet och snabba iterationer.
 
-Diagram erbjuder en bok och kraftfull datamodeller tekniken. Men detta ensamt är inte en tillräcklig anledning till att använda en databas i diagrammet. För många användningsområden och mönster som omfattar diagram traversals överträffar diagram traditionella SQL och NoSQL-databaser genom att i storlek. Denna skillnad i prestanda är ytterligare förökas när det rör sig över mer än en relation som friend i en vän.
+Diagram erbjuder en ny och kraftfull teknik för datamodellering. Men bara det här faktumet är inte en tillräcklig anledning att använda en diagramdatabas. För många användningsfall och mönster som involverar diagrambläddring, kan diagram överträffa traditionella SWL- och NoSQL-databaser i storlek. Den här prestandaskillnaden förstärks ytterligare vid bläddring av mer än en relation som en vän av en vän.
 
-Du kan kombinera snabb traversals med diagrammet databaser med graph-algoritmer som djup första sökning, breda första Sök och Dijkstras algoritmen att lösa problem i olika domäner som sociala nätverk, innehållshantering, geospatiala, och rekommendationer.
+Du kan kombinera den snabba bläddringen som diagramdatabaser erbjuder med diagramalgoritmer som djup först-sökningar, bredd först-sökningar och Dijkstras algoritm för att lösa problem inom olika domäner som sociala nätverk, innehållshantering, geospatiala och rekommendationer.
 
-## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>Planeten skala diagram med Azure Cosmos DB
-Azure Cosmos-DB är en helt hanterad graph-databas som erbjuder global distributionsplatsen, elastisk skalbarhet av lagring och dataflöde, automatisk indexering och fråga, justerbara konsekvensnivåer och stöd för TinkerPop standard.
+## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>Diagram på planetskala med Azure Cosmos DB
+Azure Cosmos DB är en fullständigt hanterad diagramdatabas som erbjuder global distribution, elastisk skalbarhet av lagring och dataflöde, automatisk indexering och frågor, justerbara konsekvensnivåer och stöd för TinkerPop-standarden.
 
-![Azure DB Cosmos-diagram-arkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
+![Azure Cosmos DB-diagramarkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-Azure Cosmos-DB erbjuder följande differentierade funktioner jämfört med andra diagram databaser på marknaden:
+Azure Cosmos DB erbjuder följande differentierade funktioner jämfört med andra diagramdatabaser på marknaden:
 
-* Elastiska och skalbara dataflöden och lagring
+* Elastiskt skalbara dataflöden och lagring
 
- Diagram i verkligheten behöver bortom kapaciteten för en enskild server. Med Azure Cosmos DB kan du skala ditt diagram sömlöst över flera servrar. Du kan även skala genomflödet av diagrammet oberoende baserat på ditt åtkomstmönster. Azure Cosmos-DB stöder graph-databaser som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerat dataflöde.
+ Diagram i verkligheten behöver skala utöver kapaciteten för en enskild server. Med Azure Cosmos DB kan du skala dina diagram sömlöst över flera servrar. Du kan även skala dataflödet för ditt diagram oberoende baserat på dina åtkomstmönster. Azure Cosmos DB stöder diagramdatabaser som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerade dataflöden.
 
-* Flera regioner replikering
+* Replikering för flera regioner
 
- Azure Cosmos-DB replikerar transparent graph-data till alla områden som du har kopplat till ditt konto. Replikering kan du utveckla program som kräver global åtkomst till data. Det finns kompromisser i områden som konsekvens, tillgänglighet, prestanda och att motsvarande garantier. Azure Cosmos-DB tillhandahåller transparent regional växling vid fel med flera API: er. Du kan skala dataflöden och lagringsutrymmen Elastiskt världen.
+ Azure Cosmos DB replikerar transparent dina diagramdata till alla regioner som du har kopplat till ditt konto. Replikering låter dig utveckla program som kräver global åtkomst till data. Det finns kompromisser inom områden som konsekvens, tillgänglighet, prestanda och motsvarande garantier. Azure Cosmos DB erbjuder transparenta regionala redundansväxlingar med flera API:er. Du kan elastiskt skala dataflöde och lagring över hela världen.
 
-* Snabb frågor och traversals med välbekanta Gremlin syntax
+* Snabba frågor och bläddringar med välbekant Gremlin-syntax
 
- Lagra heterogena hörn och kanter och fråga dokumenten via en bekant Gremlin syntax. Azure Cosmos-DB använder en samtidig frigöra lås, loggstrukturerad indexeringsteknik för att automatiskt indexerar allt innehåll. Den här funktionen möjliggör omfattande förfrågningar i realtid och traversals utan att behöva ange schematips, sekundärindex eller vyer. Läs mer i [fråga diagram med hjälp av Gremlin](gremlin-support.md).
+ Lagra heterogena brytpunkter och kanter och fråga de här dokumenten via ett bekant Gremlin-syntax. Azure Cosmos DB använder en höggradigt samtidig, låsfri, loggstrukturerad indexeringsteknik som automatiskt indexerar allt innehåll. Det här tillåter detaljrika frågor i realtid utan att behöva ange schematips, sekundärindex eller vyer. Läs mer i [Fråga diagram med hjälp av Gremlin](gremlin-support.md).
 
-* Helt förvaltad
+* Fullständigt hanterat
 
- Azure Cosmos-DB eliminerar behovet av att hantera databasen och datorresurser. Som en helt hanterad Microsoft Azure-tjänst inte behöver hantera virtuella datorer, distribuera och konfigurera programvara, hantera skalning eller hantera komplexa datanivå uppgraderingar. Varje diagram säkerhetskopieras och skyddas mot regionala fel automatiskt. Du kan enkelt lägga till ett Azure DB som Cosmos-konto och etablera kapacitet när du behöver den så att du kan fokusera på ditt program i stället för att använda och hantera din databas.
+ Azure Cosmos DB eliminerar behovet av att hantera databasen och datorresurserna. Som en fullständigt hanterad Microsoft Azure-tjänst behöver du inte hantera virtuella datorer, distribuera och konfigurera programvara, hantera skalning eller hantera komplexa uppgraderingar av datanivåer. Varje databas säkerhetskopieras och skyddas automatiskt mot regionala fel. Du kan enkelt lägga till ett Azure Cosmos DB-konto och etablera kapacitet efter behov så att du kan fokusera på ditt program istället för att driva och hantera din databas.
 
 * Automatisk indexering
 
- Standard Azure Cosmos DB automatiskt indexerar alla egenskaper i noder och kanter i diagrammet och inte förväntar sig eller kräver något schema eller att sekundärindex.
+ Som standard indexerar Azure Cosmos DB automatiskt alla egenskaperna inom noderna och kanterna i diagrammet och varken förväntar sig eller kräver något schema eller att sekundära index skapas.
 
 * Kompatibilitet med Apache TinkerPop
 
- Azure Cosmos-DB inbyggt stöd för öppen källkod Apache TinkerPop-standarden och kan integreras med andra diagram TinkerPop-aktiverade system. Du kan därför enkelt migrera från en annan graph-databas, exempel Titan eller Neo4j, eller använda Azure Cosmos DB med diagrammet analytics ramverk som [Apache Spark GraphX](spark-connector-graph.md).
+ Azure Cosmos DB har ett inbyggt stöd för Apache TinkerPop-standarden med öppen källkod och kan integreras med andra TinkerPop-aktiverade diagramsystem. Du kan därför enkelt migrera från en annan diagramdatabas, som Titan eller Neo4j, eller använda Azure Cosmos DB med ramverk för diagramanalys som [Apache Spark GraphX](spark-connector-graph.md).
 
 * Justerbara konsekvensnivåer
 
- Välj fem väldefinierade konsekvensnivåer för optimala förhållandet mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Dessa detaljerade, väldefinierade konsekvensnivåerna kan du ljud kompromissa mellan konsekvens, tillgänglighet och svarstid. Läs mer i [data justerbara konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
+ Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer i [Justerbara datakonsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
-Azure Cosmos-DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentsamling för att lagra diagramdata bredvid dokument. Du kan använda både SQL-frågor via JSON och Gremlin frågor för att fråga efter samma data som ett diagram.
+Azure Cosmos DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentsamling för att lagra diagramdata sida vid sida med dokument. Du kan använda både SQL-frågor via JSON och Gremlin-frågor för att fråga efter samma data som ett diagram.
 
 ## <a name="get-started"></a>Kom igång
-Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen med stöd för graph API för att skapa Azure DB som Cosmos-konton. När du har skapat konton Azure-portalen innehåller en tjänstslutpunkt som `https://<youraccount>.gremlin.cosmosdb.azure.com`, som ger en WebSocket-klientdel för Gremlin. Du kan konfigurera din TinkerPop-kompatibla verktyg som den [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och eventuella Gremlin klientdrivrutinen.
+Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen med stöd för Graph API för att skapa Azure Cosmos DB-konton. När du har skapat konton, erbjuder Azure-portalen en tjänstslutpunkt som `https://<youraccount>.gremlin.cosmosdb.azure.com`, vilket erbjuder en WebSocket-klientdel för Gremlin. Du kan konfigurera dina TinkerPop-kompatibla verktyg som [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och Gremlin-klientdrivrutiner.
 
-I följande tabell visas populära Gremlin drivrutiner som du kan använda mot Azure Cosmos DB:
+Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
 | Ladda ned | Dokumentation | Komma igång |
 | --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med hjälp av .NET](create-graph-dotnet.md) |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin JavaScript på GitHub](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med hjälp av Python](create-graph-python.md) |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med hjälp av PHP](create-graph-php.md) |
-| [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) | [TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript på GitHub](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med Python](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) |
+| [Gremlin-konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) |
 
-## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scenarier för diagram stöd för Azure Cosmos DB
-Här följer några scenarier där diagrammet stöd för Azure Cosmos DB kan användas:
+## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scenarier för diagramstöd för Azure Cosmos DB
+Här följer några scenarier där diagramstödet för Azure Cosmos DB kan användas:
 
 * Sociala nätverk
 
- Genom att kombinera data om dina kunder och deras interaktioner med andra personer kan du utveckla anpassade upplevelser, förutsäga kunden beteende eller ansluter personer med andra med liknande intressen. Azure Cosmos-DB kan användas för att hantera sociala nätverk och spåra kundinställningar och data.
+ Genom att kombinera data om dina kunder och deras interaktioner med andra personer kan du utveckla anpassade upplevelser, förutsäga kundbeteende eller ansluta personer med andra med liknande intressen. Azure Cosmos-DB kan användas för att hantera sociala nätverk och spåra kundinställningar och data.
 
 * Rekommendationsmotorer
 
- Det här scenariot används ofta i detaljhandel. Du kan skapa anpassade rekommendationer genom att kombinera information om produkter, användare och användarinteraktioner som köp, bläddra eller klassificeringen av ett objekt. Låg latens, elastisk skalbarhet och intern diagrammet stöd för Azure Cosmos DB är idealisk för modellering dessa interaktioner.
+ Det här scenariot används ofta inom detaljhandeln. Genom att kombinera information om produkter, användare och användarinteraktioner som köp, bläddring eller klassificeringen av ett objekt, kan du skapa anpassade rekommendationer. De låga svarstiderna, elastiska skalbarheten och det interna diagramstödet för Azure Cosmos DB är idealiskt för modellering av de här interaktionerna.
 
 * Geospatial
 
- Många program i telekommunikation logistik och planera din resa måste du hitta en plats av intresse inom ett område eller hitta den kortaste/optimala vägen mellan två platser. Azure Cosmos-DB är en fysisk anpassning för dessa problem.
+ Många program inom telekommunikation, logistik och reseplanering måste hitta en plats av intresse inom ett område eller hitta den kortaste/optimala vägen mellan två platser. Azure Cosmos DB är en naturlig lösning på de här problemen.
 
 * Internet of Things
 
- Du kan skapa en bättre förståelse av status för enheterna och tillgångar med nätverks- och anslutningar mellan IoT-enheter som modellerats som ett diagram. Du kan också veta hur ändringar i en del av nätverket kan potentiellt påverkar en annan del.
+ Med nätverket och anslutningarna mellan IoT-enheter som modellerats som ett diagram, kan du skapa en bättre förståelse för dina enheters och tillgångars tillstånd. Du kan också undersöka hur ändringar i en del av nätverket kan påverka en annan del.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om graph-stöd i Azure Cosmos DB finns:
+Mer information om diagramstöd i Azure Cosmos DB finns i:
 
-* Kom igång med den [Azure Cosmos DB diagrammet kursen](create-graph-dotnet.md).
-* Lär dig mer om hur du [fråga diagram i Azure Cosmos-databasen med hjälp av Gremlin](gremlin-support.md).
+* Kom igång med [Självstudien Azure Cosmos DB-diagram](create-graph-dotnet.md).
+* Läs mer om hur du [frågar diagram i Azure Cosmos DB med hjälp av Gremlin](gremlin-support.md).

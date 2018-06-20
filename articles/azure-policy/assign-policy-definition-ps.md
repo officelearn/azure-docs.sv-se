@@ -4,17 +4,17 @@ description: I den här snabbstarten använder du PowerShell för att skapa en A
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 770b3b1b52953f6fd3bd1874c28b2de45251ed17
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 50c6a0cc268e2b638a03494bed96d294789da9ab
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195649"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794674"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Snabbstart: Skapa en principtilldelning som identifierar icke-kompatibla resurser med i Azure RM PowerShell-modulen
 
@@ -26,6 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+- Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
 - Innan du börjar bör du kontrollera att den senaste versionen av PowerShell har installerats. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
 - Uppdatera din AzureRM PowerShell-modul till den senaste versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 - Registrera resursprovidern Policy Insights med hjälp av Azure PowerShell. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. När du ska registrera en resursleverantör måste du ha behörighet att utföra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
@@ -45,13 +46,14 @@ Skapa en ny principtilldelning genom att köra följande kommandon:
 ```azurepowershell-interactive
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Föregående kommandon använder följande information:
 
-- **Namn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
-- **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionen *Granska virtuella datorer utan Managed Disks*.
+- **Namn** – det faktiska namnet på tilldelningen.  I det här exemplet användes *audit-vm-manageddisks*.
+- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
+- **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID *Granska virtuella datorer som inte använder hanterade diskar*.
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
 
 Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljöns kompatibilitetsstatus.
@@ -61,7 +63,7 @@ Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljö
 Använd följande information för att identifiera resurser som inte är kompatibla med principtilldelningen som du skapade. Kör följande kommandon:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +108,7 @@ Resultatet är jämförbart med det du vanligtvis skulle se under **Icke-kompati
 Efterföljande guider i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med andra självstudier ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort tilldelningen som du skapade genom att köra det här kommandot:
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks Assignment' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>Nästa steg

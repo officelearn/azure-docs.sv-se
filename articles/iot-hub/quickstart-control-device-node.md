@@ -1,34 +1,32 @@
 ---
 title: Snabbstart – Kontrollera en enhet från Azure IoT Hub (Node.js) | Microsoft Docs
 description: I den här snabbstarten kör du två Node.js-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb och som kan fjärrstyras.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: node
+services: iot-hub
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: a3f60409d6b337ef314963d2116e71f156d6dafd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a173b77d969697f85eab0d5976e5bc0a1796fe75
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808578"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet och hantera dina enheter från molnet. I den här snabbstarten använder du en *direkt metod* att styra en simulerad enhet ansluten till din IoT-hubb. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
+IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet och hantera dina enheter från molnet. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
 
 Snabbstarten använder två färdiga Node.js-program:
 
 * Ett simulerat enhetsprogram som svarar på direkta metoder anropas från ett serverdelsprogram. För att kunna ta emot direkta metodanrop ansluter det här programmet till en enhetsspecifik slutpunkt på din IoT-hubb.
-* Ett serverdelsprogram som anropar de dierkta metoderna på den simulerade enheten. För att kunna anropa en direkt metod på en enhet ansluter det här programmet till en serverdelsslutpunkt på din IoT-hubb.
+* Ett serverdelsprogram som anropar de dirEkta metoderna på den simulerade enheten. För att kunna anropa en direkt metod på en enhet ansluter det här programmet till en serverdelsslutpunkt på din IoT-hubb.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -64,8 +62,10 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
+
+    Om du väljer ett annat namn för din enhet måste du uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
 1. Kör följande kommando för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
@@ -85,9 +85,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ## <a name="listen-for-direct-method-calls"></a>Lyssna efter direkta metodanrop
 
-Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från navet enheten att ändra det intervall med vilken den skickar telemetri. Den simulerade enheten skickar tillbaka en bekräftelse till din hubb när den har kört den direkta metoden.
+Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar tillbaka en bekräftelse till din hubb när den har kört den direkta metoden.
 
-1. Navigera till Node.js-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **Quickstarts\simulated-device-2**.
+1. Navigera till Node.js-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Öppna filen **SimulatedDevice.js** i en valfri textredigerare.
 
@@ -125,21 +125,21 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
     ![Kör serverdelsprogrammet](media/quickstart-control-device-node/BackEndApplication.png)
 
-    När du har kört serverdelsprogrammet visas ett meddelande i det konsolfönstret som kör den simulerade enheten och den hastighet med vilken den skickar meddelandeändringar:
+    När du har kört serverdelsprogrammet visas ett meddelande i det konsolfönster som kör den simulerade enheten och hastigheten med vilken den skickar meddelandeändringar:
 
     ![Ändring i den simulerade klienten](media/quickstart-control-device-node/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att gå vidare till självstudiekurserna så lämna resursgruppen och IoT-hubben och återanvänd dem senare.
+Om du planerar att gå vidare till självstudierna så lämna resursgruppen och IoT-hubben och återanvänd till dem senare.
 
 Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du anropat en direkt metod på en enhet från ett serverdelsprogram och svarat på det direkta metodanropet i ett simulerat enhetsprogram.
+I den här snabbstarten har du anropat en direktmetod på en enhet från ett serverdelsprogram och svarat på det direkta metodanropet i ett simulerat enhetsprogram.
 
-Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa kurs.
+Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](iot-hub-node-node-process-d2c.md)
+> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

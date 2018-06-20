@@ -1,23 +1,21 @@
 ---
 title: Kontrollera en enhet från snabbstart för Azure IoT Hub (Java) | Microsoft Docs
 description: I den här snabbstarten kör du två Java-exempelprogram. Ett program är en serverdel som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808214"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Java)
 
@@ -99,7 +97,7 @@ Anteckna tjänstanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. D
 
 Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar tillbaka en bekräftelse till din hubb när den har kört den direkta metoden.
 
-1. Navigera till Java-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **Quickstarts\simulated-device-2**.
+1. Navigera till Java-exempelprojektets rotmapp i ett terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** i en textredigerare som du väljer.
 
@@ -127,7 +125,7 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 1. Navigera till Java-exempelprojektets rotmapp i ett annat terminalfönster. Gå sedan till mappen **Quickstarts\back-end-application**.
 
-1. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** i en textredigerare som du väljer.
+1. Öppna filen **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** i en textredigerare som du väljer.
 
     Ersätt värdet för `iotHubConnectionString`-variabeln med den tjänstanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **BackEndApplication.java**.
 
@@ -164,4 +162,4 @@ I den här snabbstarten har du anropat en direktmetod på en enhet från ett ser
 Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](iot-hub-java-java-process-d2c.md)
+> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

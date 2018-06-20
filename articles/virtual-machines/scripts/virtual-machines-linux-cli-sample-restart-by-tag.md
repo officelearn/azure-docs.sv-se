@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725980"
 ---
 # <a name="restart-vms"></a>Starta om virtuella datorer
 
@@ -42,7 +43,7 @@ Det andra hämtar de taggade virtuella datorerna med hjälp av `az resouce list`
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-Det här exemplet fungerar i ett Bash-gränssnitt. I [Köra Azure CLI på Windows](../windows/cli-options.md) kan du läsa mer om alternativen för att köra Azure CLI-skript på Windows-klienten.
+Det här exemplet fungerar i ett Bash-gränssnitt. Körningsalternativ för Azure CLI-skript på Windows-klienten finns i [Installera Azure CLI på Windows](/cli/azure/install-azure-cli-windows).
 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -97,4 +98,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

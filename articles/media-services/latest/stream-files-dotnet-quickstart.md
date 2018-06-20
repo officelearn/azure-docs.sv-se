@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701046"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
 
 > [!NOTE]
 > Den senaste versionen av Azure Media Services är en förhandsversion och kallas ibland för v3. För att börja använda v3 API:er ska du skapa ett nytt Media Services-konto såsom beskrivs i den här snabbstarten. 
 
-Den här snabbstarten visar hur lätt det är att börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. 
+Den här snabbstarten visar hur lätt det är att börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. 
 
 I slutet av snabbstarten kommer du att kunna strömma en video.  
 
@@ -43,6 +44,18 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+Exemplet finns i mappen [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+Exemplet utför följande åtgärder:
+
+1. Skapar en transformering (kontrollerar först om den angivna transformeringen finns). 
+2. Skapa en utdatatillgång som används som kodningsjobbets utdata.
+3. Skapar jobbets indata som baseras på en HTTPS-URL.
+4. Skickar kodningsjobbet med de indata och utdata som skapades tidigare.
+5. Kontrollerar jobbets status.
+6. Skapar en StreamingLocator.
+7. Skapar strömnings-URL:er.
 
 Du kan få beskrivningar av varje funktion i exemplet, undersöka koden och titta på kommentarer i [den här källfilen](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
@@ -72,13 +85,13 @@ I exemplets [källkod](https://github.com/Azure-Samples/media-services-v3-dotnet
 I den här artikeln används Azure Media Player för att testa dataströmmen. 
 
 > [!NOTE]
-> Om en spelare finns på en https-webbplats, se till att uppdatera URL:en till ”https”.
+> Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I rutan **URL:** klistrar du in ett av de strömmande URL-värden som du fick när du körde programmet. 
 3. Tryck på **Uppdatera spelare**.
 
-Azure Media Player kan användas för att testa men ska inte användas i en produktionsmiljö. 
+Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -98,9 +111,9 @@ I självstudien för att [ladda upp, koda och strömma filer](stream-files-tutor
 
 ## <a name="multithreading"></a>Flertrådsteknik
 
-Azure Media Services v3-SDK:er är inte trådsäkra. När du arbetar med ett flertrådat program bör du skapa ett nytt AzureMediaServicesClient-objekt per tråd.
+SDK:erna i Azure Media Services v3 är inte trådsäkra. När du arbetar med flertrådade program bör du skapa ett nytt AzureMediaServicesClient-objekt per tråd.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)
+> [Självstudie: Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)

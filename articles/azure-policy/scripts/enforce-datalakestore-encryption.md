@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 54880ec79d0530d952c81696da0d4c1d55cba128
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 470adb5f27c8a5318197c100a8f973319d9c5001
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602439"
 ---
 # <a name="require-data-lake-store-encryption"></a>Kräv kryptering för Data Lake Store
 
@@ -49,7 +50,7 @@ Den här inbyggda principen nekar alla Data Lake Store-konton som inte har krypt
 }
 ```
 
-Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med [Azure CLI](#deploy-with-azure-cli). Du hämtar den inbyggda principen med hjälp av ID:t `a7ff3161-0087-490a-9ad9-ad6217f4f43a`.
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli). Du hämtar den inbyggda principen med hjälp av ID:t `a7ff3161-0087-490a-9ad9-ad6217f4f43a`.
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -91,4 +92,4 @@ az policy assignment delete --name "Data Lake Store encryption" --resource-group
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).
+- Granska fler [Azure Policy-exempel](../json-samples.md).

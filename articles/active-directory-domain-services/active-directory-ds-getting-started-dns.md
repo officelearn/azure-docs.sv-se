@@ -7,39 +7,39 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4f76602d469766f75e7a3948ae1aed290bffb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589006"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Aktivera Azure Active Directory Domain Services
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Uppgift 4 – uppdatera DNS-inställningarna för det virtuella Azure-nätverket
-I de tidigare konfigurationsuppgifterna har du aktiverat Azure Active Directory Domain Services för katalogen. Härnäst ska du se till att datorerna i det virtuella nätverket kan ansluta och använda tjänsterna. I den här artikeln får du uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på de bägge IP-adresserna där Azure Active Directory Domain Services är tillgängliga i det virtuella nätverket.
+I de tidigare konfigurationsuppgifterna har du aktiverat Azure Active Directory Domain Services för katalogen. Sedan kontrollerar du att datorerna i det virtuella nätverket kan ansluta och använda tjänsterna. I den här artikeln får du uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på de bägge IP-adresserna där Azure Active Directory Domain Services är tillgängliga i det virtuella nätverket.
 
-Utför följande konfigurationssteg för att uppdatera DNS-serverinställningen för det virtuella nätverket där Azure Active Directory Domain Services har aktiverats:
+Utför följande konfigurationssteg för att uppdatera DNS-serverinställningarna för det virtuella nätverket där Azure Active Directory Domain Services har aktiverats:
+
 
 1. Fliken **Översikt** visar **Nödvändiga konfigurationssteg** som ska utföras när din hanterade domän är helt etablerad. Det första konfigurationssteget är **Uppdatera DNS-serverinställningarna för det virtuella nätverket**.
 
-    ![Domain Services - översiktsflik vid full etablering](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Domain Services – fliken Översikt](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. När din domän är helt etablerad, visas två IP-adresser i den här panelen. IP-adresserna representerar en domänkontrollant för din hanterade domän.
+    > [!TIP]
+    > Visas inte det här konfigurationssteget? Om DNS-serverinställningarna för det virtuella nätverket är uppdaterade visas inte panelen ”Uppdatera DNS-serverinställningarna för ditt virtuella nätverk” på fliken Översikt.
+    >
+    >
 
-3. Klicka på kopieringsknappen bredvid den för att kopiera den första IP-adressen till Urklipp. Klicka sedan på knappen **Konfigurera DNS-servrar**.
-
-4. Klistra in den första IP-adressen i textrutan **Lägga till DNS-server** i bladet **DNS-servrar**. Rulla vågrätt till vänster för att kopiera den andra IP-adressen och klistra in de i textrutan **Lägga till DNS-server**.
-
-    ![Domain Services – uppdatera DNS](./media/getting-started/domain-services-update-dns.png)
-
-5. Klicka på **Spara** när du är klar för att uppdatera DNS-servrar för det virtuella nätverket.
+2. Klicka på knappen **Konfigurera** för att uppdatera DNS-serverinställningarna för det virtuella nätverket.
 
 > [!NOTE]
 > Virtuella datorer i nätverket kan bara hämta de nya DNS-inställningarna efter en omstart. Om du vill att de ska hämta de uppdaterade DNS-inställningarna direkt kan du utlösa en omstart genom portalen, PowerShell eller CLI.

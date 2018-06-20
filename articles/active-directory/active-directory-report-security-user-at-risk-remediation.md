@@ -1,23 +1,25 @@
 ---
-title: "Användare som flaggats i säkerhetsrapporten i Azure Active Directory | Microsoft Docs"
-description: "Lär dig mer om användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen"
+title: Användare som flaggats i säkerhetsrapporten i Azure Active Directory | Microsoft Docs
+description: Lär dig mer om användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen
 services: active-directory
-author: MarkusVi
-manager: femila
+author: rolyon
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 030a45335f06c4f15a5136842a7f6477bac8253b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588717"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -29,12 +31,20 @@ Det är viktigt för Microsoft att hålla dina miljöer säkra. Som en del av de
 Om ovanliga aktiviteter identifieras som kan indikera obehörig åtkomst till några av dina användares konton får du meddelanden så att du kan vidta åtgärder. Att du får meddelanden behöver inte betyda att Microsofts egna system har komprometterats.
  
 
-## <a name="azure-active-directory-report-access"></a>Åtkomst till Azure Active Directory-rapport
+## <a name="access-the-users-flagged-for-risk-report"></a>Åtkomst till användare som har flaggats för risk
 
-Du kan granska användare som har flaggats för risk med en Azure Active Directory-onlinerapport. Om du inte prenumererar på Azure kan du gå igenom prenumerationsprocessen kostnadsfritt på [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-När det är klart kan du använda dina Office 365-autentiseringsuppgifter för att få åtkomst till Azure Admin Center. Lägg märke till att mängden detaljer som tillhandahålls är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter. Lär dig mer om [användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen](active-directory-reporting-security-user-at-risk.md).
+Du kan granska användare som har flaggats för risk genom den relaterande [rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) i Azure Active Directory (AD). Om du inte prenumererar på Azure AD kan du gå igenom engångsprocessen för prenumeration kostnadsfritt på [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). I den här rapporten kan du utföra olika åtgärder, t.ex. följande:
 
-När du har aktiverat din åtkomst till Azure AD omdirigeras du till [Azure AD-portalen](https://portal.azure.com). Om du vill gå direkt till rapporten går du till följande URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- skapa ett tillfälligt lösenord
+- kräva att användarna måste återställa sina lösenord på ett säkert sätt nästa gång de loggar in
+- minimera användarrisken utan att behöva vidta någon åtgärd.
+
+Lär dig mer om [användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen](active-directory-reporting-security-user-at-risk.md).
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-prenumeration för Office 365-kunder
+
+När det är klart kan du använda dina Office 365-autentiseringsuppgifter för att få åtkomst till Azure Admin Center. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
+
 
 **Så här får du åtkomst till rapporter över användarna som har flaggats för risk i Office 365-administrationscentret:**
 
@@ -45,7 +55,7 @@ När du har aktiverat din åtkomst till Azure AD omdirigeras du till [Azure AD-p
 4.  På navigeringsmenyn till vänster klickar du på **Azure Active Directory**. 
 5.  I navigeringsfönstret under **Säkerhet** klickar du på **Users flagged for risk** (Användare som har flaggats för risk).
 
-Läs informationen som visas. Du bör återställa lösenordet för konton som anges här. 
+Läs informationen som visas. Du bör återställa lösenordet för konton som listas. 
 
 ## <a name="remediation-actions"></a>Åtgärder
 

@@ -1,26 +1,24 @@
 ---
 title: 'Självstudiekurs om NoSQL: SQL API för Azure Cosmos DB Java SDK | Microsoft Docs'
-description: En självstudiekurs om NoSQL som skapar en onlinedatabas och Java-konsolprogram med SQL-API för Azure Cosmos DB. Azure SQL är en NoSQL-databas för JSON.
+description: En självstudiekurs om NoSQL som skapar en onlinedatabas och ett Java-konsolprogram med hjälp av SQL API för Azure Cosmos DB. Azure SQL är en NoSQL-databas för JSON.
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
-documentationcenter: Java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 36d65d7755b45f0da02776a90b09df3c6a3bcf02
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796986"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: skapa ett SQL API Java-konsolprogram
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: Skapa ett Java-konsolprogram med SQL API
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -31,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 >  
 > 
 
-Välkommen till självstudiekursen om NoSQL för SQL-API för Azure Cosmos DB Java SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
+Välkommen till självstudiekursen om NoSQL för SQL API för Azure Cosmos DB Java SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
 
 Vi går igenom:
 
@@ -49,7 +47,7 @@ Vi går igenom:
 
 Nu sätter vi igång!
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
@@ -72,7 +70,7 @@ Du kan komma igång genom att klona GitHub-lagringsplatsen. Gå till [Komma igå
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Katalogen innehåller en `pom.xml` för projektet och en `src` mapp som innehåller Java källa kod inklusive `Program.java` som visar hur kör enkla åtgärder på Azure Cosmos DB som skapar dokument och hämtning av data i en samling. Den `pom.xml` innehåller ett beroende på den [Cosmos Azure DB Java SDK på Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+Katalogen innehåller en `pom.xml`-fil för projektet och en `src`-mapp med Java-källkod, inklusive `Program.java` som visar hur du utför enkla åtgärder med Azure Cosmos DB, t.ex. hur du skapar dokument och frågar data i en samling. `pom.xml` innehåller ett beroende för [Azure Cosmos DB Java SDK för Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -120,7 +118,7 @@ En [samling](sql-api-resources.md#collections) kan skapas med metoden [createCol
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
-Ett [dokument](sql-api-resources.md#documents) kan skapas med hjälp av [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument)-metoden för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda Azure Cosmos DB [datamigreringsverktyget](import-data.md) att importera data till en databas.
+Ett [dokument](sql-api-resources.md#documents) kan skapas med hjälp av [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument)-metoden för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -177,7 +175,7 @@ Om du tar bort databasen du skapade försvinner databasen och alla underordnade 
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Steg 11: Kör ditt Java-konsolprogram i sin helhet!
-Om du vill köra programmet från konsolen, gå till projektmappen och kompilera med Maven:
+Om du vill köra programmet från konsolen går du till projektmappen och kompilerar med hjälp av Maven:
     
     mvn package
 

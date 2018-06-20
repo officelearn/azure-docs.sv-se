@@ -1,32 +1,30 @@
 ---
-title: Hur du använder Azure Table storage eller Azure Cosmos DB från Node.js | Microsoft Docs
-description: Lagra strukturerade data i molnet med Azure Table storage eller Azure Cosmos DB.
+title: Använda Azure Table Storage eller Azure Cosmos DB Table API från Node.js | Microsoft Docs
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798227"
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Hur du använder Azure Table storage från Node.js
+# <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du utför vanliga scenarier med tabelltjänsten för Azure Storage eller Azure Cosmos DB på ett Node.js-program.
+Den här artikeln beskriver hur du utför vanliga scenarier med tjänsten Azure Storage Table eller Azure Cosmos DB i ett Node.js-program.
 
-## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
+## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
@@ -34,16 +32,16 @@ Den här artikeln visar hur du utför vanliga scenarier med tabelltjänsten för
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Konfigurera ditt program för att få åtkomst till Azure Storage
-Om du vill använda Azure Storage eller Azure Cosmos DB, behöver du Azure Storage SDK: N för Node.js som innehåller en uppsättning bekvämlighet bibliotek som kommunicerar med Storage REST-tjänster.
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Konfigurera ditt program för åtkomst till Azure Storage eller Azure Cosmos DB Table-API:et
+För att använda Azure Storage eller Azure Cosmos DB behöver du Azure Storage SDK för Node.js, som innehåller en uppsättning verktygsbibliotek som kommunicerar med Storage REST-tjänsterna.
 
-### <a name="use-node-package-manager-npm-to-install-the-package"></a>Använd noden Package Manager (NPM) för att installera paketet
-1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac), eller **Bash** (Unix) och navigera till mappen där du skapade ditt program.
-2. Typen **npm installera azure-lagring** i kommandofönstret. Utdata från kommandot liknar följande exempel.
+### <a name="use-node-package-manager-npm-to-install-the-package"></a>Installera paketet med NPM (Node Package Manager)
+1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix) och navigera till mappen där du skapade ditt program.
+2. Skriv **npm install azure-storage** i kommandofönstret. Kommandot returnerar utdata liknande dem i exemplet nedan.
 
        azure-storage@0.5.0 node_modules\azure-storage
        +-- extend@1.2.1
@@ -55,37 +53,37 @@ Om du vill använda Azure Storage eller Azure Cosmos DB, behöver du Azure Stora
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. Du kan köra manuellt på **ls** kommando för att kontrollera att en **node_modules** mappen har skapats. I mappen hittar du den **azure storage** paket som innehåller de bibliotek som du behöver åtkomst till lagring.
+3. Du kan kontrollera att mappen **node_modules** har skapats genom att köra kommandot **ls** manuellt. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
 
 ### <a name="import-the-package"></a>Importera paketet
-Lägg till följande kod högst upp i den **server.js** filen i ditt program:
+Lägg till följande kod överst i filen **server.js** i ditt program:
 
 ```nodejs
 var azure = require('azure-storage');
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Lägg till ett Azure Storage-anslutning
-Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_ACCESS_KEY eller AZURE_STORAGE_CONNECTION_STRING information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange kontoinformationen vid anrop av **TableService**. Till exempel följande kod skapar en **TableService** objekt:
+## <a name="add-an-azure-storage-connection"></a>Lägga till en Azure Storage-anslutning
+Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_ACCESS_KEY eller AZURE_STORAGE_CONNECTION_STRING och letar efter information som behövs för att ansluta till ditt Azure Storage-konto. Om dessa miljövariabler inte har definierats måste du ange kontoinformationen när du anropar **TableService**. Exempelvis skapas ett **TableService**-objekt i följande kod:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Lägg till en Azure Comsos DB-anslutning
-Om du vill lägga till en Azure Cosmos DB-anslutning, skapa en **TableService** objektet och ange ditt kontonamn, primärnyckel och slutpunkt. Du kan kopiera värdena från **inställningar** > **anslutningssträngen** i Azure-portalen för Cosmos-DB-konto. Exempel:
+## <a name="add-an-azure-comsos-db-connection"></a>Lägga till en Azure Comsos DB-anslutning
+Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Till exempel:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Skapa en tabell
-Följande kod skapar en **TableService** objekt och används för att skapa en ny tabell. 
+I följande kod skapas ett **TableService**-objekt som sedan används för att skapa en ny tabell. 
 
 ```nodejs
 var tableSvc = azure.createTableService();
 ```
 
-Anropet till **createTableIfNotExists** skapar en ny tabell med det angivna namnet om det inte redan finns. I följande exempel skapas en ny tabell med namnet ”mytable” som prefix om det inte redan finns:
+Anropet till **createTableIfNotExists** skapar en ny tabell med det angivna namnet om tabellen inte redan finns. I följande exempel skapas en ny tabell med namnet ”mytable” om den inte redan finns:
 
 ```nodejs
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -95,24 +93,24 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 });
 ```
 
-Den `result.created` är `true` om en ny tabell skapas och `false` om tabellen redan finns. Den `response` innehåller information om begäran.
+`result.created` är `true` om en ny tabell skapas och `false` om tabellen redan finns. `response` innehåller information om begäran.
 
 ### <a name="filters"></a>Filter
-Du kan använda valfri filtrering till åtgärder som utförs med hjälp av **TableService**. Filtrering operations kan innehålla loggning, automatiska omförsök, osv. Filtren är objekt som implementerar en metod med signaturen:
+Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Exempel på filtreringsåtgärder är loggning, automatiska omförsök osv. Filter är objekt som implementerar en metod med signaturen:
 
 ```nodejs
 function handle (requestOptions, next)
 ```
 
-När du har gjort dess förbearbetning på begäran-alternativ måste anropa metoden **nästa**, skicka ett återanrop med följande signatur:
+Efter den förberedande bearbetningen av alternativen för begäran måste metoden anropa **next** och skicka ett återanrop med följande signatur:
 
 ```nodejs
 function (returnObject, finalCallback, next)
 ```
 
-I den här motringning och efter bearbetning av **returnObject** (svaret från begäran till servern), återanropet måste antingen anropa **nästa** om den finns för att fortsätta att bearbeta filter eller helt enkelt anropa **finalCallback** på annat sätt att avsluta tjänsten-anrop.
+I det här återanropet, och efter bearbetningen av **returnObject** (svaret från begäran till servern), måste återanropet antingen fortsätta bearbetningen av andra filter genom att anropa **next** om det finns, eller avsluta tjänstanropet genom att anropa **finalCallback**.
 
-Två filter som implementerar logik som medföljer Azure SDK för Node.js, **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. Följande kod skapar en **TableService** objekt som använder den **ExponentialRetryPolicyFilter**:
+Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. I följande kod skapas ett **TableService**-objekt som använder **ExponentialRetryPolicyFilter**:
 
 ```nodejs
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -120,14 +118,14 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
-Om du vill lägga till en enhet måste du först skapa ett objekt som definierar egenskaper för enhet. Alla enheter måste innehålla en **PartitionKey** och **RowKey**, som är unika identifierare för entiteten.
+Du lägger till en entitet genom att först skapa ett objekt som definierar entitetens egenskaper. Alla entiteter måste innehålla en **PartitionKey** och **RowKey**, som är unika identifierare för entiteten.
 
-* **PartitionKey** -avgör den partition som är lagrade i entiteten.
-* **RowKey** - unikt identifierar entiteten i partitionen.
+* **PartitionKey** – Anger i vilken partition entiteten lagras.
+* **RowKey** – Identifierar entiteten i partitionen unikt.
 
-Båda **PartitionKey** och **RowKey** måste vara strängvärden. Mer information finns i [förstå den tabelltjänst-datamodellen](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Både **PartitionKey** och **RowKey** måste vara strängvärden. Mer information finns i [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).
 
-Följande är ett exempel för att definiera en entitet. Observera att **dueDate** definieras som en typ av **Edm.DateTime**. Anger vilken är valfri och typer är oavsiktliga om inget anges.
+Följande är ett exempel på hur du definierar en entitet. Observera att **dueDate** definieras som en typ av **Edm.DateTime**. Typen är inte obligatorisk, och typer härleds om de inte anges.
 
 ```nodejs
 var task = {
@@ -139,11 +137,11 @@ var task = {
 ```
 
 > [!NOTE]
-> Det finns också en **tidsstämpel** för varje post som anges av Azure när en entitet infogas eller uppdateras.
+> Det finns också en **Timestamp** för varje post, som anges av Azure när en entitet infogas eller uppdateras.
 >
 >
 
-Du kan också använda den **entityGenerator** att skapa entiteter. Följande exempel skapar samma aktivitet entitet med den **entityGenerator**.
+Du kan också använda **entityGenerator** för att skapa entiteter. I följande exempel skapas samma uppgiftsentitet med hjälp av **entityGenerator**.
 
 ```nodejs
 var entGen = azure.TableUtilities.entityGenerator;
@@ -155,7 +153,7 @@ var task = {
 };
 ```
 
-Om du vill lägga till en entitet i tabellen, skicka enhetsobjekt till den **insertEntity** metod.
+Om du vill lägga till en entitet i en tabell anger du entitetsobjektet i metoden **insertEntity**.
 
 ```nodejs
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -165,7 +163,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-Om åtgärden lyckas `result` innehåller den [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) infogade postens och `response` innehåller information om åtgärden.
+Om åtgärden lyckas innehåller `result` den infogade postens [ETag](http://en.wikipedia.org/wiki/HTTP_ETag), och `response` innehåller information om åtgärden.
 
 Exempelsvar:
 
@@ -174,21 +172,21 @@ Exempelsvar:
 ```
 
 > [!NOTE]
-> Som standard **insertEntity** returnerar inte infogade entiteten som en del av den `response` information. Om du planerar att andra åtgärder pågår på den här entiteten eller vill cachelagra informationen, kan det vara praktiskt att ha den returneras som en del av den `result`. Du kan göra detta genom att aktivera **echoContent** på följande sätt:
+> Som standard returnerar inte **insertEntity** den infogade entiteten som en del av `response`-informationen. Om du planerar att utföra andra åtgärder med den här entiteten eller om du vill cachelagra informationen, kan det vara bra att returnera den som en del av `result`. Du kan göra det genom att aktivera **echoContent** på följande sätt:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 >
 >
 
 ## <a name="update-an-entity"></a>Uppdatera en entitet
-Det finns flera metoder för att uppdatera en befintlig entitet:
+Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 
-* **replaceEntity** -uppdaterar en befintlig entitet genom att ersätta den.
-* **mergeEntity** -uppdaterar en befintlig entitet genom att använda nya egenskapsvärden i befintliga entiteten.
-* **insertOrReplaceEntity** -uppdaterar en befintlig entitet genom att ersätta den. Om inga entiteten finns infogas en ny.
-* **insertOrMergeEntity** -uppdaterar en befintlig entitet genom att använda den nya egenskapsvärden i den befintliga. Om inga entiteten finns infogas en ny.
+* **replaceEntity** – Uppdaterar en befintlig entitet genom att ersätta den.
+* **mergeEntity** – Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten.
+* **insertOrReplaceEntity** – Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny.
+* **insertOrMergeEntity** – Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten. Om det inte finns någon entitet, infogas en ny.
 
-Exemplet nedan visar att uppdatera en entitet med **replaceEntity**:
+Exemplet nedan visar hur en entitet uppdateras med hjälp av **replaceEntity**:
 
 ```nodejs
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -199,24 +197,24 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 ```
 
 > [!NOTE]
-> Som standard kontrollerar uppdaterar en entitet inte om du vill se om data uppdateras tidigare har ändrats av en annan process. Till stöd för samtidiga uppdateringar:
+> När du uppdaterar en entitet utförs ingen kontroll som standard för att se om de data som uppdateras har ändrats tidigare av en annan process. Om du vill använda samtidiga uppdateringar:
 >
-> 1. Hämta ETag i objektet som uppdateras. Det här felet returneras som en del av den `response` för varje entitet-relaterade åtgärden och kan hämtas via `response['.metadata'].etag`.
-> 2. När du utför en update-åtgärd på en enhet, kan du lägga till ETag-information som tidigare har hämtats till den nya entiteten. Exempel:
+> 1. Hämta ETag för objektet som uppdateras. Värdet returneras som en del av `response` för entitetsrelaterade åtgärder och kan hämtas via `response['.metadata'].etag`.
+> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Till exempel:
 >
->       entity2 [.metadata] .etag = currentEtag;
-> 3. Utföra uppdateringen. Om entiteten har ändrats sedan du hämtade ETag-värde, till exempel en annan instans av programmet, en `error` returneras om villkoret uppdatering som anges i begäran att inte uppfylldes.
+>       entity2['.metadata'].etag = currentEtag;
+> 3. Kör uppdateringsåtgärden. Om entiteten har ändrats sedan du hämtade ETag-värdet, till exempel en annan instans av programmet, returneras `error` och anger att uppdateringsvillkoret som angavs i begäran inte uppfylldes.
 >
 >
 
-Med **replaceEntity** och **mergeEntity**om entiteten som ska uppdateras inte finns, misslyckas uppdateringsåtgärden; därför, om du vill spara en entitet oavsett om det redan finns, Använd **insertOrReplaceEntity** eller **insertOrMergeEntity**.
+Åtgärden misslyckas om du använder **replaceEntity** och **mergeEntity** och entiteten som uppdateras inte finns. Om du vill lagra en entitet oavsett om den redan finns eller inte använder du därför **insertOrReplaceEntity** eller **insertOrMergeEntity**.
 
-Den `result` lyckade uppdateringsåtgärder innehåller den **Etag** för entiteten uppdaterade.
+För lyckade uppdateringsåtgärder innehåller `result` den uppdaterade entitetens **Etag**.
 
 ## <a name="work-with-groups-of-entities"></a>Arbeta med grupper av entiteter
-Ibland är det praktiskt att skicka flera åtgärder tillsammans i en grupp så atomiska bearbetning av servern. Om du vill göra det använder den **TableBatch** klassen om du vill skapa en grupp och sedan använda den **executeBatch** metod för **TableService** utföra gruppbaserad åtgärder.
+Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. Om du vill göra det använder du klassen **TableBatch** för att skapa en batch, och använder sedan metoden **executeBatch** för **TableService** för att utföra batchåtgärderna.
 
- Exemplet nedan visar skickar två entiteter i en batch:
+ Exemplet nedan beskriver hur du skickar två entiteter i en batch:
 
 ```nodejs
 var task1 = {
@@ -244,19 +242,19 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 });
 ```
 
-För lyckad batchåtgärder `result` innehåller information för varje åtgärd i batchen.
+För lyckade batchåtgärder innehåller `result` information om varje åtgärd i batchen.
 
-### <a name="work-with-batched-operations"></a>Arbeta med batch-åtgärder
-Du kan inspektera åtgärder som lagts till i en batch med visning av `operations` egenskapen. Du kan också använda följande metoder för att arbeta med åtgärder:
+### <a name="work-with-batched-operations"></a>Arbeta med batchåtgärder
+Du kan inspektera åtgärder som lagts till i en batch genom att visa egenskapen `operations`. Du kan också arbeta med åtgärder med hjälp av följande metoder:
 
-* **Rensa** -rensar alla åtgärder från en batch.
-* **getOperations** -hämtar en åtgärd från gruppen.
-* **hasOperations** -returnerar true om batchen innehåller åtgärder.
-* **removeOperations** -tar bort en åtgärd.
-* **storlek** -returnerar antalet åtgärder i batchen.
+* **clear** – Rensar alla åtgärder från en batch.
+* **getOperations** – Hämtar en åtgärd från batchen.
+* **hasOperations** – Returnerar true om batchen innehåller åtgärder.
+* **removeOperations** – Tar bort en åtgärd.
+* **size** – Returnerar antalet åtgärder i batchen.
 
-## <a name="retrieve-an-entity-by-key"></a>Hämta en entitet med nyckeln
-Returnera en specifik enhet baserat på de **PartitionKey** och **RowKey**, använda den **retrieveEntity** metod.
+## <a name="retrieve-an-entity-by-key"></a>Hämta en entitet baserat på nyckel
+Om du vill returnera en specifik entitet baserat på **PartitionKey** och **RowKey** använder du metoden **retrieveEntity**.
 
 ```nodejs
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -266,19 +264,19 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 });
 ```
 
-När den här åtgärden är klar `result` innehåller entiteten.
+När den här åtgärden har slutförts innehåller `result` entiteten.
 
-## <a name="query-a-set-of-entities"></a>Fråga en uppsättning enheter
-Om du vill fråga en tabell, använder den **TableQuery** objekt att bygga upp ett frågeuttryck med hjälp av följande:
+## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
+Om du vill hämta data från en tabell använder du objektet **TableQuery** för att skapa ett frågeuttryck med hjälp av följande satser:
 
-* **Välj** -fält som ska returneras från frågan.
-* **där** -where satsen.
+* **select** – Fälten som ska returneras från frågan.
+* **where** – where-satsen.
 
-  * **och** – en `and` where-villkor.
-  * **eller** – en `or` where-villkor.
-* **TOP** -antal objekt som ska hämtas.
+  * **and** – Ett ”`and` where”-villkor.
+  * **or** – Ett ”`or` where”-villkor.
+* **top** – Antalet objekt som ska hämtas.
 
-I följande exempel skapas en fråga som returnerar de översta fem posterna med en PartitionKey av 'hometasks'.
+I följande exempel skapas en fråga som returnerar de fem översta posterna med partitionsnyckeln (PartitionKey) ”hometasks”.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -286,7 +284,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Eftersom **Välj** inte används, returneras alla fält. Använd för att utföra frågan mot en tabell **queryEntities**. I följande exempel används den här frågan för att returnera enheter från ”mytable” som prefix.
+Eftersom **select** inte används returneras alla fält. Om du vill köra frågan mot en tabell använder du **queryEntities**. I följande exempel används den här frågan för att returnera entiteter från ”mytable”.
 
 ```nodejs
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -296,11 +294,11 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-Om detta lyckas `result.entries` innehåller en matris med entiteter som matchar frågan. Om frågan inte kunde returnera alla entiteter `result.continuationToken` är icke -*null* och kan användas som den tredje parametern för **queryEntities** att hämta fler resultat. Den inledande frågan använder *null* för den tredje parametern.
+Om åtgärden lyckas innehåller `result.entries` en matris med entiteter som matchar frågan. Om frågan inte kan returnera alla entiteter är `result.continuationToken` inte *null* och kan användas som den tredje parametern för **queryEntities** för att hämta fler resultat. I den ursprungliga frågan använder du *null* som den tredje parametern.
 
 ### <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan hämta bara några fält från en entitet.
-Detta minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Använd den **Välj** satsen och ange namnen på de fält som ska returneras. Följande fråga returnerar till exempel bara den **beskrivning** och **dueDate** fält.
+En fråga till en tabell kan bara hämta några fält från en entitet.
+Detta minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Använd **select**-satsen och ange namnen på fälten som ska returneras. Följande fråga returnerar till exempel bara **description**- och **dueDate**-fälten.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -310,7 +308,7 @@ var query = new azure.TableQuery()
 ```
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
-Du kan ta bort en entitet med dess partition och raden nycklar. I det här exemplet i **task1** objektet innehåller de **RowKey** och **PartitionKey** värden för att ta bort entiteten. Sedan objektet skickas till den **deleteEntity** metod.
+Du kan ta bort en entitet med hjälp av dess partitions- och radnycklar. I det här exemplet innehåller **task1**-objektet **RowKey**- och **PartitionKey**-värdena för entiteten som ska tas bort. Objektet skickas sedan till metoden **deleteEntity**.
 
 ```nodejs
 var task = {
@@ -326,7 +324,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ```
 
 > [!NOTE]
-> Överväg att använda ETags när du tar bort objekt för att se till att objektet inte har ändrats av en annan process. Se [uppdatera en entitet](#update-an-entity) information om hur du använder ETags.
+> Använd ETags när du tar bort objekt för att säkerställa att de inte har ändrats av en annan process. Information om hur du använder ETags finns i [Uppdatera en entitet](#update-an-entity).
 >
 >
 
@@ -341,14 +339,14 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Om du är osäker på om tabellen finns, Använd **deleteTableIfExists**.
+Om du är osäker på om tabellen finns använder du **deleteTableIfExists**.
 
-## <a name="use-continuation-tokens"></a>Använd fortsättning token
-När du frågar tabeller för stora mängder resultat, leta efter fortsättning token. Det kan finnas stora mängder data tillgängliga för din fråga som du inte kanske vet om du inte skapa känna igen när en fortsättningstoken finns.
+## <a name="use-continuation-tokens"></a>Använda fortsättningstoken
+Leta efter en fortsättningstoken när du frågar tabeller efter stora mängder resultat. Stora mängder data kan finnas tillgängliga för din fråga, som du kanske missar om du inte uppmärksammar en fortsättningstoken.
 
-Den **resultat** objektet som returnerades vid fråga entiteter anger en `continuationToken` egenskapen när dessa token finns. Du kan sedan använda den när du utför en fråga för att fortsätta att flytta mellan entiteterna partition och tabellen.
+**results**-objektet som returneras när du kör frågor mot entiteter anger en `continuationToken`-egenskap när den här typen av token finns. Du kan sedan använda denna token när du kör en fråga för att fortsätta att flytta mellan partitionen och tabellentiteterna.
 
-När du frågar, kan du ange en `continuationToken` parametern mellan objektinstansen frågan och Återanropsfunktionen:
+När du frågar kan du lägga till en `continuationToken`-parameter mellan instansen av frågeobjektet och återanropsfunktionen:
 
 ```nodejs
 var nextContinuationToken = null;
@@ -367,14 +365,14 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-Om du vill granska den `continuationToken` objekt, hittar du egenskaper som `nextPartitionKey`, `nextRowKey` och `targetLocation`, som kan användas för att söka igenom alla resultat.
+Om du granskar `continuationToken`-objektet hittar du egenskaper som `nextPartitionKey`, `nextRowKey` och `targetLocation`, som du kan använda för att gå igenom alla resultat.
 
 ## <a name="work-with-shared-access-signatures"></a>Arbeta med signaturer för delad åtkomst
-Signaturer för delad åtkomst (SAS) är ett säkert sätt att tillhandahålla detaljerade åtkomst till tabeller utan att erbjuda dina lagringskontonamn eller nycklar. SAS används ofta för att ge begränsad åtkomst till dina data, till exempel att tillåta en mobil app om du vill söka efter poster.
+Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till tabeller utan att ange namnet på eller nycklarna för ditt lagringskontot. SAS används ofta för att ge begränsad åtkomst till data, till exempel om du vill tillåta att en mobilapp frågar efter poster.
 
-En betrodda program, till exempel en molnbaserad tjänst genererar en SAS med hjälp av den **generateSharedAccessSignature** av den **TableService**, och som ger den till ett program som inte är betrodd eller delvis betrodd en mobil app. SAS genereras med hjälp av en princip som beskriver de då SAS är giltig start- och slutdatum samt den åtkomstnivå som beviljats till SAS-innehavare.
+Ett betrott program, till exempel en molnbaserad tjänst, genererar en SAS med hjälp av **generateSharedAccessSignature** för **TableService**, och delar den sedan med ett program som inte är betrott eller endast delvis betrott, t.ex. en mobilapp. Signaturen för delad åtkomst genereras med hjälp av en princip, som definierar mellan vilket start- och slutdatum signaturen för delad åtkomst är giltig, samt vilken åtkomstnivå SAS-innehavaren beviljas.
 
-I följande exempel skapar en ny princip för delad åtkomst som låter innehavaren SAS att fråga (”r”) i tabell och upphör att gälla 100 minuter efter den tidpunkt som den har skapats.
+I följande exempel genereras en ny SAS-princip som ger innehavaren av signaturen för delad åtkomst tillåtelse att fråga (”r”) tabellen. Den här principen upphör att gälla 100 minuter efter den tidpunkt då den skapas.
 
 ```nodejs
 var startDate = new Date();
@@ -394,9 +392,9 @@ var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPol
 var host = tableSvc.host;
 ```
 
-Observera att du måste också ange värdinformationen som det är nödvändigt när SAS-innehavaren försöker få åtkomst till tabellen.
+Observera att du också måste ange värdinformationen eftersom den krävs när SAS-innehavaren försöker få åtkomst till tabellen.
 
-Klientprogrammet sedan använder SAS med **TableServiceWithSAS** att utföra åtgärder mot tabellen. I följande exempel ansluter till tabellen och utför en fråga.
+Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga.
 
 ```nodejs
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -410,12 +408,12 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 });
 ```
 
-Eftersom SAS genererades med endast fråga åtkomst, returneras ett fel om du försöker infoga, uppdatera eller ta bort enheter.
+Eftersom signaturen för delad åtkomst endast genererades med frågebehörighet, returneras ett fel om du försöker infoga, uppdatera eller ta bort entiteter.
 
 ### <a name="access-control-lists"></a>Åtkomstkontrollistor
-Du kan också använda en åtkomstkontrollista (ACL) för att ange åtkomstprincipen för en SAS. Detta är användbart om du vill att flera klienter kan komma åt tabellen, men ger olika åtkomstprinciper för varje klient.
+Du kan också använda en åtkomstkontrollista (ACL) för att definiera åtkomstprincipen för en signatur för delad åtkomst. Detta är användbart om du vill att flera klienter ska kunna komma åt tabellen, men du vill använda olika åtkomstprinciper för varje klient.
 
-En ACL implementeras med hjälp av en matris med principer för åtkomst med ett ID som är associerade med varje princip. I följande exempel definierar två principer, en för 'Användare1' och en för 'användare2':
+En åtkomstkontrollista implementeras med hjälp av en matris med åtkomstprinciper, med ett ID som associeras med varje princip. I följande exempel definieras två principer, en för ”user1” och en för ”user2”:
 
 ```nodejs
 var sharedAccessPolicy = {
@@ -432,7 +430,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-I följande exempel hämtar den aktuella ACL för den **hometasks** tabell och lägger sedan till de nya principer med hjälp av **setTableAcl**. Den här metoden kan:
+Koden i följande exempel hämtar den aktuella åtkomstkontrollistan för tabellen **hometasks** och lägger sedan till de nya principerna med hjälp av **setTableAcl**. Med den här metoden kan du göra följande:
 
 ```nodejs
 var extend = require('extend');
@@ -448,17 +446,17 @@ if(!error){
 });
 ```
 
-Du kan sedan skapa en SAS baserat på en princip-ID när Åtkomstkontrollistan har angetts. I följande exempel skapas en ny SAS för 'användare2':
+När åtkomstkontrollistan har skapats kan du skapa en signatur för delad åtkomst baserat på ID:t för en princip. I följande exempel skapas en ny signatur för delad åtkomst för ”user2”:
 
 ```nodejs
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i följande resurser.
+Mer information finns i resurserna nedan.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
-* [Azure Storage-SDK för Node.js](https://github.com/Azure/azure-storage-node) databasen på GitHub.
+* [Azure Storage SDK för Node.js](https://github.com/Azure/azure-storage-node)-databas på GitHub.
 * [Azure för Node.js-utvecklare](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [Skapa en Node.js-webbapp i Azure](../app-service/app-service-web-get-started-nodejs.md)
-* [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (med Windows PowerShell)
+* [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (med hjälp av Windows PowerShell)

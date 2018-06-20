@@ -4,14 +4,14 @@ description: En översikt över assessment beräkningar i tjänsten Azure migrer
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec8e026fc9bab192f6944e590fa703dbbd5772c0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639154"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221367"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 

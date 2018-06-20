@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714523"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
 
@@ -28,7 +29,7 @@ Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och 
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Mappa en underdomän (till exempel `www.contoso.com`) med hjälp av en CNAME-post
@@ -67,7 +68,7 @@ För att kunna mappa ett anpassat DNS-namn till en webbapp måste webbappens [Ap
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigera till appen i Azure Portal
 
-Välj **Apptjänster** på menyn till vänster och välj sedan appens namn.
+Välj **App Services** på menyn till vänster och välj sedan appens namn.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -81,19 +82,19 @@ I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Ins
 
 ![Skala upp-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är på den **kostnadsfria** nivån. Anpassad DNS stöds inte på den **kostnadsfria** nivån. 
+Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är på nivån **F1**. Anpassad DNS stöds inte på nivån **F1**. 
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Om App Service-planen inte är på den **kostnadsfria** nivån stänger du sidan **Välj din prisnivå** och hoppar till [Mappa en CNAME-post](#cname).
+Om App Service-planen inte är på nivån **F1** stänger du sidan **Skala upp** och hoppar till [Mappa en CNAME-post](#cname).
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Skala upp App Service-planen
 
-Välj en nivå som inte är kostnadsfri (**Delad**, **Basic**, **Standard** eller **Premium**). 
+Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Välj**.
+Klicka på **Använd**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

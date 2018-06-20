@@ -1,27 +1,25 @@
 ---
 title: Självstudie för global distribution i Azure Cosmos DB för tabell-API | Microsoft Docs
-description: Läs om hur du konfigurerar global distribution i Azure Cosmos DB med tabell-API.
+description: Lär mer om hur du konfigurerar global distribution i Azure Cosmos DB med tabell-API.
 services: cosmos-db
 keywords: global distribution, Table
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f877baa33d94dad07250da9a10209555dbca65c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7baa1e5b4b50d1f420b514854fa4d4c9ef786c99
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763093"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Så här konfigurerar du global distribution i Azure Cosmos DB med tabell-API
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
 
 Den här artikeln beskriver följande uppgifter: 
 

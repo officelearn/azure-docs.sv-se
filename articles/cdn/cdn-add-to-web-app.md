@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359789"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608397"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudie: Lägga till Azure CDN i en Azure App Service-webbapp
 
@@ -55,6 +55,9 @@ För att skapa webbappen som du ska arbeta med följer du [snabbstarten för sta
 
 Öppna webbläsaren och gå till [Azure Portal](https://portal.azure.com).
 
+### <a name="dynamic-site-acceleration-optimization"></a>Optimering för acceleration av dynamisk webbplats
+Om du vill optimera CDN-slutpunkten för acceleration av dynamisk webbplats (DSA, Dynamic Site Acceleration) bör du skapa slutpunkten direkt på [CDN-portalen](cdn-create-new-endpoint.md). Prestanda på webbsidor med dynamiskt innehåll förbättras avsevärt med [DSA-optimering](cdn-dynamic-site-acceleration.md). Mer anvisningar om hur du optimerar en CDN-slutpunkt för DSA från CDN-portalen finns i informationen om [CDN-slutpunktskonfiguration för snabbare leverans av dynamiska filer](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Om du inte vill optimera din nya slutpunkt kan du använda webbapp-portalen för att skapa den genom att följa stegen i nästa avsnitt. Observera att för **Azure CDN från Verizon**-profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Skapa en CDN-profil och en slutpunkt
 
 I det vänstra navigeringsfönstret väljer du **App Services** och sedan väljer du den app som du skapade i [static HTML quickstart](../app-service/app-service-web-get-started-html.md) (snabbstart för statisk HTML).
@@ -64,9 +67,6 @@ I det vänstra navigeringsfönstret väljer du **App Services** och sedan välje
 På sidan **App Service** i avsnittet **Inställningar** väljer du **Networking > Configure Azure CDN for your app** (Nätverk > Konfigurera Azure CDN för din app).
 
 ![Välj CDN i portalen](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>Optimering för acceleration av dynamisk webbplats
-Om du vill optimera CDN-slutpunkten för acceleration av dynamisk webbplats (DSA, Dynamic Site Acceleration) skapar du slutpunkten direkt på CDN-portalen. Prestanda på webbsidor med dynamiskt innehåll förbättras avsevärt med [DSA-optimering](cdn-dynamic-site-acceleration.md). Mer information om hur du optimerar en CDN-slutpunkt för DSA från CDN-portalen finns i [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files) (CDN-slutpunktskonfiguration för snabbare leverans av dynamiska filer). För **Azure CDN från Verizon**-profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
 
 På sidan **Azure Content Delivery Network** anger du inställningarna för**Ny slutpunkt** som anges i tabellen.
 

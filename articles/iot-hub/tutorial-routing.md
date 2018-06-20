@@ -1,31 +1,26 @@
 ---
 title: Konfigurera meddelandedirigering med Azure IoT Hub (.NET) | Microsoft Docs
 description: Konfigurera meddelandedirigering med Azure IoT Hub
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700833"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
-Meddelanderedigering gör det möjligt att skicka telemetridata från dina IoT-enheter för inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som Blob Storage, Service Bus Queue, Service Bus Topic och Event Hubs. När du konfigurerar meddelanderedigering kan du skapa hanteringsregler för att anpassa vägen så att den matchar en viss regel. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. 
+Meddelanderoutning gör det möjligt att skicka telemetridata från dina IoT-enheter till inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som Blob Storage, Service Bus Queue, Service Bus Topic och Event Hubs. När du konfigurerar meddelanderoutning kan du skapa hanteringsregler för att anpassa vägen så att den matchar en viss regel. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. 
 
-I den här självstudien får du lära dig att konfigurera och använda dirigeringsregler med IoT Hub. Du kommer att dirigera meddelanden från en IoT-enhet till en av flera tjänster, däribland Blob Storage och en Service Bus-kö. Meddelanden till Service Bus-kön hämtas av en logikapp och skickas via e-post. Meddelanden som inte har dirigering konfigurerat skickas till standardslutpunkten och visas i en PowerBI-visualisering.
+I den här självstudien får du lära dig att konfigurera och använda dirigeringsregler med IoT Hub. Du kommer att dirigera meddelanden från en IoT-enhet till en av flera tjänster, däribland Blob Storage och en Service Bus-kö. Meddelanden till Service Bus-kön hämtas av en logikapp och skickas via e-post. Meddelanden som inte har konfigurerade inställningar för routning skickas till standardslutpunkten och visas i en Power BI-visualisering.
 
 I den här självstudien utför du följande åtgärder:
 
@@ -34,11 +29,11 @@ I den här självstudien utför du följande åtgärder:
 > * Konfigurera slutpunkter och vägar i IoT Hub för lagringskontot och Service Bus-kön.
 > * Skapa en logikapp som utlöses och skickar e-post när ett meddelande läggs till i Service Bus-kön.
 > * Ladda ned och kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben för de olika dirigeringsalternativen.
-> * Skapa en PowerBI-visualisering för data som skickas till standardslutpunkten.
+> * Skapa en Power BI-visualisering för data som skickas till standardslutpunkten.
 > * Visa resultatet ...
 > * ...i Service Bus-kön och e-postmeddelandena.
 > * ...i lagringskontot.
-> * ...i PowerBI-visualiseringen.
+> * ...i Power BI-visualiseringen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -46,7 +41,7 @@ I den här självstudien utför du följande åtgärder:
 
 - Installera [Visual Studio för Windows](https://www.visualstudio.com/). 
 
-- Ett PowerBI-konto för att analysera standardslutpunktens Stream Analytics. ([Prova PowerBI kostnadsfritt](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Ett Power BI-konto för att analysera Stream Analytics för standardslutpunkten. ([Prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Ett Office 365-konto för att skicka e-postmeddelanden. 
 
@@ -104,24 +99,24 @@ Det lättaste sättet att använda det här skriptet är att kopiera det och kli
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ Det lättaste sättet att använda det här skriptet är att öppna [PowerShell 
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -256,8 +277,6 @@ Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enh
 
    ![Skärmbild som visar information om enheten, som nycklarna.](./media/tutorial-routing/device-details.png)
 
-
-
 ## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
 
 Du kommer att dirigera meddelanden till olika resurser baserat på egenskaper som är anslutna till meddelandet av den simulerade enheten. Meddelanden som inte är dirigeringsanpassade skickas till standardslutpunkten (meddelanden/händelser). 
@@ -266,7 +285,7 @@ Du kommer att dirigera meddelanden till olika resurser baserat på egenskaper so
 |------|------|
 |level="storage" |Skriv till Azure Storage.|
 |level="critical" |Skriv till en Service Bus-kö. En logikapp hämtar meddelandet från kön och använder Office 365 för att skicka meddelandet via e-post.|
-|standard |Visa dessa data med PowerBI.|
+|standard |Visa dessa data med Power BI.|
 
 ### <a name="routing-to-a-storage-account"></a>Dirigera till ett lagringskonto 
 
@@ -278,7 +297,7 @@ Konfigurera nu routning för lagringskontot. Definiera en slutpunkt och konfigur
    
    **Typ av slutpunkt**: Välj **Behållare för Azure Storage** från listrutan.
 
-   Klicka på **Pick a container** (Välj en behållare) för att se en lista över lagringskonton. Välj ditt lagringskonto. I självstudien används **contosoresultsstorage**. Välj sedan behållaren. I självstudien används **contosoresults**. Klicka på **Välj**, vilket gör att du återgår till Lägg till slutpunkt. 
+   Klicka på **Pick a container** (Välj en behållare) för att se en lista över lagringskonton. Välj ditt lagringskonto. I den här självstudiekursen används **contosostorage**. Välj sedan behållaren. I självstudien används **contosoresults**. Klicka på **Välj** för att återgå till fönstret **Lägg till slutpunkt**. 
    
    ![Skärmbild som visar hur du lägger till en slutpunkt.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -390,7 +409,7 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
 
 ## <a name="set-up-azure-stream-analytics"></a>Konfigurera Azure Stream Analytics
 
-Om du vill se data i PowerBI-visualiseringen konfigurerar du först ett Stream Analytics-jobb för att hämta data. Kom ihåg att enbart meddelandena där **nivå** är **normal** skickas till standardslutpunkten och hämtas av Stream Analytics-jobbet för PowerBI-visualiseringen.
+Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream Analytics-jobb för att hämta data. Kom ihåg att endast meddelanden där **nivå** är satt till **normal** skickas till standardslutpunkten och hämtas av Stream Analytics-jobbet för Power BI-visualiseringen.
 
 ### <a name="create-the-stream-analytics-job"></a>Skapa Stream Analytics-jobbet
 
@@ -405,6 +424,8 @@ Om du vill se data i PowerBI-visualiseringen konfigurerar du först ett Stream A
    **Plats**: Använd samma plats som användes i installationsskriptet. I den här självstudien används **USA, västra**. 
 
    ![Skärmbild som visar hur du skapar Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-create-job.png)
+
+3. Klicka på **Skapa** för att skapa jobbet. Om du vill gå tillbaka till jobbet klickar du på **Resursgrupper**. I den här självstudien används **ContosoResources**. Markera resursgruppen och klicka sedan på Stream Analytics-jobbet i listan över resurser. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
@@ -434,17 +455,17 @@ Om du vill se data i PowerBI-visualiseringen konfigurerar du först ett Stream A
 
 1. Under **Jobbtopologi** klickar du på **Utdata**.
 
-2. I rutan **Utdata** klickar du på **Lägg till** och väljer **PowerBI**. På skärmen som visas fyller du i följande fält:
+2. I fönstret **Utdata** klickar du på **Lägg till** och väljer **Power BI**. På skärmen som visas fyller du i följande fält:
 
    **Utdataalias**: Utdatas unika alias. I självstudien används **contosooutputs**. 
 
-   **Namn på datauppsättning**: Namnet på datauppsättningen som ska användas i PowerBI. I självstudien används **contosodataset**. 
+   **Namn på datauppsättning**: Namnet på datauppsättningen som ska användas i Power BI. I självstudien används **contosodataset**. 
 
-   **Tabellnamn**: Namnet på tabellen som ska användas i PowerBI. I självstudien används **contosotable**.
+   **Tabellnamn**: Namnet på tabellen som ska användas i Power BI. I självstudien används **contosotable**.
 
    För resten av fälten accepterar du standardvärdena.
 
-3. Klicka på **Auktorisera** och logga in på PowerBI-kontot.
+3. Klicka på **Autentisera** och logga in på Power BI-kontot.
 
    ![Skärmbild som visar hur du konfigurerar utdata för Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
@@ -462,19 +483,19 @@ Om du vill se data i PowerBI-visualiseringen konfigurerar du först ett Stream A
 
 4. Klicka på **Spara**.
 
-5. Stäng rutan Fråga.
+5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudiekursen kallas det **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
 I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
-För att konfigurera PowerBI-rapporten behöver du data, så du måste konfigurera PowerBI när du har skapat enheten och kör enhetssimuleringsprogrammet.
+För att konfigurera Power BI-rapporten behöver du data, så du måste konfigurera Power BI när du har skapat enheten och kör enhetssimuleringsprogrammet.
 
 ## <a name="run-simulated-device-app"></a>Köra en simulerad enhetsapp
 
 Tidigare i avsnittet om skriptkonfiguration konfigurerade du en enhet för att använda en IoT-enhet. I det här avsnittet ska du ladda ned en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub. Programmet skickar meddelanden för varje routningsmetod. 
 
-Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Då laddas en lagringsplats ned med flera program i sig. Lösningen du söker är i Tutorials/Routing/SimulatedDevice/.
+Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Då laddas en lagringsplats som innehåller flera program ned. Lösningen du söker finns i iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Dubbelklicka på lösningsfilen (SimulatedDevice.sln) för att öppna koden i Visual Studio och öppna sedan Program.cs. Ersätt `{iot hub hostname}` med IoT-hubbens värdnamn. Formatet för IoT-hubbens värdnamn är **{iot-hub-name}.azure-devices.net**. För den här självstudien är hubbens värdnamn **ContosoTestHub.azure-devices.net**. Ersätt därefter `{device key}` med enhetsnyckeln du sparade tidigare när du konfigurerade den simulerade enheten. 
 
@@ -512,11 +533,11 @@ Detta innebär följande:
 
    * Routningen till lagringskontot fungerar korrekt.
 
-Nu när programmet fortfarande körs konfigurerar du PowerBI-visualisering för att se om meddelandena skickas genom standardroutningen. 
+Under tiden programmet fortfarande körs konfigurerar du Power BI-visualiseringen för att se om meddelandena skickas genom standardroutningen. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>Konfigurera PowerBI-visualiseringar
+## <a name="set-up-the-power-bi-visualizations"></a>Konfigurera Power BI-visualiseringarna
 
-1. Logga in på ditt [PowerBI](https://powerbi.microsoft.com/)-konto.
+1. Logga in på ditt [Power BI](https://powerbi.microsoft.com/)-konto.
 
 2. Gå till **Arbetsytor** och välj arbetsytan som du angav när du skapade utdata för Stream Analytics-jobbet. Den här självstudien använder **Min arbetsyta**. 
 
@@ -526,7 +547,7 @@ Nu när programmet fortfarande körs konfigurerar du PowerBI-visualisering för 
 
 4. Under **ÅTGÄRDER** klickar du på den första ikonen för att skapa en rapport.
 
-   ![Skärmbild som visar PowerBI-arbetsytan med Åtgärder och rapportikonen markerad.](./media/tutorial-routing/power-bi-actions.png)
+   ![Skärmbild som visar Power BI-arbetsytan med ikonen för åtgärder och rapporter markerad.](./media/tutorial-routing/power-bi-actions.png)
 
 5. Skapa ett linjediagram för att visa realtidstemperatur över tid.
 
@@ -544,7 +565,7 @@ Nu när programmet fortfarande körs konfigurerar du PowerBI-visualisering för 
 
 7. Skapa ett annat linjediagram om du vill visa realtidsfuktighet över tid. För att konfigurera ett andra diagram följer du samma steg som ovan och placerar **EventEnqueuedUtcTime** på x-axeln och **fuktighet** på y-axeln.
 
-   ![Skärmbild som visar den slutgiltiga PowerBI-rapporten med två diagram.](./media/tutorial-routing/power-bi-report.png)
+   ![Skärmbild som visar den slutgiltiga Power BI-rapporten med två diagram.](./media/tutorial-routing/power-bi-report.png)
 
 8. Klicka på **Spara** för att spara rapporten.
 
@@ -552,17 +573,17 @@ Du bör kunna se data i båda diagrammen. Detta innebär följande:
 
    * Routningen till standardslutpunkten fungerar korrekt.
    * Azure Stream Analytics-jobbet strömmar som det ska.
-   * PowerBI-visualiseringen är korrekt konfigurerad.
+   * Power BI-visualiseringen är korrekt konfigurerad.
 
-Du kan uppdatera diagrammen för att se de senaste data genom att klicka på uppdateringsknappen högst upp i PowerBI-fönstret. 
+Du kan uppdatera diagrammen för att se senaste data genom att klicka på uppdateringsknappen högst upp i Power BI-fönstret. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
 Om du vill ta bort alla resurser du har skapat tar du bort hela resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tar det bort IoT-hubben, Service Bus-namnrymden och kön, logikappen, lagringskontot och själva resursgruppen. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>Rensa resurser i PowerBI-visualiseringen
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Rensa resurser i Power BI-visualiseringen
 
-Logga in på ditt [PowerBI](https://powerbi.microsoft.com/)-konto. Gå till din arbetsyta. Den här självstudien använder **Min arbetsyta**. Om du vill ta bort PowerBI-visualiseringen går du till DataSets och klickar på papperskorgsikonen och tar bort datauppsättningen. I självstudien används **contosodataset**. När du tar bort datauppsättningen tas även rapporten bort.
+Logga in på ditt [Power BI](https://powerbi.microsoft.com/)-konto. Gå till din arbetsyta. Den här självstudien använder **Min arbetsyta**. Om du vill ta bort Power BI-visualiseringen går du till DataSets, klickar på papperskorgsikonen och tar bort datauppsättningen. I självstudien används **contosodataset**. När du tar bort datauppsättningen tas även rapporten bort.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Rensa resurser med hjälp av Azure CLI
 
@@ -589,15 +610,15 @@ I den här självstudien har du lärt dig att använda meddelanderoutning för a
 > * Konfigurera slutpunkter och vägar i IoT Hub för lagringskontot och Service Bus-kön.
 > * Skapa en logikapp som utlöses och skickar e-post när ett meddelande läggs till i Service Bus-kön.
 > * Ladda ned och kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben för de olika dirigeringsalternativen.
-> * Skapa en PowerBI-visualisering för data som skickas till standardslutpunkten.
+> * Skapa en Power BI-visualisering för data som skickas till standardslutpunkten.
 > * Visa resultatet ...
 > * ...i Service Bus-kön och e-postmeddelandena.
 > * ...i lagringskontot.
-> * ...i PowerBI-visualiseringen.
+> * ...i Power BI-visualiseringen.
 
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar tillstånd för en IoT-enhet. 
 
 > [!div class="nextstepaction"]
-[Kom igång med Azure IoT Hub-enhetstvillingar](iot-hub-node-node-twin-getstarted.md)
+[Konfigurera dina enheter från en serverdelstjänst](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

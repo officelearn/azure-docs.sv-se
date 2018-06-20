@@ -1,73 +1,71 @@
 ---
-title: 'Hur du använder Azure Cosmos DB tabell API: er och Azure Table Storage med Ruby | Microsoft Docs'
-description: Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas.
+title: Använda Azure Table Storage och Azure Cosmos DB Table-API:et med Ruby | Microsoft Docs
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
 services: cosmos-db
-documentationcenter: ruby
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: ruby
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d1583001550f5f272f4070006a4a6ac3be000de6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798278"
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Hur du använder Azure Cosmos DB tabell API: er och Azure Table Storage med Ruby
+# <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Table-tjänsten och Azure Cosmos DB tabell API. Exemplen är skrivna i Ruby och använda den [Azure Storage tabell-klientbibliotek för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Scenarier som tas upp inkluderar **skapar och tar bort en tabell och infoga fråga entiteter i en tabell**.
+Den här guiden beskriver hur du utför vanliga scenarier med hjälp av Azure Table Storage och Azure Cosmos DB Table-API:et. Exemplen är skrivna i Ruby och använder [Azure Storage Table-klientbiblioteket för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Guiden innehåller scenarier som beskriver hur du **skapar och tar bort en tabell och hur du infogar och kör frågor mot entiteter i en tabell**.
 
-## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
+## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
+### <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Lägg till åtkomst till Storage eller Azure Cosmos DB
-Om du vill använda Azure Storage eller Azure Cosmos DB, måste du hämtar och använder Ruby Azure-paket som innehåller en uppsättning bekvämlighet bibliotek som kommunicerar med RESTEN av tabellen tjänsterna.
+## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Lägga till åtkomst till Azure Storage eller Azure Cosmos DB
+För att kunna använda Azure Storage eller Azure Cosmos DB måste du ladda ned och använda Azure-paketet för Ruby, som innehåller en uppsättning verktygsbibliotek som kommunicerar med Table REST-tjänsterna.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Använda RubyGems för att hämta paketet
-1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac), eller **Bash** (Unix).
-2. Typen **symbolen installera azure-lagringstabellen** i kommandofönstret att installera symbolen och beroenden.
+### <a name="use-rubygems-to-obtain-the-package"></a>Hämta paketet med hjälp av RubyGems
+1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix).
+2. Installera paketet och beroendena genom att skriva **gem install azure-storage-table**.
 
 ### <a name="import-the-package"></a>Importera paketet
-Använda valfri textredigerare, lägger du till följande upp i filen Ruby där du tänker använda lagring:
+Använd valfri textredigerare och lägg till följande kod överst i Ruby-filen där du vill använda Storage:
 
 ```ruby
 require "azure/storage/table"
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Lägg till ett Azure Storage-anslutning
-Azure Storage-modulen läser miljövariablerna **AZURE_STORAGE_ACCOUNT** och **AZURE_STORAGE_ACCESS_KEY** information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange kontoinformation innan du använder **Azure::Storage::Table::TableService** med följande kod:
+## <a name="add-an-azure-storage-connection"></a>Lägga till en Azure Storage-anslutning
+Azure Storage-modulen läser miljövariablerna **AZURE_STORAGE_ACCOUNT** och **AZURE_STORAGE_ACCESS_KEY** och letar efter information som krävs för att ansluta till ditt Azure Storage-konto. Om dessa miljövariabler inte har angetts måste du ange kontoinformationen innan du använder **Azure::Storage::Table::TableService** med följande kod:
 
 ```ruby
 Azure.config.storage_account_name = "<your Azure Storage account>"
 Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
-Du kan hämta dessa värden från en klassiska eller Resource Manager storage-konto i Azure-portalen:
+Du kan hämta dessa värden från ett klassiskt eller Resource Manager-baserat lagringskonto på Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Navigera till Storage-konto som du vill använda.
-3. I bladet inställningar till höger klickar du på **åtkomstnycklar**.
-4. I åtkomst bladet nycklar som visas, visas den åtkomstnyckel 1 och åtkomstnyckel 2. Du kan använda någon av dessa.
-5. Klicka på Kopiera-ikonen för att kopiera nyckeln till Urklipp.
+2. Gå till det lagringskonto som du vill använda.
+3. Klicka på **Åtkomstnycklar** till höger på bladet Inställningar.
+4. Åtkomstnyckel 1 och åtkomstnyckel 2 visas på bladet som öppnas. Du kan använda vilken av nycklarna du vill.
+5. Kopiera nyckeln till Urklipp genom att klicka på kopieringsikonen.
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Lägg till en Azure Cosmos DB-anslutning
-Kopiera primära anslutningssträngen från Azure-portalen för att ansluta till Azure Cosmos DB och skapa en **klienten** objekt med kopierade anslutningssträngen. Du kan skicka den **klienten** objekt när du skapar en **TableService** objekt:
+## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
+Du ansluter till Azure Cosmos DB genom att kopiera den primära anslutningssträngen från Azure Portal och skapar sedan ett **Client**-objekt med hjälp av den kopierade anslutningssträngen. Du kan definiera **Client**-objektet när du skapar ett **TableService**-objekt:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -75,7 +73,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
 ## <a name="create-a-table"></a>Skapa en tabell
-Den **Azure::Storage::Table::TableService** objekt kan du arbeta med tabeller och de entiteter. Du kan skapa en tabell med de **create_table()** metod. I följande exempel skapar en tabell eller skriver ut felet om sådana finns.
+Du kan arbeta med tabeller och entiteter med objektet **Azure::Storage::Table::TableService**. Du skapar en tabell med hjälp av metoden **create_table()**. Koden i följande exempel skapar en tabell eller returnerar eventuella fel.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -87,7 +85,7 @@ end
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
-Om du vill lägga till en entitet, först skapa en hash-objekt som definierar egenskaper för enhet. Observera att för varje entitet måste du ange en **PartitionKey** och **RowKey**. Dessa är de unika identifierarna för dina enheter och är värden som kan efterfrågas mycket snabbare än dina andra egenskaper. Azure Storage använder **PartitionKey** att automatiskt distribuera tabellens entiteter över många lagringsnoder. Entiteter med samma **PartitionKey** lagras på samma nod. Den **RowKey** är unikt ID för entiteten i partitionen som den tillhör.
+När du lägger till en entitet börjar du med att skapa ett hash-objekt som definierar entitetens egenskaper. Observera att du måste ange en **PartitionKey** och **RowKey** för varje entitet. Dessa är entiteternas unika identifierare. Du kan köra frågor mot dessa värden mycket snabbare än mot andra egenskaper. Azure Storage använder **PartitionKey** för att automatiskt distribuera tabellens entiteter mellan flera lagringsnoder. Entiteter med samma **PartitionKey** lagras på samma nod. **RowKey** är det unika ID:t för entiteten i den partition som den hör till.
 
 ```ruby
 entity = { "content" => "test entity",
@@ -96,14 +94,14 @@ azure_table_service.insert_entity("testtable", entity)
 ```
 
 ## <a name="update-an-entity"></a>Uppdatera en entitet
-Det finns flera metoder för att uppdatera en befintlig entitet:
+Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 
-* **update_entity():** uppdatera en befintlig entitet genom att ersätta den.
-* **merge_entity():** uppdaterar en befintlig entitet genom att använda nya egenskapsvärden i befintliga entiteten.
-* **insert_or_merge_entity():** uppdaterar en befintlig entitet genom att ersätta den. Om inga entiteten finns infogas en ny:
-* **insert_or_replace_entity():** uppdaterar en befintlig entitet genom att använda nya egenskapsvärden i befintliga entiteten. Om inga entiteten finns infogas en ny.
+* **update_entity():** Uppdaterar en befintlig entitet genom att ersätta den.
+* **merge_entity():** Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten.
+* **insert_or_merge_entity():** Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny:
+* **insert_or_replace_entity():** Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten. Om det inte finns någon entitet, infogas en ny.
 
-Exemplet nedan visar att uppdatera en entitet med **update_entity()**:
+Exemplet nedan visar hur en entitet uppdateras med hjälp av **update_entity()**:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -111,10 +109,10 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-Med **update_entity()** och **merge_entity()**, om den enhet som du uppdaterar inte finns uppdateringen kommer att misslyckas. Om du vill spara en entitet oavsett om det redan finns du bör därför i stället använda **insert_or_replace_entity()** eller **insert_or_merge_entity()**.
+Åtgärden misslyckas om du använder **update_entity()** eller **merge_entity()** och entiteten som du uppdaterar inte finns. Om du vill lagra en entitet oavsett om den redan finns eller inte bör du därför använda **insert_or_replace_entity()** eller **insert_or_merge_entity()** i stället.
 
 ## <a name="work-with-groups-of-entities"></a>Arbeta med grupper av entiteter
-Ibland är det praktiskt att skicka flera åtgärder tillsammans i en grupp så atomiska bearbetning av servern. För att åstadkomma som måste du först skapa en **Batch** objekt och sedan använda den **execute_batch()** metod på **TableService**. Exemplet nedan visar skickar två entiteter med RowKey 2 och 3 i en batch. Observera att den endast fungerar för entiteter med samma PartitionKey.
+Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. För att åstadkomma det skapar du först ett **Batch**-objekt och använder sedan metoden **execute_batch()** i **TableService**. Exemplet nedan visar hur du skickar två entiteter med RowKey 2 och 3 i en batch. Observera att detta endast fungerar för entiteter med samma PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -126,16 +124,16 @@ end
 results = azure_table_service.execute_batch(batch)
 ```
 
-## <a name="query-for-an-entity"></a>Frågan för en entitet
-Om du vill fråga en entitet i en tabell, använder den **get_entity()** metoden genom att skicka namnet på tabellen **PartitionKey** och **RowKey**.
+## <a name="query-for-an-entity"></a>Fråga efter en entitet
+Om du vill fråga efter en entitet i en tabell använder du metoden **get_entity()** genom att skicka tabellnamnet, **PartitionKey** och **RowKey**.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
     "1")
 ```
 
-## <a name="query-a-set-of-entities"></a>Fråga en uppsättning enheter
-Om du vill fråga en uppsättning enheter i en tabell, skapa en fråga hash-objekt och använda den **query_entities()** metod. Exemplet nedan visar att hämta alla entiteter med samma **PartitionKey**:
+## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
+Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()**. Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -143,12 +141,12 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 > [!NOTE]
-> Om resultatet är för stort för en enskild fråga att returnera returneras en fortsättningstoken som du kan använda för att hämta de efterföljande sidorna.
+> Om resultatuppsättningen är för stor och en enskild fråga inte kan returnera hela uppsättningen returneras en fortsättningstoken som du kan använda för att hämta de efterföljande sidorna.
 >
 >
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan hämta bara några få egenskaper från en entitet. Den här tekniken, kallad ”projektion”, minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Använda select-satsen och ange namnen på de egenskaper som du vill ta till klienten.
+En fråga till en tabell kan hämta några få egenskaper från en entitet. Den här tekniken, kallad ”projektion”, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Använd select-satsen och ange namnen på de egenskaper som du vill skicka till klienten.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'",
@@ -157,14 +155,14 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
-Om du vill ta bort en entitet, Använd den **delete_entity()** metod. Ange namnet på den tabell som innehåller entiteten och PartitionKey RowKey för entiteten.
+Om du vill ta bort en entitet använder du metoden **delete_entity()**. Ange namnet på tabellen som innehåller entiteten, samt PartitionKey och RowKey för entiteten.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 ```
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
-Om du vill ta bort en tabell, använder den **delete_table()** metod och pass i tabellen som du vill ta bort.
+Om du vill ta bort en tabell använder du metoden **delete_table()** och anger namnet på den tabell som du vill ta bort.
 
 ```ruby
 azure_table_service.delete_table("testtable")
@@ -174,5 +172,5 @@ azure_table_service.delete_table("testtable")
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Ruby Developer Center](https://azure.microsoft.com/develop/ruby/)
-* [Microsoft Azure Storage tabell-klientbibliotek för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table) 
+* [Microsoft Azure Storage Table-klientbiblioteket för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 

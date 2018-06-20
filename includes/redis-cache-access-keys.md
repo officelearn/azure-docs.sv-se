@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4148370828f4ac2b7e75b49ed13cf1d1dafb8844
+ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196584"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35719449"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Hämta värdnamn, portar och åtkomstnycklar via Azure Portal
+### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Hämta värdnamn, portar och åtkomstnycklar med hjälp av Azure Portal
 
-När du ansluter till en Azure Redis-Cache-instans behöver cacheklienter värdnamnet, portarna och nycklarna för cacheminnet. Vissa klienter kan referera till de här objekten med något annorlunda namn. Du kan hämta den här informationen i Azure Portal.
+När du ansluter till en Azure Redis-Cache-instans behöver cacheklienter värdnamnet, portarna och nycklarna för cacheminnet. Vissa klienter kan hänvisa till dessa objekt med namn som skiljer sig något. Du kan hämta den här informationen i Azure Portal.
 
-För att hämta åtkomstnycklar via [Azure Portal](https://portal.azure.com), bläddrar du till ditt cacheminne och klickar på **Åtkomstnycklar**. 
+#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Hämta åtkomstnycklarna och värdnamnet
 
-![Redis-cachenycklar](media/redis-cache-access-keys/redis-cache-keys.png)
+1. Om du vill hämta åtkomstnycklarna via [Azure Portal](https://portal.azure.com) bläddrar du till ditt cacheminne och väljer **Åtkomstnycklar**. 
 
-Om du vill hämta värdnamnet, portarna, klickar du på **Egenskaper**.
+    ![Azure Redis Cache-nycklar](media/redis-cache-access-keys/redis-cache-keys.png)
 
-![Egenskaper för Redis-cache](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+2. Om du vill hämta värdnamnen och portarna väljer du **Egenskaper**.
+
+    ![Azure Redis Cache-egenskaper](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642945"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213132"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-behållarapp i Linux
 > [!div class="op_single_selector"]
@@ -171,26 +171,12 @@ Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen m
 
 Ange ett instansantal på ”1”.
 
+Ange mappningen för port i rätt format. För den här artikeln måste du ange ```80:4000``` som portmappning. Genom att göra så att du har konfigurerat som alla inkommande förfrågningar som kommer till port 4000 på värddatorn omdirigeras till port 80 på behållaren.
+
 ![Service Fabric Yeoman-generator för behållare][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Konfigurera portmappning och autentisering av behållardatabas
-Behållartjänsten behöver en slutpunkt för kommunikation. Lägg nu till protokollet, porten och typen för en `Endpoint` i filen ServiceManifest.xml under taggen ”Resources”. Behållartjänsten för den här artikeln lyssnar på port 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Genom att tillhandahålla `UriScheme` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
-
-Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml. I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkt som definierats i tjänstmanifestet). Inkommande begäranden till tjänsten på port 4000 mappas till port 80 för behållaren. Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`. I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
+## <a name="configure-container-repository-authentication"></a>Konfigurera behållaren databasen autentisering
+ Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`. I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +213,6 @@ Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ang
 *IncludeDockerHealthStatusInSystemHealthReport* är som standard inställt på **true** och *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false**. Om *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **true** kommer en behållare som upprepade gånger rapporteras som ej felfri att startas om (eventuellt på andra noder).
 
 Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false**.
-
-## <a name="build-and-package-the-service-fabric-application"></a>Utveckla och distribuera ett Service Fabric-program
-I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/) som du kan använda för att skapa programmet från terminalen. När du ska bygga och paketera programmet kör du följande:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
 När du har skapat programmet kan du distribuera det till det lokala klustret med Service Fabric CLI.

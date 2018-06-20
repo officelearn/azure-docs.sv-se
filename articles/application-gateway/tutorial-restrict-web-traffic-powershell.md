@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356281"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598852"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Begränsa webbtrafik med en brandvägg för webbaserade program med hjälp av Azure PowerShell
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Aktivera brandvägg för webbaserade program med hjälp av Azure PowerShell
 
 Du kan begränsa webbtrafiken för en [programgateway](overview.md) med hjälp av en [brandvägg för webbaserade program](waf-overview.md) (WAF). I brandväggen används [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regler till att skydda programmet. De här reglerna kan exempelvis skydda mot attacker som SQL-inmatning, skriptattacker mellan webbplatser och sessionskapningar. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -31,6 +31,8 @@ I den här guiden får du lära dig att:
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 ![Exempel på brandvägg för webbaserade program](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Om du vill kan du slutföra den här självstudiekursen med [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

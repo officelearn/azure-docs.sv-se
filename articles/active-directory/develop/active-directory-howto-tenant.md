@@ -16,11 +16,12 @@ ms.topic: hero-article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 051078bd3220c8d0f6b78c834cdf3628c2039e8e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 26d336c9d896859d8012b1eaad1a16d0cbd9b628
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596217"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Skaffa en Azure Active Directory-klient
 
@@ -41,4 +42,4 @@ Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser et
 
 ## <a name="create-a-new-azure-ad-tenant"></a>Skapa en ny Azure AD-klient
 
-Om du inte redan har en Azure AD-klient eller vill skapa en ny, kan du göra det med hjälp av [upplevelsen för att skapa kataloger](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) i [Azure Portal](https://portal.azure.com). Processen tar ungefär en minut och i slutet kommer du att ombes att navigera till din nya klient.
+Om du inte redan har en Azure AD-klient eller vill skapa en ny, kan du göra det med hjälp av [upplevelsen för att skapa kataloger](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) i [Azure Portal](https://portal.azure.com). Processen tar ungefär en minut och i slutet kommer du att uppmanas navigera till din nya klient.

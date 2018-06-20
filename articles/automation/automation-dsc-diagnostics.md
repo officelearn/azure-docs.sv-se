@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195972"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218963"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till logganalys
 
@@ -86,14 +86,14 @@ Du kan också begränsa frågan med Åtgärdsnamnet. Till exempel: ' Type = Azur
 
 En av våra främsta kundönskemål är möjligheten att skicka ett e-postmeddelande eller en text om något går fel med en DSC-konfiguration.   
 
-Om du vill skapa en aviseringsregel, börja med att skapa en logg Sök efter poster för DSC-rapport som ska anropa aviseringen.  Klicka på den **avisering** för att skapa och konfigurera varningsregeln.
+Om du vill skapa en aviseringsregel, börja med att skapa en logg Sök efter poster för DSC-rapport som ska anropa aviseringen.  Klicka på den **+ ny Aviseringsregel** för att skapa och konfigurera varningsregeln.
 
 1. Översikt över Log Analytics-sidan klickar du på **loggen Sök**.
 1. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Om du har lagt upp loggar från mer än en Automation-konto eller prenumeration på din arbetsyta kan gruppera du aviseringar av prenumeration och Automation-konto.  
   Automation-kontonamnet kan härledas från fältet resurs i sökningen i DscNodeStatusData.  
-1. Öppna den **lägga till Varningsregeln** klickar du på **avisering** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [aviseringar i logganalys](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Öppna den **Skapa regel** klickar du på **+ ny Varningsregeln** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [skapar en avisering rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Sök efter misslyckade DSC-resurser på alla noder
 

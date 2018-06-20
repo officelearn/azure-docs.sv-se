@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801457"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybrididentitet: Jämförelse av katalogintegreringsverktyg
 Katalogintegreringsverktygen har vuxit och utvecklats med åren.  Avsikten med det här dokumentet är att ge dig en samlad vy över dessa verktyg och en jämförelse av de funktioner som är tillgängliga i vart och ett.
@@ -38,7 +40,7 @@ FR = Framtida version
 PP = Offentlig granskning  
 
 ## <a name="on-premises-to-cloud-synchronization"></a>Synkronisering lokalt till molnet
-| Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services (AAD Sync) | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) – STÖDS INTE LÄNGRE | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Ansluta till en enda lokal AD-skog |● |● |● |● |● |
 | Ansluta till flera lokala AD-skogar |● |● | |● |● |
@@ -53,7 +55,7 @@ PP = Offentlig granskning
 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Synkronisering molnet till lokalt
-| Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Tillbakaskrivning av enheter |● | |● | | |
 | Tillbakaskrivning av attribut (för Exchange-hybridinstallation) |● |● |● |● |● |
@@ -61,15 +63,17 @@ PP = Offentlig granskning
 | Tillbakaskrivning av lösenord (från lösenordsåterställning via självbetjäning (SSPR) och lösenordsändring) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Autentiseringsfunktioner som stöds
-| Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Lösenordssynkronisering för en enda lokal AD-skog |● |● |● | | |
-| Lösenordssynkronisering för flera lokala AD-skogar |● |● | | | |
+| Synkronisering av lösenords-hash för en enskild lokal AD-skog |●|●|● | | |
+| Synkronisering av lösenords-hash för flera lokala AD-skogar |●|● | | | |
+| Direktautentisering för enskilda lokala AD-skogar |●| | | | |
 | Enkel inloggning med federation |● |● |● |● |● |
+| Smidig enkel inloggning|● |||||
 | Tillbakaskrivning av lösenord (från SSPR och lösenordsändring) |● |● | | | |
 
 ## <a name="set-up-and-installation"></a>Konfiguration och installation
-| Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Stöder installation på en domänkontrollant |● |● |● | |
 | Stöder installation med hjälp av SQL Express |● |● |● | |
@@ -80,7 +84,7 @@ PP = Offentlig granskning
 | Stöd för Windows Server 2012 och Windows Server 2012 R2 |● |● |● |● |
 
 ## <a name="filtering-and-configuration"></a>Filtrering och konfiguration
-| Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrera baserat på domäner och organisationsenheter |● |● |● |● |● |
 | Filtrera baserat på objektens attributvärden |● |● |● |● |● |

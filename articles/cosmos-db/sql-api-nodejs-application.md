@@ -1,24 +1,22 @@
 ---
 title: Skapa en Node.js-webbapp för Azure Cosmos DB | Microsoft Docs
-description: Den här självstudien om Node.js utforskar hur du använder Microsoft Azure Cosmos DB för att lagra och komma åt data från en Node.js Express-webbapp på Azure Websites.
-keywords: Programutveckling, database-Självstudier lär dig använda node.js, självstudie om node.js
+description: I den här självstudiekursen för Node.js lär du dig hur du använder Microsoft Azure Cosmos DB för att lagra och komma åt data från ett Node.js Express-webbprogram på Azure Websites.
+keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 6a7d1b961245a47015bdb96fd8653d04586238b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797489"
 ---
 # <a name="_Toc395783175"></a>Skapa ett Node.js-webbprogram med Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,7 +27,7 @@ ms.lasthandoff: 04/16/2018
 > 
 > 
 
-Den här självstudien om Node.js beskrivs hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från ett node.Ja Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
+Den här självstudiekursen om Node.js beskriver hur du kan använda Azure Cosmos DB och SQL API för lagring av och åtkomst till data från ett Node.js Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
 
 ![Skärmdump av programmet My Todo List som skapas genom stegen i den här självstudien om Node.js](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -73,19 +71,19 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 5. Kör det nya programmet.
    
         npm start
-6. Du kan visa det nya programmet genom att navigera din webbläsare till [ http://localhost:3000 ](http://localhost:3000).
+6. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
    
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Sedan du avslutar programmet, tryck på CTRL + C i fönstret terminal och klicka sedan på Windows-datorer, **y** att avsluta batch-jobbet.
+    Om du vill stoppa programmet trycker du på CTRL+C i terminalfönstret och sedan (endast för Windows-datorer) på **y** för att avbryta batch-jobbet.
 
 ## <a name="_Toc395783179"></a>Steg 3: Installera ytterligare moduler
-Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites används den här filen för att avgöra vilka moduler måste installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
+Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites, används den här filen för att avgöra vilka moduler som behöver installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
 
 1. Gå tillbaka till terminalen och installera modulen **async** via npm.
    
         npm install async --save
-2. Installera modulen **documentdb** via npm. Det här är modulen där alla Azure DB som Cosmos-magin händer.
+2. Installera modulen **documentdb** via npm. Det här är modulen där Azure Cosmos DB-magin händer.
    
         npm install documentdb --save
 
@@ -94,9 +92,9 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
 
 ### <a name="create-the-model"></a>Skapa modellen
 1. Skapa en ny katalog i projektkatalogen med namnet **models**, i samma katalog som package.json-filen.
-2. I den **modeller** directory, skapa en ny fil med namnet **aktivitet model.js**. Den här filen innehåller modellen för de aktiviteter som skapats av vårt program.
-3. I samma **modeller** directory, skapa ytterligare en ny fil med namnet **cosmosdb manager.js**. Den här filen innehåller användbar och återanvändbar kod som vi ska använda i programmet. 
-4. Kopiera följande kod i **cosmosdb manager.js**
+2. I katalogen **models** skapar du en ny fil med namnet **task-model.js**. Den här filen innehåller modellen för de aktiviteter som skapats av vårt program.
+3. I samma **models**-katalog skapar du ytterligare en ny fil med namnet **cosmosdb-manager.js**. Den här filen innehåller användbar och återanvändbar kod som vi ska använda i programmet. 
+4. Kopiera följande kod till **cosmosdb-manager.js**
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
 
@@ -146,8 +144,8 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
     }
     };
     ```
-5. Spara och Stäng den **cosmosdb manager.js** fil.
-6. I början av den **aktivitet model.js** lägger du till följande kod för att referera till den **DocumentDBClient** och **cosmosdb manager.js** vi skapade ovan: 
+5. Spara och stäng filen **cosmosdb-manager.js**.
+6. I början av filen **task-model.js** lägger du till följande kod för att referera till **DocumentDBClient** och **cosmosdb-manager.js** som vi skapade ovan: 
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
@@ -268,7 +266,7 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
 
     module.exports = TaskModel;
     ```
-9. Spara och Stäng den **aktivitet model.js** fil. 
+9. Spara och stäng filen **task-model.js**. 
 
 ### <a name="create-the-controller"></a>Skapa styrningen
 1. I projektets **routes**-katalog skapar du en ny fil med namnet **tasklist.js**. 
@@ -368,7 +366,7 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
    
     module.exports = config;
     ```
-3. I den **config.js** uppdaterar värdena för HOST och AUTH_KEY med värdena som finns på sidan nycklar i ditt Azure DB som Cosmos-konto på den [Microsoft Azure-portalen](https://portal.azure.com).
+3. I filen **config.js** uppdaterar du värdet för HOST och AUTH_KEY med värdena på sidan Nycklar för ditt Azure Cosmos DB-konto på [Microsoft Azure-portalen](https://portal.azure.com).
 4. Spara och stäng filen **config.js**.
 
 ### <a name="modify-appjs"></a>Ändra app.js
@@ -404,11 +402,11 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
     app.post('/completetask', taskList.completeTask.bind(taskList));
     app.set('view engine', 'jade');
     ```
-5. Dessa rader definierar en ny instans av vårt **TaskModel** objekt med en ny anslutning till Azure Cosmos DB (med värdena som läses från den **config.js**), initierar aktivitetsobjektet och Binder formuläråtgärder till metoder i vår **TaskList** domänkontrollant. 
+5. Dessa rader definierar en ny instans av **TaskModel**-objektet med en ny anslutning till Azure Cosmos DB (med de värden som lästs in från **config.js**), initierar aktivitetsobjektet och binder formuläråtgärder till metoder i **TaskList**-styrenheten. 
 6. Avsluta med att spara och stänga filen **app.js**. Vi är nästan klara.
 
 ## <a name="_Toc395783181"></a>Steg 5: Skapa ett användargränssnitt
-Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns i [ http://jade-lang.com/ ](http://jade-lang.com/).
+Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns på [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Filen **layout.jade** i katalogen **views** används som en global mall för andra **.jade**-filer. I det här steget ändrar du den så att den använder [Twitter Bootstrap](https://github.com/twbs/bootstrap), vilket är en verktygslåda som gör det enkelt att utforma en snygg webbplats. 
 2. Öppna filen **layout.jade** i mappen **views** och ersätt innehållet med följande:
@@ -486,7 +484,7 @@ Det andra formuläret innehåller två inmatningsfält och en knapp som gör att
 Det här ska vara allt som behövs för att appen ska fungera.
 
 ## <a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
-1. Om du vill testa programmet på din lokala dator kör `npm start` i terminalen för att starta programmet, uppdatera din [ http://localhost:3000 ](http://localhost:3000) Webbläsarsida. Sidan ska nu se ut som på bilden nedan:
+1. Om du vill testa programmet på din lokala dator kör du `npm start` i terminalen för att starta programmet. Uppdatera sedan din [http://localhost:3000](http://localhost:3000)-webbläsarsida. Sidan ska nu se ut som på bilden nedan:
    
     ![Skärmdump av programmet MyTodo List i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
@@ -497,7 +495,7 @@ Det här ska vara allt som behövs för att appen ska fungera.
 3. Sidan bör uppdateras och visa det nya objektet i ToDo-listan.
    
     ![Skärmdump av programmet med ett nytt objekt i ToDo-listan](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Complete och sedan klicka på **Update tasks**. Detta uppdaterar dokumentet du redan har skapat och tar bort den från vyn.
+4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Complete och sedan klicka på **Update tasks**. Då uppdateras dokumentet du redan har skapat och tas bort från vyn.
 
 5. För att stoppa programmet trycker du på CTRL+C i terminalfönstret och klickar sedan på **Y** för att avbryta batch-jobbet.
 
@@ -509,7 +507,7 @@ Det här ska vara allt som behövs för att appen ska fungera.
 3. Distribuera genom att pusha till fjärranslutningen.
    
         git push azure master
-4. I några sekunder har git publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete som körs i Azure!
+4. Efter några sekunder har git publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
     Grattis! Du har skapat ditt första Node.js Express-webbprogram med Azure Cosmos DB och publicerat det på Azure Websites.
 

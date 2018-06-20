@@ -1,34 +1,28 @@
 ---
-title: Azure Backup PowerShell-exempel | Microsoft Docs
-description: Azure Backup PowerShell-exempel
+title: PowerShell-exempel för Azure Backup
+description: PowerShell-exempel för Azure Backup
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: f0ab7f5c397637a7d2c4d423edd29bc6edeb3841
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 841e8df146610de636a2f58c02c8ac2633ba2328
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607489"
 ---
-# <a name="azure-backup-powershell-samples"></a>Azure Backup PowerShell-exempel
+# <a name="azure-backup-powershell-samples"></a>PowerShell-exempel för Azure Backup
 
-Följande tabell länkar till PowerShell-skript-exempel som använder Azure Backup för att säkerhetskopiera och återställa data.
+Följande tabell länkar till PowerShell-skriptexempel som använder Azure Backup för att säkerhetskopiera och återställa data.
 
 | | |
 |---|---|
 |**Säkerhetskopiera virtuella datorer**||
-| [Säkerhetskopiera en krypterad virtuell dator till Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Säkerhetskopiera alla data på den kryptera virtuella datorn.|
+| [Säkerhetskopiera krypterade virtuella datorer till Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Säkerhetskopiera alla data på den krypterade virtuella datorn.|
 | | |
 

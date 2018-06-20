@@ -1,26 +1,21 @@
 ---
-title: Säkerhetskopiera virtuella Azure-datorer i skala | Microsoft Docs
+title: Säkerhetskopiera virtuella Azure-datorer i skala
 description: Den här självstudiekursen förklarar hur du säkerhetskopierar flera virtuella Azure-datorer till ett Recovery Services-valv.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607012"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Säkerhetskopiera Azure Virtual Machines i Azure i skala
 
@@ -29,7 +24,7 @@ Den här självstudiekursen förklarar hur du säkerhetskopierar virtuella Azure
 > [!IMPORTANT]
 > Den här självstudien förutsätter att du redan har skapat en resursgrupp och en virtuell Azure-dator.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en behållare som rymmer återställningspunkterna för objekten som säkerhetskopieras. Ett Recovery Services-valv är en Azure-resurs som kan distribueras och hanteras som en del av en Azure-resursgrupp. I den här självstudien skapar du ett Recovery Services-valv i samma resursgrupp som den virtuella datorn som skyddas.
 

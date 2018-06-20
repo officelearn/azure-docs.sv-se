@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 01e5dc3b7c141841dd6dbd44290360b94493b548
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601283"
 ---
 # <a name="audit-diagnostic-setting"></a>Granska diagnostikinställning
 
@@ -31,7 +32,7 @@ Den här inbyggda principen granskar om diagnostikinställningarna inte är akti
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal), med [PowerShell](#deploy-with-powershell) eller med [Azure CLI](#deploy-with-azure-cli). Du hämtar den inbyggda principen med hjälp av ID:t `7f89b1eb-583c-429a-8828-af049802c1d9`.
+Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell) eller [Azure CLI](#deploy-with-azure-cli). Du hämtar den inbyggda principen med hjälp av ID:t `7f89b1eb-583c-429a-8828-af049802c1d9`.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -81,4 +82,4 @@ az policy assignment delete --name "Audit diagnostics" --resource-group myResour
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).
+- Granska fler [Azure Policy-exempel](../json-samples.md).

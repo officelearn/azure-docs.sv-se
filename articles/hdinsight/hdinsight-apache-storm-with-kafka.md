@@ -12,19 +12,20 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626298"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Kafka i HDInsight
 
 Den här självstudien visar hur du använder en Apache Storm-topologi till att läsa och skriva data med Apache Kafka i HDInsight. Självstudien visar även hur du bevarar data i den HDFS-kompatibla lagringen på Storm-klustret.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Storm och Kafka
@@ -59,7 +60,7 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
     * Den katalog där Maven är installerat.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver en Azure-resursgrupp som både innehåller en Storm i HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
+> Stegen i det här dokumentet kräver en Azure-resursgrupp som både innehåller en Storm i HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Storm-klustret kan kommunicera direkt med Kafka-klustret.
 > 
 > Dokumentet innehåller länkar till en mall som kan skapa alla nödvändiga Azure-resurser. 
 >

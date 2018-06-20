@@ -2,24 +2,22 @@
 title: Självstudiekurs om MongoDB, Angular och Node för Azure – del 2 | Microsoft Docs
 description: Del 2 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798074"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 2: Skapa en Node.js-baserad Express-app med Angular CLI 
 
@@ -65,10 +63,10 @@ Den här kursen kräver även följande:
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>Skapa ett nytt projekt med hjälp av Angular CLI
 
-1. I kommandotolken byter du till den mapp där du vill skapa det nya projektet och kör följande kommando. Det här kommandot skapar en ny mapp och ett projekt med namnet angular-cosmosdb och installerar Angular-komponenterna som krävs för en ny app. Kommandot installerar också källkoden i mappen src/client (-sd src/client), använder den minsta installationen (--minimal) och anger att projektet använder Sass (en CSS-liknande syntax med flaggan --style scss).
+1. I kommandotolken byter du till den mapp där du vill skapa det nya projektet och kör följande kommando. Det här kommandot skapar en ny mapp och ett projekt med namnet angular-cosmosdb och installerar Angular-komponenterna som krävs för en ny app. Kommandot kör en minimal installation (--minimal) och anger att projektet använder Sass (en CSS-liknande syntax med flaggan --style scss).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. När kommandot har slutförts byter du katalog till mappen src/client.
@@ -151,11 +149,9 @@ Den här kursen kräver även följande:
 
 7. Sparar alla ändrade filer 
 
-8. Klicka på knappen **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) i Visual Studio Code, klicka på kugghjulsknappen ![Kugghjulsknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png) och välj **Node.js** för att skapa en konfiguration.
+8. Klicka på knappen **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) i Visual Studio Code, klicka på kugghjulsknappen ![Kugghjulsknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Den nya launch.json-filen öppnas i Visual Studio Code.
 
-   Den nya launch.json-filen öppnas i Visual Studio Code.
-
-8. Ändra `"program": "${file}"` till `"program": "${workspaceRoot}/src/server/index.js"` på rad 11 i launch.json och spara filen.
+8. Ändra `"${workspaceFolder}\\server"` till `"program": "${workspaceRoot}/src/server/index.js"` på rad 11 i launch.json och spara filen.
 
 9. Kör appen genom att klicka på knappen **Starta felsökning** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png).
 

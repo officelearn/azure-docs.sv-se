@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637182"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221554"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om logganalys i Microsoft Azure. Om du har några ytterligare frågor om logganalys går du till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och dina frågor. När en fråga är vanliga vi lägga till den i den här artikeln så att den finns snabbt och enkelt.
@@ -75,18 +75,21 @@ Log Analytics använder UTC-tid varje dag startar vid midnatt UTC. Om arbetsytan
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>FRÅGOR. Hur kan jag få meddelanden när datainsamling stoppar?
 
-S: med stegen som beskrivs i [skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) ska meddelas när datainsamling stoppar.
+S: med stegen som beskrivs i [skapa en ny avisering loggen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) ska meddelas när datainsamling stoppar.
 
 Ange när du skapar en avisering om när datainsamling slutar på:
-- **Namnet** till *datainsamling har stoppats*
-- **Allvarlighetsgrad** till *varning*
-- **Sökfråga** till`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Tidsfönstret** till *30 minuter*.
-- **Varna frekvens** till varje *tio* minuter.
-- **Skapa en avisering baserat på** som *antal resultat*
-- **Antalet resultat** som *större än 0*
 
-Den här aviseringen utlöses när frågan returnerar resultat om du har pulsslag saknas för mer än 15 minuter.  Använd stegen som beskrivs i [Lägga till åtgärder i varningsregler](log-analytics-alerts-actions.md) för att konfigurera e-post, webhook eller runbook-åtgärd för regeln.
+- **Definiera varningsvillkor** ange logganalys-arbetsytan som mål för resursen.
+- **Varna kriterier** anger du följande:
+   - **Skicka en signal namnet** Välj **anpassad logg sökning**.
+   - **Sökfråga** till`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Varna logik** är **baserat på** *antal resultat* och **villkoret** är *större än* en **tröskelvärde**  av *0*
+   - **Tidsperiod** av *30* minuter och **Varna frekvens** till varje *10* minuter
+- **Definiera aviseringsinformation** anger du följande:
+   - **Namnet** till *datainsamling har stoppats*
+   - **Allvarlighetsgrad** till *varning*
+
+Ange en befintlig eller skapa en ny [grupp](../monitoring-and-diagnostics/monitoring-action-groups.md) så att när aviseringen loggen matchar kriterierna, meddelas du om du har ett pulsslag saknas för mer än 15 minuter.
 
 ## <a name="configuration"></a>Konfiguration
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>FRÅGOR. Kan jag ändra namnet på tabellen/blob-behållaren som används för att läsa från Azure Diagnostics (BOMULLSTUSS)?

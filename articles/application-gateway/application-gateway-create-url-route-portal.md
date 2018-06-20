@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356179"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264000"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
 
@@ -141,8 +141,8 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 
 1. Klicka på **regler** och klicka sedan på **sökväg-baserade**.
 2. Ange *regel 2* för namnet.
-3. Ange *bilder* för namnet på den första sökvägen. Ange */images/** för sökvägen. Välj **imagesBackendPool** för serverdelspoolen.
-4. Ange *Video* för namnet på den andra sökvägen. Ange */video/** för sökvägen. Välj **videoBackendPool** för serverdelspoolen.
+3. Ange *bilder* för namnet på den första sökvägen. Ange */images/* \* för sökvägen. Välj **imagesBackendPool** för serverdelspoolen.
+4. Ange *Video* för namnet på den andra sökvägen. Ange */video/* \* för sökvägen. Välj **videoBackendPool** för serverdelspoolen.
 
     ![Skapa en regel som sökväg-baserade](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

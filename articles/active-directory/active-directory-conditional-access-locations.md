@@ -1,5 +1,5 @@
 ---
-title: Plats-villkor i Azure Active Directory för villkorlig åtkomst | Microsoft Docs
+title: Vad är villkor som plats i Azure Active Directory för villkorlig åtkomst? | Microsoft Docs
 description: Lär dig använda villkoret plats för att styra åtkomsten till dina molnappar baserat på användarens nätverksplats.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1b3dd172e42ecbaa20bbd3763fa13651e1663adb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e5924262d9965c4e6732f8c23031cd575dc7958d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725300"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232577"
 ---
-# <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Plats-villkor i Azure Active Directory för villkorlig åtkomst 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är villkoret plats i Azure Active Directory för villkorlig åtkomst? 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare kan komma åt dina molnappar. Plats-villkoret för en princip för villkorlig åtkomst kan du koppla kontroller inställningar för åtkomst till nätverksplatserna för dina användare.
 
@@ -166,6 +166,6 @@ API och PowerShell ännu stöds inte för namngivna platser eller för principer
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
 
 - Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 

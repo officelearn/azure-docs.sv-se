@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: d44420505ebf08e199ee482d78baa8fdb5654c14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77453d05667e0520b4da550803902f01631aa5e1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587167"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232413"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Tredje parts programvara som är kompatibel med Azure AD Domain Services
 
@@ -35,10 +35,10 @@ En identitet autentiseringstjänster gör det möjligt för Unix, Linux och Mac 
 [KB-artikel - Använd identitet autentiseringstjänster med Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
 
 
-## <a name="redhat-enterprise-linux"></a>RedHat Enterprise Linux
+## <a name="red-hat-enterprise-linux"></a>Red Hat Enterprise Linux
 
-![Redhat](./media/compatible-software-icons/RedHat.png)
+![Red Hat](./media/compatible-software-icons/RedHat.png)
 
 Red Hat Enterprise Linux är världens inledande enterprise Linux-plattformen för att uppfylla behoven i dagens moderna enterprise. Red Hat Enterprise Linux är det bästa valet för arbetsbelastningar på företag Linux virtuella dator (VM) i Microsoft Azure. Red Hat Enterprise Linux är en öppen, tillförlitlig och säker plattform som utformats för kunder som vill ha distribution flexibilitet för sina verksamhetskritiska arbetsbelastningar - från data center till Azure-molnet - backas upp av tätt integrerad, företagsklass stöd från Red Hat och Microsoft.
 
-[Anslut RedHat Enterprise Linux 7.2 VM till Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Ansluta till Red Hat Enterprise Linux 7.2 VM till Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

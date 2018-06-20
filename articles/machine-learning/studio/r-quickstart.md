@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836383"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227248"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Snabbstartssjälvstudier till R-programmeringsspråket för Azure Machine Learning
 
@@ -41,7 +41,7 @@ Tid series-data är data som värden har ett index över tid. Tid indexet kan va
 
 I den här snabbstartsguide kommer arbeta med California mjölkproduktion och priser data. Dessa data innehåller månatliga information om produktion av flera mejeriprodukter och priset för mjölkfett, en vanlig prestandamått.
 
-De data som används i den här artikeln, tillsammans med R-skript kan vara [hämtas här][download]. Dessa data har ursprungligen syntetiskt från information som är tillgänglig från University of Wisconsin på http://future.aae.wisc.edu/tab/production.html.
+De data som används i den här artikeln, tillsammans med R-skript kan vara [hämtas här](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Dessa data har ursprungligen syntetiskt från information som är tillgänglig från University of Wisconsin på https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisation
 Vi kommer att gå igenom flera steg som du lär dig att skapa, testa och köra analytics och data manipulation R-koden i Azure Machine Learning-miljö.  
@@ -125,7 +125,7 @@ Om du inte förstår den sista raden i den här koden för tillfället, läsa p�
 ### <a name="introduction-to-rstudio"></a>Introduktion till RStudio
 RStudio är en mycket vanlig IDE för R. Jag använder RStudio för redigering, testa och felsöka vissa av R-koden som används i den här snabbstartsguide. När R-koden har testats och är klara kan du bara klippa ut och klistra in från redigeraren RStudio till en Machine Learning Studio [köra R-skriptet] [ execute-r-script] modul.  
 
-Om du inte har programmeringsspråket R installerat på den stationära datorn rekommenderar jag du göra det nu. Kostnadsfri nedladdning med öppen källkod R språk som är tillgängliga på den omfattande R Arkiv nätverk (CRAN) på [ http://www.r-project.org/ ](http://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ instruktionerna för hämtning. Dessutom innehåller CRAN en mängd användbara analytics och data manipulation paket.
+Om du inte har programmeringsspråket R installerat på den stationära datorn rekommenderar jag du göra det nu. Kostnadsfri nedladdning av språk med öppen källkod R är tillgängliga på den omfattande R Arkiv nätverk (CRAN) på [ http://www.r-project.org/ ](http://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ instruktionerna för hämtning. Dessutom innehåller CRAN en mängd användbara analytics och data manipulation paket.
 
 Om du har använt RStudio, bör du hämta och installera skrivbordsversionen. Du hittar RStudio hämtningsbara filer för Windows, Mac OS x och Linux/UNIX på http://www.rstudio.com/products/RStudio/. Följ anvisningarna som visas och installerar RStudio på den stationära datorn.  
 
@@ -837,7 +837,7 @@ Kör den här koden genererar loggen visas i bild 18.
 
 *Bild 18. Lista över ccf objekt från pairwise korrelation analys.*
 
-Det finns en correlation-värdet för varje fördröjning. Inget av värdena korrelation är tillräckligt stor för att vara betydande. Vi kan därför ingå att vi kan modellen varje variabel oberoende av varandra.
+Det finns en correlation-värdet för varje fördröjning. Ingen av dessa värden för korrelation är tillräckligt stor för att vara betydande. Vi kan därför ingå att vi kan modellen varje variabel oberoende av varandra.
 
 ### <a name="output-a-dataframe"></a>Utdata för en dataframe
 Vi har beräknats pairwise korrelationer som en lista över R ccf objekt. Detta innebär lite problem som utdataporten resultatet Dataset verkligen kräver en dataframe. Dessutom ccf objekt i sin tur är en lista och vi vill bara värdena i det första elementet i den här listan korrelationer på olika beräkningstider.
@@ -1241,7 +1241,7 @@ Det finns många böcker på R som kan hjälpa dig att komma igång. Här är n�
 * R Inferno av Patrick Burns är en förstås humoristiskt bok som hanterar ett antal komplicerade och svår ämnen som kan uppstå när programmering i R. Boken är tillgängliga gratis http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Om du vill att en djupdykning i avancerade ämnen i R ta en titt på boken Avancerat R av Hadley Wickham. Online-versionen av den här boken är tillgängliga gratis http://adv-r.had.co.nz/.
 
-En förteckning över R tid serie paket finns i uppgiftsvyn CRAN för analys av tidsserier: http://cran.r-project.org/web/views/TimeSeries.html. Information om specifika tid serie objekt paket ska du referera till dokumentationen för paketet.
+En katalog med R tid serie paket finns i uppgiftsvyn CRAN för analys av tidsserier: http://cran.r-project.org/web/views/TimeSeries.html. Information om specifika tid serie objekt paket ska du referera till dokumentationen för paketet.
 
 Boken inledande tidsserier med R av Paul Cowpertwait och Andrew Metcalfe innehåller en introduktion till R för analys av tidsserier. Många fler teoretisk texter innehåller R-exempel.
 

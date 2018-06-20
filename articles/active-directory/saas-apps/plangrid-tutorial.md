@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ba72432-9b49-4358-b756-14c982422be8
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 0fa60ceb6a9e0a4fb0f390be99f52d9596ebf3a4
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 042a5cb65322ddfc13b60661fde6eba9e78a26df
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35966518"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Självstudier: Azure Active Directory-integrering med PlanGrid
 
@@ -33,7 +34,7 @@ Integrera PlanGrid med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med PlanGrid, behöver du följande:
 
@@ -48,7 +49,7 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenariobeskrivning
+## <a name="scenario-description"></a>Scenario-beskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
 1. Att lägga till PlanGrid från galleriet
@@ -149,13 +150,13 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Dialogrutan användare](./media/plangrid-tutorial/create_aaduser_04.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    en. I den **namn** skriver **BrittaSimon**.
 
     b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
 
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **skapa**.
  
 ### <a name="create-a-plangrid-test-user"></a>Skapa en testanvändare PlanGrid
 

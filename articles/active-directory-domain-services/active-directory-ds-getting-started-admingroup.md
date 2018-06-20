@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587910"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263983"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure-portalen
 
@@ -72,6 +72,9 @@ Processen för etablering din hanterade domän kan ta upp till en timme.
 4. När den hanterade domänen är helt etablerad, den **översikt** visar status för domänen som **kör**.
 
     ![Domain Services - översiktsflik vid full etablering](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Under etableringen skapar Azure AD Domain Services företagsprogram som heter ”Domain Controller Services” och ”AzureActiveDirectoryDomainControllerServices” i din katalog. Dessa företagsprogram behövs för att underhålla din hanterade domän. Det är viktigt att dessa inte tas bort när som helst.
+    >
 
 5. På den **egenskaper** kan du se två IP-adresser på vilken domän domänkontrollanter är tillgängliga för det virtuella nätverket.
 

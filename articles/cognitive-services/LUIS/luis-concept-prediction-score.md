@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1620fe80b032245c6ca19279c3981dcff4b9820f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356110"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265996"
 ---
 # <a name="prediction-score"></a>Förutsägelse poäng
 En förutsägelse poäng anger grad av säkerhet som THOMAS har för förutsägelse resultat. 
@@ -62,4 +62,4 @@ Om din chatbot kräver särskilda THOMAS poäng anger syftet förtroende, bör d
 
 Se [lägga till enheter](luis-how-to-add-entities.md) lära dig mer om hur du lägger till entiteter i appen THOMAS.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

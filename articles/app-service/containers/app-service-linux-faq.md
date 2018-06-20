@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
-ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294019"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222985"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
 Vi arbetar med lanseringen av Apptjänst i Linux, lägger till funktioner och gör ständigt förbättringar att vår plattform. Den här artikeln innehåller svar på frågor som våra kunder har efterfrågat oss nyligen.
 
-Om du har en fråga, kommentera artikeln och vi kommer att svara så snart som möjligt.
+Kommentera den här artikeln om du har en fråga.
 
 ## <a name="built-in-images"></a>Inbyggda bilder
 
@@ -54,13 +54,13 @@ Ja, kan du göra det via källplatsen kontrollen management (SCM).
 
 **Hur skapar jag en Linux App Service-plan via en SDK eller en Azure Resource Manager-mall**
 
-Du måste ange den **reserverade** i apptjänst ska *SANT*.
+Du bör ange den **reserverade** i apptjänst ska *SANT*.
 
 ## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
 
 **Webbappen använder fortfarande en gamla Docker behållare avbildningen när jag har uppdaterat avbildningen på Docker-hubben. Har du stöd för kontinuerlig integrering och distribution av anpassade behållare?**
 
-Att ställa in kontinuerlig integration/distribution för Azure-behållare registret eller DockerHub bilder genom att kontrollera följande artikel [kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md). Du kan uppdatera behållaren genom att stoppa och starta ditt webbprogram för privata register. Eller kan du ändra eller lägga till en dummy programinställning att framtvinga en uppdatering av din behållare.
+Ja, om du vill ställa in kontinuerlig integration/distribution för Azure-behållare registret eller DockerHub, genom att följa [kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md). Du kan uppdatera behållaren genom att stoppa och starta ditt webbprogram för privata register. Eller kan du ändra eller lägga till en dummy programinställning att framtvinga en uppdatering av din behållare.
 
 **Stöder fristående datorn?**
 
@@ -70,15 +70,15 @@ Ja.
 
 Ja, du måste ange en app inställningen kallas `WEBSITE_WEBDEPLOY_USE_SCM` till *FALSKT*.
 
-**Git-distribution för Mina program misslyckas när du använder Linux-webbprogram. Hur kan jag lösning problemet?**
+**Git-distribution för Mina program misslyckas när du använder Linux-webbprogram. Hur kan komma runt problemet?**
 
-Om det inte går att ditt webbprogram för Linux Git-distribution, kan du välja följande alternativ alternativ för att distribuera din programkod:
+Om det inte går att ditt webbprogram för Linux Git-distribution, Välj något av följande alternativ för att distribuera din programkod:
 
 - Använd funktionen kontinuerlig leverans (förhandsversion): du kan lagra appens källkod i ett Team Services Git repo eller GitHub-repo-att använda Azure kontinuerlig leverans. Mer information finns i [hur du konfigurerar kontinuerlig leverans för Linux-webbprogrammet](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande:
+- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande kod:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -86,10 +86,11 @@ Om det inte går att ditt webbprogram för Linux Git-distribution, kan du välja
 
 ## <a name="language-support"></a>Språkstöd
 
-**Jag vill använda websockets i min Node.js-program, några särskilda inställningar eller konfigurationer för att ställa in?**
+**Jag vill använda web sockets i Node.js-program, några särskilda inställningar eller konfigurationer för att ställa in?**
 
-Ja, inaktivera `perMessageDeflate` i din koden på serversidan Node.js. Till exempel om du använder socket.io, gör du följande:
-```
+Ja, inaktivera `perMessageDeflate` i din Node.js-kod på serversidan. Om du använder socket.io du till exempel använda följande kod:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -101,16 +102,16 @@ Ja.
 
 **Stöder du Composer som en beroende-hanterare för PHP-appar?**
 
-Ja. Under en Git-distribution bör Kudu känner av att du distribuerar ett PHP-program (tack vare förekomsten av en composer.lock-fil) och Kudu sedan utlösa en composer installation för dig.
+Ja, under en Git-distribution Kudu bör känner av att du distribuerar ett PHP-program (tack vare förekomsten av en composer.lock-fil) och Kudu utlöser sedan en composer-installation.
 
 ## <a name="custom-containers"></a>Anpassade behållare
 
 **Jag använder egna anpassade container. Jag vill plattform att montera en SMB-resurs till den `/home/` directory.**
 
-Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen *SANT* eller genom att ta bort appen ställer du in helt. Tänk på att detta kommer att orsaka behållaren omstarter när lagringsplatsen plattform genomgår en ändring. 
+Du kan göra det genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen *SANT*. Tänk på att detta innebär att behållaren omstarter när lagringsplatsen plattform genomgår en ändring.
 
 >[!NOTE]
->Om den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är *FALSKT*, `/home/` directory inte delas mellan skala instanser och filer som skrivs det sparas inte mellan olika omstarter.
+>Om den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är Ospecificerad eller inställd på *FALSKT*, `/home/` directory inte delas mellan skala instanser och filer som skrivs det sparas inte mellan olika omstarter.
 
 **Min anpassade container tar lång tid att starta och plattformen startar om behållaren innan den är klar startas.**
 
@@ -162,6 +163,6 @@ Du kan skicka din idé på den [Web Apps Feedbackforum](https://aka.ms/webapps-u
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure App Service på Linux?](app-service-linux-intro.md)
-* [Konfigurera mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md)
+- [Vad är Azure App Service på Linux?](app-service-linux-intro.md)
+- [Konfigurera mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Kontinuerlig distribution med webbprogrammet för behållare](./app-service-linux-ci-cd.md)

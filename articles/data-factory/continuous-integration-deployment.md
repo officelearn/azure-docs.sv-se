@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 17fb10f4b39361a99d3f51ed753d333c6ec0bf15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618597"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268166"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -89,42 +89,9 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
 
 4.  Ange namnet på din miljö.
 
-5.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf\_publish` som standardförgrening med senaste standardversionen.
+5.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf_publish` som standardförgrening med senaste standardversionen.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  Hämta hemligheterna från Azure Key Vault. Det finns två sätt att hantera hemligheterna:
-
-    a.  Lägg till hemligheterna i parameterfilen:
-
-       -   Skapa en kopia av filen parametrar som överförs till grenen publicera och ange värden för parametrarna som du vill hämta från nyckelvalvet med följande format:
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   När du använder den här metoden är hemligheten som hämtas från nyckelvalvet automatiskt.
-
-       -   Parameterfilen måste vara i grenen publicera.
-
-    b.  Lägg till en [Azure Key Vault uppgiften](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Välj den **uppgifter** , skapa en ny uppgift och söka efter **Azure Key Vault** och lägga till den.
-
-       -   Välj den prenumeration där du skapade nyckelvalvet i Key Vault-aktivitet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Lägg till en aktivitet med Azure Resource Manager-distribution:
 
@@ -134,7 +101,7 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
 
     c.  Välj den **skapa eller uppdatera resursgruppen** åtgärd.
 
-    d.  Välj **...** i den ”**mallen**” fältet. Bläddra efter Resource Manager-mall (*ARMTemplateForFactory.json*) som har skapats med åtgärden Publicera i portalen. Leta efter den här filen i rotmappen på den `adf\_publish` grenen.
+    d.  Välj **...** i den **mallen** fältet. Bläddra efter Resource Manager-mall (*ARMTemplateForFactory.json*) som har skapats med åtgärden Publicera i portalen. Leta efter den här filen i mappen `<FactoryName>` av den `adf_publish` grenen.
 
     e.  Gör samma sak för parameterfilen. Välj rätt fil beroende på om du har skapat en kopia eller du använder standardfilen *ARMTemplateParametersForFactory.json*.
 
@@ -147,6 +114,43 @@ Här följer stegen för att ställa in en VSTS version så att du kan automatis
 9.  Skapa en ny version från den här versionen definition.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Valfritt - hämta hemligheterna från Azure Key Vault
+
+Om du har hemligheter att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault VSTS-versionen.
+
+Det finns två sätt att hantera hemligheterna:
+
+1.  Lägg till hemligheterna i parameterfilen. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärdet under distributionen av](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Skapa en kopia av filen parametrar som överförs till grenen publicera och ange värden för parametrarna som du vill hämta från nyckelvalvet med följande format:
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   När du använder den här metoden är hemligheten som hämtas från nyckelvalvet automatiskt.
+
+    -   Parameterfilen måste vara i grenen publicera.
+
+2.  Lägg till en [Azure Key Vault uppgiften](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
+
+    -   Välj den **uppgifter** , skapa en ny uppgift och söka efter **Azure Key Vault** och lägga till den.
+
+    -   Välj den prenumeration där du skapade nyckelvalvet i Key Vault-aktivitet, ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>Bevilja behörighet till VSTS-agent
 Azure Key Vault-uppgiften misslyckas med felmeddelandet åtkomst nekad första gången. Hämta loggar för versionen och leta upp den `.ps1` fil med kommandot för att ge behörighet till VSTS agenten. Du kan köra kommandot direkt eller kopiera säkerhetsobjekt-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är de minsta behörigheter som krävs).
@@ -161,14 +165,9 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
 3.  Välj **infogat skript** som skriptet skriver och ange sedan koden. Följande exempel stoppar utlösare:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

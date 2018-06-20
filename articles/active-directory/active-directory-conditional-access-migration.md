@@ -1,5 +1,5 @@
 ---
-title: Migrera klassiska principer i Azure portal | Microsoft Docs
+title: Vad är migrering av en princip för villkorlig åtkomst i Azure Active Directory? | Microsoft Docs
 description: Lär dig vad du behöver veta för att migrera klassiska principer i Azure-portalen.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723736"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232426"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrera klassiska principer i Azure-portalen 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är migrering av en princip för villkorlig åtkomst i Azure Active Directory? 
 
 
 [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Syftet är fortfarande samma, har lanseringen av den nya Azure-portalen införts betydande förbättringar i hur villkorlig åtkomst fungerar.
@@ -85,11 +85,11 @@ Du kan hantera alla dina principer på en central plats med villkorlig åtkomst 
 
 Se:
 
-- [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md) mer information om grundläggande begrepp, terminologi.
+- [Vad är villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md) mer information om grundläggande begrepp, terminologi.
 
 - [Bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md) att få vägledning om hur du distribuerar villkorlig åtkomst i din organisation.
 
-- [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) att bekanta dig med användargränssnittet i Azure-portalen.
+- [Kräva MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md) att bekanta dig med användargränssnittet i Azure-portalen.
 
 
  
@@ -170,6 +170,6 @@ I en ny princip måste du välja den [enhetsplattformar](active-directory-condit
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [GRequire MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
 
 - Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 

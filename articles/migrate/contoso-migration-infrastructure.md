@@ -3,17 +3,16 @@ title: Contoso-konfigurera en infrastruktur för migrering | Microsoft Docs
 description: Lär dig hur Contoso ställer in en Azure-infrastrukturen för migrering till Azure.
 services: azure-migrate
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301209"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232561"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - distribuerar en infrastruktur för migrering
 
@@ -42,11 +41,12 @@ I den här artikeln Contoso Konfigurera infrastruktur allt behöver de för att 
 
 Det är viktigt att Contoso förbereder sin infrastruktur innan de kan migrera till Azure.  I allmänhet är fem bred områden som de behöver för att tänka på:
 
-1. **Azure-prenumerationer**: hur ska de köpa Azure och interagera med Azure-plattformen och tjänster?
-2. **Hybrididentitet**: hur ska de hantera och styra åtkomsten till lokala och Azure-resurser efter migreringen? Hur utöka de eller flytta Identitetshantering i molnet?
-3. **Katastrofåterställning och återhämtning**: hur de garanterar att sina appar och sin infrastruktur är flexibel om avbrott och katastrofer sker?
-4. **Nätverk**: hur ska de utforma din nätverksinfrastruktur och upprätta en anslutning mellan sina lokala datacenter och Azure?
-5. **Säkerhet och styrning**: hur ska de säkra deras hybrid-/ Azure-distribution och se till att den justerad med krav på säkerhet och styrning?
+**Steg 1: Azure-prenumerationer**: hur ska de köpa Azure och interagera med Azure-plattformen och tjänster?  
+**Steg 2: Hybrididentitet**: hur ska de hantera och styra åtkomsten till lokala och Azure-resurser efter migreringen? Hur utöka de eller flytta Identitetshantering i molnet?  
+**Steg 3: Katastrofåterställning och återhämtning**: hur de garanterar att sina appar och sin infrastruktur är flexibel om avbrott och katastrofer sker?  
+**Steg 4: Nätverk**: hur ska de utforma din nätverksinfrastruktur och upprätta en anslutning mellan sina lokala datacenter och Azure?  
+**Steg 5: Säkerhet**: hur kan de säkra deras hybrid-/ Azure-distribution?  
+**Steg 6: Styrning**: hur kommer de att hålla sina distribution justerad med krav på säkerhet och styrning?
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -96,7 +96,7 @@ Efter att betala för Azure, Contoso måste du ta reda på hur du hanterar sina 
     - I företaget får de en enskild IT-avdelningen som styr Azure budget. Det här är den enda gruppen med prenumerationer.
     - De kommer utökar den här modellen i framtiden, så att andra företagets grupper kan gå som avdelningar i Enterprise-registrering.
     - Contoso har strukturerade två prenumerationer, produktion och utveckling i IT-avdelningen.
-    - Om Contoso kräver ytterligare prenumerationer i framtiden, behöver de hantera åtkomst, principer och efterlevnad för dessa prenumerationer. De kommer att kunna göra det genom att introducera [Azure Hanteringsgrupper](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), som ett ytterligare lager över prenumerationer.
+    - Om Contoso kräver ytterligare prenumerationer i framtiden, behöver de hantera åtkomst, principer och efterlevnad för dessa prenumerationer. De kommer att kunna göra det genom att introducera [Azure hanteringsgrupper](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), som ett ytterligare lager över prenumerationer.
 
     ![Enterprise-struktur](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -780,4 +780,4 @@ Det är redo att gå vidare och prova att använda migrering med den här infras
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som ett första Migreringsscenario kommer Contoso att migrera sina lokala SmartHotel två skikt app som körs på virtuella VMware-datorer till Azure. De ska migrera app virtuella datorer till virtuella Azure-datorer och app-databasen till en Azure SQL hanteras-instans.
+Som ett första Migreringsscenario Contoso ska [utvärdera deras lokala SmartHotel två skikt-app för migrering till Azure](contoso-migration-assessment.md). 

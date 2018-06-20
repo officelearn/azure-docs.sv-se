@@ -1,54 +1,54 @@
 ---
-title: Distribuera moduler till IoT-gränsenheterna med IoT-tillägg för Azure CLI 2.0 | Microsoft Docs
-description: Distribuera moduler till en insticksenhet för IoT som använder IoT-tillägg för Azure CLI 2.0
-services: iot-edge
-keywords: ''
+title: Distribuera moduler till IoT Edge-enheter med IoT-tillägget för Azure CLI 2.0 | Microsoft Docs
+description: Distribuera moduler till en IoT Edge-enhet med IoT-tillägget för Azure CLI 2.0
 author: chrissie926
-manager: timlt
+manager: ''
 ms.author: menchi
 ms.date: 03/02/2018
-ms.topic: article
-ms.service: iot-edge
-ms.custom: ''
+ms.topic: tutorial
 ms.reviewer: kgremban
-ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
+ms.openlocfilehash: deee54fe5d11d6d1cf5485357f853b1cb078f96d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631589"
 ---
-# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Distribuera moduler till en insticksenhet för IoT som använder IoT-tillägg för Azure CLI 2.0
+# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Distribuera moduler till en IoT Edge-enhet med IoT-tillägget för Azure CLI 2.0
 
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med öppen källkod för flera plattformar, för hantering av Azure-resurser som IoT Edge. Azure CLI 2.0 finns för Windows, Linux och MacOS.
 
-Azure CLI 2.0 kan du hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering samt länkade hubbar direkt. Det nya tillägget IoT förbättra Azure CLI 2.0 med funktioner som enhetshantering och kapaciteten för fullständig IoT kant.
+Azure CLI 2.0 kan du hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering samt länkade hubbar direkt. Med det nya IoT-tillägget får Azure CLI 2.0 enhetshantering och fullständig IoT Edge-funktionalitet.
 
-I den här artikeln kan du ställa in Azure CLI 2.0 och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en gräns för IoT-enhet med hjälp av de tillgängliga CLI-kommandona.
+I den här artikeln konfigurerar du Azure CLI 2.0 och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en IoT Edge-enhet med hjälp av tillgängliga CLI-kommandon.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Ett Azure-konto. Om du inte har någon ännu, kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?v=17.39a) idag. 
+* Ett Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?v=17.39a) i dag. 
 
-* [Python 2.7 x eller Python 3.x](https://www.python.org/downloads/).
+* [Python 2.7x eller Python 3.x](https://www.python.org/downloads/).
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows).
 
 * [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
    1. Kör `az extension add --name azure-cli-iot-ext`. 
-   2. Efter installationen kan använda `az extension list` att verifiera de installerade tilläggen eller `az extension show --name azure-cli-iot-ext` att se information om IoT-tillägget.
-   3. Ta bort tillägget med `az extension remove --name azure-cli-iot-ext`.
+   2. Efter installationen använder du `az extension list` för att verifiera de tillägg som finns installerade för närvarande, eller `az extension show --name azure-cli-iot-ext` för att se information om IoT-tillägget.
+   3. Om du vill ta bort tillägget kan du använda `az extension remove --name azure-cli-iot-ext`.
 
 
-## <a name="create-an-iot-edge-device"></a>Skapa en IoT-enhet
-Den här artikeln innehåller instruktioner för att skapa en IoT-Edge-distribution. Exemplet visar hur du logga in på ditt Azure-konto, skapa en Azure-resursgrupp (en behållare som innehåller relaterade resurser för en Azure-lösning), skapar en IoT-hubb, skapa tre IoT kant enheter identitet, ställa in etiketter och sedan skapa en IoT-Edge-distribution som riktar sig till dessa enheter. 
+## <a name="create-an-iot-edge-device"></a>Skapa en IoT Edge-enhet
+Den här artikeln innehåller anvisningar för att skapa en IoT-Edge-distribution. Exemplet visar hur du loggar in på ditt Azure-konto, skapar en Azure-resursgrupp (en behållare som innehåller relaterade resurser för en Azure-lösning), skapar en IoT Hub, skapar tre IoT Edge-enhetsidentiteter, anger taggar och sedan skapar en IoT Edge-distribution med dessa enheter som mål. 
 
-Logga in på ditt Azure-konto. När du har angett kommandot inloggningen uppmanas du att använda en webbläsare för att logga in med en engångskod: 
+Logga in på ditt Azure-konto. När du har angett följande inloggningskommando uppmanas du att använda en webbläsare för att logga in med en engångskod: 
 
    ```cli
    az login
    ```
 
-Skapa en ny resursgrupp som kallas **IoTHubCLI** i östra USA: 
+Skapa en ny resursgrupp som kallas **IoTHubCLI** i regionen USA, östra: 
 
    ```cli
    az group create -l eastus -n IoTHubCLI
@@ -56,28 +56,28 @@ Skapa en ny resursgrupp som kallas **IoTHubCLI** i östra USA:
 
    ![Skapa resursgrupp][2]
 
-Skapa en IoT-hubb som kallas **CLIDemoHub** i nyskapade resursgrupp:
+Skapa en IoT-hubb som kallas **CLIDemoHub** i den resursgrupp du skapade nyss:
 
    ```cli
    az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
    ```
 
    >[!TIP]
-   >Varje prenumeration tilldelas en kostnadsfri IoT-hubb. Om du vill skapa ett kostnadsfritt nav med kommandot CLI, Ersätt SKU-värdet med `--sku F1`. Om du redan har en kostnadsfri hubb i din prenumeration får du ett felmeddelande när du försöker skapa en andra. 
+   >Varje prenumeration har en tilldelad kostnadsfri IoT-hubb. Om du vill skapa en kostnadsfri hubb med CLI-kommandot, ersätter du SKU-värdet med `--sku F1`. Om du redan har en kostnadsfri hubb i din prenumeration får du ett felmeddelande när du försöker skapa en till. 
 
-Skapa en IoT-enhet:
+Skapa en IoT Edge-enhet:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
-   ![Skapa IoT-enhet][4]
+   ![Skapa IoT Edge-enhet][4]
 
-## <a name="configure-the-iot-edge-device"></a>Konfigurera IoT gränsenheten
+## <a name="configure-the-iot-edge-device"></a>Konfigurera IoT Edge-enheten
 
-Skapa en JSON-mall för distribution och spara den lokalt som en txt-fil. Du måste sökvägen till filen när du kör kommandot tillämpa konfigurationen.
+Skapa en JSON-mall för distribution och spara den lokalt som en txt-fil. Du behöver ha sökvägen till filen när du kör kommandot för att tillämpa konfigurationen.
 
-Mallar för distribution av JSON bör alltid innehålla två systemmoduler, edgeAgent och edgeHub. Du kan använda den här filen för att distribuera ytterligare moduler till IoT gränsenheten utöver de två. Använd följande exempel för att konfigurera IoT-enhet med en tempSensor-modul:
+JSON-mallar för distribution ska alltid innehålla två systemmoduler, edgeAgent och edgeHub. Förutom de två modulerna kan du använda den här filen till att distribuera fler moduler till IoT Edge-enheten. Använd följande exempel för att konfigurera IoT Edge-enheten med en tempSensor-modul:
 
    ```json
    {
@@ -140,23 +140,23 @@ Mallar för distribution av JSON bör alltid innehålla två systemmoduler, edge
    }
    ```
 
-Gäller konfigurationen för din IoT-Edge-enhet:
+Tillämpa konfigurationen på din IoT Edge-enhet:
 
    ```cli
    az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
-Visa moduler på din IoT-Edge-enhet:
+Visa modulerna på din IoT Edge-enhet:
     
    ```cli
    az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
    ```
 
-   ![Lista moduler][6]
+   ![Lista med moduler][6]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [använda en insticksenhet för IoT som en gateway](how-to-create-transparent-gateway.md)
+* Lär dig hur du [använder en IoT Edge-enhet som en gateway](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

@@ -3,21 +3,22 @@ title: Anpassa inställningar för Azure-SSIS-integrering runtime | Microsoft Do
 description: Den här artikeln beskriver hur du använder anpassad installation gränssnittet för Azure-SSIS-integrering runtime att installera ytterligare komponenter eller ändra inställningar
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298400"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268131"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa inställningar för Azure-SSIS-integrering runtime
 
@@ -30,13 +31,13 @@ Du kan installera både ledigt eller olicensierad komponenter och betald eller l
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
--   Om du vill använda `gacutil.exe` för att installera sammansättningar i den globala sammansättningscachen (GAC), du måste ange den som en del av din anpassade konfiguration, eller använda kopian som tillhandahålls i behållaren Public Preview.
+-   Om du vill använda `gacutil.exe` för att installera sammansättningar i den globala sammansättningscachen (GAC), måste du ange `gacutil.exe` som en del av en anpassad installation eller Använd kopian som tillhandahålls i behållaren Public Preview.
+
+-   Om du vill referera till en undermapp i ditt skript `msiexec.exe` stöder inte den `.\` notation att referera till rotmappen. Använda ett kommando som `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` i stället för `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
 -   Om du behöver ansluta till din Azure-SSIS-IR med anpassad installation till ett virtuellt nätverk stöds endast Azure Resource Manager virtuellt nätverk. Klassiskt virtuellt nätverk stöds inte.
 
 -   Administrativ resurs stöds inte för närvarande på Azure-SSIS-IR.
-
--   Om du vill mappa en filresurs på en enhet i din anpassade konfiguration av `net use` kommandot stöds inte för närvarande. Därför kan du inte använda ett kommando som `net use d: \\fileshareserver\sharename`. Använd i stället de `cmdkey` kommandot - exempelvis `cmdkey /add:fileshareserver /user:yyy /pass:zzz` – för att få åtkomst till den `\\fileshareserver\folder` direkt i dina paket.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,8 +59,7 @@ För att anpassa Azure SSIS-IR, behöver du följande:
 
     1.  Du måste ha en skriptfil med namnet `main.cmd`, vilket är startpunkten för dina egna inställningar.
 
-    2.  Om du vill ha ytterligare loggar som genereras av andra verktyg (till exempel `msiexec.exe`) för att överföras till din behållare, ange miljövariabeln fördefinierade `CUSTOM_SETUP_SCRIPT_LOG_DIR` som loggmappen i skript (exempelvis `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Om du vill ha ytterligare loggar som genereras av andra verktyg (till exempel `msiexec.exe`) för att överföras till din behållare, ange miljövariabeln fördefinierade `CUSTOM_SETUP_SCRIPT_LOG_DIR` som loggmappen i skript (exempelvis `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Hämta, installera och starta [Azure Lagringsutforskaren](http://storageexplorer.com/).
 

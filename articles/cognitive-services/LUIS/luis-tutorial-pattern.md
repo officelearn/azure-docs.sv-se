@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: d2d680a1e2749c6e0a5b17876915c5c0d86eb420
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ff5572366be548132b28e5ce03b9595e7f98128c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356089"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265324"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Självstudier: Använda mönster för att förbättra förutsägelser
 
@@ -252,4 +252,4 @@ Ta bort THOMAS appen när de inte längre behövs. Om du vill göra det, väljer
 > [!div class="nextstepaction"]
 > [Använd frasen listan för att förbättra förutsägelserna](luis-tutorial-interchangeable-phrase-list.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

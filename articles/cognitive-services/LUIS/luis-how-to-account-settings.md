@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 25989d07b7d879ac68283ee56a7ccb0c07e09623
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.openlocfilehash: 76300b307c8e87a3dd108fc53d3b30a53d3276dd
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35356062"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263932"
 ---
 # <a name="manage-your-luis-account"></a>Hantera LUIS-konto
 De två viktig information för ett konto med LUIS är användarkontot och nyckeln för redigering. Inloggningsinformationen hanteras på [account.microsoft.com](https://account.microsoft.com). Din nyckel för redigering hanteras från den [LUIS][LUIS] webbplats **inställningar** sidan. 
@@ -50,8 +50,12 @@ Om innehavaradministration inte kommer att logga in på LUIS måste administrat�
 
 Om klienten administratören vill bara vissa användare att använda LUIS, [identitetsblogg](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Användarkonton med flera e-postmeddelanden för medarbetare
+Om du lägger till medarbetare en THOMAS app, anger du den exakta e-postadress som en medarbetare behöver använda THOMAS som en samarbetspartner. Med Azure Active Directory (Azure AD) kan en användare har mer än en e-postkonto utbytbara, kräver THOMAS att användarna att logga in med den e-postadress som angetts i listan över de deltagare. 
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om din [redigering nyckeln](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

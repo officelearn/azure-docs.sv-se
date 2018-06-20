@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: f363c52093e0ae8314e07e750eb4362f71e9a4b1
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826522"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269569"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Med hjälp av hanterade diskar i Azure Resource Manager-mallar
 
@@ -256,4 +256,4 @@ Om du vill hitta fullständig information om REST API-specifikationerna, granska
 * Besök den [hanterade diskar översikt över Azure](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentet för mer information om hanterade diskar.
 * Granska referensdokumentationen mall för virtuella datorresurser genom att besöka den [Microsoft.Compute/virtualMachines mallreferensen](/azure/templates/microsoft.compute/virtualmachines) dokumentet.
 * Granska referensdokumentationen mall för diskresurser genom att besöka den [Microsoft.Compute/disks mallreferensen](/azure/templates/microsoft.compute/disks) dokumentet.
-* Information om hur du använder hanterade diskar i skalningsuppsättningar i virtuella Azure-datorn finns i [använder datadiskar med skalningsuppsättningar](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) dokumentet.
+* Information om hur du använder hanterade diskar i skalningsuppsättningar i virtuella Azure-datorn finns i [använder datadiskar med skalningsuppsättningar](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) dokumentet.

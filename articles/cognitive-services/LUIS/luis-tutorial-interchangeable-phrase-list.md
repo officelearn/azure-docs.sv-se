@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 4ced7bcec87a9edde2e3ded8c8c61abe96003572
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356086"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265979"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Självstudier: Lägg till fras lista för att förbättra förutsägelser
 I den här självstudiekursen förbättra avsiktshantering resultat och identifiera entiteter för ord som har samma betydelse (synonymer) genom att lägga till en utbytbara [frasen listfunktionen](./luis-concept-feature.md).
@@ -33,7 +33,7 @@ För den här artikeln behöver du ett kostnadsfritt [THOMAS] [ LUIS] konto för
 
 2. Enligt beskrivningen i [skapa en app](Create-new-app.md#import-new-app), importera filen som du hämtade till den [THOMAS] [ LUIS] webbplatsen som en ny app. Namnet på appen är ”min frasen listan självstudiekurs”. Det har avsikter, enheter och utterances. 
 
-3. [Train](luis-how-to-train.md) din app. Förrän den har installerats kan du inte [interaktivt testa](Train-Test.md#interactive-testing) den i den [THOMAS] [ LUIS] webbplats. 
+3. [Train](luis-how-to-train.md) din app. Förrän den har installerats kan du inte [interaktivt testa](interactive-test.md#interactive-testing) den i den [THOMAS] [ LUIS] webbplats. 
 
 4. På den [publicera](PublishApp.md) väljer den **inkludera alla förutsade avsiktshantering poäng** kryssrutan. När kryssrutan är markerad, returneras alla avsikter. När kryssrutan är avmarkerad returneras endast de översta avsikten. 
 
@@ -174,7 +174,7 @@ Du måste lära THOMAS som *vill* och *kräver* betyda samma sak i denna tilläm
 5. I det övre navigeringsfältet väljer **träna** för att träna appen, men inte publicera den. Nu har du två modeller. Du kan jämföra värdena i de två modellerna.
 
 ## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Jämför frasen listan modellen till publicerade modellen
-Publicerade modellen har inte tränats med synonymerna i den här appen. För närvarande redigerade modellen innehåller frasen listan över synonymer. Om du vill jämföra modeller, Använd [interaktiva testa](Train-Test.md#interactive-testing). 
+Publicerade modellen har inte tränats med synonymerna i den här appen. För närvarande redigerade modellen innehåller frasen listan över synonymer. Om du vill jämföra modeller, Använd [interaktiva testa](interactive-test.md#interactive-testing). 
 
 1. Öppna den **Test** rutan och ange följande utterance:
 
@@ -196,7 +196,7 @@ När du lägger till listan frasen ökad korrektheten i utterance och **maskinva
 | Redigerar |✔| 0.92 | Maskinvaruenhet som identifieras |
 
 > [!TIP]
-> * Med hjälp av [interaktiva testning](Train-Test.md#interactive-testing), kan du jämföra publicerade modellen på alla utbildade ändringar som görs när du har publicerat. 
+> * Med hjälp av [interaktiva testning](interactive-test.md#interactive-testing), kan du jämföra publicerade modellen på alla utbildade ändringar som görs när du har publicerat. 
 > * Med hjälp av [Endpoint testning](PublishApp.md#test-your-published-endpoint-in-a-browser), kan du visa det exakta svaret THOMAS JSON. 
 
 ## <a name="get-the-entity-score-with-the-endpoint-test"></a>Hämta entiteten poäng endpoint-test
@@ -261,8 +261,6 @@ Ta bort THOMAS appen när de inte längre behövs. Om du vill göra det, väljer
 > [!div class="nextstepaction"]
 > [Hämta utterance förutsägelse med slutpunkten fråga](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

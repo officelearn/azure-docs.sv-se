@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c63bfbb898befb1f968a190ccc2caa5bb2d33b57
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 7128749d5acdbd97bbba14b5a079da1ab1c6856e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35963939"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudier: Azure Active Directory-integrering med Bime
 
@@ -58,7 +59,7 @@ Du måste lägga till Bime från galleriet i listan över hanterade SaaS-appar f
 
 **Utför följande steg för att lägga till Bime från galleriet:**
 
-1. I den ** [Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -87,11 +88,11 @@ I Bime, tilldela värdet för den **användarnamn** i Azure AD som värde för d
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Bime, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on) ** - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user) ** - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Bime](#creating-a-bime-test-user) ** – du har en motsvarighet för Britta Simon i Bime som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user) ** - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on) ** - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Bime](#creating-a-bime-test-user)**  – du har en motsvarighet för Britta Simon i Bime som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -207,7 +208,7 @@ För att aktivera Azure AD-användare kan logga in på Bime etableras de i Bime.
 
     b. I den **efternamn** textruta Ange efternamn för användaren som **Simon**.
  
-    c. I den **e-post** textruta ange e-postadress för användaren som ** brittasimon@contoso.com **.
+    c. I den **e-post** textruta ange e-postadress för användaren som **brittasimon@contoso.com**.
 
     d. Klicka på **Spara**.
 

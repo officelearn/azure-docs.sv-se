@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 420f268090dbcfcc4f2fa7383b8b8892952030ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355761"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265395"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -179,7 +179,7 @@ Nyckeln prenumerationen är den nyckel som är associerad med tjänsten THOMAS [
 
 ## <a name="test"></a>Test
 
-[Testa](train-test.md#test-your-app) en THOMAS app innebär att skicka en utterance till THOMAS och visa JSON resultat.
+[Testa](interactive-test.md#test-your-app) en THOMAS app innebär att skicka en utterance till THOMAS och visa JSON resultat.
 
 ## <a name="timezoneoffset"></a>Förskjutning av tidszonen
 
@@ -210,4 +210,4 @@ En utterance är ett naturligt språk, exempelvis ”book 2 biljetter till Seatt
 
 En THOMAS [version](luis-how-to-manage-versions.md) är en datamodell som är associerade med en THOMAS app-ID och publicerade slutpunkten. Varje THOMAS app har minst en version.
 
-[batch-testing]: train-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

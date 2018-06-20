@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850618"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Skapa en hanterad Azure SQL Database-instans i Azure-portalen
 
@@ -161,16 +162,16 @@ Följande steg visar hur du skapar en hanterad instans när förhandsversionen h
 
    ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Välj din prenumeration och kontrollera att villkoren för förhandsversionen är **godkända**.
+4. Välj din prenumeration och kontrollera att villkoren för förhandsversionen är **godkända**.
 
    ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Fyll i formuläret för den hanterade instansen med den begärda informationen, med hjälp av informationen i följande tabell:
+5. Fyll i formuläret för den hanterade instansen med den begärda informationen, med hjälp av informationen i följande tabell:
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    |**Namn på hanterad instans**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.| 
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 16 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resursgrupp**|Den resursgrupp som du skapade tidigare||
    |**Plats**|Den plats som du tidigare valt|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ Följande steg visar hur du skapar en hanterad instans när förhandsversionen h
 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Klicka på **Prisnivå** för att beräkna storlek på instanser och lagringsresurser samt granska alternativen för prisnivå. Som standard får din instans 32 GB lagringsutrymme kostnadsfritt, vilket kanske inte är tillräckligt för dina program.
-6. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor. 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Klicka på **Prisnivå** för att beräkna storlek på instanser och lagringsresurser samt granska alternativen för prisnivå. Som standard får din instans 32 GB lagringsutrymme kostnadsfritt, vilket kanske inte är tillräckligt för dina program.
+7. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor. 
+   ![prisnivå för hanterad instans](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. När du är klar klickar du på **Verkställ** för att spara ditt val.  
-8. Klicka på **Skapa** för att distribuera den hanterade instansen.
-9. Klicka på **ikonen för meddelanden** för att visa status för distributionen.
+8. När du är klar klickar du på **Verkställ** för att spara ditt val.  
+9. Klicka på **Skapa** för att distribuera den hanterade instansen.
+10. Klicka på **ikonen för meddelanden** för att visa status för distributionen.
  
    ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Klicka på **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen.
+11. Klicka på **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen.
  
    ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ Följande steg visar hur du skapar en virtuell dator i samma virtuella nätverk 
 
    ![virtual machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Klicka på **OK**.
-4. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. För den här självstudien behöver du bara en liten virtuell dator.
+4. Klicka på **OK**.
+5. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. För den här självstudien behöver du bara en liten virtuell dator.
 
     ![VM-storlekar](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Klicka på **Välj**.
-6. I formuläret **Inställningar** klickar du på **Undernät** och väljer **vm_subnet**. Välj inte undernätet där den hanterade instansen finns, utan välj i stället ett annat undernät i samma virtuella nätverk.
+6. Klicka på **Välj**.
+7. I formuläret **Inställningar** klickar du på **Undernät** och väljer **vm_subnet**. Välj inte undernätet där den hanterade instansen finns, utan välj i stället ett annat undernät i samma virtuella nätverk.
 
     ![Inställningar för virtuell dator](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Klicka på **OK**.
-8. På sammanfattningssidan kontrollerar du informationen i erbjudandet och klickar sedan på **Skapa** för att starta distributionen av den virtuella datorn.
+8. Klicka på **OK**.
+9. På sammanfattningssidan kontrollerar du informationen i erbjudandet och klickar sedan på **Skapa** för att starta distributionen av den virtuella datorn.
  
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 

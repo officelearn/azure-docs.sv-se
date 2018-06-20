@@ -4,21 +4,21 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272071"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236152"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
 [Azure Migrate](migrate-overview.md)-tjänsterna utvärderar lokala arbetsbelastningar för migrering till Azure.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett konto som Azure Migrate ska använda till att identifiera de lokala virtuella datorerna
@@ -118,29 +118,6 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    För OVA-version 1.0.8.59
-
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    För OVA-version 1.0.8.49
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    För OVA-version 1.0.8.40:
-
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Skapa den virtuella insamlardatorn
 
 Importera den nedladdade filen till vCenter Server.
@@ -162,7 +139,8 @@ Importera den nedladdade filen till vCenter Server.
 1. Högerklicka på den virtuella datorn i vSphere-klientkonsolen > **Öppna konsol**.
 2. Ange språk, tidszon och lösenordsinställningar för produkten.
 3. På skrivbordet klickar du på genvägen **Kör insamlare**.
-4. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
+4. Klicka på **Sök efter uppdateringar** i det översta fältet i UI-insamlaren och kontrollera att insamlaren körs med den senaste versionen. Du kan annars ladda ner det senaste uppgraderingspaketet från länken och uppdatera insamlaren.
+5. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
     - Acceptera licensvillkoren och läs informationen från tredje part.
     - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
     - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) om Internetanslutningskraven och URL-listan som insamlaren använder.
@@ -173,13 +151,13 @@ Importera den nedladdade filen till vCenter Server.
     - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
     - Ladda ned och installera VMware PowerCLI.
 
-5. Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
+6. Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
     - Ange namn (FQDN) eller IP-adress för vCenter-servern.
     - I **Användarnamn** och **Lösenord** anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer på vCenter-servern.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
 
-6. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
-7. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid. [Lär dig mer](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
+7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
+8. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid. [Lär dig mer](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
 
 > [!NOTE]
 > Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren. Stöd för fler språk kommer snart.
@@ -219,7 +197,7 @@ Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virt
 - Ej redo för Azure
 - Beredskap okänd
 
-För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure. Storleksrekommendationen som utförs av Azure Migrate är beroende av storlekskriteriet som anges i utvärderingsegenskaperna. Om storlekskriteriet är prestandabaserat utförs storleksrekommendationen med hänsyn till de virtuella datorernas prestandahistorik. Om storlekskriteriet är ”som lokalt” baseras rekommendationen för VM-storleken i Azure på storleken för den virtuella datorn lokalt (storlek i befintligt skick). Hänsyn tas inte till data om den virtuella datorns processor- och minnesanvändning när VM-storleken beräknas. Dock kontrolleras prestandadata för att fastställa lämplig diskstorlek när storlekskriteriet ”som lokalt” används.  [Lär dig mer](concepts-assessment-calculation.md) om storlekar i Azure Migrate.
+För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure. Storleksrekommendationen som utförs av Azure Migrate är beroende av storlekskriteriet som anges i utvärderingsegenskaperna. Om storlekskriteriet är prestandabaserat utförs storleksrekommendationen med hänsyn till de virtuella datorerna (CPU och minne) och diskarnas (IOPS och dataflöde) prestandahistorik. Om storlekskriteriet är ”på plats” tar Azure Migrate inte hänsyn till prestandadata för den virtuella datorn och diskarna. Rekommendationen för storleken på de virtuella datorerna i Azure görs genom att titta på storleken på virtuella datorer på plats och diskstorleken baseras på lagringstypen som angetts i utvärderingsegenskaperna (premiumdiskar är standard). [Lär dig mer](concepts-assessment-calculation.md) om storlekar i Azure Migrate.
 
 För virtuella datorer som inte är redo eller endast är villkorligt redo för Azure beskriver Azure Migrate beredskapsproblem och visar de reparationssteg som kan utföras.
 
@@ -244,7 +222,7 @@ Uppskattade månatliga kostnader för beräkning och lagring sammanställs för 
 
 Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
 
-För prestandabaserade storleksändringar av virtuella datorer behöver Azure Migrate användningsdata för CPU och minne. För storleksberäkningen av diskar som är anslutna till den virtuella datorn krävs dessutom lästa/skrivna IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till den virtuella datorn så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
+Förtroendeklassificering av en bedömning är mer användbar för bedömningar där storlekskriteriet är prestandabaserad storleksändring. För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
@@ -269,3 +247,4 @@ En utvärdering kanske inte har tillgång till alla datapunkter på grund av nå
 - Lär dig hur du skapar utvärderingsgrupper med hög exakthet med hjälp av [datorberoende mappning](how-to-create-group-machine-dependencies.md)
 - [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.
 - [Läs](how-to-scale-assessment.md) hur du identifierar och utvärderar en stor VMware-miljö.
+- [Läs mer](resources-faq.md) om vanliga frågor och svar för Azure Migrate

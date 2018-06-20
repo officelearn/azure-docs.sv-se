@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207493"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642690"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-behållare till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en behållare för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör behållarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Använda en behållare med ett befintligt program med hjälp av Visual Studio
@@ -51,6 +51,8 @@ Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel. 
 
 ## <a name="containerize-the-application"></a>Använd programmet med behållare
 Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator**.  Välj **Service Fabric** som initierare för behållaren och klicka på **OK**.
+
+Klicka på **Ja** för att byta Docker till Windows-behållare nu.
 
 Ett nytt Service Fabric-programprojekt **FabrikamFiber.CallCenterApplication** skapas i lösningen.  En Dockerfile läggs till i det befintliga **FabrikamFiber.Web**-projektet.  En **PackageRoot**-katalog läggs också till i **FabrikamFiber.Web**-projektet, som innehåller tjänstmanifestet och inställningarna för den nya FabrikamFiber.Web-tjänsten. 
 
@@ -120,16 +122,17 @@ I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **w
 >Du kan använda vilken SQL-Server som helst för lokal felsökning så länge den kan nås från värden, men **localdb** stöder inte `container -> host`-kommunikation. Om du vill använda en annan SQL-databas när du skapar ett versionsbygge av ditt webbprogram, lägger du till ytterligare en anslutningssträng i filen *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Kör programmet i behållaren lokalt
-Tryck på **F5** för att köra och felsöka programmet i en behållare i det lokala Service Fabric-utvecklingsklustret.
+Tryck på **F5** för att köra och felsöka programmet i en behållare i det lokala Service Fabric-utvecklingsklustret. Klicka på **Ja** om ett meddelande visas där du ombeds att ge gruppen 'ServiceFabricAllowedUsers' läs- och körbehörighet till katalogen Visual Studio-projekt.
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Behållaravbildningar måste lagras i ett behållarregister.  Skapa ett [Azure-behållarregister](/azure/container-registry/container-registry-intro) med hjälp av följande skript.  Innan du distribuerar programmet till Azure skickar du behållaravbildningen via push-teknik till det här registret.  När programmet distribueras till klustret i Azure hämtas behållaravbildningen från det här registret.
+Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Behållaravbildningar måste lagras i ett behållarregister.  Skapa ett [Azure-behållarregister](/azure/container-registry/container-registry-intro) med hjälp av följande skript. Behållarregisternamnet är synligt för andra Azure-prenumerationer så det måste vara unikt.
+Innan du distribuerar programmet till Azure skickar du behållaravbildningen via push-teknik till det här registret.  När programmet distribueras till klustret i Azure hämtas behållaravbildningen från det här registret.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -143,7 +146,9 @@ Du kan:
 - Skapa ett testkluster från Visual Studio. Med det här alternativet kan du skapa ett säkert kluster direkt från Visual Studio med dina önskade konfigurationer. 
 - [Skapa ett säkert kluster från en mall](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-När du skapar klustret väljer du en SKU som stöder körning av behållare (till exempel Windows Server 2016 Datacenter med behållare). I den här självstudiekursen skapar du ett kluster från Visual Studio, vilket är idealiskt för testscenarier. Om du skapar ett kluster på något annat sätt eller om du använder ett befintligt kluster kan du kopiera och klistra in anslutningens slutpunkt eller välja den från din prenumeration. 
+I den här självstudiekursen skapar du ett kluster från Visual Studio, vilket är idealiskt för testscenarier. Om du skapar ett kluster på något annat sätt eller om du använder ett befintligt kluster kan du kopiera och klistra in anslutningens slutpunkt eller välja den från din prenumeration. 
+
+När du skapar klustret, väljer du en SKU som stöder körningsbehållare. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din behållare. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-operativsystem och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Behållare som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med behållare. Om du skapar ett kluster eller använder ett befintligt kluster baserat på Windows Server Datacenter Core 1709 med behållare, måste du ändra Windows Server-OS-avbildningen som behållaren baseras på. Öppna **Dockerfile** i projektet **FabrikamFiber.Web**, kommentera den befintliga instruktionen `FROM` (baserat på `windowsservercore-ltsc`) och avkommentera instruktionen `FROM` baserat på `windowsservercore-1709`. 
 
 1. Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.
 

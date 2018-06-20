@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824694"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -31,6 +32,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 - **Azure SQL Database**: Allmänt tillgänglig i alla Azure-regioner
 - **Azure Cosmos DB**: Allmänt tillgängligt i alla Azure-regioner 
 - **Azure SQL Data Warehouse**: Förhandsversioni alla offentliga Azure-molnregioner
+- **Azure databastjänster för PostgreSQL och MySQL**: Förhandsgranska i Azure-regioner där databastjänsten är tillgänglig.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -98,7 +100,7 @@ När tjänstslutpunkterna har konfigurerats för en specifik tjänst verifierar 
   - Anger att en mer direkt anslutning till tjänsten gäller, jämfört med tvingad tunneltrafik
 
 >[!NOTE]
-> Vägar för tjänstslutpunkter åsidosätter BGP- eller UDR-vägar vid matchning av adressprefix för en Azure-tjänst. Lär dig mer om [felsökning med gällande routningar](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Vägar för tjänstslutpunkter åsidosätter BGP- eller UDR-vägar vid matchning av adressprefix för en Azure-tjänst. Lär dig mer om [felsökning med gällande routningar](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Etablering
 

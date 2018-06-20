@@ -1,20 +1,20 @@
 ---
-title: Få ett meddelande när ett måttvärde uppfyller ett villkor | Microsoft Docs
+title: Få ett meddelande när ett måttvärde uppfyller ett villkor
 description: En snabbstartsguide som hjälper användare att skapa ett mått för en logikapp
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263056"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Få ett meddelande när ett måttvärde uppfyller ett villkor
 
@@ -69,7 +69,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj fliken **Mått** och fyll i information för **Prenumeration**, **Resursgrupp**, **Resurstyp** och **Resurs** för logikappen.
 
-3. Välj **Startade körningar** i listan över mått.
+3. Välj **Misslyckade körningar** i listan över mått.
 
 4. Ändra **tidsintervallet** för diagrammet för att visa data för den senaste timmen.
 

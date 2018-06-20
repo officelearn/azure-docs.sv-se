@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om Azure VPN Gateway | Microsoft Docs
-description: Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN-gateways.
+description: Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236203"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -60,7 +61,7 @@ Du kan konfigurera ditt virtuella nätverk till att använda både plats-till-pl
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Är en VPN-gateway en virtuell nätverksgateway?
 
-En VPN-gateway är en typ av virtuell nätverksgateway. En VPN-gateway skickar krypterad trafik mellan det virtuella nätverket och lokal plats via en offentlig anslutning. Du kan också använda en VPN-gateway för att skicka trafik mellan virtuella nätverk. När du skapar en VPN-gateway använder du värdet ”Vpn” för -GatewayType. Mer information finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
+En VPN-gateway är en typ av virtuell nätverksgateway. En VPN-gateway skickar krypterad trafik mellan det virtuella nätverket och lokal plats via en offentlig anslutning. Du kan också använda en VPN-gateway för att skicka trafik mellan virtuella nätverk. När du skapar en VPN-gateway använder du värdet ”Vpn” för -GatewayType. Mer information finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 ### <a name="what-is-a-policy-based-static-routing-gateway"></a>Vad är en principbaserad gateway (statisk routning)?
 
@@ -136,7 +137,7 @@ En VPN-gateway är i grunden en multihomed-enhet med ett nätverkskort för kund
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Mer information om gateway-typer, krav och dataflöde
 
-Mer information finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
+Mer information finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## <a name="s2s"></a>Plats-till-plats-anslutningar och VPN-enheter
 
@@ -166,13 +167,13 @@ Vi har stöd för Routning och fjärråtkomst (RRAS) i Windows Server 2012 för 
 
 Andra VPN-programlösningar bör fungera med vår gateway så länge de uppfyller branschens standardimplementeringar för IPsec. Kontakta leverantören av programvaran för konfigurations- och supportinstruktioner.
 
-## <a name="P2S"></a>Punkt-till-plats – intern Azure-certifikatautentisering
+## <a name="P2S"></a>Punkt-till-plats använder ursprunglig Azure-certifikatautentisering
 
 Det här avsnittet gäller distributionsmodellen i Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Punkt-till-plats – RADIUS-autentisering
+## <a name="P2SRADIUS"></a>Punkt-till-plats använder RADIUS-autentisering
 
 Det här avsnittet gäller distributionsmodellen i Resource Manager.
 
@@ -242,5 +243,5 @@ Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om V
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om VPN-gateway finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
-* Mer information om konfigurationsinställningar för VPN-gateway finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
+* Mer information om VPN Gateway finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
+* Mer information om konfigurationsinställningar för VPN Gateway finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).

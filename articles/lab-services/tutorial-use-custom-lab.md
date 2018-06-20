@@ -1,5 +1,5 @@
 ---
-title: Få åtkomst till ett anpassat labb i Azure DevTest Labs | Microsoft Docs
+title: Få åtkomst till ett labb i Azure DevTest Labs | Microsoft Docs
 description: I den här självstudien får du åtkomst till labbet som har skapats med Azure DevTest Labs, göra anspråk på virtuella datorer, använda dem och sedan släppa anspråket.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361846"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638032"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett anpassat labb i Azure DevTest Labs
-I den här självstudien använder du det anpassade labbet som skapades i [Självstudie: Skapa ett anpassat labb](tutorial-create-custom-lab.md) .
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett labb i Azure DevTest Labs
+I den här självstudien använder du det labbet som skapades i [Självstudie: Skapa ett labb i Azure DevTests Labs](tutorial-create-custom-lab.md) .
 
-I den här självstudien gör du följande:
+I de här självstudierna gör du följande:
 
 > [!div class="checklist"]
-> * Göra anspråk på en virtuell dator (VM) i ett anpassat labb
+> * Göra anspråk på en virtuell dator (VM) i ett labb
 > * Anslut till VM:en
 > * Släppa anspråk på en virtuell dator
 
@@ -70,8 +70,8 @@ När du är klar med den virtuella datorn släpper du anspråket på den virtuel
 1. När anspråket har släppts ser du den virtuella datorn i listan med **Virtuella datorer som kan tas i anspråk** längst ned. 
     
 ## <a name="next-steps"></a>Nästa steg
-Den här självstudiekursen visade hur du använder ett anpassat labb som har skapats med hjälp av Azure DevTest Labs. Läs mer om åtkomst till och användning av virtuella datorer i ett anpassad labb i 
+Den här självstudiekursen visade hur du använder ett labb som har skapats med hjälp av Azure DevTest Labs. Läs mer om åtkomst till och användning av virtuella datorer i ett labb i 
 
 > [!div class="nextstepaction"]
-> [Anvisningar: Använda virtuella datorer i ett anpassat labb](devtest-lab-add-vm.md)
+> [Anvisningar: använda virtuella datorer i ett labb](devtest-lab-add-vm.md)
 

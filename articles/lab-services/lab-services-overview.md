@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: spelluru
-ms.openlocfilehash: b42183369b9ad88c77a05a91fdba8fe0efca2a8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637861"
 ---
-# <a name="an-introduction-to-azure-lab-services-formerly-azure-devtest-labs"></a>En introduktion till Azure Lab Services (tidigare Azure DevTest Labs)
+# <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
 Med Azure Lab Services kan du snabbt konfigurera en miljö för ditt team (till exempel en utvecklingsmiljö, en testmiljö eller en labbmiljö i klassrummet) i molnet. En labbägare skapar ett labb, etablerar Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg och gör dem tillgängliga för labbanvändare. Labbanvändarna ansluter till virtuella datorer (VM) i labbet och använder dem för sitt dagliga arbete, kortare projekt eller för att göra klassrumsövningar. När användarna börjar använda resurser i labbet, kan en labbadministratör analysera kostnaden och användningen för flera labb och ange övergripande principer för att optimera din organisations eller ditt teams kostnader.
 
 > [!IMPORTANT]
-> Azure DevTest Labs utökas med nya typer av labb (Azure Lab Services)! 
+> **Azure DevTest Labs** utökas med nya typer av labb (Azure Lab Services)! 
 > 
 > Med Azure Lab Services kan du skapa hanterade labb, till exempel labb i klassrummet. Tjänsten hanterar all infrastrukturhantering för ett hanterat labb, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. De hanterade labben finns för närvarande i en förhandsversion. När förhandsversionen löper ut, sammanförs de nya labbtyperna och befintliga DevTest Labs under det nya gemensamma samlingsnamnet Azure Lab Services där alla typer av labb kommer fortsätta att utvecklas. 
 
@@ -31,7 +32,7 @@ Med Azure Lab Services kan du snabbt konfigurera en miljö för ditt team (till 
 Azure Lab Services stöder följande viktiga funktioner: 
 
 - **Snabb och flexibel konfiguration av ett labb**. Med Azure Lab Services kan labbägare snabbt konfigurera ett labb efter behov. Tjänsten erbjuder möjligheten till full hantering av allt Azure-infrastrukturarbete för hanterade labb eller så kan labbägarna själva hantera och anpassa infrastrukturen inom ramarna för labbägarens prenumeration. Tjänsten tillhandahåller inbyggd skalning och motståndskraftig infrastruktur för labb som tjänsten hanterar åt dig. 
-- **Förenklad upplevelse för labbanvändare**. I ett hanterat labb, som ett klassrumslabb, kan labbanvändarna registrera sig för ett labb med en registreringskod och få åtkomst till labbet när som helst för att använda labbresurserna. I ett anpassat labb som skapats i DevTest Labs, kan labbägaren ge behörighet till labbanvändarna för att skapa och få åtkomst till virtuella datorer, hantera och återanvända datadiskar och konfigurera återanvändbara hemligheter.  
+- **Förenklad upplevelse för labbanvändare**. I ett hanterat labb, som ett klassrumslabb, kan labbanvändarna registrera sig för ett labb med en registreringskod och få åtkomst till labbet när som helst för att använda labbresurserna. I ett labb som skapats i DevTest Labs, kan labbägaren ge behörighet till labbanvändarna för att skapa och få åtkomst till virtuella datorer, hantera och återanvända datadiskar och konfigurera återanvändbara hemligheter.  
 - **Kostnadsoptimering och analys**. En labbägare kan ställa in labbscheman för automatisk start och avstängning av virtuella datorer. Labbägaren kan ställa in ett schema för att specificera de tider när labbets virtuella datorer ska vara tillgängliga för användarna, ställa in användningsprinciper per användare eller per labb för att optimera kostnaden och analysera användnings- och aktivitetstrender för ett labb. För hanterade labb, som klassrumslabb, finns för närvarande en mindre deluppsättning av alternativ för kostnadsoptimering och -analys tillgängliga. 
 - **Inbäddad säkerhet**. En labbägare kan konfigurera ett privat virtuellt nätverk och ett undernät för ett labb och aktivera en delad offentlig IP-adress. Labbanvändarna får säker åtkomst till resurserna via det virtuella nätverk som konfigurerats med ExpressRoute eller VPN för plats-till-plats (för närvarande tillgängligt endast i DevTest Labs).
 - **Integration i dina arbetsflöden och verktyg**. Med Azure Lab Services kan du integrera labb i din organisations webbplats och hanteringssystem. Du kan automatiskt etablera miljöer inifrån dina verktyg för kontinuerlig integration/kontinuerlig distribution (för närvarande tillgängligt endast i DevTest Labs).
@@ -91,7 +92,7 @@ En labbanvändare utför följande uppgifter:
 - Ansluter till en virtuell dator i labbet och använder den för utveckling, testning eller skolarbete. 
 
 ## <a name="next-steps"></a>Nästa steg
-Kom igång med att ställa in ett labb med Azure Lab Services:
+Kom igång med att konfigurera ett testlabb med Azure Lab Services:
 
-- [Konfigurera ett klassrumslabb](tutorial-setup-classroom-lab.md)
-- [Konfigurera ett anpassat labb](tutorial-create-custom-lab.md)
+- [Konfigurera ett klassrumslabb](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Konfigurera ett labb](tutorial-create-custom-lab.md)

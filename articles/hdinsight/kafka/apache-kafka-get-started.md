@@ -13,13 +13,14 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0917894250c8cf907d721749be506d2c247111a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626325"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Kafka-kluster på HDInsight
 
@@ -127,7 +128,7 @@ Använd följande steg om du vill skapa ett Kafka i HDInsight-kluster:
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-1. Anslut till Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Kafka-klustret.
+1. Anslut till Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Kafka-klustret
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -182,10 +183,13 @@ I det här avsnittet hämtas information om värden från klustrets Ambari REST 
     Ange Kafka-klustrets namn när du uppmanas till detta.
 
 3. Använd följande kommando om du vill ange en miljövariabel med Zookeeper-värdens information:
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
+
+    > [!TIP]
+    > Det här kommandot frågar Ambari-tjänsten på klustrets huvudnod direkt. Du kan också komma åt ambari med hjälp av den offentliga adressen för `https://$CLUSTERNAME.azurehdinsight.net:80/`. Vissa nätverkskonfigurationer kan förhindra åtkomst till den offentliga adressen. Till exempel, användning av nätverkssäkerhetsgrupper (NSG) för att begränsa åtkomsten till HDInsight i ett virtuellt nätverk.
 
     Ange klusterinloggningskontots lösenord när du uppmanas till detta (inte SSH-kontot).
 
@@ -205,7 +209,7 @@ I det här avsnittet hämtas information om värden från klustrets Ambari REST 
 5. Använd följande kommando om du vill ange en miljövariabel med Kafka-värdens information om asynkron meddelandekö:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Ange klusterinloggningskontots lösenord när du uppmanas till detta (inte SSH-kontot).

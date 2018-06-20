@@ -1,31 +1,32 @@
 ---
-title: Azure Service Fabric CLI skript distribuerar exempel
-description: "Distribuera ett program till ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric-CLI"
+title: Azure Service Fabric CLI (sfctl) skriptdistribueringsexempel
+description: Distribuera ett program till ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric-CLI
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/06/2017
+ms.date: 04/16/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: a9b7b2e3a8355aa0da0069bd27d2f61d8b5b8028
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e2bd212e88b3efcf7f3aad3ef1555b3fc48ef1b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641738"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuera ett program till ett Service Fabric-kluster
 
-Det här exempelskriptet kopierar ett programpaket till ett kluster avbildningsarkivet registrerar programtypen i klustret och skapar en instans av programmet från programtypen. Alla standardtjänster skapas också just nu.
+Det här exempelskriptet kopierar ett programpaket till ett klusteravbildningsarkiv, registrerar programtypen i klustret och skapar en instans av programmet från programtypen. Alla standardtjänster skapas också vid samma tillfälle.
 
-Om det behövs installerar den [Service Fabric CLI](../service-fabric-cli.md).
+Installera också [Service Fabric CLI](../service-fabric-cli.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -33,10 +34,10 @@ Om det behövs installerar den [Service Fabric CLI](../service-fabric-cli.md).
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du är klar i [ta bort](cli-remove-application.md) skript som kan användas för att ta bort programmet. Ta bort skriptet tar bort programinstansen Avregistrerar programtypen och tar bort programpaketet från avbildningsarkivet.
+När du är klar kan [borttagningsskriptet](cli-remove-application.md) användas för att ta bort programmet. Borttagningsskriptet tar bort programinstansen, avregistrerar programtypen och tar bort programpaketet från avbildningsarkivet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Service Fabric CLI dokumentationen](../service-fabric-cli.md).
+Mer information finns i [Service Fabric CLI-dokumentationen](../service-fabric-cli.md).
 
-Ytterligare Service Fabric CLI prover för Azure Service Fabric kan hittas i den [Service Fabric CLI exempel](../samples-cli.md).
+Fler Service Fabric CLI-exempel för Azure Service Fabric finns i [Service Fabric CLI-exempel](../samples-cli.md).

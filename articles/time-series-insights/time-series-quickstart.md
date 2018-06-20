@@ -1,22 +1,22 @@
 ---
-title: "Snabbstart – Azure Time Series Insights-utforskaren | Microsoft Docs"
-description: "Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i webbläsaren för att visualisera stora IoT-datavolymer. Titta på huvudfunktionerna i en demomiljö."
-services: time-series-insights
+title: Snabbstart – Azure Time Series Insights-utforskaren | Microsoft Docs
+description: Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i webbläsaren för att visualisera stora IoT-datavolymer. Titta på huvudfunktionerna i en demomiljö.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: v-mamcge
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbf0aef7a032c9b9808db14031555c7498874ac3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652125"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i en gratis demonstrationsmiljö. Du lär dig hur du kan använda webbläsaren för att visualisera stora volymer med IoT-data, och du får se huvudfunktionerna i Time Series Insights-utforskaren. 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Utforska Time Series Insights-utforskaren i en demomiljö
 
-1. Gå till [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo) i webbläsaren. 
+1. Öppna webbläsaren och navigera till [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
 2. Logga in på Time Series Insights-utforskaren med dina autentiseringsuppgifter för Azure-kontot om du uppmanas att göra det. 
  

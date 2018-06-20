@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 69c3ebf5a51151cd8e77c637ddd57eb18c8a9d15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627355"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Azure Portal
 
@@ -36,7 +37,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **Skapa en resurs** > **Data och analys** > **HDInsight** i Azure Portal. 
+1. Välj **Skapa en resurs** > **Data + analys** > **HDInsight** i Azure Portal. 
 
     ![Databricks på Azure-portalen](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-hdinsight-on-portal.png "Databricks på Azure-portalen")
 
@@ -65,7 +66,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
     
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |**Klustertyp**     | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
+    |**Typ av kluster**     | Välj **Hadoop** |
     |**Operativsystem**     |  Välj din Azure-prenumeration. |
     |**Version**     | Välj **Hadoop 2.7.3 (HDI 3.6)**|
 

@@ -1,27 +1,28 @@
 ---
 title: Konfigurera regler och åtgärder i Azure IoT Central | Microsoft Docs
 description: Den här självstudien visar hur du som byggare konfigurerar telemetribaserade regler och åtgärder i Azure IoT Central-programmet.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202245"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236339"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 – Konfigurera regler och åtgärder för enheten i Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Självstudie: Konfigurera regler och åtgärder för enheten i Azure IoT Central
 
 Den här självstudien visar hur du som byggare konfigurerar telemetribaserade regler och åtgärder i Microsoft Azure IoT Central-programmet.
 
 I den här självstudien skapar du en regel som skickar ett e-postmeddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider 90&deg; F.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en telemetribaserad regel
@@ -39,17 +40,17 @@ Innan du börjar bör du slutföra självstudien om att [definiera en ny enhetst
 
     Du ser enhetsmallen **Ansluten luftkonditioneringsenhet (1.0.0)** och enheten **Ansluten luftkonditioneringsenhet-1** som du skapade i den föregående självstudien.
 
-1. För att börja anpassa den anslutna luftkonditioneringsenheten väljer du den enhet som du skapade i föregående självstudien:
+2. För att börja anpassa den anslutna luftkonditioneringsenheten väljer du den enhet som du skapade i föregående självstudien:
 
     ![Sidan Ansluten luftkonditioneringsenhet](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. För att börja lägga till en regel i vyn **Regler** väljer du **Regler**:
+3. För att börja lägga till en regel i vyn **Regler** väljer du **Regler**:
 
     ![Vyn Regler](media/tutorial-configure-rules/builderrulesview.png)
 
-1. I den här självstudien lägger du till en tröskelvärdesbaserad regel. För att skapa en tröskelvärdesbaserad regel väljer du **Ny regel** och sedan **Telemetri**.
+4. För att skapa en tröskelvärdesbaserad telemetriregel väljer du **Ny regel** och sedan **Telemetri**.
 
-1. Använd informationen i följande tabell för att definiera regeln:
+5. Använd informationen i följande tabell för att definiera regeln:
 
     | Inställning     | Värde                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ När du definierar en regel kan du även definiera en åtgärd som ska köras n�
 
     ![Regelåtgärd för temperatur](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Använd informationen i följande tabell för att definiera åtgärden:
+2. Använd informationen i följande tabell för att definiera åtgärden:
 
     | Inställning   | Värde                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ När du definierar en regel kan du även definiera en åtgärd som ska köras n�
 
     ![Temperaturåtgärd för Application Builder (Programverktyg)](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Välj **Spara**. Regeln finns på sidan **Regler**:
+3. Välj **Spara**. Regeln finns på sidan **Regler**:
 
     ![Regler för Application Builder (Programverktyg)](media/tutorial-configure-rules/builderrules.png)
 

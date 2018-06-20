@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651955"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Azure PowerShell-exempel för VM-skalningsuppsättningar
 
@@ -29,7 +30,8 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | | |
 |---|---|
 |**Skapa och hantera en skalningsuppsättning**||
-| [Skapa en VM-skalningsuppsättning](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Skapar en VM-skalningsuppsättning med minimal konfiguration. |
+| [Skapa en enkel VM-skalningsuppsättning](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Skapar en VM-skalningsuppsättning med minimal konfiguration. |
+| [Skapa en fullständig VM-skalningsuppsättning](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Skapar en VM-skalningsuppsättning och associerade resurser med en konfigurationsfil. |
 | [Skapa en skalningsuppsättning från en anpassad virtuell datoravbildning](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning. |
 | [Installerar program till en skalningsuppsättning](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Använd det anpassade Azure-skripttillägget för att installera ett grundläggande webbprogram i en skalningsuppsättning. |
 |**Hantera lagring**||

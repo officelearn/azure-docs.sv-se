@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648133"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215532"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
@@ -39,7 +39,7 @@ Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarie
 
 | | Användningsscenariot | 
 | --- | --- | 
-|SQL Database Managed Instance |För kunder som planerar för att migrera ett stort antal appar från lokala eller IaaS, automatisk inbyggd eller ISV finns med som ansträngning låg migrering som möjligt, föreslå hanteras instans. Med hjälp av helt automatiserad [Data migrering Service (DMS)](/sql/dma/dma-overview) i Azure, kan kunder lyfta och flytta sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och fullständig isolering av kunden instanser med inbyggt stöd för virtuella nätverk.  Med Software Assurance, kan du byta sina befintliga licenser för rabatterade priser på en SQL-hanterade databasinstans med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL-hanterade databasinstans är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmering yta. |
+|SQL Database Managed Instance |För kunder som planerar för att migrera ett stort antal appar från lokala eller IaaS, automatisk inbyggd eller ISV finns med som ansträngning låg migrering som möjligt, föreslå hanteras instans. Med hjälp av helt automatiserad [Data migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure, kan kunder lyfta och flytta sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och fullständig isolering av kunden instanser med inbyggt stöd för virtuella nätverk.  Med Software Assurance, kan du byta sina befintliga licenser för rabatterade priser på en SQL-hanterade databasinstans med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL-hanterade databasinstans är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmering yta. |
 |Azure SQL Database (enkel eller pool) |**Elastiska pooler**: för kunder att utveckla nya SaaS flera program eller avsiktligt omvandla sina befintliga lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertering av modellen verksamhet från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkel och punkt bevis klientisolering</li></ul><ul><li>En förenklad databasen till Central programmeringsmodell</li></ul><ul><li>Möjlighet att skala ut utan att en hård gräns</li></ul>**Enkel databaser**: för kunder att utveckla nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databasen till Central programmeringsmodell</li></ul>  <ul><li>Förutsägbar prestanda för varje databas</li></ul>|
 |Virtuell SQL IaaS-dator|För kunder som behöver anpassa operativsystemet eller den databasserver, samt kunder som har specifika krav som kör appar från tredje part vid sida med SQL Server (i samma VM), föreslå SQL virtuella datorer / IaaS som den bästa lösningen|
 |||
@@ -186,11 +186,10 @@ Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats f�
 
 Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instans. Om du vill återställa en befintlig SQL-databas till en hanterad instans kan du:
 
-- Använd [Data migrering Service (DMS)](/sql/dma/dma-overview). En självstudiekurs finns [migrera till en hanterad instans med Azure databas migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
+- Använd [Data migrering Service (DMS)](../dms/dms-overview.md). En självstudiekurs finns [migrera till en hanterad instans med Azure databas migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
 - Använd den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - En självstudiekurs visar hur du återställer Wide World Importers - standarddatabasen säkerhetskopian finns [återställer en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du måste överföra en säkerhetskopia till Azure blogg lagring och skydda den med hjälp av en signatur (SAS) för delade åtkomstnyckeln.
   - Information om återställning från URL finns [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importera från en BACPAC-fil](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL-funktioner som stöds 
 

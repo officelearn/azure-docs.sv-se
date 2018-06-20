@@ -1,22 +1,21 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning Service-tjänsten med C# | Microsoft Docs
 description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 01/16/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: c9492d47461e95c7baa28f82b8a95fd7e370ac16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 68ef2c3c13dcf3c193ce1dd5e9b14c73113b5c9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629838"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
 
@@ -132,7 +131,7 @@ Stegen i det här avsnittet visar hur du skapar en .NET Core-konsolapp som lägg
 
     ![Egenskaper för registrering i utdata från kommando](media/quick-enroll-device-tpm-csharp/output.png)
 
-3. Om du vill verifiera att enskilda registreringen har skapats går du till sammanfattningsbladet för enhetsetableringstjänsten i Azure-portalen, väljer **Hantera registreringar** och väljer sedan fliken  **	Enskilda registreringar**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet. Klicka på posten för att verifiera bekräftelsenyckeln och andra egenskaper för posten.
+3. Om du vill kontrollera att den individuella registreringen har skapats väljer du **Hantera registreringar** på sammanfattningsbladet Enhetsetableringstjänst i Azure Portal och väljer sedan fliken **Individuella registreringar**. Du bör se en ny registreringspost som motsvarar det registrerings-ID som du använde i exemplet. Klicka på posten för att verifiera bekräftelsenyckeln och andra egenskaper för posten.
 
     ![Egenskaper för registrering i portalen](media/quick-enroll-device-tpm-csharp/verify-enrollment-portal.png)
  

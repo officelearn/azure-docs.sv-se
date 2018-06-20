@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651734"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -41,7 +42,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
    ```
 2. Logga in på Azure Portal.  
 
-3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i sidan för Storage-kontojobb och ange ”myasastorageaccount” för **Namn**, ”West US 2” för **Plats**, ”MyRG” för **Resursgrupp** (värdlagringskonto i samma resursgrupp som Streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
+3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i sidan för Storage-kontojobb med ”asaquickstartstorage” som **Namn**, ”västra USA 2” som **Plats**, ”asaquickstart-resourcegroup” som **Resursgrupp** (använd samma resursgrupp som värd för lagringskontot som streamingjobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
    ![Skapa lagringskonto](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -67,9 +68,9 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Jobbnamn   |  myJob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
+   |Jobbnamn   |  myasajob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
    |Prenumeration  | \<Din prenumeration\> |  Välj den Azure-prenumeration som du vill använda för jobbet. |
-   |Resursgrupp   |   myResourceGroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
+   |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
    |Plats  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
    |Strömningsenheter  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
    |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure Cloud, och med Edge kan du distribuera till en IoT edge-enhet. |
@@ -116,7 +117,8 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    |Utdataalias |   BlobOutput   |   Ange ett namn som identifierar jobbets utdata. |
    |Prenumeration  |  \<Din prenumeration\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto |  myasastorageaccount |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
-   |Behållare |   container2  |  Skapa en ny behållare i samma lagringskonto som du använde för indata.   |
+   |Behållare |   container1  |  Välj en befintlig behållare som du skapade i ditt lagringskonto.   |
+   |Sökvägsmönster |   utdata  |  Ange ett namn som fungerar som sökväg i din befintliga behållare för utdata.   |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
@@ -153,7 +155,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
    ![Starta jobbet](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den behållare som du har konfigurerat som utdata för jobbet. Nu kan du se utdatafilen i behållaren. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
+3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den behållare som du har konfigurerat som utdata för jobbet. Välj sökvägen för utdata. Nu kan du se utdatafilen i behållaren. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
 
    ![Transformerade utdata](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

@@ -2,25 +2,23 @@
 title: C++-självstudiekurs för Azure Cosmos DB | Microsoft Docs
 description: En C++-självstudiekurs som beskriver hur du skapar en C++-databas och ett C++-konsolprogram med ett Azure Cosmos DB SDK för C++. Azure Cosmos DB är en databastjänst med global skalningskapacitet.
 services: cosmos-db
-documentationcenter: cpp
-author: asthana86
+author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: cpp
-ms.topic: article
-ms.date: 12/25/2016
-ms.author: aasthan
-ms.openlocfilehash: e04723a8fa37d32851dd91cdc45293a549c9ee64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 06/05/2018
+ms.author: sngun
+ms.openlocfilehash: 0e142eaf4182331e0a5803c54d2cc1284e21b221
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807183"
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: C++ konsolen självstudien för SQL-API
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: Självstudiekurs för att skapa ett C++-konsolprogram för API för SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -31,9 +29,9 @@ ms.lasthandoff: 04/06/2018
 >  
 > 
 
-Välkommen till C++-självstudiekurs för Azure Cosmos DB SQL API godkända SDK för C++! När du har slutfört den här självstudien har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser, inklusive en C++-databas.
+Välkommen till C++-självstudiekursen om vårt Azure Cosmos DB SQL API-kompatibla SDK för C++! När du har slutfört den här självstudien har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser, inklusive en C++-databas.
 
-Denna Snabbstart omfattar:
+Snabbstarten innehåller:
 
 * Skapa och ansluta till ett Azure Cosmos DB-konto
 * Konfigurera ditt program
@@ -45,18 +43,18 @@ Denna Snabbstart omfattar:
 * Ta bort ett dokument
 * Ta bort C++ Azure Cosmos DB-databasen
 
-Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/stalker314314/sql-apiCpp). En snabbguide finns i [Hämta den kompletta lösningen](#GetSolution).
+Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/stalker314314/DocumentDBCpp). En snabbguide finns i [Hämta den kompletta lösningen](#GetSolution).
 
 Nu sätter vi igång!
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>Förutsättningar för självstudien om C++
-Kontrollera att du har följande resurser:
+Se till att du har följande resurser:
 
 * Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio-2017](https://www.visualstudio.com/downloads/), med C++-språk-komponenter installeras. Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/), med språkkomponenter för C++ installerade. Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
 Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera C++-programmet](#SetupC++).
@@ -72,14 +70,14 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 4. När projektet har skapats öppnar du pakethanteraren NuGet genom att högerklicka på projektet **hellodocumentdb** i **Solution Explorer** och därefter på **Hantera NuGet-paketet**. 
    
     ![Skärmbild som visar Hantera NuGet-paketet på menyn Projekt](media/sql-api-cpp-get-started/nuget.png)
-5. På fliken **NuGet: hellodocumentdb** klickar du på **Bläddra**, och sedan söker du efter *documentdbcpp*. I sökresultaten väljer du DocumentDbCPP, som visas i följande skärmbild:   
+5. På fliken **NuGet: hellodocumentdb** klickar du på **Bläddra**, och sedan söker du efter *documentdbcpp*. Välj DocumentDbCPP bland resultaten, enligt följande skärmbild:   
    
     ![Skärmbild som visar DocumentDbCpp-paketet](media/sql-api-cpp-get-started/cpp.png)
    
-    Paketet installerar referenser till C++ REST SDK, som är ett beroende för DocumentDbCPP. När paketen har lagts till i projektet, är du klar att börja skriva kod.   
+    Paketet installerar referenser till C++ REST SDK, som är ett beroende för DocumentDbCPP. När paketen har lagts till i projektet kan du börja skriva kod.   
 
 ## <a id="Config"></a>Steg 3: Kopiera anslutningsinformationen från Azure Portal för din Azure Cosmos DB-databas
-Ta fram [Azure-portalen](https://portal.azure.com) och gå till Azure DB som Cosmos-konto som du skapade. Du måste URI och primärnyckel från Azure-portalen i nästa steg för att upprätta en anslutning från kodutdrag C++. 
+Öppna [Azure Portal](https://portal.azure.com) och gå till Azure Cosmos DB-kontot som du skapat. Du behöver URI och den primära nyckeln från Azure-portalen i nästa steg för att upprätta en anslutning från C++-kodfragmentet. 
 
 ![URI och nycklar för Azure Cosmos DB på Azure Portal](media/sql-api-cpp-get-started/nosql-tutorial-keys.png)
 
@@ -99,10 +97,10 @@ Ta fram [Azure-portalen](https://portal.azure.com) och gå till Azure DB som Cos
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Nu när du har koden för att initiera klienten ska vi titta på arbeta med Azure Cosmos DB resurser.
+    Nu har du koden för att initiera klienten och det är dags att gå vidare till arbete med Azure Cosmos DB-resurser.
 
 ## <a id="CreateDBColl"></a>Steg 5: Skapa en C++-databas och -samling
-Innan du utför det här steget ska vi gå igenom hur en databas, samling och dokument samverkar för de nya Azure Cosmos DB användare. En [databas](sql-api-resources.md#databases) är en logisk behållare för dokumentlagring, partitionerad över samlingarna. En [samling](sql-api-resources.md#collections) är en behållare för JSON-dokument och associerad JavaScript-applogik. Mer information om begrepp och den hierarkiska resursmodellen i Azure Cosmos DB finns i avsnittet [Azure Cosmos DB hierarchical resource model and concepts](sql-api-resources.md) (Begrepp och den hierarkiska resursmodellen i Azure Cosmos DB).
+Innan du utför det här steget ska vi gå igenom hur en databas, samling och dokument interagerar för dig som precis har börjat med Azure Cosmos DB. En [databas](sql-api-resources.md#databases) är en logisk behållare för dokumentlagring, partitionerad över samlingarna. En [samling](sql-api-resources.md#collections) är en behållare för JSON-dokument och associerad JavaScript-applogik. Mer information om begrepp och den hierarkiska resursmodellen i Azure Cosmos DB finns i avsnittet [Azure Cosmos DB hierarchical resource model and concepts](sql-api-resources.md) (Begrepp och den hierarkiska resursmodellen i Azure Cosmos DB).
 
 Om du vill skapa en databas och en motsvarande samling ska du lägga till följande kod i slutet av din huvudfunktion. Detta skapar en databas som heter "FamilyRegistry" och en samling som heter "FamilyCollection' med klientkonfigurationen du deklarerade i föregående steg.
 
@@ -132,12 +130,12 @@ Om du vill skapa en databas och en motsvarande samling ska du lägga till följa
       wcout << ex.message();
     }
 
-Sammanfattning: den här koden som skapar en Azure Cosmos-DB-databas, samling och dokument, som du kan fråga i Data Explorer i Azure-portalen. 
+Sammanfattningsvis skapar den här koden en Azure Cosmos DB-databas, en Azure Cosmos DB-samling och Azure Cosmos DB-dokument som du kan skicka frågor till i datautforskaren på Azure Portal. 
 
 ![Självstudie om C++ – Diagram som illustrerar den hierarkiska relationen mellan kontot, databasen, samlingen och dokumenten](media/sql-api-cpp-get-started/docs.png)
 
 ## <a id="QueryDB"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
-Azure Cosmos DB stöder [komplexa frågor](sql-api-sql-query.md) mot JSON-dokument som lagras i varje samling. Följande exempelkod visar en fråga som skapats med hjälp av SQL-syntax som du kan köra mot dokumenten du skapade i föregående steg.
+Azure Cosmos DB stöder [komplexa frågor](sql-api-sql-query.md) mot JSON-dokument som lagras i varje samling. Nedanstående exempelkod visar en fråga med SQL-syntax som du kan köra mot dokumenten som infogades i föregående steg.
 
 Funktionen tar som argument den unika identifieraren eller resurs-id för databasen och samlingen tillsammans med dokumentklienten. Lägg till den här koden före huvudfunktionen.
 
@@ -216,7 +214,7 @@ Kopiera och klistra in följande kodutdrag (funktionen cleanup) efter funktionen
     }
 
 ## <a id="Run"></a>Steg 11: Kör C++-appen i sin helhet!
-Du har nu lagt till kod för att skapa, fråga, ändra och ta bort olika Azure DB som Cosmos-resurser.  Nu tråd detta upp genom att lägga till anrop till dessa olika funktioner från den huvudsakliga funktionen i hellodocumentdb.cpp tillsammans med vissa diagnostiska meddelanden.
+Nu har du lagt till kod för att skapa, skicka frågor mot, ändra och ta bort olika Azure Cosmos DB-resurser.  Samla nu detta genom att lägga till anrop till de olika funktionerna från vår huvudfunktion i hellodocumentdb.cpp, tillsammans med vissa diagnostiska meddelanden.
 
 Du kan göra det genom att ersätta huvudfunktionen i ditt program med följande kod. Detta skriver över account_configuration_uri och primary_key som du kopierade till koden i steg 3, så spara raden eller kopiera värdena igen från portalen. 
 
@@ -269,7 +267,7 @@ Du kan göra det genom att ersätta huvudfunktionen i ditt program med följande
 
 Du bör nu kunna skapa och köra din kod i Visual Studio genom att trycka på F5 eller alternativt i terminalfönstret genom att hitta programmet och köra den körbara filen. 
 
-Du bör nu se utdata från din kom-igång-app. Dina utdata bör motsvara följande skärmbild:
+Du bör nu se utdata från din kom-igång-app. Utdata bör matcha följande skärmbild:
 
 ![Utdata från Azure Cosmos DB-baserat C++-program](media/sql-api-cpp-get-started/console.png)
 
@@ -283,7 +281,7 @@ För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöv
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
-* Kör frågor mot en exempeldatauppsättning i den [Query Playground](https://www.documentdb.com/sql/demo).
+* Kör frågor mot en exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
 * Mer information om programmeringsmodellen finns i avsnittet Utveckla på [dokumentationssidan för Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 
 [create-account]: create-sql-api-dotnet.md#create-account

@@ -1,30 +1,31 @@
 ---
-title: "Ladda upp en generaliserad virtuell Hårddisk till Azure PowerShell skriptexempel | Microsoft Docs"
-description: "PowerShell-exempelskript att överföra en generaliserad virtuell Hårddisk till Azure och skapa en ny virtuell dator med hjälp av resource manager-distributionsmodellen och hanterade diskar."
+title: Överför en generaliserad virtuell hårddisk till Azure PowerShell-skriptexemplet| Microsoft Docs
+description: PowerShell-exempelskript ska överföra en generaliserad virtuell Hårddisk till Azure och skapa en ny virtuell dator med hjälp av resource manager-distributionsmodellen och hanterade diskar.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/02/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: c1887bc7dc3cddce7f1c9f91f077388df2e73e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716779"
 ---
-# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell Hårddisk till Azure och skapa en ny virtuell dator
+# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator
 
-Det här skriptet tar en lokal VHD-fil från en generaliserad virtuell dator och överför den till Azure, skapas en hanterad diskavbildning och använder den att skapa en ny virtuell dator.
+Det här skriptet tar en lokal VHD-fil från en generaliserad virtuell dator och överför den till Azure, skapar en hanterad diskavbildning och använder den för att skapa en ny virtuell dator.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -118,41 +119,41 @@ $vmList.Name
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa distributionen. Varje objekt i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando                                                                                                             | Anteckningar                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Ny AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Skapar en resursgrupp som är lagrade i alla resurser.                                                                                                                          |
-| [Ny AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Skapar ett lagringskonto.                                                                                                                                                           |
-| [Lägg till AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Överför en virtuell hårddisk från en lokal virtuell dator till en blobb i ett moln-lagringskonto i Azure.                                                                       |
-| [Ny AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Skapar en konfigurerbar image-objekt.                                                                                                                                                 |
-| [Ange AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Anger operativsystemet diskegenskaper i ett image-objekt.                                                                                                                        |
-| [Ny AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Skapar en ny avbildning.                                                                                                                                                                 |
-| [Ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Skapar en konfiguration av undernät. Den här konfigurationen används med processen virtuellt nätverk.                                                                                |
-| [Ny AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Skapar ett virtuellt nätverk.                                                                                                                                                           |
-| [Ny AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Skapar en offentlig IP-adress.                                                                                                                                                         |
-| [Ny AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Skapar ett nätverksgränssnitt.                                                                                                                                                         |
-| [Ny AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Skapar en grupp regeln nätverkssäkerhetskonfigurationen. Den här konfigurationen används för att skapa en regel för NSG när NSG: N har skapats.                                                       |
-| [Ny AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Skapar en nätverkssäkerhetsgrupp.                                                                                                                                                    |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Skapar en resursgrupp där alla resurser lagras.                                                                                                                          |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Skapar ett lagringskonto.                                                                                                                                                           |
+| [Add-AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Överför en virtuell hårddisk från en lokal virtuell dator till en blob i ett molnlagringskonto i Azure.                                                                       |
+| [New-AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Skapar ett konfigurerbart avbildningsobjekt.                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Anger operativsystemets diskegenskaper i ett avbildningsobjekt.                                                                                                                        |
+| [New-AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Skapar en ny avbildning.                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk.                                                                                |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Skapar ett virtuellt nätverk.                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Skapar en offentlig IP-adress.                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Skapar ett nätverksgränssnitt.                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Skapar en regelkonfiguration för nätverkssäkerhetsgrupper. Konfigurationen används för att skapa en NSG-regel när NSG:n skapas.                                                       |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Skapar en nätverkssäkerhetsgrupp.                                                                                                                                                    |
 | [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Hämtar ett virtuellt nätverk i en resursgrupp.                                                                                                                                          |
-| [Ny AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Skapar en VM-konfiguration. Den här konfigurationen omfattar information som VM-namn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används under Skapa en virtuell dator. |
-| [Ange AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Anger en avbildning för en virtuell dator.                                                                                                                                            |
-| [Ange AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Anger operativsystemet diskegenskaper på en virtuell dator.                                                                                                                      |
-| [Ange AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Anger operativsystemet diskegenskaper på en virtuell dator.                                                                                                                      |
-| [Lägg till AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
-| [Ny AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Skapa en virtuell dator.                                                                                                                                                            |
-| [Ta bort AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Tar bort en resursgrupp och alla resurser som ingår i.                                                                                                                         |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
+| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Anger en avbildning för en virtuell dator.                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
+| [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Skapa en virtuell dator.                                                                                                                                                            |
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Tar bort en resursgrupp och alla resurser som ingår i gruppen.                                                                                                                         |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare virtuella PowerShell-skript-exempel finns i den [Virtuella för Windows Azure-dokumentationen](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ytterligare PowerShell-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Windows-datorer](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

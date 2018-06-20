@@ -1,18 +1,19 @@
 ---
-title: "Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Lär dig hur du konfigurerar haveriberedskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery-tjänsten."
+title: Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du konfigurerar haveriberedskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643591"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -40,19 +41,31 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azur
 2. I **Komma igång** klickar du på **Site Recovery**. Klicka sedan på **Förbered infrastrukturen**.
 3. I **Skyddsmål** > **Var finns dina datorer?** väljer du **Lokalt**.
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
-5. I **Är dina datorer virtualiserade?** väljer du **Nej**. Klicka sedan på **OK**.
+5. Välj **Nej** i **Använder du System Center VMM för att hantera dina Hyper-V-värdar**. Klicka sedan på **OK**.
 
     ![Replikeringsmål](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Bekräfta distributionsplanering
+
+När du planerar en stor distribution, bör du kontrollera att du har slutfört [distributionsplaneringen för Hyper-V-replikering](hyper-v-deployment-planner-overview.md). Välj **Jag gör det senare** i listrutan i **Har du slutfört distributionsplanering?**.
+
+![Distributionsplanering](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Om du vill konfigurera källmiljön lägger du till Hyper-V-värden på en Hyper-V-plats, laddar ned och installerar Azure Site Recovery-providern och Azure Recovery Services-agenten och registrerar Hyper-V-platsen i valvet. 
+Konfigurera källmiljön genom att skapa en Hyper-V-webbplats och lägga till Hyper-V-värdar på webbplatsen. Ladda sedan ned och installera Azure Site Recovery-providern och Azure Recovery Services-agenten på varje värd och registrera Hyper-V-webbplatsen i valvet. 
 
 1. Klicka på **Källa** i **Förbereda infrastrukturen**.
 2. Klicka på **+Hyper-V-platsen** och ange namnet på den plats som vi skapade i den tidigare självstudiekursen, d.v.s. **ContosoHyperVSite**.
-3. Klicka på **+Hyper-V Server**.
+
+    ![Hyper-V-plats](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. När du har skapat webbplatsen klickar du på **+Hyper-V Server**.
+
+    ![Hyper-V-server](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Ladda ned installationsfilen för providern.
-5. Ladda ned valvregistreringsnyckeln. Du behöver den här nyckeln för att köra installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
+6. Ladda ned valvregistreringsnyckeln. Du behöver den här nyckeln för att köra installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
     ![Ladda ned providern](./media/hyper-v-azure-tutorial/download.png)
     

@@ -1,22 +1,20 @@
 ---
 title: Interaktiv kartsökning med Azure Maps | Microsoft Docs
 description: Snabbstart för Azure – Starta en interaktiv demokartsökning med hjälp av Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599770"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Starta en interaktiv kartsökning med hjälp av Azure Maps
 
@@ -25,14 +23,14 @@ Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ge
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Skapa ett konto och hämta din nyckel
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
-2. Skriv **Maps** i rutan *Sök i Marketplace*.
+2. Skriv **Maps** i rutan *Sök på Marketplace*.
 3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan. 
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     - *Namn* för ditt nya konto. 
@@ -77,3 +75,11 @@ I den här snabbstarten har du skapat ett Maps-konto och startat en demoapp. Om 
 
 > [!div class="nextstepaction"]
 > [Sök efter platser av intresse med Maps](./tutorial-search-location.md)
+
+Fler kodexempel och en interaktiv kodupplevelse finns i Så här-guiderna nedan.
+
+> [!div class="nextstepaction"]
+> [Så här söker du efter adresser med hjälp av Azure Maps REST-API:er](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Så här använder du Azure Maps kartkontroll](./how-to-use-map-control.md)

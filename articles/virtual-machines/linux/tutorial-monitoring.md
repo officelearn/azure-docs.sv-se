@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
+ms.date: 06/06/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4f1dedc83d0d7040a4f7b9760c567437f58dde54
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839664"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier – Övervaka och uppdatera en virtuell Linux-dator i Azure
 
-För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure kan du granska startdiagnostik, prestandastatistik och hantera paketuppdateringar. I den här guiden får du lära dig att:
+För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure kan du granska startdiagnostik, prestandastatistik och hantera paketuppdateringar. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på den virtuella datorn
@@ -43,13 +44,13 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 ## <a name="create-vm"></a>Skapa en virtuell dator
 
-Du behöver en virtuell dator för att kunna se diagnostik och mått i praktiken. Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupMonitor* på platsen *eastus* (Östra USA).
+Du behöver en virtuell dator för att kunna se diagnostik och mått i praktiken. Skapa först en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupMonitor* på platsen *eastus* (Östra USA).
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM*:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -64,7 +65,7 @@ az vm create \
 
 När de virtuella Linux-datorerna startas samlar startdiagnostiktillägget in startutdata och lagrar dem i Azure Storage. Dessa data kan användas för att felsöka startproblem med de virtuella datorerna. Startdiagnostik aktiveras inte automatiskt när du skapar en virtuell Linux-dator med Azure CLI.
 
-Innan du aktiverar startdiagnostik måste du skapa ett lagringskonto för att lagra startloggarna. Lagringskonton måste ha ett globalt unikt namn. Namnet ska vara mellan 3 och 24 tecken och får bara innehålla siffror och gemener. Skapa ett lagringskonto med kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create). I det här exemplet används en slumpmässig sträng för att skapa ett unikt namn på lagringskontot.
+Innan du aktiverar startdiagnostik måste du skapa ett lagringskonto för att lagra startloggarna. Lagringskonton måste ha ett globalt unikt namn. Namnet ska vara mellan 3 och 24 tecken och får bara innehålla siffror och gemener. Skapa ett lagringskonto med kommandot [az storage account create](/cli/azure/storage/account#az-storage-account-create). I det här exemplet används en slumpmässig sträng för att skapa ett unikt namn på lagringskontot.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -82,7 +83,7 @@ När du aktiverar startdiagnostik behöver du URI:en till Blob Storage-behållar
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Nu kan du aktivera startdiagnostik med [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). `--storage`-värdet är den blob-URI som samlades in i föregående steg.
+Nu kan du aktivera startdiagnostik med [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). `--storage`-värdet är den blob-URI som samlades in i föregående steg.
 
 ```azurecli-interactive
 az vm boot-diagnostics enable \
@@ -93,19 +94,19 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Visa startdiagnostik
 
-När startdiagnostik är aktiverat skrivs information om startprocessen till en loggfil varje gång du stoppar och startar den virtuella datorn. I det här exemplet frigör du först den virtuella datorn med kommandot [az vm deallocate](/cli/azure/vm#az_vm_deallocate):
+När startdiagnostik är aktiverat skrivs information om startprocessen till en loggfil varje gång du stoppar och startar den virtuella datorn. I det här exemplet frigör du först den virtuella datorn med kommandot [az vm deallocate](/cli/azure/vm#az-vm-deallocate):
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Sedan startar du den virtuella datorn med kommandot [az vm start]( /cli/azure/vm#az_vm_stop):
+Sedan startar du den virtuella datorn med kommandot [az vm start]( /cli/azure/vm#az-vm-stop):
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Du kan hämta startdiagnostikdata för *myVM* med kommandot [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log):
+Du kan hämta startdiagnostikdata för *myVM* med kommandot [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log):
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -115,24 +116,18 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas i Azure Portal:
 
-1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
-1. Om du vill se status för den virtuella värddatorn klickar du på **Mått** på bladet för den virtuella datorn och väljer något av *[Värd]*-måtten under **Tillgängliga mått**.
+1. I Azure Portal, klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]*-måtten under **Tillgängliga mått**.
 
     ![Visa värdmått](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Installera diagnostiktillägget
 
-> [!IMPORTANT]
-> I det här dokumentet beskrivs version 2.3 av Linux-diagnostiktillägget, som är inaktuellt. Version 2.3 stöds till och med 30 juni 2018.
->
-> Du kan aktivera version 3.0 av Linux-diagnostiktillägget i stället. Mer information finns i [dokumentationen](./diagnostic-extension.md).
-
 Grundläggande värdmått är tillgängliga, men om du vill se mer detaljerade och VM-specifika mått måste du installera Azure-diagnostiktillägget på den virtuella datorn. Med Azure-diagnostiktillägget kan du få ut mer övervaknings- och diagnostikdata från den virtuella datorn. Du kan visa dessa prestandamått och skapa aviseringar baserat på hur det går för den virtuella datorn. Diagnostiktillägget installeras via Azure Portal på följande sätt:
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
-1. Klicka på **Diagnosinställningar**. I listan kan du se att *Startdiagnostik* redan har aktiverats i föregående avsnitt. Markera kryssrutan för *Basmått*.
-1. I avsnittet *Lagringskonto* bläddrar du till och väljer *mydiagdata[1234]*-kontot som skapades i föregående avsnitt.
-1. Klicka på knappen **Spara**.
+1. I Azure Portal: välj **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. Klicka på **diagnosinställningar**. I listrutan *Välj ett lagringskonto* väljer du kontot *mydiagdata [1234]* som har skapats i föregående avsnitt, om du inte redan har gjort det.
+1. Välj **Aktivera övervakning på gästnivå**.
 
     ![Visa diagnostikmått](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -140,8 +135,8 @@ Grundläggande värdmått är tillgängliga, men om du vill se mer detaljerade o
 
 Du kan visa VM-mått på samma sätt som du visade VM-värdmått:
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
-1. Om du vill se hur det går för den virtuella datorn klickar du på **Mått** på bladet för den virtuella datorn och sedan på något av diagnostikmåtten under **Tillgängliga mått**.
+1. I Azure Portal: välj **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+1. Om du vill se hur det går för den virtuella datorn väljer du **Mått** på fönstret för den virtuella datorn och sedan något av diagnostikmåtten *[Guest]* under **Tillgängliga mått**.
 
     ![Visa VM-mått](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -151,12 +146,12 @@ Du kan skapa aviseringar baserat på specifika prestandamått. Aviseringar kan t
 
 I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 
-1. I Azure Portal: Klicka på **Resursgrupper**, välj **myResourceGroup** och välj sedan **myVM** i resurslistan.
-2. Klicka på **Aviseringsregler** på bladet för den virtuella datorn och klicka sedan på **Lägg till metrisk varning** längst upp på aviseringsbladet.
+1. I Azure Portal: välj **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
+2. Välj **Aviseringar (klassisk)**, välj sedan att **Lägg till måttavisering (klassisk)** längst upp i fönstret aviseringar.
 3. Ange ett **namn** för aviseringen, till exempel *myAlertRule*
 4. Om du vill utlösa en avisering när CPU-procenten har varit högre än 1,0 i fem minuter lämnar du alla andra standardinställningar valda.
 5. Du kan också markera kryssrutan för *E-postägare, deltagare och läsare* om du vill skicka ett e-postmeddelande. Standardåtgärden är att visa en avisering i portalen.
-6. Klicka på **OK**.
+6. Välj knappen **OK**.
 
 ## <a name="manage-package-updates"></a>Hantera paketuppdateringar
 
@@ -171,7 +166,7 @@ Så här aktiverar du uppdateringshantering för dina virtuella datorer:
 
 1. Välj **Virtuella datorer** till vänster på skärmen.
 2. Välj en virtuell dator i listan.
-3. Klicka på **Hantering av uppdateringar** i avsnittet **Åtgärder** på VM-skärmen. Skärmen **Aktivera hantering av uppdateringar** visas.
+3. Välj **Hantering av uppdateringar** i avsnittet **Åtgärder** på VM-skärmen. Skärmen **Aktivera hantering av uppdateringar** visas.
 
 Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn.
 Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen är i arbetsytan.
@@ -183,7 +178,7 @@ Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppd
 Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
 Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
 
-Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj Log Analytics-arbetsytan och Automation-kontot och välj **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
@@ -191,7 +186,7 @@ Om några av följande krav saknades under publiceringen läggs de till automati
 * [Automation](../../automation/automation-offering-get-started.md)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
-Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 ![Aktivera lösningen för hantering av uppdateringar](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -207,7 +202,7 @@ När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppda
 
 För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
-Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att klicka på **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
+Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att välja **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
 * **Namn** – Ett unikt namn som identifierar uppdateringsdistributionen.
 * **Uppdatera klassificering** – Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Klassificeringstyper:
@@ -218,13 +213,13 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att k
   ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
 * **Schemainställningar** – Du kan antingen godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid, eller så kan du ange en annan tid.
-  Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Klicka på alternativet Återkommande under Återkommande för att ange ett återkommande schema.
+  Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Välj alternativet Återkommande under Återkommande för att ange ett återkommande schema.
 
   ![Inställningsskärmen för uppdateringsschema](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
 * **Underhållsperiod (minuter)** – Ange den tidsperiod som uppdateringsdistributionen ska utföras inom. På så sätt försäkrar du dig om att ändringarna utförs inom ditt definierade servicefönster.
 
-När du har konfigurerat schemat klickar du på **Skapa**. Därmed återgår du till statusinstrumentpanelen.
+När du har konfigurerat schemat väljer du **Skapa**. Därmed återgår du till statusinstrumentpanelen.
 Observera att tabellen **Schemalagt** visar det distributionsschema som du skapade.
 
 > [!WARNING]
@@ -235,7 +230,7 @@ Observera att tabellen **Schemalagt** visar det distributionsschema som du skapa
 När den schemalagda distributionen startar kan du se status för distributionen på fliken **Uppdateringsdistributioner** på skärmen **Uppdateringshantering**.
 Om distributionen körs visas status **Pågår**. När distributionen har slutförts ändras status till **Lyckades**.
 Om det uppstod något fel med en eller flera uppdateringar i distributionen visas status **Misslyckades delvis**.
-Klicka på den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
+Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
 
 ![Statusinstrumentpanel för Uppdatera distribution för specifik distribution](./media/tutorial-monitoring/manage-updates-view-results.png)
 
@@ -246,11 +241,11 @@ I tabellen till höger visas detaljer för varje uppdatering och installationsre
 * **Lyckades** – Uppdateringen lyckades
 * **Misslyckades** – Uppdateringen misslyckades
 
-Klicka på **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
+Välj **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 
-Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
+Välj panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
 
-Klicka på **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
+Välj **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
 
 ## <a name="monitor-changes-and-inventory"></a>Övervaka ändringar och inventering
 
@@ -262,9 +257,9 @@ Så här aktiverar du ändringsspårning och inventering för din virtuella dato
 
 1. Välj **Virtuella datorer** till vänster på skärmen.
 2. Välj en virtuell dator i listan.
-3. Gå till avsnittet **Åtgärder** och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
+3. Gå till avsnittet **Åtgärder** på VM-skärmen och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
+Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
 ![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -272,7 +267,7 @@ När lösningen har aktiverats kan det dröja en stund medan lagret som samlas i
 
 ### <a name="track-changes"></a>Spåra ändringar
 
-På din virtuella dator väljer du **Ändringsspårning** under **ÅTGÄRDER**. Klicka på **Redigera inställningar**. Sidan **Ändringsspårning** visas. Välj typ av inställning som du vill spåra och klicka sedan på **+ Lägg till** för att konfigurera inställningarna. Det tillgängliga Linux-alternativet är **Linux-filer**
+På din virtuella dator väljer du **Ändringsspårning** under **ÅTGÄRDER**. Välj **Redigera inställningar**. Sidan **Ändringsspårning** visas. Välj typ av inställning som du vill spåra och klicka sedan på **+ Lägg till** för att konfigurera inställningarna. Det tillgängliga Linux-alternativet är **Linux-filer**
 
 Mer information om ändringsspårning finns i [Felsöka ändringar på en virtuell dator](../../automation/automation-tutorial-troubleshoot-changes.md)
 

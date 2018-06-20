@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dff6af6a68dcc454877532c3d6f06cb86e6fe897
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 470e938aa4ef70f9682528003ccdaba2ef6cc013
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839698"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Självstudier – Hantera Azure-diskar med Azure CLI 2.0
 
-Azure Virtual Machines använder diskar för att lagra de virtuella datorernas operativsystem, program och data. När du skapar en virtuell dator är det viktigt att du väljer en diskstorlek och konfiguration som motsvarar den förväntade arbetsbelastningen. Den här kursen visar hur du distribuerar och hanterar VM-diskar. Du får lära dig om:
+Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datorernas operativsystem, program och data. När du skapar en virtuell dator är det viktigt att du väljer en diskstorlek och konfiguration som motsvarar den förväntade arbetsbelastningen. Den här kursen visar hur du distribuerar och hanterar diskar för virtuella datorer. Du får lära dig om:
 
 > [!div class="checklist"]
 > * OS-diskar och temporära diskar
@@ -37,41 +38,41 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
 
-När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den virtuella datorn. 
+När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den virtuella datorn.
 
-**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 1 TB och innehåller de virtuella datorernas operativsystem. Operativsystemdisken kallas som standard */dev/sda*. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. Därför bör OS-disken **inte** innehålla program eller data. För program och data använder du datadiskar som beskrivs senare i den här artikeln. 
+**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 2 TB och innehåller de virtuella datorernas operativsystem. Operativsystemdisken kallas som standard */dev/sda*. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. Därför bör OS-disken **inte** användas för program eller data. För program och data använder du datadiskar som beskrivs senare i den här guiden.
 
 **Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av VM-storleken. Temporära diskar kallas */dev/sdb* och har monteringspunkten */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Storlekar för temporära diskar
 
-| Typ | Storlek på virtuell dator | Maxstorlek för temporär disk (GB) |
+| Typ | Normala storlekar | Maxstorlek för temporär disk (GiB) |
 |----|----|----|
-| [Generellt syfte](sizes-general.md) | A- och D-serien | 800 |
-| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 800 |
-| [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md) | D- och G-serien | 6144 |
-| [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md) | L-serien | 5630 |
+| [Generellt syfte](sizes-general.md) | A-, B- och D-serien | 1600 |
+| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 576 |
+| [Minnesoptimerad](sizes-memory.md) | D-, E-, G- och M-serien | 6144 |
+| [Lagringsoptimerad](sizes-storage.md) | L-serien | 5630 |
 | [GPU](sizes-gpu.md) | N-serien | 1440 |
 | [Höga prestanda](sizes-hpc.md) | A- och H-serien | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 
-Du kan lägga till ytterligare datadiskar för att installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 1 terabyte. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Två datadiskar kan kopplas för varje VM vCPU. 
+Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Två datadiskar kan kopplas för varje VM vCPU.
 
 ### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
 
 | Typ | Storlek på virtuell dator | Maximalt antal datadiskar per VM |
 |----|----|----|
-| [Generellt syfte](sizes-general.md) | A- och D-serien | 32 |
-| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 32 |
-| [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md) | D- och G-serien | 64 |
+| [Generellt syfte](sizes-general.md) | A-, B- och D-serien | 64 |
+| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 64 |
+| [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md) | D-, E- och G-serien | 64 |
 | [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md) | L-serien | 64 |
-| [GPU](sizes-gpu.md) | N-serien | 48 |
-| [Höga prestanda](sizes-hpc.md) | A- och H-serien | 32 |
+| [GPU](sizes-gpu.md) | N-serien | 64 |
+| [Höga prestanda](sizes-hpc.md) | A- och H-serien | 64 |
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 
@@ -83,15 +84,15 @@ Standard Storage stöds av hårddiskar och levererar kostnadseffektiv lagring sa
 
 ### <a name="premium-disk"></a>Premiumdiskar
 
-Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Premium Storage stöder virtuella datorer i DS-serien, DSv2-serien GS-serien och FS-serien. Det finns tre typer av Premiumdiskar (P10, P20 och P30). Storleken på disken bestämmer disktypen. När du gör ditt val avrundas diskstorleken uppåt till nästa typ. Om diskstorleken till exempel är mindre än 128 GB är disktypen P10. Om disktypen är mellan 129 GB och 512 GB är storleken P20. För allt över 512 GB är storleken P30.
+Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Premium Storage stöder virtuella datorer i DS-serien, DSv2-serien GS-serien och FS-serien. När du väljer en diskstorlek, avrundas värdet uppåt till nästa typ. Om diskstorleken till exempel är mindre än 128 GB är disktypen P10. Om disktypen är mellan 129 GB och 512 GB är storleken P20. Över 512 GB är storleken en P30.
 
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 
-|Premium Storage-disktyp | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Diskens storlek (avrundas uppåt) | 128 GB | 512 GB | 1 024 GB (1 TB) |
-| Högsta IOPS per disk | 500 | 2 300 | 5 000 |
-Dataflöde per disk | 100 MB/s | 150 MB/s | 200 MB/s |
+|Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
+| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
+Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. En Standard_GS5 virtuell dator kan till exempel uppnå maximalt 80 000 IOPS. Mer information om högsta IOPS per VM finns i [Storlekar för virtuella Linux-datorer](sizes.md).
 
@@ -101,13 +102,13 @@ Datadiskar kan skapas och kopplas när den virtuella datorn skapas eller kopplas
 
 ### <a name="attach-disk-at-vm-creation"></a>Koppla diskar när den virtuella datorn skapas
 
-Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create).
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Skapa en virtuell dator med kommandot [az vm create]( /cli/azure/vm#az_vm_create). Följande exempel skapar virtuell dator med namnet *myVM*, lägger till ett användarkonto med namnet *azureuser* och genererar SSH-nycklar om de inte redan finns. Argumentet `--datadisk-sizes-gb` används för att ange att ytterligare en disk ska skapas och kopplas till den virtuella datorn. Om du vill skapa och koppla fler än en disk använder du en lista med diskstorlekar separerade med mellanslag. I följande exempel skapas en virtuell dator med två datadiskar som båda är 128 GB. Eftersom diskstorleken är 128 GB konfigureras båda diskarna som P10, vilket ger maximalt 500 IOPS per disk.
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az-vm-create). Följande exempel skapar virtuell dator med namnet *myVM*, lägger till ett användarkonto med namnet *azureuser* och genererar SSH-nycklar om de inte redan finns. Argumentet `--datadisk-sizes-gb` används för att ange att ytterligare en disk ska skapas och kopplas till den virtuella datorn. Om du vill skapa och koppla fler än en disk använder du en lista med diskstorlekar separerade med mellanslag. I följande exempel skapas en virtuell dator med två datadiskar som båda är 128 GB. Eftersom diskstorleken är 128 GB konfigureras båda diskarna som P10, vilket ger maximalt 500 IOPS per disk.
 
 ```azurecli-interactive
 az vm create \
@@ -122,10 +123,16 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>Koppla diskar till befintliga virtuella datorer
 
-Skapa och koppla en ny disk till en befintlig virtuell dator med kommandot [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). Följande exempel skapar en premiumdisk på 128 gigabyte och kopplar den till den virtuella dator som skapades i föregående steg.
+Skapa och koppla en ny disk till en befintlig virtuell dator med kommandot [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach). Följande exempel skapar en premiumdisk på 128 gigabyte och kopplar den till den virtuella dator som skapades i föregående steg.
 
-```azurecli-interactive 
-az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
+```azurecli-interactive
+az vm disk attach \
+    --resource-group myResourceGroupDisk \
+    --vm-name myVM \
+    --disk myDataDisk \
+    --size-gb 128 \
+    --sku Premium_LRS \
+    --new
 ```
 
 ## <a name="prepare-data-disks"></a>Förbereda datadiskar
@@ -136,8 +143,8 @@ När en disk har kopplats till den virtuella datorn måste operativsystemet konf
 
 Skapa en SSH-anslutning med den virtuella datorn. Ersätt exempel-IP-adressen med den offentliga IP-adressen för den virtuella datorn.
 
-```azurecli-interactive 
-ssh 52.174.34.95
+```azurecli-interactive
+ssh azureuser@52.174.34.95
 ```
 
 Partitionera disken med `fdisk`.
@@ -158,7 +165,7 @@ Montera den nya disken så den är tillgänglig i operativsystemet.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-Disken kan nu kommas åt via monteringspunkten *datadrive* som kan verifieras med kommandot `df -h`. 
+Disken kan nu kommas åt via monteringspunkten *datadrive* som kan verifieras med kommandot `df -h`.
 
 ```bash
 df -h
@@ -199,87 +206,97 @@ exit
 
 ## <a name="resize-vm-disk"></a>Ändra storlek på VM-disk
 
-När en virtuell dator distribuerats går det att öka storleken på operativsystemdisken och kopplade datadiskar. Att öka diskstorleken är ett bra alternativ när du behöver mer lagringsutrymme eller högre prestanda (P10, P20, P30). Det går inte att göra diskar mindre.
+När en virtuell dator distribuerats går det att öka storleken på operativsystemdisken och kopplade datadiskar. Att öka diskstorleken är ett bra alternativ när du behöver mer lagringsutrymme eller högre prestanda (till exempel P10, P20, P30). Det går inte att göra diskar mindre.
 
-Innan du ökar storleken på en disk behöver du dess ID eller namn. Använd kommandot [az disk list](/cli/azure/disk#az_disk_list) som returnerar alla diskar i en resursgrupp. Anteckna namnet på disken du vill öka storlek på.
+Innan du ökar storleken på en disk behöver du dess ID eller namn. Använd kommandot [az disk list](/cli/azure/disk#az-disk-list) som returnerar alla diskar i en resursgrupp. Anteckna namnet på disken du vill öka storlek på.
 
-```azurecli-interactive 
-az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+```azurecli-interactive
+az disk list \
+    --resource-group myResourceGroupDisk \
+    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
+    --output table
 ```
 
-Den virtuella datorn måste frigöras för att kunna utföra förändringen. Använd kommandot [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) för att stoppa och frigöra den virtuella datorn.
+Den virtuella datorn måste frigöras för att kunna utföra förändringen. Använd kommandot [az vm deallocate](/cli/azure/vm#az-vm-deallocate) för att stoppa och frigöra den virtuella datorn.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Använd kommandot [az disk update](/cli/azure/vm/disk#az_vm_disk_update) för att ändra diskens storlek. Det här exemplet ändrar storleken på en disk med namnet *myDataDisk* till 1 terabyte.
+Använd kommandot [az disk update](/cli/azure/vm/disk#az-vm-disk-update) för att ändra diskens storlek. Det här exemplet ändrar storleken på en disk med namnet *myDataDisk* till 1 terabyte.
 
-```azurecli-interactive 
+```azurecli-interactive
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 Starta den virtuella datorn när du utfört storleksändringen.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Om du ändrat storlek på operativsystemdisken utökas partitionen automatiskt. Om du ändrat storlek på en datadisk måste alla befintliga partitioner utökas i den virtuella datorns operativsystem.
+Om du har ändrat storlek på operativsystemdisken utökas partitionen automatiskt. Om du har ändrat storlek på en datadisk måste alla befintliga partitioner utökas i den virtuella datorns operativsystem.
 
 ## <a name="snapshot-azure-disks"></a>Ögonblicksbilder av Azure-diskar
 
-En ögonblicksbild skapar en skrivskyddad kopia av disken vid en viss tidpunkt. Ögonblicksbilder av virtuella Azure-datorer är användbara för att snabbt spara tillståndet hos en virtuell dator innan ändringar i konfigurationen. Om konfigurationsändringarna inte fungerar som de ska kan den virtuella datorn återställas med ögonblicksbilden. När en virtuell dator har mer än en disk tas en ögonblicksbild av varje disk oberoende av de andra. Om programkonsekventa säkerhetskopior krävs bör den virtuella datorn stoppas innan ögonblicksbilder tas. Ett annat alternativ är att använda [Azure Backup-tjänsten](/azure/backup/) som ger möjlighet till automatiserade säkerhetskopior medan den virtuella datorn körs.
+När du tar en ögonblicksbild skapar Azure en skrivskyddad kopia av disken vid en viss tidpunkt. Ögonblicksbilder av virtuella Azure-datorer är användbara för att snabbt spara tillståndet hos en virtuell dator innan ändringar i konfigurationen. Om konfigurationsändringarna inte fungerar som de ska kan den virtuella datorn återställas med ögonblicksbilden. När en virtuell dator har mer än en disk tas en ögonblicksbild av varje disk oberoende av de andra. Om programkonsekventa säkerhetskopior krävs bör den virtuella datorn stoppas innan ögonblicksbilder tas. Ett annat alternativ är att använda [Azure Backup-tjänsten](/azure/backup/) som ger möjlighet till automatiserade säkerhetskopior medan den virtuella datorn körs.
 
 ### <a name="create-snapshot"></a>Skapa en ögonblicksbild
 
-Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) för att hämta diskens ID. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
+Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [az vm show](/cli/azure/vm#az-vm-show) för att hämta diskens ID. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
 
-```azurecli-interactive 
+```azurecli-interactive
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
 När du har diskens ID skapar du en ögonblicksbild av disken med följande kommando.
 
 ```azurcli
-az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-backup
+az snapshot create \
+    --resource-group myResourceGroupDisk \
+    --source "$osdiskid" \
+    --name osDisk-backup
 ```
 
 ### <a name="create-disk-from-snapshot"></a>Skapa en disk från en ögonblicksbild
 
 Ögonblicksbilden kan omvandlas till en disk som kan användas för att återskapa den virtuella datorn.
 
-```azurecli-interactive 
+```azurecli-interactive
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Återställa en virtuell dator från en ögonblicksbild
 
-För att demonstrera återställning av en virtuell dator tar du bort den virtuella datorn. 
+För att demonstrera återställning av en virtuell dator tar du bort den virtuella datorn.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
 Skapa en ny virtuell dator från ögonblicksbilddisken.
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupDisk \
+    --name myVM \
+    --attach-os-disk mySnapshotDisk \
+    --os-type linux
 ```
 
 ### <a name="reattach-data-disk"></a>Koppla datadisken
 
 Alla datadiskar måste kopplas till den virtuella datorn.
 
-Ta först reda på datadiskens namn med kommandot [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). Det här exemplet sparar diskens namn i variabeln *datadisk* som används i nästa steg.
+Ta först reda på datadiskens namn med kommandot [az disk list](/cli/azure/disk#az-disk-list). Det här exemplet sparar diskens namn i variabeln *datadisk* som används i nästa steg.
 
-```azurecli-interactive 
+```azurecli-interactive
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Använd kommandot [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) för att koppla disken till den virtuella datorn.
+Använd kommandot [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) för att koppla disken till den virtuella datorn.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 

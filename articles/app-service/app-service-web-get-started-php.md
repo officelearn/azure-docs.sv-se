@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597764"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
@@ -104,7 +105,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 }
 ```
 
-Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till webbappen som precis skapades. Ersätt  _&lt;appnamn >_ med ditt unika appnamn som skapades i föregående steg.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -186,7 +187,7 @@ Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande ha
 
 ![App Service-sidan på Azure Portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+Menyn till vänster innehåller olika alternativ för att konfigurera appen. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

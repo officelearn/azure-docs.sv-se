@@ -3,8 +3,8 @@ title: Skapa en Node.js i Azure App Service i Linux | Microsoft Docs
 description: Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: syntaxc4
+author: msangapu
+manager: cfowler
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cephalin
+ms.date: 06/07/2017
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: a2643e65b74f44ee05001d5df26c7c77a430fbb2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293912"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
 
@@ -27,114 +28,119 @@ ms.lasthandoff: 03/16/2018
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js-webbapp i Azure](../app-service-web-get-started-nodejs.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Node.js-app till App Service i Linux med hjälp av en inbyggd avbildning. Du skapar webbappen med inbyggd avbildning med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). Använd Git för att distribuera Node.js-koden till webbappen.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar ett Node.js-program till App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+
+Du måste slutföra denna snabbstart i Cloud Shell, men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Du kan följa stegen i den här självstudien på en Mac-, Windows- eller Linux-dator. Du kan även följa med i [videon](#video) som hör till artikeln.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-För att slutföra den här snabbstarten behöver du:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Installera webbprogramtillägget för Cloud Shell
 
-* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://nodejs.org/" target="_blank">Installera Node.js och NPM</a>
+För att slutföra den här snabbstarten måste du lägga till [az-webbprogramtillägget](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Om tillägget redan är installerat måste du uppdatera det till den senaste versionen. Skriv `az extension update -n webapp` för att uppdatera webbprogramtillägget.
+
+Kör följande kommando om du vill installera webbprogramtillägget:
+
+```bash
+az extension add -n webapp
+```
+
+När du har installerat tillägget visar Cloud Shell information i följande exempel:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando i ett terminalfönster på din dator för att klona databasen för exempelappen till den lokala datorn.
+Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Du använder det här terminalfönstret för att köra alla kommandon i den här snabbstarten.
-
-Ändra till den katalog som innehåller exempelkoden.
+Medan det körs visas information liknande den i följande exempel:
 
 ```bash
-cd nodejs-docs-hello-world
-```
-
-## <a name="run-the-app-locally"></a>Köra appen lokalt
-
-Kör programmet lokalt genom att öppna ett terminalfönster och använda `npm start`-skriptet för att starta den inbyggda Node.js HTTP-servern.
-
-```bash
-npm start
-```
-
-Öppna en webbläsare och navigera till exempelappen på `http://localhost:1337`.
-
-Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
-
-![Exempelapp som körs lokalt](media/quickstart-nodejs/localhost-hello-world-in-browser.png)
-
-Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
-
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+Cloning into 'nodejs-docs-hello-world'...
+remote: Counting objects: 40, done.
+remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
+Unpacking objects: 100% (40/40), done.
+Checking connectivity... done.
+````
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
+Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-Bläddra till webbappen som precis skapades. Ersätt _&lt;app name>_ med namnet på din webbapp.
-
-```bash
-http://<app name>.azurewebsites.net
-```
-
-Så här bör din nya webbapp se ut:
-
-![Sida för tom webbapp](media/quickstart-nodejs/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+Ersätt <app_name> med ett unikt programnamn i följande exempel.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+cd nodejs-docs-hello-world
+
+az webapp up -n <app_name>
 ```
+
+Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
+
+```json
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Updating app settings to enable build after deployment
+Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
+Preparing to deploy and build contents to app.
+Fetching changes.
+
+Generating deployment script.
+Generating deployment script.
+Generating deployment script.
+Running deployment command...
+Running deployment command...
+Running deployment command...
+Deployment successful.
+All done.
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "STANDARD",
+  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
+  "version_detected": "6.9",
+  "version_to_create": "node|6.9"
+}
+```
+
+Kommandot `az webapp up` utför följande åtgärder:
+
+- Skapa en standardresursgrupp.
+
+- Skapa en standard App Service-plan.
+
+- Skapa ett program med det givna namnet.
+
+- [Zip-distribuera](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-Bläddra till den distribuerade appen via webbläsaren.
+Bläddra till den distribuerade appen via webbläsaren. Ersätt <app name> med namnet på ditt webbprogram.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -148,20 +154,25 @@ Node.js-exempelkoden körs i en webbapp med inbyggd avbildning.
 
 ## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
-Öppna filen `index.js` i Node.js-appen i den lokala katalogen och gör små ändringar i texten i anropet till `response.end`:
+I Cloud Shell skriver du `nano index.js` för att öppna nanotextredigerare.
+
+![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+
+ Gör en mindre ändring i texten i anropet till `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Spara ändringarna på Git och skicka sedan kodändringarna till Azure.
+Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara och `^X` för att avsluta.
+
+Distribuera nu om programmet. Ersätt `<app_name>` med ditt webbprogram.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera.
+När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
@@ -169,21 +180,25 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Nu visas sidan Översikt för din webbapp. Här kan du slutföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-sidan på Azure Portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 
-Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Rensa resurser
 
-## <a name="video"></a>Video
+I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resursgruppen från Cloud Shell. Om du har ändrat regionen uppdaterar du resursgruppens namn `appsvc_rg_Linux_CentralUS` till resursgruppen som är specifik för ditt program.
 
->[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
+```azurecli-interactive
+az group delete --name appsvc_rg_Linux_CentralUS
+```
+
+Det kan några minuter att köra kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 

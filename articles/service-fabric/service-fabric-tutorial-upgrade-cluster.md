@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642843"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Självstudieguide: uppgradera körningen av ett Service Fabric-kluster
 
@@ -30,7 +31,7 @@ Den här guiden är del tre i en serie. Den visar hur du uppgraderar körningen 
 
 Om klustret redan körs med senaste Service Fabric-körningen behöver du inte genomföra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * läser klusterversionen
@@ -97,7 +98,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > Uppgraderingen av klusterkörningen kan ta lång tid att slutföra. PowerShell blockeras när uppgraderingen körs. Du kan använda en annan PowerShell-session för att kontrollera uppgraderingens status.
 
-Status för uppgraderingen kan övervakas med antingen PowerShell eller CLI `sfctl`.
+Status för uppgraderingen kan övervakas med antingen PowerShell eller Azure Service Fabrix CLI (sfctl).
 
 Börja med att ansluta till klustret med SSL-certifikatet som skapades i den första delen av kursen. Använd cdmlet `Connect-ServiceFabricCluster` eller `sfctl cluster upgrade-status`.
 

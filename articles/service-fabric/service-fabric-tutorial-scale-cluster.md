@@ -15,17 +15,18 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642707"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Självstudiekurs: Skala ett Service Fabric-kluster
 
 Det här är den andra delen i en kurs. I den här delen visas hur du skalar ut och in ditt befintliga kluster. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Läser antalet klusternoder
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Nu när du är ansluten kan använda du ett kommando för att hämta status för varje nod i klustret. I PowerShell använder du kommandot `Get-ServiceFabricClusterHealth` och för **sfctl** använder du kommandot `sfctl cluster select`.
+Nu när du är ansluten kan använda du ett kommando för att hämta status för varje nod i klustret. I **PowerShell** använder du kommandot `Get-ServiceFabricClusterHealth` och i **sfctl** använder du kommandot `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Skala ut
 
@@ -131,15 +132,15 @@ Service Fabric-klustret måste informeras om att noden ska tas bort. Du måste g
 
 1. Inaktivera noden så att den inte längre är en replik av data.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Stoppa noden så att Service Fabric-körningen får en ren avstängning och appen får en avslutningsbegäran.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Ta bort noden från klustret.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 När du har utfört dessa steg för noden kan du ta bort den från skalningsuppsättningen. Om du har någon annan hållbarhetsnivå än [Brons][durability] görs dessa steg åt dig när instansen av skalningsuppsättningen tas bort.
 

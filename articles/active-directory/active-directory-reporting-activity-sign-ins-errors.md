@@ -3,25 +3,25 @@ title: Rapporter om inloggningfelkoder i Azure Active Directory-portalen | Micro
 description: Referens för felkoder för inloggningsaktivitet.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698517"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232548"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -65,13 +65,13 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |40008|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
 |40009|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
 |40014|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
-|50000|Det är problem med vår inloggningstjänst. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) för att lösa problemet.|
+|50000|Det är problem med vår inloggningstjänst. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) för att lösa problemet.|
 |50001|Tjänstens huvudnamn hittades inte i den här klientorganisationen. Detta kan hända om programmet inte har installerats av administratören för klientorganisationen. Alternativt kunde huvudresursen inte hittas i katalogen eller är ogiltig.|
 |50002|Inloggningen misslyckades på grund av begränsad proxy-åtkomst på klientorganisationen. Om det är din egen klientorganisationsprincip kan du åtgärda problemet genom att ändra inställningarna för den begränsade klientorganisationen|
 |50003|Inloggningen misslyckades på grund av att signeringsnyckel eller certifikat saknas. Detta kan bero på att ingen signeringsnyckel konfigurerats i programmet. Läs igenom lösningarna som beskrivs i [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Kontakta programägaren eller appadministratören om du fortfarande har problem|
 |50005|Användaren försökte logga in på en enhet från en plattform som för närvarande inte stöds av principen för villkorlig åtkomst|
 |50006| Signaturverifieringen misslyckades på grund av en ogiltig signatur. Se lösningen som beskrivs i [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Kontakta programägaren eller appadministratören om du fortfarande har problem|
-|50007|Partnerkrypteringscertifikatet hittades inte för det här programmet. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) hos Microsoft för att lösa detta|
+|50007|Partnerkrypteringscertifikatet hittades inte för det här programmet. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) hos Microsoft för att lösa detta|
 |50008|SAML-kontrollen saknas eller är felkonfigurerad i token. Kontakta den federerade providern.|
 |50010|Verifiering av målgrupps-URI för programmet misslyckades eftersom ingen tokenmålgrupp har konfigurerats. Kontakta programägaren|
 |50011|Svarsadressen saknas, är felkonfigurerad eller matchar inte svarsadresserna som har konfigurerats för programmet. Prova att använda lösningen som listas vid [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Kontakta programägaren eller appadministratören om du fortfarande har problem|
@@ -114,8 +114,8 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50133|Sessionen är ogiltig på grund av förfallotid eller lösenordsändring.|
 |50135|Lösenordet måste ändras på grund av risken för kontot|
 |50136|Omdirigera MSA-session till en app – enkel MSA-session har identifierats |
-|50140|Det här felet uppstod på grund av att den kontinuerliga inloggningen avbröts när användaren loggade in. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
-|50143|Felaktig matchning av session – sessionen är ogiltig eftersom användarens klientorganisation inte matchar domäntipset på grund av en annan resurs. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information.|
+|50140|Det här felet uppstod på grund av att den kontinuerliga inloggningen avbröts när användaren loggade in. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
+|50143|Felaktig matchning av session – sessionen är ogiltig eftersom användarens klientorganisation inte matchar domäntipset på grund av en annan resurs. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information.|
 |50144|Användarens Active Directory-lösenord har upphört att gälla. Skapa ett nytt lösenord för användaren eller låt slutanvändaren använda verktyget för återställning själv|
 |50146|Det här programmet måste konfigureras med en programspecifik signeringsnyckel. Det har antingen inte konfigurerats med en sådan eller så har nyckeln upphört att gälla/är inte giltig än. Kontakta programägaren|
 |50148|Code_verifier matchar inte code_challenge som anges i autentiseringsbegäran för PKCE. Kontakta apputvecklaren. |
@@ -150,7 +150,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |70007|Programmet returnerade ett värde som inte stöds av "response_mode" när du begär en token. Kontakta appägaren|
 |70008|Den angivna autentiseringskoden eller uppdateringstoken har upphört att gälla – återkallad. Låt användaren prova att logga in igen|
 |70011|Omfånget som programmet begärde är ogiltigt. Kontakta programägaren|
-|70012|Ett serverfel uppstod under autentisering av en MSA-användare (konsument). Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](active-directory-troubleshooting-support-howto.md) |
+|70012|Ett serverfel uppstod under autentisering av en MSA-användare (konsument). Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Ogiltig verifieringskod på grund av att användaren skriver in fel användarkod för kodflödet för enheten. Autentiseringen godkänns inte|
 |70019|Verifieringskoden har upphört att gälla. Låt användaren prova att logga in igen|
 |70037|Felaktigt utmaningssvar har angetts. Fjärrsessionen för autentisering nekad.|
@@ -161,15 +161,15 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |75011|Autentiseringsmetoden som användaren autentiserades med för tjänsten matchar inte den begärda autentiseringsmetoden. Kontakta appägaren|
 |75016|SAML2-autentiseringsbegäran har ogiltig NameIdPolicy. Kontakta appägaren|
 |80001|Det gick inte att ansluta autentiseringsagenten till Active Directory. Kontrollera att autentiseringsagenten är installerad på en domänansluten dator som har åtkomst till en DC som kan hantera inloggningen av användaren.|
-|80002|Internt fel. Tidsgränsen uppnåddes för begäran av lösenordsverifiering. Det gick inte att skicka autentiseringsbegäran till den interna Hybrid Identity-tjänsten. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) för att få mer information om felet|
-|80003|Ogiltigt svar har tagits emot av autentiseringsagenten. Ett okänt fel uppstod vid autentiseringen mot Active Directory lokalt. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
-|80005|Autentiseringsagent: Ett okänt fel uppstod under bearbetningen av svaret från autentiseringsagenten. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
+|80002|Internt fel. Tidsgränsen uppnåddes för begäran av lösenordsverifiering. Det gick inte att skicka autentiseringsbegäran till den interna Hybrid Identity-tjänsten. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet|
+|80003|Ogiltigt svar har tagits emot av autentiseringsagenten. Ett okänt fel uppstod vid autentiseringen mot Active Directory lokalt. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
+|80005|Autentiseringsagent: Ett okänt fel uppstod under bearbetningen av svaret från autentiseringsagenten. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
 |80007|Autentiseringsagenten kunde inte verifiera användarens lösenord.|
 |80010|Autentiseringsagenten kan inte dekryptera lösenordet. |
 |80011|Autentiseringsagenten kunde inte hämta krypteringsnyckeln.|
 |80012|Användarna försökte logga in utanför tillåtet tidsintervall (anges i AD)|
 |80013|Autentiseringsförsöket kunde inte slutföras på grund av tidsförskjutning mellan den dator som kör autentiseringsagenten och AD. Åtgärda problem med synkronisering av tid|
-|80014|Tidsgränsen uppnåddes för autentiseringsagenten. [Skapa ett supportärende](active-directory-troubleshooting-support-howto.md) med felkod, korrelations-ID och datum för att få mer information|
+|80014|Tidsgränsen uppnåddes för autentiseringsagenten. [Skapa ett supportärende](fundamentals/active-directory-troubleshooting-support-howto.md) med felkod, korrelations-ID och datum för att få mer information|
 |81001|Användarens Kerberos-biljett är för stor. Detta kan inträffa om användaren har för många grupper och Kerberos-biljetten därmed innehåller för många gruppmedlemskap. Minska användarens gruppmedlemskap och försök igen.|
 |81005|Autentiseringspaketet stöds inte|
 |81007|Klienten har inte aktiverats för sömlös SSO|

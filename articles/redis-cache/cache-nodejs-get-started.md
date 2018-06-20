@@ -1,38 +1,41 @@
 ---
-title: "Så här använder du Azure Redis Cache med Node.js | Microsoft Docs"
-description: "Kom igång med Azure Redis Cache med hjälp av Node.js och node_redis."
+title: Snabbstart som lär dig hur du använder Azure Redis Cache med Node.js | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du använder Azure Redis Cache med Node.js och node_redis.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/21/2018
 ms.author: wesmc
-ms.openlocfilehash: e8b4818ad2b876ce4d55cf8aa2aa0e0162dea963
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.custom: mvc
+ms.openlocfilehash: 8f71feb610884af29bdfbf170cfc411f32c50233
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640856"
 ---
-# <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Så här använder du Azure Redis Cache med Node.js
-> [!div class="op_single_selector"]
-> * [NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+# <a name="quickstart-how-to-use-azure-redis-cache-with-nodejs"></a>Snabbstart: Så här använder du Azure Redis Cache med Node.js
+
+
 
 Azure Redis Cache ger dig tillgång till en säker och dedikerad Redis-cache som hanteras av Microsoft. Din cache är tillgänglig från alla program i Microsoft Azure.
 
 I det här avsnittet visar vi hur du kommer igång med Azure Redis Cache med Node.js. 
+
+Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+
+![Cache-appen har slutförts](./media/cache-nodejs-get-started/cache-app-complete.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Installera [node_redis](https://github.com/mranney/node_redis):
@@ -41,48 +44,119 @@ Installera [node_redis](https://github.com/mranney/node_redis):
 
 Den här självstudien använder [node_redis](https://github.com/mranney/node_redis). Exempel på användning av andra Node.js-klienter finns i dokumentationen till enskilda Node.js-klienter som anges i [Node.js Redis-klienter](http://redis.io/clients#nodejs).
 
-## <a name="create-a-redis-cache-on-azure"></a>Skapa en Redis-cache på Azure
+
+## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>Hämta värdnamn och åtkomstnycklar
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-## <a name="connect-to-the-cache-securely-using-ssl"></a>Ansluta till cache på ett säkert sätt med hjälp av SSL
-De senaste build-versionerna av [node_redis](https://github.com/mranney/node_redis) ger stöd för att ansluta till Azure Redis Cache med hjälp av SSL. I följande exempel visas hur du ansluter till Azure Redis Cache med hjälp av SSL-slutpunkten 6380. Ersätt `<name>` med namnet på din cache och `<key>` med antingen en primär eller sekundär nyckel som beskrivs i föregående avsnitt, [Hämta värdnamn och åtkomstnycklar](#retrieve-the-host-name-and-access-keys).
 
-     var redis = require("redis");
+Lägg till miljövariabler för **HOST NAME** och **primär** åtkomstnyckel. Du använder dessa variabler från din kod i stället för att inkludera den känsliga informationen direkt i koden.
 
-      // Add your cache name and access key.
-    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+```
+set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
+set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
 
-> [!NOTE]
-> Icke-SSL-porten har inaktiverats för nya Azure Redis Cache-instanser. Om du använder en annan klient som inte har stöd för SSL kan du läsa [Aktivera icke-SSL-porten](cache-configure.md#access-ports) (på engelska).
-> 
-> 
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Lägg till något i cachen och hämta det
-I följande exempel visas hur du ansluter till en Azure Redis Cache-instans och lagrar och hämtar ett objekt från cachen. Fler exempel på hur du använder Redis med [node_redis](https://github.com/mranney/node_redis)-klienten finns på [http://redis.js.org/](http://redis.js.org/).
+## <a name="connect-to-the-cache"></a>Ansluta till cachen
 
-     var redis = require("redis");
+De senaste build-versionerna av [node_redis](https://github.com/mranney/node_redis) ger stöd för att ansluta till Azure Redis Cache med hjälp av SSL. I följande exempel visas hur du ansluter till Azure Redis Cache med hjälp av SSL-slutpunkten 6380. 
 
-      // Add your cache name and access key.
-    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+```js
+var redis = require("redis");
 
-    client.set("key1", "value", function(err, reply) {
-            console.log(reply);
-        });
+// Add your cache name and access key.
+var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
+    {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
+```
 
-    client.get("key1",  function(err, reply) {
-            console.log(reply);
-        });
+Skapa inte nya anslutningar för alla åtgärder i koden. Återanvänd istället anslutningar så mycket som möjligt. 
 
-Resultat:
+## <a name="create-a-new-nodejs-app"></a>Skapa en ny Node.js-app
 
-    OK
-    value
+Skapa en ny skriptfil med namnet *redistest.js*.
+
+Lägg till följande JavaScript-exempel i filen. Den här koden visar hur du ansluter till en Azure Redis Cache-instans med hjälp av cache-värdnamnet och viktiga miljövariabler. Koden lagrar och hämtar även ett strängvärde i cacheminnet. Kommandona `PING` och `CLIENT LIST` körs också. Fler exempel på hur du använder Redis med [node_redis](https://github.com/mranney/node_redis)-klienten finns på [http://redis.js.org/](http://redis.js.org/).
+
+```js
+var redis = require("redis");
+var bluebird = require("bluebird");
+
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
+
+async function testCache() {
+
+    // Connect to the Redis cache over the SSL port using the key.
+    var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
+        {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
+        
+    // Perform cache operations using the cache connection object...
+
+    // Simple PING command
+    console.log("\nCache command: PING");
+    console.log("Cache response : " + await cacheConnection.pingAsync());
+
+    // Simple get and put of integral data types into the cache
+    console.log("\nCache command: GET Message");
+    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
+
+    console.log("\nCache command: SET Message");
+    console.log("Cache response : " + await cacheConnection.setAsync("Message",
+        "Hello! The cache is working from Node.js!"));    
+
+    // Demostrate "SET Message" executed as expected...
+    console.log("\nCache command: GET Message");
+    console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
+
+    // Get the client list, useful to see if connection list is growing...
+    console.log("\nCache command: CLIENT LIST");
+    console.log("Cache response : " + await cacheConnection.clientAsync("LIST"));    
+}
+
+testCache();
+```
+
+Kör skriptet med Node.js.
+
+```
+node redistest.js
+```
+
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+
+![Cache-appen har slutförts](./media/cache-nodejs-get-started/cache-app-complete.png)
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du har skapat i den här självstudien och använda dem igen.
+
+Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
+
+> [!IMPORTANT]
+> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+>
+
+Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+
+![Ta bort](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
+
+Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktivera cachediagnostik](cache-how-to-monitor.md#enable-cache-diagnostics) så att du kan [övervaka](cache-how-to-monitor.md) hälsotillståndet för cacheminnet.
-* Läs den officiella [Redis-dokumentationen](http://redis.io/documentation).
+
+I den här snabbstarten du har lärt dig hur du använder Azure Redis Cache från ett Node.js-program. Fortsätta till nästa snabbstart om du vill använda Redis Cache med en ASP.NET-webbapp.
+
+> [!div class="nextstepaction"]
+> [Skapa en ASP.NET-webbapp som använder Azure Redis Cache.](./cache-web-app-howto.md)
+
+
 

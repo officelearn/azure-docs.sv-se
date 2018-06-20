@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure Files Backup
+title: Felsöka säkerhetskopiering av Azure-filresurser
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 services: backup
 ms.service: backup
@@ -7,22 +7,26 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807422"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-files"></a>Felsöka problem med att säkerhetskopiera Azure Files
-Du kan felsöka problem och fel vid användning av Azure Files Backup med hjälp av informationen i följande tabeller.
+# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
+Du kan felsöka problem och fel vid användning av säkerhetskopiering av Azure-filresurser med hjälp av informationen i följande tabeller.
 
 ## <a name="preview-boundaries"></a>Förhandsversionens begränsningar
-Azure Files Backup är en förhandsversion. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
-- Skydd av Azure-filresurser i lagringskonton med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) eller [Read Access Geo-Redundant Storage](../storage/common/storage-redundancy-grs.md)-replikering (RA-GRS).
-- Skydd av Azure-filresurser i lagringskonton som har virtuella nätverk aktiverade.
+Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
+- Skydda Azure-filresurser i lagringskonton med [RA-GRS-replikering* (geo-redundant lagring med läsbehörighet)](../storage/common/storage-redundancy-grs.md).
+- Skydd av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Säkerhetskopiering av Azure-filresurser med PowerShell eller CLI.
+
+\*Azure-filresurser i lagringskonton med [Read-Access Geo-Redundant Storage-replikeringsfunktionen ](../storage/common/storage-redundancy-grs.md)(RA-GRS) som GRS och fakturerade GRS-priser
+
+Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS) och USA, östra 2 (EUS2)
 
 ### <a name="limitations"></a>Begränsningar
 - Högsta antalet #Scheduled-backup per dag är 1.
@@ -40,7 +44,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 | Vald lagringskontoverifiering eller registrering misslyckades.| Försök utföra åtgärden på nytt. Kontakta support om problemet kvarstår.|
 | Det gick inte att visa eller hitta filresurserna i det valda lagringskontot. | <ul><li> Kontrollera att lagringskontot finns i resursgruppen (och inte har tagits bort eller flyttats efter den senaste verifieringen/registreringen i valvet).<li>Kontrollera att filresursen du vill skydda inte har tagits bort. <li>Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser.<li>Kontrollera om filresursen redan skyddas i samma Recovery Services-valv.|
 | Det går inte att konfigurera säkerhetskopiering av filresursen (eller konfigurera skyddsprincipen). | <ul><li>Försök igen och se om problemet kvarstår. <li> Kontrollera att filresursen du vill skydda inte har tagits bort. <li> Om du skyddar flera filresurser samtidigt och säkerhetskopieringen av vissa av filresurserna misslyckas, kan du prova igen att konfigurera säkerhetskopieringen för de filresurser som misslyckas. |
-| Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | I Azure Portal öppnar du **Infrastruktur för säkerhetskopiering** > **Lagringskonton** och klickar på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
+| Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | I Azure Portal öppnar du ditt valv > **Infrastruktur för säkerhetskopiering** > **Lagringskonton** och klickar på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
 
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Felmeddelanden för säkerhetskopierings- eller återställningsjobb
@@ -52,7 +56,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 | Du har nått maxgränsen för ögonblicksbilder för den här filresursen. Du kan ta fler när de äldsta förfaller. | <ul><li> Det här felet kan uppstå när du skapar flera säkerhetskopieringar på begäran för en fil. <li> Det finns en gräns på 200 ögonblicksbilder per filresurs, inklusive de som tas av Azure Backup. Äldre schemalagda säkerhetskopieringar (eller ögonblicksbilder) rensas automatiskt. Säkerhetskopieringar på begäran (eller ögonblicksbilder) måste tas bort om den maximala gränsen har nåtts.<li> Ta bort säkerhetskopieringar på begäran (ögonblicksbilder av Azure-filresurser) från Azure Files-portalen. **Obs!** Återställningspunkterna går förlorade om du tar bort ögonblicksbilder som skapats av Azure Backup. |
 | Säkerhetskopieringen eller återställningen av filresurser misslyckades på grund av begränsningar i lagringstjänsten. Detta kan bero på att lagringstjänsten är upptagen med andra begäranden för det angivna lagringskontot.| Försök igen efter en stund. |
 | Återställningen misslyckades med ett felmeddelande om att det inte gick att hitta målfilresursen. | <ul><li>Kontrollera att det valda lagringskontot finns och att målfilresursen inte har tagits bort. <li> Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser. |
-| Azure Backup stöds för närvarande inte för Azure Files i lagringskonton med virtuella nätverk aktiverade. | Inaktivera virtuella nätverk på ditt lagringskonto så att säkerhetskopieringarna eller återställningarna kan slutföras. |
+| Azure Backup stöds för närvarande inte för Azure-filresurser i lagringskonton med virtuella nätverk aktiverade. | Inaktivera virtuella nätverk på ditt lagringskonto så att säkerhetskopieringarna eller återställningarna kan slutföras. |
 | Säkerhetskopierings- eller återställningsjobb misslyckas på grund av att lagringskontot är i ett låst tillstånd. | Ta bort låset för lagringskontot eller använd raderingslås i stället för läslås och försök igen. |
 | Återställningen misslyckades på grund av att antalet filer som misslyckades överskred tröskelvärdet. | <ul><li> Orsaker till återställningsfel visas i en fil (sökvägen finns i Jobbinformation). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att filerna som misslyckades inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
 | Återställningen misslyckades eftersom ingen fil kunde återställas. | <ul><li> Orsaker till återställningsfel visas i en fil (sökvägen finns i Jobbinformation). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att filerna som misslyckades inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |

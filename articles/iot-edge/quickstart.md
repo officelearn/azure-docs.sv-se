@@ -1,82 +1,83 @@
 ---
-title: Snabbstart Azure IoT kant + Windows | Microsoft Docs
-description: Testa Azure IoT kant genom att köra analytics på en simulerad edge-enhet
-services: iot-edge
-keywords: ''
+title: Snabbstart Azure IoT Edge + Windows | Microsoft Docs
+description: Testa Azure IoT Edge genom att köra analys på en simulerad Edge-enhet
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 05/03/2018
-ms.topic: article
+ms.topic: quickstart
 ms.service: iot-edge
-ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 2fd16ab4ade61b1a08f93294051f4246e47839b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631742"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modul från Azure portal till en windowsenhet - förhandsgranskning
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
-I den här snabbstarten att använda Azure IoT kant molnet gränssnittet för att distribuera färdiga kod via en fjärranslutning till en IoT-enhet. Om du vill utföra den här uppgiften först använda din Windows-enhet för att simulera en IoT-enhet, kan sedan du distribuera en modul till den.
+Använd Azure IoT Edge-molnsgränssnittet när du ska fjärrdistribuera färdig kod till en IoT-enhet i den här snabbstarten. Utför den här uppgiften genom att först använda din Windows-enhet för att simulera en IoT Edge-enhet, varefter du kan distribuera en modul till den.
 
-Om du inte har en aktiv Azure-prenumeration kan du skapa en [kostnadsfritt konto] [ lnk-account] innan du börjar.
+Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto][lnk-account] innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows för att simulera en Sakernas Internet-enhet. Om du kör Windows på en virtuell dator, aktivera [kapslade virtualisering] [ lnk-nested] och tilldela minst 2 GB minne. 
+Den här självstudien förutsätter att du använder en dator eller virtuell dator som kör Windows för att simulera en Sakernas Internet-enhet. Om du kör Windows på en virtuell dator, aktiverar du [kapslad virtualisering][lnk-nested] och tilldelar minst 2 GB minne. 
 
 1. Kontrollera att du använder en Windows-version som stöds:
    * Windows 10 
    * Windows Server
-2. Installera [Docker för Windows] [ lnk-docker] och se till att den körs.
-3. Installera [Python på Windows] [ lnk-python] och kontrollera att du kan använda kommandot pip. Denna Snabbstart har testats med Python versioner > = 2.7.9 och > = 3.5.4.  
-4. Kör följande kommando för att hämta skriptet IoT kant kontroll.
+2. [Installera Docker för Windows][lnk-docker] och kontrollera att den körs.
+3. Installera [Python på Windows][lnk-python] och kontrollera att du kan använda kommandot pip. Den här snabbstarten har testats med Python-versionerna >=2.7.9 och >=3.5.4.  
+4. Hämta skriptet för IoT Edge-kontroll genom att köra följande kommando.
 
    ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT-kant kan köra Windows behållare eller Linux-behållare. Du måste köra för att använda Windows-behållare:
->    * Uppdatering för Windows 10 faller skapare, eller
->    * Windows Server 1709 (Build 16299), eller
->    * Windows IoT Core (skapa 16299) på en enhet med x64
+> Azure IoT Edge kan köra Windows-behållare eller Linux-behållare. Om du vill använda Windows-behållare måste du köra:
+>    * Windows 10 Fall Creators Update eller
+>    * Windows Server 1709 (Build 16299) eller
+>    * Windows IoT Core (Build 16299) på en x64-baserad enhet
 >
-> För Windows IoT Core, följer du instruktionerna i [installera runtime IoT kanten på Windows IoT Core][lnk-install-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers], och du kan också kontrollera dina krav med följande powershell-kommando:
+> När det gäller Windows IoT Core följer du anvisningarna i [Installera IoT Edge-körning på Windows IoT Core][lnk-install-iotcore]. I annat fall [konfigurerar du bara Docker för användning av Windows behållare][lnk-docker-containers] och kan välja att verifiera kraven med följande PowerShell-kommando:
 >    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
-## <a name="create-an-iot-hub-with-azure-cli"></a>Skapa en IoT-hubb med Azure CLI
+## <a name="create-an-iot-hub-with-azure-cli"></a>Skapa en IoT Hub med Azure CLI
 
-Skapa en IoT-hubb i din Azure-prenumeration. Kostnadsfria nivån för IoT-hubb fungerar för denna Snabbstart. Om du har använt tidigare IoT-hubb och redan har en kostnadsfri hubb skapas, hoppa över det här avsnittet och gå till [registrera en insticksenhet för IoT][anchor-register]. Varje prenumeration kan bara ha en kostnadsfri IoT-hubb. 
+Skapa en IoT Hub i din Azure-prenumeration. Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du hoppa över det här avsnittet och gå till [Registrera en IoT Edge-enhet][anchor-register]. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
 1. Logga in på [Azure Portal][lnk-portal]. 
-1. Välj den **moln Shell** knappen. 
+1. Välj **Cloud Shell**-knappen. 
 
-   ![Molnet Shell-knappen][1]
+   ![Cloud Shell-knapp][1]
 
-1. Skapa en resursgrupp. Följande kod skapar en resursgrupp med namnet **IoTEdge** i den **västra USA** region:
+1. Skapa en resursgrupp. I följande exempel skapas en resursgrupp med namnet **IoTEdge** i regionen **västra USA**:
 
    ```azurecli
    az group create --name IoTEdge --location westus
    ```
 
-1. Skapa en IoT-hubb i din nya resursgrupp. Följande kod skapar ett kostnadsfritt **F1** hubb kallas **MyIotHub** i resursgruppen **IoTEdge**:
+1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb med namnet **MyIotHub** i resursgruppen **IoTEdge**:
 
    ```azurecli
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
-## <a name="register-an-iot-edge-device"></a>Registrera en IoT-enhet
+## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## <a name="configure-the-iot-edge-runtime"></a>Konfigurera IoT kant-körning
+## <a name="configure-the-iot-edge-runtime"></a>Konfigurera IoT Edge-körningen
 
-IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Först underlättar IoT kant agenten distribution och övervakning av moduler på IoT gränsenheten. Gräns för IoT-hubb hanterar andra, kommunikation mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Det består av två moduler. För det första underlättar IoT Edge-agenten distribution och övervakning av moduler på IoT Edge-enheten. För det andra hanterar IoT Edge-hubben kommunikationen mellan moduler på IoT Edge-enheten och mellan enheten och IoT Hub. 
 
-Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt.
+Konfigurera körningen med anslutningssträngen för IoT Edge-enheten från föregående avsnitt.
 
 ```cmd
 iotedgectl setup --connection-string "{device connection string}" --nopass
@@ -88,7 +89,7 @@ Starta körningen.
 iotedgectl start
 ```
 
-Kontrollera Docker för att se att IoT kant-agenten körs som en modul.
+Kontrollera Docker för att se att IoT Edge-agenten körs som en modul.
 
 ```cmd
 docker ps
@@ -102,9 +103,9 @@ docker ps
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-I Snabbstart, skapas en ny IoT Edge-enhet och installerat IoT kant-körningsmiljön. Sedan använde du Azure-portalen för att skicka en IoT kant-modul som ska köras på enheten utan att behöva göra ändringar i själva enheten. I det här fallet skapar den modul som du pushas miljödata som du kan använda för självstudierna. 
+I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure Portal för att skicka en IoT Edge-modul som ska köras på enheten utan att några ändringar behövs göras i själva enheten. I det här fallet skapar den modul som du pushade miljödata som du kan använda för självstudierna. 
 
-Öppna Kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet körs på enheten IoT kant. 
+Öppna kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet som körs på IoT Edge-enheten. 
 
 ```cmd
 docker ps
@@ -118,18 +119,18 @@ Visa meddelanden som skickas från modulen tempSensor till molnet.
 docker logs -f tempSensor
 ```
 
-![Visa data från en modul](./media/tutorial-simulate-device-windows/docker-logs.png)
+![Visa data från modulen](./media/tutorial-simulate-device-windows/docker-logs.png)
 
-Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
+Du kan också visa telemetri som enheten skickar med [IoT Hub-utforskarverktyget][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort den simulerade enheten som du skapade, tillsammans med Docker-behållare som har startats för varje modul, använder du följande kommando: 
+Om du vill ta bort den simulerade enheten som du skapade, tillsammans med de Docker-behållare som har startats för varje modul, använder du följande kommando: 
 
 ```cmd
 iotedgectl uninstall
 ```
 
-När du inte längre behöver IoT-hubb som du har skapat kan du använda den [az iot-hubb delete] [ lnk-delete] för att ta bort resursen och alla enheter som är kopplade till den:
+När du inte längre behöver den IoT Hub som du skapade kan du använda kommandot [az iot-hubb delete][lnk-delete] för att ta bort resursen och eventuella enheter som är kopplade till den:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
@@ -137,9 +138,9 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du distribuerar en IoT-Edge-modul till en IoT-enhet. Prova nu distribuera olika typer av Azure-tjänster i moduler, så att du kan analysera data vid gränsen. 
+Du har lärt dig hur du distribuerar en IoT Edge-modul till en IoT Edge-enhet. Testa nu att distribuera olika typer av Azure-tjänster som moduler, så att du kan analysera data vid gränsen. 
 
-* [Distribuera Azure-funktion som en modul](tutorial-deploy-function.md)
+* [Distribuera Azure Function som en modul](tutorial-deploy-function.md)
 * [Distribuera Azure Stream Analytics som en modul](tutorial-deploy-stream-analytics.md)
 * [Distribuera din egen kod som en modul](tutorial-csharp-module.md)
 

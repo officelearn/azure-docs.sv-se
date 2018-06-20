@@ -1,29 +1,26 @@
 ---
-title: Automatisera uppgifter och processer med Visual Studio och Azure Logic Apps | Microsoft Docs
-description: Den här snabbstarten visar hur du skapar arbetsflöden som automatiserar uppgifter och processer med Azure Logic Apps i Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Skapa logikappar som automatiserar arbetsflöden med Visual Studio – Azure Logic Apps | Microsoft Docs
+description: Snabbstart för hur du automatiserar uppgifter, processer och arbetsflöden med Azure Logic Apps i Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300760"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Snabbstart: Automatisera uppgifter och processer med Azure Logic Apps – Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa och automatisera uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) kan du skapa arbetsflöden som automatiserar uppgifter och processer i syfte att integrera appar, data, system och tjänster åt företag och organisationer. Den här snabbstarten visar hur du utformar och bygger sådana arbetsflöden genom att skapa logikappar i Visual Studio och distribuera apparna till <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> i molnet. Även om du kan utföra uppgifterna i <a href="https://portal.azure.com" target="_blank">Azure Portal</a> finns det flera fördelar med att göra det i Visual Studio – du kan lägga till logikappar för att köra källkontroll, publicera olika versioner och skapa Azure Resource Manager-mallar för olika distributionsmiljöer. 
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio kan du skapa arbetsflöden för att automatisera uppgifter och processer som integrerar appar, data, system och tjänster åt företag och organisationer. Den här snabbstarten visar hur du utformar och bygger sådana arbetsflöden genom att skapa logikappar i Visual Studio och distribuera apparna till <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> i molnet. Även om du kan utföra uppgifterna i <a href="https://portal.azure.com" target="_blank">Azure Portal</a> finns det flera fördelar med att göra det i Visual Studio – du kan lägga till logikappar för att köra källkontroll, publicera olika versioner och skapa Azure Resource Manager-mallar för olika distributionsmiljöer. 
 
 Om du inte har arbetat med Azure Logic Apps tidigare och bara vill lära dig det grundläggande ska du läsa [snabbstarten för att skapa en logikapp i Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) istället. Logic App Designer fungerar på ungefär samma sätt i både Azure Portal och Visual Studio. 
 
@@ -187,4 +184,5 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 Genom att läsa den här artikeln har du lärt dig att bygga, distribuera och köra din logikapp med Visual Studio. Lär dig mer om hur du hanterar och utför avancerad distribution av logikappar med Visual Studio genom att läsa följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Hantera Logic Apps i Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Hantera Logic Apps i Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Skapa mallar för distribution för logikappar med Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

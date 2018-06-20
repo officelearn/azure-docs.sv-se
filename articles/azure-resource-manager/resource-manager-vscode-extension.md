@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358667"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603771"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall med hjälp av Visual Studio Code-tillägget
 Den här artikeln beskriver fördelarna med att installera och använda tillägget Azure Resource Manager Tools i Visual Studio Code. Du kan skapa Resource Manager-mallar i VS Code utan tillägget. Tillägget innehåller dock alternativ för automatisk komplettering som gör det enklare att skapa mallar. Tillägget föreslår mallfunktioner, parametrar och variabler som är tillgängliga i mallen.
@@ -171,7 +171,18 @@ Den här artikeln bygger vidare på mallen som du skapade i [Skapa och distribue
 
    ![Visa variabler](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Välj variabeln **storageName**. Lägg till en avslutande höger hakparentes. Följande exempel visar outputs-avsnittet:
+10. Välj variabeln **storageName**. Koden ser nu ut som:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. Föregående kod fungerar inte eftersom `reference` returnerar ett objekt, men utdatavärdet har angetts till *sträng*. Du måste ange ett värde för objektet. Referensfunktionen kan användas med alla resurstyper, så att VS-koden inte föreslår egenskaper för objektet. I stället är värdet som [returneras för ett lagringskonto](/rest/api/storagerp/storageaccounts/getproperties) `.primaryEndpoints.blob`. 
+
+   Lägg till den egenskapen efter den sista parentesen. Lägg till en avslutande höger hakparentes. Följande exempel visar outputs-avsnittet:
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Den här artikeln bygger vidare på mallen som du skapade i [Skapa och distribue
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ Så här ser den färdiga mallen ut:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

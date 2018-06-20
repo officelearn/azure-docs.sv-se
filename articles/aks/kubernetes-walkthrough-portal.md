@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6fa40d1d170c9a9c5666c7c96980e658d1fe85fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597288"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -61,7 +62,7 @@ Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
 
 ![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-Efter en kort stund är ASK-klustret distribuerat och klart att användas. Bläddra till AKS-klusterresursgruppen och välj AKS-resursen, så bör du se AKS-klusterinstrumentpanel.
+Efter en kort stund är AKS-klustret distribuerat och klart att användas. Bläddra till AKS-klusterresursgruppen och välj AKS-resursen, så bör du se AKS-klusterinstrumentpanel.
 
 ![Skapa AKS-kluster ett](media/container-service-walkthrough-portal/aks-portal-5.png)
 

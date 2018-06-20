@@ -1,5 +1,5 @@
 ---
-title: Skapa en Kubernetes-utvecklingsmiljö i molnet med .NET Core och VS Code | Microsoft Docs
+title: Skapa en Kubernetes-utvecklarmiljö i molnet med .NET Core och VS Code | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: a57118feb85a010e38d73b758ebfb84d1cc463fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361262"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823154"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
 
@@ -24,15 +24,15 @@ ms.locfileid: "34361262"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-Nu är du redo att skapa en Kubernetes-baserad utvecklingsmiljö i Azure.
+Nu är du redo att skapa en Kubernetes-baserad utvecklarmiljö i Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
-Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklingsmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.32 eller högre.
+> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.33 eller högre.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -42,7 +42,11 @@ Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten a
 
 Du kan börja skriva kod medan klustret skapas.
 
-## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
+## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en behållare
+
+I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en behållare i Kubernetes.
+
+### <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 Om du har [.NET Core](https://www.microsoft.com/net) installerat kan du snabbt skapa en ASP.NET Core-webbapp i en mapp med namnet `webfrontend`.
     
 ```cmd
@@ -55,7 +59,7 @@ Du kan också **ladda ned exempelkod från GitHub** genom att gå till https://g
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## <a name="update-a-content-file"></a>Uppdatera en innehållsfil
+### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
@@ -64,7 +68,7 @@ Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – 
 
 Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. Ett aktivt `azds up`-kommando synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i Azure, så att du genast kan se dina innehållsändringar.
 
-## <a name="update-a-code-file"></a>Uppdatera en kodfil
+### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
@@ -97,7 +101,7 @@ Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmar
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
 
-Precis som med `up`-kommandot synkroniseras koden med utvecklingsmiljön, och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
+Precis som med `up`-kommandot synkroniseras koden med utvecklarmiljön, och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -138,7 +142,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Felsökningsfältet i VS Code visas när åtgärden har slutförts.
-1. Skriv ned slutpunktens URL, som ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips! Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för behållaren som körs i Azure.
+1. Skriv ned slutpunktens URL, som ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips! Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för behållaren som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Lägg till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 
@@ -152,23 +156,25 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`.
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
     ```
 
-Observera hur Kubernetes DNS-tjänstidentifiering används för att referera till tjänsten som `http://mywebapi`. **Koden i din utvecklingsmiljö körs på samma sätt som den kommer att köras i produktionsmiljön**.
-
-I exemplet ovan används även en `HeaderPropagatingHttpClient`-klass. Den här hjälpklassen lades till i din kodmapp när du körde `azds prep`. `HeaderPropagatingHttpClient` härleds från den välkända `HttpClient`-klassen och lägger till funktioner som distribuerar specifika meddelandehuvuden från ett befintligt ASP .NET HttpRequest-objekt till ett utgående HttpRequestMessage-objekt. Lite senare tittar vi på hur användningen av den här härledda klassen bidrar till en mer produktiv utvecklingsupplevelse i teamscenarier.
-
+I föregående kodexempel vidarebefordrar rubriken `azds-route-as` från den inkommande till den utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.

@@ -1,30 +1,26 @@
 ---
-title: Skapa ditt första automatiserade arbetsflöde – Azure Logic Apps | Microsoft Docs
-description: I den här snabbstarten får du lära dig att automatisera ditt första arbetsflöde med Azure Logic Apps för systemintegrering och EAI-scenarion (Enterprise Application Integration) som integrerar system och molntjänster
-author: ecfan
-manager: anneta
-editor: ''
+title: Skapa och automatisera ditt första arbetsflöde – Azure Logic Apps | Microsoft Docs
+description: Snabbstart för hur du skapar ditt första logikprogram som automatiserar uppgifter, processer och arbetsflöden med Azure Logic Apps. Skapa logikprogram för systemintegrering och EAI-lösningar (Enterprise Application Integration) för systemet och molntjänsterna
 services: logic-apps
-keywords: workflows, cloud services, system integration, enterprise application integration, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300947"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Snabbstart: Skapa ditt första arbetsflöde för logikapp – Azure Portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
 
-I den här snabbstarten beskrivs hur du skapar ditt första automatiserade arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). I den här artikeln skapar du en logikapp som regelbundet kontrollerar om det finns nya objekt via en webbplats RRS-feed. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
+I den här snabbstarten beskrivs hur du bygger ditt första automatiserade arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). I den här artikeln skapar du en logikapp som regelbundet kontrollerar om det finns nya objekt via en webbplats RRS-feed. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Översikt – exempel på logikapp](./media/quickstart-create-first-logic-app-workflow/overview.png)
 

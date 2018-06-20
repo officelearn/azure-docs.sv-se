@@ -1,26 +1,23 @@
 ---
-title: Översikt över Microsoft Azure Data Lake Analytics | Microsoft Docs
+title: Översikt över Azure Data Lake Analytics
 description: Med Data Lake Analytics kan du driva din verksamhet med insikter som du har fått via dina molndata oavsett skala.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: overview
 ms.date: 06/23/2017
-ms.author: saveenr
-ms.openlocfilehash: 8a70311825d0ef548660f8ce4d12b5100b530170
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623629"
 ---
-# <a name="welcome-to-azure-data-lake-analytics"></a>Välkommen till Azure Data Lake Analytics
+# <a name="what-is-azure-data-lake-analytics"></a>Vad är Azure Data Lake Analytics?
 
 Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. 
 

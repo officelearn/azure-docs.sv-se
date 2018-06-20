@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271678"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637539"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -98,7 +98,7 @@ Följande aktiviteter kräver även Azure-behörigheter:
 
 | Åtgärd                                                          | Azure-behörigheter krävs | Anteckningar |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Lägga till och ta bort hanteringslösningar                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Lägga till och ta bort hanteringslösningar                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visa data i lösningspanelerna *säkerhetskopiering* och *Site Recovery* | Administratör/medadministratör | Åtkomst till resurser som distribueras med den klassiska distributionsmodellen |
 | Skapa en arbetsyta i Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Medlemmar av *Log Analytics Reader*-rollen kan:
 
 
 Medlemmar av *Log Analytics Contributor*-rollen kan:
-- Läsa alla övervakningsdata 
-- Skapa och konfigurera Automation -konton
-- Lägga till och ta bort hanteringslösningar
-- Läsa lagringskontonycklar 
-- Konfigurera loggsamlingar från Azure Storage
+- Läsa alla övervakningsdata  
+- Skapa och konfigurera Automation -konton  
+- Lägga till och ta bort hanteringslösningar    
+    > [!NOTE] 
+    > För att kunna utföra dessa två åtgärder, behöver den här behörigheten beviljas på resursgrupp- eller prenumerationsnivå.  
+
+- Läsa lagringskontonycklar   
+- Konfigurera loggsamlingar från Azure Storage  
 - Redigera övervakningsinställningar för Azure-resurser, bland annat
   - Lägga till tillägg för virtuell dator i virtuella datorer
   - Konfigurera Azure-diagnostik på alla Azure-resurser
@@ -157,7 +160,7 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
 - Resurs: endast åtkomst till en angiven arbetsyta
 
-Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
+Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för att garantera korrekt åtkomstkontroll.  Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure-användarroller och Log Analytics Portal-användarroller
 Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna Log Analytics-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.

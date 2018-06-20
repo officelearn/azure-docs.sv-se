@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639351"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -48,11 +49,11 @@ Du kan ladda ned en redigerbar version av bilden i svg-format. Läs mer om [topo
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnostisera problem med filtrering av nätverkstrafik till eller från en virtuell dator
 
-När du distribuerar en virtuell dator tillämpar Azure flera standardsäkerhetsregler på den virtuella datorn som tillåter eller nekar trafik till eller från den virtuella datorn. Du kan åsidosätta Azures standardregler eller skapa fler regler. Ibland kan en virtuell dator sluta kommunicera med andra resurser på grund av en säkerhetsregel. Med funktionen *Kontrollera IP-flöde* kan du ange käll- och måladress för IPv4, port, protokoll (TCP eller UDP) och trafikriktning (inkommande eller utgående). Kontrollen av IP-flödet testar sedan kommunikationen och informerar dig om anslutningen lyckas eller misslyckas. Om anslutningen misslyckas visar Kontrollera IP-flöde vilken säkerhetsregel som tillät eller nekade kommunikationen, så att du kan lösa problemet. Läs mer om [Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md).
+När du distribuerar en virtuell dator tillämpar Azure flera standardsäkerhetsregler på den virtuella datorn som tillåter eller nekar trafik till eller från den virtuella datorn. Du kan åsidosätta Azures standardregler eller skapa fler regler. Ibland kan en virtuell dator sluta kommunicera med andra resurser på grund av en säkerhetsregel. Med funktionen *Kontrollera IP-flöde* kan du ange käll- och måladress för IPv4, port, protokoll (TCP eller UDP) och trafikriktning (inkommande eller utgående). Kontrollen av IP-flödet testar sedan kommunikationen och informerar dig om anslutningen lyckas eller misslyckas. Om anslutningen misslyckas visar Kontrollera IP-flöde vilken säkerhetsregel som tillät eller nekade kommunikationen, så att du kan lösa problemet. Lär dig mer om IP-flödesverifiering genom att slutföra kursen [Diagnostisera problem med virtuella nätverkstrafikfilter](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnostisera problem med nätverksroutning från en virtuell dator
 
-När du skapar ett virtuellt nätverk skapar Azure flera utgående standardvägar för nätverkstrafiken. Utgående trafik från alla resurser, till exempel virtuella datorer som distribueras i ett virtuellt nätverk, dirigeras enligt Azures standardvägar. Du kan åsidosätta Azures standardvägar eller skapa fler vägar. Du upptäcker kanske att en virtuell dator inte längre kan kommunicera med andra resurser på grund av en specifik väg. Med funktionen *Nästa hopp* kan du ange en käll- och måladress för IPv4. Nästa hopp testar kommunikationen och informerar dig om vilken typ av nästa hopp som används för att dirigera trafiken. Du kan sedan ta bort, ändra eller lägga till en väg för att lösa routningsproblemet. Läs mer om funktionen [Nästa hopp](network-watcher-next-hop-overview.md?).
+När du skapar ett virtuellt nätverk skapar Azure flera utgående standardvägar för nätverkstrafiken. Utgående trafik från alla resurser, till exempel virtuella datorer som distribueras i ett virtuellt nätverk, dirigeras enligt Azures standardvägar. Du kan åsidosätta Azures standardvägar eller skapa fler vägar. Du upptäcker kanske att en virtuell dator inte längre kan kommunicera med andra resurser på grund av en specifik väg. Med funktionen *Nästa hopp* kan du ange en käll- och måladress för IPv4. Nästa hopp testar kommunikationen och informerar dig om vilken typ av nästa hopp som används för att dirigera trafiken. Du kan sedan ta bort, ändra eller lägga till en väg för att lösa routningsproblemet. Läs mer om funktionen [Nästa hopp](diagnose-vm-network-routing-problem.md).
 
 ### <a name="connection-troubleshoot"></a>Diagnostisera utgående anslutningar från en virtuell dator
 
@@ -64,7 +65,7 @@ Avancerade alternativ för filtrering och finjusterade kontroller, till exempel 
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnostisera problem med en virtuell nätverksgateway från Azure och anslutningar
 
-Virtuella nätverksgatewayer ansluter lokala resurser och virtuella Azure-nätverk. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Med funktionen *VPN-diagnostik* kan du diagnostisera gatewayer och anslutningar. VPN-diagnostiken diagnostiserar hälsotillståndet för gatewayen eller gateway-anslutningen och informerar dig när en gateway och gateway-anslutning är tillgänglig. Om gatewayen eller anslutningen inte är tillgänglig, visar VPN-diagnostiken varför, så att du kan lösa problemet. Läs mer om [VPN-diagnostik](network-watcher-troubleshoot-overview.md).
+Virtuella nätverksgatewayer ansluter lokala resurser och virtuella Azure-nätverk. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Med funktionen *VPN-diagnostik* kan du diagnostisera gatewayer och anslutningar. VPN-diagnostiken diagnostiserar hälsotillståndet för gatewayen eller gateway-anslutningen och informerar dig när en gateway och gateway-anslutning är tillgänglig. Om gatewayen eller anslutningen inte är tillgänglig, visar VPN-diagnostiken varför, så att du kan lösa problemet. Läs mer om VPN-diagnostik genom att slutföra kursen [Diagnostisera kommunikationsproblem mellan nätverk](diagnose-communication-problem-between-networks.md).
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Fastställa relativa svarstider mellan Azure-regioner och Internet-leverantörer
 
@@ -90,7 +91,7 @@ Nätverkssäkerhetsgrupper (NSG) tillåter eller nekar inkommande eller utgåend
 
 ![Trafikanalys](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Läs mer om [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md) och [trafikanalys](traffic-analytics.md).
+Lär mer om NSG flödet loggarna genom att slutföra kursen [Logga nätverkstrafik till och från en virtuell dator](network-watcher-nsg-flow-logging-portal.md) och hur du implementerar [trafikanalys](traffic-analytics.md).
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
 

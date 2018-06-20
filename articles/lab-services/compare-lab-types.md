@@ -1,6 +1,6 @@
 ---
 title: Jämföra olika labbtyper i Azure Lab Services | Microsoft Docs
-description: Beskriver och jämför olika typer av labb som du kan skapa med hjälp av Azure Lab Services (tidigare DevTest Labs).
+description: Beskriver och jämför olika typer av labb som du kan skapa med hjälp av Azure Lab Services
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361190"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637881"
 ---
-# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Jämföra hanterade labb och DevTest Labs i Azure Lab Services
-Du kan skapa två typer av labb, **hanterade labb** med Azure Lab Services och **anpassade labb** med Azure DevTest Labs. Om du bara vill ange precis vad du behöver i ett labb och låta tjänsten konfigurera och hantera den infrastruktur som krävs för labbet, väljer du något av de **hanterade labben**. För närvarande är **klassrumslabb** den enda typen av hanterat labb som du kan skapa med Azure Lab Services. Om du vill hantera din egen infrastruktur kan du skapa ett **anpassat labb** med hjälp av Azure DevTest Labs.
+# <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Jämföra hanterade labb och DevTest Labs i Azure Lab Services
+Du kan skapa två typer av labb, **hanterade labb** med Azure Lab Services och **anpassade labb** med Azure DevTest Labs. Om du bara vill ange precis vad du behöver i ett labb och låta tjänsten konfigurera och hantera den infrastruktur som krävs för labbet, väljer du något av de **hanterade labben**. För närvarande är **klassrumslabb** den enda typen av hanterat labb som du kan skapa med Azure Lab Services. Om du vill hantera din egen infrastruktur kan du skapa ett labb med hjälp av Azure DevTest Labs.
 
 Följande avsnitt innehåller mer information om dessa labb. 
 
@@ -38,10 +38,10 @@ Här följer några av **användningsfallen för hanterade labb**:
 - Etablera snabbt ett labb med virtuella datorer som värd för en hackathon. Ta bort labbet med en enda klickning när du är klar. 
 
 
-## <a name="devtest-labs"></a>DevTest-labb
-Du kan ha scenarier där du vill hantera hela infrastrukturen och konfigurationen själv, inom ramarna för din egen prenumeration. Om du vill göra det kan du skapa ett anpassat labb med Azure DevTest Labs i Azure-portalen. För de här labben behöver du inte skapa ett labbkonto. De här labben visas inte på labbkontot (som finns till för de hanterade labben).  
+## <a name="devtest-labs"></a>DevTest Labs
+Du kan ha scenarier där du vill hantera hela infrastrukturen och konfigurationen själv, inom ramarna för din egen prenumeration. Om du vill göra det kan du skapa ett labb med Azure DevTest Labs i Azure-portalen. För de här labben behöver du inte skapa ett labbkonto. De här labben visas inte på labbkontot (som finns till för de hanterade labben).  
 
-Här följer några **skäl till att använda DevTest Labs**: 
+Här följer några **användningsfall för DevTest Labs**: 
 
 - Etablera snabbt ett labb med virtuella datorer som värd för en hackathon eller en praktisk session på en konferens. Ta bort labbet med en enda klickning när du är klar. 
 - Skapa en pool med virtuella datorer med ditt program och låt ditt team enkelt använda en enda virtuell dator för samtidig testning av ej släppt programvara.  
@@ -51,10 +51,10 @@ Här följer några **skäl till att använda DevTest Labs**:
 - Erbjud utbildningssessioner till dina kunder med ett labb som konfigurerats med den senaste versionen av din produkt. Ge varje kund ett begränsat antal timmar för att använda labbet. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Hanterade labb jämfört med DevTest-labb
+## <a name="managed-labs-vs-devtest-labs"></a>Hanterade labb jämfört med DevTest Labs
 I följande tabell jämförs två typer av labb som stöds av Azure Lab Services: 
 
-| Funktioner | Hanterade labb | DevTest-labb |
+| Funktioner | Hanterade labb | DevTest Labs |
 | -------- | ----------------  | ---------- |
 | Hantering av Azure-infrastrukturen i labbet |  Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Inbyggd motståndskraft mot infrastruktursproblem | Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
@@ -64,5 +64,5 @@ I följande tabell jämförs två typer av labb som stöds av Azure Lab Services
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett testlabb med Azure Lab Services:
 
-- [Konfigurera ett klassrumslabb](tutorial-setup-classroom-lab.md)
-- [Konfigurera ett anpassat labb](tutorial-create-custom-lab.md)
+- [Konfigurera ett klassrumslabb](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Konfigurera ett labb](tutorial-create-custom-lab.md)

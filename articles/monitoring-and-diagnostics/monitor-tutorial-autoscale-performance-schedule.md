@@ -1,20 +1,20 @@
 ---
-title: "Skala Azure-resurser automatiskt baserat på prestanda eller ett schema | Microsoft Docs"
-description: "Skapa en autoskalningsinställning för en App Service-plan med hjälp av mätvärden och ett schema"
+title: Autoskala Azure-resurser automatiskt baserat på prestanda eller ett schema
+description: Skapa en autoskalningsinställning för en App Service-plan med hjälp av mätvärden och ett schema
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: autoscale
+ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264069"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -30,7 +30,7 @@ I den här självstudien kommer du att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -83,7 +83,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
 
 2. Klicka på länken **Lägg till en regel**.
 
-3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till Apptjänster och **Resurs** till webbappen du skapade tidigare i självstudien.
+3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till App Services och **Resurs** till webbappen du skapade tidigare i självstudien.
 
 4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Summa.
 
@@ -104,7 +104,7 @@ Vi rekommenderar att du alltid använder en inskalningsregel tillsammans med en 
 
 2. Klicka på länken **Lägg till en regel**.
 
-3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till Apptjänster och **Resurs** till webbappen du skapade tidigare i självstudien.
+3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till App Services och **Resurs** till webbappen du skapade tidigare i självstudien.
 
 4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Genomsnitt.
 

@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640269"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -61,7 +62,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
   > [!NOTE]
   > Kognitiv sökning är tillgängligt som en förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
 
-1. Fäst tjänsten på instrumentpanelen för snabb åtkomst till tjänsten.
+1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
   ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service.png "Tjänstdefinitionssida på portalen")
 
@@ -95,6 +96,8 @@ En fördel med att använda guiden **Importera data** är att den även kan skap
 ### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägga till kognitiva kunskaper
 
 Nu ska du lägga till berikningssteg till indexeringspipelinen. På portalen finns fördefinierade kognitiva kunskaper för bild- och textanalys. På portalen körs en kunskapsuppsättning mot ett enda källfält. Det kan verka som ett litet mål, men för Azure-blobar innehåller fältet `content` merparten av blobdokumentet (till exempel ett Word-dokument eller en PowerPoint-presentation). Därför är det här fältet idealiskt, eftersom allt innehåll i en blob finns där.
+
+Ibland vill du kunna extrahera textrepresentationer från filer som främst består av inlästa bilder, till exempel en PDF-fil som hämtar information från en scanner. Azure Search kan extrahera innehåll automatiskt från inbäddade bilder i dokumentet. För att göra det, väljer du **aktivera OCR och slår samman all text till alternativet merged_content fältet**. Detta skapar automatiskt fältet `merged_content` som innehåller både texten som extraheras från dokumentet samt textrepresentation av bilder som är inbäddade i dokumentet. När du väljer det här alternativet kommer `Source data field` anges till `merged_content`.
 
 Välj kunskaper som utför bearbetning av naturligt språk i **Add cognitive skills** (Lägg till kognitiva kunskaper). I den här snabbstarten väljer du entitetsigenkänning för personer, organisationer och platser.
 

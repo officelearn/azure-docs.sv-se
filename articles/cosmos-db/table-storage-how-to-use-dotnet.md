@@ -1,45 +1,43 @@
 ---
-title: Komma igång med Azure Table Storage med hjälp av .NET | Microsoft Docs
-description: Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas.
+title: Komma igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET | Microsoft Docs
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808289"
 ---
-# <a name="get-started-with-azure-table-storage-using-net"></a>Komma igång med Azure Table Storage med hjälp av .NET
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Kom igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet och som ger tillgång till ett nyckel-/attributlager med en schemalös design. Eftersom Table Storage är schemalös är det enkelt att anpassa dina data i takt med att programmets behov förändras. Åtkomsten till data i Table Storage är snabb och kostnadseffektiv för många typer av program, och medför normalt lägre kostnad än traditionell SQL för liknande datavolymer.
+Du kan använda Azure Table Storage eller Table-API:et för Azure Cosmos DB för att lagra strukturerade NoSQL-data i molnet, med ett nyckel-/attributlager med en schemalös design. Eftersom Table Storage och Table-API:et för Azure Cosmos DB är schemalösa kan du enkelt anpassa dina data baserat på hur ditt program utvecklas. Åtkomsten till data i Table Storage och Table-API:et för Azure Cosmos DB är snabb och kostnadseffektiv för många typer av program, och medför normalt lägre kostnad än traditionell SQL för liknande datavolymer.
 
-Du kan använda Table Storage för att lagra flexibla datauppsättningar som användardata för webbprogram, adressböcker, enhetsinformation eller andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
+Du kan använda Table Storage eller Table-API:et för Azure Cosmos DB för att lagra flexibla datauppsättningar som användardata för webbprogram, adressböcker, enhetsinformation eller andra typer av metadata som din tjänst behöver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto eller ett konto för Table-API:et kan innehålla valfritt antal tabeller, upp till kapacitetsgränsen för lagringskontot eller kontot för Table-API:et.
 
-### <a name="about-this-tutorial"></a>Om den här självstudiekursen
-Den här kursen visar hur du använder den [Microsoft Azure CosmosDB tabell biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) i vanliga scenarier för Azure Table storage. Namnet på paketet anger för användning med Azure Cosmos DB, men paketet fungerar med både Azure Cosmos DB och tabeller för Azure storage, varje tjänst bara har en unik slutpunkt. Dessa scenarier beskrivs med C#-exempel som illustrerar hur du:
-* Skapa och ta bort tabeller
+### <a name="about-this-sample"></a>Om det här exemplet
+I det här exemplet visas hur du använder [Microsoft Azure CosmosDB-tabellbiblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) i vanliga scenarier för Azure Table Storage och Table-API:et. Paketets namn antyder att det ska användas med Azure Cosmos DB, men paketet fungerar med både Table-API:er för Azure Cosmos DB och Azure Table Storage, skillnaden är bara att tjänsterna har unika slutpunkter. Dessa scenarier analyseras med hjälp av C#-baserade exempel som beskriver hur du:
+* Skapar och tar bort tabeller
 * Infoga, uppdatera och ta bort rader
 * Frågetabeller
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver följande för att slutföra den här kursen:
+Du behöver följande för att kunna följa med i det här exemplet:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage gemensamt bibliotek för .NET (förhandsgranskning)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Detta är ett obligatoriskt preview-paket som stöds i produktionsmiljöer. 
-* [Microsoft Azure CosmosDB tabell biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [Gemensamt bibliotek för Azure Storage för .NET (förhandsversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Detta är ett obligatoriskt förhandsversionspaket som stöds i produktionsmiljöer. 
+* [Microsoft Azure CosmosDB-tabellbibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -48,7 +46,7 @@ Du behöver följande för att slutföra den här kursen:
 ### <a name="more-samples"></a>Fler exempel
 Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Du kan ladda ned exempelprogrammet och köra det eller bläddra i koden på GitHub.
 
-## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
+## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
@@ -58,7 +56,7 @@ Du kan också skapa ett Azure-lagringskonto med hjälp av [Azure PowerShell](../
 
 Om du föredrar att inte skapa ett lagringskonto just nu så kan du också använda Azure-lagringsemulatorn för att köra och testa din kod i en lokal miljö. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
@@ -68,36 +66,36 @@ Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att 
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2017. Stegen är ungefär som i andra versioner av Visual Studio.
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**.
-2. Välj **installerat** > **Visual C#** > **klassiska Windows-skrivbordet**.
+2. Välj **Installerat** > **Visual C#** > **Windows Classic Desktop**.
 3. Välj **Konsolprogram (.NET Framework)**.
 4. Ange ett namn för ditt program i fältet **Namn**.
 5. Välj **OK**.
 
-Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
+Alla kodexempel i det här exemplet kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
 
-Du kan använda Azure CosmosDB tabell biblioteket i någon typ av .NET-program, inklusive en Azure cloud service eller web app, och stationära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
+Du kan använda Azure CosmosDB-tabellbiblioteket i alla typer av .NET-program, t.ex. en Azure-molntjänst eller webbapp, eller i dator- och mobilprogram. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
-Det finns tre rekommenderade paket som du behöver referera i projektet till den här kursen:
+Det finns tre rekommenderade paket som du måste referera till i ditt projekt för att slutföra det här exemplet:
 
-* [Azure Storage gemensamt bibliotek för .NET (förhandsgranskning)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [Microsoft Azure-Cosmos DB tabell biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Det här paketet ger programmatisk åtkomst till dataresurser i ditt Azure Table storage-konto eller Azure Cosmos DB tabell API-konto.
+* [Gemensamt bibliotek för Azure Storage för .NET (förhandsversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Microsoft Azure Cosmos DB-tabellbibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Det här paketet ger programmatisk åtkomst till dataresurser i ditt Azure-tabellagringskonto eller konto för Table-API:et för Azure Cosmos DB.
 * [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
 1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
-2. Sök online efter ”Microsoft.Azure.Storage.Common” och välj **installera** att installera Azure Storage gemensamt bibliotek för .NET (förhandsversion) och dess beroenden. Se till att den **inkludera förhandsversion** kryssrutan är markerad som det är ett preview-paket.
-3. Sök online efter ”Microsoft.Azure.CosmosDB.Table” och välj **installera** att installera Microsoft Azure CosmosDB tabell-biblioteket.
-4. Sök online efter ”WindowsAzure.ConfigurationManager” och välj **installera** att installera Microsoft Azure Configuration Manager-biblioteket.
+2. Sök online efter ”Microsoft.Azure.Storage.Common” och välj  **för Installera** att installera det gemensamma biblioteket för Azure Storage för .NET (förhandsversion) och dess beroenden. Kontrollera att rutan för att **ta med förhandsversionen** är markerad eftersom det här är ett förhandsversionspaket.
+3. Sök online efter ”Microsoft.Azure.CosmosDB.Table” och välj **Installera** för att installera Microsoft Azure CosmosDB-tabellbiblioteket.
+4. Sök online efter ”WindowsAzure.ConfigurationManager” och välj **Installera** för att installera Microsoft Azure Configuration Manager-biblioteket.
 
 > [!NOTE]
-> ODataLib-beroenden i Storage gemensamt bibliotek för .NET matchas genom de ODataLib-paket som är tillgängliga på NuGet inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av Storage-klientbiblioteket är [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) och [Spatial](http://nuget.org/packages/System.Spatial/). De här biblioteken används av Azure Table storage-klasser är de nödvändiga beroenden för programmering med Storage gemensamt bibliotek.
+> ODataLib-beroenden i det gemensamma biblioteket för Storage för .NET kan matchas med ODataLib-paketen som är tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av Storage-klientbiblioteket är [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) och [Spatial](http://nuget.org/packages/System.Spatial/). Även om de här biblioteken används av Azure Table Storage-klasserna så är de nödvändiga beroenden för programmering med det gemensamma Storage-biblioteket.
 > 
 > 
 
 > [!TIP]
-> Utvecklare som redan är bekant med Azure Table storage har använt den [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) paketet i förflutna. Vi rekommenderar att alla nya tabell program använder den [gemensamt bibliotek med Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) och [Azure DB-Library Cosmos tabell](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), men paketets WindowsAzure.Storage fortfarande stöds. Om du använder WindowsAzure.Storage biblioteket kan inkludera Microsoft.WindowsAzure.Storage.Table i din med hjälp av rapporter.
+> Utvecklare som redan är bekanta med Azure Table Storage kan ha använt paketet [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) tidigare. Vi rekommenderar att alla nya tabellprogram använder [gemensamma Azure Storage-bibliotek](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) och [Azure Cosmos DB-tabellbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), men paketet WindowsAzure.Storage går fortfarande att använda. Om du använder WindowsAzure.Storage-biblioteket ska du ta med Microsoft.WindowsAzure.Storage.Table i dina instruktioner.
 >
 >
 
@@ -105,20 +103,20 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 Du har tre miljöalternativ för att köra exemplen i den här guiden:
 
 * Du kan köra din kod mot ett Azure Storage-konto i molnet. 
-* Du kan köra din kod mot ett Azure DB som Cosmos-konto i molnet.
+* Du kan köra din kod mot ett Azure Cosmos DB-konto i molnet.
 * Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
 Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
-> Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra den här guiden vara minimala.
+> Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra det här exemplet vara minimala.
 > 
 > 
 
-Om du utvecklar ett Azure DB som Cosmos-konto kan du kopiera den primära åtkomstnyckeln för ditt konto med tabell-API från Azure-portalen. Mer information finns i [uppdatera anslutningssträngen](create-table-dotnet.md#update-your-connection-string).
+Om målet är ett Azure Cosmos DB-konto kopierar du den primära åtkomstnyckeln för ditt konto för Table-API:et från Azure Portal. Mer information finns i [Uppdatera din anslutningssträng](create-table-dotnet.md#update-your-connection-string).
 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
-Azure Storage gemensamt bibliotek för .NET stöder användning av en lagringsanslutningssträng för att konfigurera slutpunkter och autentiseringsuppgifter för åtkomst till lagringstjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. 
+Det gemensamma Azure Storage-biblioteket för .NET stöder användning av en anslutningssträng för lagring för att konfigurera slutpunkter och autentiseringsuppgifter för åtkomst till lagringstjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. 
 
 Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträng för Azure Storage](../storage/common/storage-configure-connection-string.md).
 
@@ -140,16 +138,16 @@ För att konfigurera din anslutningssträng öppnar du `app.config`-filen i Solu
 </configuration>
 ```
 
-Om du använder ett Azure Storage-konto visas till exempel konfigurationsinställningarna liknar:
+Om du exempelvis använder ett Azure Storage-konto liknar dina konfigurationsinställningar följande:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
-Om du använder ett konto i Azure Cosmos DB liknar konfigurationsinställningarna:
+Om du använder ett Azure Cosmos DB-konto liknar dina konfigurationsinställningar följande:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 För att använda lagringsemulatorn kan du använda ett kortkommando som mappar till det välkända kontonamnet och nyckeln. I så fall är din inställning för anslutningssträngen:

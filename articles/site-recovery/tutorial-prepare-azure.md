@@ -5,27 +5,31 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212797"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737212"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
  [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-Den här självstudien visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig att:
+Den här artikeln är den första kursen i en serie som illustrerar hur du ställer in haveriberedskap för lokala virtuella datorer. Det är relevant oavsett om du skyddar lokala virtuella VMware-datorer, virtuella Hyper-V-datorer eller fysiska servrar.
+
+Självstudiekurser är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. 
+
+Den här artikeln visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Kontrollera att ditt Azure-konto har replikeringsbehörighet.
-> * Skapa ett Azure-lagringskonto. Replikerade data lagras i det.
-> * Skapa ett Recovery Services-valv.
-> * Konfigurera ett Azure-nätverk. När de virtuella Azure-datorerna skapats efter redundansen, är de anslutna till det här Azure-nätverket.
+> * Skapa ett Azure-lagringskonto. Avbildningar av replikerade datorer lagras i den.
+> * Skapa ett Recovery Services-valv. Ett valv innehåller metadata och konfigurationsinformation för virtuella datorer och andra replikeringskomponenter.
+> * Skapa ett Azure-nätverk. När de virtuella Azure-datorerna skapats efter redundansen, är de anslutna till det här Azure-nätverket.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
@@ -45,27 +49,27 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure.
+Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet. Vi använder Västeuropa i den här självstudiekursen.
 
-1. På menyn [Azure Portal](https://portal.azure.com) väljer du **Nytt** > **Lagring** > **Lagringskonto**.
+1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Storage** > **Storage Account – blob, file, table, queue**.
 2. I **Skapa lagringskonto** anger du ett namn för kontot. I de här självstudierna använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken långt. Det får endast bestå av siffror och gemener.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
-4. I **Typ av konto** väljer du **Generell användning**. I **Prestanda** väljer du **Standard**. Välj inte blobblagring.
-5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans.
-6. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i.
-7. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I dessa självstudier ska du använda namnet **ContosoRG**.
-8. Välj den geografiska platsen för ditt lagringskonto för **Plats**. Lagringskontot måste finnas i samma region som Recovery Services-valvet. I dessa självstudier använder du regionen **Europa, västra**.
+4. I **Typ av konto** väljer du **Minne (generell användning v1)**. Välj inte blobblagring. I **Prestanda** väljer du **Standard**. 
+5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans. Vi låter **Säker överföring krävs** vara **Inaktiverat**.
+6. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i. 
+2. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
+3. Välj den geografiska platsen för ditt lagringskonto för **Plats**. 
 
    ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Skapa lagringskontot genom att välja **Skapa**.
 
-## <a name="create-a-vault"></a>Skapa ett valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-1. I Azure-portalen markerar du **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
+1. I Azure-portalen markerar du **Skapa en resurs** > **Storage** > **Backup och Site Recovery (OMS)**.
 2. I **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
-3. I **Resursgrupp** väljer du den befintliga resursgruppen med namnet **contosoRG**.
-4. I **Plats** anger du Azure-regionen **Europa, västra** som används i de här självstudierna.
+3. I **Resursgruppen** använder vi **contosoRG**.
+4. I **Plats**. Använder vi **Västeuropa**.
 5. För att snabbt komma åt valvet från instrumentpanelen väljer du **Fäst på instrumentpanelen** > **Skapa**.
 
    ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -77,25 +81,26 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 När de virtuella Azure-datorerna har skapats från minnet efter redundansen, är de anslutna till det här nätverket.
 
 1. I [Azure Portal](https://portal.azure.com) markerar du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-2. Låt **Resource Manager** vara valt som distributionsmodell. Resource Manager är den rekommenderade distributionsmodellen. Gör sedan följande:
-
-   a. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Använd namnet **ContosoASRnet**.
-
-   b. I **Resursgrupp** använder du den befintliga resursgruppen **contosoRG**.
-
-   c. I **Adressintervall** anger du nätverksadressintervallet **10.0.0.0/24**.
-
-   d. I den här självstudien behöver du inget undernät.
-
-   e. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
-
-   f. För **Plats** väljer du **Europa, västra**. Nätverket måste finnas i samma region som Recovery Services-valvet.
-
-3. Välj **Skapa**.
+2. Låt **Resource Manager** vara valt som distributionsmodell.
+3. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Vi använder **ContosASRnet** i den här självinlärningskursen.
+4. Ange resursgruppen där nätverket kommer att skapas. Vi använder den befintliga resursgruppen **contosoRG**.
+5. I **Adressintervall** anger du nätverksadressintervallet **10.0.0.0/24**. I det här nätverket använder vi inte ett undernät.
+6. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
+7. För **Plats** väljer du **Europa, västra**. Nätverket måste finnas i samma region som Recovery Services-valvet.
+8. Vi lämnar standardalternativen för grundläggande DDoS-skydd utan tjänstslutpunkten i nätverket.
+9. Klicka på **Skapa**.
 
    ![Skapa ett virtuellt nätverk](media/tutorial-prepare-azure/create-network.png)
 
    Det tar några sekunder att skapa ditt virtuella nätverk. När det har skapats ser du det i instrumentpanelen för Azure Portal.
+
+## <a name="useful-links"></a>Användbara länkar
+
+- [Lär dig om](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverk.
+- [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) typer av Azure-lagring.
+- - [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) lagringsredundans och [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) för lagring.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305318"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247888"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicera ett hanterat program för internt bruk
 
@@ -31,9 +31,11 @@ Om du vill publicera ett hanterat program för tjänstkatalogen måste du:
 
 I den här artikeln innehåller det hanterade programmet bara ett lagringskonto. Artikeln beskriver steg för steg hur du publicerar ett hanterat program. Fullständiga exempel hittar du i [exempelprojekten för Azure-hanterade program](sample-projects.md).
 
+PowerShell-exemplen i den här artikeln kräver Azure PowerShell 6.2 eller senare. Om det behövs, [uppdatera din version](/powershell/azure/install-azurerm-ps).
+
 ## <a name="create-the-resource-template"></a>Skapa resursmallen
 
-Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska etableras. Mallen skiljer sig inte från en vanlig Resource Manager-mall.
+Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska distribueras. Mallen skiljer sig inte från en vanlig Resource Manager-mall.
 
 Skapa en fil med namnet **mainTemplate.json**. Namnet är skiftlägeskänsligt.
 
@@ -209,6 +211,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### <a name="make-sure-users-can-see-your-definition"></a>Kontrollera att användare kan se din definition
+
+Du har åtkomst till definitionen för hanterade program, men du vill kontrollera att andra användare i din organisation kan komma åt den. Ge dem minst rollen Läsare på definitionen. De kan ha ärvt den här åtkomstnivån från prenumerationen eller resursgruppen. För att kontrollera vem som har åtkomst till definitionen och lägga till användare eller grupper, se [Använda rollbaserad behörighet för att hantera åtkomst till resurserna i din Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="create-the-managed-application"></a>Skapa det hanterade programmet
 
 Du kan distribuera det hanterade programmet via portalen, PowerShell eller Azure CLI.
@@ -256,6 +262,16 @@ Nu ska vi använda portalen för att distribuera det hanterade programmet. Du ka
 1. Leta upp det hanterade program som du vill skapa i listan över tillgängliga lösningar och välj det. Välj **Skapa**.
 
    ![Leta upp det hanterade programmet](./media/publish-service-catalog-app/find-application.png)
+
+   Om du inte ser definition för hanterade program via portalen kan du behöva ändra dina portalinställningar. Välj **Katalog- och prenumerationsfilter**.
+
+   ![Välj prenumerationsfilter](./media/publish-service-catalog-app/select-filter.png)
+
+   Kontrollera att det globala prenumerationsfiltret innehåller den prenumeration som innehåller den hanterade programdefinitionen.
+
+   ![Kontrollera prenumerationsfilter](./media/publish-service-catalog-app/check-global-filter.png)
+
+   När du har valt prenumerationen, börja om från början genom att skapa tjänsten kataloghanterat program. Nu bör du se den.
 
 1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som ska innehålla det hanterade programmet. Välj **USA, västra centrala** för platsen. När du är klar väljer du **OK**.
 

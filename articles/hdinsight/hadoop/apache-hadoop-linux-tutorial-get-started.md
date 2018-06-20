@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 4cf20dacf66ee334dcd455ce1770609c175d3b88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763263"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Resource Manager-mall
 
@@ -77,6 +78,110 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en Azure Resou
 > Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).       
 > 
 >
+
+## <a name="use-vscode-to-run-hive-queries"></a>Använda VSCode för att köra Hive-frågor
+
+Hämtningsanvisningar för HDInsight-verktyg i VSCode finns i [Använd Azure HDInsight Tools för Visual Studio Code](../hdinsight-for-vscode.md).
+
+### <a name="submit-interactive-hive-queries"></a>Skicka interaktiva Hive-frågor
+
+Du kan skicka interaktiva Hive-frågor till interaktiva HDInsight-frågekluster med HDInsight-verktyg för VSCode.
+
+1. Skapa en ny arbetsmapp och en ny fil för Hive-skript om du inte redan har gjort det.
+
+2. Anslut till ditt Azure-konto och konfigurera sedan standardklustret om du inte redan gjort det.
+
+3. Sedan kopierar du och klistrar in följande kod i din Hive-fil och sparar den.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Hive Interactive** att skicka frågan. Med verktygen kan du dessutom skicka ett kodblock istället för hela skriptfilen med snabbmenyn. Strax därefter efter visas resultatet av frågan i en ny flik.
+
+   ![Interaktiva Hive-resultat](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - Panelen **RESULTAT**: du kan spara hela resultatet som CSV-, JSON- eller Excel-filer till en lokal sökväg eller markera flera rader.
+
+    - Panelen **MEDDELANDE**: när du väljer **Rad**nummer, leder det till den första raden i det aktuella skriptet.
+
+Interaktiva frågor tar mycket kortare tid än [att köra ett Hive-batchjobb](#submit-hive-batch-scripts).
+
+### <a name="submit-hive-batch-scripts"></a>Skicka Hive-batchskript
+
+1. Skapa en ny arbetsmapp och en ny fil för Hive-skript om du inte redan har gjort det.
+
+2. Anslut till ditt Azure-konto och konfigurera sedan standardklustret om du inte redan gjort det.
+
+3. Sedan kopierar du och klistrar in följande kod i din Hive-fil och sparar den.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Hive Batch** för att skicka ett Hive-jobb. 
+
+5. Välj ett kluster som du vill skicka.  
+
+    När du har skickat ett Hive-jobb visas information om resultat och jobb-ID i panelen **UTDATA**. Hive-jobb öppnas också **WEBBLÄSARE**, vilket visar jobbloggar och status i realtid.
+
+   ![skicka resultat om Hive-jobbet](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+Det tar mycket kortare tid att [skicka interaktiva Hive-frågor](#submit-interactive-hive-queries) än att skicka ett batchjobb.
+
+## <a name="use-visualstudio-to-run-hive-queries"></a>Använd VisualStudio för att köra Hive-frågor
+
+Hämtningsanvisningar för HDInsight-verktyg i Visual Studie finns i [Använd Data Lake-verktyg för Visual Studio](./apache-hadoop-visual-studio-tools-get-started.md).
+
+### <a name="run-hive-queries"></a>Köra Hive-frågor
+
+Det finns två sätt att skapa och köra Hive-frågor:
+
+* Skapa ad hoc-frågor
+* Skapa ett Hive-program
+
+Skapa och köra ad-hoc-frågor:
+
+1. I **Server Explorer** väljer du **Azure** > **HDInsight-kluster**.
+
+2. Högerklicka på det kluster där du vill köra frågan och välj sedan **Skriv en Hive-fråga**.  
+
+3. Ange Hive-frågorna. 
+
+    Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver **SELECT * FROM** visar IntelliSense en lista över alla föreslagna tabellnamn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF.
+   
+    ![Skärmbild av HDInsight Visual Studio Tools, IntelliSense exempel 1](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![Skärmbild av HDInsight Visual Studio Tools, IntelliSense exempel 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
+   > 
+   
+4. Välj **Skicka** eller **Skicka (avancerat)**. 
+   
+    ![Skärmbild av att skicka en hive-fråga](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   Om du väljer det avancerade alternativet för att skicka konfigurerar du **Jobbnamn**, **Argument**, **Ytterligare konfigurationer** och **Statuskatalog** för skriptet:
+
+    ![Skärmbild av HDInsight Hadoop Hive-fråga](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Skicka frågor")
+
+   Köra interaktiva Hive-frågor
+
+   * klicka på nedåtpilen för att välja **interaktiva**. 
+   
+   * Klicka på **Kör**.
+
+   ![Skärmbild på att köra interaktiva Hive-frågor](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+Så här skapar och kör du en Hive-lösning:
+
+1. På menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
+2. Välj **HDInsight** i den vänstra fönsterrutan. I den mellersta fönsterrutan väljer du **Hive-program**. Ange egenskaper och välj sedan **OK**.
+   
+    ![Skärmbild av ett nytt Hive-projekt i HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Skapa Hive-program från Visual Studio")
+3. Gå till **Solution Explorer** och dubbelklicka på **Script.hql** för att öppna skriptet.
+4. Ange Hive-frågorna och skicka. (Se steg 3 och 4 ovan)  
+
+
 
 ## <a name="run-hive-queries"></a>Köra Hive-frågor
 
@@ -158,7 +263,7 @@ Mer information om att analysera data med HDInsight finns i följande artiklar:
 * Du kan läsa mer om Pig, ett språk som används för att omvandla data, i [Använda Pig med HDInsight](hdinsight-use-pig.md).
 * Du kan läsa mer om MapReduce, ett sätt att skriva appar som bearbetar data i Hadoop, i [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md).
 * Du kan läsa mer om hur du använder HDInsight Tools för Visual Studio för att analysera data i HDInsight i [Komma igång med Visual Studio Hadoop-verktyg för HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-
+* Du kan läsa mer om hur du använder HDInsight Tools för VSCode för att analysera data i HDInsight i [Använda HDInsight-verktyg för Visual Studio-kod](../hdinsight-for-vscode.md).
 
 
 Mer information om att skapa eller hantera HDInsight-kluster hittar du i följande artiklar:

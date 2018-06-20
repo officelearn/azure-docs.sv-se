@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644050"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 Den här självstudien är del tre i en serie. Här får du se hur du distribuerar en Service Fabric-tillämpning till ett kluster i Azure.
@@ -198,7 +199,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     </Certificates>
     ```
 
-2. För att kunna distribuera din tillämpning till klustret måste du etablera en anslutning till klustret med hjälp av SFCTL. SFCTL behöver en PEM-fil med både den offentliga och den privata nyckeln för att ansluta till klustret, och därför ska du köra följande kommando för att skapa en PEM-fil med både den offentliga och den privata nyckeln. 
+2. För att kunna distribuera din tillämpning till klustret måste du etablera en anslutning till klustret med hjälp av SFCTL. SFCTL kräver en PEM-fil med både offentlig och privat nyckel för att bevilja anslutning till klustret. Kör följande kommando om du vill skapa en PEM-fil med både offentlig och privat nyckel. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305005"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639215"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -53,7 +53,9 @@ Mer information om hur du publicerar program på Marketplace finns i [Använda m
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Vanligtvis finns resurserna för ett hanterat program i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Följande avbildning visar ett scenario där utgivaren begär ägarrollen för den hanterade resursgruppen. Utgivaren placerade ett skrivskyddat lås för den här resursgruppen för användaren. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
+Vanligtvis finns resurserna för ett hanterat program i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Möjligheten att begränsa åtkomsten för [dataåtgärder](../role-based-access-control/role-definitions.md) stöds inte för närvarande för alla datalprovidrar i Azure.
+
+Följande avbildning visar ett scenario där utgivaren begär ägarrollen för den hanterade resursgruppen. Utgivaren placerade ett skrivskyddat lås för den här resursgruppen för användaren. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 
 ![Åtkomst till resursgrupp](./media/overview/access.png)
 

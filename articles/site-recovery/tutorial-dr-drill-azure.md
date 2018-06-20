@@ -5,41 +5,42 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209733"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737115"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
-I den här självstudien visar vi hur du kör ett programåterställningstest för en lokal dator till Azure med hjälp av ett redundanstest. Med ett test kan du verifiera din replikeringsstrategi utan dataförlust. I den här guiden får du lära dig att:
+[Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
+
+- Den här är den fjärde kursen i en serie som illustrerar hur du ställer in haveriberedskap i Azure för lokala virtuella VMware-datorer. Den förutsätter att du slutfört de första två självstudierna:
+    - I den [första självstudien](tutorial-prepare-azure.md), konfigurerade vi Azure komponenter som krävs för katastrofåterställning för VMware.
+    - I den [andra kursen](vmware-azure-tutorial-prepare-on-premises.md) förberedde vi lokala komponenter för katastrofåterställning och granskade förutsättningarna.
+    - I den [tredje kursen](vmware-azure-tutorial.md) ställde vi in och aktiverade replikering för våra lokala VMware VM.
+- Självstudiekurser är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. 
+
+
+I den här självstudien visar vi hur du kör ett programåterställningstest för en lokal dator till Azure med hjälp av ett redundanstest. Med ett test kan du verifiera din replikeringsstrategi utan dataförlust. Lär dig att:
 
 > [!div class="checklist"]
 > * Ställer in ett isolerat nätverk för redundanstestet
 > * Förbereder för att ansluta till den virtuella Azure-datorn efter en redundansväxling
 > * Kör ett redundanstest för en enstaka virtuell dator
 
-Detta är den fjärde självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.
-
-1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. [Förbereda lokal VMware](tutorial-prepare-on-premises-vmware.md)
-3. [Konfigurera haveriberedskap](tutorial-vmware-to-azure.md)
+Den här självstudiekursen ställer in VMware-katastrofåterställning till Azure med de enklaste inställningarna. Om du vill veta mer om redundansteststegen kan du läsa [Anvisningsguiden](site-recovery-test-failover-to-azure.md).
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
 
-Kontrollera den virtuella datorns egenskaper innan du kör ett redundanstest, och se till att din virtuella Hyper-V-dator[hyper-v-azure-support-matrix.md#replicated-vms], [virtuella VMware-dator eller fysiska server](vmware-physical-azure-support-matrix.md#replicated-machines) uppfyller kraven för Azure.
+Kontrollera den virtuella VMware-datorns egenskaper innan du kör ett redundanstest, och se till att din virtuella Hyper-V-dator[hyper-v-azure-support-matrix.md#replicated-vms], [virtuella VMware-dator eller fysiska server](vmware-physical-azure-support-matrix.md#replicated-machines) uppfyller kraven för Azure.
 
-1. I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
+1. I **Skyddade objekt** klickar du på **Replikerade objekt** > och VM.
 2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
-3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) och hanterade diskinställningar.
-   
-      >[!NOTE]
-      Återställning efter fel till Hyper-V-datorer från virtuella Azure-datorer med hanterade diskar stöds i dagsläget inte. Du bör endast använda alternativet hanterade diskar för växling vid fel om du planerar att migrera lokala virtuella datorer till Azure utan att återställa dem efter fel.
-   
+3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, tillgänglighetsuppsättning och hanterade diskinställningar.
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 

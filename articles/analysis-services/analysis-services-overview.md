@@ -1,139 +1,249 @@
 ---
-title: Översikt över Azure Analysis Services | Microsoft Docs
+title: Vad är Azure Analysis Services? | Microsoft Docs
 description: Få en helhetsbild av Analysis Services i Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 05/16/2018
+ms.date: 06/05/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193823"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234564"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
+
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services innehåller modeller med företagsklassdata i molnet. Det här är en fullständigt hanterad plattform som en tjänst (PaaS), integrerad med Azure-dataplattformstjänsterna. 
+Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen ger ett enklare och snabbare sätt för användare att bläddra igenom stora mängder data för ad hoc-dataanalys.
 
-Med Analysis Services kan du blanda och kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig semantisk datamodell. Datamodellen gör det enkelt för användarna att snabbt söka igenom stora mängder data med klientprogram som Power BI, Excel, Reporting Services, program från tredjepart och anpassade appar.
+![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
-![Datakällor](./media/analysis-services-overview/aas-overview-data-sources.png)
-
-Titta på [den här videon](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) som visar hur Azure Analysis Services passar in bland Microsofts BI-funktioner och fördelarna med att ha dina datamodeller i molnet.
-
-## <a name="built-on-sql-server-analysis-services"></a>Bygger på SQL Server Analysis Services
-Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services fungerar med tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1 200 och 1 400. Partitioner, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds. Minnes- och DirectQuery-lägena innebär att du blixtsnabbt kan skicka frågor via omfattande och komplexa datauppsättningar.
-
-Tabellmodeller ger snabb utveckling och är mycket anpassningsbara. För utvecklare innehåller tabellmodeller en TOM (Tabular Object Model) som används för att beskriva modellobjekt. TOM exponeras i JSON via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) och datadefinitionsspråket AMO via namnområdet [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
-
-## <a name="better-with-azure"></a>Bättre med Azure
-Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod.
+**Video:** Se [översikt av Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) för mer information om hur Azure Analysis Services passar in med Microsofts övergripande BI-funktioner.
 
 ## <a name="get-up-and-running-quickly"></a>Kom igång snabbt
-På Azure Portal kan du [skapa en server](analysis-services-create-server.md) på några minuter. Och du kan etablera servrar med hjälp av en deklarativ mall med Azure Resource Manager-[mallar](../azure-resource-manager/resource-manager-create-first-template.md) och PowerShell. Du kan distribuera flera tjänster tillsammans med andra Azure-komponenter, till exempel lagringskonton och Azure Functions, med en enda mall. 
 
-När du har skapat en server kan skapa du en tabellmodell direkt i Azure Portal. Med den nya [webbdesignerfunktionen](analysis-services-create-model-portal.md) (förhandsversion) kan du ansluta till en Azure SQL Database, Azure SQL Data Warehouse-datakälla eller importera en Power BI Desktop PBIX-fil. Relationer mellan tabeller skapas automatiskt, och du kan skapa mått eller redigera filen model.bim i json-format direkt från webbläsaren.
+På Azure Portal kan du [skapa en server](analysis-services-create-server.md) på några minuter. Och du kan skapa servrar med hjälp av en deklarativ mall med Azure Resource Manager-[mallar](../azure-resource-manager/resource-manager-create-first-template.md) och PowerShell. Du kan distribuera serverresurser tillsammans med andra Azure-komponenter såsom lagringskonton och Azure Functions, med en enda mall. 
+
+**Video:** Se [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) för mer information om hur du kan använda Azure Automation för att snabbare skapa servrar.
+
+Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod. 
+
+## <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
+
+Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic** och **Standard**. Inom varje nivå varierar kostnaderna för prenumerationsavtalen utifrån bearbetningskraft, QPU:er och minnesstorlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
+
+### <a name="developer-tier"></a>Developer-nivå
+
+Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker är inte tillgängligt på den här nivån. Den här nivån omfattas inte av något serviceavtal.
+
+|Planera  |QPU:er  |Minne (GB)  |
+|---------|---------|---------|
+|D1    |    20     |    3     |
+
+
+### <a name="basic-tier"></a>Basic-nivå
+
+Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
+
+|Planera  |QPU:er  |Minne (GB)  |
+|---------|---------|---------|
+|B1    |    40     |    10     |
+|B2    |    80     |    20     |
+
+### <a name="standard-tier"></a>Standard-nivå
+
+Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kräver elastisk användarsamtidighet och har snabbväxande datamodeller. Den har stöd för avancerad datauppdatering för datamodellsuppdateringar i nära realtid och stöder alla funktioner för tabellmodeller.
+
+|Planera  |QPU:er  |Minne (GB)  |
+|---------|---------|---------|
+|S1    |    40     |    10     |
+|S2    |    100     |    25     |
+|S3    |    200     |    50     |
+|S4    |    400     |    100     |
+|S8*    |    320     |    200     |
+|S9*    |    640    |    400     |
+
+\* Inte tillgänglig i alla regioner.  
+
+## <a name="availability-by-region"></a>Tillgänglighet efter region
+
+Azure Analysis Services stöds i regioner över hela världen. Garantera [hög tillgänglighet](analysis-services-bcdr.md) genom att distribuera modellerna på redundanta servrar i flera regioner. Nivåer som stöds och frågerepliker är beroende av den region som väljs. 
+
+### <a name="americas"></a>Nord- och Sydamerika
+
+|Region  | Nivåer som stöds | Frågerepliker |
+|---------|---------|:---------:|
+|Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|Östra USA 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
+|Västra USA     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|USA, västra 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+
+### <a name="europe"></a>Europa
+
+|Region  | Nivåer som stöds | Frågerepliker |
+|---------|---------|:---------:|
+|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Storbritannien, södra   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Västra Europa     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+
+### <a name="asia-pacific"></a>Asien och stillahavsområdet 
+
+|Region  | Nivåer som stöds | Frågerepliker |
+|---------|---------|:---------:|
+|Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Östra Japan  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
-### <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
+### <a name="scale-updown-pause-and-resume"></a>Skala upp\ner, pausa och återuppta
 
-Azure Analysis Services är tillgängligt på nivåerna Developer, Basic och Standard. Inom varje nivå varierar kostnaderna för prenumerationsavtalen utifrån bearbetningskraft, QPU:er och minnesstorlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
-
-Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder. Mer information om de olika planerna och nivåerna och en prisnivåkalkylator som kan användas för att välja rätt plan, finns i [prisinformationen för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
 
-Med skalning av Azure Analysis Services distribueras klientfrågor över flera *frågerepliker* i en frågepool. Frågerepliker har synkroniserade kopior av dina tabellmodeller. Genom att sprida frågearbetsbelastningen kan svarstiderna minskas under stora frågearbetsbelastningar. Modellbearbetning kan separeras från frågepoolen. Det här säkerställer att klientfrågor inte påverkas negativt av bearbetningsåtgärder. Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). 
+Med skalning distribueras klientfrågor över flera *frågerepliker* i en frågepool. Frågerepliker har synkroniserade kopior av dina tabellmodeller. Genom att sprida frågearbetsbelastningen kan svarstiderna minskas under stora frågearbetsbelastningar. Modellbearbetning kan separeras från frågepoolen. Det här säkerställer att klientfrågor inte påverkas negativt av bearbetningsåtgärder. 
 
-Du kan skala ut frågerepliker efter dina behov, precis som du kan ändra din nivå. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Azure Analysis Services scale-out](analysis-services-scale-out.md) (Skalning av Azure Analysis Services).
+Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). Antalet frågerepliker som du kan ha i din pool beror på den valda regionen. Frågerepliker kan inte spridas utanför din serverregion. Frågerepliker debiteras med samma avgift som din server.
 
-## <a name="keep-your-data-close"></a>Förvara dina data nära
-Azure Analysis Services-servrar kan skapas i följande [Azure-regioner](https://azure.microsoft.com/regions/):
+Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
-| Nord- och Sydamerika | Europa | Asien och stillahavsområdet |
-|----------|--------|--------------|
-|  Södra Brasilien<br> Centrala Kanada<br> Östra USA<br> Östra USA 2<br> Norra centrala USA<br> Centrala USA<br> Södra centrala USA<br> Västra centrala USA<br> Västra USA<br> USA, västra 2 | Norra Europa<br> Storbritannien, södra<br> Västra Europa |   Sydöstra Australien<br> Östra Japan<br> Sydostasien<br> Indien, västra  |
+## <a name="pricing"></a>Prissättning
 
-Nya områden läggs till hela tiden, så den här listan kan vara ofullständig. Du kan välja en plats när du skapar en server i Azure Portal eller med hjälp av Azure Resource Manager-mallar. Välj en plats närmast din största användarbas för att få bästa möjliga prestanda. Garantera [hög tillgänglighet](analysis-services-bcdr.md) genom att distribuera modellerna på redundanta servrar i flera områden.
+Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, frågerepliker och paus/återuppta. Använd [Azure Analysis Services pris](https://azure.microsoft.com/pricing/details/analysis-services/)-kalkylator för att fastställa vanlig prissättning för din region. Det här verktyget beräknar prissättning för en enskild serverinstans för en enskild region. Tänk på att frågerepliker debiteras med samma avgift som servern. 
 
-## <a name="migrate-your-existing-tabular-models"></a>Migrera dina befintliga tabellmodeller
-Om du redan har befintliga lokala SQL Server Analysis Services-modellösningar kan du migrera till Azure Analysis Services utan betydande förändringar. Du kan använda SSDT för att distribuera din modell till servern vid migrering. I SSMS kan du även använda säkerhetskopiering och återställning eller TMSL.
+## <a name="built-on-sql-server-analysis-services"></a>Bygger på SQL Server Analysis Services
 
-Om du har lokala datakällor måste du installera och konfigurera en [lokal datagateway](analysis-services-gateway.md). Om du har roller och rollmedlemmar som redan har konfigurerats migreras rollerna, men du behöver läsa rollmedlemmarna med hjälp av SSMS eller PowerShell.
+Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services stöder tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1200 eller högre. Tabellmodeller är relationsbaserade modelleringskonstruktioner (modeller, tabeller, kolumner), som uttrycks i objektdefinitioner för tabellmetadata i TMSL-kod (Tabular Model Scripting Language) och TOM-kod (Tabular Object Model). Partitioner, perspektiv, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds*. Flerdimensionella modeller och PowerPivot för Sharepoint stöds *inte* i Azure Analysis Services.
 
-## <a name="connect-to-popular-data-sources"></a>Anslut till populära datakällor
-Azure Analysis Services har stöd för [att ansluta till datakällor](analysis-services-datasource.md) lokalt i din organisation eller i molnet. Du kan kombinera data från datakällor som finns både lokalt och i molnet. På så sätt får du en hybridlösning. 
+Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänstprinciper får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
-Nya 1400-tabellmodeller använder den moderna Get Data-funktionen i SSDT, baserat på M-formelfrågespråket. Med Get Data får du tillgång till fler datatransformerings- och kombinationsprogramfunktioner och möjlighet att skapa och redigera egna avancerade M-formelspråkfrågor. Med 1400-tabellmodeller kan du till exempel modellera på datafiler i Azure Blob Storage.
+DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enskild SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar, och vissa avancerade funktioner för datamodeller stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
+
+\* Funktionstillgänglighet beror på nivån.
+
+## <a name="supported-datasources"></a>Datakällor som stöds
+
+Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor från enkla textfiler till stordata i Azure Data Lake Store. Läs mer i avsnittet [Datakällor som stöds i Azure Analysis Services](analysis-services-datasource.md).
+
+## <a name="your-data-is-secure"></a>Dina data är skyddade
+
+Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. På servernivå: brandvägg, Azure-autentisering, serveradministratörsroller och kryptering för serversidan. På datamodellnivån säkerställer användarroller, säkerhet på radnivå och säkerhet på objektnivå att dina data är säkra och endast ses av de användare som är avsedda att de den.
+
+### <a name="firewall"></a>Brandvägg
+
+Azure Analysis Services brandvägg blockerar alla klientanslutningar förutom IP-adresserna som anges i regler. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. Konfigurera brandväggen och regler i portalen eller med hjälp av PowerShell. Läs mer i [Konfigurera en serverbrandvägg](analysis-services-qs-firewall.md).
+
+### <a name="authentication"></a>Autentisering
+
+Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
+
+### <a name="data-security"></a>Datasäkerhet
+
+Azure Analysis Services använder Azure Blob Storage för lagring och metadata för Analysis Services-databaser. Datafiler i Blob krypteras med [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). När du använder läget Direct Query lagras endast metadata. Faktiska data hämtas via krypterade protokoll från datakällan när frågan körs.
+
+Du kan skydda åtkomsten till datakällor lokalt inom din organisation genom att installera och konfigurera en [Lokal datagateway](analysis-services-gateway.md). Gateways ger åtkomst till data för både DirectQuery- och InMemory-läget.
+
+### <a name="roles"></a>Roller
+
+Analysis Services använder [rollbaserad auktorisering](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular) som ger åtkomst till servern och åtgärder, objekt och data för modelldatabaser. Alla användare som har åtkomst till en server eller databas gör detta med sina Azure AD-användarkonto i en tilldelad roll. Serveradministratörsrollen är på serverresursnivå. Som standard ingår det konto som används när du skapar en server automatiskt i administratörsrollen för servern. Ytterligare användar- och gruppkonton har lagts till med hjälp av portalen, SSMS eller PowerShell.
+  
+Icke-administrativa slutanvändare som frågar efter data beviljas åtkomst genom databasroller. En databasroll skapas som ett separat objekt i databasen och gäller endast för databasen som rollen har skapats i. Databasroller definieras av (databasens) administratörs-, läs- och läs- och processbehörigheter. Användar- och gruppkonton läggs till med hjälp av SSMS eller PowerShell.
+
+### <a name="row-level-security"></a>Säkerhet på radnivå
+
+Tabellmodeller på alla kompatibilitetsnivåer har stöd för säkerhet på radnivå. Säkerhet på radnivå konfigureras i modellen med hjälp av DAX-uttryck som definierar raderna i en tabell och alla rader i många riktningar i en relaterad tabell som en användare kan fråga. Radfilter som använder DAX-uttryck definieras för läs- och läs- och processbehörigheter. 
+
+### <a name="object-level-security"></a>Säkerhet på objektnivå 
+
+Tabellmodeller på kompatibilitetsnivån 1400 stöder säkerhet på objektnivå, vilket inkluderar säkerhet på tabellnivå och säkerhet på kolumnnivå. Säkerhet på objektnivå anges i JSON-baserad metadata i Model.bim-filen med hjälp av TMSL eller TOM. Läs mer i [Säkerhet på objektnivå](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security).
+
+### <a name="automation-through-service-principles"></a>Automation via tjänstens huvudnamn
+
+Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. Tjänstens huvudnamn används med Azure Automation, obevakat läge i PowerShell, anpassade klientprogram och webbprogram för att automatisera vanliga uppgifter som datauppdatering, skala upp/ned och pausa/återuppta. Behörigheter tilldelas till tjänstens huvudnamn via rollmedlemskap. Läs mer i [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md).
+
+### <a name="azure-governance"></a>Azure-styrning
+
+Azure Analysis Services lyder under [villkoren för Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
+Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Använd de verktyg som du är van vid
 
 ![BI-utvecklarverktyg](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) för Visual Studio
-Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor.
+### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) för Visual Studio
 
-#### <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Hantera dina servrar och modelldatabaser med hjälp av [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Ansluta till servrar i molnet. Kör TMSL skript direkt från XMLA-frågefönstret och automatisera uppgifter med hjälp av TMSL-skript. Nya funktioner och funktionaliteter införs snabbt och SSMS uppdateras varje månad.
+Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. Microsoft Analysis Services-projekt är också tillgängliga för Visual Studio som en installeringsbar paket-VSIX. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
-#### <a name="powershell"></a>PowerShell
-Under hanteringsaktiviteter för serverresurser som att skapa servrar, pausa eller återuppta serveråtgärder eller ändra servicenivån används cmdletar för Azure Resource Manager (AzureRM). Under andra aktiviteter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller köra TMSL-skript, används cmdletar i SqlServer-modulen. Både AzureRM- och SQLServer-moduler är tillgängliga i [PowerShell-galleriet](https://www.powershellgallery.com/).
+### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
+Hantera dina servrar och modelldatabaser med hjälp av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Ansluta till servrar i molnet. Kör TMSL-skript direkt från XMLA-frågefönstret och automatisera uppgifter med hjälp av TMSL-skript och PowerShell. Nya funktioner och funktionaliteter införs snabbt och SSMS uppdateras varje månad.
 
-## <a name="your-data-is-secure"></a>Dina data är skyddade
-![Datavisualiseringar](./media/analysis-services-overview/aas-overview-secure.png)
+### <a name="powershell"></a>PowerShell
 
-#### <a name="authentication"></a>Autentisering
-Användarautentisering för Azure Analysis Services hanteras av [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). När användarna försöker logga in på en Azure Analysis Services-databas använder de en organisationskontoidentitet som har åtkomst till databasen. Dessa användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som Azure Analysis Services-servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
+Under hanteringsaktiviteter för serverresurser såsom att skapa serverresurser, pausa eller återuppta serveråtgärder eller ändra servicenivån, används cmdletar för Azure Resource Manager (AzureRM). Under andra aktiviteter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller köra TMSL-skript, används cmdletar i SqlServer-modulen. Se [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md) för mer information.
 
-#### <a name="data-security"></a>Datasäkerhet
-Azure Analysis Services använder Azure Blob Storage för lagring och metadata för Analysis Services-databaser. Datafiler i Blob krypteras med Azure Blob Server Side Encryption (SSE). När du använder läget Direct Query lagras endast metadata. Faktiska data hämtas från datakällan när frågan körs.
+### <a name="object-model-and-scripting"></a>Objektmodell och skript
 
-#### <a name="firewall"></a>Brandvägg
-
-Azure Analysis Services-brandväggen blockerar alla klientanslutningar förutom de som anges i regler. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. 
-
-#### <a name="on-premises-data-sources"></a>Lokala datakällor
-Du kan skydda åtkomsten till data som förvaras lokalt inom din organisation genom att installera och konfigurera en [Lokal datagateway](analysis-services-gateway.md). Gateways ger åtkomst till data för både Direct Query- och InMemory-läget. När en Azure Analysis Services-modell ansluter till en lokal datakälla skapas en fråga tillsammans med de krypterade autentiseringsuppgifterna för den lokala datakällan. Gateway-molntjänsten analyserar frågan och skickar begäran till en Azure Service Bus. Den lokala gatewayen avsöker Azure Service Bus för väntande begäranden. Gatewayen hämtar sedan frågan, dekrypterar autentiseringsuppgifterna och ansluter till datakällan för körning. Resultatet skickas sedan från datakällan, tillbaka till gatewayen och sedan vidare till Azure Analysis Services-databasen.
-
-Azure Analysis Services lyder under [villkoren för Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [sekretesspolicyn för Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
-Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
-
-
+Tabellmodeller ger snabb utveckling och är mycket anpassningsbara. Tabellmodeller innehåller en [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model) som används för att beskriva modellobjekt. TOM exponeras i JSON via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) och datadefinitionsspråket AMO via namnområdet [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx). 
 
 ## <a name="supports-the-latest-client-tools"></a>Stöder de senaste klientverktygen
+
 ![Datavisualiseringar](./media/analysis-services-overview/aas-overview-clients.png)
 
-Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, SQL Server 2017 Reporting Services och verktyg från tredje part stöds och ger användarna interaktiva och högvisuella insikter om dina modelldata. 
+Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, Reporting Services och verktyg från tredje part stöds och ger användarna interaktiva och högvisuella insikter om dina modelldata. 
 
-Klienterna använder [klientbibliotek](analysis-services-data-providers.md) av typen MSOLAP, AMO eller ADOMD för att ansluta till Analysis Services-servrar. Microsoft-klientprogram som Power BI Desktop och Excel installerar samtliga tre klientbibliotek. Men tänk på att, beroende på version eller hur ofta den uppdateras, kanske klientbiblioteken inte har de senaste versioner som krävs av Azure Analysis Services. Detsamma gäller för anpassade program eller andra gränssnitt som AsCmd, TOM, ADOMD.NET. Dessa program kräver vanligtvis att biblioteken installeras manuellt som en del av ett paket.
+## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
+Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
 
-## <a name="get-help"></a>Få hjälp
+Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV:s gränssnitt baseras på SQL-syntax och har en schemaraduppsättning som returnerar metadata samt övervakar information om serverinstanser.
 
-#### <a name="documentation"></a>Dokumentation
-Det är enkelt att konfigurera och hantera Azure Analysis Services. Här finns all information du behöver för att skapa och hantera servertjänsterna. När du skapar en datamodell som du ska distribuera till en server fungerar det ungefär som när du skapar en datamodell och distribuerar den på en lokal server. Det finns ett omfattande bibliotek med idéskisser, procedurer, självstudiekurser och referensartiklar i [hjälpen för SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+## <a name="documentation"></a>Dokumentation
 
-#### <a name="videos"></a>Videoklipp
-Kolla in de användbara videoklippen på [Azure Analysis Services på Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-#### <a name="blogs"></a>Bloggar
-Saker och ting ändras snabbt. Du kan alltid hitta den senaste informationen i [Analysis Services-teambloggen](https://blogs.msdn.microsoft.com/analysisservices/) och i [Azure-bloggen](https://azure.microsoft.com/blog/).
+Eftersom Azure Analysis Services tabellmodeller är ungefär som tabellmodeller i SQL Server Analysis Services så finns ett omfattande bibliotek med delade artiklar om begrepp, procedurer, utvecklare och referenser i [Dokumentationen för SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
 
-#### <a name="community"></a>Community
+![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
+
+### <a name="contribute"></a>Bidra!
+
+Analysis Services-dokumentation, som den här artikeln, är en öppen källa. Om du har ett GitHub-konto kan du redigera en artikel genom att klicka på Redigera (pennan) i det övre högra hörnet av webbläsarskärmen. Använd redigeringsprogrammet i webbläsaren och klicka på Föreslå filändring. 
+
+![Delad dokumentation](./media/analysis-services-overview/aas-overview-edit.png)
+
+Ditt bidrag granskas av dokumentationsteamet och om det godkänns visas ditt GitHub-kontonamn som deltagare. Mer information finns i [guide för dokumentdeltagare](https://docs.microsoft.com/contribute/).
+
+Dokumentation för Azure Analysis Services använder också [GitHub-problem](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Du kan lämna feedback om produkten eller dokumentationen. Använd **Feedback** längst ned i en artikel. GitHub-problem har ännu inte aktiverats för dokumentation för SQL Server Analysis Services. 
+
+## <a name="blogs"></a>Bloggar
+
+Saker och ting ändras snabbt. Få den senaste informationen i [Analysis Services-teambloggen](https://blogs.msdn.microsoft.com/analysisservices/) och i [Azure-bloggen](https://azure.microsoft.com/blog/).
+
+## <a name="community"></a>Community
+
 Analysis Services har ett levande användarforum. Delta i konversationen i [Azure Analysis Services-forumet](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="feedback"></a>Feedback
-Har du förslag eller saknar du någon funktion? Lämna dina kommentarer på [Azure Analysis Services-feedback](https://aka.ms/azureanalysisservicesfeedback).
-
-Har du förslag angående dokumentationen? Du kan lägga till kommentarer med hjälp av Livefyre längst ned i varje artikel.
-
 ## <a name="next-steps"></a>Nästa steg
-Lär dig [att skapa en server](analysis-services-create-server.md) i Azure.   
-När du har skapat en server [lägger du till en exempelmodell](analysis-services-create-sample-model.md).   
+
+> [!div class="nextstepaction"]
+> [Registrera dig för en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Skapa en server – portalen](analysis-services-create-server.md)   
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)  

@@ -1,46 +1,45 @@
 ---
-title: 'Azure Cosmos DB: Java-exempel för SQL-API | Microsoft Docs'
-description: Hitta Java-exempel på GitHub för vanliga uppgifter med hjälp av Azure Cosmos DB SQL API, inklusive CRUD-åtgärder.
+title: 'Azure Cosmos DB: Java-exempel för SQL API | Microsoft Docs'
+description: Hitta Java-exempel på GitHub för vanliga uppgifter med Azure Cosmos DB SQL API, inklusive CRUD-åtgärder.
 keywords: NoSQL-exempel
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: java
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 270cebd08fb1b03851825f7678689598cb9b71b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: ec13a594750132bc016d1383eb4b0a08fdf6114e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831837"
 ---
-# <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-exempel för SQL-API
+# <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-exempel för SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET-exempel](sql-api-dotnet-samples.md)
 > * [Java-exempel](sql-api-java-samples.md)
+> * [Async Java-exempel](sql-api-async-java-samples.md)
 > * [Node.js-exempel](sql-api-nodejs-samples.md)
 > * [Python-exempel](sql-api-python-samples.md)
-> * [Azure kod exempel-galleriet](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+> * [Azure-kodexempelgalleri](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 
-Senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgärder på Azure DB som Cosmos-resurser som ingår i den [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub-lagringsplatsen. Den här artikeln innehåller:
+De senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgärder på Azure Cosmos DB-resurser på GitHub-lagringsplatsen [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Den här artikeln innehåller:
 
-* Länkar till aktiviteter i varje exempel Java projektfiler. 
-* Länkar till relaterade API: N referera till innehåll.
+* Länkar till uppgifterna i var och en av Java-projektfilerna. 
+* Länkar till det relaterade API-referensinnehållet.
 
 **Förutsättningar**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): din Visual Studio-prenumeration ger dig krediter varje månad som du kan använda för Azure-betaltjänster.
+- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): din Visual Studio-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -49,7 +48,7 @@ Du behöver följande för att köra det här exempelprogrammet:
 * Java Development Kit 7
 * Microsoft Azure DocumentDB Java SDK
 
-Du kan eventuellt använda Maven för att hämta de senaste Microsoft Azure DocumentDB Java SDK binärfilerna för användning i ditt projekt. Maven lägger automatiskt till alla nödvändiga beroenden. Annars kan du direkt hämta beroenden som anges i filen pom.xml och lägga till dem i din byggsökväg.
+Du kan även använda Maven för att få de senaste Microsoft Azure DocumentDB Java SDK-binärfilerna och använda dem i projektet. Maven lägger automatiskt till alla nödvändiga beroenden. Du kan även ladda ned beroendena direkt som listas i filen pom.xml och lägga till dem till din byggsökväg.
 
 ```bash
 <dependency>
@@ -59,9 +58,9 @@ Du kan eventuellt använda Maven för att hämta de senaste Microsoft Azure Docu
 </dependency>
 ```
 
-**Kör exempelprogrammen**
+**Köra exempelprogrammen**
 
-Klona lagringsplatsen exempel:
+Klona lagringsplatsexemplet:
 ```bash
 $ git clone https://github.com/Azure/azure-documentdb-java.git
 
@@ -70,93 +69,93 @@ $ cd azure-documentdb-java
 
 Du kan köra exemplen antingen i Eclipse eller från kommandoraden med Maven.
 
-Köra från Eclipse:
-* Läsa in huvudsakliga överordnade pom.xml projektfilen i Eclipse; Det bör laddar documentdb-exempel automatiskt.
-* Om du vill köra exemplen, behöver du en giltig Azure Cosmos DB-slutpunkt. Slutpunkterna läses från `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`.
-* Du kan ange dina autentiseringsuppgifter för slutpunkten som VM-argument i Eclipse JUnit Kör Config eller du kan placera dina autentiseringsuppgifter för slutpunkten i AccountCredentials.java.
+Så här kör du från Eclipse:
+* Läs in den överordnade projekthuvudfilen pom.xml i Eclipse. Den ska läsa in documentdb-examples automatiskt.
+* När du ska köra exemplen behöver du en giltig Azure Cosmos DB-slutpunkt. Slutpunkterna läses från `src/test/java/com/microsoft/azure/documentdb/examples/AccountCredentials.java`.
+* Du kan skicka dina autentiseringsuppgifter för slutpunkten som VM-argument i Eclipse JUnit Run Config eller så kan du placera dina autentiseringsuppgifter för slutpunkten i AccountCredentials.java.
     ```bash
     -DACCOUNT_HOST="https://REPLACE_THIS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS"
     ```
-* Du kan nu köra exemplen som JUnit tester i Eclipse.
+* Nu kan du köra exemplen som JUnit-tester i Eclipse.
 
-Köra från kommandoraden:
-* Ett annat sätt för att köra exempel är att använda maven:
-* Kör Maven och skicka autentiseringsuppgifterna Azure Cosmos DB-slutpunkt:
+Så här kör du från kommandoraden:
+* Du kan även köra exempel med Maven:
+* Kör Maven och skicka autentiseringsuppgifterna Azure Cosmos DB-slutpunkten:
     ```bash
     mvn test -DACCOUNT_HOST="https://REPLACE_THIS_WITH_YOURS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS_WITH_YOURS"
     ```
 
    > [!NOTE]
-   > Varje exempel är självständigt; den konfigurerar sig själv och rensar efter sig själv. I prover utfärda flera anrop till [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection). Varje gång det är klart faktureras prenumerationen 1 timmen för användning för prestandanivån på den samling som har skapats. 
+   > Varje exempel är självständigt. Det konfigurerar sig själv och rensar upp efter sig. Exemplen gör flera anrop till [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection). Varje gång det sker faktureras din prenumeration för en timmes användning för prestandanivån för den skapade samlingen. 
    > 
    > 
 
-## <a name="database-examples"></a>Databas-exempel
-Den [DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) filen visar hur du utför följande uppgifter:
+## <a name="database-examples"></a>Databasexempel
+Filen [DatabaseCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
-| [Skapa och läsa en-databas](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L64-L79) | [DocumentClient.createDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdatabase)<br>[DocumentClient.readDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdatabase)<br>[Resource.setId](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource.setid) |
+| [Skapa och läsa en databas](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L64-L79) | [DocumentClient.createDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdatabase)<br>[DocumentClient.readDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdatabase)<br>[Resource.setId](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource.setid) |
 | [Skapa och ta bort en databas](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L82-L93) | [DocumentClient.deleteDatabase](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.deletedatabase) |
-| [Skapa och frågar en-databas](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L96-L111) | [DocumentClient.queryDatabases](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydatabases) |
+| [Skapa och fråga en databas](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DatabaseCrudSamples.java#L96-L111) | [DocumentClient.queryDatabases](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydatabases) |
 
-## <a name="collection-examples"></a>Exempel för samlingen
-Den [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) filen visar hur du utför följande uppgifter:
+## <a name="collection-examples"></a>Samlingsexempel
+Filen [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
-| [Skapa en enda partition samling](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L74-L84) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
-| [Skapa en anpassad samling med flera partition](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L103-L155) | [Dokumentsamling](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection)<br>[PartitionKeyDefinition](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._partition_key_definition)<br>[RequestOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._request_options) |
+| [Skapa en samling med en enskild partition](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L74-L84) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
+| [Skapa en samling med flera partitioner](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L103-L155) | [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection)<br>[PartitionKeyDefinition](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._partition_key_definition)<br>[RequestOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._request_options) |
 | [Ta bort en samling](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L97-L99) | [DocumentClient.deleteCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.deletecollection) |
 
-## <a name="document-examples"></a>Dokument-exempel
-Den [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) filen visar hur du utför följande uppgifter:
+## <a name="document-examples"></a>Exempel på dokument
+Filen [DocumentCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
 | [Skapa, läsa och ta bort ett dokument](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java#L84-L122) | [DocumentClient.createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument)<br>[DocumentClient.readDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdocument)<br>[DocumentClient.deleteDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) |
-| [Skapa ett dokument med en dokumentdefinition av programmerbara](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java#L126-L147) | [Dokumentet](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document)<br>[Resource.setId](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource.setid) |
+| [Skapa ett dokument med en programmerbar dokumentdefinition](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java#L126-L147) | [Dokument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document)<br>[Resource.setId](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource.setid) |
 
-## <a name="indexing-examples"></a>Indexering exempel
-Den [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) filen visar hur du utför följande uppgifter:
-
-| Aktivitet | API-referens |
-| --- | --- |
-| [Skapa ett index och en uppsättning indexering princip](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
-
-Mer information om indexering finns [Azure Cosmos DB indexering principer](indexing-policies.md).
-
-## <a name="query-examples"></a>frågan exempel
-Den [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) filen visar hur du utför följande uppgifter:
+## <a name="indexing-examples"></a>Indexeringsexempel
+Filen [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
-| [Utföra en enkel cross-partition dokument-fråga](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
-| [Order by-fråga](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
+| [Skapa ett index och ange indexeringsprincip](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
 
-Mer information om hur du skriver frågor finns [SQL-frågan i Azure Cosmos DB](sql-api-sql-query.md).
+Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](indexing-policies.md).
 
-## <a name="offer-examples"></a>Erbjudande-exempel
-Den [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) filen visar hur du utför följande uppgifter:
-
-| Aktivitet | API-referens |
-| --- | --- |
-| [Skapa en samling och dataflöde](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L76-L102) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection)<br>[RequestOptions.setOfferThroughput ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._request_options.setofferthroughput) |
-| [Läs en samling för att hitta det associera erbjudanden](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L108-L132) | [Offer.getContent](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._offer.getcontent)<br>[DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer)<br>[DocumentClient.readCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readcollection)<br>[DocumentClient.queryOffers](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.queryoffers) |
-
-## <a name="partition-key-examples"></a>Partitionen viktiga exempel
-Den [SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) filen visar hur du utför följande uppgifter:
+## <a name="query-examples"></a>Exempelfrågor
+Filen [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
-| [Skapa en enda partition samling](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L164-L207) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
-| [Ändra genomströmning erbjudandet för en enskild partition samling](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
+| [Utföra en enkel dokumentfråga på flera olika partitioner](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
+| [Sortera efter fråga](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
 
-## <a name="stored-procedure-examples"></a>Exempel för lagrad procedur
-Den [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) filen visar hur du utför följande uppgifter:
+Mer information om hur du skriver frågor finns i [SQL query within Azure Cosmos DB](sql-api-sql-query.md) (SQL-fråga i Azure Cosmos DB).
+
+## <a name="offer-examples"></a>Exempel på erbjudanden
+Filen [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) visar hur du utför följande uppgifter:
+
+| Aktivitet | API-referens |
+| --- | --- |
+| [Skapa en samling och ange dataflöde](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L76-L102) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection)<br>[RequestOptions.setOfferThroughput ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._request_options.setofferthroughput) |
+| [Läsa en samling för att hitta det associerade erbjudandet](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java#L108-L132) | [Offer.getContent](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._offer.getcontent)<br>[DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer)<br>[DocumentClient.readCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readcollection)<br>[DocumentClient.queryOffers](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.queryoffers) |
+
+## <a name="partition-key-examples"></a>Partitionsnyckelexempel
+Filen [SinglePartitionCollectionDocumentCrudSample](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java) visar hur du utför följande uppgifter:
+
+| Aktivitet | API-referens |
+| --- | --- |
+| [Skapa en samling med en enskild partition](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L164-L207) | [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
+| [Ändra dataflödeserbjudandet för en samling med en enskild partition](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
+
+## <a name="stored-procedure-examples"></a>Exempel på lagrad procedur
+Filen [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) visar hur du utför följande uppgifter:
 
 | Aktivitet | API-referens |
 | --- | --- |
 | [Skapa en lagrad procedur](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L85-L118) | [StoredProcedure](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._stored_procedure)<br>[DocumentClient.createStoredProcedure](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createstoredprocedure) |
 | [Köra en lagrad procedur med argument](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L121-L144) | [DocumentClient.executeStoredProcedure](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
-| [Kör en lagrad procedur med ett argument för objekt](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L147-L177) | [DocumentClient.executeStoredProcedure](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
+| [Köra en lagrad procedur med ett objektargument](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L147-L177) | [DocumentClient.executeStoredProcedure](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |

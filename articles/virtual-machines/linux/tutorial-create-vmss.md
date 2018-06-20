@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 06/01/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 741cabd37a5a508257f0307dfec25b5bb2d25153
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 305c8b46f82409257061e1cb0ab79b3bf958384d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839613"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Självstudier: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI 2.0
 
@@ -49,7 +50,7 @@ Skalningsuppsättningar har stöd för upp till 1 000 virtuella datorer när du 
 ## <a name="create-an-app-to-scale"></a>Skapa ett program som ska skalas
 Vid produktion kan du [skapa en anpassad VM-avbildning](tutorial-custom-images.md) som innehåller det installerade och konfigurerade programmet. I den här självstudien anpassar vi de virtuella datorerna vid den första starten för att snabbt se när en skalningsuppsättning görs.
 
-I en tidigare självstudie lärde du dig [hur du anpassar en virtuell Linux-dator vid den första starten](tutorial-automate-vm-deployment.md) med cloud-init. Du kan använda samma konfigurationsfil för cloud-init när du installerar NGINX och kör en enkel ”Hello World” Node.js-app. 
+I en tidigare självstudie lärde du dig [hur du anpassar en virtuell Linux-dator vid den första starten](tutorial-automate-vm-deployment.md) med cloud-init. Du kan använda samma konfigurationsfil för cloud-init när du installerar NGINX och kör en enkel ”Hello World” Node.js-app.
 
 I ditt nuvarande gränssnitt skapar du en fil med namnet *cloud-init.txt* och klistrar in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
@@ -97,15 +98,15 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupScaleSet* på platsen *eastus*:
+Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupScaleSet* på platsen *eastus*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss#az_vmss_create). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder filen cloud-init till att anpassa den virtuella datorn och som genererar SSH-nycklar om de inte redan finns:
+Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss#az-vmss-create). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder filen cloud-init till att anpassa den virtuella datorn och som genererar SSH-nycklar om de inte redan finns:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -122,9 +123,9 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 ## <a name="allow-web-traffic"></a>Tillåt webbtrafik
 En belastningsutjämnare har skapats automatiskt som en del av den virtuella datorns skalningsuppsättning. Belastningsutjämnaren distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för belastningsutjämnaren. Du kan lära dig mer om belastningsutjämnarens koncept och konfiguration i nästa självstudie [Så här utjämnar du belastningen för virtuella datorer i Azure](tutorial-load-balancer.md).
 
-Skapa en regel med [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) för att tillåta trafik till webbappen. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
+Skapa en regel med [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) för att tillåta trafik till webbappen. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -137,9 +138,9 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testa din app
-Om du vill se Node.js-appen hämtar du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill se Node.js-appen hämtar du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -158,9 +159,9 @@ Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdate
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för skalningsuppsättningen. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Azure CLI 2.0 innehåller ett snabbt sätt att utföra dessa uppgifter på. Här följer några vanliga uppgifter.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
-Du kan visa en lista med de virtuella datorer som körs i din skalningsuppsättning med hjälp av [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) på följande sätt:
+Du kan visa en lista med de virtuella datorer som körs i din skalningsuppsättning med hjälp av [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) på följande sätt:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -169,7 +170,7 @@ az vmss list-instances \
 
 Utdata ser ut ungefär så här:
 
-```azurecli-interactive 
+```bash
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
@@ -177,10 +178,10 @@ Utdata ser ut ungefär så här:
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Öka eller minska VM-instanser
-Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [az vmss show](/cli/azure/vmss#az_vmss_show) och frågar efter *sku.capacity*:
+### <a name="manually-increase-or-decrease-vm-instances"></a>Öka eller minska VM-instanser manuellt
+Om du vill se antalet instanser som du för närvarande har i en skalningsuppsättning använder du [az vmss show](/cli/azure/vmss#az-vmss-show) och frågar efter *sku.capacity*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -188,93 +189,19 @@ az vmss show \
     --output table
 ```
 
-Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [az vmss scale](/cli/azure/vmss#az_vmss_scale). I följande exempel anges antalet virtuella datorer i din skalningsuppsättning till *3*:
+Du kan sedan manuellt öka eller minska antalet virtuella datorer i skalningsuppsättningen med [az vmss scale](/cli/azure/vmss#az-vmss-scale). I följande exempel anges antalet virtuella datorer i din skalningsuppsättning till *3*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
     --new-capacity 3
 ```
 
-
-### <a name="configure-autoscale-rules"></a>Konfigurera regler för automatisk skalning
-Du kan definiera regler för automatisk skalning i stället för att skala antalet instanser manuellt i skalningsuppsättningen. De här reglerna övervakar instanserna i skalningsuppsättningen och svarar därefter baserat på de mått och tröskelvärden som du definierar. I följande exempel skalas antalet instanser ut med en när den genomsnittliga CPU-belastningen är större än 60 % under en 5-minutersperiod. Om den genomsnittliga CPU-belastningen sedan sjunker under 30 % under en 5-minutersperiod, skalas instanserna in med en instans. Ditt prenumerations-ID används till att skapa resurs-URI:er för olika komponenter i skalningsuppsättningen. Skapa reglerna med [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) genom att kopiera och klistra in följande kommandoprofil för autoskalning:
-
-```azurecli-interactive 
-sub=$(az account show --query id -o tsv)
-
-az monitor autoscale-settings create \
-    --resource-group myResourceGroupScaleSet \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "East US",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "Auto created scale condition",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
-    }'
-```
-
-Om du vill återanvända autoskalningsprofilen kan du skapa en JSON-fil (JavaScript Object Notation) och skicka den till `az monitor autoscale-settings create`-kommandot med `--parameters @autoscale.json`-parametern. Mer information om användningen av autoskalning finns i [Metodtips för autoskalning](/azure/architecture/best-practices/auto-scaling).
-
-
 ### <a name="get-connection-info"></a>Hämta anslutningsinformation
-Om du vill hämta anslutningsinformation om de virtuella datorerna i dina skaluppsättningar använder du [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Detta kommando visar offentlig IP-adress och port för varje virtuell dator där du kan ansluta med SSH:
+Om du vill hämta anslutningsinformation om de virtuella datorerna i dina skaluppsättningar använder du [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). Detta kommando visar offentlig IP-adress och port för varje virtuell dator där du kan ansluta med SSH:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -285,9 +212,9 @@ az vmss list-instance-connection-info \
 Du kan skapa och använda datadiskar med skalningsuppsättningar. I en tidigare självstudie lärde du dig att [hantera Azure-diskar](tutorial-manage-disks.md), med metodtips och prestandaförbättringar för att skapa program på datadiskar i stället för OS-disken.
 
 ### <a name="create-scale-set-with-data-disks"></a>Skapa en skalningsuppsättning med datadiskar
-Om du vill skapa en skalningsuppsättning och ansluta datadiskar, lägger du till parametern `--data-disk-sizes-gb` i kommandot [az vmss create](/cli/azure/vmss#az_vmss_create). I följande exempel skapas en skalningsuppsättning med *50* Gb datadiskar anslutna till varje instans:
+Om du vill skapa en skalningsuppsättning och ansluta datadiskar, lägger du till parametern `--data-disk-sizes-gb` i kommandot [az vmss create](/cli/azure/vmss#az-vmss-create). I följande exempel skapas en skalningsuppsättning med *50* Gb datadiskar anslutna till varje instans:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetDisks \
@@ -302,9 +229,9 @@ az vmss create \
 När instanser tas bort från en skalningsuppsättning, tas eventuella anslutna datadiskar också bort.
 
 ### <a name="add-data-disks"></a>Lägga till datadiskar
-Lägg till en datadisk till instanser i din skalningsuppsättning med hjälp av [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). I följande exempel läggs en *50* Gb disk till i varje instans:
+Lägg till en datadisk till instanser i din skalningsuppsättning med hjälp av [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). I följande exempel läggs en *50* Gb disk till i varje instans:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk attach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -313,9 +240,9 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Koppla från datadiskar
-Om du vill ta bort en datadisk i instanser i din skalningsuppsättning använder du [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). I följande exempel tar vi bort datadisken på LUN *2* från varje instans:
+Om du vill ta bort en datadisk i instanser i din skalningsuppsättning använder du [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). I följande exempel tar vi bort datadisken på LUN *2* från varje instans:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk detach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \

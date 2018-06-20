@@ -1,19 +1,20 @@
 ---
 title: IoT-alternativ för Microsoft Azure | Microsoft Azure
-description: Välj hur du implementerar Azure IoT-lösningen med hjälp av Azure IoT Central, IoT Suite eller IoT Hub.
-services: iot-central
+description: Välj hur du vill implementera din Azure IoT-lösning – med Azure IoT Central, IoT-lösningsacceleratorer eller IoT Hub.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8ed524e87f820f6c1e2e05da0bcbc7241bdd1ec1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0314bf4d26fb0f777fd88debbf09814479ab225a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201466"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630535"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Jämför alternativen Azure IoT Central och Azure IoT
 
@@ -21,22 +22,22 @@ Microsoft Azure IoT Central och Azure IoT erbjuder flera alternativ för att imp
 
 * [Azure IoT Central](overview-iot-central.md) är en SaaS-lösning (programvara som en tjänst) som använder en modellbaserad metod. Med Azure IoT Central kan du skapa IoT-lösningar i företagsklass utan expertkunskaper inom utveckling av molnlösningar.
 
-* [Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/) är en samling [förkonfigurerade lösningar](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions) i företagsklass som bygger på Azure PaaS (plattform som en tjänst) som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
+* [Azure IoT-lösningsacceleratorer](https://docs.microsoft.com/azure/iot-accelerators/) är en samling [lösningsacceleratorer](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) i företagsklass som bygger på Azure PaaS (Platform as a Service), som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub är kärnan i Azure PaaS (plattform som en tjänst) som används av både Azure IoT Central och Azure IoT Suite. IoT Hub möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och en molnlösning. IoT Hub hjälper dig att möta utmaningarna för IoT-implementering som:
+Azure IoT Hub är kärnan i Azure PaaS och används av både Azure IoT Central och Azure IoT-lösningsacceleratorer. IoT Hub möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och en molnlösning. IoT Hub hjälper dig att möta utmaningarna för IoT-implementering som:
 
 * Omfattande enhetsanslutning och hantering.
 * Omfattande inmatning av telemetri.
 * Kontroll av enheter.
 * Tillämpning av enhetssäkerhet.
 
-## <a name="compare-azure-iot-central-and-azure-iot-suite"></a>Jämför Azure IoT Central och Azure IoT Suite
+## <a name="compare-azure-iot-central-and-azure-iot-solution-accelerators"></a>Jämför Azure IoT Central och Azure IoT-lösningsacceleratorer
 
-Att välja Azure IoT-produkt är en viktig del av planeringen av IoT-lösningen. IoT Hub är en enskild Azure-tjänst som inte är ensamt tillhandahåller en IoT-lösning slutpunkt till slutpunkt. IoT Hub kan användas som en startpunkt för vilken IoT-lösning som helst och du behöver inte använda Azure IoT Suite eller Azure IoT Central för att använda det. Både IoT Suite och Azure IoT Central använder IoT Hub tillsammans med andra Azure-tjänster. I följande tabell sammanfattas de största skillnaderna mellan IoT Suite och Azure IoT Central som hjälper dig att välja rätt för dina behov:
+Att välja Azure IoT-produkt är en viktig del av planeringen av IoT-lösningen. IoT Hub är en enskild Azure-tjänst som inte är ensamt tillhandahåller en IoT-lösning slutpunkt till slutpunkt. IoT Hub kan användas som utgångspunkt för alla slags IoT-lösningar. Du behöver inte använda Azure IoT-lösningsacceleratorer eller Azure IoT Central för att kunna använda IoT Hub. Både IoT-lösningsacceleratorer och Azure IoT Central använder IoT Hub tillsammans med andra Azure-tjänster. I följande tabell sammanfattas de största skillnaderna mellan IoT-lösningsacceleratorer och Azure IoT Central, så att det blir lättare för dig att välja rätt metod för dina behov:
 
-|     | Azure IoT Central | Azure IoT Suite |
+|     | Azure IoT Central | Azure IoT-lösningsacceleratorer |
 | --- | ----------- | --------- |
 | Primär användning                      | Om du vill påskynda processen att få ut lösningen på marknaden för enkla IoT-lösningar som inte kräver mycket tjänstanpassning.                                                    | Om du vill påskynda utvecklingen av en anpassad IoT-lösning som behöver maximal flexibilitet.                                                                                                                             |
 | Åtkomst till underliggande PaaS-tjänster | SaaS. Fullständigt hanterad lösning, de underliggande tjänsterna är inte gjorda tillgängliga.                                                                                            | Du har åtkomst till de underliggande Azure-tjänsterna och kan hantera eller ersätta dem efter behov.                                                                                                                    |
@@ -56,5 +57,5 @@ Beslutet vilken produkt som ska användas för att skapa IoT-lösningen bestäms
 Baserat på den valda produkten och metoden är nästa föreslagna steg:
 
 * **Azure IoT Central**: [Azure IoT Central](overview-iot-central.md).
-* **IoT Suite**: [Vad är förkonfigurerade lösningar i Azure IoT Suite?](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions).
+* **IoT-lösningsacceleratorer**: [Vad är Azure IoT-lösningsacceleratorer för något?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **IoT Hub**: [Översikt över tjänsten Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub).

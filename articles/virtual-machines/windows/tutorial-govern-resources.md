@@ -11,22 +11,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657248"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Linux-datorer med Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Windows-datorer med Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt läser du [Installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. För lokala installationer måste du även [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) för att skapa en ny Azure Active Directory-grupp.
+Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du kör PowerShell lokalt och du inte har version 6.0 eller senare måste du [uppdatera din version](/powershell/azure/install-azurerm-ps). Du måste också köra `Connect-AzureRmAccount` för att upprätta en anslutning till Azure. För lokala installationer måste du även [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) för att skapa en ny Azure Active Directory-grupp.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
@@ -196,13 +197,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 Om du vill söka efter resurser med ett taggnamn och taggvärde använder du kommandot [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 Du kan använda de returnerade värdena för olika hanteringsuppgifter, t.ex. för att stoppa alla virtuella datorer med ett visst taggvärde.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
@@ -240,7 +241,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 > * Skydda viktiga resurser med lås
 > * Tagga resurser för fakturering och hantering
 
-Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med hög tillgänglighet.
+Gå vidare till nästa självstudie om du vill lära dig mer om virtuella datorer med hög tillgänglighet.
 
 > [!div class="nextstepaction"]
 > [Övervaka virtuella datorer](tutorial-monitoring.md)

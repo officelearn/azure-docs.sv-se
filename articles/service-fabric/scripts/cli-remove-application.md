@@ -1,13 +1,13 @@
 ---
-title: "Ta bort för Azure Service Fabric CLI skriptexempel"
-description: "Ta bort ett program från ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric-CLI"
+title: Azure Service Fabric CLI (sfctl) skript för att ta bort exempel
+description: Ta bort ett program från ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric-CLI
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,17 +15,18 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 95a6bac7ee79e3490584305e78d410104363b780
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 83f2fc52debd24afd97a391466cb5a0b1a8cd93c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642724"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Ta bort ett program från ett Service Fabric-kluster
 
-Det här exempelskriptet tar bort en instans som körs Service Fabric-program, Avregistrerar en programtypen och versionen från klustret.  Tar bort programinstansen också att tas bort alla körs tjänsten instanser som är associerade med programmet. Därefter tas programmets filer bort från avbildningsarkivet. 
+Det här exempelskriptet tar bort en instans som kör en Service Fabric-instans och avregistrerar en programtyp och version från klustret.  Om du tar bort en programinstans raderas även de tjänstinstanser som körs som associeras med det programmet. Därefter tas programmets filer bort från avbildningsarkivet. 
 
-Om det behövs installerar den [Service Fabric CLI](../service-fabric-cli.md).
+Installera också [Service Fabric CLI](../service-fabric-cli.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -33,6 +34,6 @@ Om det behövs installerar den [Service Fabric CLI](../service-fabric-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Service Fabric CLI dokumentationen](../service-fabric-cli.md).
+Mer information finns i [Service Fabric CLI-dokumentationen](../service-fabric-cli.md).
 
-Ytterligare Service Fabric CLI prover för Azure Service Fabric kan hittas i den [Service Fabric CLI exempel](../samples-cli.md).
+Fler Service Fabric CLI-exempel för Azure Service Fabric finns i [Service Fabric CLI-exempel](../samples-cli.md).

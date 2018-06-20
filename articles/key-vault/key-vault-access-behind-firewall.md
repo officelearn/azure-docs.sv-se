@@ -1,8 +1,8 @@
 ---
-title: "Få åtkomst till Key Vault bakom en brandvägg | Microsoft Docs"
-description: "Läs om hur man kommer åt Azure Key Vault från ett program bakom en brandvägg"
+title: Få åtkomst till Key Vault bakom en brandvägg | Microsoft Docs
+description: Läs om hur man kommer åt Azure Key Vault från ett program bakom en brandvägg
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736256"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>F: Mitt key vault-klientprogram måste ligga bakom en brandvägg. Vilka portar, värdar eller IP-adresser ska jag öppna om för att möjliggöra åtkomst till ett nyckelvalv?
@@ -60,7 +61,7 @@ Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar 
 | Åtgärder inklusive kryptografiska åtgärder på nycklar, skapa, läsa, uppdatera och ta bort nycklar och hemligheter, ställa in eller få taggar och andra attribut för nyckelvalvobjekt (nycklar eller hemligheter) |**Globalt:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure i Kina:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure i Tyskland:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP-adressintervall
-Key Vault-tjänsten använder andra Azure-resurser, som PaaS-infrastruktur. Därför är det inte möjligt att ange ett specifikt IP-adressintervall som Key Vault-tjänstens slutpunkter har vid given tidpunkt. Om din brandvägg endast har stöd för IP-adressintervall finns det mer information i dokumentet [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). För autentisering och identitet (Azure Active Directory) måste ditt program kunna ansluta till de slutpunkter som beskrivs i [Autentisering och identitetsadresser](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Key Vault-tjänsten använder andra Azure-resurser, som PaaS-infrastruktur. Därför är det inte möjligt att ange ett specifikt IP-adressintervall som Key Vault-tjänstens slutpunkter har vid given tidpunkt. Om din brandvägg endast har stöd för IP-adressintervall finns det mer information i dokumentet [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Autentisering och identiteter (Azure Active Directory) är en global tjänst och växlas över till andra regioner eller flytta trafik utan föregående meddelande. I det här scenariot alla IP-adressintervall som anges i [ IP-adresser för autentisering och identitet](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) läggas till i brandväggen.
 
 ## <a name="next-steps"></a>Nästa steg
 Om du har några frågor om Key Vault ska du gå till [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

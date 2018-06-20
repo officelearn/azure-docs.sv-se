@@ -6,51 +6,54 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 9bee5677aecb235872f50eea75ddc98bc453f426
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 16ec493708f85e9b3819943e131b9f9c3649f27e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361723"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824646"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och Visual Studio)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och Visual Studio)
 
 I den här guiden får du lära dig hur du:
 
-- Skapar en Kubernetes-baserad miljö i Azure som är optimerad för utveckling.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i behållare med Visual Studio.
+- Felsöka kod som körs i klustret.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan. Du kan också försöka med den mer ingående [kursen](get-started-netcore-visualstudio.md).
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="get-the-visual-studio-tools"></a>Hämta Visual Studio-verktygen 
-1. Installera den senaste versionen av [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. Se till att följande arbetsbelastning är markerad i Visual Studio-installationsprogrammet:
-    * ASP.NET och webbutveckling
-1. Installera [Visual Studio-tillägget för Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
+- Ett Kubernetes-kluster som kör Kubernetes 1.9.6 i området EastUS, WestEurope eller CanadaEast med HTTP-programroutning.
 
-Nu är du redo att skapa en ASP.NET-webbapp med Visual Studio.
+  ![Se till att aktivera HTTP-programroutning.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
+- Visual Studio 2017 med arbetsbelastningen webbutveckling installerad. Om du inte har installerat den kan du hämta den [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+
+## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
+
+Installera [Visual Studio-tillägget för Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+
+## <a name="connect-to-a-cluster"></a>Anslut till ett kluster
+
+Därefter måste du skapa och konfigurera ett projekt för Azure Dev Spaces.
+
+### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
 Skapa ett nytt projekt i Visual Studio 2017. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+Välj mallen **Webbprogram (MVC, Model-View-Controller)** och välj **.NET Core** och **ASP.NET Core 2.0** som mål.
 
-Välj mallen **Webbprogram (MVC, Model-View-Controller)** och välj **.NET Core** och **ASP.NET Core 2.0** som mål i de två listrutorna överst i dialogrutan. Klicka på **OK** för att skapa projektet.
+### <a name="create-a-dev-space-in-azure"></a>Skapa en utvecklingsmiljö i Azure
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
-
-## <a name="create-a-dev-environment-in-azure"></a>Skapa en utvecklingsmiljö i Azure
-
-Med Azure Dev Spaces kan du skapa Kubernetes-baserade utvecklingsmiljöer som hanteras helt av Azure och som har optimerats för utveckling. För projektet som du precis skapat väljer du **Azure Dev Spaces** i listrutan för startinställningar, som du ser nedan.
+För projektet som du nyss skapat väljer du **Azure Dev Spaces** i listrutan för startinställningar, som du ser nedan.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -58,7 +61,7 @@ I nästa dialogruta som visas kontrollerar du att du har loggat in med rätt kon
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Lämna standardinställningen `default` i listrutan **Utrymme** tills vidare. Du lär dig mer om det här alternativet längre fram. Markera kryssrutan **Offentligt tillgänglig** så att webbprogrammet är tillgängligt via en offentlig slutpunkt. Den här inställningen krävs inte, men är användbar för att demonstrera några begrepp längre fram i den här genomgången. Men oroa dig inte, du kommer att kunna felsöka din webbplats med hjälp av Visual Studio oavsett.
+Lämna inställningen `default` i listrutan **Utrymme** tills vidare. Markera kryssrutan **Offentligt tillgänglig**, så att webbprogrammet är tillgängligt via en offentlig slutpunkt.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
@@ -70,26 +73,17 @@ Om du väljer ett kluster som inte har konfigurerats för användning med Azure 
 
 Välj **OK**. 
 
-En bakgrundsaktivitet startas och de nödvändiga inställningarna konfigureras. Åtgärden tar flera minuter att slutföra. Du kan kontrollera att åtgärden fortfarande körs genom att hovra med muspekaren över ikonen för **bakgrundsaktiviteter** i det nedre vänstra hörnet i statusfältet, som du ser i följande bild.
+### <a name="look-at-the-files-added-to-project"></a>Titta på filerna som lagts till i projektet
+Medan utvecklingsmiljön skapas kan du titta på filerna som lades till i projektet när du valde att använda en Azure-utvecklingsmiljö.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.png)
-
-> [!Note]
-Du kan inte felsöka programmet förrän utvecklingsmiljön har skapats.
-
-## <a name="look-at-the-files-added-to-project"></a>Titta på filerna som lagts till i projektet
-Under tiden som utvecklingsmiljön skapas kan du titta på filerna som har lagts till i projektet när du valde att använda en utvecklingsmiljön.
-
-Först ser du att en mapp med namnet `charts` har lagts till och att ett [Helm-diagram](https://docs.helm.sh) har skapats för ditt program i den här mappen. Dessa filer används för att distribuera ditt program till utvecklingsmiljön.
-
-Du ser att en fil med namnet `Dockerfile` har lagts till. Den här filen innehåller information som behövs för ditt program i Docker-standardformatet. En `HeaderPropagation.cs`-fil skapas också. Vi diskuterar den här filen längre fram i genomgången. 
-
-Slutligen ser du också en fil med namnet `azds.yaml`, som innehåller konfigurationsinformation som krävs av utvecklingsmiljön, t.ex. huruvida programmet ska vara tillgängligt via en offentlig slutpunkt.
+- En mapp med namnet `charts` har lagts till och ett [Helm-diagram](https://docs.helm.sh) har skapats för ditt program i den här mappen. Dessa filer används för att distribuera ditt program till utvecklingsmiljön.
+- `Dockerfile` innehåller information som behövs för att paketera ditt program i Docker-standardformatet.
+- `azds.yaml` innehåller konfigurationsinformation som krävs av utvecklingsmiljön, t.ex. huruvida programmet ska vara tillgängligt via en offentlig slutpunkt.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
-När utvecklingsmiljön har skapats kan du felsöka programmet. Ange en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
+När utvecklingsmiljön har skapats kan du felsöka programmet. Lägg till en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
 
 Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för behållaren som körs i Azure.
 

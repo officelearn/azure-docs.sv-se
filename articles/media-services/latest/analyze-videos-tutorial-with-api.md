@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362302"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637920"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Självstudie: Analysera videor med Azure Media Services 
 
@@ -26,11 +26,10 @@ Den här självstudien visar hur du analyserar videor med Azure Media Services. 
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Starta Azure Cloud Shell
 > * Skapa ett Media Services-konto
 > * Åtkomst till Media Services API
 > * Konfigurera exempelappen
-> * Granska exempelkoden i detalj
+> * Granska koden som analyserar den angivna videon
 > * Kör appen
 > * Granska utdatan
 > * Rensa resurser
@@ -49,23 +48,48 @@ Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med f
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+Du hittar exemplet i mappen [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-sample-code-in-detail"></a>Granska exempelkoden i detalj
+## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Granska koden som analyserar den angivna videon
 
 Det här avsnittet går igenom funktionerna som definierades i filen [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) för projektet *AnalyzeVideos*.
 
+Exemplet utför följande åtgärder:
+
+1. Skapa en transformering och ett jobb som analyserar dina videor.
+2. Skapar en inkommande tillgång och överför videon till den. TIllgången används som jobbets indata.
+3. Skapar en utdatatillgång som lagrar jobbets utdata. 
+4. Skickar jobbet.
+5. Kontrollerar jobbets status.
+6. Laddar ned filer som härrör från körningen av jobbet. 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
 
-Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. Först måste du hämta en token och sedan skapa ett **ClientCredential**-objekt från den token som returnerades. I den kod som du klonade i början av artikeln används objektet **ArmClientCredential** för att hämta token.  
+Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapar funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Skapa en utdatatillgång där resultatet av ett jobb lagras 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
+
+Funktionen **CreateInputAsset** skapar en ny [indatatillgång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala videofilen till den. Tillgången används som indata för kodningsjobbet. I Media Services v3 kan indata till ett jobb antingen vara en tillgång eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Om du vill lära dig hur du kodar från en HTTPS-webbadress kan du läsa [denna](job-input-from-http-how-to.md) artikel.  
+
+I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. I följande .NET-kodfragment visas hur du gör detta.
+
+Den här funktionen utför följande åtgärder:
+
+* Skapar en tillgång 
+* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [behållare i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Laddar upp filen till behållaren i lagringen med hjälp av SAS-URL:en
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
+### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Skapa en utdatatillgång där resultatet av ett jobb lagras 
 
 [Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt jobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
 
@@ -111,7 +135,7 @@ Följande funktion laddar ned resultaten från [utdatatillgången](https://docs.
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
-Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du t.ex. återanvänder transformeringar behåller du StreamingLocators osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända. Följande kod tar exempelvis bort Jobb.
+Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du återanvänder transformeringar behåller du StreamingLocators). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända. Följande kod tar exempelvis bort Jobb.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

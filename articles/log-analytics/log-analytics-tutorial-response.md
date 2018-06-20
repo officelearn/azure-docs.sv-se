@@ -1,34 +1,35 @@
 ---
-title: "Svara på händelser med Azure Log Analytics-aviseringar | Microsoft Docs"
-description: "Den här självstudien hjälper dig att förstå aviseringar i Log Analytics som visar viktig information i OMS-lagringsplatsen. Du kan få tidiga meddelanden om problem eller anropa åtgärder om du vill försöka åtgärda dem."
+title: Svara på händelser med Azure Log Analytics-aviseringar | Microsoft Docs
+description: Den här självstudien hjälper dig att förstå aviseringar i Log Analytics som visar viktig information på din arbetsyta. Du kan få tidiga meddelanden om problem eller anropa åtgärder om du vill försöka åtgärda dem.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637131"
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Svara på händelser med Log Analytics-aviseringar
-Med aviseringar i Log Analytics kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](log-analytics-tutorial-dashboards.md).   
+# <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
+Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](log-analytics-tutorial-dashboards.md).   
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en varningsregel
-> * Konfigurera en varningsregel som skickar ett e-postmeddelande
+> * Konfigurera en åtgärdsgrupp som skickar ett e-postmeddelande
 
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](log-analytics-quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
 
@@ -36,39 +37,38 @@ Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-ar
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Skapa aviseringar
+Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra sparade frågor eller anpassade loggsökningar med jämna mellanrum.  Du kan skapa aviseringar baserat på specifika prestandamått, när vissa händelser skapas, om en händelse saknas, eller om flera händelser skapas inom ett visst tidsintervall.  Aviseringar kan exempelvis användas för att meddela dig när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde, när en saknad uppdatering eller när en händelse genereras när det upptäckts att en specifik Windows-tjänst eller Linux-daemon inte körs.  Om resultatet av loggsökningen matchar särskilda villkor, skapas en avisering. Regeln kan sedan automatiskt köra en eller flera åtgärder, som att t.ex. meddela dig om aviseringen eller anropa en annan process. 
 
-Aviseringar skapas från varningsregler som automatiskt kör regelbundna loggsökningar.  Du kan skapa aviseringar baserat på specifika prestandamått, när vissa händelser skapas, om en händelse saknas, eller om flera händelser skapas inom ett visst tidsintervall.  Aviseringar kan exempelvis användas för att meddela dig när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde, eller om en händelse genereras när en specifik Windows-tjänst eller Linux-daemon inte körs.   Om resultatet av loggsökningen matchar särskilda villkor, skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddela dig om aviseringen eller anropa en annan process. 
+I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *Virtuella datorer i Azure – processoranvändning* som sparats i kursen [Visualisera data](log-analytics-tutorial-dashboards.md).  En avisering skapas för varje virtuell dator som överskrider ett tröskelvärde på 90 %.  
 
-I följande exempel skapar du en varningsregel för metriska måttenheter som skapar en avisering för varje datorobjekt i frågan med ett värde som överskrider tröskelvärdet 90 %.
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+2. Skapa en ny avisering genom att välja **Aviseringar** det vänstra fönstret och sedan klicka på **Ny aviseringsregel** högst upp på sidan.<br><br> ![Skapa en ny aviseringsregel](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
+3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.<br><br> ![Skapa en aviseringssteg 1-uppgift](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
+4. Välj din sparade fråga genom att klicka på **Lägg till villkor** i avsnittet **Aviseringskriterier** och ange sedan den logik som aviseringsregeln följer.  Välj *Virtuella datorer i Azure – processoranvändning* från listan i rutan **Konfigurera signallogik** .  Fönstret uppdateras och visar aviseringens konfigurationsinställningar.  Högst upp visas resultaten för den valda signalens senaste 30 minuter och själva sökfrågan.  
+5. Konfigurera aviseringen med följande information:  
+   a. Välj **Metrisk måttenhet** i den nedrullningsbara listan **Baserat på*.  Ett metriskt mått skapar en avisering för varje objekt i frågan med ett värde som överstiger det angivna tröskelvärdet.  
+   b. Välj **Större än** som **Villkor** och ange **90** som **Tröskelvärde**.  
+   c. Välj **Efterföljande överträdelser** i avsnittet Utlös avisering baserat på och välj **Större än** i listrutan och ange värdet 3.  
+   d. Godkänn standardinställningarna i avsnittet Utvärdering baserad på. Regeln körs var femte minut och returnera poster som har skapats i det här intervallet under den aktuella tiden.  
+6. Slutför aviseringsregeln genom att klicka på **Spara**.<br><br> ![Konfigurera aviseringssignal](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
+7. Nu när vi går vidare till nästa steg ska du ge aviseringen ett namn i fältet **Aviseringsregelns namn**, t.ex. **CPU % högre än 90**.  Ge en **beskrivning** med information om aviseringen och välj alternativet **Critical(Sev 0)** som **Allvarlighetsgrad**.<br><br> ![Konfigurera aviseringsinformation](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. Du kan aktivera aviseringsregeln omedelbart genom att acceptera standardvärdet för **Aktivera regel när du skapar**.
+9. I det tredje och sista steget anger du en **åtgärdsgrupp**, vilket säkerställer att samma åtgärder vidtas varje gång en avisering utlöses och kan användas för varje regel som du definierar.  Konfigurera en ny åtgärdsgrupp med följande information:  
+   a. Välj **Ny åtgärdsgrupp** varvid fönstret **Lägg till grupp** visas.
+   b. Ange ett namn, t.ex. **IT-avdelningen – meddela** , i **Namn på åtgärdsgrupp** och ange ett **kortnamn**, t.ex. **it-avd-m**.  
+   c. Kontrollera att standardvärdena för **Prenumeration** och **Resursgrupp** är korrekta. Om så inte skulle vara fallet väljer du korrekta värden från den nedrullningsbara listan.   
+   d. Ge åtgärden ett namn i avsnittet Åtgärder, t.ex. **Skicka e-post** och välj **e-post/SMS/push/röst** i listrutan under **Åtgärdstyp**. Egenskapsrutan **e-post/SMS/Push/röst** öppnas till höger och ger ytterligare information.
+   e. Aktivera **E-post** i rutan **e-post/SMS/Push/röst** och ge en giltig SMTP-e-postadress som meddelandet kan levereras till. f. Spara ändringarna genom att klicka på **OK**.<br><br> ![Skapa ny åtgärdsgrupp](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+10. Färdigställ åtgärdsgruppen genom att klicka på **OK**. 
+11. Färdigställ aviseringsregeln genom att klicka på **Skapa aviseringsregel**. Den börjar köras omedelbart.<br><br> ![Slutför skapandet av ny aviseringsregel](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
-1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-2. Starta OMS-portalen genom att välja OMS-portalen. På sidan **Översikt** väljer du **Loggsökning**.  
-3. Välj **Favoriter** överst i portalen och i fönstret **Sparade sökningar** till höger väljer du frågan *Virtuella Azure-datorer – processoranvändning*.  
-4. Klicka på **Avisering** längst upp på sidan för att öppna skärmen **Lägg till varningsregel**.  
-5. Konfigurera varningsregeln med följande information:  
-   a. Ange en **Namn** på varningen, exempelvis *Processoranvändning för virtuell dator överskrider > 90*  
-   b. I **Tidsperiod** anger du ett tidsintervall för frågan, till exempel *30*.  Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden.  
-   c. I **Aviseringsfrekvens** väljer du hur ofta frågan ska köras.  I det här exemplet anger vi *5* minuter, vilket inträffar inom vår angivna tidsperiod.  
-   d. Välj **Metrisk måttenhet** och ange *90* i **Aggregated Value** (Mängdvärde) och *3* för **Utlös aviseringen baserat på**   
-   e. Under **Åtgärder** inaktiverar du e-postaviseringarna.
-6. Klicka på **Spara** för att slutföra varningsregeln. Den börjar köras omedelbart.<br><br> ![Exempel på varningsregel](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+## <a name="view-your-alerts-in-azure-portal"></a>Visa dina aviseringar i Azure Portal
+Nu när du har skapat en avisering kan du visa Azure-aviseringar i ett enskilt fönster och hantera alla aviseringsregler för alla dina Azure-prenumerationer. Det listar alla aviseringsregler (aktiverade såväl som inaktiverade) och det kan sorteras efter målresurser, resursgrupper, regelnamn eller status. En sammanfattning av alla utlösta aviseringar och det totala antalet konfigurerade/aktiverade aviseringsregler ingår.<br><br> ![Statussida för Azure-aviseringar](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
-Aviseringsposter som skapats av varningsregler i Log Analytics har en typ av **avisering** och SourceSystem **OMS**.<br><br> ![Exempel på genererade aviseringshändelser](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
-
-## <a name="alert-actions"></a>Aviseringsåtgärder
-Du kan utföra avancerade åtgärder med aviseringar som exempelvis att skapa en e-postavisering, starta en [Automation Runbook](../automation/automation-runbook-types.md), använda en webhook för att skapa en incidentpost i händelsehanteringssystemet ITSM, eller använda [Anslutningsprogram för hantering av IT-tjänster (ITSM)](log-analytics-itsmc-overview.md) som åtgärd när aviseringsvillkoren uppfylls.   
-
-E-poståtgärderna skickar ett e-postmeddelande med information om aviseringen till en eller flera mottagare. Du kan ange ämnet för e-postmeddelandet, men innehållet är ett standardformat som Log Analytics sammanställer.  Låt oss uppdatera den varningsregel som vi skapade tidigare och konfigurera den för att skicka e-post till dig, i stället för att aktivt leta efter aviseringsposten med en loggsökning.     
-
-1. I OMS-portalen på den översta menyn väljer du **Inställningar** och sedan **Aviseringar**.
-2. Klicka på pennikonen bredvid den avisering som vi skapade tidigare i listan med varningsregler.
-3. I avsnittet **Åtgärder** aktiverar du e-postmeddelanden.
-4. Ange ett **Ämne** för e-postmeddelandet, exempelvis *Processoranvändningen överskrider tröskelvärdet > 90*.
-5. Lägg till adresser till en eller flera e-postmottagare i fältet **Mottagare**.  Om du anger mer än en adress kan du avgränsa dem med semikolon (;).
-6. Klicka på **Spara** för att slutföra varningsregeln. Den börjar köras omedelbart.<br><br> ![Varningsregel med e-postavisering](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+När aviseringen utlöses speglar tabellen villkoret och hur många gånger det har förekommit under det valda tidsintervallet (standardinställningen är de senaste sex timmarna).  Det ska finnas ett e-postmeddelande i din inkorg, liknande det i följande exempel, som visar den felaktiga virtuella datorn och de översta resultaten som matchar sökfrågan i det här fallet.<br><br> ![Exempel på e-postmeddelande med åtgärdsavisering](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig hur varningsregler proaktivt kan identifiera och åtgärda problem när de kör loggsökningar i schemalagda intervall och matchar ett särskilt villkor.  
+I den här självstudien har du lärt dig hur varningsregler proaktivt kan identifiera och åtgärda problem när de kör loggsökningar i schemalagda intervall och matchar ett särskilt villkor.
 
 Följ den här länken om du vill se inbyggda skriptexempel för Log Analytics.  
 

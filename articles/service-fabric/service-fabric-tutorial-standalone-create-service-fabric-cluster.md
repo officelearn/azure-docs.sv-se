@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211743"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248443"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
 
@@ -69,7 +69,7 @@ När du har uppdaterat anslutningssträngen måste du skapa mappen.  Följande k
 mkdir \\172.31.27.1\c$\DiagnosticsStore
 ```
 
-Slutligen går du till avsnittet `nodeTypes` i konfigurationen och lägger till ett nytt avsnitt för att mappa de tillfälliga portar som ska användas av Windows.  Konfigurationsfilen bör likna följande:
+Slutligen går du till avsnittet `nodeTypes` i konfigurationen och lägger till ett nytt avsnitt för att mappa de tillfälliga portarna som ska användas av Windows.  Konfigurationsfilen bör likna följande:
 
 ```json
 "applicationPorts": {

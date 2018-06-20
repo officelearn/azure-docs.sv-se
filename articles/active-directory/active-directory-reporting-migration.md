@@ -3,34 +3,28 @@ title: Hitta aktivitetsrapporter för Azure Active Directory-användare i Azure-
 description: Lär dig mer om aktivitetsrapporter för Azure Active Directory-användare finns i Azure-portalen.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231329"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure-portalen
 
 I den här artikeln beskrivs hur du hittar aktivitetsrapporter för Azure Active Directory-användare i Azure-portalen.
 
-## <a name="whats-new"></a>Nyheter
-
-Rapporter i den klassiska Azure-portalen har uppdelade i kategorier:
-* Säkerhetsrapporter
-* Aktivitetsrapporter
-* Integrerad apprapporter
-
-### <a name="activity-and-integrated-app-reports"></a>Aktiviteten och integrerad apprapporter
+## <a name="activity-and-integrated-app-reports"></a>Aktiviteten och integrerad apprapporter
 
 För sammanhangsberoende rapportering i Azure-portalen, kombineras befintliga rapporter till en enda vy. En enda underliggande API ger data till vyn.
 
@@ -87,7 +81,7 @@ Visa information om programanvändning för alla appar eller för en enda app un
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Azure AD avvikande aktivitetsrapporter
 
-Säkerheten i Azure AD avvikande aktivitet har konsoliderade rapporter från den klassiska Azure-portalen för att ge dig en, centrala vy. Den här vyn visar alla riskhändelser som säkerhetsrelaterade att Azure AD kan identifiera och rapportera om.
+Azure AD avvikande aktivitetssäkerhet rapporterar konsolideras för att ge dig en central vy. Den här vyn visar alla riskhändelser som säkerhetsrelaterade att Azure AD kan identifiera och rapportera om.
 
 Följande tabell listar Azure AD avvikande aktivitet säkerhetsrapporter och motsvarande risk händelsetyper i Azure-portalen.
 
@@ -104,8 +98,6 @@ Följande Azure AD avvikande aktivitet säkerheten rapporterar inte ingår som r
 
 * Inloggningar efter flera fel
 * Inloggningar från flera geografiska områden
-
-Dessa rapporter är fortfarande tillgängliga i den klassiska Azure-portalen, men de kommer att inaktualiseras i framtiden.
 
 Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Mer information om säkerhetsrapporter finns:
 - [Riskfyllda inloggningar rapporten i Azure Active Directory-portalen](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Aktivitetsrapporter i den klassiska Azure-portalen och Azure-portalen
-
-Tabellen i det här avsnittet innehåller befintliga rapporter i den klassiska Azure-portalen. Här beskrivs också hur du kan få samma information i Azure-portalen.
-
-Visa alla granskning data på den **Azure Active Directory** bladet under **AKTIVITETEN**, gå till **granskningsloggar**.
-
-![Granskningsloggar](./media/active-directory-reporting-migration/61.png "Granskningsloggar")
-
-| klassiska Azure-portalen                 | Du hittar i Azure-portalen                                                         |
-| ---                                  | ---                                                                        |
-| Granskningsloggar                           | För **aktivitetskategorin**väljer **Core Directory**.                       |
-| Lösenordsåterställningsaktivitet              | För **aktivitetskategorin**väljer **Self-service lösenordshantering**. |
-| Lösenordsåterställningsaktivitet för registrering | För **aktivitetskategorin**väljer **Self-service lösenordshantering**.     |
-| Självbetjäning grupper aktivitet         | För **aktivitetskategorin**väljer **Self-service Group Management**.        |
-| Kontot etablering aktivitet        | För **aktivitetskategorin**väljer **konto Användaretablering**.         |
-| Status för förnyelse av lösenord             | För **aktivitetskategorin**väljer **automatisk förnyelse av App lösenord**.      |
-| Kontoetableringsfel          | För **aktivitetskategorin**väljer **konto Användaretablering**.        |
-| Ändringar av Office365 namn         | För **aktivitetskategorin**väljer **Self-service lösenordshantering**. För **aktivitet resurstypen**väljer **gruppen**. För **Aktivitetskälla**väljer **O365 grupper**.|
-
 Visa den **programanvändning** rapportera på den **Azure Active Directory** bladet under **hantera**väljer **företagsprogram**, och välj sedan **inloggningar**.
 
 
-![Enterprise program inloggningar rapporten](./media/active-directory-reporting-migration/199.png "Enterprise program inloggningar rapport")
+![Enterprise program inloggningar rapport](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

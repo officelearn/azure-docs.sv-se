@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261329"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Skapa en funktion i Linux med en anpassad avbildning (förhandsversion)
 
@@ -43,7 +44,7 @@ För att slutföra den här kursen behöver du:
 
 * [Git](https://git-scm.com/downloads)
 * En aktiv [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Ett [Docker Hub-konto](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ I den här självstudiekursen lärde du dig att:
 > * distribuera en funktionsapp från Docker Hub
 > * lägga till programinställningar i funktionsappen.
 
-Läs mer om hur du utvecklar Azure Functions lokalt med hjälp av Azure Functions Core Tools.
+Lär dig hur du aktiverar kontinuerliga integrationsfunktioner i Apptjänst-kärnplattformen. Du kan konfigurera din funktionsapp så att behållaren omdistribueras när du uppdaterar avbildningen i Docker-hubben.
 
 > [!div class="nextstepaction"] 
-> [Koda och testa Azure Functions lokalt](functions-run-local.md)
+> [Kontinuerlig distribution med Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)

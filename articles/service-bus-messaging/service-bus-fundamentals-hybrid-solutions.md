@@ -1,24 +1,20 @@
 ---
-title: "Översikt över grunderna i Azure Service Bus | Microsoft Docs"
-description: "En introduktion till att använda Service Bus för att ansluta Azure-appar till andra program."
+title: Översikt över grunderna i Azure Service Bus | Microsoft Docs
+description: En introduktion till att använda Service Bus för att ansluta Azure-appar till andra program.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641330"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -37,14 +33,14 @@ Service Bus är en molntjänst med flera klienter, vilket innebär att tjänsten
 Du kan använda en eller flera instanser av tre olika kommunikationsmekanismer inom namnområdet. Dessa ansluter till appar på olika sätt. Alternativen är:
 
 * *Köer*, som tillåter en enkelriktad kommunikation. Varje kö fungerar som en mellanhand (kallas ibland för en *koordinator*) som sparar skickade meddelanden tills de tas emot. Varje meddelande tas emot av en enda mottagare.
-* *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Ett ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
+* *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Varje ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
 * *Reläer* (relays), som ger dubbelriktad kommunikation. Till skillnad från köer och ämnen lagrar inte ett relä meddelanden som redan startats. Det är alltså inte en koordinator. I stället skickar reläet bara meddelandena vidare till målprogrammet.
 
 När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda kön, ämnet eller reläet i kommunikationen. 
 
 Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt vid vidarebefordran. Den här tjänsten kallas [WCF Relay](../service-bus-relay/relay-what-is-it.md). För köer och ämnen kan Windows-program använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer och ämnen med hjälp av [REST-API:er](/rest/api/servicebus/) via HTTP. 
 
-Det är viktigt att förstå att även om själva Service Bus körs i molnet (det vill säga i datacenter för Microsoft Azure) så kan apparna som använder den köras var som helst. Du kan använda Service Bus för att ansluta appar som körs på Azure, till exempel, eller program som körs i ditt eget datacenter. Du kan också använda Service Bus för att ansluta en app som körs på Azure eller på en annan molnplattform med ett lokalt program, eller med surfplattor och smartmobiler. Du kan till och med ansluta hushållsapparater, sensorer och andra enheter till ett centralt program, eller ansluta enheterna till varandra. Service Bus är en kommunikationsmekanism i molnet och den är tillgänglig från nästan var som helst. Hur du använder den beror på vad dina appar behöver göra.
+Det är viktigt att förstå att även om själva Service Bus körs i molnet (det vill säga i datacenter för Microsoft Azure) så kan apparna som använder den köras var som helst. Du kan använda Service Bus för att ansluta appar som körs på Azure, till exempel, eller program som körs i ditt eget datacenter. Du kan också använda Service Bus för att ansluta en app som körs på Azure eller på en annan molnplattform med ett lokalt program, eller med surfplattor och smartmobiler. Service Bus är en kommunikationsmekanism i molnet och den är tillgänglig från nästan var som helst. Hur du använder den beror på vad dina appar behöver göra.
 
 ## <a name="queues"></a>Köer
 
@@ -56,7 +52,7 @@ Anta att du bestämmer dig för att ansluta två appar med hjälp av en Service 
 
 En avsändare skickar ett meddelande till en Service Bus-kö och en mottagare hämtar meddelandet vid ett senare tillfälle. En kö kan ha bara en enkel mottagare, som bild 2 visar. Eller så kan flera program läsa från samma kö. I det senare fallet läses varje meddelande av enbart en mottagare. För en tjänst med multi-cast bör du istället använda ett ämne.
 
-Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna **Säljare="Ava"** och **Belopp= 10000**. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
+Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna **Säljare="Ava"** och **Belopp= 10000**. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
 En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som heter *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, tar emot ett meddelande från kön och tar sedan bort det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
 
@@ -78,11 +74,11 @@ Köer är användbara i ett ganska stort antal situationer. De gör att appar ka
 
 **Bild 3: Baserat på de filter ett prenumererande program specificerar så kan det ta emot en del eller alla meddelanden som skickats till ett Service Bus-ämne.**
 
-Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till ett ämne på samma sätt som de skickar meddelanden till en kö. Och dessa meddelanden ser likadana ut som när de används i köer. Skillnaden är att ämnen gör att varje mottagande app kan skapa en egen *prenumeration* och eventuellt definiera ett *filter*. Prenumeranten kommer därefter endast att se de meddelanden som matchar filtret. Bild 3 visar till exempel en avsändare och ett ämne med tre prenumeranter, var och en med sitt eget filter:
+Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till ett ämne på samma sätt som de skickar meddelanden till en kö. Och dessa meddelanden ser likadana ut som när de används i köer. Skillnaden är att ämnen gör att varje mottagande app kan skapa en egen *prenumeration* och eventuellt definiera ett *filter*. En prenumerant får en kopia av varje meddelande i ämnet, men med hjälp av ett filter kan de sedan välja att endast ta emot meddelanden som matchar filtret. Bild 3 visar till exempel en avsändare och ett ämne med tre prenumeranter, var och en med sitt eget filter:
 
-* Prenumerant 1 får endast meddelanden som innehåller egenskapen *Säljare="Ava"*.
-* Prenumerant 2 tar emot meddelanden som innehåller egenskapen *Säljare="Ruth"* och/eller innehåller en egenskap för *belopp* vars värde är större än 100 000. Ruth kanske är försäljningschef så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
-* Prenumerant 3 har ställt in sitt filter på *Sant*, vilket innebär att han eller hon får alla meddelanden. Den här appen kan till exempel ansvara för att bibehålla ett revisionsspår och därför behöver den visa alla meddelanden.
+* Prenumerant 1 får endast meddelanden som innehåller egenskapen **Säljare="Ava"**.
+* Prenumerant 2 tar emot meddelanden som innehåller egenskapen **Säljare="Ruth"** och/eller innehåller en egenskap för **belopp** vars värde är större än 100 000. Ruth kanske är försäljningschef så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
+* Prenumerant 3 har ställt in sitt filter på **Sant**, vilket innebär att han eller hon får alla meddelanden. Den här appen kan till exempel ansvara för att bibehålla ett revisionsspår och därför behöver den visa alla meddelanden.
 
 På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddelanden med antingen [ReceiveAndDelete eller PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumerationer. Den här metoden, som ofta kallas *publicera och prenumerera*, (eller *pub/sub*) är användbar när flera appar är intresserade av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
 

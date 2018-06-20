@@ -1,6 +1,6 @@
 ---
 title: Hantera uppdateringar för flera virtuella Azure-datorer
-description: Det här ämnet beskriver hur du hanterar uppdateringar för virtuella Azure-datorer.
+description: Den här artikeln beskriver hur du hanterar uppdateringar för virtuella Azure-datorer.
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -9,28 +9,27 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66d50c94f2aad15e0d4a1b7500e8a4aeb45b1742
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833727"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214261"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
-Du kan använda uppdateringshantering för att hantera uppdateringar och korrigeringar av virtuella Windows- och Linux-datorer. Från [Azure Automation](automation-offering-get-started.md)-kontot kan du:
+Du kan använda uppdateringen hanteringslösning för att hantera uppdateringar och korrigeringsfiler för Windows och Linux virtuella datorer. Från [Azure Automation](automation-offering-get-started.md)-kontot kan du:
 
-- Publicera virtuella datorer.
-- Bedöma statusen för tillgängliga uppdateringar.
-- Schemalägga installation av obligatoriska uppdateringar.
-- Granska distributionsresultaten för att bekräfta att uppdateringarna har verkställts på alla virtuella datorer där uppdateringshantering har aktiverats.
+- Publicera virtuella datorer
+- Bedöma statusen för uppdateringar
+- Schemalägga installationen av obligatoriska uppdateringar
+- Granska agentdistributionresultaten att verifiera att uppdateringar har använts på alla virtuella datorer som har aktiverat uppdateringshantering
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda uppdateringshantering behöver du:
+Om du vill använda uppdateringshantering, behöver du:
 
-- Ett kör som-konto för Azure Automation. Anvisningar om hur du skapar ett konto finns i [Komma igång med Azure Automation](automation-offering-get-started.md).
-
+- Ett kör som-konto för Azure Automation. Information om hur du skapar en finns [komma igång med Azure Automation](automation-offering-get-started.md).
 - En virtuell dator eller en dator med ett operativsystem som stöds installerat.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
@@ -39,63 +38,67 @@ Uppdateringshantering stöds på följande operativsystem:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdatera bedömningar         |
-|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) rekommenderas för ökad tillförlitlighet.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder bara uppdatera bedömningar.         |
+|Windows Server 2008 R2 SP1 och senare     |Windows PowerShell 4.0 eller senare krävs. ([Hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 rekommenderas för ökad tillförlitlighet. ([Hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 12.04 LTS, 14.04 LTS och 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
 > [!NOTE]
 > Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information finns i avsnittet om [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.
 
-Den här lösningen stöder inte en OMS-Agent för Linux konfigurerad för att rapportera till flera logganalys arbetsytor.
+Den här lösningen stöder inte en Operations Management Suite (OMS) Agent för Linux som är konfigurerad för att rapportera till flera arbetsytor i Azure logganalys.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera uppdateringshantering för virtuella Azure-datorer
 
-Öppna ditt Automation-konto i Azure-portalen och markera **uppdateringshantering**.
+Öppna ditt Automation-konto i Azure-portalen och välj sedan **uppdateringshantering**.
 
-Välj **Lägg till virtuell Azure-dator** högst upp i fönstret.
+Välj **lägga till Azure VM**.
 
 ![Lägg till Virtuella Azure-fliken](./media/manage-update-multi/update-onboard-vm.png)
 
-Välj en virtuell dator som du vill publicera. Dialogrutan **Aktivera hantering av uppdateringar** visas. Välj **aktivera** publicera den virtuella datorn. När onboarding-processen är klar, har uppdateringshantering aktiverats för den virtuella datorn.
+Välj en virtuell dator som du vill publicera. 
+
+Under **aktivera uppdateringshantering**väljer **aktivera** publicera den virtuella datorn.
 
 ![Dialogrutan Aktivera hantering av uppdateringar](./media/manage-update-multi/update-enable.png)
 
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för virtuella datorer som inte använder Azure och datorer
+När onboardingsprocessen har slutförts har uppdateringshantering aktiverats för den virtuella datorn.
 
-Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för Azure-virtuella datorer och datorer
 
-Instruktioner om hur du aktiverar uppdateringshantering för virtuella Linux-datorer och datorer som inte använder Azure finns i [Connect your Linux Computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Anslut dina Linux-datorer till Log Analytics).
+Information om hur du aktiverar uppdateringshantering för Azure Windows virtuella datorer och datorer, finns [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agent.md).
 
-## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är anslutna till ditt Automation-konto
+Information om hur du aktiverar uppdateringshantering för icke - Azure Linux virtuella datorer och datorer, finns [ansluta Linux-datorer till logganalys](../log-analytics/log-analytics-agent-linux.md).
 
-När du har aktiverat uppdateringshantering för dina datorer kan du visa deras information genom att klicka på **Datorer**. Information om datorn som *namn*, *kompatibilitet*, *miljö*, *OS-typen*, *kritiska uppdateringar och säkerhetsuppdateringar* , *Andra uppdateringar*, och *Update Agent beredskap* är tillgängliga.
+## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är kopplad till ditt Automation-konto
+
+När du aktiverar uppdateringshantering för dina datorer, kan du visa information om datorn genom att välja **datorer**. Du kan visa information om *datornamnet*, *kompatibilitetsstatus*, *miljö*, *OS-typen*, *kritiska och säkerhetsuppdateringar är installerade*, *andra uppdateringar som installerats*, och *uppdatera agent beredskap* för datorer.
 
   ![Visa fliken för datorer](./media/manage-update-multi/update-computers-tab.png)
 
-Datorer som nyligen har aktiverats för uppdateringshantering kanske ännu inte har utvärderats. Efterlevnadstillståndet för dessa datorer skulle ha statusen  *	Ej utvärderat*.  Här följer en lista över värden för efterlevnadstillstånd:
+Datorer som nyligen har aktiverats för uppdateringshantering kanske inte har bedömts ännu. Kompatibilitetsstatus för tillstånd för dessa datorer är **utvärderas inte**. Här är en lista över möjliga värden för kompatibilitetstillstånd:
 
-- Kompatibel – Datorer som inte saknar kritiska uppdateringar eller säkerhetsuppdateringar.
+- **Kompatibla**: datorer som är inte saknar kritiska uppdateringar eller säkerhetsuppdateringar.
 
-- Inkompatibel – Datorer som saknar minste en kritisk uppdatering eller säkerhetsuppdatering.
+- **Icke-kompatibel**: datorer som saknar minst en kritisk eller säkerhetsuppdateringen.
 
-- Ej utvärderat – Data för kontroll av uppdateringar har inte tagits emot från datorn inom den förväntade tidsramen.  För Linux-datorer under de tre senaste timmarna och för Windows-datorer under de 12 senaste timmarna.
+- **Utvärdera inte**: assessment-data för uppdateringen har inte tagits emot från datorn i den förväntade tidsperioden. För Linux-datorer är tidsperioden som förväntat under de senaste 3 timmarna. För Windows-datorer är den förväntade tidsperioden under de senaste 12 timmarna.
 
-Om du vill visa statusen för agenten, klicka på länken i den **UPDATE AGENT beredskap** kolumn. Hybrid Worker-sidan som visar status för Worker-hybriden öppnas. Följande bild visar ett exempel på en agent som inte är anslutet till uppdateringshantering under en längre tid.
+Om du vill visa statusen för agenten, Välj länken i den **UPDATE AGENT beredskap** kolumn. Det här alternativet öppnas den **Hybrid Worker** rutan och visar status för Worker-hybriden. Följande bild visar ett exempel på en agent som inte har anslutits till uppdateringshantering under en längre tidsperiod:
 
 ![Visa fliken för datorer](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Visa en uppdateringsbedömning
 
-När uppdateringshantering är aktiverat visas dialogrutan **Hantering av uppdateringar**. Du kan se en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
+När uppdateringshantering har aktiverats kan den **uppdateringshantering** fönstret öppnas. Du kan se en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
 
 ## <a name="collect-data"></a>Samla in data
 
-Agenter som installerats på virtuella datorer och datorer samlar in data om uppdateringar och skickar dem till Azures uppdateringshantering.
+Agenter som installerats på datorer med virtuella datorer och samla in data om uppdateringar. Agenterna skicka data till Azure uppdateringshantering.
 
 ### <a name="supported-agents"></a>Agenter som stöds
 
@@ -103,32 +106,32 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows-agenter |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
-| Linux-agenter |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från Linux-agenter och initierar installationen av nödvändiga uppdateringar för distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp. |
-| Azure Storage-konto |Nej |Azure Storage inkluderar inte information om systemuppdateringar. |
+| Windows-agenter |Ja |Uppdateringshantering samlar in information om uppdateringar från Windows-agenter och sedan startar installationen av obligatoriska uppdateringar. |
+| Linux-agenter |Ja |Uppdateringshantering samlar in information om uppdateringar från Linux-agenter och sedan startar installationen av obligatoriska uppdateringar för distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om uppdateringar från agenter i en ansluten hanteringsgrupp. |
+| Azure-lagringskonto |Nej |Azure Storage innehåller information om uppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
-För varje hanterad Windows-dator körs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats. I så fall startar en kompatibilitetssökning. För varje hanterad Linux-dator körs en sökning var tredje timme.
+En sökning körs två gånger om dagen för alla hanterade Windows-datorer. Var 15: e minut Windows API kallas för att söka efter de senaste uppdateringstiden att fastställa om status har ändrats. Om status ändras, startar en genomsökning för kompatibilitet. En sökning körs var 3: e timme för varje hanterad Linux-dator.
 
-Det kan ta 30 minuter upp till 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
+Det kan ta mellan 30 minuter och 6 timmar för instrumentpanelen för att visa uppdaterade data från hanterade datorer.
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
-För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster.
-Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
+Planera en distribution som överensstämmer med versionen schema och tjänsten fönstret för att installera uppdateringarna. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
-Schemalägg en ny uppdateringsdistribution för en eller flera virtuella datorer genom att välja **Distribution av schemauppdatering** längst upp i dialogrutan **Hantering av uppdateringar**.
-I fönstret **Ny uppdateringsdistribution** anger du följande:
+Så här schemalägger du en ny uppdateringsdistribution för en eller flera virtuella datorer under **uppdateringshantering**väljer **schema distribution**.
 
-- **Namn**: Ett unikt namn som identifierar uppdateringsdistributionen.
-- **OS-typ**: Välj Windows eller Linux.
-- **Datorer för att uppdatera**: Välj virtuella datorer som du vill uppdatera. Beredskap för datorn visas i den **UPDATE AGENT beredskap** kolumn. På så sätt kan du se hälsotillståndet för datorn innan du kan schemalägga distributionen av uppdateringen.
+I den **ny uppdatera distribution** rutan anger du följande information:
 
-  ![Fönstret ”Ny uppdateringsdistribution”](./media/manage-update-multi/update-select-computers.png)
+- **Namnet**: Ange ett unikt namn för att identifiera distributionen av uppdateringen.
+- **Operativsystemet**: Välj **Windows** eller **Linux**.
+- **Datorer för att uppdatera**: Välj virtuella datorer som du vill uppdatera. Beredskap för datorn visas i den **UPDATE AGENT beredskap** kolumn. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen.
 
-- **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. En beskrivning av klassificeringstyper finns i [uppdatera klassificeringar](automation-update-management.md#update-classifications). Klassificeringstyper:
+  ![Nya update distribution rutan](./media/manage-update-multi/update-select-computers.png)
+
+- **Uppdatera klassifikationen**: Välj typerna av program som ska ingå i distributionen av uppdateringen. En beskrivning av typer klassificering finns [uppdatera klassificeringar](automation-update-management.md#update-classifications). Klassificeringstyper:
   - Kritiska uppdateringar
   - Säkerhetsuppdateringar
   - Samlade uppdateringar
@@ -138,43 +141,44 @@ I fönstret **Ny uppdateringsdistribution** anger du följande:
   - Verktyg
   - Uppdateringar
 
-- **Uppdateringar för att utesluta** -öppnas den **undanta** sidan. Ange i KBs eller paketnamn som ska undantas.
+- **Uppdateringar för att utesluta**: det här alternativet öppnas den **undanta** sidan. Ange KB-artiklar eller paket som ska undantas.
 
-- **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan även ange en annan tid.
-   Du kan också ange om distributionen ska ske en gång eller enligt ett schema med återkommande tider. Välj alternativet **Återkommande** under **Återkommande** för att ange ett återkommande schema.
+- **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan också ange en annan tid.
+
+   Du kan också ange om distributionen ska ske en gång eller enligt ett schema med återkommande tider. Att ställa in ett återkommande schema under **återkommande**väljer **återkommande**.
 
    ![Dialogrutan Schemainställningar](./media/manage-update-multi/update-set-schedule.png)
+- **Underhållsperiod (minuter)**: Ange tidsperioden som du vill att distributionen av uppdateringen ska ske. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
-- **Underhållsperiod (minuter)**: Ange den tidsperiod då uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
-
-När du har konfigurerat schemat klickar du på **Skapa** för att komma tillbaka till statusinstrumentpanelen. Tabellen **Schemalagt** visar det distributionsschema som du precis skapade.
+När du är klar med att konfigurera schemat, väljer den **skapa** vill gå tillbaka till instrumentpanelen status. Den **schemalagda** tabellen visar distributionsschemat som du skapade.
 
 > [!WARNING]
-> Om en uppdatering kräver omstart startas den virtuella datorn om automatiskt.
+> För uppdateringar som kräver en omstart av den virtuella datorn startas om automatiskt.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 
-När den schemalagda distributionen har påbörjats kan du se status för distributionen på fliken **Uppdateringsdistributioner** i dialogrutan **Hantering av uppdateringar**.
-Om distributionen körs är dess status **Pågår**. När distributionen har slutförts ändras statusen till **Lyckades**.
+När schemalagd distribution har startat kan du se statusen för distributionen på de **Programuppdateringsdistributioner** fliken **uppdateringshantering**.
+
+Om distributionen körs är dess status **Pågår**. När distributionen är klar har statusen ändras till **lyckades**.
+
 Om en eller flera uppdateringar i distributionen misslyckas visas statusen **Misslyckades delvis**.
 
 ![Status för uppdateringsdistribution](./media/manage-update-multi/update-view-results.png)
 
 Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
 
-Fönstret **Uppdatera resultat** visar en sammanfattning av det totala antalet uppdateringar och distributionsresultat för den virtuella datorn.
-Tabellen till höger visar detaljer för varje uppdatering och installationsresultaten. Installationsresultaten kan ha något av följande värden:
+Den **Uppdatera resultat** visar det totala antalet uppdateringar och distributionsresultat för den virtuella datorn. I högra tabellen ger en detaljerad uppdelning av varje uppdatering och resultatet av installationen. Installationsresultaten kan ha något av följande värden:
 
-- Inget försök har gjorts: Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid utifrån det underhållsfönster som definierats.
-- Lyckades: Uppdateringen lyckades.
-- Misslyckades: Uppdateringen misslyckades.
+- **Inget försök**: uppdateringen har inte installerats eftersom tillräckligt med tid tillgänglig baserat på det definierade underhållsfönstret.
+- **Lyckades**: uppdateringen har slutförts.
+- **Det gick inte**: uppdateringen misslyckades.
 
 Välj **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 
-Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
+Välj panelen Utdata om du vill se jobbström runbook som hanterar distributionen av uppdateringen på den virtuella måldatorn.
 
 Välj **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om uppdateringshantering – inklusive loggar, utdata och fel--finns [uppdatera hanteringslösning i Azure](../operations-management-suite/oms-solution-update-management.md).
+- Mer information om uppdateringshantering, inklusive loggar, utdata och fel, finns [uppdatering hanteringslösning i Azure](../operations-management-suite/oms-solution-update-management.md).

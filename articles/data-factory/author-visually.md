@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725150"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265296"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visual redigering i Azure Data Factory
 Azure Data Factory användargränssnittet experience (UX) kan du visuellt skapa och distribuera resurser för din data factory utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Det finns två tillvägagångssätt för att utföra visual redigering med UX:
@@ -63,11 +63,11 @@ I rutan visas följande kod i VSTS databasen inställningar:
 |:--- |:--- |:--- |
 | **Typ av databasen** | Typ av VSTS kod databasen.<br/>**Obs**: GitHub stöds inte för närvarande. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Din Azure AD-klientnamn. | <your tenant name> |
-| **Visual Studio Team Services-konto** | VSTS namnet på ditt konto. Du kan hitta kontonamnet VSTS på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt konto i VSTS](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | \<namnet på ditt konto > |
-| **Projektnamn** | Ditt VSTS projektnamn. Du kan hitta din VSTS projektnamn på `https://{account name}.visualstudio.com/{project name}`. | \<ditt VSTS projektnamn > |
-| **RepositoryName** | Din VSTS kod databasens namn. VSTS projekt innehålla Git databaser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan ingår i projektet. | \<databasen för VSTS kodnamnet > |
-| **Samarbete gren** | Din VSTS samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra det om du vill publicera resurser från en annan gren. | \<ditt samarbete gren namn > |
-| **Rotmappen** | Din rotmapp i VSTS samarbete grenen. | \<mappnamnet rot > |
+| **Visual Studio Team Services-konto** | VSTS namnet på ditt konto. Du kan hitta kontonamnet VSTS på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt konto i VSTS](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your account name> |
+| **Projektnamn** | Ditt VSTS projektnamn. Du kan hitta din VSTS projektnamn på `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | Din VSTS kod databasens namn. VSTS projekt innehålla Git databaser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan ingår i projektet. | <your VSTS code repository name> |
+| **Samarbete gren** | Din VSTS samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra det om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
+| **Rotmappen** | Din rotmapp i VSTS samarbete grenen. | <your root folder name> |
 | **Importera befintliga Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **redigering arbetsytan** i en VSTS Git-lagringsplats. Markera kryssrutan för att importera dina data factory-resurser till den associera Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga de länkade tjänsterna och datauppsättningar exporteras till separata JSONs). När rutan inte är markerad importeras inte befintliga resurser. | Valda (standard) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurationsmetoden 2: UX arbetsytan redigering

@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588870"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228581"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -335,7 +335,7 @@ I det här exemplet skapar du några principer för att lära dig hur systemets 
 
     Du har nu en princip som gäller för hela organisationen. Du kanske vill bevara 30-dagars principen för en specifik tjänstens huvudnamn, men ändra standardprincipen för organisationen till den övre gränsen för ”tills har återkallats”.
 
-    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
+    1.  Om du vill se alla organisationens tjänstens huvudnamn, kan du fråga antingen den [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) eller [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också testa detta i den [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), och [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) med hjälp av Azure AD-kontot.
 
     2.  När du har den **ObjectId** av din tjänstens huvudnamn, kör du följande kommando:
 

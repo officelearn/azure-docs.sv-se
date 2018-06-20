@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 760434253a3ece14352154a22cc68142ec2b0531
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35760244"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221639"
 ---
 # <a name="test-your-luis-app"></a>Testa appen THOMAS
 <a name="train-your-app"></a>
@@ -92,18 +92,23 @@ Om du har flera THOMAS slutpunkter, Använd den **ytterligare inställningar** l
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Visa Bing stavningskontroll korrigeringar test Kontrollpanelen
-Du kan visa de stavningskorrigeringar som tillhandahålls av [Bing stavningskontroll v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API i JSON-vy över de **publicerade** panelen i rutan. 
+Krav för att visa stavning ändringar: 
 
-Om du vill använda den här funktionen måste du publicerat appen, och har en Bing stavningskontroll [tjänstnyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). Nyckeln för tjänsten lagras inte och måste återställas för varje webbläsarsession. 
+* Publicerade app
+* Bing stavningskontroll [tjänstnyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). Nyckeln för tjänsten lagras inte och måste återställas för varje webbläsarsession. 
 
-Använd följande för att använda nyckeln för Bing stavningskontroll v7 i rutan. 
+Använd följande procedur för att inkludera den [Bing stavningskontroll v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) tjänsten i rutan testresultaten. 
 
-1. I panelen test på den **publicerade** väljer **ytterligare inställningar**.
+1. I den **Test** rutan Ange ett utterance. När utterance förutsade, välja **[granska](#inspect-score)** under utterance som du angav. 
 
-2. I popup-fönstret, anger du ditt **Bing stavningskontroll** nyckeln för tjänsten. 
+2. När den **granska** panelen öppnas väljer  **[Jämför med publicerade](#compare-with-published-version)**. 
+
+3. När den **publicerade** panelen öppnas väljer  **[ytterligare inställningar](#additional-settings-in-test-panel)**.
+
+4. I popup-fönstret, anger du ditt **Bing stavningskontroll** nyckeln för tjänsten. 
     ![Ange nyckel för Bing stavningskontroll](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
-3. Ange en fråga med en felaktig stavning som `book flite to seattle` och välj Ange. Felaktig stavningen av ordet `flite` ersätts i frågan som skickas till THOMAS och resulterande JSON visas både den ursprungliga frågan som `query`, och korrigerade stavningen i frågan, som `alteredQuery`.
+5. Ange en fråga med en felaktig stavning som `book flite to seattle` och välj Ange. Felaktig stavningen av ordet `flite` ersätts i frågan som skickas till THOMAS och resulterande JSON visas både den ursprungliga frågan som `query`, och korrigerade stavningen i frågan, som `alteredQuery`.
 
     ![Åtgärdat stavning JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 

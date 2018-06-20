@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: be8ff16b5383be19c1a8dc85f7afdf7506bfd4ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587951"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265055"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -69,7 +69,7 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 | --- | --- | --- |
 | 443 | Obligatorisk |Synkronisering med Azure AD-klient |
 | 5986 | Obligatorisk | Hantering av din domän |
-| 3389 | Valfri | Hantering av din domän |
+| 3389 | Obligatorisk | Hantering av din domän |
 | 636 | Valfri | Säker LDAP (LDAPS) åtkomst till din hanterade domän |
 
 **Port 443 (synkronisering med Azure AD)**
@@ -80,12 +80,13 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 **Port 5986 (PowerShell-fjärrkommunikation)**
 * Den används för att utföra hanteringsuppgifter med hjälp av PowerShell-fjärrkommunikation på din hanterade domän.
 * Det är obligatoriskt att tillåta åtkomst via den här porten i din NSG. Din hanterade domän får inte vara uppdaterade konfigurerade, säkerhetskopierade eller övervakade utan åtkomst till den här porten.
-* Du kan begränsa inkommande åtkomst till den här porten till följande IP-adresser för källa: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* För alla nya domäner eller domäner med ett virtuellt nätverk ARM, du kan begränsa inkommande åtkomst till den här porten till följande IP-adresser för källa: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* För domäner med ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande IP-adresser för källa: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Domänkontrollanterna för din hanterade domän lyssna vanligtvis inte på den här porten. Tjänsten öppnar den här porten på hanterade domänkontrollanter endast när en hanterings- eller åtgärden måste utföras för den hanterade domänen. När åtgärden har slutförts stängs tjänsten av den här porten på hanterade domänkontrollanter.
 
 **Port 3389 (fjärrskrivbord)**
 * Den används för anslutning till fjärrskrivbord till domänkontrollanter för din hanterade domän.
-* Öppna den här porten via din NSG är valfritt.
+* Du kan begränsa inkommande åtkomst till följande IP-adresser för källa: 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
 * Detta port finns kvar i stor utsträckning är inaktiverat på din hanterade domän. Den här mekanismen används inte kontinuerligt eftersom hantering och övervakning aktiviteter utförs med hjälp av PowerShell-fjärrkommunikation. Den här porten används endast i sällsynta händelsen som behöver fjärransluta till din hanterade domän för avancerad felsökning. Porten är stängd när felsökning åtgärden har slutförts.
 
 **Port 636 (säker LDAP)**

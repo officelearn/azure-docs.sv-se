@@ -1,0 +1,26 @@
+- name: Dokumentation om Virtual Machines
+  href: index.md
+- name: Virtuella Linux-datorer i Azure
+  href: linux/overview.md
+- name: Virtuella Windows-datorer i Azure
+  href: windows/overview.md
+- name: Dokumentation om VM-tillägg
+  href: extensions/overview.md
+- name: Arbetsbelastningar
+  items:
+    - name: Oracle
+      href: workloads/oracle/oracle-considerations.md
+    - name: SAP
+      href: workloads/sap/get-started.md
+- name: Klassiska distributioner
+  items:
+    - name: Virtuella Linux-datorer med klassisk distribution
+      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+    - name: Virtuella Windows-datorer med klassisk distribution
+      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

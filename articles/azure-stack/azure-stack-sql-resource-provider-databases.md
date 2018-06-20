@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av databaser som tillhandahålls av SQL-kort RP Azure stacken | Microsoft Docs
-description: Hur du skapar och hanterar SQL-databaser som etablerats med hjälp av Resource Provider för SQL-kort
+title: Med hjälp av databaser som tillhandahålls av SQL kortet resursprovidern Azure stacken | Microsoft Docs
+description: Hur du skapar och hanterar SQL-databaser som etablerats med hjälp av SQL kortet resursprovidern
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,49 +11,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294946"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264190"
 ---
 # <a name="create-sql-databases"></a>Skapa SQL-databaser
-Självbetjäning databaser har du tillgång till användarportalen. En Azure-stacken användare behöver en prenumeration som har ett erbjudande som innehåller tjänsten SQL-databasen.
 
-1. Logga in på den [Azure Stack](azure-stack-poc.md) användarportalen (service-administratörer kan också använda administrationsportal).
+Du kan skapa och hantera självbetjäning databaser i användarportalen. En Azure-stacken användare behöver en prenumeration med ett erbjudande som innehåller tjänsten SQL-databasen.
 
-2. Klicka på **+ ny** &gt; **Data + lagring ”** &gt; **SQL Server-databas** &gt; **lägga till**.
+1. Logga in på den [Azure Stack](azure-stack-poc.md) användarportalen.
 
-3. Fyll i formuläret med databasinformation, inklusive en **databasnamnet**, **maxstorleken**, och ändra de andra parametrarna efter behov. Du uppmanas att välja en SKU för din databas. När värdservrar läggs tilldelats de en SKU. Databaser skapas i den poolen, vara värd för servrar som utgör SKU: N.
+2. Välj **+ ny** &gt; **Data + lagring ”** &gt; **SQL Server-databas** &gt; **lägga till**.
 
-  ![Ny databas](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+3. Under **Create Database**, ange informationen som krävs, t.ex **databasnamnet** och **Max Size i MB**.
 
-  >[!NOTE]
-  > Databasens storlek måste vara minst 64 MB. Det kan ökas med inställningar.
+   >[!NOTE]
+   >Databasens storlek måste vara minst 64 MB, vilket du kan öka när du har distribuerat databasen.
 
-4. Fyll i de inloggningsinställningar: **databasinloggningen**, och **lösenord**. Dessa inställningar är SQL-autentisering-autentiseringsuppgifter som har skapats för din åtkomst till endast den här databasen. Användarens inloggningsnamn måste vara globalt unika. Skapa en ny inställning för inloggning eller välj en befintlig. Du kan återanvända inloggningsinställningar för andra databaser som använder samma SKU: N.
+   Konfigurera andra inställningar som krävs för din miljö.
 
-    ![Skapa en ny databasinloggning](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+4. Under **Create Database**väljer **SKU**. Under **väljer en SKU**, Välj SKU för din databas.
 
+   ![Skapa databas](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
-5. Skicka formuläret och vänta på att distributionen ska slutföras.
+   >[!NOTE]
+   >De är tilldelade en SKU när värdservrar läggs till Azure-stacken. Du skapa databaser i poolen med värd-servrar i en SKU.
 
-    Observera fältet ”anslutningssträngen” i det resulterande bladet. Du kan använda denna sträng i alla program som kräver SQL Server-åtkomst (till exempel en webbapp) i Azure-stacken.
+5. Välj **inloggning**.
+6. Under **väljer en inloggning**, välja en befintlig inloggning eller välja **+ skapa en ny inloggning**.
+7. Under **ny inloggning**, ange ett namn för **databasinloggningen** och en **lösenord**.
 
-    ![Hämta anslutningssträngen](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+   >[!NOTE]
+   >Dessa inställningar är SQL-autentisering-autentiseringsuppgifter som har skapats för din åtkomst till endast den här databasen. Användarens inloggningsnamn måste vara globalt unika. Du kan återanvända inloggningsinställningar för andra databaser som använder samma SKU: N.
 
-## <a name="delete-sql-alwayson-databases"></a>Ta bort SQL AlwaysOn-databaser
-När SQL AlwaysOn-databasen tas bort från resursprovidern tagits bort har från den primära servern och AlwaysOn-tillgänglighetsgruppen grupp, det men placerar databasen i återställningsläge i varje replik av Design, SQL AG och släppa inte databasen om utlöses. Om en databas inte tas bort går de sekundära replikerna att inte synkronisera tillstånd. Om du lägger till en ny databas för AG med samma via RP fortfarande fungerar.
+   ![Skapa en ny databasinloggning](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
-## <a name="verify-sql-alwayson-databases"></a>Verifiera SQL AlwaysOn-databaser
-AlwaysOn-databaser ska visas som synkroniserats och är tillgängliga på alla instanser och i tillgänglighetsgruppen. Databasen bör sömlöst ansluta efter redundans. Du kan använda SQL Server Management Studio för att verifiera att en databas synkroniseras:
+8. Välj **OK** att slutföra distributionen av databasen.
 
-![Kontrollera AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+Under **Essentials**, som visas när databasen har distribuerats, notera den **anslutningssträngen**. Du kan använda den här strängen i alla program som behöver åtkomst till SQL Server-databasen.
 
+![Hämta anslutningssträngen](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+
+## <a name="sql-always-on-databases"></a>SQL Always On-databaser
+
+Som standard hanteras alltid på databaser annorlunda än i en miljö med fristående servrar. Mer information finns i [introduktion till SQL Server Always On-Tillgänglighetsgrupper på Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+
+### <a name="verify-sql-always-on-databases"></a>Kontrollera SQL Always On-databaser
+
+Följande skärmdump visar hur du kan använda SQL Server Management Studio för att titta på databasens status i SQL Always On.
+
+![Tillståndet för AlwaysOn-databasen](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+Always On databaser ska visa som Synchronized och är tillgängliga på alla SQL-instanser och visas i Tillgänglighetsgrupper. I den föregående skärmbilden databasen exempel är newdb1 och dess status är **newdb1 (synkroniserad)**.
+
+### <a name="delete-an-alwayson-database"></a>Ta bort en AlwaysOn-databas
+
+När du tar bort en SQL AlwaysOn-databas från resursprovidern SQL databasen från den primära repliken och bort från tillgänglighetsgruppen.
+
+SQL-sedan placerar databasen i återställningsläge på andra replikerna och släppa inte databasen om utlöses. Om databasen inte släpps, går de sekundära replikerna i ett tillstånd som inte synkroniseras.
 
 ## <a name="next-steps"></a>Nästa steg
 

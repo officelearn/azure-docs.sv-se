@@ -3,23 +3,24 @@ title: Etablera Enterprise Edition för Azure-SSIS-integrering Runtime | Microso
 description: Den här artikeln beskriver funktionerna i Enterprise Edition för Azure-SSIS-integrering Runtime och hur du etablerar den
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: 55f4fd18dbebe8a4c666c5512b9cad46ddf9f7d7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 73997345895bc54f54db1d66c0c6c24c24153dd2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296864"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268110"
 ---
-# <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Enterprise-versionen av körningsmiljön Azure SSIS-integrering
+# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Etablera Enterprise Edition för Azure-SSIS-integrering Runtime
 
 Enterprise-versionen av körningsmiljön Azure SSIS-integrering kan du använda följande avancerade och premium-funktioner:
 -   Ändra Change Data Capture (CDC)-komponenter

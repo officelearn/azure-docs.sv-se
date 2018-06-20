@@ -3,22 +3,22 @@ title: Konfigurera om Azure-SSIS-integrering runtime | Microsoft Docs
 description: Lär dig hur du konfigurerar om en Azure-SSIS-integrering körning i Azure Data Factory efter redan har etablerats.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: ''
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: douglasl
-ms.openlocfilehash: bb33f2f5062749510906957fda5c8b0eeecdee60
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 91887bad9c3ca976612522c161663fb0b35f587c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297778"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266931"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Konfigurera om Azure-SSIS-integrering runtime
 Den här artikeln beskriver hur du konfigurerar om en befintlig Azure-SSIS-integrering körning. Om du vill skapa en Azure-SSIS-integrering körning (IR) i Azure Data Factory finns [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md).  

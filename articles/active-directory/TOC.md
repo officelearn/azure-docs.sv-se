@@ -184,6 +184,8 @@
 ### [Översikt](manage-apps/what-is-application-management.md)
 ### [Komma igång](manage-apps/plan-an-application-integration.md)
 ### [Självstudier om SaaS-appintegration](saas-apps/tutorial-list.md)
+
+
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Skapa ögonblicksrapporter](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [Klientrestriktioner](manage-apps/tenant-restrictions.md)
 #### [Använd SCIM-etablering av användare](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Felsöka](active-directory-application-troubleshoot-content-map.md)
-#### [Programutveckling](active-directory-application-dev-troubleshoot-content-map.md)
-##### [Konfiguration och registrering](active-directory-application-dev-config-content-map.md)
-##### [Utveckling](active-directory-application-dev-development-content-map.md)
-#### [Programhantering](active-directory-application-management-troubleshoot-content-map.md)
-##### [Konfiguration](active-directory-application-config-content-map.md)
-##### [Inloggning](active-directory-application-sign-in-content-map.md)
-##### [Etablering](active-directory-application-provisioning-content-map.md)
 
-###### [Verifiering av en användare har etablerats](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [Etableringen tar lång tid](application-provisioning-when-will-provisioning-finish.md) 
-###### [Konfigurera användaretablering](application-provisioning-config-how-to.md) 
-###### [Konfigurera etablering problem](application-provisioning-config-problem.md) 
-###### [Problem med att spara autentiseringsuppgifter för administratörer](application-provisioning-config-problem-storage-limit.md) 
-###### [Inga användare etableras](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [Fel användare etableras](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### Felsöka
 
-##### [Hantera åtkomst](active-directory-application-access-content-map.md)
-##### [Åtkomstpanel](active-directory-application-access-panel-content-map.md)
-##### [Programproxy](active-directory-application-proxy-content-map.md)
-##### [Villkorlig åtkomst](active-directory-application-conditional-access-content-map.md)
+
+
+#### Åtkomstpanel
+##### [Appen visas inte](application-access-panel-unexpected-application-not-appearing.md)
+##### [Appen visas oväntat](application-access-panel-unexpected-application-appears.md)
+##### [Det går inte att logga in](application-access-panel-web-sign-in-problem.md)
+##### [Fel vid installation av webbläsartillägg](application-access-panel-extension-problem-installing.md)
+##### [Så här använder du appåtkomst via självbetjäning](application-access-panel-self-service-applications-how-to.md)
+##### [Fel vid användning av appåtkomst via självbetjäning](application-access-panel-self-service-applications-problem.md)
+
+#### Lägga till en app
+##### [Välj apptyp](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [Vanliga problem – galleriappar](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [Vanliga problem – inte galleriappar](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### Programproxy
+##### [Problem med att visa appsida](application-proxy-page-appearance-broken-problem.md)
+##### [För lång programinläsning](application-proxy-page-load-speed-problem.md)
+##### [Länkar på programsidan fungerar inte](application-proxy-page-links-broken-problem.md)
+##### [Vilka portar ska jag öppna för min app?](application-proxy-connectivity-ports-how-to.md)
+##### [Ingen fungerande anslutningsapp i en grupp med anslutningsappar för min app](application-proxy-connectivity-no-working-connector.md)
+##### [Konfigurera i administratörsportalen](application-proxy-config-how-to.md)
+##### [Konfigurera enkel inloggning till min app](application-proxy-config-sso-how-to.md)
+##### [Problem med att skapa en app i administratörsportalen](application-proxy-config-problem.md)
+##### [Konfigurera begränsad Kerberos-delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [Konfigurera med PingAccess](application-proxy-back-end-ping-access-how-to.md)
+##### [Felmeddelandet "Det går inte att få åtkomst till det här företagsprogrammet"](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Problem med att installera anslutningsappen för programproxyagenten](application-proxy-connector-installation-problem.md)
+
+
+#### Programregistrering
+##### [Ange fält för programobjektet](application-dev-registration-config-specific-application-property-how-to.md)
+##### [Ändra standardinställningarna för livslängd för token](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### Autentisering
+##### [Konfigurera slutpunkter](application-dev-registration-config-how-to.md)
+
+#### Villkorlig åtkomst
+##### [Kunden uppfyllde inte förhandskraven för enhetsregistrering](active-directory-conditional-access.md)
+##### [Klienten blockeras på grund av felaktiga inställningar av principer för villkorlig åtkomst](active-directory-conditional-access-device-remediation.md)
+##### [Hur och när träder regler utanför företagsnätverk i kraft?](https://aka.ms/calocation)
+##### [Hur ökar jag antalet enheter som användaren har tillåtelse att registrera i Azure AD?](active-directory-azureadjoin-setup.md)
+##### [Hur konfigurerar jag villkorlig åtkomst för Exchange Online?](https://aka.ms/csforexchange)
+##### [Hur konfigurerar jag villkorlig åtkomst för Windows 7-enheter?](active-directory-conditional-access.md#device-based-conditional-access)
+##### [Vilka program stöds med villkorlig åtkomst?](active-directory-conditional-access-supported-apps.md)
+
+#### Hitta ett API
+##### [Hitta ett API](application-dev-api-find-an-api-how-to.md)
+
+#### Hantera åtkomst
+##### [Tilldela användare och grupper till en app](application-access-assignment-how-to-add-assignment.md)
+##### [Ta bort användaråtkomst till en app](application-access-assignment-how-to-remove-assignment.md)
+##### [Konfigurera apptilldelning via självbetjäning](application-access-self-service-how-to.md)
+##### [Oväntad tilldelad användare](application-access-unexpected-user-assignment.md)
+##### [Oväntad app i programlistan](application-access-unexpected-application.md)
+
+#### Appar för flera klienter
+##### [Konfigurera en ny app](application-dev-setup-multi-tenant-app.md)
+##### [Lägga till i appgalleriet](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### Behörigheter
+##### [Välja behörigheter för ett API](application-dev-perms-for-given-api.md)
+##### [Bevilja behörigheter till min app](application-dev-registration-config-grant-permissions-how-to.md)
+##### [Delegerat/programbehörigheter](application-dev-delegated-and-app-perms.md)
+##### [Programmedgivande](application-dev-consent-framework.md)
+
+#### Etablering
+##### [Hur lång tid det tar](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Tar flera timmar – galleriapp](application-provisioning-when-will-provisioning-finish.md)
+##### [Konfigurera användaretablering – galleriapp](application-provisioning-config-how-to.md)
+##### [Problem med att konfigurera användaretablering – galleriapp](application-provisioning-config-problem.md)
+##### [Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp](application-provisioning-config-problem-storage-limit.md)
+##### [Användare har inte etablerats – galleriapp](application-provisioning-config-problem-no-users-provisioned.md)
+##### [Fel användare har etablerats – galleriapp](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### Enkel inloggning
+##### [Välj en metod](application-config-sso-how-to-choose-sign-on-method.md)
+##### [Konfigurera](application-dev-registration-config-sso-how-to.md)
+##### [Konfigurera externa – galleriappar](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [Vanliga problem vid konfiguration av externa – galleriappar](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Konfigurera externa – inte galleriappar](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [Vanliga problem vid konfiguration av externa – inte galleriappar](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [Konfigurera lösenord – galleriappar](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [Vanliga problem vid konfiguration av lösenord – galleriappar](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [Konfigurera lösenord – inte galleriappar](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [Vanliga problem vid konfiguration av lösenord – inte galleriappar](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### Problem med användarinloggning
+##### [Oväntad fråga om medgivande](application-sign-in-unexpected-user-consent-prompt.md)
+##### [Fel vid användarmedgivande](application-sign-in-unexpected-user-consent-error.md)
+##### [Problem vid inloggning från den anpassade portalen](application-sign-in-other-problem-deeplink.md)
+##### [Problem vid inloggning från åtkomstpanelen](application-sign-in-other-problem-access-panel.md)
+##### [Fel på inloggningssidan för programmet](application-sign-in-problem-application-error.md)
+##### [Problem med enkel inloggning med lösenord – inte galleriapp](application-sign-in-problem-password-sso-non-gallery.md)
+##### [Problem med enkel inloggning med lösenord – galleriapp](application-sign-in-problem-password-sso-gallery.md)
+##### [Problem med att logga in i en Microsoft-app](application-sign-in-problem-first-party-microsoft.md)
+##### [Problem med extern enkel inloggning – inte galleriapp](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Problem med extern enkel inloggning – galleriapp](application-sign-in-problem-federated-sso-gallery.md)
+##### [Problem med egenutvecklad app](application-sign-in-problem-custom-dev.md)
+##### [Problem med lokal app – programproxy](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [Utveckla appar](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Dokumentbibliotek](active-directory-apps-index.md)
 

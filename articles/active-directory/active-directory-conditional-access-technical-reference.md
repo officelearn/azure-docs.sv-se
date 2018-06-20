@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0be34d3a0e9bccd6658b5285ddfe6da1e96ef19a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724932"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227997"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -237,7 +237,7 @@ Den här inställningen gäller för följande klientappar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt av villkorlig åtkomst finns [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- En översikt av villkorlig åtkomst finns [vad är villkorlig åtkomst i Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 - Om du är redo att konfigurera principer för villkorlig åtkomst i din miljö finns i [rekommenderade metoder för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md).
 
 

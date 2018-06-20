@@ -3,17 +3,18 @@ title: Skapa en kunskaper i en kognitiva Sök pipeline (Azure Search) | Microsof
 description: Definiera data extrahering naturligt språk bearbetning, eller avbildning analys steg för att utöka och extrahera strukturerad information från dina data för använder i Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640934"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268236"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en kunskaper i en berikande pipeline
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Andra kunskap för sentiment extrahering följer samma mönster som första enri
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Andra kunskap för sentiment extrahering följer samma mönster som första enri
 
 Den här definitionen är en anpassad kunskap som anropar ett webb-API som en del av processen berikande. För varje organisation som identifieras av namngiven enhet recognition anropar kompetensen ett webb-API för att hitta beskrivningen av den organisationen. Dirigering av när webb-API-anrop och hur flödar uppgifter hanteras internt berikande-motorn. Dock måste krävs för att anropa den här anpassade API initieringen anges i JSON (som uri, httpHeaders och indata förväntades). Anvisningar för att skapa en anpassad webb-API för berikande pipelinen finns [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
 
-Observera att Kontextfältet ”” anges till ```"/document/content/organizations/*"``` med en asterisk, vilket innebär att steget berikande kallas *för varje* organisation under ```"/document/content/organizations"```. 
+Observera att Kontextfältet ”” anges till ```"/document/organizations/*"``` med en asterisk, vilket innebär att steget berikande kallas *för varje* organisation under ```"/document/organizations"```. 
 
-Utgående, genereras i det här fallet en företagsbeskrivning, för varje organisation som identifieras. När du refererar till beskrivningen i ett efterföljande steg (till exempel i viktiga frasen extrahering) du skulle använda sökvägen ```"/document/content/organizations/*/description"``` gör. 
+Utgående, genereras i det här fallet en företagsbeskrivning, för varje organisation som identifieras. När du refererar till beskrivningen i ett efterföljande steg (till exempel i viktiga frasen extrahering) du skulle använda sökvägen ```"/document/organizations/*/description"``` gör. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments skapa struktur utanför ostrukturerad information
 

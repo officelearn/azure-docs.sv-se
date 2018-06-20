@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3db2588edefa2f07d22609d7c454367d5572d5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356134"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263888"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App Bot med mallen THOMAS för C#
 
@@ -80,7 +80,7 @@ Bot svarar genom att säga ”du har nått hälsning. Du SA: hello ”.  Det hä
 > Om du inte har THOMAS app-ID för den [Start Automation app](luis-get-started-create-app.md), logga in på den [THOMAS](luis-reference-regions.md) webbplats som använder samma konto som du använder för att logga in på Azure. 
 > 1. Klicka på **Mina appar**. 
 > 2. Hitta THOMAS appen du skapade tidigare, som innehåller avsikter och entiteter från domänen HomeAutomation.
-> 3. I den **inställningar** THOMAS appens sida, hitta och kopiera app-ID. Se till att det [tränad](Train-Test.md) och [publicerade](PublishApp.md). 
+> 3. I den **inställningar** THOMAS appens sida, hitta och kopiera app-ID. Se till att det [tränad](interactive-test.md) och [publicerade](PublishApp.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ I Azure-portalen klickar du på **testa i Web chatta** att testa bot. Skriv medd
    ![Testa HomeAutomation bot i Web chatt](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Du kan träna om appen THOMAS utan några andra ändringar till din bot kod. Se [lägger du till exempel utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa appen THOMAS](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test). 
+> Du kan träna om appen THOMAS utan några andra ändringar till din bot kod. Se [lägger du till exempel utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa appen THOMAS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Hämta bot för felsökning
 Om din bot inte fungerar hämta projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
@@ -160,6 +160,8 @@ Lägg till THOMAS avsikter och Bot dialogrutorna för hantering av **hjälp**, *
 > [!div class="nextstepaction"]
 > [Lägg till avsikter](./luis-how-to-add-intents.md)
 > [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -168,7 +170,7 @@ Lägg till THOMAS avsikter och Bot dialogrutorna för hantering av **hjälp**, *
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

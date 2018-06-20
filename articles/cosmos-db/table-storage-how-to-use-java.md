@@ -1,51 +1,49 @@
 ---
-title: Hur du använder Azure Table storage eller Azure Cosmos DB tabell API från Java | Microsoft Docs
-description: Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas.
+title: Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java | Microsoft Docs
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: Java
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 4ac25fd9e1d7233546b34da89eb1bcaf37f6f38b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797904"
 ---
-# <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Hur du använder Azure Table storage eller Azure Cosmos DB tabell API från Java
+# <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du utför vanliga scenarier med hjälp av Azure Table storage-tjänst och Azure Cosmos DB. Exemplen är skrivna i Java och Använd den [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarier som tas upp inkluderar **skapar**, **lista**, och **ta bort** tabeller, samt **infoga**, **frågar**, **ändra**, och **bort** entiteter i en tabell. Mer information om tabeller finns i [nästa steg](#next-steps) avsnitt.
+I den här artikeln visas hur du utför vanliga scenarier med hjälp av tjänsten Azure Table Storage och Azure Cosmos DB. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. De scenarier som behandlas beskriver hur du **skapar**, **listar** och **tar bort** tabeller samt hur du **infogar**, **kör frågor mot**, **modifierar** och **tar bort** poster i en tabell. Mer information om tabeller finns i avsnittet [Nästa steg](#next-steps).
 
 > [!NOTE]
-> En SDK är tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
+> En SDK finns tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
 >
 
-## <a name="create-an-azure-service-account"></a>Skapa ett konto i Azure-tjänst
+## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB tabell API-konto
+### <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
-I den här guiden använder lagringsfunktioner som du kan köra i ett Java-program lokalt eller i kod som körs i en webbroll eller worker-rollen i Azure.
+I den här guiden använder du lagringsfunktioner som du kan köra i ett Java-program lokalt eller i kod som körs i en webbroll eller i en arbetsroll i Azure.
 
-Installera Java Development Kit (JDK) för att använda exemplen i den här artikeln, och sedan skapa ett Azure storage-konto i din Azure-prenumeration. När du har gjort det, verifiera att utvecklingssystemet uppfyller minsta krav och beroenden som anges i den [Azure Storage SDK för Java] [ Azure Storage SDK for Java] databasen på GitHub. Om datorn uppfyller dessa krav, kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java i systemet från databasen. När du har slutfört uppgifterna, kan du skapa ett Java-program som använder exemplen i den här artikeln.
+För att använda exemplen i den här artikeln installerar du Java Development Kit (JDK) och skapar sedan ett Azure Storage-konto eller ett Azure Cosmos DB-konto i din Azure-prenumeration. När du har gjort det verifierar du att utvecklingsdatorn uppfyller de minimikrav och de beroenden som anges i lagringsplatsen för [Azure Storage SDK för Java][Azure Storage SDK for Java] på GitHub. Om datorn uppfyller kraven kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java på datorn från lagringsplatsen. När du har slutfört de uppgifterna kan du skapa ett Java-program som använder exemplen i den här artikeln.
 
-## <a name="configure-your-application-to-access-table-storage"></a>Konfigurera programmet att komma åt table storage
-Lägg till följande importuttryck överst i Java-filen där du vill använda API: er för Azure storage eller Azure Cosmos DB tabell API åtkomst tabeller:
+## <a name="configure-your-application-to-access-table-storage"></a>Konfigurera programmet för att använda Table-lagring
+Lägg till följande importinstruktioner överst i Java-filen där du vill använda Azure Storage-API:er eller Azure Cosmos DB Table API för att komma åt tabeller:
 
 ```java
 // Include the following imports to use table APIs
@@ -54,10 +52,10 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## <a name="add-an-azure-storage-connection-string"></a>Lägga till ett Azure storage-anslutningssträng
-Ett Azure storage-klienten använder en anslutningssträng för lagring för att lagra slutpunkter och autentiseringsuppgifter för åtkomst till data management services. När den körs i ett klientprogram, du måste ange anslutningssträngen för lagring i följande format, med hjälp av namnet på ditt lagringskonto och den primära åtkomstnyckeln för lagringskontot som anges i den [Azure-portalen](https://portal.azure.com) för den *AccountName* och *AccountKey* värden. 
+## <a name="add-an-azure-storage-connection-string"></a>Lägga till en Azure Storage-anslutningssträng
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När den körs i ett klientprogram måste du ange anslutningssträngen för lagring i följande format, med namnet på ditt lagringskonto och den primära åtkomstnyckel för lagringskontot som anges i [Azure-portalen](https://portal.azure.com) för värdena *AccountName* och *AccountKey*. 
 
-Det här exemplet visar hur du kan deklarera statiska fält att lagra anslutningssträngen:
+Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
 
 ```java
 // Define the connection-string with your values.
@@ -67,10 +65,10 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## <a name="add-an-azure-cosmos-db-connection-string"></a>Lägg till en Azure Cosmos DB-anslutningssträng
-Ett konto i Azure Cosmos DB använder en anslutningssträng för att lagra tabell slutpunkten och dina autentiseringsuppgifter. När den körs i ett klientprogram, du måste ange anslutningssträngen för Azure Cosmos DB i följande format, med namnet på ditt konto i Azure Cosmos DB och den primära åtkomstnyckeln för kontot som anges i den [Azure-portalen](https://portal.azure.com) för den *AccountName* och *AccountKey* värden. 
+## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Lägga till en Azure Cosmos DB Table API-anslutningssträng
+Ett Azure Cosmos DB-konto använder en anslutningssträng för att lagra tabellslutpunkten och dina autentiseringsuppgifter. När den körs i ett klientprogram måste du ange Azure Cosmos DB-anslutningssträngen i följande format, med namnet på ditt Azure Cosmos DB-konto och den primära åtkomstnyckel för kontot som anges i [Azure-portalen](https://portal.azure.com) för värdena *AccountName* och *AccountKey*. 
 
-Det här exemplet visar hur du kan deklarera statiska fält för Azure Cosmos DB-anslutningssträngen:
+Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av Azure Cosmos DB-anslutningssträngen:
 
 ```java
 public static final String storageConnectionString =
@@ -80,7 +78,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-Du kan lagra strängen i konfigurationsfilen för tjänsten i ett program som körs inom en roll i Azure, *ServiceConfiguration.cscfg*, och du kan komma åt den med ett anrop till den  **RoleEnvironment.getConfigurationSettings** metod. Här är ett exempel för att få anslutningssträng från en **inställningen** element med namnet *StorageConnectionString* i tjänstkonfigurationsfilen:
+I ett program som körs inuti en roll i Azure kan du lagra den här strängen i tjänstkonfigurationsfilen *ServiceConfiguration.cscfg*, och du kan komma åt den med ett anrop till metoden  **RoleEnvironment.getConfigurationSettings**. Här är ett exempel på hur anslutningssträngen från ett **inställningselement** med namnet *StorageConnectionString* i tjänstkonfigurationsfilen kan hämtas:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -88,7 +86,7 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-Du kan också lagra anslutningssträngen i config.properties projektfilen:
+Du kan även lagra anslutningssträngen i projektets config.properties-fil:
 
 ```java
 StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
@@ -97,10 +95,10 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 Följande exempel förutsätter att du har använt någon av dessa metoder för att hämta anslutningssträngen för lagring.
 
 ## <a name="create-a-table"></a>Skapa en tabell
-En **CloudTableClient** objekt kan du få referensobjekt för tabeller och enheter. Följande kod skapar en **CloudTableClient** objekt och används för att skapa en ny **CloudTable** -objektet som representerar en tabell med namnet ”personer”. 
+Med ett **CloudTableClient**-objekt kan du hämta referensobjekt för tabeller och entiteter. Följande kod skapar ett **CloudTableClient**-objekt och använder det för att skapa ett nytt **CloudTable**-objekt som representerar en tabell med namnet ”people” (personer). 
 
 > [!NOTE]
-> Det finns andra sätt att skapa **CloudStorageAccount** objekt; mer information finns i **CloudStorageAccount** i den [referens för Azure Storage Client SDK]).
+> Det finns andra sätt att skapa **CloudStorageAccount**-objekt; mer information finns i **CloudStorageAccount** i [Azure Storage Client SDK-referens]).
 >
 
 ```java
@@ -125,8 +123,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="list-the-tables"></a>Lista tabeller
-Om du vill hämta en lista över tabeller anropa den **CloudTableClient.listTables()** metod för att hämta en iterable lista över tabellnamn.
+## <a name="list-the-tables"></a>Lista tabellerna
+Om du vill få en lista över tabeller anropar du metoden **CloudTableClient.listTables()** för att hämta en itererbar lista över tabellnamn.
 
 ```java
 try
@@ -153,7 +151,7 @@ catch (Exception e)
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
-Entiteter mappar till Java-objekt med hjälp av en anpassad klass som implementerar **TableEntity**. För enkelhetens skull den **TableServiceEntity** klassen implementerar **TableEntity** och använder reflektion för att mappa egenskaper till get och set-metoder med namnet för egenskaper. Om du vill lägga till en entitet i en tabell, först skapa en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan frågas snabbare än de som har olika partitionsnycklar.
+Entiteter mappar till Java-objekt med hjälp av en anpassad klass som implementerar **TableEntity**. För enkelhetens skull implementerar klassen **TableServiceEntity** **TableEntity** och använder reflektion för att mappa egenskaper till getter- och setter-metoder som namngivits efter egenskaperna. Om du vill lägga till en entitet i en tabell skapar du först en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan frågas snabbare än dem som har olika partitionsnycklar.
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -185,7 +183,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-Tabellåtgärder som rör entiteter kräver en **TableOperation** objekt. Det här objektet definierar åtgärden som ska utföras på en enhet som kan utföras med en **CloudTable** objekt. Följande kod skapar en ny instans av den **CustomerEntity** klass med vissa kundinformation lagras. Kod nästa anrop **TableOperation.insertOrReplace** att skapa en **TableOperation** objekt för att infoga en entitet i en tabell och associerar den nya **CustomerEntity** med den. Slutligen koden anropar den **köra** -metoden i den **CloudTable** objekt som anger tabellen ”personer” och den nya **TableOperation**, som sedan skickar en begäran till lagringstjänsten Infoga ny kundentiteten i tabellen ”personer” eller ersätta entiteten om den redan finns.
+Tabellåtgärder som rör entiteter kräver ett **TableOperation**-objekt. Det här objektet definierar den åtgärd som ska utföras på en entitet, vilket kan utföras med ett **CloudTable**-objekt. Med följande kod skapas en ny instans av klassen **CustomerEntity** med en del kundinformation som ska lagras. Koden anropar sedan **TableOperation.insertOrReplace** för att skapa ett **TableOperation**-objekt som infogar en entitet i en tabell, och associerar den nya **CustomerEntity** med den. Slutligen anropar koden **execute**-metoden i **CloudTable**-objektet och anger tabellen ”people” (personer) och den nya **TableOperation**, som sedan skickar en begäran till lagringstjänsten för att infoga den ny kundentiteten i tabellen ”people” (personer) eller ersätta entiteten om den redan finns.
 
 ```java
 try
@@ -219,7 +217,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
-Du kan infoga en batch med entiteter till tabelltjänsten i samma skrivåtgärd. Följande kod skapar en **TableBatchOperation** objekt och sedan lägger till tre infogningsåtgärder till den. Varje infogningen har lagts till genom att skapa ett nytt enhetsobjekt, dess inställningsvärden och sedan anropa den **infoga** -metoden i den **TableBatchOperation** objekt att associera entiteten med en ny insert-åtgärden. Koden anropar sedan **köra** på den **CloudTable** objekt som anger tabellen ”personer” och **TableBatchOperation** -objekt som skickar batch tabellåtgärder till lagringstjänsten i en enskild begäran.
+Du kan skriva en batch med entiteter till Table Service i samma skrivåtgärd. Följande kod skapar ett **TableBatchOperation**-objekt och lägger sedan till tre insert-åtgärder till det. Koden lägger till varje insert-åtgärd genom att skapa en ny entitet, ange dess värden och sedan anropa **insert**-metoden för **TableBatchOperation**-objektet för att associera entiteten med en ny insert-åtgärd. Koden anropar sedan **execute** på **CloudTable**-objektet och anger tabellen ”people” (personer) och **TableBatchOperation**-objektet, som skickar batchen med tabellåtgärder till lagringstjänsten i en enskild begäran.
 
 ```java
 try
@@ -265,15 +263,15 @@ catch (Exception e)
 }
 ```
 
-Några saker att tänka på batchåtgärder:
+Några saker att tänka på när du använder batchåtgärder:
 
-* Du kan utföra upp till 100 insert, ta bort, slå samman, ersätta, infoga eller slå samman, och infoga eller ersätta åtgärder i vilken kombination som helst i en enskild batch.
-* En batchåtgärd kan ha en hämta-åtgärd om det är den enda åtgärden i batchen.
+* Du kan utföra upp till 100 insert-, delete-, merge-, replace-, insert-or-merge- samt insert-or-replace-åtgärder i valfri kombination i samma batch.
+* En batchåtgärd kan innehålla en retrieve-åtgärd om det är den enda åtgärden i batchen.
 * Alla entiteter i samma batchåtgärd måste ha samma partitionsnyckel.
-* En batchåtgärd är begränsad till någon 4MB nyttolast.
+* Batchåtgärder är begränsade till en nyttolast på 4 MB.
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
-Om du vill fråga en tabell för entiteter i en partition kan du använda en **TableQuery**. Anropa **TableQuery.from** att skapa en fråga på en viss tabell som returnerar en angiven resultattyp. Följande kod anger ett filter för entiteter där Partitionsnyckeln är ”Smith”. **TableQuery.generateFilterCondition** är en hjälpmetod för att skapa filter för frågor. Anropa **där** på referensen som returneras av den **TableQuery.from** metod för att tillämpa filtret i frågan. När frågan körs med ett anrop till **köra** på den **CloudTable** objekt returneras en **Iterator** med den **CustomerEntity** leda typ har angetts. Du kan sedan använda den **Iterator** returneras i en för varje loop förbruka resultaten. Den här koden skriver ut fälten för varje entitet i frågeresultatet till konsolen.
+Om du vill fråga en tabell efter entiteter i en partition kan du använda en **TableQuery**. Anropa **TableQuery.from** för att skapa en fråga på en viss tabell som returnerar en angiven resultattyp. I följande kod anges ett filter för entiteter där partitionsnyckeln är ”Smith”. **TableQuery.generateFilterCondition** är en hjälpmetod för att skapa filter för frågor. Anropa **where** på den referens som returneras av metoden **TableQuery.from** för att tillämpa filtret på frågan. När frågan körs med ett anrop till **execute** på **CloudTable**-objektet returnerar den en **Iterator** med resultattypen **CustomerEntity** angiven. Du kan sedan använda den **Iterator** som returneras i en for each-loop för att förbruka resultaten. Med den här koden skrivs fälten för varje entitet i frågeresultatet ut till konsolen.
 
 ```java
 try
@@ -320,7 +318,7 @@ catch (Exception e)
 ```
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Hämta ett intervall med enheter i en partition
-Om du inte vill fråga efter alla entiteter i en partition kan ange du ett intervall med jämförelseoperatorer i ett filter. Följande kod kombinerar två filter för att hämta alla entiteter i partitionen ”Smith” där Radnyckeln (Förnamn) börjar med en bokstav upp till ”E” i alfabetet. Sedan frågeresultatet skrivs ut. Om du använder enheter som lagts till i tabellen i batchen infoga i den här guiden kan bara två entiteter returneras nu (Ben och Denise Smith). Jeff Smith ingår inte.
+Om du inte vill fråga efter alla entiteter i en partition kan du ange ett intervall genom att använda jämförelseoperatorer i ett filter. I följande kod kombineras två filter för att hämta alla entiteter i partitionen ”Smith” där radnyckeln (förnamn) börjar med en bokstav fram till ”E” i alfabetet. Sedan skrivs frågeresultatet ut. Om du använder de enheter som lagts till i tabellen i batch insert-avsnittet i den här guiden kan bara två entiteter returneras den här gången (Ben och Denise Smith). Jeff Smith inkluderas inte.
 
 ```java
 try
@@ -378,7 +376,7 @@ catch (Exception e)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Hämta en enda entitet
-Du kan skriva en fråga för att hämta en enda, specifik entitet. Följande koden anropar **TableOperation.retrieve** med partition nyckel och raden nyckel parametrar för att ange kunden ”Jeff Smith”, istället för att skapa en **TableQuery** och använda filter för att göra samma sak. När den exekveras, returnerar hämtningen endast en entitet i stället för en samling. Den **getResultAsType** metoden kastar resultatet för typ av tilldelning mål, en **CustomerEntity** objekt. Ett undantag genereras om den här typen inte är kompatibel med typen som angetts för frågan. Ett null-värde returneras om ingen enhet har en exakt partition och radnyckel matchar. Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är att ange både partitions- och radnycklar i en fråga.
+Du kan skriva en fråga för att hämta en enda, specifik entitet. I följande kod anropas **TableOperation.retrieve** med partitionsnyckel- och radnyckelparametrar för att ange kunden ”Jeff Smith” i stället för att skapa en **TableQuery** och använda filter för att göra samma sak. Vid exekvering returnerar hämtningsåtgärden endast en entitet i stället för en samling. Metoden **getResultAsType** omvandlar resultatet till tilldelningsmålets typ, ett **CustomerEntity**-objekt. Om den här typen inte är kompatibel med den typ som angetts för frågan utlöses ett undantag. Ett null-värde returneras om ingen entitet har en exakt partitions- och radnyckelmatchning. Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är att ange både partitions- och radnycklar i en fråga.
 
 ```java
 try
@@ -418,7 +416,7 @@ catch (Exception e)
 ```
 
 ## <a name="modify-an-entity"></a>Ändra en entitet
-Om du vill ändra en entitet hämtar du den från tabelltjänsten, ändrar entitetsobjektet och spara ändringarna till tabelltjänsten med en ersättning eller merge-åtgärd. Följande kod ändrar en befintlig kunds telefonnummer. Istället för att ringa **TableOperation.insert** som vi gjorde om du vill infoga den här koden anropar **TableOperation.replace**. Den **CloudTable.execute** metodanrop tabelltjänsten och entiteten ersätts om ett annat program ändrade den under tiden eftersom hämta av det här programmet. När det sker ett undantag och entiteten måste hämtas, ändras och spara igen. Optimistisk samtidighet gör mönstret är vanligt i ett distribuerat storage-system.
+Om du vill ändra en entitet hämtar du den från Table Storage, ändrar entitetsobjektet och sparar ändringarna till Table Storage igen med en replace- eller en merge-åtgärd. Följande kod ändrar en befintlig kunds telefonnummer. I stället för att anropa **TableOperation.insert**, som vi gjorde för att infoga, anropar den här koden **TableOperation.replace**. Metoden **CloudTable.execute** anropar Table Service, och entiteten ersätts såvida inte ett annat program ändrade den under den tid sedan det här programmet hämtade den. När det utlöses ett undantag och entiteten måste hämtas, ändras och sparas igen. Detta optimistiska återförsöksmönster för samtidighet är vanligt i ett distribuerat lagringssystem.
 
 ```java
 try
@@ -458,7 +456,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan hämta bara några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder den **Välj** metod för att returnera e-postadresserna för entiteter i tabellen. Resultatet är planerad för en samling **sträng** med hjälp av en **EntityResolver**, som har typkonvertering på de enheter som returnerades från servern. Du kan lära dig mer om projektion i [Azure-tabeller: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection]. Observera att projektion inte stöds på den lokala lagringsemulatorn så att den här koden endast körs när med ett konto i tabelltjänsten.
+En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure Tables: introduktion av Upsert och Query Projection). Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
 
 ```java
 try
@@ -500,7 +498,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
-Ofta vill du lägga till en entitet i en tabell utan att känna till om det finns redan i tabellen. En insert-eller ersätta åtgärd kan du göra en enskild begäran som infogar entiteten om den inte finns eller ersätta den befintliga versionen om den finns. Följande kod är bygger på föregående exempel, infogar eller ersätter entiteten för ”Viktor Harp”. När du har skapat en ny entitet som den här koden anropar den **TableOperation.insertOrReplace** metod. Den här koden anropar sedan **köra** på den **CloudTable** objekt med tabellen och infoga eller ersätta Tabellåtgärd som parametrar. Uppdatera endast en del av en entitet i **TableOperation.insertOrMerge** metoden kan användas i stället. Observera att infoga eller ersätta inte stöds på den lokala lagringsemulatorn så att den här koden endast körs när med ett konto i tabelltjänsten. Du kan lära dig mer om Infoga eller ersätta och infoga eller dokument i den här [Azure-tabeller: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection].
+Ofta finns det ett behov av att lägga till en entitet i en tabell utan kännedom om huruvida den redan finns i tabellen. Med en insert-or-replace-åtgärd kan du göra en enskild begäran som infogar entiteten om den inte redan finns eller ersätter den befintliga om den finns. Följande kod bygger på föregående exempel och infogar eller ersätter entiteten för ”Walter Harp”. När du har skapat en ny entitet anropar koden metoden **TableOperation.insertOrReplace**. Den här koden anropar sedan **execute** på **CloudTable**-objektet med tabellen och insert- eller replace-åtgärder för tabell som parametrar. Om du vill uppdatera endast en del av en entitet går det att använda metoden **TableOperation.insertOrMerge** i stället. Observera att insert-or-replace inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service. Du kan lära dig mer om insert-or-replace och insert-or-merge i den här [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure Tables: introduktion av Upsert och Query Projection).
 
 ```java
 try
@@ -534,7 +532,7 @@ catch (Exception e)
 ```
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
-Du kan enkelt ta bort en enhet när du har hämtat den. När entiteten hämtas anropa **TableOperation.delete** med att ta bort entiteten. Sedan anropar **köra** på den **CloudTable** objekt. Följande kod hämtar och tar bort en kundentitet.
+Du kan enkelt ta bort en entitet när du har hämtat den. När entiteten har hämtats anropar du **TableOperation.delete** med den entitet som ska tas bort. Anropa sedan **execute** på **CloudTable**-objektet. Följande kod hämtar och tar bort en kundentitet.
 
 ```java
 try
@@ -570,7 +568,7 @@ catch (Exception e)
 ```
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
-Följande kod tar slutligen bort en tabell från ett lagringskonto. I 40 sekunder när du tar bort en tabell, kan inte du återskapa den. 
+Slutligen tar följande kod bort en tabell från ett lagringskonto. I cirka 40 sekunder efter att du har tagit bort en tabell kan inte du återskapa den. 
 
 ```java
 try
@@ -596,10 +594,10 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Komma igång med Azure-tabellen Service i Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
+* [Komma igång med Azure Table Service i Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage SDK för Java][Azure Storage SDK for Java]
-* [Referens för Azure Storage Client SDK][referens för Azure Storage Client SDK]
+* [Azure Storage Client SDK-referens][Azure Storage Client SDK-referens]
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage-teamets blogg][Azure Storage Team Blog]
 
@@ -608,7 +606,7 @@ Mer information finns i [Azure för Java-utvecklare](/java/azure).
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[referens för Azure Storage Client SDK]: http://azure.github.io/azure-storage-java/
+[Azure Storage Client SDK-referens]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

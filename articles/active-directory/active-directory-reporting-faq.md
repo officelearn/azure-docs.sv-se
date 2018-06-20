@@ -3,24 +3,24 @@ title: Azure Active Directory Reporting vanliga frågor och svar | Microsoft Doc
 description: Azure Active Directory reporting vanliga frågor och svar.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588598"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232553"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting vanliga frågor och svar
 
@@ -72,7 +72,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: hur många poster som jag kan hämta från Azure-portalen?**
 
-**S:** upp till 120 K poster kan hämtas från Azure-portalen. Poster sorteras efter *senaste* och som standard får de senaste 120 K posterna. 
+**S:** upp till 5 000 poster kan hämtas från Azure-portalen. Poster sorteras efter *senaste* och som standard får de senaste 5000 posterna. Välj din filtervillkor för poster är större än 5000, och klicka på den *skriptet* knappen på Azure-portalen. Detta kommer att ladda ned ett PowerShell-skript som du kan köra för att generera en CSV-fil för alla poster som matchar dina filtervillkor. Du måste köra PowerShell-skriptet *administratörsläge*. Mer information finns i [Hämta inloggning aktiviteter](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: hur får jag en premium-licens?**
 
-**S:** finns [komma igång med Azure Active Directory Premium](active-directory-get-started-premium.md) för ett svar på frågan.
+**S:** finns [komma igång med Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) för ett svar på frågan.
 
 ---
 

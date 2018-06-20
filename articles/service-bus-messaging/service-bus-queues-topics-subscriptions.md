@@ -5,21 +5,16 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/07/2017
+ms.date: 06/18/2018
 ms.author: sethm
-ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 424004a2a39bd0d05bce515dc17685e60f7a0c9b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24029515"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231584"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-köer, -ämnen och -prenumerationer
 
@@ -29,140 +24,56 @@ Meddelandeentiteter som utgör kärnan i meddelandefunktioner i Service Bus är 
 
 ## <a name="queues"></a>Köer
 
-Köer erbjuder *First In, först ut* (FIFO) meddelandeleverans till en eller flera konkurrerande konsumenter. Det vill säga förväntas meddelanden vanligtvis tas emot och bearbetas av mottagarna i den ordning som de har lagts till i kön, och varje meddelande tas emot och bearbetas av bara en meddelandekonsument. En stor fördel med köer är att uppnå ”temporal Frikoppling” av programkomponenter. Med andra ord behöver producenter (avsändare) och konsumenter (mottagare) inte skicka och ta emot meddelanden på samma gång, eftersom meddelanden lagras varaktigt i kön. Dessutom behöver producenten inte vänta på svar från konsumenten för att kunna fortsätta bearbetningen och skicka meddelanden.
+Köer erbjuder *First In, först ut* (FIFO) meddelandeleverans till en eller flera konkurrerande konsumenter. Det vill säga mottagare normalt ta emot och bearbeta meddelanden i den ordning som de har lagts till i kön, och bara en meddelandekonsument tar emot och bearbetar varje meddelande. En stor fördel med köer är att uppnå ”temporal Frikoppling” av programkomponenter. Med andra ord behöver producenter (avsändare) och konsumenter (mottagare) inte skicka och ta emot meddelanden på samma gång, eftersom meddelanden lagras varaktigt i kön. Dessutom behöver producenten inte vänta på svar från konsumenten för att kunna fortsätta bearbetningen och skicka meddelanden.
 
-En relaterad fördel är ”belastningsutjämning”, vilket innebär att producenter och konsumenter att skicka och ta emot meddelanden med olika hastigheter. I många program varierar systembelastningen med tiden. dock är den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och konsumenter med hjälp av en kö innebär att den konsumerande appen endast som ska etableras för att kunna hantera en genomsnittlig belastning i stället för belastning. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Detta sparar direkt pengar avseende mängden infrastruktur som krävs för att underhålla. När belastningen ökar kan fler arbetsprocesser läggas för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom kan den här pull-baserade belastningsutjämning, för optimal användning av worker-datorer även om worker datorer skiljer sig åt vad gäller processorkraft, som de hämtar meddelanden med sina egna högsta hastighet. Det här mönstret kallas ofta ”konkurrerande konsument”-mönster.
+En relaterad fördel är ”belastningsutjämning”, vilket innebär att producenter och konsumenter att skicka och ta emot meddelanden med olika hastigheter. I många program varierar systembelastningen med tiden. dock är den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och konsumenter med hjälp av en kö innebär att den konsumerande appen endast som ska etableras för att kunna hantera en genomsnittlig belastning i stället för belastning. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Den här funktionen sparar direkt pengar avseende mängden infrastruktur som krävs för att underhålla. När belastningen ökar kan fler arbetsprocesser läggas för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom kan den här pull-baserade belastningsutjämning, för optimal användning av worker-datorer även om worker datorer skiljer sig åt vad gäller processorkraft, som de hämtar meddelanden med sina egna högsta hastighet. Det här mönstret kallas ofta ”konkurrerande konsument”-mönster.
 
 Med hjälp av köer till mellanliggande mellan meddelandeproducenter och konsumenter innehåller en inbyggd lösa kopplingar mellan komponenterna. Eftersom producenter och konsumenter inte är medvetna om varandra, kan en konsument uppgraderas utan någon inverkan på producenten.
 
-Skapa en kö är en process med flera steg. Du kan utföra hanteringsåtgärder för Service Bus meddelandeentiteter (köer och ämnen) via den [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) -klassen, som har skapats genom att tillhandahålla basadressen för namnområdet för Service Bus och användarens autentiseringsuppgifter. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) tillhandahåller metoder för att skapa, räkna upp och ta bort meddelandeentiteter. När du har skapat en [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) objekt från SAS-namn och nyckel och ett namnområde servicehantering objekt, kan du använda den [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_)metod för att skapa kön. Exempel:
+### <a name="create-queues"></a>Skapa köer
 
-```csharp
-// Create management credentials
-TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
-// Create namespace client
-NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
-```
+Du kan skapa köer med hjälp av den [Azure-portalen](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), eller [Resource Manager-mallar](service-bus-resource-manager-namespace-queue.md). Du sedan skicka och ta emot meddelanden med hjälp av en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt. 
 
-Du kan sedan skapa ett köobjekt och en meddelandefabrik med Service Bus-URI som argument. Exempel:
+Information om hur du skapar en kö och sedan skicka och ta emot meddelanden till och från kön snabbt finns i [Snabbstart](service-bus-quickstart-portal.md) för varje metod. En mer detaljerad vägledning om hur du använder köer finns [komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md). 
 
-```csharp
-QueueDescription myQueue;
-myQueue = namespaceClient.CreateQueue("TestQueue");
-MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials); 
-QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
-```
+Ett exempel på en fungerande, finns det [BasicSendReceiveUsingQueueClient exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) på GitHub.
 
-Du kan skicka meddelanden till kön. Om du har en lista över asynkrona meddelanden som kallas exempelvis `MessageList`, koden ser ut ungefär så här:
+### <a name="receive-modes"></a>Ta emot lägen
 
-```csharp
-for (int count = 0; count < 6; count++)
-{
-    var issue = MessageList[count];
-    issue.Label = issue.Properties["IssueTitle"].ToString();
-    myQueueClient.Send(issue);
-}
-```
+Du kan ange två olika lägen som Service Bus tar emot meddelanden: *ReceiveAndDelete* eller *PeekLock*. I den [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) läge receive-åtgärden är en, det vill säga när Service Bus tar emot begäran, den markerar meddelandet som Förbrukat och skickar tillbaka det till programmet. **ReceiveAndDelete** läge är den enklaste modellen och fungerar bäst för scenarier där programmet kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. Överväg ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här scenariot. Eftersom Service Bus markerar meddelandet som Förbrukat när programmet startas om och börjar förbruka meddelanden igen, kommer det ha missat meddelandet som förbrukades innan kraschen.
 
-Du sedan ta emot meddelanden från kön på följande sätt:
+I [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) läge receive-åtgärden blir två steg, vilket gör det möjligt att stödprogram som inte tolererar att ett meddelande saknas. När Service Bus tar emot begäran, den söker efter nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har avslutat bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning), Slutför det andra steget i processen genom att anropa [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) för det mottagna meddelandet. När Service Bus ser den **CompleteAsync** anrop, markerar den meddelandet som Förbrukat.
 
-```csharp
-while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, seconds: 5))) != null)
-    {
-        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
-        message.Complete();
+Om programmet inte kan bearbeta meddelandet av någon anledning, kan det anropa den [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) metod för det mottagna meddelandet (i stället för [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)). Den här metoden kan Service Bus låser upp meddelandet och gör det tillgängligt att tas emot igen, antingen genom samma konsumenten eller av en annan konkurrerande konsument. Det finns en tidsgräns som är kopplade till låset för det andra och om programmet misslyckas med att bearbeta meddelandet innan timeout för lås upphör att gälla (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet och gör det tillgängligt och kan tas emot igen ( i praktiken utför en [AbandonAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) åtgärden som standard).
 
-        Console.WriteLine("Processing message (sleeping...)");
-        Thread.Sleep(1000);
-    }
-```
-
-I den [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge receive-åtgärden är en, det vill säga när Service Bus tar emot begäran, den markerar meddelandet som Förbrukat och skickar tillbaka det till programmet. **ReceiveAndDelete** läge är den enklaste modellen och fungerar bäst för scenarier där programmet kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus markerar meddelandet som Förbrukat när programmet startas om och börjar förbruka meddelanden igen, kommer det ha missat meddelandet som förbrukades innan kraschen.
-
-I [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge receive-åtgärden blir två steg, vilket gör det möjligt att stödprogram som inte tolererar att ett meddelande saknas. När Service Bus tar emot begäran, den söker efter nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har avslutat bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning), slutför programmet det andra steget i processen genom att anropa [Slutför](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) för det mottagna meddelandet. När Service Bus ser den **Slutför** anrop, markerar den meddelandet som Förbrukat.
-
-Om programmet inte kan bearbeta meddelandet av någon anledning, kan det anropa den [Avbryt](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) metod för det mottagna meddelandet (i stället för [Slutför](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Detta gör att Service Bus låser upp meddelandet och gör det tillgängligt att tas emot igen, antingen genom samma konsumenten eller av en annan konkurrerande konsument. Det finns en tidsgräns som är kopplade till låset för det andra och om programmet misslyckas med att bearbeta meddelandet innan timeout för lås upphör att gälla (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet och gör det tillgängligt och kan tas emot igen ( i praktiken utför en [Avbryt](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) åtgärden som standard).
-
-Observera att i händelse av att programmet kraschar efter att meddelandet har bearbetats men innan det **Slutför** begäran har utfärdats, meddelandet är levereras på nytt till programmet när den startas om. Det här kallas ofta *minst när* bearbetning, det vill säga varje meddelande bearbetas minst en gång. I vissa situationer kan dock samma meddelande levereras. Om scenariot inte tolererar duplicerad bearbetning, och sedan ytterligare logik som krävs i programmet för att identifiera dubbletter, vilket kan ske utifrån den **MessageId** för meddelandet, som förblir konstant över leveransförsök. Detta kallas *exakt en gång* bearbetning.
+I händelse av att programmet kraschar efter att meddelandet har bearbetats men innan det **CompleteAsync** begäran har utfärdats, meddelandet är levereras på nytt till programmet när den startas om. Den här processen kallas ofta *minst när* bearbetning, det vill säga varje meddelande bearbetas minst en gång. I vissa situationer kan dock samma meddelande levereras. Om scenariot inte tolererar duplicerad bearbetning, och sedan ytterligare logik som krävs i programmet för att identifiera dubbletter, vilket kan ske utifrån den [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) för meddelandet, som förblir konstant över leveransförsök. Den här funktionen kallas *exakt en gång* bearbetning.
 
 ## <a name="topics-and-subscriptions"></a>Ämnen och prenumerationer
+
 Till skillnad från köer, där varje meddelande bearbetas av en enskild konsument *avsnitt* och *prenumerationer* tillhandahålla en en-till-många-kommunikation i en *förPublicera/prenumerera* mönster. Användbar för att skala till ett stort antal mottagare, varje publicerat meddelande görs tillgänglig för varje prenumeration som har registrerats med ämnet. Meddelanden skickas till ett ämne och levereras till en eller flera associerade prenumerationer, beroende på filterregler som kan ställas in på grundval av per prenumeration. Prenumerationerna kan använda ytterligare filter för att begränsa de meddelanden som de vill ha. Meddelanden skickas till ett ämne på samma sätt som de skickas till en kö, men meddelanden tas inte emot i artikeln direkt. I stället tas de emot från prenumerationer. En prenumeration på artikeln liknar en virtuell kö som tar emot kopior av meddelanden som skickas till ämnet. Meddelanden tas emot från en prenumeration identiskt sätt som de tas emot från en kö.
 
-Som jämförelse sändning av meddelande-funktionerna i en kö mappar direkt till ett ämne och dess funktioner för message-mottagning mappar till en prenumeration. Det innebär att prenumerationer stöder samma mönster som beskrivits tidigare i det här avsnittet avseende köer bland annat: konkurrerande konsument, temporal Frikoppling, utjämna belastningen och belastningsutjämning.
+Som jämförelse sändning av meddelande-funktionerna i en kö mappar direkt till ett ämne och dess funktioner för message-mottagning mappar till en prenumeration. Bland annat den här funktionen innebär att prenumerationer stöder samma mönster som beskrivits tidigare i det här avsnittet avseende köer: konkurrerande konsument, temporal Frikoppling, utjämna belastningen och belastningsutjämning.
 
-Skapa ett ämne liknar att skapa en kö som visas i exemplet i föregående avsnitt. Skapa URI-tjänsten och sedan använda den [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) klassen för att skapa namnområdet klient. Du kan sedan skapa ett avsnitt som använder den [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) metod. Exempel:
+### <a name="create-topics-and-subscriptions"></a>Skapa ämnen och prenumerationer
 
-```csharp
-TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
-```
+Skapa ett ämne liknar hur du skapar en kö, enligt beskrivningen i föregående avsnitt. Du sedan skickar meddelanden med hjälp av den [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klass. Om du vill ta emot meddelanden, kan du skapa en eller flera prenumerationer till ämnet. Liknande köer, meddelanden tas emot från en prenumeration med hjälp av en [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) objekt i stället för en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objekt. Skapa prenumeration klienten, skickar namnet på avsnittet, namnet på prenumerationen och (valfritt) receive-läge som parametrar. 
 
-Lägg till prenumerationer som du vill:
-
-```csharp
-SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Inventory");
-SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
-```
-
-Du kan sedan skapa en klient i avsnittet. Exempel:
-
-```csharp
-MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
-TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
-```
-
-Med hjälp av avsändaren kan du skicka och ta emot meddelanden till och från avsnittet som visas i föregående avsnitt. Exempel:
-
-```csharp
-foreach (BrokeredMessage message in messageList)
-{
-    myTopicClient.Send(message);
-    Console.WriteLine(
-    string.Format("Message sent: Id = {0}, Body = {1}", message.MessageId, message.GetBody<string>()));
-}
-```
-
-Liknande köer, meddelanden tas emot från en prenumeration med hjälp av en [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) objekt i stället för en [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) objekt. Skapa prenumeration klienten, skickar namnet på avsnittet, namnet på prenumerationen och (valfritt) receive-läge som parametrar. Om till exempel den **inventering** prenumerationen:
-
-```csharp
-// Create the subscription client
-MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider); 
-
-SubscriptionClient agentSubscriptionClient = factory.CreateSubscriptionClient("IssueTrackingTopic", "Inventory", ReceiveMode.PeekLock);
-SubscriptionClient auditSubscriptionClient = factory.CreateSubscriptionClient("IssueTrackingTopic", "Dashboard", ReceiveMode.ReceiveAndDelete); 
-
-while ((message = agentSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != null)
-{
-    Console.WriteLine("\nReceiving message from Inventory...");
-    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, message.GetBody<string>()));
-    message.Complete();
-}          
-
-// Create a receiver using ReceiveAndDelete mode
-while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != null)
-{
-    Console.WriteLine("\nReceiving message from Dashboard...");
-    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, message.GetBody<string>()));
-}
-```
+För en fullständig fungerar exempelvis finns på [BasicSendReceiveUsingTopicSubscriptionClient exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) på Github.
 
 ### <a name="rules-and-actions"></a>Regler och åtgärder
-I många fall är måste meddelanden som har specifika egenskaper bearbetas på olika sätt. För att möjliggöra detta, kan du konfigurera prenumerationer för att söka efter meddelanden som har önskade egenskaper och sedan göra vissa ändringar av dessa egenskaper. Du kan bara kopiera en delmängd av dessa meddelanden till prenumerationskön virtuella när Service Bus prenumerationer visas alla meddelanden som skickas till ämnet. Detta åstadkoms med hjälp av prenumerationsfilter. Sådana ändringar kallas *filtrera åtgärder*. När en prenumeration har skapats kan du ange ett filteruttryck som fungerar i egenskaperna för meddelandet, både systemegenskaperna (till exempel **etikett**) och anpassade egenskaper (till exempel  **StoreName**.) Filteruttrycket SQL är valfri i det här fallet; utan en SQL-filteruttrycket utförs något filter som definieras för en prenumeration på alla meddelanden för den prenumerationen.
 
-I föregående exempel, att filtrera meddelanden kommer endast från **Store1**, skulle du skapa instrumentpanelen prenumeration på följande sätt:
+I många fall är måste meddelanden som har specifika egenskaper bearbetas på olika sätt. Om du vill aktivera den här bearbetning, kan du konfigurera prenumerationer för att söka efter meddelanden som har önskade egenskaper och sedan göra vissa ändringar av dessa egenskaper. Du kan bara kopiera en delmängd av dessa meddelanden till prenumerationskön virtuella när Service Bus prenumerationer visas alla meddelanden som skickas till ämnet. Den här filtreringen åstadkoms med hjälp av prenumerationsfilter. Sådana ändringar kallas *filtrera åtgärder*. När en prenumeration har skapats kan du ange ett filteruttryck som fungerar i egenskaperna för meddelandet, både systemegenskaperna (till exempel **etikett**) och anpassade egenskaper (till exempel  **StoreName**.) Filteruttrycket SQL är valfri i det här fallet; utan en SQL-filteruttrycket utförs något filter som definieras för en prenumeration på alla meddelanden för den prenumerationen.
 
-```csharp
-namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
-```
+För en fullständig fungerar exempelvis finns på [TopicSubscriptionWithRuleOperationsSample exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) på GitHub.
 
-Med den här prenumerationsfiltret på plats, endast meddelanden som har den `StoreName` egenskapen `Store1` kopieras till en virtuell kö för den `Dashboard` prenumeration.
-
-Mer information om möjliga filtret värden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasser. Se även den [asynkrona meddelanden: avancerade filter](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) och [avsnittet filter](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) prover.
+Mer information om möjliga filtret värden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) klasser. 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande avancerade avsnitt för mer information och exempel på hur du använder Service Bus-meddelanden.
+
+Mer information och exempel på hur du använder Service Bus-meddelanden finns i följande avancerade avsnitt:
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
-* [Service Bus brokered messaging .NET tutorial](service-bus-brokered-tutorial-dotnet.md)
-* [Service Bus självstudiekurs om asynkrona meddelanden REST](service-bus-brokered-tutorial-rest.md)
-* [Asynkrona meddelanden: Avancerade filter-exempel](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+* [Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET](service-bus-quickstart-portal.md)
+* [Självstudier: Uppdatera lagret med hjälp av Azure-portalen och avsnitt-prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
+
 

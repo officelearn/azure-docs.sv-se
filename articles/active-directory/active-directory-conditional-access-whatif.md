@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-verktyget om villkorlig åtkomst - preview | Microsoft Docs
-description: Lär dig hur du kan testa konfigurationen av din Azure Active Directory-principer för villkorlig åtkomst.
+title: Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst? -preview | Microsoft Docs
+description: Lär dig hur du kan förstå effekten av principer för villkorlig åtkomst på din miljö.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723838"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232407"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory-verktyget om villkorlig åtkomst - förhandsgranskning
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst? -Förhandsgranskning
 
 [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion av Azure Active Directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Hur vet du vad som händer formuläret principerna för villkorlig åtkomst i din miljö? Du kan använda för att besvara frågan i **villkorlig åtkomst om verktyget**.
 
@@ -121,7 +121,7 @@ I listan över principer som inte gäller för din användare kan och också hit
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
 
 - Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

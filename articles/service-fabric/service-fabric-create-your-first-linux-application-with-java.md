@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 38412713d625fc3c44e29444138675b98129f1fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643608"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215862"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
@@ -221,6 +221,9 @@ Expandera sedan noden **Program** och observera att det nu finns en post för di
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
+
+> [!Note]
+> Testklienten använder klassen ActorProxy för att kommunicera med aktörer, som måste köras i samma kluster som tjänsten aktören eller dela samma IP-adressutrymme.  Du kan köra Testklient på samma dator som kluster med lokal utveckling.  För att kommunicera med aktörer i ett kluster måste du distribuera en gateway på det kluster som hanterar extern kommunikation med aktörerna.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.  Testskriptet anropar metoden `setCountAsync()` hos aktören för att öka en räknare, anropar metoden `getCountAsync()` hos aktören för att hämta det nya räknarvärdet och visar värdet på konsolen.
 

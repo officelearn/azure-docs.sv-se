@@ -1,32 +1,28 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js | Microsoft Docs
-description: Lär dig att hantera Data Lake Analytics-konton, -datakällor, -jobb och -användare med hjälp av Azure SDK för Node.js
+title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
+description: Den här artikeln beskriver hur du använder Azure SDK för Node.js till att hantera Data Lake Analytics-konton, datakällor, jobb och användare.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
+ms.topic: get-started-article
+ms.date: 12/05/2016
+ms.openlocfilehash: 7af56c7770de7eef0fcf33b2c29f02d3b9fe7170
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624319"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure SDK för Node.js kan användas för att hantera Azure Data Lake Analytics-konton, -jobb och -kataloger. Om du vill se hanteringsämnen med hjälp av andra verktyg klickar du på flikväljaren ovan.
+Artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med Azure SDK för Node.js. 
 
-Just nu stöds:
-
+Följande versioner stöds:
 * **Node.js-version: 0.10.0 eller högre**
 * **REST API-version för konto: 2015-10-01-preview**
 * **REST API-version för katalog: 2015-10-01-preview**

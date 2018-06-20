@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194408"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228622"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys
 Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till logganalys-arbetsytan. Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:
@@ -29,7 +29,7 @@ Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till lo
 Om du vill börja skicka Automation-loggar till logganalys, behöver du:
 
 * November 2016 eller senare versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Logganalys-arbetsytan. Mer information finns i [Kom igång med logganalys](../log-analytics/log-analytics-get-started.md). 
+* En Log Analytics-arbetsyta. Mer information finns i [Kom igång med logganalys](../log-analytics/log-analytics-get-started.md). 
 * Resurs-ID för Azure Automation-konto.
 
 
@@ -140,7 +140,7 @@ Om du vill skapa en aviseringsregel, börja med att skapa en logg Sök efter pos
 2. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` du kan också gruppera efter RunbookName med hjälp av: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Du kan gruppera aviseringarna genom prenumerationen och Automation-konto om du ställt in loggar från mer än en Automation-konto eller prenumeration på din arbetsyta. Automation-kontonamnet finns i fältet resurs i sökningen i JobLogs.
-1. Öppna den **lägga till Varningsregeln** klickar du på **avisering** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [aviseringar i logganalys](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Öppna den **Skapa regel** klickar du på **+ ny Varningsregeln** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [Logga varningar i Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hitta alla jobb som har slutförts med fel
 Du hittar förutom Varna vid fel när en runbook-jobbet har en icke-avslutande fel. I dessa fall PowerShell genererar ett fel uppstod när strömmen, men inte avslutar felen orsakar inte ditt jobb att pausa eller misslyckas.    

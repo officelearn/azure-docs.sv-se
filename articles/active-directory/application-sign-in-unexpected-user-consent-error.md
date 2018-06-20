@@ -13,22 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4fc71432707c981c0f3f12e74ad7c499d36a17d2
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "26617083"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231346"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Oväntat fel när du utför medgivande till ett program
 
-Den här artikeln beskrivs fel som kan uppstå under processen att samtycka till ett program. Om du felsöka oväntat medgivande prompter som inte innehåller några felmeddelanden, se [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Den här artikeln beskrivs fel som kan uppstå under processen att samtycka till ett program. Om du felsöker oväntat medgivande prompter som inte innehåller några felmeddelanden finns [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Många program som integreras med Azure Active Directory kräver behörighet att komma åt andra resurser för att fungera. När dessa resurser också är integrerade med Azure Active Directory, behörighet att komma åt dem begärs ofta använder vanliga medgivande framework. 
+Många program som integreras med Azure Active Directory kräver behörighet att komma åt andra resurser för att fungera. När dessa resurser också är integrerade med Azure Active Directory, behörighet att komma åt dem begärs ofta använder vanliga medgivande framework. En fråga om medgivande visas, vilket sker vanligtvis första gången ett program som används men kan också inträffa om en efterföljande användning av programmet.
 
-Detta resulterar i en fråga om medgivande visas, vilket sker vanligtvis första gången ett program som används men kan också inträffa om en efterföljande användning av programmet.
-
-Vissa villkor måste vara true för en användare ska godkänna de behörigheter som krävs för ett program. Om dessa villkor inte uppfylls, kan det uppstå fel. Exempel på dessa är:
+Vissa villkor måste vara true för en användare ska godkänna de behörigheter som krävs för ett program. Om dessa villkor inte uppfylls, kan följande fel uppstå.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Begär inte auktoriserad Behörighetsfel
 * **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du har inte behörighet för att bevilja. Kontakta en administratör som kan godkänna det här programmet för din räkning.
@@ -41,14 +39,14 @@ Det här felet uppstår när en användare som inte är en företagsadministrat�
 Felet uppstår när en företagsadministratör inaktiveras möjligheten för användare att samtycka till program och sedan en användare försöker använda ett program som kräver godkännande. Det här felet kan lösas av en administratör beviljas åtkomst till programmet för organisationen.
 
 ## <a name="intermittent-problem-error"></a>Återkommande problem fel
-* **AADSTS90090:** det verkar som om vi påträffade ett tillfälligt problem spela in de behörigheter som du försökte att ge till &lt;clientAppDisplayName&gt;. Försök igen senare.
+* **AADSTS90090:** verkar inloggning processen påträffade ett tillfälligt problem spela in de behörigheter som du försökte att ge till &lt;clientAppDisplayName&gt;. Försök igen senare.
 
 Det här felet indikerar att en återkommande på klientsidan problemet har uppstått. Det kan lösas genom att försöka samtycker till att programmet igen.
 
 ## <a name="resource-not-available-error"></a>Resursen inte tillgängliga fel
 * **AADSTS65005:** appen &lt;clientAppDisplayName&gt; begärt behörighet att komma åt en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt. 
 
-Kontakta programutvecklaren.
+Kontakta apputvecklaren.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgängligt i klient-fel
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; begär åtkomst till en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt i din organisation &lt;tenantDisplayName &gt;. 
@@ -58,17 +56,17 @@ Kontrollera att resursen är tillgänglig eller kontakta en administratör av &l
 ## <a name="permissions-mismatch-error"></a>Matchningsfel för behörigheter
 * **AADSTS65005:** appen begärt medgivande till åtkomst till resursen &lt;resourceAppDisplayName&gt;. Denna begäran misslyckades eftersom den inte matchar hur appen har redan konfigurerats under app registreringen. Kontakta app vendor.* *
 
-Dessa fel alla inträffar när en användare försöker samtycker till att programmet begär behörighet att komma åt en resursprogram som inte kan hittas i organisationens katalog (klient). Detta kan inträffa av olika orsaker:
+Dessa fel alla inträffar när en användare försöker samtycker till att programmet begär behörighet att komma åt en resursprogram som inte kan hittas i organisationens katalog (klient). Den här situationen kan uppstå av flera skäl:
 
 -   Klienten programutvecklaren har sina program felaktigt konfigurerad, orsakar det att begära åtkomst till en ogiltig resurs. I det här fallet måste programutvecklaren uppdatera konfigurationen av klientprogram att lösa problemet.
 
--   Ett huvudnamn för tjänsten som representerar målprogrammet för resursen finns inte i organisationen, eller har funnits i tidigare men har tagits bort. Lös problemet, måste ett huvudnamn för tjänsten för programmets resurs etableras i organisationen så att klientprogrammet kan begära åtkomst till den. Detta kan hända i ett antal olika sätt beroende på vilken typ av program, inklusive:
+-   Ett huvudnamn för tjänsten som representerar målprogrammet för resursen finns inte i organisationen, eller har funnits i tidigare men har tagits bort. Lös problemet, måste ett huvudnamn för tjänsten för programmets resurs etableras i organisationen så att klientprogrammet kan begära åtkomst till den. Tjänstens huvudnamn kan tillhandahållas i ett antal olika sätt beroende på vilken typ av program, inklusive:
 
     -   Skaffa en prenumeration för resursprogram (Microsoft publicerade program)
 
     -   Principer för resursprogrammet
 
-    -   Tillståndsbeviljande program via Azure Portal
+    -   Tillståndsbeviljande program via Azure portal
 
     -   Att lägga till programmet från Azure AD Application Gallery
 

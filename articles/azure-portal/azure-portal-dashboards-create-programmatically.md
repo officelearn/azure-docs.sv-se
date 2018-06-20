@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: d3a59c2d9b62bdbde75c54347ce9117fc9114cd6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164397"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220024"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa programmässigt Azure instrumentpaneler
 
@@ -89,11 +89,11 @@ Azure ger dig möjlighet att samordna distribution av flera resurser. Du skapar 
 Om du kommer den här vägen sedan parameterization ska göras med hjälp av parametern mallsyntaxen.  Du kan ersätta alla instanser av resurs-id påträffades tidigare som visas här.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Exempel JSON-egenskapen med hårdkodade resurs-Id
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exempel JSON egenskapen konverteras till en parametriserade version utifrån mallparametrar
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 Du måste också deklarera vissa nödvändiga mallen metadata och parametrar överst i json-mall så här:
 

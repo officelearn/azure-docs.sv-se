@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ad9eaa966aafc4a9fc526d44d57c68cdaee3a5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356137"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265260"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 THOMAS ger dig möjlighet att hämta information från en användares naturligt språk utterances. Informationen hämtas på ett sätt att den kan användas av ett program, programmet eller chatbot för att vidta åtgärder.
@@ -711,4 +711,4 @@ THOMAS slutpunkten kan identifiera samma data i olika enheter:
 
 Se [lägga till enheter](luis-how-to-add-entities.md) lära dig mer om hur du lägger till entiteter i appen THOMAS.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

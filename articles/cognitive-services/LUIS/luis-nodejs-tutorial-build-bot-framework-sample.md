@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cc84942c139d3c5e981aec902557201c9c8092
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355770"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264981"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrera THOMAS med en bot med Bot Builder SDK för Node.js
 
@@ -235,15 +235,14 @@ I Azure Portal väljer på **testa i Web chatta** att testa bot. Försök skriva
    ![Testa HomeAutomation bot i Web chatt](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Om du tycker att din bot inte alltid kan identifiera rätt avsikt eller enheter kan förbättra THOMAS appens prestanda med flera exempel utterances för att träna den. Du kan träna om appen THOMAS utan några andra ändringar till din bot kod. Se [lägger du till exempel utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa appen THOMAS](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test).
+> Om du tycker att din bot inte alltid kan identifiera rätt avsikt eller enheter kan förbättra THOMAS appens prestanda med flera exempel utterances för att träna den. Du kan träna om appen THOMAS utan några andra ändringar till din bot kod. Se [lägger du till exempel utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa appen THOMAS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Mer information om Bot Framework
 Lär dig mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-js) SDK: er.
 
 ## <a name="next-steps"></a>Nästa steg
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, THOMAS appen. Sedan lägga till dialogrutor för nya avsikter och testa dem med hjälp av bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, THOMAS appen. Sedan lägga till dialogrutor för nya avsikter och testa dem med hjälp av bot. 
 
 <!-- 
 > [!NOTE] 
@@ -298,10 +297,10 @@ Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning
 <!-- Old Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]:https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

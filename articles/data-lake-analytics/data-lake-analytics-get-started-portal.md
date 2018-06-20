@@ -1,26 +1,26 @@
 ---
 title: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
-description: Lär dig att skapa ett Data Lake Analytics-konto med hjälp av Azure Portal samt skapa ett Data Lake Analytics-jobb med hjälp av U-SQL och skicka jobbet.
+description: Använd Azure Portal till att skapa ett Azure Data Lake Analytics-konto och skicka ett U-SQL-jobb.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 manager: kfile
+editor: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.service: data-lake-analytics
-ms.topic: hero-article
-ms.workload: big-data
+ms.topic: get-started-article
 ms.date: 03/21/2017
-ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa6a0febfc268fe96063e962a208d73662f9815a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358293"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623918"
 ---
-# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
+# <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Lär dig hur du använder Azure Portal för att skapa Azure Data Lake Analytics-konton, definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Den här artikeln beskriver hur du använder Azure Portal till att skapa Azure Data Lake Analytics-konton, definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

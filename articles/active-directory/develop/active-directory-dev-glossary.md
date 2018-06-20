@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158157"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268138"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
@@ -45,7 +45,7 @@ En funktion som tillhandahålls av den [Azure-portalen][AZURE-portal], som produ
 ## <a name="application-object"></a>Programobjektet
 När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat programobjekt och en motsvarande [tjänstens huvudnamn objekt](#service-principal-object) för den klienten. Programobjektet *definierar* programmet användarens identitet configuration globalt (över alla klienter där den har åtkomst), tillhandahåller en mall som dess motsvarande service principal objekt är *härledda* för lokalt under körning (i en viss klient).
 
-Se [program och tjänstens huvudnamn objekt] [ AAD-App-SP-Objects] för mer information.
+Mer information finns i [program och tjänstens huvudnamn objekt][AAD-App-SP-Objects].
 
 ## <a name="application-registration"></a>Registrera programmet
 För att ett program för att integrera med och delegera identitets- och åtkomsthantering funktioner till Azure AD, måste den vara registrerad med en Azure AD [klient](#tenant). När du registrerar ditt program med Azure AD, om du tillhandahåller en identity-konfiguration för ditt program så att den kan integreras med Azure AD och använda funktioner som:
@@ -132,7 +132,7 @@ Som [scope](#scopes), roller ge ett sätt för en [resursservern](#resource-serv
 
 Roller är definierad i resursen strängar (till exempel ”utgifter godkännare”, ”skrivskyddad”, ”Directory.ReadWrite.All”), hanteras i den [Azure-portalen] [ AZURE-portal] via resursens [programmanifestet](#application-manifest), och lagras i resursens [appRoles egenskapen][AAD-Graph-Sp-Entity]. Azure-portalen används också för att tilldela användare till ”användare” roller och konfigurera klienten [programbehörigheter](#permissions) åtkomst till en ”program”-roll.
 
-En detaljerad beskrivning av programmet rollerna som exponeras av Azure AD Graph API finns [Behörighetsomfattningen för Graph API][AAD-Graph-Perm-Scopes]. En stegvis implementering exempel finns [rollbaserad åtkomstkontroll i molnprogram med Azure AD][Duyshant-Role-Blog].
+En detaljerad beskrivning av programmet rollerna som exponeras av Azure AD Graph API finns [Behörighetsomfattningen för Graph API][AAD-Graph-Perm-Scopes]. En stegvis implementering exempel finns [hantera åtkomst med hjälp av RBAC och Azure portal][AAD-RBAC].
 
 ## <a name="scopes"></a>Scope
 Som [roller](#roles), scope ge ett sätt för en [resursservern](#resource-server) att styra åtkomst till sina skyddade resurser. Omfattningar som används för att implementera [scope-baserade] [ OAuth2-Access-Token-Scopes] åtkomstkontroll för en [klientprogrammet](#client-application) som har angetts delegerad åtkomst till resursen av sin ägare.
@@ -147,15 +147,15 @@ Ett signerat dokument som innehåller anspråk, till exempel en OAuth2-token ell
 ## <a name="service-principal-object"></a>Tjänstens huvudnamn objekt
 När du registrera/uppdatera ett program i den [Azure-portalen][AZURE-portal], portalen skapat/uppdaterat både en [programobjektet](#application-object) och ett motsvarande service principal-objekt för den klienten. Programobjektet *definierar* programmets identitet konfiguration globalt (över alla klienter där det associerade programmet har beviljats åtkomst), och är den mall som dess motsvarande service principal objekt är *härledda* för lokalt under körning (i en viss klient).
 
-Se [program och tjänstens huvudnamn objekt] [ AAD-App-SP-Objects] för mer information.
+Mer information finns i [program och tjänstens huvudnamn objekt][AAD-App-SP-Objects].
 
 ## <a name="sign-in"></a>inloggning
-Processen för en [klientprogrammet](#client-application) initierar slutanvändaren autentisering och samlar in relaterade tillstånd, för att förvärva en [säkerhetstoken](#security-token) och scope program-session till det aktuella tillståndet. Tillstånd kan innehålla artefakter, till exempel användarens profilinformation och information som har härletts från token anspråk.
+Processen för en [klientprogrammet](#client-application) initierar slutanvändarens autentisering och samlar in relaterade tillstånd, för att förvärva en [säkerhetstoken](#security-token) och scope program-session till det aktuella tillståndet. Tillstånd kan innehålla artefakter, till exempel användarens profilinformation och information som har härletts från token anspråk.
 
 Funktionen logga in i ett program används vanligtvis för att implementera enkel inloggning (SSO). Det kan också föregås av en funktion som ”registrering” som startpunkt för en användare att få tillgång till ett program (vid första inloggningen). Registrerar funktionen används för att samla in och beständiga ytterligare tillstånd som är specifika för användaren och kan kräva [användargodkännande](#consent).
 
 ## <a name="sign-out"></a>utloggning
-Processen för icke autentiserande slutanvändaren frånkoppling användarens tillstånd som associeras med den [klientprogrammet](#client-application) session under [inloggning](#sign-in)
+Processen för unauthenticating slutanvändaren frånkoppling användarens tillstånd som associeras med den [klientprogrammet](#client-application) session under [inloggning](#sign-in)
 
 ## <a name="tenant"></a>klient
 En instans av en Azure AD-katalog kallas för en Azure AD-klient. Det innehåller flera funktioner, inklusive:
@@ -170,18 +170,18 @@ Azure AD-klienter kan skapas/kopplade till Azure och Office 365-prenumerationer 
 En av slutpunkterna som implementerats av den [auktorisering server](#authorization-server) till support OAuth2 [auktorisering ger](#authorization-grant). Beroende på att bevilja den kan användas för att få en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID token](#ID-token) när det används med den [OpenID Connect] [ OpenIDConnect] protokoll.
 
 ## <a name="user-agent-based-client"></a>Användare-agent-baserad klient
-En typ av [klientprogrammet](#client-application) som hämtar koden från en webbserver och kör inom en användaragent (till exempel en webbläsare), till exempel en enda sida program (SPA). Eftersom all kod som körs på en enhet anses en ”offentliga” klient på grund av att det inte att lagra autentiseringsuppgifter privat/konfidentiellt. Se [OAuth2 klienten typer och profiler] [ OAuth2-Client-Types] för mer information.
+En typ av [klientprogrammet](#client-application) som hämtar koden från en webbserver och kör inom en användaragent (till exempel en webbläsare), till exempel en enda sida program (SPA). Eftersom all kod som körs på en enhet anses en ”offentliga” klient på grund av att det inte att lagra autentiseringsuppgifter privat/konfidentiellt. Mer information finns i [OAuth2 klienten typer och profiler][OAuth2-Client-Types].
 
 ## <a name="user-principal"></a>användarens huvudnamn
 Ungefär samma sätt som en tjänst för huvudobjekt används för att representera en programinstans, ett huvudnamn användarobjekt är en annan typ av säkerhetsobjekt, som representerar en användare. Azure AD Graph [användarentiteten] [ AAD-Graph-User-Entity] definierar schemat för ett användarobjekt, inklusive användarrelaterade egenskaper och efternamn, användarens huvudnamn, directory rollmedlemskap, t.ex. Detta ger identitet Användarkonfiguration för Azure AD för att upprätta en UPN vid körning. Användarens huvudnamn används för att representera en autentiserad användare för enkel inloggning, registrering [medgivande](#consent) delegering, vilket gör besluten om åtkomstkontroll, osv.
 
 ## <a name="web-client"></a>Webbklient
-En typ av [klientprogrammet](#client-application) som utför all kod på en webbserver och kan fungera som en ”konfidentiellt” klient genom att lagra sina autentiseringsuppgifter på ett säkert sätt på servern. Se [OAuth2 klienten typer och profiler] [ OAuth2-Client-Types] för mer information.
+En typ av [klientprogrammet](#client-application) som utför all kod på en webbserver och kan fungera som en ”konfidentiellt” klient genom att lagra sina autentiseringsuppgifter på ett säkert sätt på servern. Mer information finns i [OAuth2 klienten typer och profiler][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Nästa steg
-Den [Azure AD-Guide för utvecklare] [ AAD-Dev-Guide] är Landningssida för alla Azure AD-utveckling relaterade ämnen, t.ex. en översikt över [programintegrationstyp] [ AAD-How-To-Integrate] och grunderna i [scenarier för autentiseringsmetoder som stöds och Azure AD authentication][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du kommer igång snabbt på [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+Den [Azure AD-Guide för utvecklare] [ AAD-Dev-Guide] är Landningssida för alla Azure AD-utveckling-relaterade ämnen, t.ex. en översikt över [programintegrationstyp] [ AAD-How-To-Integrate] och grunderna i [scenarier för autentiseringsmetoder som stöds och Azure AD authentication][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du kommer igång snabbt på [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Använd kommentarer nedan för att ge feedback och hjälp oss att förbättra och utforma innehållet, inklusive förfrågningar efter nya definitioner eller uppdaterar befintliga!
+Använd följande avsnitt för kommentarer för att ge feedback och hjälper dig att förfina och utforma innehållet, inklusive förfrågningar efter nya definitioner eller uppdaterar befintliga!
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Använd kommentarer nedan för att ge feedback och hjälp oss att förbättra oc
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Använd kommentarer nedan för att ge feedback och hjälp oss att förbättra oc
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

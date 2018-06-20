@@ -7,14 +7,14 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266888"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210932"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -39,7 +39,7 @@ Begrepp som du behöver för att förstå för val av inkluderar kapacitet defin
 Kapacitet är strukturerad som *repliker* och *partitioner*. Repliker är instanser av tjänsten search där varje replik är värd för en belastningsutjämnad kopia av ett index. En tjänst med 6 repliker har till exempel 6 kopior av varje index som lästs in i tjänsten. Partitioner lagra index och delas automatiskt upp sökbara data: två partitioner dela ditt index i halva, tre partitioner i tre delar och så vidare. Vad gäller kapacitet, *partitions storlek* är den primära olika funktionen mellan nivåerna.
 
 > [!NOTE]
-> Alla **Standard** nivåer stöd [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra saldot. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast partition. **Ledigt** nivåer ger inte dedicerade resurser: computing resurser delas av flera gratistjänster.
+> Alla **Standard** nivåer stöd [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra saldot. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Ledigt** nivåer ger inte dedicerade resurser: computing resurser delas av flera gratistjänster.
 
 ### <a name="limits"></a>Begränsningar
 

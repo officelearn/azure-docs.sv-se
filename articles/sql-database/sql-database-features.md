@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d49cd0096eb173c0f483a7b7ab1f3def745f56a6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248817"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231618"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
@@ -39,7 +39,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Automatisk säkerhetskopiering](sql-database-automated-backups.md) | Ja | Ja |
 | [Automatisk justering (markörplan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatisk justering (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nej |
-| [BACPAC fil (exportera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja - finns [SQL Database-export](sql-database-export.md) | Ja |
+| [BACPAC fil (exportera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja - finns [SQL Database-export](sql-database-export.md) | Nej |
 | [BACPAC fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja - finns [Importera SQL-databas](sql-database-import.md) | Nej |
 | [BACKUP-kommandot](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nej, endast system-initierad automatiska säkerhetskopieringar - finns [automatisk säkerhetskopiering](sql-database-automated-backups.md) | System-initierad automatiska säkerhetskopieringar och användaren initierade endast kopiering säkerhetskopieringar - Se [säkerhetskopiera skillnader](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Inbyggda funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta - finns enskilda funktioner | Ja - finns [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

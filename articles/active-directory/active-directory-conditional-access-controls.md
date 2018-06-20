@@ -1,5 +1,5 @@
 ---
-title: Åtkomst till kontroller i Azure Active Directory för villkorlig åtkomst | Microsoft Docs
+title: Vad är åtkomstkontroller i Azure Active Directory för villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur åtkomstkontroll i Azure Active Directory villkorlig åtkomst ska fungera.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 85c91ee7a03df221b2bf591aca6bf937c98313c7
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723651"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232576"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Åtkomstkontroller i Azure Active Directory för villkorlig åtkomst 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory för villkorlig åtkomst? 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
@@ -173,6 +173,6 @@ Mer information om hur du kräver begränsad åtkomst med SharePoint finns [styr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
 
 - Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 

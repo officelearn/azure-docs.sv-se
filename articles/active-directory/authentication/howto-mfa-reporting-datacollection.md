@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655308"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264376"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Datainsamling för Azure Multi-Factor Authentication-användare
 
@@ -151,39 +151,39 @@ Från kommandoraden av MFA-Server, kör du följande kommando om du ändrar sök
 
 ## <a name="gather-data-from-nps-extension"></a>Samla in data från NPS-tillägg
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för Export.
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för Export.
 
 - Information om MFA ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 - Förekomster av användarnamnet i AuthNOptCh-AzureMfa/AuthN, AuthZAdminCh-AzureMfa/AuthZ och AuthZOptCh-AzureMfa/AuthZ händelseloggar anses fungerar och duplicerande till informationen i exporten.
 
 ## <a name="delete-data-from-nps-extension"></a>Ta bort data från NPS-tillägg
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
 
 - Det kan ta upp till 30 dagar för data som ska tas bort helt.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Samla in data från Windows Server 2016 Azure MFA AD FS-Adapter
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för Export. 
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för Export. 
 
 - Information om MFA ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 - Förekomster av användarnamnet i AD FS spårning/Debug-händelseloggar (om aktiverat) betraktas som fungerar och duplicerande till informationen i exporten.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Ta bort data från Windows Server 2016 Azure MFA AD FS-Adapter
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
 
 - Det kan ta upp till 30 dagar för data som ska tas bort helt.
 
 ## <a name="gather-data-for-azure-mfa"></a>Samla in data för Azure MFA
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för Export.
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för Export.
 
 - Information om MFA ingår i exporten, vilket kan ta flera timmar eller dagar att slutföra.
 
 ## <a name="delete-data-for-azure-mfa"></a>Ta bort Data för Azure MFA
 
-Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
+Använd den [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) och gör en begäran för kontot Stäng om du vill ta bort alla MFA informationen om Molntjänsten samlas in för den här användaren.
 
 - Det kan ta upp till 30 dagar för data som ska tas bort helt.
 

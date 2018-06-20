@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 5e87c331161e299eeba88202e7c7e9882192d9de
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 04b9a34c355041b2c8e5ec0dcdb614fb2c713fee
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35968047"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudier: Azure Active Directory-integrering med bröstknappar SAML SSO
 
@@ -33,7 +34,7 @@ Integrera bröstknappar SAML SSO med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med bröstknappar SAML SSO, behöver du följande:
 
@@ -48,7 +49,7 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenariobeskrivning
+## <a name="scenario-description"></a>Scenario-beskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
 1. Att lägga till bröstknappar SAML SSO från galleriet
@@ -109,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och bröstknappar SAML SSO domän med enkel inloggning information](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:
+    en. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |
@@ -164,13 +165,13 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Dialogrutan användare](./media/insigniasamlsso-tutorial/create_aaduser_04.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    en. I den **namn** skriver **BrittaSimon**.
 
     b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
 
     c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **skapa**.
  
 ### <a name="create-an-insignia-saml-sso-test-user"></a>Skapa en testanvändare bröstknappar SAML SSO
 

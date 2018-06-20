@@ -10,25 +10,25 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 06/19/2018
+ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850080"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214111"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering
 Den här artikeln innehåller vanliga frågor om hur du använder tjänsten Azure Database migrering tillsammans med tillhörande svar.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>FRÅGOR. Vad är Azure databastjänst för migrering?
-Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Tjänsten är för närvarande i förhandsversion, med utvecklingsarbete fokuserar på:
+Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Tjänsten är allmänt tillgänglig med pågående utvecklingsarbete fokuserar på:
 - Tillförlitlighet och prestanda.
 - Iterativ tillägg av käll-och mål-par.
 - Fortsatt investeringar i friktion problemfri migrering.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>FRÅGOR. Vilken källa mål par tjänsten Azure Database migrering stöder för närvarande?
-Tjänsten i Public Preview för tillfället stöder migrering från SQL Server till Azure SQL Database och du kan gå till Azure-portalen nu att börja använda tjänsten Azure Database migrering för det här scenariot. Andra källa mål-par, till exempel SQL Server till hanterade Azure SQL Database-instans och Oracle till Azure SQL Database är tillgängliga via en begränsad privat förhandsgranskning. Registrera dig för en möjlighet att delta i begränsad privat förhandsgranskning av dessa scenarier [här](https://sqldatabase-migrationpreview.azurewebsites.net/).
+Tjänsten stöder migrering från SQL Server till Azure SQL Database och du kan gå till Azure-portalen nu att börja använda tjänsten Azure Database migrering för det här scenariot. Andra källa mål-par, som till exempel Oracle till Azure SQL Database är tillgängliga via en begränsad privat förhandsgranskning. Registrera dig för en möjlighet att delta i begränsad privat förhandsgranskning av dessa scenarier [här](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>FRÅGOR. Hur tjänsten Azure Database migrering Jämför med andra Microsoft-databasen Migreringsverktyg som databasen migrering Assistant (DMA) eller SQL Server Migration Assistant (SSMA)?
 Tjänsten Azure Database migrering är den bästa metoden för Databasmigrering till Microsoft Azure i större skala. Mer information om hur tjänsten Azure Database migrering Jämför med andra Microsoft-databasen Migreringsverktyg och rekommendationer om hur tjänsten för olika scenarier finns i bloggen bokföring [skilja Microsoft-databas Migreringsverktyg och tjänster](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -93,4 +93,4 @@ Om användaren uttryckligen slutar Azure databas migrering Service (DMS) eller o
 Vi vill gärna höra av dig. Skicka feedback och / idéer har om tjänsten Azure Database migrering via-feedback [här](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över Azure databastjänst för migrering och regional tillgänglighet under förhandsversion, finns i artikeln [vad är Azure databas migrering Service Preview](dms-overview.md). 
+En översikt över Azure databastjänst för migrering och regional tillgänglighet, finns i artikeln [vad är Azure migrering databastjänsten](dms-overview.md). 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605764"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228398"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Felsökning av problem för registrering och konfiguration av Azure Backup-agenten
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
@@ -36,13 +36,19 @@ Referera till de rekommenderade åtgärderna i följande tabeller för att lösa
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 | ---     | ---     | ---    |      
-| **Fel** </br>*Kunde inte ange krypteringsnyckeln för säker säkerhetskopieringar. Den aktuella åtgärden misslyckades på grund av ett internt fel: Ogiltig inkommande tjänstfel'. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår*. |Servern är redan registrerad med ett annat valv.| Avregistrera servern från valvet och registrera igen.
+| **Fel** </br>*Det gick inte att ange krypteringsnyckeln för säker säkerhetskopieringar aktiveringen slutfördes inte helt men krypteringslösenfrasen som sparats i följande fil*. |<li>Servern är redan registrerad med ett annat valv.<li>Under konfigurationen av var lösenfrasen skadad| Avregistrera servern från valvet och registrera igen med en ny lösenfras.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 | ---     | ---     | ---    |          
-| **Fel** </br><ol><li>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår* <li>*Fel 34506. Den krypteringslösenfras som sparats på den här datorn är inte korrekt konfigurerad*. | <li> Den tillfälliga mappen finns på en volym som har tillräckligt med utrymme. <li> Den tillfälliga mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas. | <li>Flytta den tillfälliga mappen eller cacheplats till en volym med ledigt utrymme som motsvarar 5-10% av den totala storleken för säkerhetskopierade data. Om du vill flytta placeringen i cachen, följer du stegen i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den tillfälliga mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Fel** </br><ol><li>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår*| <li> Den tillfälliga mappen finns på en volym som har tillräckligt med utrymme. <li> Den tillfälliga mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas. | <li>Uppgradera till den [senaste versionen](http://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mappen eller cacheplats till en volym med ledigt utrymme som motsvarar 5-10% av den totala storleken för säkerhetskopierade data. Om du vill flytta placeringen i cachen, följer du stegen i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den tillfälliga mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Fel 34506. Den krypteringslösenfras som sparats på den här datorn är inte korrekt konfigurerad
+
+| Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
+| ---     | ---     | ---    |          
+| **Fel** </br><ol><li>*Fel 34506. Den krypteringslösenfras som sparats på den här datorn är inte korrekt konfigurerad*. | <li> Den tillfälliga mappen finns på en volym som har tillräckligt med utrymme. <li> Den tillfälliga mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas. | <li>Uppgradera till den [senaste versionen](http://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mappen eller cacheplats till en volym med ledigt utrymme som motsvarar 5-10% av den totala storleken för säkerhetskopierade data. Om du vill flytta placeringen i cachen, följer du stegen i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den tillfälliga mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.

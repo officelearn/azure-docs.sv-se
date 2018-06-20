@@ -3,25 +3,25 @@ title: Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen | M
 description: Introduktion till rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588615"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232549"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -38,7 +38,7 @@ Rapporteringsarkitekturen i Azure Active Directory består av följande komponen
 
 I det här ämnet får du en översikt över inloggningsaktiviteterna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollen säkerhetsadministratör, säkerhetsläsare eller rapportläsare
@@ -153,7 +153,7 @@ Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den
 
 ![Ladda ned](./media/active-directory-reporting-activity-sign-ins/71.png "Ladda ned")
 
-När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna. Om du behöver mer flexibilitet kan du använda skriptlösningen. När du klickar på **Skript** skapas ett skript som innehåller de filter som du har angett. Förutom den tekniska implementeringen begränsas antalet poster som du kan ladda ned även av [bevarandereglerna för Azure Active-rapporter](active-directory-reporting-retention.md).  
+När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna. Om du behöver mer flexibilitet kan du använda skriptlösningen. Klicka på **skriptet** skapar ett PowerShell.skript som innehåller de filter som du har angett. Hämta och kör skriptet i **administratörsläge** att generera CSV-filen. Förutom den tekniska implementeringen begränsas antalet poster som du kan ladda ned även av [bevarandereglerna för Azure Active-rapporter](active-directory-reporting-retention.md).  
 
 
 

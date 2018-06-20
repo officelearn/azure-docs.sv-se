@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192671"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217144"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Anropa en Azure Automation-runbook från en Log Analytics-avisering
 
@@ -33,7 +33,7 @@ Det finns två alternativ för att anropa en runbook i aviseringskonfigurationen
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Anropa en runbook med en webhook
 
-Du kan använda en webhook för att starta en viss runbook i Azure Automation via en HTTP-begäran. Innan du konfigurerar [Log Analytics-aviseringen](../log-analytics/log-analytics-alerts.md#alert-rules) så att den anropar en runbook med en webhook som en aviseringsåtgärd behöver du [skapa en webhook](automation-webhooks.md#creating-a-webhook) för den runbook som ska anropas med den här metoden. Kom ihåg att registrera Webhookens URL så att du kan referera till den när varningsregeln konfigureras.   
+Du kan använda en webhook för att starta en viss runbook i Azure Automation via en HTTP-begäran. Innan du konfigurerar den [Webhook åtgärd för log aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) för att anropa runbook genom att använda en webhook som en åtgärd, behöver du [skapa en webhook](automation-webhooks.md#creating-a-webhook) för alla runbooks som anropas via den här metoden. Kom ihåg att registrera Webhookens URL så att du kan referera till den när varningsregeln konfigureras.   
 
 ## <a name="calling-a-runbook-directly"></a>Anropa en runbook direkt
 
@@ -99,6 +99,6 @@ Om du inte har ditt Automation-konto som är kopplad till logganalys-arbetsytan 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om aviseringar i Log Analytics och hur du skapar en i [Aviseringar i Log Analytics](../log-analytics/log-analytics-alerts.md).
+* Mer information om hur du skapar ett Azure avisering med hjälp av en logg sökning finns [Logga varningar i Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 * Information om hur du utlöser runbooks med en webhook finns [Azure Automation-webhookar](automation-webhooks.md).

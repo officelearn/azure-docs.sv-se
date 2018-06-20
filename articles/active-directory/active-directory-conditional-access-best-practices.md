@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723668"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232597"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
 
@@ -31,7 +31,7 @@ Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-c
 - Saker du bör känna till 
 - Vad bör du inte göra när du konfigurerar principer för villkorlig åtkomst. 
 
-Den här artikeln förutsätter att du känner koncept och termer som beskrivs i [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Den här artikeln förutsätter att du känner koncept och termer som beskrivs i [vad är villkorlig åtkomst i Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 
 
 
@@ -154,4 +154,4 @@ Mer information finns i [migrera klassiska principer i Azure portal](active-dire
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).

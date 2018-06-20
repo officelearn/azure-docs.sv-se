@@ -1,6 +1,6 @@
 ---
-title: Villkoren i Azure Active Directory för villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur tilldelningar används i Azure Active Directory för villkorlig åtkomst för att utlösa en princip.
+title: Vad är villkor i Azure Active Directory för villkorlig åtkomst? | Microsoft Docs
+description: Lär dig hur villkor används i Azure Active Directory för villkorlig åtkomst för att utlösa en princip.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735149"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232572"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory för villkorlig åtkomst? 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
@@ -140,7 +140,7 @@ Vanliga användningsområden för det här villkoret är principer som:
 
 - Neka åtkomst för användare som ansluter till en tjänst från specifika länder eller regioner. 
 
-Mer information finns i [plats villkor i Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-locations.md).
+Mer information finns i [vad är villkoret plats i Azure Active Directory för villkorlig åtkomst?](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>Klientappar
@@ -241,7 +241,7 @@ Nej. Det finns ingen ändring i princip standardbeteendet. Principerna fortsätt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
 
 - Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

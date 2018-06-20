@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 11aaa6c0891d7087556a82f3a818ef865869b766
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35356433"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265160"
 ---
 # <a name="intents-in-luis"></a>Avsikter i THOMAS
 
@@ -101,4 +101,4 @@ Kontakta supporten om du minskar antalet avsikter eller dela dina avsikter i fle
 * Lär dig hur du [lägga till och hantera avsikter](luis-how-to-add-intents.md) i THOMAS appen.
 * Granska avsikt [bästa praxis](luis-concept-best-practices.md)
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

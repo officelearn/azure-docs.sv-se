@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 42acc1ca00e6805df0bce0ee4fc59180b5beb6db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 904a5c3de9ddc8fa8146c4e2c87ab968c31e5d59
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614670"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221214"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -58,40 +58,45 @@ Den här kursen använder den [Node.js SDK med Q löftena](http://azure.github.i
 ### <a name="example-write-a-stored-procedure"></a>Exempel: Skriv en lagrad procedur
 Låt oss börja med en lagrad procedur som returnerar svaret ”Hello World”.
 
-    var helloWorldStoredProc = {
-        id: "helloWorld",
-        serverScript: function () {
-            var context = getContext();
-            var response = context.getResponse();
+```javascript
+var helloWorldStoredProc = {
+    id: "helloWorld",
+    serverScript: function () {
+        var context = getContext();
+        var response = context.getResponse();
 
-            response.setBody("Hello, World");
-        }
+        response.setBody("Hello, World");
     }
-
+}
+```
 
 Lagrade procedurer registreras per samling och kan användas på alla dokument och bifogade filer i samlingen. Följande utdrag visar hur du registrerar helloWorld lagrade proceduren med en samling. 
 
-    // register the stored procedure
-    var createdStoredProcedure;
-    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
-        .then(function (response) {
-            createdStoredProcedure = response.resource;
-            console.log("Successfully created stored procedure");
-        }, function (error) {
-            console.log("Error", error);
-        });
+
+```javascript
+// register the stored procedure
+var createdStoredProcedure;
+client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
+    .then(function (response) {
+        createdStoredProcedure = response.resource;
+        console.log("Successfully created stored procedure");
+    }, function (error) {
+        console.log("Error", error);
+    });
+```
 
 
 När den lagrade proceduren har registrerats kan du köra den mot samlingen och läsa resultaten tillbaka till klienten. 
 
-    // execute the stored procedure
-    client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
-        .then(function (response) {
-            console.log(response.result); // "Hello, World"
-        }, function (err) {
-            console.log("Error", error);
-        });
-
+```javascript
+// execute the stored procedure
+client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
+    .then(function (response) {
+        console.log(response.result); // "Hello, World"
+    }, function (err) {
+        console.log("Error", error);
+    });
+```
 
 Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos-databaslagring samt åtkomst till objekt förfrågan och svar. I så fall måste använda du objektet response för att ange brödtexten i svaret som skickades till klienten. Mer information finns i [server Azure Cosmos DB JavaScript SDK-dokumentationen](http://azure.github.io/azure-documentdb-js-server/).  
 
@@ -100,50 +105,53 @@ Låt oss Expandera på det här exemplet och lägga till fler Databasrelaterade 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exempel: Skriv en lagrad procedur för att skapa ett dokument
 Nästa utdrag visar hur du använder context-objektet för att interagera med Cosmos-DB-resurser.
 
-    var createDocumentStoredProc = {
-        id: "createMyDocument",
-        serverScript: function createMyDocument(documentToCreate) {
-            var context = getContext();
-            var collection = context.getCollection();
+```javascript
+var createDocumentStoredProc = {
+    id: "createMyDocument",
+    serverScript: function createMyDocument(documentToCreate) {
+        var context = getContext();
+        var collection = context.getCollection();
 
-            var accepted = collection.createDocument(collection.getSelfLink(),
-                  documentToCreate,
-                  function (err, documentCreated) {
-                      if (err) throw new Error('Error' + err.message);
-                      context.getResponse().setBody(documentCreated.id)
-                  });
-            if (!accepted) return;
-        }
+        var accepted = collection.createDocument(collection.getSelfLink(),
+              documentToCreate,
+              function (err, documentCreated) {
+                  if (err) throw new Error('Error' + err.message);
+                  context.getResponse().setBody(documentCreated.id)
+              });
+        if (!accepted) return;
     }
+}
+```
 
 
 Den här lagrade proceduren tar inkommande documentToCreate, brödtexten i ett dokument som ska skapas i samlingen. Dessa åtgärder är asynkron och beroende av JavaScript-funktionen återanrop. Återanropsfunktionen har två parametrar, ett för felobjektet om åtgärden misslyckas och en för det skapade objektet. I återanropet, kan användare hantera undantaget eller ett fel genereras. Om ett återanrop har angetts och det finns ett fel, genererar ett fel i Azure DB som Cosmos-körningsmiljön.   
 
 I exemplet ovan genererar återanropet ett fel om åtgärden misslyckades. Annars anges ID för det skapade dokumentet som en del av svar till klienten. Här är hur den här lagrade proceduren körs med indataparametrar.
 
-    // register the stored procedure
-    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
-        .then(function (response) {
-            var createdStoredProcedure = response.resource;
-
-            // run stored procedure to create a document
-            var docToCreate = {
-                id: "DocFromSproc",
-                book: "The Hitchhiker’s Guide to the Galaxy",
-                author: "Douglas Adams"
-            };
-
-            return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
-                  docToCreate);
-        }, function (error) {
-            console.log("Error", error);
-        })
+```javascript
+// register the stored procedure
+client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
     .then(function (response) {
-        console.log(response); // "DocFromSproc"
+        var createdStoredProcedure = response.resource;
+
+        // run stored procedure to create a document
+        var docToCreate = {
+            id: "DocFromSproc",
+            book: "The Hitchhiker’s Guide to the Galaxy",
+            author: "Douglas Adams"
+        };
+
+        return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
+              docToCreate);
     }, function (error) {
         console.log("Error", error);
-    });
-
+    })
+.then(function (response) {
+    console.log(response); // "DocFromSproc"
+}, function (error) {
+    console.log("Error", error);
+});
+```
 
 Den här lagrade proceduren kan ändras för att ta en matris med dokumentet organ som indata och skapar dem i samma lagrade procedurkörningen i stället för flera förfrågningar till skapa dem individuellt. Den här lagrade proceduren kan användas för att implementera en effektiv bulk-Importverktyget för Cosmos-DB (beskrivs senare i den här självstudiekursen).   
 
@@ -153,7 +161,7 @@ Det exempel som beskrivs visas hur du använder lagrade procedurer. Nästa du l�
 
 När du definierar en lagrad procedur med hjälp av Azure-portalen, skickas indataparametrar alltid som en sträng till den lagrade proceduren. Även om du skickar en matris med strängar som indata matrisen konverteras till en sträng och skickas till den lagrade proceduren. För att lösa det här problemet kan du definiera en funktion i en lagrad procedur för att parsa strängen som en matris. Följande kod är ett exempel för att parsa strängen som en matris: 
 
-``` 
+```javascript
 function sample(arr) {
     if (typeof arr === "string") arr = JSON.parse(arr);
     
@@ -171,68 +179,70 @@ En kort, odelbarhet garanterar att arbetet inuti en transaktion behandlas som en
 
 I Cosmos DB finns JavaScript i samma minnesutrymme som databas. Därför begäranden som görs i lagrade procedurer och utlösare kör samma omfånget för en databas-session. Den här funktionen kan Cosmos-Databsen ska garantera av för alla åtgärder som ingår i en enda lagrade proceduren/utlösare. Överväg följande lagrade Procedurdefinition:
 
-    // JavaScript source code
-    var exchangeItemsSproc = {
-        id: "exchangeItems",
-        serverScript: function (playerId1, playerId2) {
-            var context = getContext();
-            var collection = context.getCollection();
-            var response = context.getResponse();
+```javascript
+// JavaScript source code
+var exchangeItemsSproc = {
+    id: "exchangeItems",
+    serverScript: function (playerId1, playerId2) {
+        var context = getContext();
+        var collection = context.getCollection();
+        var response = context.getResponse();
 
-            var player1Document, player2Document;
+        var player1Document, player2Document;
 
-            // query for players
-            var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
-            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
-                function (err, documents, responseOptions) {
-                    if (err) throw new Error("Error" + err.message);
+        // query for players
+        var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
+            function (err, documents, responseOptions) {
+                if (err) throw new Error("Error" + err.message);
 
-                    if (documents.length != 1) throw "Unable to find both names";
-                    player1Document = documents[0];
+                if (documents.length != 1) throw "Unable to find both names";
+                player1Document = documents[0];
 
-                    var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
-                    var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
-                        function (err2, documents2, responseOptions2) {
-                            if (err2) throw new Error("Error" + err2.message);
-                            if (documents2.length != 1) throw "Unable to find both names";
-                            player2Document = documents2[0];
-                            swapItems(player1Document, player2Document);
-                            return;
+                var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+                var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
+                    function (err2, documents2, responseOptions2) {
+                        if (err2) throw new Error("Error" + err2.message);
+                        if (documents2.length != 1) throw "Unable to find both names";
+                        player2Document = documents2[0];
+                        swapItems(player1Document, player2Document);
+                        return;
+                    });
+                if (!accept2) throw "Unable to read player details, abort ";
+            });
+
+        if (!accept) throw "Unable to read player details, abort ";
+
+        // swap the two players’ items
+        function swapItems(player1, player2) {
+            var player1ItemSave = player1.item;
+            player1.item = player2.item;
+            player2.item = player1ItemSave;
+
+            var accept = collection.replaceDocument(player1._self, player1,
+                function (err, docReplaced) {
+                    if (err) throw "Unable to update player 1, abort ";
+
+                    var accept2 = collection.replaceDocument(player2._self, player2,
+                        function (err2, docReplaced2) {
+                            if (err) throw "Unable to update player 2, abort"
                         });
-                    if (!accept2) throw "Unable to read player details, abort ";
+
+                    if (!accept2) throw "Unable to update player 2, abort";
                 });
 
-            if (!accept) throw "Unable to read player details, abort ";
-
-            // swap the two players’ items
-            function swapItems(player1, player2) {
-                var player1ItemSave = player1.item;
-                player1.item = player2.item;
-                player2.item = player1ItemSave;
-
-                var accept = collection.replaceDocument(player1._self, player1,
-                    function (err, docReplaced) {
-                        if (err) throw "Unable to update player 1, abort ";
-
-                        var accept2 = collection.replaceDocument(player2._self, player2,
-                            function (err2, docReplaced2) {
-                                if (err) throw "Unable to update player 2, abort"
-                            });
-
-                        if (!accept2) throw "Unable to update player 2, abort";
-                    });
-
-                if (!accept) throw "Unable to update player 1, abort";
-            }
+            if (!accept) throw "Unable to update player 1, abort";
         }
     }
+}
 
-    // register the stored procedure in Node.js client
-    client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
-        .then(function (response) {
-            var createdStoredProcedure = response.resource;
-        }
-    );
+// register the stored procedure in Node.js client
+client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
+    .then(function (response) {
+        var createdStoredProcedure = response.resource;
+    }
+);
+```
 
 Den här lagrade proceduren använder transaktioner inom spelappar handel objekt mellan två spelare i en enda åtgärd. Den lagrade proceduren försöker läsa två dokument i varje motsvarar player-ID skickas som ett argument. Om båda player dokumenten påträffas, uppdaterar den lagrade proceduren dokument genom att byta sina objekt. Om fel uppstår på vägen utlöser ett JavaScript-undantag som implicit avbryter transaktionen.
 
@@ -256,193 +266,198 @@ JavaScript-funktioner är också avgränsas i resursförbrukning. Cosmos DB rese
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exempel: Massredigera importera data till ett databasprogram
 Nedan visas ett exempel på en lagrad procedur som skrivs till massimport dokument till en samling. Observera hur den lagrade proceduren hanterar avgränsas körning genom att kontrollera booleskt returvärde från createDocument, och använder sedan antal dokument som infogas i varje anrop av den lagrade proceduren för att spåra och återuppta förlopp i batchar.
 
-    function bulkImport(docs) {
-        var collection = getContext().getCollection();
-        var collectionLink = collection.getSelfLink();
+```javascript
+function bulkImport(docs) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
 
-        // The count of imported docs, also used as current doc index.
-        var count = 0;
+    // The count of imported docs, also used as current doc index.
+    var count = 0;
 
-        // Validate input.
-        if (!docs) throw new Error("The array is undefined or null.");
+    // Validate input.
+    if (!docs) throw new Error("The array is undefined or null.");
 
-        var docsLength = docs.length;
-        if (docsLength == 0) {
-            getContext().getResponse().setBody(0);
-        }
+    var docsLength = docs.length;
+    if (docsLength == 0) {
+        getContext().getResponse().setBody(0);
+    }
 
-        // Call the create API to create a document.
-        tryCreate(docs[count], callback);
+    // Call the create API to create a document.
+    tryCreate(docs[count], callback);
 
-        // Note that there are 2 exit conditions:
-        // 1) The createDocument request was not accepted. 
-        //    In this case the callback will not be called, we just call setBody and we are done.
-        // 2) The callback was called docs.length times.
-        //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
-        function tryCreate(doc, callback) {
-            var isAccepted = collection.createDocument(collectionLink, doc, callback);
+    // Note that there are 2 exit conditions:
+    // 1) The createDocument request was not accepted. 
+    //    In this case the callback will not be called, we just call setBody and we are done.
+    // 2) The callback was called docs.length times.
+    //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
+    function tryCreate(doc, callback) {
+        var isAccepted = collection.createDocument(collectionLink, doc, callback);
 
-            // If the request was accepted, callback will be called.
-            // Otherwise report current count back to the client, 
-            // which will call the script again with remaining set of docs.
-            if (!isAccepted) getContext().getResponse().setBody(count);
-        }
+        // If the request was accepted, callback will be called.
+        // Otherwise report current count back to the client, 
+        // which will call the script again with remaining set of docs.
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
 
-        // This is called when collection.createDocument is done in order to process the result.
-        function callback(err, doc, options) {
-            if (err) throw err;
+    // This is called when collection.createDocument is done in order to process the result.
+    function callback(err, doc, options) {
+        if (err) throw err;
 
-            // One more document has been inserted, increment the count.
-            count++;
+        // One more document has been inserted, increment the count.
+        count++;
 
-            if (count >= docsLength) {
-                // If we created all documents, we are done. Just set the response.
-                getContext().getResponse().setBody(count);
-            } else {
-                // Create next document.
-                tryCreate(docs[count], callback);
-            }
+        if (count >= docsLength) {
+            // If we created all documents, we are done. Just set the response.
+            getContext().getResponse().setBody(count);
+        } else {
+            // Create next document.
+            tryCreate(docs[count], callback);
         }
     }
+}
+```
 
 ## <a id="trigger"></a> Databasutlösare
 ### <a name="database-pre-triggers"></a>Före databasutlösare
 Cosmos DB innehåller utlösare som körs eller som utlöses av en åtgärd på ett dokument. Du kan till exempel ange en före utlösare när du skapar ett dokument – före utlösaren ska köras innan dokumentet skapas. I följande exempel visas hur före utlösare kan användas för att verifiera egenskaperna för ett dokument som har skapats:
 
-    var validateDocumentContentsTrigger = {
-        id: "validateDocumentContents",
-        serverScript: function validate() {
-            var context = getContext();
-            var request = context.getRequest();
+```javascript
+var validateDocumentContentsTrigger = {
+    id: "validateDocumentContents",
+    serverScript: function validate() {
+        var context = getContext();
+        var request = context.getRequest();
 
-            // document to be created in the current operation
-            var documentToCreate = request.getBody();
+        // document to be created in the current operation
+        var documentToCreate = request.getBody();
 
-            // validate properties
-            if (!("timestamp" in documentToCreate)) {
-                var ts = new Date();
-                documentToCreate["my timestamp"] = ts.getTime();
-            }
+        // validate properties
+        if (!("timestamp" in documentToCreate)) {
+            var ts = new Date();
+            documentToCreate["my timestamp"] = ts.getTime();
+        }
 
-            // update the document that will be created
-            request.setBody(documentToCreate);
-        },
-        triggerType: TriggerType.Pre,
-        triggerOperation: TriggerOperation.Create
-    }
-
+        // update the document that will be created
+        request.setBody(documentToCreate);
+    },
+    triggerType: TriggerType.Pre,
+    triggerOperation: TriggerOperation.Create
+}
+```
 
 Och motsvarande Node.js klientsidan Registreringskod för utlösaren:
 
-    // register pre-trigger
-    client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
-        .then(function (response) {
-            console.log("Created", response.resource);
-            var docToCreate = {
-                id: "DocWithTrigger",
-                event: "Error",
-                source: "Network outage"
-            };
-
-            // run trigger while creating above document 
-            var options = { preTriggerInclude: "validateDocumentContents" };
-
-            return client.createDocumentAsync(collection.self,
-                  docToCreate, options);
-        }, function (error) {
-            console.log("Error", error);
-        })
+```javascript
+// register pre-trigger
+client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
     .then(function (response) {
-        console.log(response.resource); // document with timestamp property added
+        console.log("Created", response.resource);
+        var docToCreate = {
+            id: "DocWithTrigger",
+            event: "Error",
+            source: "Network outage"
+        };
+
+        // run trigger while creating above document 
+        var options = { preTriggerInclude: "validateDocumentContents" };
+
+        return client.createDocumentAsync(collection.self,
+              docToCreate, options);
     }, function (error) {
         console.log("Error", error);
-    });
-
+    })
+.then(function (response) {
+    console.log(response.resource); // document with timestamp property added
+}, function (error) {
+    console.log("Error", error);
+});
+```
 
 Före utlösare kan inte ha indataparametrar. Request-objektet kan användas för att manipulera begärandemeddelandet som associeras med operationen. Här före utlösaren körs med skapandet av ett dokument och brödtext i begäran innehåller ett dokument ska skapas i JSON-format.   
 
 När utlösare är registrerade anger användare vilka åtgärder som inte har. Den här utlösaren har skapats med TriggerOperation.Create, vilket innebär att använda utlösaren i en ersättningsåtgärden som visas i följande kod inte är tillåtet.
 
-    var options = { preTriggerInclude: "validateDocumentContents" };
+```javascript
+var options = { preTriggerInclude: "validateDocumentContents" };
 
-    client.replaceDocumentAsync(docToReplace.self,
-                  newDocBody, options)
-    .then(function (response) {
-        console.log(response.resource);
-    }, function (error) {
-        console.log("Error", error);
-    });
+client.replaceDocumentAsync(docToReplace.self,
+              newDocBody, options)
+.then(function (response) {
+    console.log(response.resource);
+}, function (error) {
+    console.log("Error", error);
+});
 
-    // Fails, can’t use a create trigger in a replace operation
+// Fails, can’t use a create trigger in a replace operation
 
-### <a name="database-post-triggers"></a>Efter databasutlösare
-Efter utlösare som före utlösare associeras med en åtgärd på ett dokument och får inte indataparametrar. De körs **när** åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten.   
+### Database post-triggers
+Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
-I följande exempel visas efter utlösare i praktiken:
+The following example shows post-triggers in action:
 
-    var updateMetadataTrigger = {
-        id: "updateMetadata",
-        serverScript: function updateMetadata() {
-            var context = getContext();
-            var collection = context.getCollection();
-            var response = context.getResponse();
+var updateMetadataTrigger = {
+    id: "updateMetadata",
+    serverScript: function updateMetadata() {
+        var context = getContext();
+        var collection = context.getCollection();
+        var response = context.getResponse();
 
-            // document that was created
-            var createdDocument = response.getBody();
+        // document that was created
+        var createdDocument = response.getBody();
 
-            // query for metadata document
-            var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
-            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
-                updateMetadataCallback);
-            if(!accept) throw "Unable to update metadata, abort";
+        // query for metadata document
+        var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
+        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
+            updateMetadataCallback);
+        if(!accept) throw "Unable to update metadata, abort";
 
-            function updateMetadataCallback(err, documents, responseOptions) {
-                if(err) throw new Error("Error" + err.message);
-                         if(documents.length != 1) throw 'Unable to find metadata document';
+        function updateMetadataCallback(err, documents, responseOptions) {
+            if(err) throw new Error("Error" + err.message);
+                     if(documents.length != 1) throw 'Unable to find metadata document';
 
-                         var metadataDocument = documents[0];
+                     var metadataDocument = documents[0];
 
-                         // update metadata
-                         metadataDocument.createdDocuments += 1;
-                         metadataDocument.createdNames += " " + createdDocument.id;
-                         var accept = collection.replaceDocument(metadataDocument._self,
-                               metadataDocument, function(err, docReplaced) {
-                                      if(err) throw "Unable to update metadata, abort";
-                               });
-                         if(!accept) throw "Unable to update metadata, abort";
-                         return;                    
-            }                                                                                            
-        },
-        triggerType: TriggerType.Post,
-        triggerOperation: TriggerOperation.All
-    }
+                     // update metadata
+                     metadataDocument.createdDocuments += 1;
+                     metadataDocument.createdNames += " " + createdDocument.id;
+                     var accept = collection.replaceDocument(metadataDocument._self,
+                           metadataDocument, function(err, docReplaced) {
+                                  if(err) throw "Unable to update metadata, abort";
+                           });
+                     if(!accept) throw "Unable to update metadata, abort";
+                     return;                    
+        }                                                                                            
+    },
+    triggerType: TriggerType.Post,
+    triggerOperation: TriggerOperation.All
+}
 
 
-Utlösaren kan registreras som visas i följande exempel.
+The trigger can be registered as shown in the following sample.
 
-    // register post-trigger
-    client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
-        .then(function(createdTrigger) { 
-            var docToCreate = { 
-                name: "artist_profile_1023",
-                artist: "The Band",
-                albums: ["Hellujah", "Rotators", "Spinning Top"]
-            };
+// register post-trigger
+client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
+    .then(function(createdTrigger) { 
+        var docToCreate = { 
+            name: "artist_profile_1023",
+            artist: "The Band",
+            albums: ["Hellujah", "Rotators", "Spinning Top"]
+        };
 
-            // run trigger while creating above document 
-            var options = { postTriggerInclude: "updateMetadata" };
+        // run trigger while creating above document 
+        var options = { postTriggerInclude: "updateMetadata" };
 
-            return client.createDocumentAsync(collection.self,
-                  docToCreate, options);
-        }, function(error) {
-            console.log("Error" , error);
-        })
-    .then(function(response) {
-        console.log(response.resource); 
+        return client.createDocumentAsync(collection.self,
+              docToCreate, options);
     }, function(error) {
         console.log("Error" , error);
-    });
-
+    })
+.then(function(response) {
+    console.log(response.resource); 
+}, function(error) {
+    console.log("Error" , error);
+});
+```
 
 Den här utlösaren frågar för Metadatadokumentet och uppdaterar med information om det nyligen skapade dokumentet.  
 
@@ -453,42 +468,45 @@ Användardefinierade funktioner (UDF) används för att utöka Azure Cosmos-Data
 
 I följande exempel skapas en användardefinierad funktion för att beräkna skatter baserat på priser för olika intäkter hakparenteser och sedan används i en fråga för att hitta alla personer som betald mer än 20 000 i skatter.
 
-    var taxUdf = {
-        id: "tax",
-        serverScript: function tax(income) {
+```javascript
+var taxUdf = {
+    id: "tax",
+    serverScript: function tax(income) {
 
-            if(income == undefined) 
-                throw 'no input';
+        if(income == undefined) 
+            throw 'no input';
 
-            if (income < 1000) 
-                return income * 0.1;
-            else if (income < 10000) 
-                return income * 0.2;
-            else
-                return income * 0.4;
-        }
+        if (income < 1000) 
+            return income * 0.1;
+        else if (income < 10000) 
+            return income * 0.2;
+        else
+            return income * 0.4;
     }
-
+}
+```
 
 UDF-filen kan därefter användas i frågor som i följande exempel:
 
-    // register UDF
-    client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
-        .then(function(response) { 
-            console.log("Created", response.resource);
+```javascript
+// register UDF
+client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
+    .then(function(response) { 
+        console.log("Created", response.resource);
 
-            var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-            return client.queryDocuments('dbs/testdb/colls/testColl',
-                   query).toArrayAsync();
-        }, function(error) {
-            console.log("Error" , error);
-        })
-    .then(function(response) {
-        var documents = response.feed;
-        console.log(response.resource); 
+        var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
+        return client.queryDocuments('dbs/testdb/colls/testColl',
+               query).toArrayAsync();
     }, function(error) {
         console.log("Error" , error);
-    });
+    })
+.then(function(response) {
+    var documents = response.feed;
+    console.log(response.resource); 
+}, function(error) {
+    console.log("Error" , error);
+});
+```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript språkintegrerade frågan API
 Förutom att utfärda frågor med Azure Cosmos DB SQL-grammatik kan serversidan SDK du utföra optimerade frågor en flytande JavaScript-gränssnittet utan kännedom om SQL. Frågan JavaScript API kan du skapa frågor via programmering genom att skicka predikat funktioner till chainable funktionen anropas med en bekant för ECMAScript5's matris built-ins och populära JavaScript-bibliotek som Lodash syntax. Frågor tolkas av JavaScript-körning för att köra ett effektivt sätt med hjälp av Azure Cosmos DB.
@@ -578,57 +596,59 @@ Mer information finns i [serversidan JSDocs](http://azure.github.io/azure-docume
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exempel: Skriv en lagrad procedur med hjälp av JavaScript-fråga API
 Följande kodexempel är ett exempel på hur JavaScript frågan API kan användas i kontexten för en lagrad procedur. Den lagrade proceduren infogar ett dokument som anges av en indataparameter och uppdaterar en metadata dokument, med hjälp av den `__.filter()` metod med minstorlek maxSize och totalSize baserat på inkommande dokumentet egenskapen.
 
-    /**
-     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
-     */
-    function insertDocumentAndUpdateMetadata(doc) {
-      // HTTP error codes sent to our callback funciton by DocDB server.
-      var ErrorCode = {
-        RETRY_WITH: 449,
-      }
+```javascript
+/**
+ * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+ */
+function insertDocumentAndUpdateMetadata(doc) {
+  // HTTP error codes sent to our callback funciton by DocDB server.
+  var ErrorCode = {
+    RETRY_WITH: 449,
+  }
 
-      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+  var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+    if (err) throw err;
+
+    // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+    if (!doc.isMetadata && doc.size > 0) {
+      // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+      var result = __.filter(function(x) {
+        return x.isMetadata === true
+      }, function(err, feed, options) {
         if (err) throw err;
 
-        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
-        if (!doc.isMetadata && doc.size > 0) {
-          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
-          var result = __.filter(function(x) {
-            return x.isMetadata === true
-          }, function(err, feed, options) {
-            if (err) throw err;
+        // We assume that metadata doc was pre-created and must exist when this script is called.
+        if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
 
-            // We assume that metadata doc was pre-created and must exist when this script is called.
-            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+        // The metadata document.
+        var metaDoc = feed[0];
 
-            // The metadata document.
-            var metaDoc = feed[0];
+        // Update metaDoc.minSize:
+        // for 1st document use doc.Size, for all the rest see if it's less than last min.
+        if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+        else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
 
-            // Update metaDoc.minSize:
-            // for 1st document use doc.Size, for all the rest see if it's less than last min.
-            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
-            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+        // Update metaDoc.maxSize.
+        metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
 
-            // Update metaDoc.maxSize.
-            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+        // Update metaDoc.totalSize.
+        metaDoc.totalSize += doc.size;
 
-            // Update metaDoc.totalSize.
-            metaDoc.totalSize += doc.size;
-
-            // Update/replace the metadata document in the store.
-            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
-              if (err) throw err;
-              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
-              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
-              //       We have to take care of that on the client side.
-            });
-            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
-          });
-          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
-        }
+        // Update/replace the metadata document in the store.
+        var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+          if (err) throw err;
+          // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+          //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+          //       We have to take care of that on the client side.
+        });
+        if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
       });
-      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+      if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
     }
+  });
+  if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+}
+```
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL till Javascript-fusklapp
 I följande tabell visas olika SQL-frågor och motsvarande JavaScript-frågor.
@@ -665,74 +685,78 @@ Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till form
 ## <a name="client-sdk-support"></a>Stöd för klient-SDK
 Utöver Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB har [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), och [Python SDK](sql-api-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och köras med hjälp av dessa SDK: er samt. I följande exempel visas hur du skapar och köra en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typer som skickas till den lagrade proceduren som JSON och läsa tillbaka.
 
-    var markAntiquesSproc = new StoredProcedure
-    {
-        Id = "ValidateDocumentAge",
-        Body = @"
-                function(docToCreate, antiqueYear) {
-                    var collection = getContext().getCollection();    
-                    var response = getContext().getResponse();    
+```javascript
+var markAntiquesSproc = new StoredProcedure
+{
+    Id = "ValidateDocumentAge",
+    Body = @"
+            function(docToCreate, antiqueYear) {
+                var collection = getContext().getCollection();    
+                var response = getContext().getResponse();    
 
-                    if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
-                        docToCreate.antique = true;
-                    }
+                if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
+                    docToCreate.antique = true;
+                }
 
-                    collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
-                        function(err, docCreated, options) { 
-                            if(err) throw new Error('Error while creating document: ' + err.message);                              
-                            if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
-                            response.setBody(docCreated);
-                    });
-             }"
-    };
+                collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
+                    function(err, docCreated, options) { 
+                        if(err) throw new Error('Error while creating document: ' + err.message);                              
+                        if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
+                        response.setBody(docCreated);
+                });
+         }"
+};
 
-    // register stored procedure
-    StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
-    dynamic document = new Document() { Id = "Borges_112" };
-    document.Title = "Aleph";
-    document.Year = 1949;
+// register stored procedure
+StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
+dynamic document = new Document() { Id = "Borges_112" };
+document.Title = "Aleph";
+document.Year = 1949;
 
-    // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
-
+// execute stored procedure
+Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
+```
 
 Det här exemplet visas hur du använder den [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) att skapa en före utlösare och skapa ett dokument med utlösaren aktiveras. 
 
-    Trigger preTrigger = new Trigger()
+```javascript
+Trigger preTrigger = new Trigger()
+{
+    Id = "CapitalizeName",
+    Body = @"function() {
+        var item = getContext().getRequest().getBody();
+        item.id = item.id.toUpperCase();
+        getContext().getRequest().setBody(item);
+    }",
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+};
+
+Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
+    new RequestOptions
     {
-        Id = "CapitalizeName",
-        Body = @"function() {
-            var item = getContext().getRequest().getBody();
-            item.id = item.id.toUpperCase();
-            getContext().getRequest().setBody(item);
-        }",
-        TriggerOperation = TriggerOperation.Create,
-        TriggerType = TriggerType.Pre
-    };
-
-    Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
-        new RequestOptions
-        {
-            PreTriggerInclude = new List<string> { "CapitalizeName" },
-        });
-
+        PreTriggerInclude = new List<string> { "CapitalizeName" },
+    });
+```
 
 Och följande exempel visar hur du skapar en användardefinierad funktion (UDF) och använda den i en [SQL-frågan](sql-api-sql-query.md).
 
-    UserDefinedFunction function = new UserDefinedFunction()
+```javascript
+UserDefinedFunction function = new UserDefinedFunction()
+{
+    Id = "LOWER",
+    Body = @"function(input) 
     {
-        Id = "LOWER",
-        Body = @"function(input) 
-        {
-            return input.toLowerCase();
-        }"
-    };
+        return input.toLowerCase();
+    }"
+};
 
-    foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
-        "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
-    {
-        Console.WriteLine("Read {0} from query", book);
-    }
+foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
+    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
+{
+    Console.WriteLine("Read {0} from query", book);
+}
+```
 
 ## <a name="rest-api"></a>REST-API
 Alla Azure DB som Cosmos-åtgärder kan utföras på ett RESTful sätt. Lagrade procedurer, utlösare och användardefinierade funktioner kan registreras i en samling med hjälp av HTTP POST. I följande exempel visas hur du registrerar en lagrad procedur:

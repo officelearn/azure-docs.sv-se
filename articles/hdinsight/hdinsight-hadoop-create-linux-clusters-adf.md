@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 53ff14e00b88f6d182579ba0d9df630fae9b3d78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d54d3481176b36a0d13a9b8af2fad03349b81be
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771141"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36229261"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -80,12 +80,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-<<<<<<< HEAD
 Login-AzureRmAccount
-=======
-try{Get-AzureRmContext}
-catch{Connect-AzureRmAccount}
->>>>>>> refs/remotes/MicrosoftDocs/release-build-hdinsight-2018
 #endregion
 
 ####################################
@@ -186,7 +181,7 @@ I den här artikeln konfigurerar du Hive-aktiviteten för att skapa en HDInsight
 
     Ange eller välj följande värden:
     
-    |Egenskap  |Beskrivning  |
+    |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Namn** |  Ange ett namn för data factory. Det här namnet måste vara globalt unika.|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
@@ -195,7 +190,7 @@ I den här artikeln konfigurerar du Hive-aktiviteten för att skapa en HDInsight
     |**Plats**     | Platsen anges automatiskt till den plats du angav när du skapar resursgruppen tidigare. Den här självstudiekursen har platsen angetts **östra USA 2**. |
     
 
-3. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**. Du bör se en ny panel med titeln **skickar distribution** på portalens instrumentpanel. Skapa en datafabrik kan ta allt mellan 2-4 minuter.
+3. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**. Du ser en ny panel som heter **Skicka distribution** på portalens instrumentpanel. Skapa en datafabrik kan ta allt mellan 2-4 minuter.
 
     ![Mallen förlopp](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "mallen distribution pågår") 
  
@@ -244,7 +239,7 @@ I det här avsnittet kan skapa du två länkade tjänster i din data factory.
 
     Ange följande värden och lämna resten som standard.
 
-    | Egenskap | Beskrivning |
+    | Egenskap  | Beskrivning |
     | --- | --- |
     | Namn | Ange ett namn för länkad HDInsight-tjänst |
     | Typ | Välj **HDInsight på begäran** |

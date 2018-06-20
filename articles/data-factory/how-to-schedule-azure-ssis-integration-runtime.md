@@ -3,22 +3,22 @@ title: Så här schemalägger du Azure SSIS-integrering runtime | Microsoft Docs
 description: Den här artikeln beskriver hur du schemalägger starta och stoppa en körning för Azure SSIS-integrering med Azure Automation och Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/01/2018
-ms.author: douglasl
-ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297802"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266829"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Hur du startar och stoppar Azure SSIS-integrering runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) kostnader som är kopplade till den. Du vill därför vanligtvis IR endast körs när du behöver köra SSIS-paket i Azure och stoppa IR när det inte behövs. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).

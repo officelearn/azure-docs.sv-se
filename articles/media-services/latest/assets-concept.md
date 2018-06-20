@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 791871fc3da98b380da9dbe32333a55f670c22e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638287"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268243"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -36,17 +36,17 @@ I följande tabell visas tillgångens egenskaper och ger deras definitioner.
 
 |Namn|Typ|Beskrivning|
 |---|---|---|
-|Id|sträng|Fullständiga resurs-ID för resursen.|
-|namn|sträng|Namnet på resursen.|
+|ID|Sträng|Fullständiga resurs-ID för resursen.|
+|namn|Sträng|Namnet på resursen.|
 |properties.alternateId |sträng|Alternativt ID för tillgången.|
 |properties.assetId |sträng|Tillgångsinformation-ID.|
-|Properties.container |sträng|Namnet på blob-behållaren tillgången.|
+|Properties.container |Sträng|Namnet på blob-behållaren tillgången.|
 |Properties.Created |sträng|Skapandedatum för tillgången.|
-|properties.description |sträng|Beskrivning för tillgången.|
+|properties.description |Sträng|Beskrivning för tillgången.|
 |properties.lastModified |sträng|Senaste ändringsdatum för tillgången.|
 |properties.storageAccountName |sträng|Namnet på lagringskontot.|
 |properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Tillgångsinformation krypteringsformat. En NONE eller MediaStorageEncryption.|
-|typ|sträng|Typ av resursen.|
+|typ|Sträng|Typ av resursen.|
 
 Se för en fullständig definition [tillgångar](https://docs.microsoft.com/rest/api/media/assets).
 
@@ -65,17 +65,17 @@ Följande tabell visar hur dessa alternativ kan tillämpas på Egenskaper för t
 
 |Namn|Filter|Ordning|
 |---|---|---|
-|Id|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
+|ID|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
 |namn|||
 |properties.alternateId |Stöder:<br/>Lika med||
-|properties.assetId |Stöder:<br/>Lika med||
+|properties.assetId |Har stöd för:<br/>Lika med||
 |Properties.container |||
 |Properties.Created|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
-|typ|||
+|Typ|||
 
 Följande C#-exempel filtrerar på Skapad datum:
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 Sidbrytning stöds för var och en av de fyra aktiverade sorteringsordningar. 
 
-Om ett frågesvar innehåller många (för närvarande via 1000)-objekt, tjänsten returnerar en ”@odata.nextLink” egenskapen för att hämta nästa sida i resultaten. Detta kan användas för att bläddra igenom hela resultatmängden. Sidstorleken kan inte konfigureras av användaren. 
+Om ett frågesvar innehåller många (för närvarande via 1000)-objekt, tjänsten returnerar ett ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultaten. Detta kan användas för att bläddra igenom hela resultatmängden. Sidstorleken kan inte konfigureras av användaren. 
 
 Om tillgångar skapas eller tas bort vid växling genom insamling, syns ändringarna i returnerade resultat (om ändringarna i en del av den samling som inte har hämtats.) 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 REST-exempel finns [tillgångar - lista](https://docs.microsoft.com/rest/api/media/assets/list)
+
+
+### <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
+
+För att skydda dina tillgångar vilande ska tillgångarna krypteras med kryptering för lagring på serversidan. Följande tabell visar hur sida lagringskryptering fungerar i Media Services:
+
+|Krypteringsalternativ|Beskrivning|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services-Lagringskryptering|AES-256-kryptering, nyckel hanteras av Media Services|Stöd för<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
+|[Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på serversidan som erbjuds av Azure Storage, nyckel hanteras av Azure eller av kunden|Stöds|Stöds|
+|[Kryptering på klientsidan](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Klientsidans kryptering som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
+
+<sup>1</sup> medan Media Services stöder hantering av innehållet i klartext/utan någon form av kryptering, göra så rekommenderas inte.
+
+<sup>2</sup> i Media Services v3 lagringskryptering (AES 256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar har skapats med Media Services v2. Vilket innebär att v3 fungerar med befintlig lagring krypterad tillgångar, men tillåter inte att skapa nya.
 
 ## <a name="next-steps"></a>Nästa steg
 

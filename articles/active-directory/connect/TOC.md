@@ -18,6 +18,7 @@
 ### [Uppgradera från en tidigare version](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Installera med hjälp av en befintlig ADSync-databas](active-directory-aadconnect-existing-database.md)
 ### [Installera med hjälp av SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md)
+### [Flytta Azure AD Connect-databasen till fjärransluten SQL Server](active-directory-aadconnect-move-db.md)
 
 # Gör så här för att
 ## Planera och designa

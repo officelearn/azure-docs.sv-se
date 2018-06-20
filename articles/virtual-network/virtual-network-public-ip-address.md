@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658697"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266907"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -90,7 +90,7 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 |Verktyget|Kommando|
 |---|---|
 |CLI|[AZ offentliga ip-lista över](/cli/azure/network/public-ip#az-network-public-ip-list) lista offentliga IP-adresser, [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az-network-public-ip-show) att visa inställningar. [az nätverket offentliga ip-uppdatering](/cli/azure/network/public-ip#az-network-public-ip-update) att uppdatera; [az nätverket offentliga IP-ta bort](/cli/azure/network/public-ip#az-network-public-ip-delete) att ta bort|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta en offentlig IP-adress-objekt och visa dess inställningar [Set AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) att uppdatera inställningarna för; [Ta bort AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) att ta bort|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta en offentlig IP-adress-objekt och visa dess inställningar [Set AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) att uppdatera inställningarna för; [Ta bort AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) att ta bort|
 
 ## <a name="permissions"></a>Behörigheter
 

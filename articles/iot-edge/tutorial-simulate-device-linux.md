@@ -1,80 +1,81 @@
 ---
-title: Simulera Azure IoT kanten på Linux | Microsoft Docs
-description: Installera Azure IoT kant körning på en simulerad enhet i Linux och distribuera din första modulen
-services: iot-edge
-keywords: ''
+title: Simulera Azure IoT Edge på Linux | Microsoft Docs
+description: Installera Azure IoT Edge-körning på en simulerad enhet i Linux och distribuera din första modul
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 0b8b2658af9173cea6a7cdcb0147c7b0dc13a455
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631004"
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Linux eller MacOS - förhandsgranskning
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuera Azure IoT Edge på en simulerad enhet i Linux eller MacOS – förhandsversion
 
-Azure IoT-gräns kan du utföra analyser och databehandling på dina enheter utan att behöva skicka alla data till molnet. IoT kant självstudiekurser visar hur du distribuerar olika typer av moduler som skapats från Azure-tjänster eller anpassad kod, men du måste först en enhet för att testa. 
+Med Azure IoT Edge kan du utföra analyser och databearbetning på dina enheter utan att behöva push-överföra alla data till molnet. I självstudierna för IoT Edge visar vi hur du distribuerar olika typer av moduler som skapats från Azure-tjänster eller anpassad kod, men du måste först ha en enhet som ska testas. 
 
 I den här självstudiekursen får du lära du dig att:
 
-1. Skapa en IoT-hubb
-2. Registrera en IoT-enhet
-3. Starta IoT kant-körning
+1. Skapa en IoT Hub
+2. Registrera en IoT Edge-enhet
+3. Starta IoT Edge-körningen
 4. Distribuera en modul
 
-![Självstudiekurs arkitektur][2]
+![Självstudiens arkitektur][2]
 
-Den simulerade enheten som du skapar i den här kursen är en Övervakare som genererar temperatur, fuktighet och tryck data. Andra kurser i Azure IoT kant bygger på det arbete som du gör här genom att distribuera moduler som analyserar data för affärsinsikter. 
+Den simulerade enheten som du skapar i den här självstudien är en övervakare som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar datan för verksamhetsinsyn. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här kursen använder din dator eller virtuell dator som en Sakernas Internet-enhet. Om du vill göra din dator till en IoT-enhet, krävs följande tjänster:
+Den här självstudien använder din dator eller en virtuell dator som en ”Sakernas Internet”-enhet. Om du vill omvandla din dator till en IoT Edge-enhet måste du ha följande tjänster:
 
-* Python pip att installera IoT kant-körningsmiljön.
+* Python-pip som installerar IoT Edge-körningen.
    * Linux: `sudo apt-get install python-pip`.
-     * _Observera att på vissa distributioner (t.ex. Raspbian), måste du kanske också vill uppgradera vissa pip-paket och installera ytterligare beroenden:_
+     * _Observera att i vissa distributioner (t.ex. Raspbian) kan du också behöva uppgradera vissa pip-paket och installera fler beroenden:_
      ```
      sudo pip install --upgrade setuptools pip
      
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS: `sudo easy_install pip`.
-* Docker att köra IoT-Edge moduler
-   * [Installera Docker för Linux] [ lnk-docker-ubuntu] och se till att den körs. 
-   * [Installera Docker för Mac] [ lnk-docker-mac] och se till att den körs. 
+* Docker, för att köra IoT Edge-modulerna
+   * [Installera Docker för Linux][lnk-docker-ubuntu] och kontrollera att den körs. 
+   * [Installera Docker för Mac][lnk-docker-mac] och kontrollera att den körs. 
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta guiden genom att skapa din IoT-hubb.
-![Skapa IoT-hubb][3]
+Starta självstudien genom att skapa din IoT Hub.
+![Skapa IoT Hub][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
-## <a name="register-an-iot-edge-device"></a>Registrera en IoT-enhet
+## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
-Registrera en IoT-enhet med din nya IoT-hubb.
+Registrera en IoT Edge-enhet med den IoT Hub som du nyss skapade.
 ![Registrera en enhet][4]
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT kant-körning
+## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
-Installera och starta Azure IoT kant-körningsmiljön på enheten. 
+Installera och starta Azure IoT Edge-körningen på enheten. 
 ![Registrera en enhet][5]
 
-IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Den **IoT kant agent** underlättar distribution och övervakning av moduler på IoT gränsenheten. Den **kant för IoT-hubb** hanterar kommunikationen mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. När du konfigurerar körningsmiljön på den nya enheten startar IoT kant agenten först. Gräns för IoT-hubb kommer senare när du distribuerar en modul. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den består av två moduler. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. När du konfigurerar körningen på den nya enheten, är det bara IoT Edge-agenten som startar till att börja med. IoT Edge-hubben startas senare när du distribuerar en modul. 
 
-Hämta skriptet IoT kant kontroll på datorn där du kör IoT gränsenheten:
+Hämta skriptet för IoT Edge-kontroll på datorn där du kommer att köra IoT Edge-enheten:
 ```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
-Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt:
+Konfigurera körningen med anslutningssträngen för IoT Edge-enheten från föregående avsnitt:
 ```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
@@ -84,7 +85,7 @@ Starta körningen:
 sudo iotedgectl start
 ```
 
-Kontrollera Docker för att se att IoT kant-agenten körs som en modul:
+Kontrollera Docker för att se att IoT Edge-agenten körs som en modul:
 ```cmd
 sudo docker ps
 ```
@@ -93,16 +94,16 @@ sudo docker ps
 
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
-Hantera dina Azure IoT insticksenhet från molnet för att distribuera en modul som ska skicka telemetridata till IoT-hubb.
+Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som ska skicka telemetridata till IoT Hub.
 ![Registrera en enhet][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-I den här självstudiekursen skapas en ny IoT Edge-enhet och installerat IoT kant-körningsmiljön. Sedan använde du Azure-portalen för att skicka en IoT kant-modul som ska köras på enheten utan att behöva göra ändringar i själva enheten. I det här fallet skapar den modul som du pushas miljödata som du kan använda för självstudierna. 
+I den här självstudien skapade du en ny IoT Edge-enhet och installerade IoT Edge-körning på den. Sedan använde du Azure Portal till att push-överföra en IoT Edge-modul som ska köras på enheten, utan att du behövde göra några ändringar på själva enheten. I det här fallet skapar modulen som du överförde de miljödata som du använder i självstudierna. 
 
-Öppna Kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet körs på enheten IoT kant:
+Öppna kommandotolken igen på den dator som kör den simulerade enheten. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
 ```cmd
 sudo docker ps
@@ -116,15 +117,15 @@ Visa meddelanden som skickas från modulen tempSensor till molnet:
 sudo docker logs -f tempSensor
 ```
 
-![Visa data från en modul](./media/tutorial-simulate-device-linux/docker-logs.png)
+![Visa data från modulen](./media/tutorial-simulate-device-linux/docker-logs.png)
 
-Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
+Du kan också visa den telemetri som enheten skickar med hjälp av [IoT Hubs utforskarverktyg][lnk-iothub-explorer]. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen, skapas en ny IoT Edge-enhet och används gränssnittet Azure IoT kant molnet för att distribuera kod på enheten. Nu har du en simulerad enhet genererar rådata om sin miljö. 
+I den här självstudien skapade du en ny IoT Edge-enhet och du använde molngränssnittet i Azure IoT Edge till att distribuera kod på enheten. Nu har du en simulerad enhet som genererar rådata om sin miljö. 
 
-Den här kursen är förutsättning för alla andra kurser i IoT kant. Du kan fortsätta in på någon av de andra självstudierna Lär dig hur Azure IoT gräns kan du aktivera dessa data till affärsinsikter kant.
+Den här självstudien är förutsättning för alla andra IoT Edge-självstudier. Du kan fortsätta med någon av de andra självstudierna om du vill lära dig mer om hur Azure IoT Edge kan förvandla dina data till affärsinsikter.
 
 > [!div class="nextstepaction"]
 > [Utveckla och distribuera C#-kod som en modul](tutorial-csharp-module.md)

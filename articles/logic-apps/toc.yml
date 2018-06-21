@@ -268,14 +268,14 @@
       items:
         - name: Övervaka status för logikapp
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Övervaka status för logikapp i OMS med Log Analytics
+        - name: Övervaka logikappstatus med Azure Log Analytics
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: Övervaka B2B-meddelanden
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: Spåra B2B-meddelanden i OMS
+            - name: Spåra B2B-meddelanden i Azure Log Analytics
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Fråga OMS efter B2B-meddelanden
+            - name: Fråga Azure Log Analytics efter B2B-meddelanden
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Exempel, scenarier och genomgångar'
       href: logic-apps-examples-and-scenarios.md

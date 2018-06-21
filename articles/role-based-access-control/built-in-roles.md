@@ -1,6 +1,6 @@
 ---
-title: Inbyggda roller för rollbaserad åtkomstkontroll (RBAC) i Azure | Microsoft Docs
-description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) i Azure. Visar åtgärder och notActions.
+title: Inbyggda roller i Azure | Microsoft Docs
+description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) i Azure. Visar en lista över åtgärder, notActions, dataActions och notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267381"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294504"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
+# <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela användare, grupper och tjänstens huvudnamn. Rolltilldelningar är hur du styr åtkomst till resurser i Azure. Om inbyggda roller inte uppfyller de specifika behoven i din organisation, kan du skapa egna [anpassade roller](custom-roles.md).
 
 Inbyggda roller är alltid under utveckling. För att få de senaste definitionerna för rollen, Använd [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) eller [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list).
@@ -39,7 +39,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-karantändataläsare |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-karantändataskrivare |
-| [API Management-tjänsten deltagare](#api-management-service-contributor) | Kan hantera tjänsten och samtliga API:er |
+| [API Management-tjänsten deltagare](#api-management-service-contributor) | Kan hantera tjänsten och de API: er |
 | [Operatörsrollen för API Management-tjänsten](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Rollen för API Management-tjänsten läsare](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
@@ -51,7 +51,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Säkerhetskopiering deltagare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
 | [Säkerhetskopiering läsare](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
-| [Fakturering läsare](#billing-reader) | Tillåter läsåtkomst till faktureringsdata |
+| [Fakturering läsare](#billing-reader) | Tillåter läsbehörighet för faktureringsinformation |
 | [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
 | [CDN-slutpunkten deltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-slutpunkten läsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
@@ -63,10 +63,10 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 | [Klassiska Virtual Machine-deltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 | [ClearDB MySQL DB-deltagare](#cleardb-mysql-db-contributor) | Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem. |
 | [Rollen för läsare av cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa Azure Cosmos DB kontodata. Se [DocumentDB-konto deltagare](#documentdb-account-contributor) för att hantera Azure DB som Cosmos-konton. |
-| [Data Factory deltagare](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
+| [Data Factory deltagare](#data-factory-contributor) | Skapa och hantera datafabriker, samt underordnade resurser i dem. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
-| [Data Purger](#data-purger) | Kan rensa analysdata |
-| [DevTest Labs användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
+| [Data Purger](#data-purger) | Det går att rensa analysdata |
+| [DevTest Labs användare](#devtest-labs-user) | Kan du ansluta, starta, -omstart och -avstängning dina virtuella datorer i Azure DevTest Labs. |
 | [DNS-zonen deltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-konto deltagare](#documentdb-account-contributor) | Hantera Azure DB som Cosmos-konton. Azure Cosmos-DB är kallades DocumentDB. |
 | [Intelligenta System-kontot deltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
@@ -178,7 +178,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan hantera tjänsten och samtliga API:er |
+> | **Beskrivning** | Kan hantera tjänsten och de API: er |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Åtgärder** |  |
 > | Microsoft.ApiManagement/service/* | Skapa och hantera API Management-tjänsten |
@@ -472,7 +472,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läsåtkomst till faktureringsdata |
+> | **Beskrivning** | Tillåter läsbehörighet för faktureringsinformation |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -660,7 +660,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Skapa och hantera datafabriker och deras underordnade resurser. |
+> | **Beskrivning** | Skapa och hantera datafabriker, samt underordnade resurser i dem. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -703,11 +703,11 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Skapa eller uppdatera en princip för beräkning. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Ta bort en princip för beräkning. |
 
-## <a name="data-purger"></a>Data Purger
+## <a name="data-purger"></a>Datarensaren
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan rensa analysdata |
+> | **Beskrivning** | Det går att rensa analysdata |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Åtgärder** |  |
 > | Microsoft.Insights/components/*/read |  |
@@ -719,7 +719,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
+> | **Beskrivning** | Kan du ansluta, starta, -omstart och -avstängning dina virtuella datorer i Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -1110,7 +1110,7 @@ Följande tabell innehåller en kort beskrivning av de inbyggda rollerna. Klicka
 > | Microsoft.Security/policies/write | Uppdaterar säkerhetsprincipen |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="security-manager-legacy"></a>Säkerhetshanteraren (bakåtkompatibel)
+## <a name="security-manager-legacy"></a>Säkerhetshanteraren (äldre)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

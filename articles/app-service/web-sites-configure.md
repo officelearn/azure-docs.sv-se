@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234537"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293724"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -46,7 +46,7 @@ Den **programinställningar** bladet har inställningar som är grupperade under
 Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen för .NET, PHP och Python.
 
 <a name="platform"></a>
-**Plattform**. Anger om ditt webbprogram kör i en 32-bitars eller 64-bitars miljö. 64-bitars miljö kräver Basic eller Standard-läge. Frigör och delade lägen köras alltid i en 32-bitars-miljö.
+**Plattform**. Anger om ditt webbprogram kör i en 32-bitars eller 64-bitars miljö. 64-bitars miljö kräver Basic eller Standard-nivån. Frigör och delade nivån körs alltid i en 32-bitars-miljö.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen f
 **Always On**. Som standard inaktiveras webbappar om de är inaktiv under en tidsperiod. Detta gör att systemet spara resurser. I Basic eller Standard-läge kan du aktivera **alltid på** att appen att läsa in hela tiden. Om din app körs kontinuerliga Webbjobb eller körs WebJobs aktiveras med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller web-jobb körs inte på ett tillförlitligt sätt.
 
 **Hanterat Pipeline-Version**. Anger IIS [Pipeline-läge]. Låt den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
+
+**HTTP-versionen**. Ange till **2.0** att aktivera stöd för [HTTPS-2](https://wikipedia.org/wiki/HTTP/2) protokoll. 
+
+> [!NOTE]
+> De flesta moderna webbläsare HTTP/2-protokoll via TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. Se till att klientdatorer webbläsare ansluter till din app med HTTP/2, antingen [köpa ett certifikat för App Service](web-sites-purchase-ssl-web-site.md) för den anpassade domänen för din app eller [bind ett certifikat från tredje part](app-service-web-tutorial-custom-ssl.md).
+
+**ARR tillhörighet**. I en app som skalas ut till flera VM-instanser, ARR tillhörighet cookies garanterar att klienten dirigeras till samma instans för sessionen. För att förbättra prestanda för tillståndslösa program kan du ange **av**.   
 
 **Automatisk växling**. Om du aktiverar automatisk växling för en distributionsplats Apptjänst automatiskt att växla som webbappen till produktionen när du trycker på en uppdatering till platsen. Mer information finns i [till mellanlagring fack för web apps i Azure App Service](web-sites-staged-publishing.md).
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807263"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285856"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Dokumentation om Azure-fakturering och kostnadshantering
 
@@ -133,7 +133,7 @@ Lär dig att förstå din Azure-fakturering, hantera, övervaka användning och 
                     <div class="cardText">
                         <h3>Håll kostnaderna nere med Reserved VM Instances</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Vad är reserverade instanser?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Vad är reserverade instanser?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Köp en reserverad instans</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Så här tillämpas rabatter</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Programvarukostnader som inte ingår</a>
@@ -165,12 +165,18 @@ Lär dig att förstå din Azure-fakturering, hantera, övervaka användning och 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Felsöka</h3>
+                        <h3>Företagsprenumeration: kräver EA portalåtkomst</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">"Det gick inte att hitta någon prenumeration"</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Nekat kort</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Registreringsproblem</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Inloggningsproblem</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Hantera avdelningar<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Hantera konton<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Skapa prenumerationer<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">Visa prisdokument<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">Visa användningsinformation<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>

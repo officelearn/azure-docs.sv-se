@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Självstudier
   items:
-    - name: 1 – Registrera program
-      href: tutorial-register-applications.md
+    - name: 1 – Skapa B2C-klient
+      href: tutorial-create-tenant.md
     - name: 2 – Autentisera konton
       items:
         - name: ASP.NET

@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: Konfigurera
       items:
-        - name: Virtuella datorer
-          items:
-            - name: Lägg till eller ta bort nätverksgränssnitt
-              href: virtual-network-network-interface-vm.md
-            - name: Namnmatchning för virtuella datorer och molntjänster
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: Namnmatchning för virtuella datorer och molntjänster
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Använda dynamisk DNS med din egen DNS-server
           href: virtual-networks-name-resolution-ddns.md
         - name: Optimera nätverkets dataflöde
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: Routningstabeller
           href: manage-route-table.md
-        - name: Nätverksgränssnitt
-          href: virtual-network-network-interface.md
+        - name: Nätverk med virtuella datorer
           items:
-            - name: IP-adresser
+            - name: Skapa eller ta bort ett nätverksgränssnitt
+              href: virtual-network-network-interface.md
+            - name: Lägg till eller ta bort nätverksgränssnitt
+              href: virtual-network-network-interface-vm.md
+            - name: Lägga till eller ta bort IP-adresser
               href: virtual-network-network-interface-addresses.md
         - name: Offentliga IP-adresser
           href: virtual-network-public-ip-address.md
-        - name: Virtuella datorer
-          items:
-            - name: Flytta en virtuell dator till ett annat undernät
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: Felsöka
       items:
         - name: Nätverkssäkerhetsgrupper
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: Flytta en virtuell dator till ett annat undernät
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: Säkerhet i molntjänst och nätverk
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

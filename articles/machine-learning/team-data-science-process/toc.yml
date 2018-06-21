@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: Sentimentklassificering
+        - name: Sentimentklassificering med Keras & Scikit Learn
           href: predict-twitter-sentiment.md
+        - name: Sentimentklassificering med AML-paket för textanalys
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: Amerikansk intäktsklassificering
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Biomedicinsk enhetsidentifiering
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: Klassificering av hudcancerfoto
+        - name: Klassificering av hudcancerbilder med AML-paket för visuellt innehåll
           href: isic-image-classification.md
           maintainContext: true
     - name: Spark med PySpark och Scala

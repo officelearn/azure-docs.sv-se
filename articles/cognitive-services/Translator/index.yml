@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Translator Text API
+metadata:
+  title: Dokumentation om Translator Text – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Lär dig hur du använder Translator Text API för att översätta text på flera språk.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+  ms.openlocfilehash: 55ec3147a07c5c76fe1f1b356d633a9afeb783cc
+  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 06/20/2018
+  ms.locfileid: "36286916"
+abstract:
+  description: Microsoft Translator Text API är en molnbaserad maskinöversättningstjänst. Med detta API kan du översätta text i nära realtid från valfri app eller tjänst via ett enkelt REST API-anrop. API:et använder den senaste tekniken inom neural maskinöversättning och erbjuder även teknik för statistisk maskinöversättning. Listan med språk som stöds, både för neural maskinöversättning och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Kom igång med Translator Text API:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: Översätt text från ett språk till ett annat
+      values:
+      - href: quickstart-csharp-translate
+      - href: quickstart-java-translate
+      - href: 
+      - href: 
+    - title: Konvertera text från ett skript till ett annat
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: quickstart-java-transliterate
+      - href: 
+      - href: 
+    - title: Identifiera språket i texten
+      values:
+      - href: quickstart-csharp-detect
+      - href: quickstart-java-detect
+      - href: 
+      - href: 
+    - title: Hämta alternativa översättningar och användning
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: quickstart-java-dictionary
+      - href: 
+      - href: 
+- title: Referens
+  items:
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">API-referens</a></p>

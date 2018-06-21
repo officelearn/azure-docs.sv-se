@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e82699b29a0333fae66fefdac8f5326c7e34e11
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af4fe8ce4d9f5584241b56762ddf9c60aa28f0ba
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712478"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293378"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C 
 
@@ -108,4 +108,4 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 Nästa steg är att skapa din egen Azure AD B2C-klientorganisation och konfigurera exemplet som ska köras med hjälp av klientorganisationen. 
 
 > [!div class="nextstepaction"]
-> [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](active-directory-b2c-get-started.md)
+> [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

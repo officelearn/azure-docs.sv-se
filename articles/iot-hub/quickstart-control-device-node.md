@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: a173b77d969697f85eab0d5976e5bc0a1796fe75
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 8d771fb17019e39da93995d0244c8089ea4a08b7
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808578"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286553"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Node.js)
 
@@ -131,9 +131,8 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att gå vidare till självstudierna så lämna resursgruppen och IoT-hubben och återanvänd till dem senare.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

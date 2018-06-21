@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738346"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296178"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -145,6 +145,9 @@ För Azure filsynkronisering och DFS-R ska fungera sida-vid-sida:
 
 Mer information finns i [översikt över DFS Replication](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Windows Search
+Om molnet skiktning är aktiverat på en serverslutpunkt, filer som är kalla hoppas över och inte indexeras av Windows Search. Icke-nivåer filer som indexeras korrekt.
+
 ### <a name="antivirus-solutions"></a>Antivirusprogram lösningar
 Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan ett antivirusprogram orsaka återkallar nivåindelade filer. Eftersom nivåindelade filer har ”offline” attributet, rekommenderar vi att du samråd med programleverantören att lära dig hur du konfigurerar sitt lösning för att hoppa över läsa offlinefiler. 
 
@@ -158,6 +161,11 @@ Följande lösningar är kända för att stödja hoppar över offline-filer:
 
 ### <a name="backup-solutions"></a>Säkerhetskopieringslösningar
 Säkerhetskopieringslösningar kan orsaka återkallar nivåindelade filer som antivirus lösningar. Vi rekommenderar att du säkerhetskopierar Azure-filresursen i stället för en lokal säkerhetskopiering produkt med en lösning för säkerhetskopiering av molnet.
+
+Om du använder en lokal lösning för säkerhetskopiering ska säkerhetskopiering utföras på en server i gruppen synkronisering som har moln skiktning inaktiverad. När du återställer filer i slutpunkten serverplatsen använda alternativet filen nivån återställning. Filer som har återställts kommer att synkroniseras till alla slutpunkter i gruppen synkronisering och befintliga filer kommer att ersättas med den version som återställts från säkerhetskopian.
+
+> [!Note]  
+> Programmedveten, volymnivå och utan operativsystem (BMR) återställningsalternativ kan orsaka oväntade resultat och stöds inte för närvarande. Dessa alternativ kommer att stödjas i en framtida utgåva återställning.
 
 ### <a name="encryption-solutions"></a>Krypteringslösningar
 Stöd för krypteringslösningar beror på hur de är implementerade. Azure filsynkronisering är känt att arbeta med:
@@ -180,6 +188,7 @@ Azure filsynkronisering är endast tillgänglig i följande regioner i förhands
 | Region | Datacenter-plats |
 |--------|---------------------|
 | Östra Australien | New South Wales |
+| Sydöstra Australien | Victoria |
 | Centrala Kanada | Toronto |
 | Östra Kanada | Quebec City |
 | Centrala USA | Iowa |
@@ -189,6 +198,7 @@ Azure filsynkronisering är endast tillgänglig i följande regioner i förhands
 | Norra Europa | Irland |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
+| Storbritannien, västra | Cardiff |
 | Västra Europa | Nederländerna |
 | Västra USA | Kalifornien |
 

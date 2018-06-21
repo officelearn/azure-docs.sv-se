@@ -1,6 +1,6 @@
 ---
 title: Visa aktivitetsloggar för RBAC ändringar i Azure | Microsoft Docs
-description: Visa aktivitetsloggar för rollbaserad åtkomst kontrollen ändras under de senaste 90 dagarna.
+description: Visa aktivitet ändringar i loggen för rollbaserad åtkomstkontroll (RBAC) under de senaste 90 dagarna.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266667"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293395"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Visa aktivitetsloggar för rollbaserad åtkomst kontrollen ändras
+# <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
 Ibland behöver du information om ändringar för rollbaserad åtkomstkontroll (RBAC), såsom för granskning eller felsökning. När någon försöker göra ändringar i rolltilldelningar eller rolldefinitioner i dina prenumerationer ändringarna får loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Du kan visa aktivitetsloggar om du vill se alla RBAC ändringar under de senaste 90 dagarna.
 

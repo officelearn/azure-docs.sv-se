@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure migrera adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: a18cab73a019039bf5e5829ad1faa4b8f1a70391
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209953"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285713"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure migrera – och vanliga frågor svar (FAQ)
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure migrera. Om du h
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Hur skiljer Azure migrera från Azure Site Recovery?
 
-Azure migrera är en bedömning-tjänst som hjälper dig att identifiera lokala arbetsbelastningar och planera migreringen till Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), tillsammans med som en lösning för katastrofåterställning, kan du migrera lokala arbetsbelastningar till virtuella IaaS-datorer i Azure. 
+Azure migrera är en bedömning-tjänst som hjälper dig att identifiera lokala arbetsbelastningar och planera migreringen till Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), tillsammans med som en lösning för katastrofåterställning, kan du migrera lokala arbetsbelastningar till virtuella IaaS-datorer i Azure.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Hur skiljer Azure migrera från Azure Site Recovery-distribution Planner?
 
@@ -36,6 +36,10 @@ Azure migrera är verktyget för migreringsplanering och Azure Site Recovery-dis
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Behöver Azure migrera vCenter Server för att identifiera en VMware-miljön?
 
 Ja, Azure migrera kräver vCenter Server för att identifiera en VMware-miljön. Det stöder inte identifiering av ESXi-värdar som inte hanteras av en vCenter Server.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Vilka Azure-regioner som stöds av Azure migrera?
+
+Azure migrera stöder för närvarande östra USA och West centrala oss som projektet platser. Observera att även om du kan bara skapa migrering projekt i West centrala USA och östra USA, du kan fortfarande utvärdera dina datorer för [flera platser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projektets plats används bara för att lagra identifierade data.
 
 ## <a name="discovery"></a>Identifiering
 

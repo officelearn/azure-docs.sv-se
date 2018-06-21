@@ -12,39 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/20/2018
 ms.author: TomShinder
-ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418228"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295303"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Att säkra PaaS-webb- och mobila program med Azure Storage
+
 I den här artikeln tar vi upp en samling Azure Storage säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Följande rekommendationer härleds från våra erfarenhet av Azure och upplevelser för kunder som själv.
 
 Den [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md) hittar du mer detaljerad information om Azure Storage och säkerhet.  Den här artikeln tar på en hög nivå vissa av de begrepp som hittades i säkerhetsguiden och länkar till säkerhetsguiden för, samt andra källor, mer information.
 
 ## <a name="azure-storage"></a>Azure Storage
+
 Azure gör det möjligt att distribuera och använda lagring på sätt inte enkelt kan ske lokalt. Du kan nå hög skalbarhet och tillgänglighet relativt visningsläge med Azure storage. Azure storage är inte bara grunden för Windows och Linux virtuella Azure-datorer stöder även stora distribuerade program.
 
 Azure Storage tillhandahåller följande fyra tjänster: Blob Storage, Table Storage, Queue Storage och File Storage. Läs mer i [introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
 
 ## <a name="best-practices"></a>Bästa praxis
+
 Den här artikeln tar följande metodtips:
 
 - NAP:
    - Signaturer för delad åtkomst (SAS)
-   - Hanterade diskar
    - Rollbaserad åtkomstkontroll (RBAC)
 
 - Lagringskryptering:
    - Klient-kryptering för data med högt värde på serversidan
-   - Azure Disk Encryption för virtuella datorer (VM)
    - Kryptering av lagringstjänst
 
 ## <a name="access-protection"></a>NAP
+
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Använda signatur för delad åtkomst i stället för en lagringskontonyckel
 
 I en IaaS-lösning som kör Windows Server- eller Linux virtuella datorer vanligtvis, skyddas filer från avslöjande och manipulering hot med hjälp av mekanismer för kontrollen. På Windows använder du [åtkomstkontrollistor (ACL)](../virtual-network/virtual-networks-acl.md) och på Linux du förmodligen använda [chmod](https://en.wikipedia.org/wiki/Chmod). I princip, detta är exakt vad du skulle göra om du idag skydda filer på en server i ditt eget datacenter.
@@ -66,12 +68,6 @@ SAS kan du dela innehåll på sätt som du vill dela utan att ge bort din Lagrin
 
 Läs mer i [använder signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Läs mer om potentiella risker och rekommendationer för att minska riskerna i [metodtips när du använder SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="use-managed-disks-for-vms"></a>Använda hanterade diskar för virtuella datorer
-
-När du väljer [Azure hanterade diskar](../storage/storage-managed-disks-overview.md), hanteras av Azure storage-konton som du använder för din Virtuella diskar. Allt du behöver göra är att välja vilken typ av disk (Standard eller Premium) och diskstorleken; Azure storage gör resten. Du behöver inte bry dig om skalbarhetsbegränsningar som annars kan ha krävt du till flera lagringskonton.
-
-Läs mer i [vanliga frågor och svar om hanterade och ohanterade premiumdiskar](../storage/storage-faq-for-disks.md).
-
 ### <a name="use-role-based-access-control"></a>Använda rollbaserad åtkomstkontroll
 
 Vi diskuterade tidigare med hjälp av delade signatur åtkomst (SAS) för att bevilja begränsad åtkomst till objekt i ditt lagringskonto till andra klienter, utan att utsätta din lagringskontonyckel för kontot. Ibland uppväger risker med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. Ibland är det enklare att hantera åtkomst på annat sätt.
@@ -89,6 +85,7 @@ Om du vill veta se mer om RBAC:
 - [Azure Storage-säkerhetsguiden](../storage/common/storage-security-guide.md) information om hur du skyddar ditt lagringskonto med RBAC
 
 ## <a name="storage-encryption"></a>Lagringskryptering
+
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Använd klientsidans kryptering för data med högt värde
 
 Kryptering på klientsidan kan du programmässigt kryptera data under överföring innan du laddar upp till Azure Storage och dekryptera data programmässigt när hämtas från lagringsplatsen.  Detta tillhandahåller kryptering av data under överföring, men det ger också kryptering av vilande data.  Klientsidan kryptering är den säkraste metoden för att kryptera dina data, men det kräver att du ändrar ditt program programmässiga och gjorda nyckelhantering processer.
@@ -97,15 +94,12 @@ Kryptering på klientsidan kan du ha ensam kontroll över dina krypteringsnyckla
 
 Kryptering på klientsidan är inbyggd i Java och storage-klientbibliotek för .NET.  Se [kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../storage/storage-client-side-encryption.md) information om kryptering av data i klientprogram och generera och hantera egna krypteringsnycklar.
 
-### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption för virtuella datorer
-Azure Disk Encryption är en funktion som hjälper dig att kryptera din Windows- och Linux IaaS virtuella diskar. Azure Disk Encryption använder funktionen industry standard BitLocker i Windows och funktionen DM-Crypt i Linux att tillhandahålla volymkryptering för Operativsystemet och datadiskar. Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och hantera disk krypteringsnycklar och hemligheter i nyckelvalvet-prenumeration. Lösningen betyder också att krypteras alla data på virtuella diskar i vila i ditt Azure storage.
-
-Se [Azure Disk Encryption för Windows och Linux-IaaS-VM](azure-security-disk-encryption.md).
-
 ### <a name="storage-service-encryption"></a>Kryptering av lagringstjänst
+
 När [Lagringstjänstens kryptering](../storage/storage-service-encryption.md) för File storage är aktiverat data krypteras automatiskt med hjälp av AES 256-kryptering. Microsoft hanterar alla kryptering, dekryptering och hantering av nycklar. Den här funktionen är tillgänglig för LRS- och GRS redundans-typer.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Den här artikeln introduceras du till en samling Azure Storage säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Mer information om hur du skyddar dina PaaS-distributioner finns:
 
 - [Skydda PaaS-distributioner](security-paas-deployments.md)

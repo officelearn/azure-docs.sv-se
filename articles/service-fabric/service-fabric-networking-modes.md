@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205662"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287640"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric-behållaren nätverk lägen
 
@@ -231,7 +231,23 @@ När en behållartjänsten startar om eller flyttas till en annan nod i klustret
      </Endpoints>
    </Resources>
    ```
+   
+6. För Windows kommer en VM-omstart öppna nätverk återskapas. Detta är att minimera ett underliggande problem i nätverksstacken. Standard-beteende är att återskapa i nätverket. Om det här beteendet måste stängas av, kan följande konfiguration användas följt av en config-uppgradering.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>Nästa steg
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
 * [Lär dig mer om Service Fabric service manifest resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

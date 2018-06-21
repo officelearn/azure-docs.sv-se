@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864677"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292567"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställ Licensieringskrav för självbetjäning Azure AD-lösenord
 
-För lösenordsåterställning till funktionen, Azure Active Directory (AD Azure) du *måste ha minst en licens för i din organisation*. Vi framtvingar inte per användare-licensiering om återställning av lösenord. En riktig licens krävs om en användare direkt eller indirekt utnyttjar någon funktion som omfattas av den licensen.
+För lösenordsåterställning till funktionen, Azure Active Directory (AD Azure) du *måste ha minst en licens för i din organisation* för användaren. En riktig licens krävs om en användare direkt eller indirekt utnyttjar någon funktion som omfattas av den licensen.
 
 * **Endast molnbaserad användare**: Office 365 någon betald SKU eller Azure AD Basic
 * **Molnet** eller **lokala användare**: Azure AD Premium P1 eller P2, Enterprise Mobility + Security (EMS) eller Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licenser som krävs för tillbakaskrivning av lösenord
+## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
+
+**Självbetjäning lösenord återställning/ändra/Lås upp med lokala tillbakaskrivning är en funktion för premium Azure AD**. Mer information om licensiering finns i [Azure Active Directory priser plats](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som har tilldelats din klient:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 eller A3
+* Enterprise Mobility + Security E5 eller A5
+* Microsoft 365 E3 eller A3
+* Microsoft 365 E5 eller A5
 * Microsoft 365 F1
 
 > [!WARNING]

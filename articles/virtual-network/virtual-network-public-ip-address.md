@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266907"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287076"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -92,6 +92,16 @@ Offentliga IP-adresser har en nominell kostnad. Om du vill visa prissättning, l
 |CLI|[AZ offentliga ip-lista över](/cli/azure/network/public-ip#az-network-public-ip-list) lista offentliga IP-adresser, [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az-network-public-ip-show) att visa inställningar. [az nätverket offentliga ip-uppdatering](/cli/azure/network/public-ip#az-network-public-ip-update) att uppdatera; [az nätverket offentliga IP-ta bort](/cli/azure/network/public-ip#az-network-public-ip-delete) att ta bort|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta en offentlig IP-adress-objekt och visa dess inställningar [Set AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) att uppdatera inställningarna för; [Ta bort AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) att ta bort|
 
+## <a name="assign-a-public-ip-address"></a>Tilldela en offentlig IP-adress
+
+Lär dig hur du tilldelar en offentlig IP-adress till följande resurser:
+
+- En [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (när du skapar) eller en [befintlig virtuell dator](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Internetriktade belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Programgateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Plats-till-plats-anslutning med en Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Skaluppsättning för virtuell Azure-dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
 ## <a name="permissions"></a>Behörigheter
 
 Om du vill utföra aktiviteter på offentliga IP-adresser måste ditt konto måste ha tilldelats den [network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller en [anpassade](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som tilldelas åtgärderna som anges i följande tabell:
@@ -107,4 +117,3 @@ Om du vill utföra aktiviteter på offentliga IP-adresser måste ditt konto mås
 
 - Skapa en offentlig IP-adress med hjälp av [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller använda Azure [Resource Manager-mallar](template-samples.md)
 - Skapa och använda [Azure princip](policy-samples.md) för det offentliga IP-adresser
-- Tilldela offentliga IP-adresser när du skapar en [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure-dator, en [Azure Internetriktade Azure belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [Azure Programgateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [plats-till-plats-anslutning med en Azure VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), eller en [Skalningsuppsättning för Azure virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

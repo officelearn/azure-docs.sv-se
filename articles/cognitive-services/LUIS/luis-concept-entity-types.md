@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 918f5d9efa1163558e44c2c67028dbf802f479a5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266795"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286026"
 ---
 # <a name="entities-in-luis"></a>Entiteter i THOMAS
 
@@ -66,7 +66,7 @@ THOMAS erbjuder många typer av enheter. fördefinierade entiteter, anpassade da
 | Namn | Kan etikett | Beskrivning |
 | -- |--|--|
 | **Fördefinierade** <br/>[Anpassad](#prebuilt)| |  **Definition**<br>Inbyggda typer som representerar vanliga koncept. <br><br>**lista**<br/>viktiga frasen antal, ordningstal, temperatur, dimension, money, ålder, procent, e-post, URL, telefonnummer och viktiga frasen. <br><br>Fördefinierade entitetsnamn är reserverade. <br><br>Alla färdiga entiteter som har lagts till i programmet returneras i den [endpoint](luis-glossary.md#endpoint) frågan. Mer information finns i [färdiga entiteter](./Pre-builtEntities.md). <br/><br/>[Exempelsvar för entiteten](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Reguljärt uttryck**<br/>[RegEx](#regex)||**Definition**<br>Anpassat reguljärt uttryck för formaterad text. Det är inte skiftlägeskänslig och ignorerar kulturell variant.  <br><br>Den här entiteten är bra för ord eller fraser som formateras konsekvent med alla variationer som också är konsekvent.<br><br>Matchning med reguljära uttryck tillämpas efter stavningen ändringar. <br><br>Om det reguljära uttrycket är för komplex, till exempel med många hakparenteser, går det inte att lägga till uttrycket i modellen. <br><br>**Exempel**<br>`kb[0-9]{6,}` matchar kb123456.<br/><br/>[Snabbstart](luis-quickstart-intents-regex-entity.md)<br>[Exempelsvar för entiteten](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Reguljärt uttryck**<br/>[RegEx](#regex)||**Definition**<br>Anpassat reguljärt uttryck för formaterad rådata utterance text. Det är inte skiftlägeskänslig och ignorerar kulturell variant.  <br><br>Den här entiteten är bra för ord eller fraser som formateras konsekvent med alla variationer som också är konsekvent.<br><br>Matchning med reguljära uttryck tillämpas efter stavningen ändringar. <br><br>Om det reguljära uttrycket är för komplex, till exempel med många hakparenteser, går det inte att lägga till uttrycket i modellen. <br><br>**Exempel**<br>`kb[0-9]{6,}` matchar kb123456.<br/><br/>[Snabbstart](luis-quickstart-intents-regex-entity.md)<br>[Exempelsvar för entiteten](luis-concept-data-extraction.md)|
 | **Enkel** <br/>[Datorn lärt dig](#machine-learned) | ✔ | **Definition**<br>En enkel enhet är en generisk entitet som beskriver ett enda koncept och lärs från datorn lärt dig kontext. Kontexten innehåller word val, word placering och utterance längd.<br/><br/>Det här är en bra entitet för ord eller fraser som inte är konsekvent formaterade men anger samma sak. <br/><br/>[Snabbstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Exempelsvar för entiteten](luis-concept-data-extraction.md#simple-entity-data)|  
 | **lista** <br/>[Exakt matchning](#exact-match)|| **Definition**<br>Listan entiteter representerar en fast, stängd uppsättning relaterade ord tillsammans med deras synoymns i systemet. <br><br>Varje entitet i listan kan ha ett eller flera formulär. Bäst för en känd uppsättning av varianter på olika sätt att representera samma begrepp.<br/><br/>THOMAS identifierar inte ytterligare värden för entiteter i listan. Använd den att se [semantiska ordlista](luis-glossary.md#semantic-dictionary) att få förslag på nya ord baserat på den aktuella listan.<br/><br>Om det finns fler än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. <br/><br/>[Snabbstart](luis-quickstart-intent-and-list-entity.md)<br>[Exempelsvar för entiteten](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Blandat](#mixed) | ✔|**Definition**<br>Patterns.any är en platshållare för variabel längd som används endast i ett mönster mallen utterance Markera där entiteten börjar och slutar.  <br><br>**Exempel**<br>Pattern.any extraherar angivna utterance letar books baserat på titel fullständig rubrik. En mall utterance med pattern.any är `Who wrote {BookTitle}[?]`.<br/><br/>[Självstudie](luis-tutorial-pattern.md)<br>[Exempelsvar för entiteten](luis-concept-data-extraction.md#composite-entity-data)|  

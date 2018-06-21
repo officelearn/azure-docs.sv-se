@@ -1,22 +1,19 @@
 ---
 title: Hantera en processerver i Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hantera en processerver har ställts in för VMware VM och fysisk server-replikering i Azure Site Recovery.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
-editor: ''
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
-ms.openlocfilehash: 096b2890d41402448809ae87759fcd6b67bee2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d1f880a5ec9f0343891999ef3bad11279cb0cfe6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29812742"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285538"
 ---
-# <a name="manage-process-servers"></a>Hantera servrar
+# <a name="manage-process-servers"></a>Hantera processervrar
 
 Som standard installeras processervern som används när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure på den lokala configuration server-datorn. Det finns ett antal instanser som du måste ställa in en separat process-server:
 

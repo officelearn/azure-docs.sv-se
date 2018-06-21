@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 1d5b73657a00968ce073e1cb1ea72a716e6a2703
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4749e79b79cec7172ddd764593939d6f82f5f5ab
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615972"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295605"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,8 +83,8 @@ Du kan också skapa en länkad Storage-tjänst genom att använda en signatur f�
 
 En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagringskonto. Du kan använda en signatur för delad åtkomst för att ge en klient begränsade behörigheter till objekt i ditt lagringskonto för en angiven tid. Du behöver inte dela åtkomstnycklarna för ditt konto. Signatur för delad åtkomst är en URI som omfattar all information som krävs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. För att komma åt lagringsresurser med signatur för delad åtkomst, måste klienten endast ska skickas i signatur för delad åtkomst till lämplig konstruktor eller metod. Mer information om signaturer för delad åtkomst finns [signaturer för delad åtkomst: Förstå delad åtkomst signatur modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-> [!IMPORTANT]
-> Data Factory stöder nu endast service delade åtkomstsignaturer men inte kontot delade åtkomstsignaturer. Mer information om dessa två typer och hur du skapar dem finns [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). Delad åtkomst signatur-URL som genereras från Azure-portalen eller Azure Lagringsutforskaren är ett konto signatur för delad åtkomst, vilket inte stöds.
+> [!NOTE]
+> Data Factory stöder nu både tjänsten delade åtkomstsignaturer och kontot delade åtkomstsignaturer. Mer information om dessa två typer och hur du skapar dem finns [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörighet som krävs.
@@ -136,7 +136,7 @@ Ange typegenskapen för dataset för att kopiera data till och från Blob storag
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till **AzureBlob**. |Ja |
 | folderPath | Sökvägen till behållaren och mappen i blob storage. Wildcard-filter stöds inte. Ett exempel är myblobcontainer/myblobfolder /. |Ja |
-| fileName | **Namn eller jokertecken-filtret** för blob(s) under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen dataset pekar på alla blobbar i mappen. <br/><br/>För filter som tillåts är jokertecken: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1: `"fileName": "*.csv"`<br/>-Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undanta om din faktiska filnamnet innehåller jokertecken eller den här escape-tecken i.<br/><br/>Om filnamnet har inte angetts för en datamängd för utdata och **preserveHierarchy** inte anges i aktiviteten-sink kopieringsaktiviteten genererar automatiskt blobbnamnet med följande mönster ”:*Data. [ aktiviteten kör id GUID]. [GUID om FlattenHierarchy]. [format om konfigurerat]. [komprimering om konfigurerat]* ". Ett exempel är ”Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”. |Nej |
+| fileName | **Namn eller jokertecken-filtret** för blob(s) under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen dataset pekar på alla blobbar i mappen. <br/><br/>För filter som tillåts är jokertecken: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>-Exempel 1: `"fileName": "*.csv"`<br/>-Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undanta om din faktiska filnamnet innehåller jokertecken eller den här escape-tecken i.<br/><br/>Om filnamnet har inte angetts för en datamängd för utdata och **preserveHierarchy** inte anges i aktiviteten-sink kopieringsaktiviteten genererar automatiskt blobbnamnet med följande mönster ”:*Data. [ aktiviteten kör id GUID]. [GUID om FlattenHierarchy]. [format om konfigurerat]. [komprimering om konfigurerat]* ". Ett exempel är ”Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”. |Nej |
 | Format | Om du vill kopiera filer som finns mellan filbaserade butiker (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående dataset definitionerna.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Ange den **typen** egenskap under **format** till någon av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv format ](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåerna **Optimal** och **snabbast**. |Nej |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d6f7c924491614190952ce620f33572307a22c22
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265443"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287756"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
 
@@ -216,6 +216,41 @@ Det finns två fall beroende på den tid som krävs för att få svar från orch
 
 > [!NOTE]
 > Formatet på webhook-URL: er kan variera beroende på vilken version av Azure Functions-värden som du kör. I föregående exempel är för Azure Functions 2.0-värden.
+
+## <a name="retrieving-http-management-webhook-urls"></a>Hämtar URL: er för HTTP-Management-Webhook
+
+Externa system kan kommunicera med beständiga funktioner via webhook URL: er som är en del av Standardsvar som beskrivs i [HTTP-URL för API-identifiering](durable-functions-http-api.md). Dock webhook-URL: er också kan nås via programmering i orchestration-klienten eller i en aktivitet funktion via den [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)klass. 
+
+[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) har en parameter:
+
+* **InstanceId**: unikt ID för instansen.
+
+Metoden returnerar en instans av den [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) med följande strängegenskaper:
+
+* **ID**: instans-ID för orchestration (ska vara samma som den `InstanceId` indata).
+* **StatusQueryGetUri**: status Webbadressen till orchestration-instans.
+* **SendEventPostUri**: ”rera händelse” Webbadressen till orchestration-instans.
+* **TerminatePostUri**: ”avsluta” Webbadressen till orchestration-instans.
+
+Aktiviteten funktioner kan skicka en instans av [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) till externa system för att övervaka eller aktivera händelser till en orchestration:
+
+```csharp
+#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
+
+public static void SendInstanceInfo(
+    [ActivityTrigger] DurableActivityContext ctx,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [DocumentDB(
+        databaseName: "MonitorDB",
+        collectionName: "HttpManagementPayloads",
+        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+{
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
+
+    // send the payload to Cosmos DB
+    document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

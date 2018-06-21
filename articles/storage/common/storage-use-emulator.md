@@ -1,6 +1,6 @@
 ---
 title: Använd Azure storage-emulatorn för utveckling och testning | Microsoft Docs
-description: Azure storage-emulatorn är en kostnadsfri lokal utvecklingsmiljö för att utveckla och testa dina Azure Storage-program. Lär dig hur begäranden autentiseras, hur du ansluter till emulatorn från ditt program och hur du använder kommandoradsverktyget.
+description: Azure storage-emulatorn är en kostnadsfri lokal utvecklingsmiljö för att utveckla och testa dina Azure Storage-program. Lär dig hur begäranden auktoriseras, hur du ansluter till emulatorn från ditt program och hur du använder kommandoradsverktyget.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305114"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295591"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -46,7 +46,7 @@ Så här startar Azure storage-emulatorn:
 
 När storage-emulatorn startar visas Kommandotolkens fönster. Du kan använda det här konsolfönstret för att starta och stoppa storage-emulatorn, ta bort data, hämta status och initiera emulatorn. Mer information finns i [referens för Storage-emulatorn kommandoradsverktyget](#storage-emulator-command-line-tool-reference) senare i den här artikeln.
 
-När emulatorn körs visas en ikon i meddelandefältet i Aktivitetsfältet.
+När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Windows.
 
 När du stänger fönstret storage-emulatorn Kommandotolken fortsätter storage-emulatorn att köras. Följ föregående steg om du vill öppna konsolfönstret Storage-emulatorn igen, som om startar storage-emulatorn.
 
@@ -81,14 +81,14 @@ Mer information om dessa kommandon finns [referens för Storage-emulatorn komman
 > Du kan använda den [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att hantera SQL Server-instanser, inklusive LocalDB-installation. I SMSS **Anslut till Server** dialogrutan Ange `(localdb)\MSSQLLocalDb` i den **servernamn:** fält som du vill ansluta till LocalDB-instans.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autentisering av förfrågningar mot storage-emulatorn
-När du har installerat och igång lagringsemulatorn kan testa du din kod mot den. Precis som med Azure Storage i molnet, måste varje begäran som du gör mot storage-emulatorn autentiseras, såvida det inte är en anonym begäran. Du kan autentisera begäranden mot storage-emulatorn använder autentisering med delad nyckel eller med en signatur för delad åtkomst (SAS).
+När du har installerat och igång lagringsemulatorn kan testa du din kod mot den. Precis som med Azure Storage i molnet, måste varje begäran som du gör mot storage-emulatorn ha behörighet, såvida det inte är en anonym begäran. Du kan godkänna begäranden mot storage-emulatorn använder autentisering med delad nyckel eller med en signatur för delad åtkomst (SAS).
 
-### <a name="authenticate-with-shared-key-credentials"></a>Autentisera med delad nyckel autentiseringsuppgifter
+### <a name="authorize-with-shared-key-credentials"></a>Auktorisera med delad nyckel autentiseringsuppgifter
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Mer information om anslutningssträngar finns [konfigurera Azure Storage-anslutningssträngar](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>Autentisering med signatur för delad åtkomst
+### <a name="authorize-with-a-shared-access-signature"></a>Auktorisera med en signatur för delad åtkomst
 Vissa Azure storage-klientbibliotek, till exempel Xamarin-biblioteket har endast stöd för autentisering med signatur (SAS) för delade åtkomsttoken. Du kan skapa ett SAS-token med ett verktyg som den [Lagringsutforskaren](http://storageexplorer.com/) eller ett annat program som stöder autentisering med delad nyckel.
 
 Du kan också generera en SAS-token med hjälp av Azure PowerShell. I följande exempel skapar en SAS-token med fullständig behörighet till en blob-behållare:
@@ -163,7 +163,7 @@ Från och med version 3.0, visas ett konsolfönster när du startar Storage-emul
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
 ### <a name="options"></a>Alternativ
-Om du vill visa listan över alternativ skriver `/help` i Kommandotolken.
+Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
 | Alternativ | Beskrivning | Kommando | Argument |
 | --- | --- | --- | --- |
@@ -204,12 +204,23 @@ Table storage i emulatorn gäller följande skillnader:
 Det finns inga skillnader som är specifika för Queue storage i emulatorn.
 
 ## <a name="storage-emulator-release-notes"></a>Storage-emulatorn viktig information
+
+### <a name="version-55"></a>Version 5.5
+* Storage-emulatorn stöder nu version 2017-11-09 av lagringstjänsterna på Blob, köer och tabellen slutpunkter.
+* Stöd har lagts till för blobben **Skapad** -egenskap som returnerar det blob-tiden för skapandet.
+
+### <a name="version-54"></a>Version 5.4
+För att förbättra installationen stabilitet försöker emulatorn inte längre att reservera portar under installationen. Om port reservationer önskas, använder du den *- reserveports* alternativet för den **init** kommando för att ange dem.
+
+### <a name="version-53"></a>Version 5.3
+Storage-emulatorn stöder nu version 2017-07-29 av lagringstjänsterna på Blob, köer och tabellen slutpunkter.
+
 ### <a name="version-52"></a>Version 5.2
 * Storage-emulatorn stöder nu version 2017-04-17 av lagringstjänsterna på Blob, köer och tabellen slutpunkter.
 * Fast ett programfel där egenskapsvärden har inte som kodats korrekt.
 
 ### <a name="version-51"></a>Version 5.1
-* Fast ett programfel där lagringsemulatorn returnerade den `DataServiceVersion` huvudet i vissa svar där tjänsten inte kunde.
+Fast ett programfel där lagringsemulatorn returnerade den `DataServiceVersion` huvudet i vissa svar där tjänsten inte kunde.
 
 ### <a name="version-50"></a>Version 5.0
 * Storage-emulatorn inte längre kontrolleras för befintliga MSSQL och installerar .NET Framework.

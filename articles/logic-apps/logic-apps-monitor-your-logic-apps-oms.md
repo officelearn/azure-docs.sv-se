@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299951"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294582"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Övervaka och få insikter om logik appen körs med logganalys
 
 För övervakning och bättre felsökningsinformation kan du aktivera logganalys samtidigt när du skapar en logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för din logikapp körs via Azure-portalen. När du lägger till hanteringslösning för Logic Apps får du aggregerad status för din logik app körs och en specifik information som status, körningstid, omsändning status och Korrelations-ID: N.
 
-Det här avsnittet beskrivs hur du aktiverar logganalys så att du kan visa runtime händelser och data för din logikapp kör.
+Den här artikeln visar hur du aktiverar logganalys så att du kan visa runtime händelser och data för din logikapp kör.
 
  > [!TIP]
  > Så här för att övervaka dina befintliga logikappar [aktivera diagnostikloggning och skicka logik app Körningsdata till logganalys](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -67,17 +67,17 @@ Om du redan aktiverat logganalys när du skapade din logikapp, hoppar du över d
 
    ![Välj logganalys-arbetsytan](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Under **Management**, Välj **OMS-portalen**.
+3. Under **Management**, Välj **översikt**.
 
-   ![Välj ”OMS-portalen”](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Välj ”OMS-portalen”](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. Under **alla lösningar för**, söka efter och välj panelen för den **Logic Apps Management** lösning.
+4. Välj på sidan Översikt **Lägg till** att öppna panelen lösningar för hantering. 
 
-   ![Välj ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Välj ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Om du vill installera lösningen i logganalys-arbetsytan, Välj **Lägg till**.
+5. Bläddra i listan över **hanteringslösningar**, Välj **Logic Apps Management** lösning, och välj **skapa** att installera på sidan Översikt.
 
-   ![Välj ”Lägg till” för ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Välj ”Lägg till” för ”Logic Apps Management”](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

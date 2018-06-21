@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868833"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296164"
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
-Du kan konfigurera Azure Active Directory (Azure AD) för att skriva tillbaka lösenord till din lokala Active Directory med tillbakaskrivning av lösenord. Tillbakaskrivning av lösenord eliminerar behovet av att konfigurera och hantera en komplicerad lokalt lösenordsåterställning självbetjäning (SSPR) återställningslösning och ger ett bekvämt molnbaserade sätt för dina användare att återställa sina lokala lösenord oavsett var de befinner. Tillbakaskrivning av lösenord är en del av [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) som kan aktiveras och används av aktuella Premium-prenumeranter [Azure Active Directory-versioner](../active-directory-whatis.md).
+Du kan konfigurera Azure Active Directory (Azure AD) för att skriva tillbaka lösenord till din lokala Active Directory med tillbakaskrivning av lösenord. Tillbakaskrivning av lösenord eliminerar behovet av att konfigurera och hantera en komplicerad lokalt lösenordsåterställning självbetjäning (SSPR) återställningslösning och ger ett bekvämt molnbaserade sätt för dina användare att återställa sina lokala lösenord oavsett var de befinner. Tillbakaskrivning av lösenord är en del av [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) som kan aktiveras och används av aktuella Premium-prenumeranter [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
 Tillbakaskrivning av lösenord innehåller följande funktioner:
 
@@ -129,7 +129,7 @@ Utför följande steg för att ställa in lämplig behörighet för tillbakaskri
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
 
-Information om licensiering finns [licenser som krävs för tillbakaskrivning av lösenord](concept-sspr-licensing.md#licenses-required-for-password-writeback) eller på följande webbplatser:
+Information om licensiering finns [licenser som krävs för tillbakaskrivning av lösenord](concept-sspr-licensing.md) eller på följande webbplatser:
 
 * [Azure Active Directory priser för platsen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

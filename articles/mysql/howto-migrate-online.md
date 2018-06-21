@@ -1,6 +1,6 @@
 ---
 title: Minimal avbrottstid migrering till Azure-databas för MySQL
-description: Den här artikeln beskriver hur du utför en minimal avbrottstid migrering av en MySQL-databas till Azure-databas för MySQL och hur du ställer in första last och kontinuerlig datasynkronisering från källdatabasen till måldatabasen med hjälp av Attunity replikera för Microsoft Migreringar.
+description: Den här artikeln beskriver hur du utför en minimal avbrottstid migrering av en MySQL-databas till Azure-databas för MySQL genom att använda tjänsten Azure Database migrering.
 services: mysql
 author: HJToland3
 ms.author: jtoland
@@ -8,32 +8,24 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 99add55188615debdc96b6cfc8b21e34552fd9d4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: ecbd35bd45bd11292bbe4a032329d704858d4c77
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267262"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293929"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimal avbrottstid migrering till Azure-databas för MySQL
-Du kan migrera dina befintliga MySQL-databas till Azure-databas för MySQL med hjälp av Attunity replikera för Microsoft Migrations. Attunity replikera är en gemensam erbjudande från Attunity och Microsoft. Tillsammans med Azure för migrering databastjänsten ingår det utan extra kostnad för Microsoft-kunder. 
+Du kan utföra MySQL migrering till Azure-databas för MySQL med minimal avbrottstid genom att använda nyligen lanserade **kontinuerlig sync kapaciteten** för den [Azure migrering databastjänsten](https://aka.ms/get-dms) (DMS). Den här funktionen begränsar mängden nedtid som krävs av programmet.
 
-Attunity replikera bidrar till att minimera avbrottstid vid migrering av databasen och den bevarar källdatabasen operativa under hela processen.
+## <a name="overview"></a>Översikt
+DMS utför en inledande belastningen på din lokala till Azure-databas för MySQL och sedan synkroniserar kontinuerligt alla nya transaktioner till Azure medan programmet körs. När data fångar på målet Azure sida, du stoppa program under en kort stund (lägsta driftstopp), vänta tills den senaste batchen data (från den tidpunkt du stoppa programmet förrän programmet är effektivt tillgänglig för att ta någon ny trafik) att fånga upp i mål- och uppdatera sedan anslutningssträngen så att den pekar till Azure. När du är klar kommer programmet att live i Azure!
 
-Attunity replikera är ett verktyg för replikering av data som gör det möjligt för datasynkronisering mellan olika källor och mål. Den sprider schemat skapa skript och data som är associerade med varje databastabell. Inte att sprida Attunity replikera eventuella artefakter (till exempel SP, utlösare, funktioner och så vidare) eller konvertera, till exempel, PL/SQL-kod som finns i dessa artefakter att T-SQL.
+![Kontinuerlig synkronisering med tjänsten Azure Database migrering](./media/howto-migrate-online/ContinuousSync.png)
 
-> [!NOTE]
-> Den fokuserar på stöd för en delmängd av källan/målet par Attunity replikera stöder ett stort antal scenarier med migrering.
+DMS migrering av MySQL källor är för närvarande under förhandsgranskning. Om du vill testa tjänsten för att migrera din MySQL-arbetsbelastningar som registrering via Azure-DMS [förhandsgranskningssidan](https://aka.ms/dms-preview) att uttrycka ditt intresse. Din feedback är ovärderlig hjälpa att ytterligare förbättra tjänsten.
 
-En översikt över processen för att utföra en migrering med minimal avbrottstid innehåller:
-
-* **Migrera MySQL datakällans schema** till en Azure-databas för MySQL hanteras database-tjänsten med hjälp av [MySQL arbetsstationen](https://www.mysql.com/products/workbench/).
-
-* **Ställa in första last och kontinuerlig datasynkronisering från källdatabasen till måldatabasen** med hjälp av Attunity replikera för Microsoft Migrations. Detta minimerar den tid som källdatabasen måste anges som skrivskyddade när du förbereder att växla dina program mål MySQL-databas på Azure.
-
-Mer information om Attunity replikera för Microsoft Migrations erbjudande finns i följande resurser:
- - Gå till den [Attunity replikera för Microsoft Migrations](https://aka.ms/attunity-replicate) webbsidan.
- - Hämta [Attunity replikera för Microsoft migreringar](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Gå till den [Attunity replikera Community](https://aka.ms/attunity-community) för en Snabbstartsguide, självstudier och support.
- - Detaljerade anvisningar om hur du använder Attunity replikera för att migrera din MySQL-databas till Azure-databas för MySQL finns i [databasen Migreringsguide](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+## <a name="next-steps"></a>Nästa steg
+- Visa videon [enkelt migrera MySQL/PostgreSQL hanterade appar till Azure](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), som innehåller en demonstration som visar hur du migrerar MySQL appar till Azure-databas för MySQL.
+- Registrera dig för begränsad förhandsversionen för minimal driftstörning migrering av MySQL till Azure-databas för MySQL via Azure-DMS [förhandsgranskningssidan](https://aka.ms/dms-preview).

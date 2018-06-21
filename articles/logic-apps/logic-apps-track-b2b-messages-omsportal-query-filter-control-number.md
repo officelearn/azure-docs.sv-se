@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 520a1212eaccc48f8b8b423f7dede9c16409220b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300335"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294317"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Fråga efter AS2-, X 12- och EDIFACT-meddelanden i logganalys
 
@@ -53,41 +53,33 @@ Det här exemplet visar hur du kan hitta meddelanden baserat på deras interchan
 
    ![Välj logganalys-arbetsytan](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Under **Management**, Välj **OMS-portalen**.
+3. Under **Management**, Välj **loggen Sök**.
 
-   ![Välj OMS-portalen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Välj Lo sökning](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. På startsidan, Välj **loggen Sök**.
-
-   ![På startsidan, väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   ELLER
-
-   ![På menyn, väljer du ”loggen Sök”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas logganalys möjliga matchningar och åtgärder som du kan använda. Lär dig mer om [hitta data i logganalys](../log-analytics/log-analytics-log-searches.md).
+4. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas logganalys möjliga matchningar och åtgärder som du kan använda. Lär dig mer om [hitta data i logganalys](../log-analytics/log-analytics-log-searches.md).
 
    Det här exemplet söker efter händelser med **typ = AzureDiagnostics**.
 
    ![Börja skriva frågesträng](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. Välj den tidsperiod som du vill visa i fältet till vänster. Om du vill lägga till ett filter i frågan, Välj **+ Lägg till**.
+5. Välj den tidsperiod som du vill visa i fältet till vänster. Om du vill lägga till ett filter i frågan, Välj **+ Lägg till**.
 
    ![Lägg till filter fråga](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. Under **Lägg till filter**, ange filternamnet så att du kan hitta de filter som du vill använda. Välj filtret och välj **+ Lägg till**.
+6. Under **Lägg till filter**, ange filternamnet så att du kan hitta de filter som du vill använda. Välj filtret och välj **+ Lägg till**.
 
    Om du vill interchange kontroll, det här exemplet söker efter ordet ”interchange” och väljer **event_record_messageProperties_interchangeControlNumber_s** som filter.
 
    ![Välj filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. I fältet till vänster väljer filtervärde som du vill använda och välj **tillämpa**.
+7. I fältet till vänster väljer filtervärde som du vill använda och välj **tillämpa**.
 
    Det här exemplet väljer interchange Kontrollnumret för meddelanden som vi vill.
 
    ![Välj filtervärdet](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Gå nu tillbaka till den fråga som du utvecklar. Frågan har uppdaterats med ditt valda filter-händelsen och värdet. Tidigare resultaten filtreras nu för.
+8. Gå nu tillbaka till den fråga som du utvecklar. Frågan har uppdaterats med ditt valda filter-händelsen och värdet. Tidigare resultaten filtreras nu för.
 
     ![Gå tillbaka till din fråga med filtrerade resultat](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

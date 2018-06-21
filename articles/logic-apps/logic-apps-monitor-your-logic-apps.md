@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301226"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293531"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -118,19 +118,11 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
    ![Välj logganalys-arbetsytan](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Under **Management**, Välj **OMS-portalen**.
+3. Under **Management**, Välj **loggen Sök**.
 
-   ![Välj ”OMS-portalen”](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![Välj ”loggen sökning”](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. På startsidan, Välj **loggen Sök**.
-
-   ![På startsidan, väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   ELLER
-
-   ![På menyn, väljer du ”loggen Sök”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva visas möjliga matchningar och åtgärder som du kan använda. 
+4. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva visas möjliga matchningar och åtgärder som du kan använda. 
 
    Till exempel vill hitta topp 10-händelser som har inträffat, ange och välj sökfrågan: **söka kategori == ”WorkflowRuntime” | begränsa 10**
 
@@ -138,27 +130,27 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
    Lär dig mer om [hitta data i logganalys](../log-analytics/log-analytics-log-searches.md).
 
-6. Välj den tidsperiod som du vill visa i fältet till vänster på resultatsidan.
+5. Välj den tidsperiod som du vill visa i fältet till vänster på resultatsidan.
 Om du vill begränsa frågan genom att lägga till ett filter, Välj **+ Lägg till**.
 
    ![Välj tidsram för frågeresultat](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. Under **Lägg till filter**, ange filternamnet så att du kan hitta de filter som du vill använda. Välj filtret och välj **+ Lägg till**.
+6. Under **Lägg till filter**, ange filternamnet så att du kan hitta de filter som du vill använda. Välj filtret och välj **+ Lägg till**.
 
    Det här exemplet används ordet ”status” för att hitta misslyckade händelser under **AzureDiagnostics**.
    Här filtret för **status_s** har redan valts.
 
    ![Välj filter](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. I fältet till vänster väljer filtervärde som du vill använda och välj **tillämpa**.
+7. I fältet till vänster väljer filtervärde som du vill använda och välj **tillämpa**.
 
    ![Välj filtervärdet, välj ”Använd”](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Gå nu tillbaka till den fråga som du utvecklar. Frågan har uppdaterats med ditt valda filter och värdet. Tidigare resultaten filtreras nu för.
+8. Gå nu tillbaka till den fråga som du utvecklar. Frågan har uppdaterats med ditt valda filter och värdet. Tidigare resultaten filtreras nu för.
 
    ![Gå tillbaka till din fråga med filtrerade resultat](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Om du vill spara frågan för framtida användning, Välj **spara**. Läs [hur du sparar din fråga](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Om du vill spara frågan för framtida användning, Välj **spara**. Läs [hur du sparar din fråga](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 

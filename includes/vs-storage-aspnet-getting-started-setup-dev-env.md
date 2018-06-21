@@ -22,7 +22,7 @@ Det här avsnittet går igenom hur du konfigurerar utvecklingsmiljön. Detta omf
 
 2. På snabbmenyn Välj **Lägg till** > **ansluten Service**.
 
-1. I den **anslutna tjänster** dialogrutan **lagringsutrymmet i molnet med Azure Storage**, och välj sedan **konfigurera**.
+1. I den **anslutna tjänster** dialogrutan **lagringsutrymmet i molnet med Azure Storage**.
 
     ![Skärmbild av anslutna Services dialogrutan](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

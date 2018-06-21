@@ -4,14 +4,14 @@ description: En översikt över assessment beräkningar i tjänsten Azure migrer
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: ec8e026fc9bab192f6944e590fa703dbbd5772c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221367"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287896"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -109,7 +109,7 @@ Om sizing kriteriet är *som lokalt storlek*, Azure migrerar inte anser prestand
 
 Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
 
-Förtroende-klassificering av en bedömning är mer användbar för bedömningar sizing kriterium som ' prestandabaserad storlek. För prestandabaserad storlek måste Azure migrera användningsdata för processor, minne på den virtuella datorn. För varje disk som är ansluten till den virtuella datorn måste dessutom den IOPS för disk- och genomflöde. På samma sätt för varje nätverkskort som är kopplad till en virtuell dator, behöver Azure migrera nätverket in/ut prestandabaserad storlek. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
+Förtroendeklassificering av en bedömning är mer användbar för bedömningar där storlekskriteriet är prestandabaserad storleksändring. För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
@@ -132,7 +132,7 @@ En utvärdering kanske inte har tillgång till alla datapunkter på grund av nå
 
 När sizing rekommendationer är klart, beräknar Azure migrera kostnader för beräkning och lagring av efter migreringen.
 
-- **Beräkna kostnaden**: med den rekommenderade Azure VM-storleken Azure migrera använder fakturerings-API för att beräkna månadskostnaden för den virtuella datorn. Operativsystemet, software assurance, plats och valutainställningar hänsyn tas med i beräkningen. Den sammanställer kostnaden över alla datorer att beräkna den totala månatliga beräkna kostnaden.
+- **Beräkna kostnaden**: med den rekommenderade Azure VM-storleken Azure migrera använder fakturerings-API för att beräkna månadskostnaden för den virtuella datorn. I operativsystemet, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Den sammanställer kostnaden över alla datorer att beräkna den totala månatliga beräkna kostnaden.
 - **Lagringskostnaden**: månatliga storage kostnaden för en dator beräknas genom insamling av månadskostnaden för alla diskar som är anslutna till datorn. Azure migrera beräknar de totala månatliga lagringskostnaderna genom att sammanställa kostnader för lagring av alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i inställningarna för utvärdering i beräkningen.
 
 Kostnaderna visas i valutan som anges i inställningarna för utvärdering.

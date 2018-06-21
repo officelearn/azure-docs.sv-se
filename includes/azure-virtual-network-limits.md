@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35683040"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297974"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35683040"
 | Privata IP-adresser per virtuellt nätverk |4096 |4096 |
 | Samtidiga TCP eller UDP flödar per nätverkskort på en virtuell dator eller rollinstans |500 000 |500 000 |
 | Nätverkssäkerhetsgrupper (NSG) |100 |200 |
-| NSG-regler per NSG |200 |400 |
+| NSG-regler per NSG |200 |1000 |
 | Användardefinierade vägtabeller |100 |200 |
 | Användardefinierade vägar vägtabell |100 |400 |
 | Offentliga IP-adresser (dynamiska) |5 |kontakta supporten |
@@ -64,6 +64,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 ** Standard begränsningar gäller för prenumerationer som inte tidigare har dessa gränser ökat genom stöd
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
+Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella resursanvändningen mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md)
 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |

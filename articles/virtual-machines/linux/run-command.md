@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267466"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285764"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kör kommandoskript i Linux-VM med kommandot Kör
 
@@ -33,6 +33,7 @@ Här följer en lista över begränsningar som finns när du kör kommandot.
 * Den minsta tid att köra ett skript ungefär 20 sekunder
 * Skript som körs som standard som förhöjd Linux
 * Ett skript i taget kan köras
+* Skript som begär information (interaktivt läge) stöds inte.
 * Du kan inte avbryta ett skript som körs
 * Den maximala tid som kan köra ett skript som är 90 minuter, där det ska gå innan timeout
 

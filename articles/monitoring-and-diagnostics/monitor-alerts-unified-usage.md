@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264348"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287845"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar via Azure-Monitor  
 
@@ -148,7 +148,13 @@ För **loggen aviseringar** aviseringar kan baseras på:
 2. Den **aviseringar instrumentpanelen** visas - där alla Azure-aviseringar finns unified och visas i ett enda kort ![avisering instrumentpanelen](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Från övre vänstra till höger visar på instrumentpanelen en överblick över den följande: Klicka på att se en detaljerad lista:
     - *Utlöses aviseringar*: antalet aviseringar för närvarande har uppfyllts logik och utlöses i tillstånd
-    - *Totalt antal Varningsregler*: antal Varningsregler skapas och i underordnad text, hur många som för närvarande har aktiverats
+    - *Totalt antal Varningsregler*: antal Varningsregler skapas och i underordnad text, hur många som för närvarande har aktiverats 
+    
+
+        > [!NOTE]
+        > Utlöses att säkerställa konsekvent instrumentpanel med information om alla aviseringar inklusive loggen aviseringar för application insights och logganalys; [Utökad enhetlig avisering (förhandsgranskning)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) ska användas
+  
+  
 4. En lista över alla Eldad aviseringar visas som användaren kan välja för att visa detaljer
 5. Hjälp i söka efter specifika aviseringar; alternativen listrutan överst kan använda för att filtrera specifika *prenumeration, resursgrupp eller resurs*. Ytterligare för någon olöst Varna ett sätt att använda den *Filter avisering* alternativet för att hitta för angivna nyckelordet - specifika matchande aviseringar med *namn, aviseringen kriterier, resursgrupp, och målresurs*
 

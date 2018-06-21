@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a57337acadafe40839e16d6a31861ff7c892c071
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9cfdd6828a6d7ec699501a485519f843c59d0422
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602509"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295584"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure PowerShell
 Dessa steg visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen till Azure Resource Manager-distributionsmodellen.
@@ -46,8 +46,6 @@ Här följer några metodtips som vi rekommenderar medan du utvärderar migrera 
 > Programgatewayer stöds inte för migrering från classic till Resource Manager. Ta bort gatewayen innan du kör en Förberedelseåtgärden om du vill flytta nätverket för att migrera ett klassiskt virtuellt nätverk med en Programgateway. När du har slutfört migreringen återansluta gateway i Azure Resource Manager.
 >
 >ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration som inte kan migreras automatiskt. I sådana fall kan ta bort ExpressRoute-gatewayen, migrera det virtuella nätverket och skapa gatewayen på nytt. Se [migrera ExpressRoute-kretsar och associerade virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](../../expressroute/expressroute-migration-classic-resource-manager.md) för mer information.
->
->
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Steg 2: Installera den senaste versionen av Azure PowerShell
 Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [installationsprogram för webbplattform (WebPI)](http://aka.ms/webpi-azps). WebPI tar emot uppdateringar varje månad. PowerShell-galleriet tar emot uppdateringar kontinuerligt. Den här artikeln är baserad på Azure PowerShell version 2.1.0.
@@ -90,8 +88,6 @@ Ange din Azure-prenumeration för den aktuella sessionen. Det här exemplet ange
 > Registreringen är en enstaka steg, men du måste göra detta en gång innan du försöker migrera. Utan registrering visas följande felmeddelande:
 >
 > *BadRequest: Prenumerationen har inte registrerats för migrering.*
->
->
 
 Registrera med resursprovidern migrering med hjälp av följande kommando:
 
@@ -137,12 +133,15 @@ Get-AzureRmVMUsage -Location "West US"
 ```
 
 ## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: Kör kommandon för att migrera IaaS-resurser
+* [Migrera virtuella datorer i en molntjänst (inte i det virtuella nätverket)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrera virtuella datorer i ett virtuellt nätverk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrera Lagringskontot](#step-62-migrate-a-storage-account)
+
 > [!NOTE]
 > Alla åtgärder som beskrivs här är idempotent. Om du har problem med än en funktion som inte stöds eller ett konfigurationsfel rekommenderar vi att du försöka med att förbereda, avbrytas eller genomföras igen. Plattformen försöker sedan igen.
->
->
 
-## <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6.1: Alternativ 1 – migrera virtuella datorer i en tjänst i molnet (inte i ett virtuellt nätverk)
+
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6.1: Alternativ 1 – migrera virtuella datorer i en tjänst i molnet (inte i ett virtuellt nätverk)
 Med följande kommando för att hämta listan över molntjänster och välj sedan den molntjänst som du vill migrera. Om de virtuella datorerna i Molntjänsten är i ett virtuellt nätverk eller om de har webb-eller arbetsroller kommandot returnerar ett felmeddelande.
 
 ```powershell
@@ -169,7 +168,7 @@ Förbered de virtuella datorerna i Molntjänsten för migrering. Du har två alt
     $validate.ValidationMessages
     ```
 
-    Föregående kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, så du kan gå vidare till den **Förbered** steg:
+    Följande kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, så du kan gå vidare till den **Förbered** steg:
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -193,7 +192,7 @@ Förbered de virtuella datorerna i Molntjänsten för migrering. Du har två alt
     $validate.ValidationMessages
     ```
 
-    Föregående kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, kan du fortsätta med följande förberedelsesteget:
+    Följande kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, kan du fortsätta med följande förberedelsesteget:
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -223,7 +222,7 @@ Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurs
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6.1: Alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6.1: Alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 
 Om du vill migrera virtuella datorer i ett virtuellt nätverk, kan du migrera det virtuella nätverket. De virtuella datorerna migrera automatiskt med det virtuella nätverket. Välj det virtuella nätverk som du vill migrera.
 > [!NOTE]
@@ -241,8 +240,6 @@ Det här exemplet anges det virtuella nätverksnamnet **myVnet**. Ersätt det vi
 
 > [!NOTE]
 > Om det virtuella nätverket innehåller webb- eller arbetsroller eller virtuella datorer med konfigurationer som inte stöds, kan du få ett felmeddelande för verifiering.
->
->
 
 Verifiera först om du kan migrera det virtuella nätverket med hjälp av följande kommando:
 
@@ -250,7 +247,7 @@ Verifiera först om du kan migrera det virtuella nätverket med hjälp av följa
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-Föregående kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, kan du fortsätta med följande förberedelsesteget:
+Följande kommando visar alla varningar och fel som blockerar migrering. Om verifieringen lyckas, kan du fortsätta med följande förberedelsesteget:
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
@@ -268,82 +265,85 @@ Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurs
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-62-migrate-a-storage-account"></a>Steg 6.2 Migrera ett lagringskonto
-När du är klar migrering av virtuella datorer, vi rekommenderar att du migrerar storage-konton.
+### <a name="step-62-migrate-a-storage-account"></a>Steg 6.2 Migrera ett lagringskonto
+När du är klar migrering av virtuella datorer, rekommenderar vi du utföra följande kontroller av förutsättningar innan du migrerar storage-konton.
 
-Utför föregående nödvändiga kontroller innan du migrerar storage-konto:
+> [!NOTE]
+> Om ditt lagringskonto har ingen associerad diskar eller VM-data, du kan hoppa över direkt till den **Validera Storage-konto och starta migreringen** avsnitt.
 
-* **Migrera den klassiska virtuella datorer vars diskar lagras i storage-konto**
+* **Nödvändiga kontroller om du har migrerat virtuella datorer eller ditt lagringskonto har diskresurser**
+    * **Migrera den klassiska virtuella datorer vars diskar lagras i storage-konto**
 
-    Föregående kommando returnerar RoleName och DiskName egenskaper för alla klassiska Virtuella diskar i lagringskontot. RoleName är namnet på den virtuella datorn som en disk är ansluten. Om föregående kommando returnerar kontrollerar diskar att virtuella datorer till vilka diskarna är anslutna migreras innan du migrerar storage-konto.
+        Följande kommando returnerar RoleName och DiskName egenskaper för alla klassiska Virtuella diskar på lagringskontot. RoleName är namnet på den virtuella datorn som en disk är ansluten. Om det här kommandot returnerar kontrollerar diskar sedan du att virtuella datorer till vilka diskarna är anslutna migreras innan du migrerar storage-konto.
+        ```powershell
+         $storageAccountName = 'yourStorageAccountName'
+          Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+          DiskName | Format-List -Property RoleName, DiskName
+
+        ```
+    * **Ta bort beräkningsfunktionen klassiska Virtuella diskar som lagras i storage-konto**
+
+        Hitta beräkningsfunktionen klassiska Virtuella diskar i lagringen konto med hjälp av följande kommando:
+
+        ```powershell
+            $storageAccountName = 'yourStorageAccountName'
+            Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
+
+        ```
+        Om ovanstående kommando returnerar diskar sedan ta bort dessa diskar med hjälp av följande kommando:
+
+        ```powershell
+           Remove-AzureDisk -DiskName 'yourDiskName'
+        ```
+    * **Ta bort VM-avbildningar lagras i storage-konto**
+
+        Följande kommando returnerar alla VM-avbildningar med OS-disken som lagras i lagringskontot.
+         ```powershell
+            Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                    } | Select-Object -Property ImageName, ImageLabel
+         ```
+         Följande kommando returnerar alla VM-avbildningar med datadiskar som lagras i lagringskontot.
+         ```powershell
+
+            Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                             -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                            } | Select-Object -Property ImageName, ImageLabel
+         ```
+        Ta bort alla VM-avbildningar som returneras av ovan kommandon med hjälp av det här kommandot:
+        ```powershell
+        Remove-AzureVMImage -ImageName 'yourImageName'
+        ```
+* **Validera Storage-kontot och starta migrering**
+
+    Verifiera varje lagringskonto för migrering med hjälp av följande kommando. I det här exemplet är lagringskontonamnet **Mittlagringskonto**. Ersätt namnet på exemplet med namnet på ditt eget lagringskonto.
+
     ```powershell
-     $storageAccountName = 'yourStorageAccountName'
-      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
-      DiskName | Format-List -Property RoleName, DiskName
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
     ```
-* **Ta bort beräkningsfunktionen klassiska Virtuella diskar som lagras i storage-konto**
 
-    Hitta beräkningsfunktionen klassiska Virtuella diskar i lagringen konto med hjälp av följande kommando:
+    Nästa steg är att förbereda storage-konto för migrering
 
     ```powershell
-        $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
     ```
-    Om ovanstående kommando returnerar diskar sedan ta bort dessa diskar med hjälp av följande kommando:
+
+    Kontrollera konfigurationen för förberedda storage-konto med hjälp av Azure PowerShell eller Azure-portalen. Om du inte är klar för migrering och du vill gå tillbaka till ett tidigare tillstånd, använder du följande kommando:
 
     ```powershell
-       Remove-AzureDisk -DiskName 'yourDiskName'
+        Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
     ```
-* **Ta bort VM-avbildningar lagras i storage-konto**
 
-    Föregående kommando returnerar alla VM-avbildningar med OS-disken som lagras i lagringskontot.
-     ```powershell
-        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
-                                } | Select-Object -Property ImageName, ImageLabel
-     ```
-     Föregående kommando returnerar alla VM-avbildningar med datadiskar som lagras i lagringskontot.
-     ```powershell
+    Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurserna med hjälp av följande kommando:
 
-        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
-                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
-                                        } | Select-Object -Property ImageName, ImageLabel
-     ```
-    Ta bort alla VM-avbildningar som returneras av ovan kommandon med hjälp av föregående kommando:
     ```powershell
-    Remove-AzureVMImage -ImageName 'yourImageName'
+        Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
-
-Verifiera varje lagringskonto för migrering med hjälp av följande kommando. I det här exemplet är lagringskontonamnet **Mittlagringskonto**. Ersätt namnet på exemplet med namnet på ditt eget lagringskonto.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
-```
-
-Nästa steg är att förbereda storage-konto för migrering
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
-```
-
-Kontrollera konfigurationen för förberedda storage-konto med hjälp av Azure PowerShell eller Azure-portalen. Om du inte är klar för migrering och du vill gå tillbaka till ett tidigare tillstånd, använder du följande kommando:
-
-```powershell
-    Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
-```
-
-Om den förberedda konfigurationen ser bra ut du gå vidare och genomför resurserna med hjälp av följande kommando:
-
-```powershell
-    Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
-```
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över plattformar som stöds migrering av IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Tekniska ingående om plattformen stöds från klassiska till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Använda CLI för att migrera IaaS-resurser från klassiska till Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassiska till Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

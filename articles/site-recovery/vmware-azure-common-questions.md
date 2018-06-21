@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185228"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285975"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor - VMware till Azure-replikering
 
@@ -29,7 +29,7 @@ Data replikeras till Azure-lagring vid replikering, och du betalar inte ändring
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Vad kan jag göra med VMware Azure replikering?
 - **Katastrofåterställning**: du kan ställa in fullständig katastrofåterställning. I det här scenariot kan replikera du lokala virtuella VMware-datorer till Azure-lagring. Sedan om den lokala infrastrukturen är tillgänglig, kan du växla över till Azure. När du växlar över skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbetsbelastningar på Azure Virtual Machines tills ditt lokala datacenter är tillgänglig igen. Sedan kan du växla tillbaka från Azure till lokala platsen.
-- **Migrering**: du kan använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikera lokala virtuella VMware-datorer till Azure-lagring. Sedan kan växla du över från lokal till Azure. Efter växling vid fel, din appar och arbetsbelastningar är tillgängliga och körs på virtuella Azure-datorer.
+- **Migrering**: du kan använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikera lokala virtuella VMware-datorer till Azure-lagring. Sedan kan växla du över från lokal till Azure. Efter växling vid fel är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
 
 
 
@@ -41,7 +41,7 @@ Du behöver en Azure-prenumeration, ett Recovery Services-valv, ett lagringskont
 Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina data är flexibla i händelse av ett regionalt strömavbrott, eller om det inte går att återställa den primära regionen. Premium-lagring stöds.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Min Azure-konto behöver ha behörighet att skapa virtuella datorer?
-Om du är en administratör för prenumerationen kan behörighet du replikering du behöver. Om du inte behöver behörighet att skapa en Azure VM i resursgruppen och virtuella nätverk som du anger när du konfigurerar platsen Reocvery och behörighet att skriva till den valda accout. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Om du är administratör för en prenumeration kan behörighet du replikering du behöver. Om du inte behöver behörighet att skapa en Azure VM i resursgruppen och virtuella nätverk som du anger när du konfigurerar Site Recovery och behörighet att skriva till det valda lagringskontot. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

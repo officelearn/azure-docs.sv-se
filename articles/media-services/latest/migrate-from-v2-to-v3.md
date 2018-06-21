@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655631"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295689"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migrera från Media Services-v2 v3
 
@@ -50,6 +50,10 @@ Den här artikeln beskriver ändringar som introducerades i Azure Media Services
 
 ## <a name="changes-from-v2"></a>Ändringar från v2
 
+* I Media Services v3 lagringskryptering (AES 256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar har skapats med Media Services v2. Vilket innebär att v3 fungerar med befintlig lagring krypterad tillgångar, men tillåter inte att skapa nya.
+
+    För tillgångar som skapats med v3 Media Services stöder den [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) storage kryptering på serversidan.
+    
 * Media Services SDK frikopplat från Storage SDK: N som ger mer kontroll över Storage SDK: N används och undviker problem med versionshantering. 
 * V3 är alla kodning bithastigheter i bitar per sekund. Detta skiljer sig REST-v2 Media Encoder Standard förinställningar. Till exempel bithastighet i v2 måste anges som 128, men det skulle vara 128000 i v3. 
 * AssetFiles AccessPolicies, IngestManifests finns inte i v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Skapa princip för innehåll nycklar
 2. Skapa tillgång
 3. Överföra innehåll eller använda tillgångsinformation som JobOutput
-4. Skapa positionerare
+4. Skapa StreamingLocator
 
 ## <a name="next-steps"></a>Nästa steg
 

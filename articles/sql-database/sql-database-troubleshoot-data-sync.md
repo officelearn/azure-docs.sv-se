@@ -1,26 +1,26 @@
 ---
-title: Felsöka Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs
-description: Lär dig hur du felsöker vanliga problem med Azure SQL-datasynkronisering (förhandsversion).
+title: Felsöka Azure SQL datasynkronisering | Microsoft Docs
+description: Lär dig hur du felsöker vanliga problem med Azure SQL-datasynkronisering.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 43d230b013f95c56fb162be3e361a6b68d1b26fe
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757544"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296136"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Felsökning av problem med SQL-datasynkronisering (förhandsgranskning)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsökning av problem med SQL datasynkronisering
 
-Den här artikeln beskriver hur du felsöker kända problem med Azure SQL Data Sync (förhandsversion). Om det finns en lösning på ett problem, som den här.
+Den här artikeln beskriver hur du felsöker kända problem med Azure SQL-datasynkronisering. Om det finns en lösning på ett problem, som den här.
 
-En översikt över SQL datasynkronisering (förhandsgranskning), se [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Synkroniseringsproblem
 
@@ -28,7 +28,7 @@ En översikt över SQL datasynkronisering (förhandsgranskning), se [synkroniser
 
 #### <a name="description-and-symptoms"></a>Beskrivning och problem
 
-Synkronisering misslyckas på SQL-datasynkronisering (förhandsgranskning) portalens användargränssnitt för lokala databaser som är associerade med agenten. På den lokala datorn som kör agenten finns System.IO.IOException fel i händelseloggen. Fel som säger att disken har inte tillräckligt med utrymme.
+Synkronisering misslyckas på SQL-datasynkronisering portalens användargränssnitt för lokala databaser som är associerade med agenten. På den lokala datorn som kör agenten finns System.IO.IOException fel i händelseloggen. Fel som säger att disken har inte tillräckligt med utrymme.
 
 #### <a name="resolution"></a>Lösning
 
@@ -38,7 +38,7 @@ Skapa mer utrymme på enheten där katalogen % TEMP % finns.
 
 #### <a name="description-and-symptoms"></a>Beskrivning och problem
 
-En grupp för synkronisering i SQL-datasynkronisering (förhandsversion) har i bearbetningstillstånd under lång tid. Svarar inte på den **stoppa** kommandot och loggarna visar inga nya poster.
+En grupp för synkronisering i SQL-datasynkronisering har i bearbetningstillstånd under lång tid. Svarar inte på den **stoppa** kommandot och loggarna visar inga nya poster.
 
 #### <a name="cause"></a>Orsak
 
@@ -48,14 +48,14 @@ Något av följande villkor kan resultera i en grupp för synkronisering har fas
 
 -   **Klientagenten är installeras eller saknas**. Om klientagenten installeras eller på annat sätt saknas:
 
-    1. Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering (förhandsgranskning) om filen finns.
+    1. Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering om filen finns.
     2. Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agent-nyckel som skapas i portalen för den agent som visas som offline.
 
 -   **Datasynkronisering för SQL-tjänsten har stoppats**.
 
     1. I den **starta** -menyn, söka efter **Services**.
     2. I sökresultaten väljer **Services**.
-    3. Hitta de **SQL datasynkronisering (förhandsgranskning)** service.
+    3. Hitta de **SQL datasynkronisering** service.
     4. Om tjänstestatus är **stoppad**, högerklicka på tjänstens namn och välj sedan **starta**.
 
 #### <a name="resolution"></a>Lösning
@@ -70,7 +70,7 @@ Om tabeller som har samma namn men som är från en annan databas scheman ingår
 
 #### <a name="cause"></a>Orsak
 
-SQL-datasynkronisering (förhandsgranskning) etableringsprocessen använder samma spårningstabeller för tabeller som har samma namn men som är i olika scheman. Därför visas ändringar från båda tabellerna i tabellen samma uppföljning. Detta gör felaktiga ändringar under synkroniseringen.
+SQL-datasynkronisering etableringsprocessen använder samma spårningstabeller för tabeller som har samma namn men som är i olika scheman. Därför visas ändringar från båda tabellerna i tabellen samma uppföljning. Detta gör felaktiga ändringar under synkroniseringen.
 
 #### <a name="resolution"></a>Lösning
 
@@ -109,10 +109,10 @@ Bästa finns förebyggande. Se till att du inte har cirkelreferenser i sync-grup
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Detta meddelande visas ”: Det går inte att infoga värdet NULL i kolumnen \<kolumnen\>. Kolumnen tillåter inte null-värden ”. Vad innebär det och hur kan jag åtgärda det? 
 Det här felmeddelandet innebär att ett av de två följande problem har uppstått:
 -  En tabell saknar primärnyckel. Åtgärda problemet genom att lägga till en primär nyckel i alla tabeller som du synkronisera.
--  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkronisering (förhandsversion) kan inte hantera det här villkoret. Åtgärda problemet genom att ta bort WHERE-satsen eller göra ändringarna manuellt för alla databaser. 
+-  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkronisering kan inte hantera det här villkoret. Åtgärda problemet genom att ta bort WHERE-satsen eller göra ändringarna manuellt för alla databaser. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hur hanterar datasynkronisering (förhandsgranskning) cirkelreferenser? Det vill säga när samma data synkroniseras i flera synkroniseringsgrupper och ändras som ett resultat?
-Datasynkronisering (förhandsversion) kan inte hantera cirkelreferenser. Se till att undvikas. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hur hanterar datasynkronisering cirkelreferenser? Det vill säga när samma data synkroniseras i flera synkroniseringsgrupper och ändras som ett resultat?
+Datasynkronisering kan inte hantera cirkelreferenser. Se till att undvikas. 
 
 ## <a name="client-agent-issues"></a>Agenten klientproblem
 
@@ -131,27 +131,6 @@ Generera och titta på Windows Installer-loggarna för att hitta orsaken till fe
 
 Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikel [hur du aktiverar loggning för Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) ger en enkelklickning lösning för att aktivera loggning för Windows Installer. Det ger också platsen för loggarna.
 
-### <a name="my-client-agent-doesnt-work"></a>Min klientagenten fungerar inte
-
-#### <a name="description-and-symptoms"></a>Beskrivning och problem
-
-Du får följande meddelanden när du försöker använda klientagenten:
-
-”Synkronisering misslyckades med undantaget som ett fel uppstod vid försök att avserialisera parametern www.microsoft.com/.../05:GetBatchInfoResult. (Se InnerException för mer information ”.
-
-”Inre Undantagsmeddelande: typ 'Microsoft.Synchronization.ChangeBatch' är en ogiltig samlingstyp eftersom den inte har en standardkonstruktor”.
-
-#### <a name="cause"></a>Orsak
-
-Detta är ett känt problem med installation av SQL-datasynkronisering (förhandsversion). Den troligaste orsaken till det här meddelandet är en av följande:
-
--   Du kör Windows 8 Developer Preview.
--   Du har .NET Framework 4.5 är installerat.
-
-#### <a name="resolution"></a>Lösning
-
-Se till att du installerar klientagenten på en dator som inte kör Windows 8 Developer Preview och att .NET Framework 4.5 inte är installerad.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>Min klientagenten fungerar inte när du har avbrutit avinstallationen
 
 #### <a name="description-and-symptoms"></a>Beskrivning och problem
@@ -160,7 +139,7 @@ Klientagenten fungerar inte även efter att du avbryter dess avinstallationen.
 
 #### <a name="cause"></a>Orsak
 
-Detta inträffar eftersom autentiseringsuppgifterna inte lagras i klientagenten SQL datasynkronisering (förhandsversion).
+Detta inträffar eftersom autentiseringsuppgifterna inte lagras i klientagenten SQL datasynkronisering.
 
 #### <a name="resolution"></a>Lösning
 
@@ -215,18 +194,18 @@ En trolig orsak till felet är att lösenord på den lokala servern har ändrats
 
 Uppdatera agentens lösenordet till ditt nuvarande serverlösenord:
 
-1. Leta upp klientagenten SQL datasynkronisering (förhandsgranskning) Preview service.  
+1. Leta upp tjänsten SQL datasynkronisering client agent.  
     a. Välj **starta**.  
     b. I sökrutan anger **services.msc**.  
     c. I sökresultaten väljer **Services**.  
-    d. I den **Services** och rulla till posten för **datasynkronisering (förhandsversion) för SQL Agent Preview**.  
-2. Högerklicka på **datasynkronisering (förhandsversion) för SQL Agent Preview**, och välj sedan **stoppa**.
-3. Högerklicka på **datasynkronisering (förhandsversion) för SQL Agent Preview**, och välj sedan **egenskaper**.
-4. På **SQL datasynkronisering (förhandsgranskning) agentegenskaper Preview**, Välj den **logga in** fliken.
+    d. I den **Services** och rulla till posten för **Agent för synkronisering av Data i SQL**.  
+2. Högerklicka på **Agent för synkronisering av Data i SQL**, och välj sedan **stoppa**.
+3. Högerklicka på **Agent för synkronisering av Data i SQL**, och välj sedan **egenskaper**.
+4. På **SQL Data Sync agentegenskaper**, Välj den **logga in** fliken.
 5. I den **lösenord** ange ditt lösenord.
 6. I den **Bekräfta lösenord** rutan, ange ditt lösenord igen.
 7. Tryck på **Tillämpa** och välj sedan **OK**.
-8. I den **Services** fönstret högerklickar du på den **datasynkronisering (förhandsversion) för SQL Agent Preview** tjänst och klicka sedan på **starta**.
+8. I den **Services** fönstret högerklickar du på den **Agent för synkronisering av Data i SQL** tjänst och klicka sedan på **starta**.
 9. Stäng den **Services** fönster.
 
 ### <a name="i-cant-submit-the-agent-key"></a>Jag kan inte skicka agent-nyckeln
@@ -239,8 +218,8 @@ När du skapar eller skapa en nyckel för en agent, som du försöker skicka nyc
 
 Innan du går vidare kontrollerar du om följande villkor:
 
--   SQL-datasynkronisering (förhandsgranskning) Windows-tjänsten körs.  
--   Tjänstkontot för SQL-datasynkronisering (förhandsgranskning) Preview Windows-tjänsten har åtkomst till nätverket.    
+-   SQL Data Sync Windows-tjänsten körs.  
+-   Tjänstkontot för SQL Data Sync Windows-tjänsten har åtkomst till nätverket.    
 -   Den utgående porten 1433 är öppen i din lokala brandväggsregel.
 -   Den lokala IP-adressen har lagts till den server eller databas-brandväggsregler för synkronisering av metadata-databasen.
 
@@ -248,7 +227,7 @@ Innan du går vidare kontrollerar du om följande villkor:
 
 Agentnyckeln identifierar unikt varje lokal agent. Nyckeln måste uppfylla förutsättningar:
 
--   Klienten agentnyckeln datasynkronisering (förhandsversion) för SQL-servern och den lokala datorn måste vara identiska.
+-   Klienten agentnyckeln datasynkronisering för SQL-servern och den lokala datorn måste vara identiska.
 -   Nyckeln för klienten agent kan användas en gång.
 
 #### <a name="resolution"></a>Lösning
@@ -272,7 +251,7 @@ Tillämpa den nya nyckeln för agenten:
 
 #### <a name="description-and-symptoms"></a>Beskrivning och problem
 
-Om en lokal slutpunkt (det vill säga en databas) som har registrerats med en SQL-datasynkronisering (förhandsgranskning) klientagenten blir kan inte nås, kan inte klientagenten tas bort.
+Om en lokal slutpunkt (det vill säga en databas) som har registrerats med en SQL-datasynkronisering klientagent blir kan inte nås, kan inte klientagenten tas bort.
 
 #### <a name="cause"></a>Orsak
 
@@ -295,8 +274,8 @@ Prova följande steg:
 2. Öppna panelen Component Services.  
     a. I sökrutan i Aktivitetsfältet, ange **services.msc**.  
     b. Dubbelklicka i sökresultaten **Services**.  
-3. Stoppa den **SQL datasynkronisering (förhandsgranskning) Preview** service.
-4. Starta om den **SQL datasynkronisering (förhandsgranskning) Preview** service.  
+3. Stoppa den **SQL datasynkronisering** service.
+4. Starta om den **SQL datasynkronisering** service.  
 5. Öppna appen.
 
 ## <a name="setup-and-maintenance-issues"></a>Problem med konfiguration och underhåll
@@ -335,12 +314,12 @@ Så här löser du det gick inte att ta bort en sync-grupp:
 
 -   Kontrollera att klientagenten är online och försök sedan igen.
 -   Om klientagenten installeras eller på annat sätt saknas:  
-    a. Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering (förhandsgranskning) om filen finns.  
+    a. Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering om filen finns.  
     b. Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agent-nyckel som skapas i portalen för den agent som visas som offline.
--   Kontrollera att tjänsten SQL-datasynkronisering (förhandsgranskning) körs:  
+-   Kontrollera att tjänsten SQL datasynkronisering körs:  
     a. I den **starta** -menyn, söka efter **Services**.  
     b. I sökresultaten väljer **Services**.  
-    c. Hitta de **SQL datasynkronisering (förhandsgranskning) Preview** service.  
+    c. Hitta de **SQL datasynkronisering** service.  
     d. Om tjänstestatus är **stoppad**, högerklicka på tjänstens namn och välj sedan **starta**.
 -   Se till att SQL-databaser och SQL Server-databaser är anslutna.
 -   Vänta tills processen för etablering eller synkronisering har slutförts och försök sedan synkronisera gruppen tas bort.
@@ -361,7 +340,7 @@ Om den här åtgärden inte kan ta bort databasen från gruppen synkronisering:
     a. Välj den **starta** menyn.  
     b. I sökrutan anger **services.msc**.  
     c. I den **program** avsnitt i sökningen resulterar rutan dubbelklickar du på **Services**.  
-    d. Högerklicka på den **SQL datasynkronisering (förhandsgranskning)** service.  
+    d. Högerklicka på den **SQL datasynkronisering** service.  
     e. Om tjänsten körs, stoppas den.  
     f. Högerklicka på tjänsten och välj sedan **starta**.  
     g. Kontrollera om databasen fortfarande är registrerad. Om det är inte längre registrerad är du klar. Annars fortsätter du med nästa steg.
@@ -391,7 +370,7 @@ Bevilja log-på-as-a-service-autentiseringsuppgifter för användarkontot:
 
 #### <a name="cause"></a>Orsak
 
-SQL-datasynkronisering (förhandsgranskning) tar du bort databaser som har varit frånkopplad från tjänsten i 45 dagar eller mer (som räknas från den tidpunkt som databasen övergick till offlineläge). Om en databas är offline i 45 dagar eller mer och går tillbaka online, är dess status **inaktuella**.
+SQL-datasynkronisering tar bort databaser som har varit frånkopplad från tjänsten i 45 dagar eller mer (som räknas från den tidpunkt som databasen övergick till offlineläge). Om en databas är offline i 45 dagar eller mer och går tillbaka online, är dess status **inaktuella**.
 
 #### <a name="resolution"></a>Lösning
 
@@ -421,14 +400,14 @@ Om en synkronisering grupp status är **inaktuella**, ta bort gruppen synkronise
 
 #### <a name="description-and-symptoms"></a>Beskrivning och problem
 
-Du kan inte ta bort en grupp för synkronisering av tre minuter efter avinstallation eller stoppa klientagenten associerade SQL datasynkronisering (förhandsversion).
+Du kan inte ta bort en grupp för synkronisering av tre minuter efter avinstallation eller stoppa klientagenten associerade SQL datasynkronisering.
 
 #### <a name="resolution"></a>Lösning
 
 1. Ta bort en synkronisering medan associerade sync-agenter är online (rekommenderas).
-2. Om agenten är offline men har installerats, ta den online på den lokala datorn. Vänta tills statusen för agenten ska visas som **Online** i portalen SQL datasynkronisering (förhandsversion). Ta sedan bort gruppen synkronisering.
+2. Om agenten är offline men har installerats, ta den online på den lokala datorn. Vänta tills statusen för agenten ska visas som **Online** i SQL-datasynkronisering portal. Ta sedan bort gruppen synkronisering.
 3. Om agenten är offline eftersom den avinstallerats:  
-    a.  Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering (förhandsgranskning) om filen finns.  
+    a.  Ta bort agenten XML-filen från installationsmappen SQL datasynkronisering om filen finns.  
     b.  Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agent-nyckel som skapas i portalen för den agent som visas som offline.  
     c. Försök att ta bort gruppen synkronisering.
 
@@ -437,16 +416,16 @@ Du kan inte ta bort en grupp för synkronisering av tre minuter efter avinstalla
 Om du återställer en förlorade eller skadade databasen från en säkerhetskopia kan finnas det en nonconvergence av data i synkroniseringsgrupper som databasen tillhör.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om SQL-datasynkronisering (förhandsgranskning) finns i:
+Mer information om SQL-datasynkronisering finns:
 
--   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md)  
--   [Konfigurera Azure SQL datasynkronisering (förhandsgranskning)](sql-database-get-started-sql-data-sync.md)  
--   [Metodtips för datasynkronisering för Azure SQL (förhandsgranskning)](sql-database-best-practices-data-sync.md)  
--   [Övervaka Azure SQL-datasynkronisering (förhandsversion) med logganalys](sql-database-sync-monitor-oms.md)  
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL-datasynkronisering (förhandsversion):  
+-   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)  
+-   [Konfigurera Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)  
+-   [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)  
+-   [Övervaka Azure SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:  
     -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Hämta SQL datasynkronisering (förhandsgranskning) REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Mer information om SQL-databas finns i:
 

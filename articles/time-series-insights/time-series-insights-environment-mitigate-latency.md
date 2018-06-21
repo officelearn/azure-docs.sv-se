@@ -3,7 +3,7 @@ title: Hur du övervakar och minska begränsning i Azure tid serien insikter | M
 description: Den här artikeln beskriver hur du övervaka, diagnostisera och minska problem med prestanda som orsakar svarstid och begränsning i Azure tid serien insikter.
 ms.service: time-series-insights
 services: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: 9a7720934870818a4e13d3d6b5d391d9bd3cddcd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653679"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293782"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minska begränsning för att minska svarstiden i Azure tid serien insikter
 När mängden inkommande data överskrider din miljö konfiguration, kan det uppstå fördröjningar eller begränsning i Azure tid serien insikter.

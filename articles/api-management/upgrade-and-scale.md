@@ -9,58 +9,41 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ae977344101c02222fd9930e26a083bf5e3f800
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ca32c72b1582b2a09f9f1754ad778cf1b682a1c2
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
-ms.locfileid: "26658643"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293320"
 ---
-# <a name="upgrade-and-scale-an-api-management-instance"></a>Uppgradera och skala en instans för API Management 
+# <a name="upgrade-and-scale-an-api-management-instance"></a>Uppgradera och skala en instans för API Management  
 
 Kunder kan skala en instans för API Management (APIM) genom att lägga till och ta bort enheter. En **enhet** består av dedikerade Azure-resurser och påverkar en viss belastningen-kapacitet uttryckt i ett antal API-anrop per månad. Det här numret representerar inte en gräns för anrop, men i stället maximalt dataflöde värdet för grov kapacitetsplanering. Faktiska genomflöde och svarstid varierar brett beroende på faktorer som antalet och antalet samtidiga anslutningar, typ och antal konfigurerade principer, förfrågan och svar storlekar och serverdelen svarstid.
 
-Kapacitet och priset för varje enhet beror på den **nivå** i enheten finns. Du kan välja mellan fyra nivåer: **Developer**, **grundläggande**, **Standard**, **Premium**. Om du måste öka kapaciteten för en tjänst i en nivå, bör du lägga till en enhet. Om den nivå som för närvarande är markerad i din instans av APIM inte tillåter att lägga till flera enheter, måste du uppgradera till en högre nivå. 
+Kapacitet och priset för varje enhet beror på den **nivå** i enheten finns. Du kan välja mellan fyra nivåer: **Developer**, **grundläggande**, **Standard**, **Premium**. Om du måste öka kapaciteten för en tjänst i en nivå, bör du lägga till en enhet. Om den nivå som för närvarande är markerad i din instans av APIM inte tillåter att lägga till flera enheter, måste du uppgradera till en högre nivå.
 
 Priset på varje enhet och tillgängliga funktioner (till exempel flera regioner distribution) är beroende av den nivå som du har valt för din APIM-instans. Den [prisinformationen](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikel, förklarar pris per enhet och funktioner som du får i varje nivå. 
 
 >[!NOTE]
->Den [prisinformationen](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikeln visar Ungefärligt antal enhet kapacitet i varje nivå. Om du vill få mer exakta siffror som du behöver titta på en realistisk scenario för dina API: er. Se avsnittet ”så att planera kapaciteten” som följer.
+>Den [prisinformationen](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikeln visar Ungefärligt antal enhet kapacitet i varje nivå. Om du vill få mer exakta siffror som du behöver titta på en realistisk scenario för dina API: er. Finns det [kapacitet för en instans av Azure API Management](api-management-capacity.md) artikel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
+Om du vill följa stegen från den här artikeln, måste du:
 
-+ En aktiv Azure-prenumeration.
++ Ha en aktiv Azure-prenumeration.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ En APIM-instans. Mer information finns i [skapa en instans av Azure API Management](get-started-create-service-instance.md).
++ Har en APIM-instans. Mer information finns i [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
-## <a name="how-to-plan-for-capacity"></a>Hur du planerar för kapacitet?
++ Förstå begreppet [kapacitet för en Azure API Management-instans] (api-hantering-capacity.md).
 
-Om du vill ta reda på om du har tillräckligt med enheter att hantera trafik på Testa på arbetsbelastningar som du förväntar dig. 
+## <a name="upgrade-and-scale"></a>Uppgradera och skala  
 
-Som nämnts ovan är beror antalet begäranden per sekund som kan bearbeta en APIM enhet på många faktorer. Till exempel anslutning mönstret, storleken på begäran och svar, principer som är konfigurerade på varje API, antalet klienter som skickar begäranden.
-
-Använd **mått** (använder Azure-Monitor funktioner) att förstå hur mycket kapacitet används vid en given tidpunkt.
-
-### <a name="use-the-azure-portal-to-examine-metrics"></a>Använda Azure portal för att undersöka mätvärden 
-
-1. Navigera till din APIM instans i den [Azure-portalen](https://portal.azure.com/).
-2. Välj **mått**.
-3. Välj **kapacitet** mått från **tillgängliga mått**. 
-
-    Kapacitet måttet ger dig en uppfattning om hur mycket av det tillgängliga beräkningskapacitet som används i din klient. Dess värde är härledd från de beräkningsresurser som används av din klient, till exempel minne, CPU och kölängder i nätverket. Det är inte ett direkt mått av antalet begäranden som bearbetas. Du kan testa genom att öka belastningen på din klient och övervaka vilka värdet kapacitet mått som motsvarar din belastning. Du kan ange en mått avisering så att du vet när något oväntat händer. Till exempel har APIM-instansen överskridit sin förväntad maximal kapacitet i över 10 minuter.
-
-    >[!TIP]
-    > Du kan konfigurera aviseringar så att du vet när tjänsten har brist på kapacitet eller som anropar en logikapp som skalar automatiskt genom att lägga till en enhet.
-
-## <a name="upgrade-and-scale"></a>Uppgradering och skala 
-
-Som tidigare nämnts kan du välja mellan fyra nivåer: **Developer**, **grundläggande**, **Standard** och **Premium**. Den **Developer** nivå som ska användas för att utvärdera tjänsten; ska inte användas för produktion. Den **Developer** nivå har inte SLA och du kan skala det här skiktet (Lägg till/ta bort enheter). 
+Du kan välja mellan fyra nivåer: **Developer**, **grundläggande**, **Standard** och **Premium**. Den **Developer** nivå som ska användas för att utvärdera tjänsten; ska inte användas för produktion. Den **Developer** nivå har inte SLA och du kan skala det här skiktet (Lägg till/ta bort enheter). 
 
 **Grundläggande**, **Standard** och **Premium** är produktion nivåer som har SLA och kan skalas. Den **grundläggande** nivå är billigaste nivån som har SLA och skalade upp till 2-enheter kan vara **Standard** skiktet kan skalas upp till fyra enheter. Du kan lägga till valfritt antal enheter på den **Premium** nivå.
 
@@ -71,16 +54,17 @@ Du kan uppgradera och nedgradera till och från alla skikt. Observera att uppgra
 >[!NOTE]
 >Uppgradering eller skala processen kan ta 15 till 45 minuter att tillämpa. Du får meddelanden när du är klar.
 
-### <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Använda Azure portal för att uppgradera och skala
+## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Använda Azure portal för att uppgradera och skala
+
+![Skala APIM i Azure-portalen](./media/upgrade-and-scale/portal-scale.png)
 
 1. Navigera till din APIM instans i den [Azure-portalen](https://portal.azure.com/).
-2. Välj **skala och prissättning**.
+2. Välj **skala och prissättning** på menyn.
 3. Välj önskad nivå.
-4. Ange antalet **enheter** du vill lägga till. Du kan använda skjutreglaget, eller så kan du ange hur många enheter.<br/>
+4. Ange antalet **enheter** du vill lägga till. Du kan använda skjutreglaget, eller så kan du ange hur många enheter.  
     Om du väljer den **Premium** nivån, måste du först välja en region.
 5. Tryck på **spara**
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Distribuera ett Azure API Management service-instans till Azure-regioner](api-management-howto-deploy-multi-region.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Felsöka rollbaserad åtkomstkontroll Azure RBAC | Microsoft Docs
-description: Få hjälp med eller frågor om rollbaserad åtkomstkontroll resurser.
+title: Felsökning av RBAC i Azure | Microsoft Docs
+description: Felsöka problem med Azure rollbaserad åtkomstkontroll (RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267179"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295411"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Felsökning av rollbaserad åtkomstkontroll i Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Felsökning av RBAC i Azure
 
-Den här artikeln innehåller svar på vanliga frågor om särskilda behörigheter som beviljas med roller, så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller omfattar alla typer av resurser:
+Den här artikeln innehåller svar på vanliga frågor om rollbaserad åtkomstkontroll (RBAC), så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller omfattar alla typer av resurser:
 
 * Ägare  
 * Deltagare  
 * Läsare  
 
-Ha fullständig åtkomst till hanteringen av ägare och deltagare, men en deltagare kan inte ge åtkomst till andra användare eller grupper. Det blir lite mer intressant med läsarrollen så att den där vi tillbringar lite tid. Finns det [rollbaserad åtkomstkontroll komma-igång artikel](role-assignments-portal.md) mer information om hur du beviljar åtkomst.
+Ha fullständig åtkomst till hanteringen av ägare och deltagare, men en deltagare kan inte ge åtkomst till andra användare eller grupper. Det blir lite mer intressant med rollen Läsare så att den där vi tillbringar lite tid. Information om hur du bevilja åtkomst, seee [hantera åtkomst med hjälp av RBAC och Azure portal](role-assignments-portal.md).
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Skrivåtkomst funktioner
@@ -97,9 +97,7 @@ Dessa kräver **skriva** åtkomst till både den **virtuella**, och **resursgrup
 
 Fråga din administratör om du inte kan komma åt någon av dessa paneler för deltagare åtkomst till resursgruppen.
 
-## <a name="see-more"></a>Mer information
-* [Rollbaserad åtkomstkontroll](role-assignments-portal.md): komma igång med RBAC på Azure-portalen.
-* [Inbyggda roller](built-in-roles.md): få information om de roller som levereras som standard i RBAC.
-* [Anpassade roller i Azure RBAC](custom-roles.md): Lär dig att skapa anpassade roller som passar dina åtkomstbehov.
-* [Skapa en profil över åtkomständringshistorik](change-history-report.md): hålla reda på hur du ändrar rolltilldelningar i RBAC.
+## <a name="next-steps"></a>Nästa steg
+* [Hantera åtkomst med hjälp av RBAC och Azure portal](role-assignments-portal.md)
+* [Visa aktivitetsloggar för RBAC ändringar](change-history-report.md)
 

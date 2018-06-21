@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590386"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294283"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.
+
+## <a name="june-2018"></a>Juni 2018 
+**Nya förhandsgranskningsfunktioner:** 
+* Azure AD Connect Health för synkronisering - diagnostisera och åtgärda Duplicerat attribut synkroniseringsfel från portalen 
+
+**Agentuppdatering:** 
+*   Azure AD Connect Health agent för AD FS (version 3.1.2.0)  
+   1. Felkorrigeringar och förbättringar för aviseringar 
+
 
 ## <a name="may-2018"></a>Maj 2018
 **Agentuppdatering:**
@@ -35,7 +44,7 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
  2. Agenten sekretess förbättring  
  3. Felkorrigeringar och allmänna förbättringar
 
-* Azure AD Connect Health agent för synkronisering (version 3.0.244.0)
+* Azure AD Connect Health agent för synkronisering (version 3.0.164.0) lanseras med Azure AD Connect version 1.1.819.0
  1. Agenten sekretess förbättring  
  2. Felkorrigeringar och allmänna förbättringar
 
@@ -98,7 +107,7 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 ## <a name="october-2016"></a>Oktober 2016
 **Agentuppdatering:**
 
-* Azure AD Connect Health agent för AD FS \(version 2.6.408.0\)
+* Azure AD Connect Health agent för AD FS (version 2.6.408.0)
 1. Förbättringar för identifiering av klienternas IP-adresser i autentiseringsbegäranden
 2. Felkorrigeringar relateras till aviseringar
 * Azure AD Connect Health agent för AD DS (version 2.6.408.0)

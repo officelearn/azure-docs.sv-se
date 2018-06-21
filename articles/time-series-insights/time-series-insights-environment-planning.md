@@ -3,7 +3,7 @@ title: Planera skalan för din Azure tid serien Insights-miljö | Microsoft Docs
 description: Den här artikeln beskriver hur du följer metodtipsen när du planerar en Azure tid serien Insights miljö, inklusive lagringskapacitet, datalagring, ingång kapacitet och övervakning.
 services: time-series-insights
 ms.service: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 45f081c4e1dbd32b46c8a69f32b0b205b948f9b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652329"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293272"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planera din Azure tid serien Insights-miljö
 

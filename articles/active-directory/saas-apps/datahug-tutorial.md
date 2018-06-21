@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e8295d7cba023697e803bce2d8a321a943761f2a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb2d6194b5a515d89e3204679860ab19a052ba03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222914"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Självstudier: Azure Active Directory-integrering med Datahug
 
@@ -240,7 +240,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
-När du klickar på panelen Datahug på åtkomstpanelen du bör få automatiskt loggat in på ditt Datahug program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586). 
+När du klickar på panelen Datahug på åtkomstpanelen du bör få automatiskt loggat in på ditt Datahug program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

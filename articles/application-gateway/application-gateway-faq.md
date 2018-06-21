@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/19/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229343"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295536"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor för Programgateway
 
@@ -115,7 +115,7 @@ Nej, men du kan distribuera andra programgatewayer i undernätet.
 
 Nätverkssäkerhetsgrupper stöds i Application Gateway-undernät med följande begränsningar:
 
-* Undantag ställas på inkommande trafik på portarna 65503 65534 för backend-hälsotillstånd ska fungera korrekt.
+* Undantag ställas på inkommande trafik på portarna 65503 65534. Den här portintervall krävs för kommunikation med Azure-infrastrukturen. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat externa enheter, inklusive dessa gateways kunder inte initiera ändringar på de slutpunkterna.
 
 * Det går inte att blockera utgående Internetanslutning.
 
@@ -159,7 +159,7 @@ Det här scenariot kan göras med hjälp av NSG: er i Application Gateway-undern
 
 * Tillåt inkommande trafik från käll-IP-/ IP-intervall.
 
-* Tillåt inkommande begäranden från alla källor till portar 65503 65534 för [backend hälsa kommunikation](application-gateway-diagnostics.md).
+* Tillåt inkommande begäranden från alla källor till portar 65503 65534 för [backend hälsa kommunikation](application-gateway-diagnostics.md). Portintervallet krävs för kommunikation med Azure-infrastrukturen. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat externa enheter, inklusive dessa gateways kunder inte initiera ändringar på de slutpunkterna.
 
 * Tillåt inkommande Azure belastningsutjämnare avsökningar (taggen AzureLoadBalancer) och inkommande trafik i virtuella nätverk (taggen VirtualNetwork) på den [NSG](../virtual-network/security-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera rollbaserad åtkomstkontroll (RBAC) med Azure CLI | Microsoft Docs
-description: Lär dig mer om att hantera rollbaserad åtkomstkontroll (RBAC) med kommandoradsgränssnittet i Azure genom att ange roller och rollen åtgärder och genom att tilldela roller till prenumeration och application-scope.
+title: Hantera åtkomst med hjälp av RBAC och Azure CLI | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure CLI. Detta inkluderar lista åtkomst, beviljar åtkomst och ta bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266745"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294412"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Hantera rollbaserad åtkomstkontroll med kommandoradsgränssnittet i Azure
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Hantera åtkomst med hjälp av RBAC och Azure CLI
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-Med rollbaserad åtkomstkontroll (RBAC) ange åtkomst för användare, grupper och tjänstens huvudnamn genom att tilldela roller för ett visst område. Den här artikeln beskriver hur du hanterar rolltilldelningar med hjälp av Azure-kommandoradsgränssnittet (CLI).
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är på sätt som du hanterar åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Azure CLI för att hantera rolltilldelningar, måste du ha följande krav:
 
-* [Azure CLI 2.0](/cli/azure). Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md) eller [installera](/cli/azure/install-azure-cli) den på macOS, Linux och Windows och köra den från kommandoraden.
+* [Azure CLI](/cli/azure). Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md) eller [installera](/cli/azure/install-azure-cli) den på macOS, Linux och Windows och köra den från kommandoraden.
 
-## <a name="list-role-definitions"></a>Lista rolldefinitioner
+## <a name="list-roles"></a>Lista roller
 
 Om du vill visa alla tillgängliga rolldefinitioner använda [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Lista över åtgärder som en rolldefinition
+### <a name="list-actions-of-a-role"></a>Lista över åtgärder för en roll
 
 Visa åtgärderna för en rolldefinition, Använd [az rollen definitionslista](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Lista rolltilldelningar
+## <a name="list-access"></a>Listan åtkomst
+
+RBAC anger lista åtkomst du i rolltilldelningar.
 
 ### <a name="list-role-assignments-for-a-user"></a>Lista rolltilldelningar för en användare
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Skapa rolltilldelningar
+## <a name="grant-access"></a>Bevilja åtkomst
+
+I RBAC, för att bevilja åtkomst, skapar du en rolltilldelning.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Skapa en rolltilldelning för en användare
 
@@ -290,9 +288,9 @@ I följande exempel tilldelas den *Virtual Machine-deltagare* rollen till ett pr
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
+## <a name="remove-access"></a>Ta bort åtkomst
 
-Ta bort en rolltilldelning med [az rolltilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
+I RBAC, för att ta bort access kan du ta bort en rolltilldelning med [az rolltilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bb0952fe5b78b0a9933cf7e9f20787150bdbcc3b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231516"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Självstudier: Azure Active Directory-integrering med SensoScientific trådlösa temperatur övervakningssystem
 
@@ -214,7 +214,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst. Klicka på panelen övervakningssystem för SensoScientific trådlösa temperatur på åtkomstpanelen, du kommer att automatiskt loggat in på ditt övervakningssystem för SensoScientific trådlösa temperatur program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst. Klicka på panelen övervakningssystem för SensoScientific trådlösa temperatur på åtkomstpanelen, du kommer att automatiskt loggat in på ditt övervakningssystem för SensoScientific trådlösa temperatur program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

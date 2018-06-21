@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824176"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295577"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för din hybrididentitetslösning dataskydd
 I den här uppgiften definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -57,7 +57,7 @@ Beroende på hur du besvarade frågorna i [fastställa kraven på dataskydd](act
 >
 
 ## <a name="define-content-management-options"></a>Definiera alternativ för innehållshantering
-Fördelen med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent ur användarens perspektiv. Användaren försöker få åtkomst till en delad resurs, resursen kräver autentisering, användaren har för att skicka en autentiseringsbegäran till Azure AD för att hämta token och åtkomst till resursen. Hela processen sker i bakgrunden utan interaktion från användaren. Det är också möjligt att tilldela behörighet för en [grupp](active-directory-manage-groups.md#getting-started-with-access-management) användare så att de kan utföra vissa vanliga åtgärder.
+Fördelen med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent ur användarens perspektiv. Användaren försöker få åtkomst till en delad resurs, resursen kräver autentisering, användaren har för att skicka en autentiseringsbegäran till Azure AD för att hämta token och åtkomst till resursen. Hela processen sker i bakgrunden utan interaktion från användaren. Det är också möjligt att tilldela behörighet för en [grupp](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) användare så att de kan utföra vissa vanliga åtgärder.
 
 Organisationer som är skadliga om datasekretess vanligtvis kräver dataklassificering för sina lösningar. Om den aktuella lokala infrastrukturen redan använder dataklassificering, är det möjligt att använda Azure AD som den centrala lagringsplatsen för användarens identitet. Ett gemensamma verktyg för att det är används lokalt för dataklassificering kallas [Dataklassificering](https://msdn.microsoft.com/library/Hh204743.aspx) för Windows Server 2012 R2. Det här verktyget kan bidra till att identifiera, klassificera och skydda data på filservrar i ditt privata moln. Det är också möjligt att använda den [automatisk Filklassificering](https://technet.microsoft.com/library/hh831672.aspx) i Windows Server 2012 för att utföra den här uppgiften.
 
@@ -131,12 +131,12 @@ Varje interaktion i diagrammet på bild X representerar en access control-scenar
 
   3. Villkorlig åtkomst för Office 365-program med Microsoft Intune: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter åtkomst till tjänsterna. Mer information finns i [Enhetsprinciper för villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md).
 
-  4. Villkorlig åtkomst för Saas-appar: [funktionen](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda regler för multifaktorautentisering för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de använder programmet från en IP-adress som i i organisationens nätverk.
+  4. Villkorlig åtkomst för Saas-appar: [funktionen](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda regler för multifaktorautentisering för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de använder programmet från en IP-adress som i i organisationens nätverk.
 
 Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för åtkomstkontroll använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje scenario som kräver att du kan styra åtkomst till resurser.
 
 ## <a name="define-incident-response-options"></a>Definiera alternativ för incidenter
-Azure AD hjälper IT att identitet potentiella säkerhetsrisker i miljön genom att övervaka användarens aktivitet. IT kan använda Azure AD-åtkomst och rapporter för att få insyn i integritet och säkerheten för din organisations katalog. Med den här informationen kan bestämma IT-administratör bättre där möjliga säkerhetsrisker kan ligga så att de kan planera på lämpligt sätt du minskar riskerna.  [Azure AD Premium-prenumeration](active-directory-get-started-premium.md) har en uppsättning säkerhetsrapporter som gör att IT-avdelningen att hämta den informationen. [Azure AD-rapporter](active-directory-view-access-usage-reports.md) kategoriseras på följande sätt:
+Azure AD hjälper IT att identitet potentiella säkerhetsrisker i miljön genom att övervaka användarens aktivitet. IT kan använda Azure AD-åtkomst och rapporter för att få insyn i integritet och säkerheten för din organisations katalog. Med den här informationen kan bestämma IT-administratör bättre där möjliga säkerhetsrisker kan ligga så att de kan planera på lämpligt sätt du minskar riskerna.  [Azure AD Premium-prenumeration](fundamentals/active-directory-get-started-premium.md) har en uppsättning säkerhetsrapporter som gör att IT-avdelningen att hämta den informationen. [Azure AD-rapporter](active-directory-view-access-usage-reports.md) kategoriseras på följande sätt:
 
 * **Avvikelseidentifiering rapporter**: innehålla logga in händelser som har identifierats ska avvikande. Målet är att se till att du är medveten om sådan aktivitet och gör att du kan fastställa om en händelse är misstänkt.
 * **Integrerade program rapporten**: ger insikter om hur molnprogram används i din organisation. Azure Active Directory möjliggör integrering med tusentals molnprogram.
@@ -145,9 +145,9 @@ Azure AD hjälper IT att identitet potentiella säkerhetsrisker i miljön genom 
 * **Aktivitetsloggar**: innehåller en post på alla granskade händelser inom de senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, samt ändringar av aktiviteten och aktiviteten för återställning och registrering av lösenord.
 
 > [!TIP]
-> En annan rapport som kan också Incident svarsgrupp som arbetar med ett ärende är den [användare med läckta autentiseringsuppgifter](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) rapporten. Den här rapporten hämtar alla matchningar mellan listan läckta autentiseringsuppgifter och din klient.
+> En annan rapport som kan också Incident svarsgrupp som arbetar med ett ärende är den [användare med läckta autentiseringsuppgifter](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapporten. Den här rapporten hämtar alla matchningar mellan listan läckta autentiseringsuppgifter och din klient.
 >
->
+
 
 Andra viktiga inbyggda rapporter i Azure AD som kan användas vid en undersökning av incidenter och är:
 

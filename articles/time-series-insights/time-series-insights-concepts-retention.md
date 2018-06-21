@@ -3,19 +3,19 @@ title: Förstå datalagring i miljön Azure tid serien Insights | Microsoft Docs
 description: Den här artikeln beskrivs två inställningar som styr datalagring i miljön Azure tid serien insikter.
 ms.service: time-series-insights
 services: time-series-insights
-author: anshan
+author: ashannon7
 ms.author: anshan
 manager: kfile
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: ad0cbf38a1a32632869c490c5a46796eaa3884f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c8fad0d626fc0b9754f7f04c8000f48976eb766b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652458"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293103"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Förstå datalagring i tid serien insikter
 Den här artikeln beskrivs två inställningar som påverkar datalagring i miljön tid serien insikter (TSD).

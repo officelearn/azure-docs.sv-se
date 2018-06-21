@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: 31defde289643b2adfd6e15bb8417b5498ba65d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e854ed42b6af8bc090950e8399e3229e202a2ed0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212508"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293420"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Vanliga undantag och fel när du arbetar med FabricClient APIs
 Den [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API: er kan klustret och programmet administratörer att utföra administrativa uppgifter på ett Service Fabric-program, tjänst eller klustret. Programdistribution, uppgradering och borttagning, kontrollerar hälsotillståndet för ett kluster eller testa en tjänst. Programutvecklare och klusteradministratörer kan använda FabricClient APIs för att utveckla verktyg för hantering av Service Fabric-kluster och program.
@@ -36,7 +36,7 @@ Det finns många olika typer av åtgärder som kan utföras med hjälp av Fabric
 
 Några vanliga [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) fel som kan returneras i en [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException):
 
-| Fel | Villkor |
+| Fel | Tillstånd |
 | --- |:--- |
 | CommunicationError |Ett kommunikationsfel gjorde att åtgärden misslyckas, försök igen. |
 | InvalidCredentialType |Autentiseringsuppgiftstypen är ogiltig. |

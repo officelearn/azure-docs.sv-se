@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592270"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295619"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Speciella överväganden vid instanser
 Azure AD Connect används oftast med globalt instans av Azure AD och Office 365. Men det finns också andra instanser och de har olika krav för URL: er och andra saker.
@@ -38,8 +38,6 @@ När du loggar in på Azure AD-klient måste du använda ett konto i domänen on
 
 Funktioner som för närvarande inte finns i Microsoft Cloud-Tyskland:
 
-* **Azure AD Connect Health** är inte tillgänglig.
-* **Automatiska uppdateringar** är inte tillgänglig.
 * **Tillbakaskrivning av lösenord** är tillgängliga för förhandsgranskning med Azure AD Connect-version 1.1.570.0 och efter.
 * Andra Azure AD Premium-tjänster är inte tillgängliga.
 
@@ -61,8 +59,6 @@ Detta moln har stöd av tidigare versioner av DirSync. Nästa generation av moln
 
 Funktioner som för närvarande inte finns i Microsoft Azure Government-molnet:
 
-* **Azure AD Connect Health** är inte tillgänglig.
-* **Automatiska uppdateringar** är inte tillgänglig.
 * **Tillbakaskrivning av lösenord** är tillgängliga för förhandsgranskning med Azure AD Connect-version 1.1.570.0 och efter.
 * Andra Azure AD Premium-tjänster är inte tillgängliga.
 

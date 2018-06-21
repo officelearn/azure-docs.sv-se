@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c2b28d4f5d29855bf438f0e411bfb7c2fe82a6be
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5accb676c7fb732c9b59dbbbeda944a3a3015d50
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224998"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Självstudier: Azure Active Directory-integrering med BenefitHub
 
@@ -227,7 +227,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen BenefitHub på åtkomstpanelen du bör få automatiskt loggat in på ditt BenefitHub program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -247,4 +247,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.mic
 [201]: ./media/benefithub-tutorial/tutorial_general_201.png
 [202]: ./media/benefithub-tutorial/tutorial_general_202.png
 [203]: ./media/benefithub-tutorial/tutorial_general_203.png
-

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267279"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284972"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i Windows-VM med kommandot Kör
 
@@ -33,6 +33,7 @@ Följande begränsningar gäller när du kör kommandot:
 * Minsta tid att köra ett skript är ungefär 20 sekunder
 * Skript som körs som System i Windows
 * Ett skript i taget kan köras
+* Skript som begär information (interaktivt läge) stöds inte.
 * Du kan inte avbryta ett skript som körs
 * Den maximala tid som kan köra ett skript som är 90 minuter, där det ska gå innan timeout
 

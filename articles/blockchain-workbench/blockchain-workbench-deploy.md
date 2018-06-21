@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831643"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294857"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
 
@@ -48,7 +48,10 @@ Azure Blockchain arbetsstationen kräver flera förutsättningar före distribut
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registrering för Blockchain arbetsstationen API-app
 
-Distribution av Blockchain Workbench kräver registrering av Azure AD-program. Du behöver en Azure Active Directory (Azure AD)-klient för att registrera appen. Du kan använda en befintlig klient eller skapa en ny klient. Om du använder en befintlig Azure AD-klient behöver behörighet att registrera program inom en Azure AD-klient. Programmet registreringar måste vara i prenumerationen administratörens innehavare för prenumerationen där arbetsstationen har distribuerats. Mer information om Azure AD-klienter finns [skaffa en Active Directory-klient](../active-directory/develop/active-directory-howto-tenant.md) och [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Distribution av Blockchain Workbench kräver registrering av Azure AD-program. Du behöver en Azure Active Directory (Azure AD)-klient för att registrera appen. Du kan använda en befintlig klient eller skapa en ny klient. Om du använder en befintlig Azure AD-klient behöver behörighet att registrera program och bevilja behörigheter för Graph API i en Azure AD-klient. Om du inte har tillräcklig behörighet i en befintlig Azure AD-klient kan du skapa en ny klient. 
+
+> [!IMPORTANT]
+> Arbetsstationen behöver inte distribueras på samma klientorganisation som du använder för att registrera en Azure AD-program. Arbetsstationen måste distribueras i en klient där du har tillräcklig behörighet för att distribuera resurser. Mer information om Azure AD-klienter finns [skaffa en Active Directory-klient](../active-directory/develop/active-directory-howto-tenant.md) och [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj ditt konto i övre högra hörn och växla till önskad Azure AD-klient. Klienten måste vara den prenumerationsadministratör innehavare för prenumerationen där arbetsstationen distribueras och du har behörighet att registrera program.

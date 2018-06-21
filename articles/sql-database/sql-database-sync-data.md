@@ -1,6 +1,6 @@
 ---
-title: Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs
-description: Den här översikten beskriver datasynkronisering för Azure SQL (förhandsgranskning)
+title: Azure SQL datasynkronisering | Microsoft Docs
+description: Den här översikten introducerar Azure SQL-datasynkronisering
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301056"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296185"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL datasynkronisering
 
 SQL-datasynkronisering är en tjänst som bygger på Azure SQL Database som gör att du kan synkronisera data som du väljer i båda riktningarna över flera SQL-databaser och SQL Server-instanser.
 
@@ -53,15 +53,15 @@ Datasynkronisering är användbart i fall där data måste hållas uppdaterade �
 
 -   **Globalt distribuerade program:** många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med synkronisering av Data.
 
-Datasynkronisering är inte lämplig för följande scenarier:
+Datasynkronisering är inte den bästa lösningen för följande scenarier:
 
--   Haveriberedskap
-
--   Läs skala
-
--   ETL (OLTP till OLAP)
-
--   Migrering från en lokal SQLServer till Azure SQL-databas
+| Scenario | Vissa rekommenderade lösningar |
+|----------|----------------------------|
+| Haveriberedskap | [Geo-redundant Azure-säkerhetskopieringar](sql-database-automated-backups.md) |
+| Läs skala | [Använd skrivskyddade repliker att läsa in saldo skrivskyddade frågeresultat arbetsbelastningar (förhandsgranskning)](sql-database-read-scale-out.md) |
+| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migrering från en lokal SQLServer till Azure SQL-databas | [Migreringstjänst för Azure-databas](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Hur fungerar datasynkronisering? 
 
@@ -83,7 +83,7 @@ Eftersom datasynkronisering utlösaren-baserade, garanteras inte transaktionskon
 #### <a name="performance-impact"></a>Inverkan på prestanda
 Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra ändringar. Den skapar tabeller sida i databasen för ändringsspårning. Dessa aktiviteter för spårning av ändring kan påverka din arbetsbelastning i databasen. Utvärdera din tjänstnivå och uppgradera om det behövs.
 
-Etablering och borttagning under synkronisering att skapa gruppen kan även uppdatering och borttagning påverka databasens prestanda. 
+Etablering och borttagning under synkronisering grupp skapande, uppdatering och borttagning kan du även påverka databasens prestanda. 
 
 ### <a name="general-requirements"></a>Allmänna krav
 
@@ -127,13 +127,13 @@ Etablering och borttagning under synkronisering att skapa gruppen kan även uppd
 
 ## <a name="faq-about-sql-data-sync"></a>Vanliga frågor om SQL-datasynkronisering
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Hur mycket kostar tjänsten SQL-datasynkronisering (förhandsgranskning)
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Hur mycket kostar datasynkronisering för SQL-tjänsten?
 
-I förhandsversionen är gratis för tjänsten SQL-datasynkronisering (förhandsversion).  Men påförs du fortfarande data transfer kostnader för dataflytt till och från din SQL Database-instans. Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Det är gratis för tjänsten SQL datasynkronisering själva.  Men påförs du fortfarande data transfer kostnader för dataflytt till och från din SQL Database-instans. Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Vilka regioner stöd för datasynkronisering?
 
-SQL-datasynkronisering (förhandsversion) är tillgänglig i alla regioner för offentliga moln.
+SQL-datasynkronisering är tillgänglig i alla regioner för offentliga moln.
 
 ### <a name="is-a-sql-database-account-required"></a>Är ett konto för SQL-databas som krävs? 
 
@@ -152,7 +152,7 @@ Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från urspru
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Bör jag använda SQL datasynkronisering du säkerhetskopierar och återställer min databaser?
 
-Du bör inte använda SQL-datasynkronisering (förhandsgranskning) för att skapa en säkerhetskopia av dina data. Du kan inte säkerhetskopiera och återställa till en specifik tidpunkt eftersom SQL-datasynkronisering (förhandsgranskning) synkroniseringar inte är en ny version. Dessutom SQL datasynkronisering (förhandsgranskning) säkerhetskopieras inte andra SQL-objekt, till exempel lagrade procedurer och utför inte motsvarigheten till en återställningsåtgärd snabbt.
+Du bör inte använda SQL-datasynkronisering för att skapa en säkerhetskopia av dina data. Du kan inte säkerhetskopiera och återställa till en specifik tidpunkt eftersom SQL datasynkronisering synkroniseringar inte är en ny version. Dessutom SQL datasynkronisering säkerhetskopieras inte andra SQL-objekt, till exempel lagrade procedurer och utför inte motsvarigheten till en återställningsåtgärd snabbt.
 
 En rekommenderad säkerhetskopiering tekniken finns [kopiera en Azure SQL database](sql-database-copy.md).
 
@@ -172,7 +172,7 @@ Ja. SQL-datasynkronisering stöder sortering i följande scenarier:
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Stöds federation i SQL-datasynkronisering
 
-Federationsrotdatabas kan användas i tjänsten SQL-datasynkronisering (förhandsgranskning) utan någon begränsning. Du kan inte lägga till slutpunkten federerad databasen till den aktuella versionen av SQL-datasynkronisering (förhandsversion).
+Federationsrotdatabas kan användas i SQL Data Sync-tjänsten utan några begränsningar. Du kan inte lägga till slutpunkten federerad databasen till den aktuella versionen av SQL-datasynkronisering.
 
 ## <a name="next-steps"></a>Nästa steg
 

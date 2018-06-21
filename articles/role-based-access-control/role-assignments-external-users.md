@@ -1,6 +1,6 @@
 ---
-title: Hantera rolltilldelningar för externa användare i Azure | Microsoft Docs
-description: Hantera rollbaserad åtkomstkontroll (RBAC) i Azure för användare utanför organisationen
+title: Hantera åtkomst för externa användare med RBAC i Azure | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst för användare utanför organisationen med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,13 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 084594b637f813c110e4e0b2e9df2b9103d58efc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 98eb104981051bd5e7440954470960977b38286d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296220"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>Hantera rolltilldelningar för externa användare
+# <a name="manage-access-for-external-users-using-rbac"></a>Hantera åtkomst för externa användare med RBAC
 
 Rollbaserad åtkomstkontroll (RBAC) ger bättre säkerhetshantering för stora organisationer och för små och medelstora företag arbetar med externa samarbetspartners, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis för hela infrastruktur eller någon fakturerings-relaterade scope. RBAC kan flexibiliteten för en Azure-prenumeration som äger hanteras av administratörskontot (service administratörsrollen på en prenumerationsnivå) och har flera användare uppmanas för att arbeta under samma prenumeration, men utan några administrativa rättigheter för det. .
 
@@ -43,10 +44,10 @@ RBAC-roller som kan beviljas endast av **ägare** för prenumerationen. Därför
 Azure-portalen när du loggar in som administratör, Välj ”prenumerationer” och välj en.
 ![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumeration användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [lägga till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänster](../billing/billing-add-change-azure-subscription-administrator.md).
 
-I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** prenumerationen i AAD för ”utvärderingsversion” klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook Live etc.) standarddomännamnet för alla andra användare som lagts till i den här klienten kommer att **”@alflaniganuoutlook.onmicrosoft.com”**. Avsiktligt syntaxen för den nya domänen bildas genom att sätta ihop användarnamn och domän namnet på användaren som skapade klienten och lägger till tillägget **”. onmicrosoft.com”**.
+I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** prenumerationen i AAD för ”utvärderingsversion” klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook Live etc.) standarddomännamnet för alla andra användare som lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”**. Avsiktligt syntaxen för den nya domänen bildas genom att sätta ihop användarnamn och domän namnet på användaren som skapade klienten och lägger till tillägget **”. onmicrosoft.com”**.
 Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns [lägga till ett anpassat domännamn i katalogen](/active-directory/active-directory-add-domain).
 
-I det här exemplet innehåller klientkatalogen ”standard Azure” endast användare med domännamnet ”@alflanigan.onmicrosoft.com”.
+I det här exemplet innehåller klientkatalogen ”standard Azure” endast användare med domännamnet ”\@alflanigan.onmicrosoft.com”.
 
 När du har valt prenumerationen admin-användaren måste klicka på **Access Control (IAM)** och sedan **lägga till en ny roll**.
 
@@ -54,7 +55,7 @@ När du har valt prenumerationen admin-användaren måste klicka på **Access Co
 
 ![lägga till nya användare i IAM-funktionen åtkomstkontroll i Azure-portalen](./media/role-assignments-external-users/2.png)
 
-Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas rollen RBAC. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC roller som är tillgängliga i Azure. Mer detaljerade beskrivningar av varje roll och deras tilldelningsbara scope finns [inbyggda roller för rollbaserad åtkomstkontroll i](built-in-roles.md).
+Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas rollen RBAC. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC roller som är tillgängliga i Azure. Mer detaljerade beskrivningar av varje roll och deras tilldelningsbara scope finns [inbyggda roller](built-in-roles.md).
 
 Administratören måste sedan lägga till den externa användaren e-postadress. Förväntat beteende är externa användare kan inte visas i den befintliga klienten. När den externa användaren har bjudits han visas under **prenumerationer > Access Control (IAM)** med de aktuella användare som är tilldelade en RBAC-rollen på prenumerationsomfattningen.
 

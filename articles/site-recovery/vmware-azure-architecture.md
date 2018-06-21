@@ -3,15 +3,15 @@ title: VMware till Azure replikeringsarkitektur i Azure Site Recovery | Microsof
 description: Den här artikeln innehåller en översikt över komponenter och används för att replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery-arkitektur
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184589"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285278"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware till Azure replikeringsarkitektur
 
@@ -42,7 +42,7 @@ Generella steg för att skapa VMware som Azure katastrofåterställning eller mi
 3. **Konfigurera replikering**. Du kan välja var du vill replikera till. Du konfigurerar replikering källmiljön genom att skapa en enda lokal VMware VM (konfigurationsserver) som kör alla lokal Site Recovery-komponenter som du behöver. Efter installationen registrerar du configuration server-dator i Recovery Services-valvet. Sedan väljer du inställningarna för målet. [Läs mer](vmware-azure-tutorial.md).
 4. **Skapa en replikeringsprincip**. Du kan skapa en replikeringsprincip som anger hur replikering ska ske. 
     - **Tröskelvärde för Återställningspunktmål**: den här övervakningsinställning tillstånd som om replikeringen inte inträffar inom den angivna tiden, en avisering (och eventuellt ett e-postmeddelande) utfärdas. Om du anger tröskelvärdet för Återställningspunktmål till 30 minuter och ett problem hindrar replikering inträffar under 30 minuter, skapas en händelse. Den här inställningen påverkar inte replikering. Replikeringen är kontinuerlig och några minuters mellanrum skapas återställningspunkter
-    - **Kvarhållning**: återställningspunkt kvarhållning anger hur länge återställningspunkter bör hållas i Azure. Du kan ange ett värde mellan 0 och 24 timmar för premium-lagring eller upp till 72 timmar för standardlagring. Du kan redundansväxla till den senaste återställningspunkten eller till en lagrad om du anger värdet som är större än noll. Efter kvarhållningsperiod rensas återställningspunkter.
+    - **Kvarhållning**: återställningspunkt kvarhållning anger hur länge återställningspunkter bör hållas i Azure. Du kan ange ett värde mellan 0 och 24 timmar för premium-lagring eller upp till 72 timmar för standardlagring. Du kan växla över till den senaste återställningspunkten eller till en lagrad om du anger värdet som är större än noll. Efter kvarhållningsperiod rensas återställningspunkter.
     - **Kraschkonsekvent ögonblicksbilder**: som standard Site Recovery tar kraschkonsekvent ögonblicksbilder och skapar återställningspunkter med några minuters mellanrum. En återställningspunkt är kraschkonsekventa om alla komponenter relaterade data write-ordning konsekvent, som de var på ögonblicket återställningspunkten skapades. För att bättre förstå anta att statusen för data på hårddisken PC efter ett strömavbrott eller en liknande händelse. En kraschkonsekvent återställningspunkt är normalt tillräckligt om ditt program är utformat för att återställa från en krasch utan inkonsekvenser data.
     - **Programkonsekventa ögonblicksbilder**: om det här värdet inte är noll, mobilitetstjänsten körs på den virtuella datorn försöker generera file system-programkonsekventa ögonblicksbilder och återställningspunkter. Första ögonblicksbilden tas när den inledande replikeringen är klar. Ögonblicksbilder tas sedan för den frekvens som du anger. En återställningspunkt är programkonsekventa om förutom att skriva ordning konsekvent, köra program Slutför alla sina åtgärder och rensa sina buffertar till disk (programmet offline stegvis). Programkonsekventa återställningspunkter rekommenderas för databasprogram som SQL, Oracle och Exchange. Om en kraschkonsekvent ögonblicksbild räcker anges det här värdet till 0.  
     - **Konsekvens för flera**: du kan också skapa en replikeringsgrupp. När du aktiverar replikering kan samla du virtuella datorer i gruppen. Gruppera replikera virtuella datorer i en replikering och har delat kraschkonsekvent och programkonsekventa återställningspunkter vid redundansväxling. Du bör använda det här alternativet noggrant, eftersom det kan påverka arbetsbelastningens prestanda som ögonblicksbilder som behövs för att samlas in på flera datorer. Gör endast detta om virtuella datorer som kör samma arbetsbelastning och måste vara konsekvent och virtuella datorer har liknande kannor. Du kan lägga till upp till 8 virtuella datorer till en grupp. 

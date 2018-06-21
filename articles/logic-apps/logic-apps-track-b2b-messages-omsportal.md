@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299985"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293214"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Spåra B2B-kommunikation med Azure logganalys
 
@@ -56,39 +56,31 @@ Om du vill att logganalys spåra B2B-meddelanden för din logikapp, måste du l�
 
    ![Välj logganalys-arbetsytan](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Under **Management**, Välj **OMS-portalen**.
+3. Under **Management**, Välj **översikt**.
 
-   ![Välj OMS-portalen](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Välj logganalys-portalen](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. När sidan öppnas och välja **lösningar galleriet**.    
+4. När sidan öppnas och välja **Lägg till** att installera Logic Apps B2B-lösning.    
+   ![Välj lösningar galleri](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Välj lösningar galleri](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Under **alla lösningar för**, söka efter och välj **Logic Apps B2B**.     
-
-   ![Välj Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Under **Logic Apps B2B**, Välj **Lägg till**.
-
-   ![Välj Lägg till](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Under **hanteringslösningar**, söka efter och skapa **Logic Apps B2B** lösning.     
+   ![Välj Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    På startsidan, panelen för **Logic Apps B2B-meddelanden** visas nu. 
    Den här panelen uppdaterar antalet meddelanden när dina B2B-meddelanden bearbetas.
-
-   ![Startsidan för Logic Apps B2B-meddelanden sida vid sida](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Spåra meddelandestatus och information i logganalys
 
-1. När dina B2B-meddelanden bearbetas visa du status och information om dessa meddelanden. På startsidan, väljer du den **Logic Apps B2B-meddelanden** panelen.
+1. När dina B2B-meddelanden bearbetas visa du status och information om dessa meddelanden. På sidan Översikt väljer du den **Logic Apps B2B-meddelanden** panelen.
 
-   ![Antal uppdaterade meddelande](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Antal uppdaterade meddelande](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Som standard den **Logic Apps B2B-meddelanden** innehåller data baserat på en dag. Välj scope kontrollen överst på sidan om du vill ändra vilka data till ett annat intervall:
    > 
-   > ![Ändra omfång för data](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Ändra omfång för data](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. När meddelandet visas status instrumentpanelen kan du kan visa mer information om en specifik meddelandetyp som visar data baserat på en dag. Välj panelen för **AS2**, **X12**, eller **EDIFACT**.

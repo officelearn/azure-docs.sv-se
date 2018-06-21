@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a9ffacdcb871bcd79d937b9349d76b29681c77c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12859384ce79a34dbdb437aa402189fbf039c44c
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225396"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Självstudier: Azure Active Directory-integrering med Bambu av brysselkål sociala
 
@@ -212,7 +212,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på Bambu av brysselkål sociala panelen på åtkomstpanelen du bör få automatiskt loggat in på ditt Bambu av brysselkål sociala program. Mer information om åtkomstpanelen finns [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586). 
+När du klickar på Bambu av brysselkål sociala panelen på åtkomstpanelen du bör få automatiskt loggat in på ditt Bambu av brysselkål sociala program. Mer information om åtkomstpanelen finns [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -234,4 +234,3 @@ När du klickar på Bambu av brysselkål sociala panelen på åtkomstpanelen du 
 [201]: ./media/bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/bambubysproutsocial-tutorial/tutorial_general_203.png
-

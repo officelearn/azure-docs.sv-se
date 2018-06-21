@@ -1,6 +1,6 @@
 ---
-title: Rollbaserad åtkomstkontroll med REST - Azure AD | Microsoft Docs
-description: Hantera rollbaserad åtkomstkontroll med REST API
+title: Hantera åtkomst med hjälp av RBAC och REST-API - Azure | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST-API. Detta inkluderar lista åtkomst, beviljar åtkomst och ta bort åtkomst.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267483"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294470"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Hantera rollbaserad åtkomstkontroll med REST API
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>Hantera åtkomst med hjälp av RBAC och REST-API
 
-Med rollbaserad åtkomstkontroll (RBAC), definiera åtkomst för användare, grupper och tjänstens huvudnamn genom att tilldela roller för ett visst område. Den här artikeln beskriver hur du hanterar åtkomst med hjälp av REST API.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är på sätt som du hanterar åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST-API.
 
 ## <a name="list-all-role-assignments"></a>Visa en lista med alla rolltilldelningar
 Listar alla rolltilldelningar i definitionsområdet och subscopes.
 
-Att lista rolltilldelningar, måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Att lista rolltilldelningar, måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **hämta** metoden med följande URI:
@@ -83,7 +79,7 @@ Statuskod: 200
 ## <a name="get-information-about-a-role-assignment"></a>Hämta information om en rolltilldelning
 Hämtar information om en enda rolltilldelning som anges av rollen tilldelning identifierare.
 
-Om du vill få information om en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill få information om en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **hämta** metoden med följande URI:
@@ -124,7 +120,7 @@ Statuskod: 200
 ## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
 Skapa en rolltilldelning i det specificerade omfånget för det angivna huvudnamnet bevilja den angivna rollen.
 
-Om du vill skapa en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/write` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill skapa en rolltilldelning måste du ha tillgång till `Microsoft.Authorization/roleAssignments/write` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **PLACERA** metoden med följande URI:
@@ -182,7 +178,7 @@ Statuskod: 201
 ## <a name="delete-a-role-assignment"></a>Ta bort en rolltilldelning
 Ta bort en rolltilldelning i det specificerade omfånget.
 
-Om du vill ta bort en rolltilldelning måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/delete` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill ta bort en rolltilldelning måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/delete` igen. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **ta bort** metoden med följande URI:
@@ -223,7 +219,7 @@ Statuskod: 200
 ## <a name="list-all-roles"></a>Visa en lista över alla roller
 Listar de roller som är tillgängliga för tilldelning i det specificerade omfånget.
 
-Lista roller måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Lista roller måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` åtgärden definitionsområdet. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **hämta** metoden med följande URI:
@@ -306,7 +302,7 @@ Statuskod: 200
 ## <a name="get-information-about-a-role"></a>Hämta information om en roll
 Hämtar information om en enda roll som anges av rollen definition identifierare. För information om en roll med hjälp av dess namn, se [lista över alla roller för](role-assignments-rest.md#list-all-roles).
 
-Om du vill få information om en roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill få information om en roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/read` igen. Inbyggda roller beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **hämta** metoden med följande URI:
@@ -386,7 +382,7 @@ Statuskod: 200
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 Skapa en anpassad roll.
 
-Om du vill skapa en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill skapa en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **PLACERA** metoden med följande URI:
@@ -489,7 +485,7 @@ Statuskod: 201
 ## <a name="update-a-custom-role"></a>Uppdatera en anpassad roll
 Ändra en anpassad roll.
 
-Om du vill ändra en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill ändra en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/write` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **PLACERA** metoden med följande URI:
@@ -592,7 +588,7 @@ Statuskod: 201
 ## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
 Ta bort en anpassad roll.
 
-Om du vill ta bort en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/delete` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i](role-assignments-portal.md).
+Om du vill ta bort en anpassad roll måste du ha tillgång till `Microsoft.Authorization/roleDefinitions/delete` igen på alla de `AssignableScopes`. I de inbyggda rollerna, endast *ägare* och *administratör för användaråtkomst* beviljas åtkomst till den här åtgärden. Mer information om rolltilldelningar och hantera åtkomst till Azure-resurser finns [rollbaserad åtkomstkontroll i Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Förfrågan
 Använd den **ta bort** metoden med följande URI:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658680"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295675"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
 
@@ -39,7 +39,7 @@ Kontot du loggar in, eller Anslut till Azure med måste tilldelas den [network-d
 
 ## <a name="work-with-network-security-groups"></a>Arbeta med nätverkssäkerhetsgrupper
 
-Du kan skapa [visa alla](#view-all-network-security-groups), [Visa detaljer för](#view-details-of-a-network-security-group), [ändra](#change-a-network-security-group), och [ta bort](#delete-a-network-security-group) en nätverkssäkerhetsgrupp. Du kan också [koppla eller koppla bort](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) en nätverkssäkerhetsgrupp från nätverksgränssnittet eller ett undernät.
+Du kan skapa [visa alla](#view-all-network-security-groups), [Visa detaljer för](#view-details-of-a-network-security-group), [ändra](#change-a-network-security-group), och [ta bort](#delete-a-network-security-group) en nätverkssäkerhetsgrupp. Du kan också [koppla eller koppla bort](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) en nätverkssäkerhetsgrupp från nätverksgränssnittet eller ett undernät.
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -121,9 +121,9 @@ Det finns en gräns för hur många regler per nätverkssäkerhetsgruppen kan sk
     
     |Inställning  |Värde  |Information  |
     |---------|---------|---------|
-    |Källa     | Välj **alla**, **IP-adresser**, eller **tjänsten taggen**.        | Om du väljer **IP-adresser**, måste du ange **käll-IP-adresser/CIDR-intervallen**. Du kan ange ett enda värde eller en kommaavgränsad lista med flera värden. Ett exempel på flera värden är 10.0.0.0/16 192.188.1.1. Det finns begränsningar för antalet värden som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information. Om du väljer **Service Tag**, måste du ange en tagg för tjänsten. Taggen service är en fördefinierad identifierare för en kategori av IP-adresser. Mer information om tillgängliga taggar och varje tagg representerar finns [tjänsten taggar](security-overview.md#service-tags)        |
+    |Källa     | Välj **alla**, **IP-adresser**, eller **tjänsten taggen**.        | Om du väljer **IP-adresser**, måste du ange **käll-IP-adresser/CIDR-intervallen**. Du kan ange ett enda värde eller en kommaavgränsad lista med flera värden. Ett exempel på flera värden är 10.0.0.0/16 192.188.1.1. Det finns begränsningar för antalet värden som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information. Om du väljer **Service Tag**, måste du ange en tagg för tjänsten. Taggen service är en fördefinierad identifierare för en kategori av IP-adresser. Mer information om tillgängliga taggar och varje tagg representerar finns [tjänsten taggar](security-overview.md#service-tags). Om IP-adress som du anger tilldelas till en virtuell Azure-dator, måste du kontrollera att du anger den privata IP-adressen inte den offentliga IP-adressen, om en offentlig IP-adress har tilldelats till den virtuella datorn. Säkerhetsregler bearbetas när Azure översätter offentliga IP-adressen till en privat IP-adress för inkommande säkerhetsregler och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående regler. Mer information om offentliga och privata IP-adresser i Azure finns [IP-adresstyper](virtual-network-ip-addresses-overview-arm.md).        |
     |Källportintervall     | Ange en enskild port, till exempel 80, ett portintervall, till exempel 1024-65535, eller en kommaavgränsad lista med enda portar eller portintervall, till exempel 80, 1024-65535. Ange en asterisk som tillåter trafik på alla portar. | Ange vilka portar trafik som tillåts eller nekas av regeln portar och adressintervall. Det finns begränsningar för antalet portar som du kan ange. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) mer information.  |
-    |Mål     | Välj **alla**, **IP-adresser**, eller **virtuellt nätverk**.        | Om du väljer **IP-adresser**, måste du ange **mål-IP-adresser/CIDR-intervallen**. Liknar **källa** och **käll-IP-adresser/CIDR-intervallen**, du kan ange en enda eller flera adresser eller ett intervall och det finns begränsningar för antalet du kan ange. Att välja **för virtuella nätverk**, vilket är en tjänst-tagg, innebär det att trafik tillåts alla IP-adresser inom adressutrymmet för det virtuella nätverket.        |
+    |Mål     | Välj **alla**, **IP-adresser**, eller **virtuellt nätverk**.        | Om du väljer **IP-adresser**, måste du ange **mål-IP-adresser/CIDR-intervallen**. Liknar **källa** och **käll-IP-adresser/CIDR-intervallen**, du kan ange en enda eller flera adresser eller ett intervall och det finns begränsningar för antalet du kan ange. Att välja **för virtuella nätverk**, vilket är en tjänst-tagg, innebär det att trafik tillåts alla IP-adresser inom adressutrymmet för det virtuella nätverket. Om IP-adress som du anger tilldelas till en virtuell Azure-dator, måste du kontrollera att du anger den privata IP-adressen inte den offentliga IP-adressen, om en offentlig IP-adress har tilldelats till den virtuella datorn. Säkerhetsregler bearbetas när Azure översätter offentliga IP-adressen till en privat IP-adress för inkommande säkerhetsregler och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående regler. Mer information om offentliga och privata IP-adresser i Azure finns [IP-adresstyper](virtual-network-ip-addresses-overview-arm.md).        |
     |Målportintervall     | Ange ett värde eller en kommaavgränsad lista med värden. | Liknar **datakällan portintervall**, kan du ange en enda eller flera portar och adressintervall och det finns begränsningar för antalet du kan ange. |
     |Protokoll     | Välj **alla**, **TCP**, eller **UDP**.        |         |
     |Åtgärd     | Välj **Tillåt** eller **neka**.        |         |

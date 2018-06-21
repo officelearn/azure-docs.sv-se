@@ -1,20 +1,18 @@
 ---
 title: " Hantera VMware vCenter-servrar i Azure Site Recovery | Microsoft Docs"
 description: Den här artikeln beskriver hur lägga till och hantera VMware vCenter i Azure Site Recovery.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
-ms.openlocfilehash: be415340da09043eccd361b0168bb304d8904bef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48b6cf9b90b429520df435aee00f57ea7b588748
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852310"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285006"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>Hantera VMware vCenter-servrar 
 
@@ -72,7 +70,7 @@ Det tar ungefär 15 minuter för kontoinformationen synkroniseras in med Site Re
 2. På den **information** väljer vCenter-servern.
 3. Klicka på den **ta bort** knappen.
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+  ![ta bort konto](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
 Om du behöver ändra vCenter IP-adress, FQDN eller port måste ta bort vCenter-servern och lägga till den tillbaka till portalen.

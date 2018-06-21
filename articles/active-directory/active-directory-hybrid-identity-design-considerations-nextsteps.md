@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801498"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284678"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrid identity design överväganden nästa steg
 Nu när du har fyllt i definieringen av dina krav och undersökt alla alternativ för din mobila enhetshanteringslösning, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
@@ -42,7 +42,7 @@ Konceptuell och procedurmässig planering, distribution och administration av in
 ## <a name="hybrid-identity-resources"></a>Hybrid identity-resurser
 Ofta övervakning av följande resurser ger de senaste nyheterna och uppdateras i lösningar för mobil enhetshantering:
 
-* [Microsoft Enterprise Mobility-bloggen](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility-bloggen](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud-bloggen](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune-blogg](http://blogs.technet.com/b/microsoftintune/)
 * [Blogg för Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)

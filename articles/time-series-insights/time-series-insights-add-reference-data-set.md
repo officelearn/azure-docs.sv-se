@@ -3,19 +3,19 @@ title: Hur du lägger till en referens datauppsättning Azure tid serien Insight
 description: Den här artikeln beskriver hur du lägger till en referens datauppsättning för att utöka data i Azure tid serien Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: kfile
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 962c3c8d439884cacf010b0bbcab03bd216dbd43
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653645"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294208"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens för datauppsättning för tid serien insikter miljön med hjälp av Azure portal
 

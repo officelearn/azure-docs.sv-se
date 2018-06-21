@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bcc691e00b373028acaf0936af8336a76306aec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232438"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294064"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data kryptering i vila
 
@@ -259,7 +259,7 @@ Klientsidans kryptering av data i Azure SQL Database stöds via den [Always Encr
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Med hjälp av Service-hanterad nyckel för serversidan**     | **Servern använder Kundhanterad i Nyckelvalvet**             |  **Serversidan med Kundhanterad lokalt**                  | **Klienten med klient-hanterade**      |
 | **Lagring och databaser**        |                    |                    |                    |                    |                    |
-| Disken (IaaS)                      | -                  | Ja, RSA 2048-bitars  | Ja*               | -                  |
+| Disken (IaaS)                      | -                  | Ja, RSA 2048-bitars  | Ja               | -                  |
 | SQLServer (IaaS)                | Ja                | Ja, RSA 2048-bitars  | Ja                | Ja                |
 | Azure SQL-databas (PaaS)        | Ja                | Ja, RSA 2048-bitars  | -                  | Ja                |
 | Azure Storage (blockera/Sidblobbar) | Ja                | Ja, RSA 2048-bitars  | -                  | Ja                |

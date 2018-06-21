@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 7d339ba08720d482f622aa9b708d3a6e057eaaa8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 68f42124369194124ae1f8ebb93834a5be4e0128
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935122"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287385"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Lägga till ett sidhuvud som innehåller en Korrelations-id
 
@@ -28,7 +28,7 @@ Den här artikeln visar ett Azure API management princip exempel som visar hur d
 
 Klistra in koden i den **inkommande** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Add correlation id to inbound request.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Add correlation id to inbound request.policy.xml)]
 
 ## <a name="next-steps"></a>Nästa steg
 

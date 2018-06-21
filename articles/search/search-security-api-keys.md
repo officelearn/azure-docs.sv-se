@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185951"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284989"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Skapa och hantera api-nycklar för en Azure Search-tjänst
 
-Alla förfrågningar till en söktjänst måste api-nyckel som har skapats specifikt för din tjänst. Den här api-nyckel är den enda mekanismen för att autentisera åtkomst till Sök-tjänsteslutpunkt. 
+Alla förfrågningar till en söktjänst måste en skrivskyddad api-nyckel som har skapats specifikt för din tjänst. Api-nyckel är den enda mekanismen för att autentisera åtkomst till Sök-tjänsteslutpunkt och måste tas med vid varje förfrågan. I [REST lösningar](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), api-nyckel anges normalt i ett huvud. I [.NET lösningar](search-howto-dotnet-sdk.md#core-scenarios), en nyckel är ofta har angetts som en konfigurationsinställning och som skickades [autentiseringsuppgifter](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin-nyckel) eller [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (Frågenyckeln) på [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Nycklar skapas med din söktjänst under etableringen av tjänsten. Du kan visa och hämta nyckelvärdena i den [Azure-portalen](https://portal.azure.com).
+
+![Portalsida, inställningar, nycklar avsnitt](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>Vad är en api-nyckeln
 
 En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Via [rollbaserade behörigheter](search-security-rbac.md), kan du ta bort eller läsa nycklarna, men du kan ersätta en nyckel med ett användardefinierat lösenord eller använda Active Directory som primär autentisering-metoder för att komma åt sökningar. 
 

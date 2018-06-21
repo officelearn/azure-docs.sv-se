@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809268"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294117"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -41,6 +41,8 @@ Organisationer som inte har en befintlig lokal katalog storleken är inte fokus 
 När Azure AD-hybrididentitetslösning är din nya plan för åtkomstkontroll, är autentisering grunden för molnåtkomst. Att välja rätt autentiseringsmetod är ett viktigt första beslut du ställer in en hybrididentitetslösning i Azure AD. Implementera den autentiseringsmetod som konfigureras med hjälp av Azure AD Connect, som också etablerar användare i molnet.
 
 Om du vill välja en autentiseringsmetod som du behöver tänka tid, befintlig infrastruktur, komplexiteten och kostnaden för att genomföra valet. Dessa faktorer är olika för varje organisation och kan ändras med tiden. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD stöder följande autentiseringsmetoder för hybrididentitetslösningar.
 

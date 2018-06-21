@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265759"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294429"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure-databas för MySQL Data i replikering
 
-I den här artikeln får du lära dig hur du ställer in Data i replikering i Azure-databas för MySQL-tjänst genom att konfigurera primära och replikservern.
+I den här artikeln får du lära dig hur du ställer in Data i replikering i Azure-databas för MySQL-tjänst genom att konfigurera de primära servern och repliken servrarna. Data i replikering kan du synkronisera data från en primär MySQL-server som körs lokalt, i virtuella datorer eller databastjänster hos andra molntjänstleverantörer till en replik i Azure-databas för MySQL-tjänst. 
 
 Den här artikeln förutsätter att du har minst tidigare erfarenhet med MySQL-servrar och databaser.
 
@@ -29,7 +29,7 @@ Den här artikeln förutsätter att du har minst tidigare erfarenhet med MySQL-s
    Skapa en ny MySQL-server (t.ex. ”replica.mysql.database.azure.com”). Referera till [skapa en Azure-databas för MySQL-servern med hjälp av Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) för att skapa en server. Den här servern är ”replikservern” i Data i replikeringen.
 
    > [!IMPORTANT]
-   > Den här servern måste skapas i de generella eller Minnesoptimerade prisnivåerna.
+   > Azure-databas för MySQL-servern måste skapas i generella eller Minnesoptimerade prisnivåer.
    > 
 
 2. Skapa samma användarkonton och motsvarande behörigheter
@@ -37,6 +37,7 @@ Den här artikeln förutsätter att du har minst tidigare erfarenhet med MySQL-s
    Användarkonton replikeras inte från den primära servern till replikservern. Om du planerar att ge användarna åtkomst till replikservern, måste du manuellt skapa alla konton och motsvarande behörigheter på den nya Azure-databas för MySQL-servern.
 
 ## <a name="configure-the-primary-server"></a>Konfigurera den primära servern
+Följande steg förbereder och konfigurera den MySQL-server lokalt, i en virtuell dator eller databastjänsten hos andra molntjänstleverantörer för Data i replikering. Den här servern är ”primär” i Data i replikeringen. 
 
 1. Aktivera binär loggning
 
@@ -226,3 +227,6 @@ Hoppa över ett replikeringsfel och tillåta replikering om du vill fortsätta a
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Nästa steg
+- Lär dig mer om [Data i replikering](concepts-data-in-replication.md) för Azure-databas för MySQL. 

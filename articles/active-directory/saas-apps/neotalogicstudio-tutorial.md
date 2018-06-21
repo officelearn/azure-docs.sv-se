@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 5eb56460356267d3676361797ed8eeff7aa57b80
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 01987f3a5f2a37d7cf2b16202310b7d442c9d7a8
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210300"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Självstudier: Azure Active Directory-integrering med Neota logik Studio
 
@@ -204,9 +204,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-Klicka på panelen Neota logik Studio på åtkomstpanelen, du omdirigeras till organisation inloggning sida. Efter genomförd inloggning du kommer att loggat in på ditt Neota logik Studio-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
-
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586). 
+Klicka på panelen Neota logik Studio på åtkomstpanelen, du omdirigeras till organisation inloggning sida. Efter genomförd inloggning du kommer att loggat in på ditt Neota logik Studio-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

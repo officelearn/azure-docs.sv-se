@@ -1,24 +1,22 @@
 ---
 title: Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs
-description: I den här artikeln beskrivs hur du kör distributionsplaneraren för Azure Site Recovery när du flyttar från Hyper-V till Azure.
-services: site-recovery
+description: Den här artikeln lär du dig hur du kör Site Recovery-distribution planner foro Hyper-V till Azure-replikering.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236237"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287498"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Kör Azure Site Recovery-kapacitetsplaneraren för Hyper-V till Azure
 
-## <a name="modes-of-running-the-deployment-planner"></a>Lägen för att köra distributionshanteraren
-Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följande tre lägen: 
+Du kan köra återställningen av webbplatsen distribution planner kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följande fyra lägen: 
 -   [Hämta listan med virtuella datorer (VM)](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profil](#profile-hyper-v-vms)
 -   [Generera en rapport](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Användarnamnet för att ansluta till Hyper-V-värden eller Hyper-V-klustret. Användaren måste ha administratörsbehörighet.|
-|-ServerListFile | Filen med listan över servrar som innehåller de virtuella datorer som ska profileras. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla något av följande på varje rad:<ul><li>Hyper-V-värdnamn eller IP-adress</li><li>Hyper-V-klusternamn eller IP-adress</li></ul><br>**Exempel:** Filen ServerList.txt innehåller följande servrar:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | Filen med listan över servrar som innehåller de virtuella datorer som ska profileras. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla något av följande på varje rad:<ul><li>Hyper-V-värdnamn eller IP-adress</li><li>Hyper-V-klusternamn eller IP-adress</li></ul><br>**Exempel:** Filen ServerList.txt innehåller följande servrar:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Valfritt) UNC (Universal Naming Convention) eller lokal katalogsökväg för lagring av de data som genereras under åtgärden. Om inget namn är angivet används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
-|-OutputFile| (Valfritt) Filen där listan över virtuella datorer som hämtats från Hyper-V-servrarna har sparats. Om inget namn inte nämns lagras informationen i VMList.txt.  Använd filen för att börja profileringen när du har tagit bort virtuella datorer som inte behöver profileras.|
+|-OutputFile| (Valfritt) Sparas filen med listan över virtuella datorer från Hyper-V-servrar. Om inget namn inte nämns lagras informationen i VMList.txt.  Använd filen för att börja profileringen när du har tagit bort virtuella datorer som inte behöver profileras.|
 |-Password|(Valfritt) Lösenordet för att ansluta till Hyper-V-värden. Om du inte anger lösenordet som en parameter uppmanas du att ange det när du kör kommandot.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList-identifiering
-**Hyper-V-kluster**: När Hyper-V-klusternamnet är angivet i serverns listfil hittar verktyget alla Hyper-V-noder för klustret och hämtar de virtuella datorer som finns på varje Hyper-V-värd.
 
+- **Hyper-V-kluster**: När Hyper-V-klusternamnet är angivet i serverns listfil hittar verktyget alla Hyper-V-noder för klustret och hämtar de virtuella datorer som finns på varje Hyper-V-värd.
 **Hyper-V-värd**: När Hyper-V-värdnamnet är angivet kontrollerar verktyget först om det tillhör något kluster. Om ja, hämtar verktyget noder som tillhör klustret. Det hämtar sedan de virtuella datorerna från varje Hyper-V-värd. 
 
 Du kan också välja att lista de egna namnen eller IP-adresserna till de virtuella datorer som du vill profilera manuellt i en fil.
@@ -96,7 +94,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|Visualiseringstypen (VMware eller Hyper-V).|
 |-Directory|(Valfritt) UNC eller lokal sökväg för lagring av de profildata som genereras under profileringen. Om inget namn anges används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
 |-Password|(Valfritt) Lösenordet för att ansluta till Hyper-V-värden. Om du inte anger lösenordet som en parameter uppmanas du att ange det när du kör kommandot.|
-|-StorageAccountName|(Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas. Lagringskontot måste vara allmänt v1 typ (GPv1).|
+|-StorageAccountName|(Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas. Lagringskontot måste vara av typen generell användning v1 (GPv1).|
 |-StorageAccountKey|(Valfritt) Den nyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > **Lagringskonton** > *lagringskontots namn* > **Inställningar** > **Åtkomstnycklar** > **Keys1** (eller en primär åtkomstnyckel för ett klassiskt lagringskonto).|
 |-Environment|(Valfritt) Målmiljön för Azure Storage-kontot. Det kan vara ett av tre värden: AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din målregion är antingen Azure US Government eller Azure Kina.|
 
@@ -154,7 +152,7 @@ Om servern där verktyget körs startas om eller kraschar, eller om du avslutar 
 
 När du skickar namn och nyckel för ett lagringskonto mäter verktyget dataflödet vid profileringens sista steg. Om verktyget avslutas innan profileringen har slutförts normalt beräknas inte dataflödet. Du kan hitta dataflödet innan du genererar rapporten genom att köra åtgärden GetThroughput från kommandotolken. Annars innehåller inte den genererade rapporten dataflödesinformationen.
 
-Azure Site Recovery stöder inte virtuella datorer som har iSCSI- och anslutningsdiskar. Men verktyget kan inte identifiera eller profilera iSCSI och direktlagringsdiskar som är anslutna till virtuella datorer.
+Azure Site Recovery stöder inte virtuella datorer som har iSCSI och pass-through diskar. Verktyget kan inte identifiera och profilen iSCSI och pass-through diskar som är anslutna till virtuella datorer.
 
 ## <a name="generate-a-report"></a>Generera en rapport
 Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata. Där sammanfattas alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_*unik numerisk identifierare*.xlsm och placeras i den angivna katalogen.
@@ -278,7 +276,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|Visualiseringstypen (VMware eller Hyper-V).|
 |-Directory|(Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om inget namn anges används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
-| -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara allmänt v1 typ (GPv1).|
+| -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara av typen generell användning v1 (GPv1).|
 | -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > **Lagringskonton** > *lagringskontots namn* > **Inställningar** > **Åtkomstnycklar** > **Key1**.|
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. För Hyper-V är den här filen utdatafilen för åtgärden GetVMList. Om du förbereder manuellt ska filen innehålla ett servernamn eller en IP-adress följt av VM-namnet (angränsat med ett \ per rad). Det VM-namn som angetts i filen ska vara samma som VM-namnet på Hyper-V-värden.<br><br>**Exempel:** VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Valfritt) Målmiljön för Azure Storage-kontot. Det kan vara ett av tre värden: AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure US Government eller Azure Kina.|

@@ -3,17 +3,16 @@ title: Planera kapacitet och skalning för VMware-replikering till Azure med Azu
 description: Använd den här artikeln för att planera kapaciteten och skala vid replikering av virtuella VMware-datorer till Azure med Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692206"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287362"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planera kapacitet och skalning för VMware-replikering med Azure Site Recovery
 
@@ -21,7 +20,7 @@ Använd den här artikeln för att räkna ut planera för kapacitet och skalning
 
 ## <a name="how-do-i-start-capacity-planning"></a>Hur börjar jag kapacitetsplanering?
 
-Samla in information om replikeringsmiljön genom att köra den [Azure Site Recovery-distribution Planner](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. [Lär dig mer](site-recovery-deployment-planner.md) om det här verktyget. Du kan samla in information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättningsuppdateringar per disk. Verktyget kontrollerar även kraven på nätverksbandbredd och vilken Azure-infrastruktur som krävs för en lyckad replikering och testning av redundans.
+Samla in information om replikeringsmiljön genom att köra den [Azure Site Recovery-distribution Planner](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. [Läs mer](site-recovery-deployment-planner.md) om det här verktyget. Du kan samla in information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättningsuppdateringar per disk. Verktyget kontrollerar även kraven på nätverksbandbredd och vilken Azure-infrastruktur som krävs för en lyckad replikering och testning av redundans.
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitetsplanering
 
@@ -38,7 +37,7 @@ Samla in information om replikeringsmiljön genom att köra den [Azure Site Reco
 8 vCPUs (2 sockets * 4 kärnor @ 2,5 gigahertz (GHz)) | 16 GB | 300 GB | 500 GB eller mindre | Replikera färre än 100 datorer.
 12 vCPUs (2 sockets * @ 2,5 GHz-6 kärnor) | 18 GB | 600 GB | 500 GB till 1 TB | Replikera mellan 100 150 datorer.
 16 vCPUs (2 sockets * 8 kärnor @ 2,5 GHz) | 32 GB | 1 TB | 1 TB till 2 TB | Replikera mellan 150 200 datorer.
-Distribuera en annan processerver | | | > 2 TB | Distribuera ytterligare servrar om du replikerar mer än 200 datorer eller ändrar dagliga data frekvensen överskrider 2 TB.
+Distribuera en annan processerver | | | &GT; 2 TB | Distribuera ytterligare servrar om du replikerar mer än 200 datorer eller ändrar dagliga data frekvensen överskrider 2 TB.
 
 Där:
 

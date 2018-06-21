@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268243"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284846"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -36,17 +36,17 @@ I följande tabell visas tillgångens egenskaper och ger deras definitioner.
 
 |Namn|Typ|Beskrivning|
 |---|---|---|
-|ID|Sträng|Fullständiga resurs-ID för resursen.|
-|namn|Sträng|Namnet på resursen.|
+|Id|sträng|Fullständiga resurs-ID för resursen.|
+|namn|sträng|Namnet på resursen.|
 |properties.alternateId |sträng|Alternativt ID för tillgången.|
 |properties.assetId |sträng|Tillgångsinformation-ID.|
-|Properties.container |Sträng|Namnet på blob-behållaren tillgången.|
+|Properties.container |sträng|Namnet på blob-behållaren tillgången.|
 |Properties.Created |sträng|Skapandedatum för tillgången.|
-|properties.description |Sträng|Beskrivning för tillgången.|
+|properties.description |sträng|Beskrivning för tillgången.|
 |properties.lastModified |sträng|Senaste ändringsdatum för tillgången.|
 |properties.storageAccountName |sträng|Namnet på lagringskontot.|
 |properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Tillgångsinformation krypteringsformat. En NONE eller MediaStorageEncryption.|
-|typ|Sträng|Typ av resursen.|
+|typ|sträng|Typ av resursen.|
 
 Se för en fullständig definition [tillgångar](https://docs.microsoft.com/rest/api/media/assets).
 
@@ -65,17 +65,17 @@ Följande tabell visar hur dessa alternativ kan tillämpas på Egenskaper för t
 
 |Namn|Filter|Ordning|
 |---|---|---|
-|ID|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
+|Id|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
 |namn|||
 |properties.alternateId |Stöder:<br/>Lika med||
-|properties.assetId |Har stöd för:<br/>Lika med||
+|properties.assetId |Stöder:<br/>Lika med||
 |Properties.container |||
 |Properties.Created|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
-|Typ|||
+|typ|||
 
 Följande C#-exempel filtrerar på Skapad datum:
 
@@ -107,7 +107,7 @@ while (currentPage.NextPageLink != null)
 REST-exempel finns [tillgångar - lista](https://docs.microsoft.com/rest/api/media/assets/list)
 
 
-### <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
+## <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
 
 För att skydda dina tillgångar vilande ska tillgångarna krypteras med kryptering för lagring på serversidan. Följande tabell visar hur sida lagringskryptering fungerar i Media Services:
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314056"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293629"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Programgateway
 
@@ -36,7 +36,7 @@ Programgateway ger möjlighet att övervaka hälsotillståndet för enskilda med
 Backend-hälsorapporten visar utdata för Programgateway hälsoavsökningen till backend-instanser. När avsökning lyckas och serverdelen kan ta emot trafik, är det felfritt. Annars anses vara felaktig.
 
 > [!IMPORTANT]
-> Om det finns en nätverkssäkerhetsgrupp (NSG) på ett Application Gateway-undernät, öppna portintervall 65503 65534 i Application Gateway-undernät för inkommande trafik. Dessa portar är obligatoriska för backend-hälsa API för att fungera.
+> Om det finns en nätverkssäkerhetsgrupp (NSG) på ett Application Gateway-undernät, öppna portintervall 65503 65534 i Application Gateway-undernät för inkommande trafik. Portintervallet krävs för kommunikation med Azure-infrastrukturen. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat externa enheter, inklusive dessa gateways kunder inte initiera ändringar på de slutpunkterna.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visa backend-hälsa via portalen
@@ -169,8 +169,8 @@ Azure genererar aktivitetsloggen som standard. Loggarna finns kvar i 90 dagar i 
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|instanceId     | Programmet Gateway-instans där begäran behandlades.        |
-|clientIP     | Ursprungliga IP-Adressen för begäran.        |
+|InstanceId     | Programmet Gateway-instans där begäran behandlades.        |
+|ClientIP     | Ursprungliga IP-Adressen för begäran.        |
 |clientPort     | Ursprungliga port för begäran.       |
 |HttpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för tog emot begäran.        |
@@ -213,7 +213,7 @@ Prestanda-loggen genereras bara om du har aktiverat på varje Application Gatewa
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|instanceId     |  Programmet Gateway-instans för vilka data som genereras. För en gateway med flera instans programmet finns en rad per instans.        |
+|InstanceId     |  Programmet Gateway-instans för vilka data som genereras. För en gateway med flera instans programmet finns en rad per instans.        |
 |healthyHostCount     | Antalet felfri värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet felaktiga värdar i backend-poolen.        |
 |RequestCount     | Antal begäranden som betjänats.        |
@@ -250,7 +250,7 @@ Brandväggsloggen genereras bara om du har aktiverat för varje Programgateway e
 
 |Värde  |Beskrivning  |
 |---------|---------|
-|instanceId     | Programmet Gateway-instans för vilken brandvägg genereras data. För en gateway med flera instans programmet finns en rad per instans.         |
+|InstanceId     | Programmet Gateway-instans för vilken brandvägg genereras data. För en gateway med flera instans programmet finns en rad per instans.         |
 |clientIp     |   Ursprungliga IP-Adressen för begäran.      |
 |clientPort     |  Ursprungliga port för begäran.       |
 |requestUri     | URL till tog emot begäran.       |

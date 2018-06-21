@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 63d22a3213e7a3d8d2f8bf7714eb5bc8f3f0f477
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212646"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integrering med Wingspan eTMF
 
@@ -204,7 +204,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst. 
 
-Klicka på panelen Wingspan eTMF på åtkomstpanelen, du omdirigeras till organisation inloggning på sidan. Efter genomförd inloggning du kommer att loggat in på ditt Wingspan eTMF program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
+Klicka på panelen Wingspan eTMF på åtkomstpanelen, du omdirigeras till organisation inloggning på sidan. Efter genomförd inloggning du kommer att loggat in på ditt Wingspan eTMF program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

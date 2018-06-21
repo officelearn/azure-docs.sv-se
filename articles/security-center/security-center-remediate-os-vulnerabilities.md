@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103939"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285924"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystem (OS) på virtuella datorer (VM) och för en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommenderade konfigurationen säkerhetsreglerna och rekommenderar konfigurationsändringar för att åtgärda dessa problem.
@@ -51,7 +51,7 @@ Det här exemplet innehåller rekommendationen ”reparera säkerhetskonfigurati
 
   - **CCEID**: den CCE Unik identifierare för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela konfigurationsregler unika identifierare.
   - **Namnet**: misslyckade regelns namn.
-  - **Regeltyp**: den *registernyckeln*, *säkerhetsprincip*, eller *granskningsprincip* regeltyp.
+  - **Regeltyp**: den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
   - **Nej. för virtuella datorer och datorer**: det totala antalet virtuella datorer och datorer som misslyckats regeln gäller för.
   - **Regeln allvarlighetsgrad**: värdet för det CCE *kritisk*, *viktigt*, eller *varning*.
   - **Tillstånd**: det aktuella tillståndet för rekommendationen:
@@ -100,10 +100,10 @@ De specifika konfigurationer som övervakas finns [lista över rekommenderade ko
 
 Mer information om Security Center finns i följande resurser:
 
-* En lista över Windows och Linux virtuella datorer som stöds, se [plattformar som stöds i Azure Security Center](security-center-os-coverage.md). 
-* Information om hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper finns [ställa in säkerhetsprinciper i Azure Security Center](security-center-policies.md). 
-* Information om hur rekommendationer hjälper dig att skydda dina Azure-resurser finns [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md). 
-* Information om hur du övervakar hälsotillståndet för dina Azure-resurser finns [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). 
+* En lista över Windows och Linux virtuella datorer som stöds, se [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
+* Information om hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper finns [ställa in säkerhetsprinciper i Azure Security Center](security-center-policies.md).
+* Information om hur rekommendationer hjälper dig att skydda dina Azure-resurser finns [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
+* Information om hur du övervakar hälsotillståndet för dina Azure-resurser finns [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md).
 * Information om hur du hanterar och åtgärdar säkerhetsaviseringar finns [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Information om hur du övervakar dina partnerlösningars hälsostatus finns [övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 * Svar på vanliga frågor och svar om tjänsten finns [Azure Security Center vanliga frågor och svar](security-center-faq.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212695"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295461"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>Hantera hemligheter i Service Fabric-program
 Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord eller andra värden som inte ska hanteras i oformaterad text.
@@ -43,7 +43,7 @@ Data chiffrering certifikat används enbart för kryptering och dekryptering av 
 Det här certifikatet måste installeras på varje nod i klustret. Den används vid körning för att dekryptera värden som lagras i Settings.xml för en tjänst. Se [hur du skapar ett kluster med Azure Resource Manager] [ service-fabric-cluster-creation-via-arm] för instruktioner. 
 
 ## <a name="encrypt-application-secrets"></a>Kryptera hemligheter i programmet
-När du distribuerar ett program kan kryptera hemliga värden med certifikatet och mata in dem i en tjänst Settings.xml konfigurationsfilen. Fabric-SDK-tjänsten har inbyggda hemliga funktioner för kryptering och dekryptering. Hemliga värden kan krypteras på inbyggda tid och sedan dekryptera och läsa programmässigt i Tjänstkod. 
+När du distribuerar ett program kan kryptera hemliga värden med certifikatet och mata in dem i en tjänst Settings.xml konfigurationsfilen. Fabric-SDK-tjänsten har inbyggda hemliga funktioner för kryptering och dekryptering. Hemliga värden kan krypteras vid byggning och sedan dekryptera och läsa programmässigt i Tjänstkod. 
 
 Följande PowerShell-kommando används för att kryptera en hemlighet. Det här kommandot endast krypterar värde. Det gör **inte** logga chiffertext. Du måste använda samma chiffrering av certifikat som installeras i klustret för att producera chiffertext för hemliga värden:
 

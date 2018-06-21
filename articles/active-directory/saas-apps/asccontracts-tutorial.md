@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c22182f995b36d23f632cf1478a863de91c57f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5a55f00273ea070d824f0b3d75fc86b4ff6be11
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225702"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Självstudier: Azure Active Directory-integrering med ASC kontrakt
 
@@ -201,7 +201,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen ASC kontrakt på åtkomstpanelen du ska hämta automatiskt loggat in på ditt ASC kontrakt-program. Mer information om åtkomstpanelen finns i. [Introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
+När du klickar på panelen ASC kontrakt på åtkomstpanelen du ska hämta automatiskt loggat in på ditt ASC kontrakt-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -223,4 +223,3 @@ När du klickar på panelen ASC kontrakt på åtkomstpanelen du ska hämta autom
 [201]: ./media/asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/asccontracts-tutorial/tutorial_general_203.png
-

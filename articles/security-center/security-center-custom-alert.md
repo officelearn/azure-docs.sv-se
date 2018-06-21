@@ -3,32 +3,37 @@ title: Anpassade aviseringsregler i Azure Security Center | Microsoft Docs
 description: I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/19/2018
+ms.author: terrylan
+ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775810"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284785"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Vad är anpassade aviseringsregler i Security Center?
 
-Security Center innehåller en uppsättning fördefinierade [säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), som löses ut när ett hot eller en misstänkt aktivitet inträffar. I vissa fall kanske du vill skapa en anpassad avisering som bemöter specifika behov i miljön. 
+Security Center innehåller en uppsättning fördefinierade [säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), som löses ut när ett hot eller en misstänkt aktivitet inträffar. I vissa fall kanske du vill skapa en anpassad avisering som bemöter specifika behov i miljön.
 
-Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från miljön. Du kan skapa frågor och resultatet av dessa frågor kan användas som kriterier för den anpassade regeln, och regeln körs när dessa kriterier matchas. Du kan använda säkerhetshändelser för datorer, loggar från en partners säkerhetslösning eller data som inhämtas med hjälp av API:er för att skapa de anpassade frågorna. 
+Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från miljön. Du kan skapa frågor och resultatet av dessa frågor kan användas som kriterier för den anpassade regeln, och regeln körs när dessa kriterier matchas. Du kan använda säkerhetshändelser för datorer, loggar från en partners säkerhetslösning eller data som inhämtas med hjälp av API:er för att skapa de anpassade frågorna.
+
+> [!NOTE]
+> Du behöver skrivbehörighet i arbetsytan som du väljer för att lagra anpassade aviseringen.
+>
+>
 
 ## <a name="how-to-create-a-custom-alert-rule-in-security-center"></a>Hur skapar man en anpassad aviseringsregel i Security Center?
 
@@ -38,16 +43,16 @@ Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya 
 2.  På sidan **Security Center – Anpassade aviseringsregler (förhandsversion)** klickar du på **Ny anpassad aviseringsregel**.
 
     ![Anpassad avisering](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
-    
+
 3.  Sidan Skapa anpassad aviseringsregel visas med följande alternativ:
-    
+
     ![Skapa](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.  I fältet **Namn** skriver du namnet på den här anpassade regeln.
 5.  Ange en kort beskrivning som återspeglar syftet med denna regel i fältet **Beskrivning**.
 6.  Välj allvarlighetsgrad (hög, medel, låg) efter behov i fältet **Allvarlighetsgrad**.
 7.  I fältet **Prenumeration** väljer du den prenumeration där denna regel ska gälla.
-8.  Välj arbetsytan som du vill övervaka med denna regel i fältet **Arbetsyta** och i fältet **Sökfråga** väljer du den fråga som ska användas för att hämta resultaten. Frågans resultat utlöser aviseringen. Tänk på att när du skriver in en giltig fråga visas en grön bockmarkering i det högra hörnet av detta fält:
+8.  Välj arbetsytan som du vill övervaka med den här regeln i den **arbetsytan** fältet, och i den **sökfråga** fältet den fråga som du vill använda för att få resultat. Du behöver skrivbehörighet i arbetsytan som du väljer för att lagra anpassade aviseringen. Frågans resultat utlöser aviseringen. Tänk på att när du skriver in en giltig fråga visas en grön bockmarkering i det högra hörnet av detta fält:
 
     ![Fråga](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
@@ -67,13 +72,12 @@ När den nya aviseringsregeln har skapats visas den i listan över anpassade avi
 
 Tänk på att parametrarna (sökfråga, tröskel osv.) som fastställdes när regeln skapades är tillgängliga i aviseringen för den här anpassade regeln.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I det här avsnittet har vi berättat hur du skapar en anpassad aviseringsregel i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
-* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
+* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

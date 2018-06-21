@@ -1,31 +1,39 @@
 ---
-title: Skydda data och åtgärder i Azure Search | Microsoft Docs
-description: Azure Search-säkerhet baseras på SOC 2 kompatibilitet, kryptering, autentisering och identitet åtkomst via användare och grupp säkerhets-ID i Azure Search filter.
+title: Säkerhets- och sekretessnivåer i Azure Search | Microsoft Docs
+description: Azure Search är kompatibel med SOC 2, HIPAA och andra certifikat. Anslutning och data kryptering, autentisering och identitet åtkomst via användare och grupp säkerhets-ID i Azure Search filter.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 7db1b6c6f72f3cea7446b5f96dac7cd6e9b4252d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795807"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285737"
 ---
-# <a name="security-and-controlled-access-in-azure-search"></a>Säkerhet och kontrollerad åtkomst i Azure Search
+# <a name="security-and-data-privacy-in-azure-search"></a>Säkerhets- och sekretessnivåer i Azure Search
 
-Azure Search är [SOC 2 kompatibla](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), med en omfattande arkitektur spanning fysisk säkerhet, krypterade överföringar, krypterade lagring och plattform hela programvara skydd. Azure Search funktionsmässigt krävs accepterar bara autentiserade begäranden. Du kan också kan du lägga till kontroller för varje användare åtkomst för innehåll. Den här artikeln vidrör på säkerheten på varje nivå, men är i första hand på hur data och åtgärder skyddas i Azure Search.
+Omfattande säkerhetsfunktioner och åtkomstkontroll är inbyggda i Azure Search så personligt innehåll fungerar på samma sätt. Den här artikeln räknar säkerhet-funktioner och standarder regelefterlevnad inbyggda i Azure Search.
 
-![Blockdiagram där säkerhetslager](media/search-security-overview/azsearch-security-diagram.png)
+Azure Search-säkerhetsarkitekturen omfattar fysisk säkerhet, krypterade överföringar, krypterade lagring och standarder för plattform hela kompatibilitet. Azure Search funktionsmässigt krävs accepterar bara autentiserade begäranden. Du kan också kan du lägga till per användare åtkomstkontroller på innehåll via säkerhetsfilter. Den här artikeln vidrör på säkerheten på varje nivå, men är i första hand på hur data och åtgärder skyddas i Azure Search.
 
-## <a name="physical-security"></a>Fysisk säkerhet
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Överensstämmelse med standarder: ISO 27001 SOC 2 HIPAA
 
-Microsoft-datacenter ger branschledande fysisk säkerhet och är kompatibla med en omfattande uppsättning standarder och föreskrifter. Mer information, gå till den [globala Datacenter](https://www.microsoft.com/cloud-platform/global-datacenters) sidan eller titta på en kort video om data center säkerhet.
+En ofullständig lista över överensstämmelse med standarder innehåller SOC 2 typ 2 och HIPAA för allmänt tillgängliga funktioner. Förhandsgranskningsfunktioner är certifierade som en del av allmän tillgänglighet och får inte användas i lösningar med krav på specifika krav. Kompatibilitet certifikatutfärdare dokumenteras i [översikt över Microsoft Azure-kompatibilitet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter). 
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
+Certifiering för följande standarder var [tillkännages i juni 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+
++ [ISO 27001: 2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [Kompatibilitet för SOC 2 typ 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) för hela rapporten går du till [Azure- och Azure Government SOC 2 II rapport](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
++ [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (21 CFR del 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
++ [PCI DSS nivå 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [Australien IRAP oklassificerade DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 ## <a name="encrypted-transmission-and-storage"></a>Krypterad överföring och lagring
 
@@ -35,15 +43,14 @@ Kryptering utökar under hela den hela pipelinen för fulltextindexering: från 
 |----------------|-------------|
 | Kryptering under överföring | Azure Search lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster krypteras över hela plattformen. |
 | Vilande kryptering | Kryptering är fullständigt internalized i indexering processen utan mätbara inverkan på indexering tid för slutförande eller Indexstorlek. Det sker automatiskt på alla indexering, inklusive på inkrementella uppdateringar till ett index som inte är fullständigt krypterade (som skapats före januari 2018).<br><br>Internt, kryptering baseras på [Azure Storage Service-kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), med hjälp av 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-| [Kompatibilitet för SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Alla search-tjänster är fullständigt AICPA SOC 2 kompatibla, alla Datacenter tillhandahåller Azure Search. Om du vill granska hela rapporten, gå till [Azure- och Azure Government SOC 2 II rapport](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
 Kryptering är interna för Azure Search med certifikat och krypteringsnycklar hanteras internt av Microsoft och tillämpas universellt. Du kan inte aktivera kryptering eller inaktivera, hantera eller ersätta egna nycklar eller visa krypteringsinställningar i portalen eller programmässigt. 
 
 Kryptering i vila har angivits i 24 januari 2018 och gäller för alla servicenivåer, inklusive delade (kostnadsfritt), i alla regioner. För fullständig kryptering index som skapades före denna tidpunkt släppas och återskapas för att kryptering ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.
 
-## <a name="azure-wide-logical-security"></a>Azure hela logisk säkerhet
+## <a name="azure-wide-user-access-controls"></a>Azure hela åtkomstkontroller
 
-Flera säkerhetsmekanismer finns tillgängliga via Azure-stacken och därmed automatiskt tillgängliga i Azure Search-resurser som du skapar.
+Flera säkerhetsmekanismer finns tillgängliga Azure hela och därmed automatiskt tillgängliga för Azure Search-resurser som du skapar.
 
 + [Lås i prenumerationen eller resursen nivå för att förhindra att tas bort](../azure-resource-manager/resource-group-lock-resources.md)
 + [Rollbaserad åtkomstkontroll (RBAC) att styra åtkomsten till information och administrativa åtgärder](../role-based-access-control/overview.md)
@@ -67,7 +74,7 @@ Autentisering krävs för varje begäran, där varje begäran består av en obli
 
 Ett enskilt index är inte ett skyddbara objekt i Azure Search. I stället bestäms åtkomst till ett index på tjänstnivå (läs- eller skrivbehörighet), tillsammans med kontexten för en åtgärd.
 
-När det gäller slutanvändarnas åtkomst strukturerar du frågebegäranden i ditt program att ansluta med en nyckel för frågan som gör en begäran skrivskyddad och inkludera specifika index som används av din app. Det finns något begrepp om Koppla index eller åt flera index samtidigt så att alla begäranden mål ett index per definition i en fråga. Därför definierar strukturen för fråga sig själv (en nyckel plus ett enda mål index) säkerhetsgränsen.
+För slutanvändaren kan strukturerar du frågebegäranden att ansluta med en nyckel för frågan som gör en begäran skrivskyddad och inkludera specifika index som används av din app. Det finns något begrepp om Koppla index eller åt flera index samtidigt så att alla begäranden mål ett index per definition i en fråga. Skapa fråga sig själv (en nyckel plus ett enda mål index) definierar som sådana säkerhetsgränsen.
 
 Administratörers och utvecklares åtkomst till index är odifferentierad: båda ha skrivbehörighet för att skapa, ta bort och uppdatera objekt som hanteras av tjänsten. Vem som helst med en administrationsnyckel till tjänsten kan läsa, ändra eller ta bort alla index i samma tjänst. För skydd mot oavsiktlig eller skadliga borttagning av index är din interna källkontrollen för koden tillgångar remedy för återföring en oönskad index tas bort eller ändras. Azure Search har växling vid fel i klustret för att säkerställa tillgänglighet, men inte lagra och köra egna koden används för att skapa eller läsa in index.
 
@@ -106,6 +113,12 @@ I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vi
 | Fråga Systeminformation, till exempel returnerar statistik, antal och listor över objekt. | Admin-nyckel, RBAC på resurs (ägare, deltagare, läsare) |
 | Hantera admin-nycklar | Administrationsnyckeln RBAC ägare eller deltagare för resursen. |
 | Hantera frågenycklar |  Administrationsnyckeln RBAC ägare eller deltagare för resursen.  |
+
+## <a name="physical-security"></a>Fysisk säkerhet
+
+Microsoft-datacenter ger branschledande fysisk säkerhet och är kompatibla med en omfattande uppsättning standarder och föreskrifter. Mer information, gå till den [globala Datacenter](https://www.microsoft.com/cloud-platform/global-datacenters) sidan eller titta på en kort video om data center säkerhet.
+
+> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
 ## <a name="see-also"></a>Se också

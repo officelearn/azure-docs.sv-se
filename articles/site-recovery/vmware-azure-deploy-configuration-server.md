@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4d944bec9d1cf73263d9deb54d0d9b3f6fc5532f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267517"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285041"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -31,7 +31,7 @@ Vi rekommenderar att du distribuerar konfigurationsservern som en högtillgängl
 
 MySQL måste installeras på konfigurationsservern. Du kan göra detta genom att använda någon av följande metoder:
 
-- Kan Site Recovery hämta och installera det när när guiden Konfigurera Server Management körs. Du behöver inte vidta några särskilda åtgärder.
+- Kan Site Recovery hämta och installera det när guiden Konfigurera Server Management körs. Du behöver inte vidta några särskilda åtgärder.
 - Manuellt hämta MySQL och placera den i mappen C:\Temp\ASRSetup. Kör sedan installationen. Site Recovery identifierar den installeras när guiden körs.
 - Manuellt hämta MySQL och placera den i mappen C:\Temp\ASRSetup. När guiden körs kommer den installationsfilen och installera den från den här platsen. 
 
@@ -68,7 +68,7 @@ Site Recovery tillhandahåller en nedladdningsbar mall för att ställa in konfi
 
 
 1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med hjälp av VMWare vSphere-klienten.
-2. På menyn **Arkiv** väljer du **Distribuera OVF-mallen** för att starta guiden Distribuera OVF-mall.
+2. I menyn **Arkiv** väljer du **Distribuera OVF-mallen** för att starta guiden Distribuera OVF-mall.
 
      ![OVF-mall](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
 
@@ -101,7 +101,7 @@ Om du vill lägga till en extra NIC på konfigurationsservern lägger du till de
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in startas Azure Site Recovery-konfigurationsverktyget.
 5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in på din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt.
 

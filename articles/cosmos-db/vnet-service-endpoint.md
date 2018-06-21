@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735466"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294003"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Säker åtkomst till ett Azure DB som Cosmos-konto med hjälp av Azure Virtual Network tjänstslutpunkten
 
@@ -80,7 +80,7 @@ När Azure Virtual Network service slutpunkter har aktiverats för din Azure Cos
 
 Om ditt konto i Azure Cosmos DB används av andra Azure-tjänster som Azure Search eller åt från Stream analytics eller Power BI, du tillåter åtkomst genom att kontrollera **Tillåt åtkomst till Azure-tjänster**.
 
-För att säkerställa att du har åtkomst till Azure Cosmos DB statistik från portalen, måste du aktivera **Tillåt åtkomst till Azure portal** alternativ. Mer information om dessa alternativ finns [anslutningar från Azure-portalen](firewall-support.md#connections-from-the-azure-portal) och [anslutningar från Azure PaaS tjänster](firewall-support.md#connections-from-other-azure-paas-services) avsnitt. När du har valt åtkomst, Välj **spara** spara inställningarna.
+För att säkerställa att du har åtkomst till Azure Cosmos DB statistik från portalen, måste du aktivera **Tillåt åtkomst till Azure portal** alternativ. Mer information om dessa alternativ finns [anslutningar från Azure-portalen](firewall-support.md#connections-from-the-azure-portal) och [anslutningar från Azure PaaS tjänster](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) avsnitt. När du har valt åtkomst, Välj **spara** spara inställningarna.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Ta bort ett virtuellt nätverk eller undernät 
 

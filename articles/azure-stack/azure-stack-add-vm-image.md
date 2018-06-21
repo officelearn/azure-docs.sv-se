@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604377"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287712"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure-stacken
 
@@ -207,7 +207,7 @@ När du behöver inte längre avbildningen av den virtuella dator som du överf�
     Exempel: `1.0.0`  
     Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
     
-    Mer information om theRemove AzsPlatformImage cmdlet finns i Microsoft-PowerShell [Azure Stack operatorn dokumentation](https://docs.microsoft.com/powershell/module/).
+    Mer information om cmdlet Remove-AzsPlatformImage finns i Microsoft-PowerShell [Azure Stack operatorn dokumentation](https://docs.microsoft.com/powershell/module/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,22 +6,23 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304530"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
-
-## <a name="overview"></a>Översikt
 
 Azure Storage tillhandahåller en omfattande uppsättning säkerhetsfunktioner som tillsammans ger utvecklare möjligheten att skapa säkra program:
 
 - Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Service kryptering (SSE)](storage-service-encryption.md). Mer information finns i [om standard kryptering för Azure-Blobbar, filer, tabell och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Lagringskontot själva kan skyddas med hjälp av rollbaserad åtkomstkontroll och Azure Active Directory. 
+- Azure Active Directory (Azure AD) och rollbaserad åtkomstkontroll (RBAC) stöds för Azure Storage för både resurs hanteringsåtgärder och dataåtgärder, enligt följande:   
+    - Du kan tilldela RBAC-roller begränsade till storage-konto till säkerhetsobjekt och använda Azure AD för att auktorisera resurs hanteringsåtgärder som nyckelhantering.
+    - Azure AD-integrering stöds i preview åtgärder på vilka Blob och kön för. Du kan tilldela RBAC-roller begränsade till en prenumeration, resursgrupp, storage-konto eller enskilda behållare eller kön till ett säkerhetsobjekt eller hanterade tjänstidentiteten. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory (förhandsgranskning)](storage-auth-aad.md).   
 - Data kan skyddas vid överföring mellan en program- och Azure med hjälp av [Client Side Encryption](../storage-client-side-encryption.md), HTTPS- eller SMB 3.0.  
 - Operativsystemet och datadiskarna som används av virtuella Azure-datorer kan krypteras med [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Delegerad åtkomst till dataobjekt i Azure Storage kan beviljas med [signaturer för delad åtkomst](../storage-dotnet-shared-access-signature-part-1.md).
@@ -100,7 +101,7 @@ Här är de viktigaste aspekterna som du behöver veta om att använda RBAC att 
 * [Azure Storage Resource Provider REST API-referens](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Den här API-referensen beskriver API: er som du kan använda för att hantera ditt lagringskonto via programmering.
-* [Utvecklarhandbok för autentisering med Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Autentisering-Använd Resource Manager API för åtkomst-prenumerationer](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Den här artikeln visar hur du autentiserar med Resource Manager-API: er.
 * [Rollbaserad åtkomstkontroll i Microsoft Azure från Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -108,7 +109,7 @@ Här är de viktigaste aspekterna som du behöver veta om att använda RBAC att 
   Det här är en länk till en video på Channel 9 från 2015 MS Ignite-konferensen. I den här sessionen talar de om åtkomsthantering och rapporteringsfunktioner i Azure och utforskar bästa praxis när det gäller att säkra åtkomst till Azure-prenumerationer med Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Hantera dina nycklar för Lagringskonto
-Lagringskontonycklar är 512-bitars strängar som skapats av Azure som tillsammans med lagringskontots namn, kan användas för åtkomst till de dataobjekt som lagras i lagringskontot, till exempel, blobbar, entiteter i en tabell, Kömeddelanden och filer på en filresurs på Azure. Kontrollera åtkomst till lagring konto nycklar kontroller har åtkomst till dataplan för det lagringskontot.
+Lagringskontonycklar är 512-bitars strängar som skapats av Azure som tillsammans med lagringskontots namn, kan användas för åtkomst till de dataobjekt som lagras i lagringskontot, till exempel, blobbar, entiteter i en tabell, Kömeddelanden och filer på en Azure-filresursen. Kontrollera åtkomst till lagring konto nycklar kontroller har åtkomst till dataplan för det lagringskontot.
 
 Varje lagringskonto har två nycklar som kallas ”nyckel 1” och ”nyckel 2” i den [Azure-portalen](http://portal.azure.com/) och i PowerShell-cmdlets. Dessa kan återskapas manuellt med hjälp av en av flera metoder, inklusive men inte begränsat till med hjälp av den [Azure-portalen](https://portal.azure.com/), PowerShell, Azure CLI eller via programmering med Storage-klientbiblioteket för .NET eller Azure Storage Services REST API.
 
@@ -160,12 +161,15 @@ Obs: Det rekommenderas att använda endast en av nycklarna i alla program på sa
 ## <a name="data-plane-security"></a>Säkerhet för data-plan
 Plan för datasäkerhet refererar till de metoder som används för att säkra dataobjekt som lagras i Azure Storage-blobbar, köer, tabeller och filer. Vi har sett metoder för att kryptera data och säkerhet under överföring av data, men hur skaffar du om hur du styr åtkomst till objekten?
 
-Det finns två metoder för att auktorisera åtkomst till dataobjekt sig själva. Dessa inkluderar Kontrollera åtkomst till lagringskontonycklarna och använder signaturer för delad åtkomst för att bevilja åtkomst till specifika dataobjekt för en viss tidsperiod.
+Det finns tre alternativ för att ge åtkomst till dataobjekt i Azure Storage, inklusive:
+
+- Använda Azure AD för att bevilja åtkomst till behållare och köer (förhandsversion). Azure AD innehåller fördelar jämfört med andra metoder för auktorisering, inklusive borttagning behöva lagra hemligheter i din kod. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory (förhandsgranskning)](storage-auth-aad.md). 
+- Använder din lagringskontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver lagring din lagringskontonycklar i ditt program så att Microsoft rekommenderar att du använder Azure AD i stället om möjligt. För program i produktion, eller för att auktorisera åtkomst till Azure-tabeller och filer, fortsätter du med delad nyckel när Azure AD-integrering finns i förhandsgranskningen.
+- Använda signaturer för delad åtkomst för att ge kontrollerade behörigheter till specifika dataobjekt för en viss tidsperiod.
 
 Dessutom för Blob Storage, kan du tillåta allmän åtkomst till dina blobbar genom att ange åtkomstnivån för den behållare som innehåller blobar i enlighet med detta. Om du ställer in åtkomst för en behållare för Blob eller behållare kommer du att kunna offentlig läsbehörighet för blobbar i behållaren. Det innebär att alla med en URL som pekar på en blobb i behållaren kan öppna den i en webbläsare utan hjälp av en signatur för delad åtkomst eller lagringskontonycklarna.
 
 Förutom att begränsa åtkomst via auktorisering kan du också använda [brandväggar och virtuella nätverk](storage-network-security.md) att begränsa åtkomsten till lagringskontot baserat på Nätverksregler.  I det här sättet kan du neka åtkomst till offentliga internet-trafik och för att bevilja åtkomst till vissa specifika virtuella Azure-nätverk eller offentliga internet IP-adressintervall.
-
 
 ### <a name="storage-account-keys"></a>Lagringskontonycklar
 Lagringskontonycklar är 512-bitars strängar som skapats av Azure som tillsammans med lagringskontots namn, kan användas för åtkomst till dataobjekt som lagras i lagringskontot.
@@ -205,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Hur signatur för delad åtkomst autentiseras av Azure Storage-tjänsten
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Hur signatur för delad åtkomst är auktoriserad genom Azure Storage-tjänsten
 När lagringstjänsten tar emot begäran, använder indatafrågan parametrar och skapar en signatur med samma metod som det anropande programmet. Den jämför sedan två signaturer. Om användaren accepterar Kontrollera lagringstjänsten storage service-version för att kontrollera att den är giltig, kontrollera att den aktuella datum och tid är inom den angivna tidsperioden, kontrollera åtkomst begärd motsvarar begäran, osv.
 
 Till exempel med våra URL misslyckas om URL: en pekar på en fil i stället för en blob denna begäran eftersom den anger att signatur för delad åtkomst är för en blob. Om kommandot REST anropas var att uppdatera en blob kan misslyckas det eftersom signatur för delad åtkomst anger att bara läsbehörighet tillåts.
@@ -264,21 +268,9 @@ Om du vill att en säker kommunikationskanal bör du alltid använda HTTPS när 
 Du kan framtvinga användningen av HTTPS när anropa REST-API: er att få åtkomst till objekt i storage-konton genom att aktivera [säker överföring krävs](../storage-require-secure-transfer.md) för lagringskontot. Anslutningar som använder HTTP ska avvisas när det här är aktiverat.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Med hjälp av kryptering under överföring med Azure-filresurser
-Azure Files stöder HTTPS när du använder REST-API, men är mer används ofta som en SMB filresurs kopplad till en virtuell dator. SMB 2.1 stöder inte kryptering, så anslutningar tillåts bara inom samma region i Azure. Dock SMB 3.0 stöder kryptering och den är tillgänglig i Windows Server 2012 R2, Windows 8, Windows 8.1 och Windows 10, så att både mellan region åtkomst och åtkomst till skrivbordet.
+[Azure Files](../files/storage-files-introduction.md) stöder kryptering via SMB 3.0 och med HTTPS när du använder filen REST API. När du monterar utanför Azure-regionen Azure-filresursen finns i, till exempel lokalt eller i en annan Azure-region, SMB 3.0 med kryptering krävs alltid. SMB 2.1 stöder inte kryptering, så som standard tillåts endast anslutningar inom samma region i Azure, men SMB 3.0 med kryptering kan tillämpas av [kräver säker överföring](../storage-require-secure-transfer.md) för lagringskontot.
 
-Medan Azure-filresurser kan användas med Unix, stöder Linux SMB-klienten ännu inte kryptering, så åtkomst tillåts endast i en Azure-region. Stöd för kryptering för Linux finns på Översikt av Linux-utvecklare som ansvarar för SMB-funktioner. När de lägger till kryptering har samma möjligheten för åtkomst till en Azure-filresurs på Linux som du gör för Windows.
-
-Du kan tillämpa kryptering med tjänsten Azure-filer genom att aktivera [säker överföring krävs](../storage-require-secure-transfer.md) för lagringskontot. Om du använder REST-API: er, HTTPs krävs. För SMB, kan endast SMB-anslutningar som stöder kryptering ansluta.
-
-#### <a name="resources"></a>Resurser
-* [Azure Files introduktion](../files/storage-files-introduction.md)
-* [Kom igång med Azure-filer i Windows](../files/storage-how-to-use-files-windows.md)
-
-  Den här artikeln ger en översikt över Azure-filresurser och montera och använda dem i Windows.
-
-* [Använda Azure Files med Linux](../files/storage-how-to-use-files-linux.md)
-
-  Den här artikeln visar hur du monterar en Azure-filresurs på en Linux-system och överför/hämta filer.
+SMB 3.0 med kryptering finns i [alla Windows och Windows Server-operativsystem som stöds](../files/storage-how-to-use-files-windows.md) utom Windows 7 och Windows Server 2008 R2, som endast har stöd för SMB 2.1. SMB 3.0 stöds även på [macOS](../files/storage-how-to-use-files-mac.md) och på distributioner av [Linux](../files/storage-how-to-use-files-linux.md) med Linux kernel 4.11 och högre. Stöd för kryptering för SMB 3.0 har också anpassats till äldre versioner av Linux-kärnan av flera Linux-distributioner, bör du läsa [förstå SMB klientkrav](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Med kryptering på klientsidan för att skydda data som du skickar till lagring
 Ett annat alternativ som hjälper dig att se till att dina data är säkra medan de överförs mellan ett klientprogram och lagring är kryptering på klientsidan. Data krypteras innan de överförs till Azure Storage. När du hämtar data från Azure Storage, dekrypteras data när den tas emot på klientsidan. Även om informationen är krypterad går över nätverket, rekommenderar vi att du också använda HTTPS, eftersom den har dataintegritetskontroller inbyggda som minimera nätverksfel som påverkar integriteten hos data.
@@ -412,11 +404,11 @@ Det finns en artikel som anges i resurserna nedan som innehåller en lista över
 
 ![Ögonblicksbild av fälten i en loggfil](./media/storage-security-guide/image3.png)
 
-Vi är intresserad av posterna för GetBlob och hur de autentiseras, så vi behöver leta efter poster med åtgärdstypen ”Get-Blob” och kontrollera begäran-status (fjärde</sup> kolumn) och auktorisering-typ (åttonde</sup> kolumn).
+Vi är intresserad av posterna för GetBlob och hur de har behörighet, så vi behöver Sök efter poster med åtgärdstypen ”Get-Blob” och kontrollera begäran-status (fjärde</sup> kolumn) och auktorisering-typ (åttonde</sup> kolumn).
 
-Till exempel i de första raderna i listan ovan, begäran-status är ”klar” och auktorisering-type ”autentiseras”. Det innebär att begäran har verifierats med hjälp av lagringskontots åtkomstnyckel.
+Till exempel i de första raderna i listan ovan, begäran-status är ”klar” och auktorisering-type ”autentiseras”. Detta innebär förfrågan auktoriserades med hjälp av lagringskontots åtkomstnyckel.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Hur mitt blob som autentiseras?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Hur är åtkomst till min blobbar auktoriserats?
 Vi har tre fall som vi är intresserad av.
 
 1. Blobben är offentlig och den kan nås med hjälp av en URL utan en signatur för delad åtkomst. I det här fallet begäran-status är ”AnonymousSuccess” och typen tillståndet är ”anonym”.
@@ -513,8 +505,7 @@ Mer information om CORS och hur du aktiverar det se dessa resurser.
 
    Microsoft lämnar det upp till varje kund för att bestämma om du vill aktivera FIPS-läge. Vi tror att det finns ingen tvingande anledning för kunder som inte omfattas av government sina förordningar för att aktivera FIPS-läge som standard.
 
-   **Resurser**
-
+### <a name="resources"></a>Resurser
 * [Varför inte rekommenderar vi ”FIPS-läge” längre](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Den här bloggen artikeln ger en översikt över FIPS och förklarar varför de inte aktiverar FIPS-läge som standard.

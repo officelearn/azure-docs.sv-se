@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6c410b054ba98961d15a4db0ff7eaa2804245cb0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87301e4ce3c5b7db054b3dd86e8ee1ac5d90d3ca
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355872"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309068"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video indexeraren utdata som genereras av v2 API
 
@@ -493,8 +493,8 @@ Företag och produktens namn upptäcktes i tal till text betyg och/eller Video O
 |---|---|
 |id|Varumärken-ID.|
 |namn|Märken namn.|
-|wikiId | Suffix för varumärken wikipedia url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
-|wikiUrl | Varumärke har Wikipedia url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|ReferenceId | Suffix för varumärken wikipedia url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | Varumärke har Wikipedia url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|Märken beskrivning.|
 |tags|En lista över fördefinierade taggar som var associerade med detta.|
 |förtroende|Förtroende-värdet för Video indexeraren varumärken detektorn (0-1).|
@@ -522,8 +522,8 @@ Företag och produktens namn upptäcktes i tal till text betyg och/eller Video O
 {
     "id": 1,
     "name": "Microsoft",
-    "wikiId": "Microsoft",
-    "wikiUrl": "http: //en.wikipedia.org/wiki/Microsoft",
+    "referenceId": "Microsoft",
+    "referenceUrl": "http: //en.wikipedia.org/wiki/Microsoft",
     "description": "Microsoft Corporation is...",
     "tags": [
     "competitors",

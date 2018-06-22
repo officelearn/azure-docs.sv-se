@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400247"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301394"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
@@ -41,7 +41,7 @@ Alternativen för anslutning är:
 
 | Alternativ | Beskrivning |
 |---|---|
-| **Public** | Ansluta till SQL Server via internet |
+| **Offentliga** | Ansluta till SQL Server via internet |
 | **privata** | Ansluta till SQL Server i samma virtuella nätverk |
 | **lokala** | Ansluta till SQL Server lokalt på samma virtuella dator | 
 
@@ -139,7 +139,7 @@ I följande tabell visas kraven för att ansluta till SQL Server som körs i en 
 | [Skapa en SQL-inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Om du använder SQL-autentisering, måste en SQL-inloggning med ett användarnamn och lösenord som också har behörighet till måldatabasen. |
 | [Aktivera TCP/IP-protokoll](#manualTCP) | SQL Server måste tillåta anslutningar via TCP. |
 | [Aktivera brandväggsregel för SQL Server-porten](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Brandväggen på den virtuella datorn måste tillåta inkommande trafik på SQL Server-porten (standard 1433). |
-| [Skapa en grupp för nätverkssäkerhetsregeln för TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Du måste tillåta att den virtuella datorn tar emot trafik på SQL Server-porten (standard 1433) om du vill ansluta via internet. Lokala och virtuella nätverk – endast anslutningar kräver inte detta. Det här är den enda steg som krävs i Azure-portalen. |
+| [Skapa en grupp för nätverkssäkerhetsregeln för TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Du måste tillåta att den virtuella datorn tar emot trafik på SQL Server-porten (standard 1433) om du vill ansluta via internet. Lokala och virtuella nätverk – endast anslutningar kräver inte detta. Det här är den enda steg som krävs i Azure-portalen. |
 
 > [!TIP]
 > Stegen i tabellen ovan är klar för dig när du konfigurerar anslutningen i portalen. Bara använda de här stegen för att bekräfta konfigurationen eller installera anslutningen manuellt för SQL Server.

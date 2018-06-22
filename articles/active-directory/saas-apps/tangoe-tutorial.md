@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218902"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Självstudier: Azure Active Directory-integrering med Tangoe kommandot Premium Mobile
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-2/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-us/) att hämta dessa värden. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -128,7 +128,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurationsavsnittet Tangoe kommandot Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. För att få SSO konfigurerats för ditt program, kontakta din [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-2/) och ange följande:
+7. För att få SSO konfigurerats för ditt program, kontakta din [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-us/) och ange följande:
 
    - Den hämtade metadatafilen
    - Den **SAML enhets-ID**
@@ -174,7 +174,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 I det här avsnittet kan du skapa en användare som kallas Britta Simon i Tangoe kommandot Premium Mobile. 
 
-Tangoe kommandot Premium Mobile-programmet måste alla användare som ska etableras i programmet innan du utför enkel inloggning. Så kan du arbeta med den [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-2/) att etablera dessa användare till programmet. 
+Tangoe kommandot Premium Mobile-programmet måste alla användare som ska etableras i programmet innan du utför enkel inloggning. Så kan du arbeta med den [Tangoe kommandot Premium Mobile Client supportteamet](https://www.tangoe.com/contact-us/) att etablera dessa användare till programmet. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

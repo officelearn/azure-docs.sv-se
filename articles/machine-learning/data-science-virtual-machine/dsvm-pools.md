@@ -1,6 +1,6 @@
 ---
-title: Datavetenskap virtuella pooler - Azure | Microsoft Docs
-description: Distribuera pooler för datavetenskap VM som en delad resurs för team
+title: Data vetenskap virtuella pooler - Azure | Microsoft Docs
+description: Distribuera pooler för datavetenskap virtuella datorer som en delad resurs för en grupp
 keywords: Djup learning AI datavetenskap verktyg, datavetenskap virtuell dator, geospatiala analytics, team av vetenskapliga data
 services: machine-learning
 documentationcenter: ''
@@ -15,60 +15,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: c7aab0435ecbd0aee57a15008ac0270159ec2eb3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837090"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309406"
 ---
-# <a name="creating-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av datavetenskap virtuella datorer
+# <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av datavetenskap virtuella datorer
 
-Den här artikeln beskrivs hur en delad pool av Data vetenskap virtuella datorer (DSVM) kan skapas för användning av teamet. Fördelen med att använda en delad pool är bättre resursutnyttjande underlätta samarbeta och dela, så att IT-avdelningen att hantera DSVM resurser mer effektivt. 
+Den här artikeln beskrivs hur du kan skapa en delad pool av datavetenskap virtuella datorerna (DSVMs) för en grupp. Fördelarna med att använda en delad pool är bättre resursutnyttjande, förenkling av delning och samarbete och mer effektiv hantering av DSVM resurser. 
 
-Det finns många sätt och olika tekniker som kan användas för att skapa en pool med DSVM.  Följande är huvudscenarier:
+Du kan använda många metoder och tekniker för att skapa en pool med DSVMs. Den här artikeln fokuserar på pooler för batch-bearbetning och interaktiva virtuella datorer.
 
-* Poolen för batchbearbetning
-* Poolen för interaktiva virtuella datorer
+## <a name="batch-processing-pool"></a>Batch-bearbetning pool
+Om du vill konfigurera en pool av DSVMs huvudsakligen för att köra jobb i en batch offline, kan du använda den [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/) service. Den här artikeln fokuserar på Azure Batch AI.
 
-## <a name="batch-processing-pool"></a>Batchbearbetning Pool
-Om du vill konfigurera en pool av DSVM huvudsakligen för att köra jobb i en batch offline så att du kan använda [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) service eller [Azure Batch](https://docs.microsoft.com/azure/batch/). 
+Ubuntu-versionen av DSVM stöds som en av avbildningarna i Azure Batch AI. I Azure CLI eller Python SDK, där du skapar Azure Batch AI-kluster, kan du ange den `image` parametern och ange det till `UbuntuDSVM`. Du kan välja vilken typ av bearbetning noder: GPU-baserad instanser jämfört med endast CPU-instanser, antalet processorer och minne från en [brett urval av VM-instanser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) tillgängliga på Azure. 
 
-### <a name="azure-batch-ai"></a>Azure Batch AI
-Ubuntu-versionen av DSVM stöds som en av avbildningarna i Azure Batch AI. Du kan ange i Azure CLI eller Python SDK: N där du skapar klustret Azure Batch AI den ```image``` parametern och ange det till ```UbuntuDSVM```. Du kan välja vilken typ av bearbetning noder – GPU-baserad instanser vs CPU endast instanser, antal processorer, minne från en [brett urval av VM-instanser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) tillgängliga på Azure. När du använder Ubuntu DSVM bilden i Batch AI med GPU-baserad noder är alla nödvändiga GPU-drivrutiner och djup learning ramverk är förinstallerade spara mycket tid för att förbereda batch-noder. Faktum är om du utvecklar på en Ubuntu DSVM interaktivt måste ser du att Batch AI-noderna är exakt samma installationen och konfigurationen av miljön. Vanligtvis när en Batch AI-klustret har skapats du också skapa en filresurs som är monterad på alla noder och används för indata och utdata för data samt lagra batch-Jobbkod / skript. 
+När du använder Ubuntu DSVM bilden i Batch AI med GPU-baserad noder förinstallerat alla nödvändiga drivrutiner för GPU och djup learning ramverk. Förinstallationen sparar mycket tid för att förbereda batch-noder. Faktum är om du utvecklar på en Ubuntu DSVM interaktivt märke till att batchen AI-noderna är exakt samma installationen och konfigurationen av miljön. 
 
-När Batch AI-klustret har skapats kan använda du samma CLI eller Python SDK skicka jobb ska köras. Du betalar bara för den tid som används för att köra batchjobb. 
+Vanligtvis när du skapar en Batch AI-klustret kan skapa du också en filresurs som är monterade på alla noder. Filresursen används för indata och utdata för data samt lagring av batch-jobbet kod/skript. 
 
-#### <a name="more-information"></a>Mer information
-* Steg för steg-genomgång av [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) för att hantera Batch AI
-* Steg för steg-genomgång av [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) för att hantera Batch AI
-* [Batch-AI recept](https://github.com/Azure/BatchAI) finns visar hur du använder olika AI/djup learning ramverk med Batch AI.
+När du har skapat en Batch AI-klustret, kan du använda samma CLI eller Python SDK skicka jobb ska köras. Du betalar för den tid som används för att köra batchjobb. 
+
+Mer information finns i:
+* Steg för steg-genomgång av [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) att hantera Batch AI
+* Steg för steg-genomgång av [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) att hantera Batch AI
+* [Batch-AI recept](https://github.com/Azure/BatchAI) som visar hur du använder olika AI och djup learning ramverk med Batch AI
 
 ## <a name="interactive-vm-pool"></a>Interaktiva VM-pool
 
-En pool med interaktiva DSVMs som delas av hela AI / datavetenskap team tillåter användare att logga in på en tillgänglig instans av DSVM i stället för att en dedikerad instans för varje användare. Detta hjälper med bättre tillgänglighet och mer effektivt utnyttjande av resurser. 
+En pool med interaktiva virtuella datorer som delas av hela AI/data vetenskap gruppen tillåter användare att logga in på en tillgänglig instans av DSVM i stället för att en dedikerad instans för varje användare. Den här installationen hjälper med bättre tillgänglighet och mer effektivt utnyttjande av resurser. 
 
-Den teknik som används för att skapa en interaktiv VM-adresspool är den [Azure Virtual Machine-Skalningsuppsättningar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) (VMSS), där du kan skapa och hantera en grupp med identiska, Utjämning av nätverksbelastning och autoskalning virtuella datorer. En användarloggar in den huvudsakliga pool IP- eller DNS-adress. Skala in automatiskt vägar sessionen till en tillgänglig DSVM i Scale Set. Eftersom användaren vill liknande miljö oavsett VM de loggar in, alla instanser av den virtuella datorn i Scale Set monterar en delad nätverksenhet som en Azure-filer eller en NFS-resurs. Användarens delade arbetsytan sparas normalt på arkivet delad fil är monterad på alla instanser. 
+Tekniken som används för att skapa en interaktiv VM-adresspool är [skalningsuppsättningar i virtuella Azure-datorn](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Du kan använda skaluppsättningar för att skapa och hantera en grupp med identiska, Utjämning av nätverksbelastning och autoskalning virtuella datorer. 
 
-En exempelmall Azure Resource Manager som skapar en Skaluppsättning med Ubuntu DSVMs instanser kan hittas på den [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Ett exempel på Azure Resource Manager-mallen [parameterfilen](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) finns även på samma plats. 
+Användaren loggar in på den huvudsakliga pool IP- eller DNS-adress. Skala in automatiskt vägar sessionen till en tillgänglig DSVM i uppsättningen av skalan. Eftersom användarna vill ha en liknande miljö oavsett VM de logga in till, alla instanser av den virtuella datorn i skaluppsättning montera en delad nätverksenhet som en resurs i Azure-filer eller en NFS-resurs. Användarens delade arbetsytan sparas normalt på arkivet delad fil är monterad på alla instanser. 
 
-Du kan skapa skaluppsättningen VM i Azure Resource Manager-mallen genom att ange lämpliga värden för parameterfilen med hjälp av Azure CLI. 
+Du hittar en exempelmall Azure Resource Manager som skapar en skala som anges med Ubuntu DSVM instanser på [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Ett exempel på den [parameterfilen](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) för Azure Resource Manager mallen är på samma plats. 
+
+Du kan skapa skaluppsättningen från Azure Resource Manager-mall genom att ange värden för parameterfilen i Azure CLI. 
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
-Kommandona ovan förutsätter att du har en kopia av parameterfilen med de angivna värdena för din instans av skaluppsättningen för virtuell dator, antal VM-instanser, pekare till din Azure-filer tillsammans med autentiseringsuppgifter för det lagringskonto som ska monteras på varje virtuell dator. Parameterfilen refererar till lokalt i kommandot ovan. Du kan överföra också parametrar eller fråga efter dem i skriptet.  
+Kommandona ovan förutsätter att du har:
+* En kopia av parameterfilen med de angivna värdena för din instans av skaluppsättning.
+* Antal VM-instanser.
+* Dela pekare till Azure-filer.
+* Autentiseringsuppgifter för det lagringskonto som ska monteras på varje virtuell dator. 
 
-Mallen ovan kan SSH och Jupyterhub porten från klientdel VM Scale inställd på backend-pool med Ubuntu DSVMs.  Som en användare logga du bara in till en virtuell dator på SSH eller JupyterHub på vanligt sätt. Eftersom VM-instanser kan skalas upp eller ned dynamiskt, någon status måste vara dela sparas i den monterade Azure Files. Samma metod kan användas för att skapa en pool med Windows DSVMs. 
+Parameterfilen refererar till lokalt i kommandona. Du kan också skicka parametrar eller fråga efter dem i skriptet.  
 
-Den [skript som monterar Azure-filer](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) är också tillgängliga på Azure DataScienceVM Github. Förutom montera Azure-filerna på den angivna monteringspunkten i parameterfilen skapar också ytterligare mjuka länkar till den monterade enheten i det ursprungliga användarkontot arbetskatalog och en användarspecifik anteckningsboken katalog i Azure delade filer är mjuk länkad till ```$HOME/notebooks/remote``` directory vilket gör att användare att komma åt, köra och spara sin Jupyter-anteckningsböcker.  Samma konvention kan användas när du skapar ytterligare användare på den virtuella datorn så att den pekar till varje användares Jupyter arbetsyta till delade filer i Azure. 
+Föregående mallen kan SSH och JupyterHub port från frontend skaluppsättningen till backend-poolen med Ubuntu DSVMs. Som användare kan logga du bara in på den virtuella datorn på SSH eller JupyterHub på normalt sätt. Eftersom VM-instanser kan skalas upp eller ned dynamiskt, någon status måste vara dela sparas i den monterade Azure Files. Du kan använda samma metod för att skapa en pool med Windows DSVMs. 
 
-Azure skalningsuppsättningarna VM stöd autoskalning där du kan ange regler på när du vill skapa ytterligare instanser och under vilka omständigheter för att skala ned instanser inklusive gör den till noll instanser för att spara på molnet maskinvarukostnader för användning när de virtuella datorerna inte används på alla . Dokumentationen sidor i skalningsuppsättningar ger detaljerade anvisningar för [Autoskala](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Den [skript som monterar resursen Azure filer](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) är också tillgänglig i Azure DataScienceVM lagringsplatsen i GitHub. Skriptet monterar resursen Azure-filer på den angivna monteringspunkten i parameterfilen. Skriptet skapar även mjuka länkar till den monterade enheten i det ursprungliga användarkontot hemkatalog. En användarspecifik anteckningsboken katalog i resursen Azure Files är Mjuk länkad till den `$HOME/notebooks/remote` katalogen så att användare kan komma åt, köra och spara sin Jupyter-anteckningsböcker. Du kan använda samma konvention när du skapar ytterligare användare på den virtuella datorn så att den pekar varje användares Jupyter arbetsytan till Azure Files resursen. 
+
+Virtuella datorn anger support autoskalning. Du kan ange regler för när du vill skapa ytterligare instanser och när att skala ned instanser. Du kan exempelvis skala till noll instanser som du vill spara maskinvarukostnader molnet användning när de virtuella datorerna inte används på alla. Dokumentationen sidor i skalningsuppsättningar i virtuella datorer ger detaljerade anvisningar för [autoskalning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ställ in gemensam identitet](dsvm-common-identity.md)
+* [Konfigurera en gemensam identitet](dsvm-common-identity.md)
 * [Lagra autentiseringsuppgifter för att få åtkomst till molnresurser](dsvm-secure-access-keys.md)
 
 

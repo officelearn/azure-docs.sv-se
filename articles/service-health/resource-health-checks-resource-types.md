@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795953"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309604"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Kontroller som utförs|
+|---|
+|<ul><li>Är servern igång?</li><li>Har servern slut på minne?</li><li>Servern startas?</li><li>Servern återställer?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Kontroller som utförs|
@@ -105,6 +110,11 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 |Kontroller som utförs|
 |---|
 |<ul><li> Har det inloggning på databasen?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Kontroller som utförs|
+|---|
+|<ul><li>Begäranden om att läsa data från lagringskontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Begäranden att skriva data till lagringskontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Är lagringsklustret där lagringskontot finns tillgängligt?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Kontroller som utförs|

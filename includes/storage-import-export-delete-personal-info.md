@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684429"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313888"
 ---
 ## <a name="deleting-personal-information"></a>Ta bort personlig information
 
@@ -40,7 +40,7 @@ Personlig kontaktinformation kan tas bort på följande sätt:
 - Data som sparas med jobbet tas bort med jobbet. Användare kan ta bort jobb manuellt och slutförda jobb tas automatiskt bort efter 90 dagar. Du kan manuellt ta bort jobb via REST API- eller Azure-portalen. Ta bort jobbet i Azure portal, gå till import-/ exportjobb och klicka *ta bort* från kommandofältet. Mer information om hur du tar bort ett import-/ exportjobb via REST-API finns i [ta bort ett import-/ exportjobb](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Informationen sparas i portalinställningar kan tas bort genom att ta bort portalinställningar. Du kan ta bort portalinställningar genom att följa dessa steg:
-  - Logga in på [Azure-portalen](https://portal.azure.com).
+  - Logga in på [Azure Portal](https://portal.azure.com).
   - Klicka på den *inställningar* ikonen ![ikonen för inställningar av Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Klicka på *exportera alla inställningar* (spara de aktuella inställningarna till en `.json` fil).
   - Klicka på *ta bort alla inställningar och privata instrumentpaneler* att ta bort alla inställningar som bland annat sparat kontaktinformation.

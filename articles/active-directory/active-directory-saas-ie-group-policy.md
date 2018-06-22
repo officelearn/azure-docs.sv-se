@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341014"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308544"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Hur du distribuerar Access panelen-tillägg för Internet Explorer med hjälp av Grupprincip
 Den här kursen visar hur du använder grupprinciper för att fjärrinstallera åtkomstpanelen-tillägg för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som är konfigurerade med [lösenordsbaserade enkel inloggning](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -44,7 +44,7 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
    
     ![Öppna filer och lagringstjänster](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Slutför den **ny resurs Guide** och ange behörigheter så att den kan nås från användarnas datorer. [Mer information om resurser.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Hämta följande Microsoft Windows Installer-paketet (MSI-fil): [åtkomst panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Hämta följande Microsoft Windows Installer-paketet (MSI-fil): [åtkomst panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Kopiera installationspaketet till önskad plats för resursen.
    
     ![Kopiera MSI-filen till resursen.](./media/active-directory-saas-ie-group-policy/copy-package.png)

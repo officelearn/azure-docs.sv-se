@@ -2,11 +2,11 @@
 
 Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Dock måste du först läsa mallen till storage-konto för moln-gränssnittet. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj din Cloud Shell-resursgrupp. Namnet har formatet `cloud-shell-storage-<region>`.
 
-   ![Välj en resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Välj resursgrupp](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Välj lagringskontot för Cloud Shell.
 
@@ -34,7 +34,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
 1. Leta upp och överför mallen.
 
-   ![Överför fil](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Ladda upp filen](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Välj mallen när paketet har överförts.
 

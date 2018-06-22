@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802314"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301724"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för program mot Service Bus-avbrott och katastrofer isolering
 
-Verksamhetskritiska program måste kontinuerligt, fungerar även med oplanerade avbrott eller katastrofer. Det här avsnittet beskrivs metoder du kan använda för att skydda Service Bus program mot en potentiella avbrott eller katastrof.
+Verksamhetskritiska program måste kontinuerligt, fungerar även med oplanerade avbrott eller katastrofer. Här beskrivs metoder du kan använda för att skydda Service Bus program mot en potentiella avbrott eller katastrof.
 
 Ett avbrott har definierats som temporär otillgänglighet Azure Service Bus. Avbrottet kan påverka vissa komponenter av Service Bus, till exempel ett meddelandearkiv eller även hela datacentret. När problemet har korrigerats, aktiveras Service Bus igen. Normalt orsakar avbrott inte förlorade meddelanden eller andra data. Ett exempel på ett komponentfel är att en viss meddelandearkiv. Ett exempel på ett datacenter hela avbrott är strömavbrott i datacentret, eller en felaktig datacenter nätverksväxel. Ett avbrott kan sista från några minuter till några dagar.
 
@@ -78,6 +78,17 @@ Den [Geo-replikering med Service Bus asynkrona meddelanden] [ Geo-replication wi
 
 Service Bus stöder Geo-återställning och Geo-replikering på namnområdesnivån. Mer information finns i [Azure Service Bus Geo-återställning](service-bus-geo-dr.md). Disaster recovery funktionen, tillgänglig för den [Premium-SKU](service-bus-premium-messaging.md) endast implementerar metadata katastrofåterställning och bygger på primära och sekundära disaster recovery-namnområden.
 
+## <a name="availability-zones-preview"></a>Tillgänglighet zoner (förhandsgranskning)
+
+Service Bus Premium-SKU stöder [tillgänglighet zoner](../availability-zones/az-overview.md), att tillhandahålla feltolerans isolerad platser inom en Azure-region. 
+
+> [!NOTE]
+> Tillgänglighet zoner förhandsgranskningen stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike centrala** regioner.
+
+Du kan aktivera tillgänglighet zoner på endast nya namnområden med hjälp av Azure portal. Service Bus stöder inte migrering av befintliga namnområden. Du kan inte inaktivera redundans när den har aktiverats på ditt namnområde.
+
+![1][]
+
 ## <a name="next-steps"></a>Nästa steg
 Mer information om återställning finns i följande artiklar:
 
@@ -93,3 +104,5 @@ Mer information om återställning finns i följande artiklar:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

@@ -1,6 +1,6 @@
 ---
-title: Använda BulkExecutor .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB | Microsoft Docs
-description: Använd Azure Cosmos DB BulkExecutor .NET-biblioteket massimport och uppdatera dokument till Azure Cosmos DB samlingar.
+title: Använda bulk utföraren .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB | Microsoft Docs
+description: Använd Azure Cosmos DB bulk utföraren .NET-biblioteket massimport och uppdatera dokument till Azure Cosmos DB samlingar.
 keywords: .NET bulk utförare
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611168"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300779"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använda BulkExecutor .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använda bulk utföraren .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB
 
-Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB BulkExecutor .NET-bibliotek att importera och uppdatera dokument till Azure Cosmos DB samlingar. Läs om BulkExecutor bibliotek och hur du kan utnyttja omfattande genomströmning och lagring i [BulkExecutor biblioteket – översikt](bulk-executor-overview.md) artikel. Den här kursen får du via ett .NET-program som Massredigera import slumpmässigt genererade dokument till en Azure DB som Cosmos-samling. När du har importerat visar den du hur du kan massimportera uppdatera data som importeras genom att ange korrigeringsprogram som åtgärder att utföra på specifika dokumentfält.
+Den här kursen innehåller instruktioner om hur du använder Azure Cosmos DB bulk utföraren .NET-bibliotek för att importera och uppdatera dokument till Azure Cosmos DB samlingar. Läs om bulk utföraren biblioteket och hur det hjälper dig utnyttja omfattande genomströmning och lagring i [bulk utföraren biblioteket – översikt](bulk-executor-overview.md) artikel. Den här kursen får du via ett .NET-program som Massredigera import slumpmässigt genererade dokument till en Azure DB som Cosmos-samling. När du har importerat visar den du hur du kan massimportera uppdatera data som importeras genom att ange korrigeringsprogram som åtgärder att utföra på specifika dokumentfält.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -27,7 +27,7 @@ Den här självstudiekursen innehåller instruktioner om hur du använder Azure 
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
 
-* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan använda den [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` URI. Den primärnyckeln finns i [för autentisering av förfrågningar](local-emulator.md#authenticating-requests).
+* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan använda den [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` URI. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
 
 * Skapa ett Azure SQL DB-API Cosmos-konto med hjälp av stegen som beskrivs i [skapa databaskonto](create-sql-api-dotnet.md#create-a-database-account) i .NET quickstart artikeln. 
 
@@ -166,7 +166,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync API. I det här exemple
     
 ## <a name="performance-tips"></a>Prestandatips 
 
-Tänk på följande för bättre prestanda när du använder BulkExecutor bibliotek:
+Tänk på följande för bättre prestanda när du använder bulk utföraren bibliotek:
 
 * Kör ditt program från en Azure-dator som är i samma region som din Cosmos DB kontot Skriv region för bästa prestanda.  
 
@@ -196,4 +196,4 @@ Tänk på följande för bättre prestanda när du använder BulkExecutor biblio
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om Nuget-Paketinformation och viktig information för BulkExecutor .net-bibliotek finns[BulkExecutor SDK information](sql-api-sdk-bulk-executor-dot-net.md). 
+* Mer information om Nuget-Paketinformation och viktig information för bulk utföraren .net-bibliotek finns[Massredigera utföraren SDK information](sql-api-sdk-bulk-executor-dot-net.md). 

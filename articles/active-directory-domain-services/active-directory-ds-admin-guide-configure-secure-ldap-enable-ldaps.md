@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 81986fdd9cbfbeb41c794e2364bf7bfea1069742
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211262"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300976"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -131,4 +131,4 @@ Om du fortfarande har problem att ansluta till den hanterade domänen med säker
 * [Administrera en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 * [Administrera Grupprincip i en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
-* [Skapa en säkerhetsgrupp för nätverk](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Skapa en säkerhetsgrupp för nätverk](../virtual-network/tutorial-filter-network-traffic.md)

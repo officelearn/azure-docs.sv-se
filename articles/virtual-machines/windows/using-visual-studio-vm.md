@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7809e0b9265ec62bded67d0b0ed851ee0ba98315
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894287"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301707"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Med Visual Studio på en förkonfigurerad Azure virtuell dator (VM) är ett snabbt, enkelt sätt att gå från grunden till en upp och körs utvecklingsmiljö. -Avbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -32,8 +32,8 @@ Avbildningar för de senaste större versionerna, Visual Studio 2017 och Visual 
 
 | Versionen                                              | Versioner                     |     Produktversion     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Senaste (Version 15.7)                    |    Enterprise, Community     |      Version 15.7.0     |
-| Visual Studio 2017: Senaste Preview (Version 15.8 Preview 1) |    Enterprise, Community     |      Version 15.8.1     |
+| Visual Studio 2017: Senaste (Version 15.7)                    |    Enterprise, Community     |      Version 15.7.3     |
+| Visual Studio 2017: Senaste Preview (Version 15.8 Preview 2) |    Enterprise, Community     |      Version 15.8.2     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.13    |
 |   Visual Studio 2015: Senaste (uppdatering 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Ingen             | (Upphört att gälla för underhåll) |

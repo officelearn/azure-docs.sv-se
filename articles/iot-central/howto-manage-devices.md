@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807483"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300602"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i din Azure IoT centralt program
 
@@ -49,7 +49,7 @@ Lägga till en enhet i Azure IoT centrala programmet:
 1. Välj **verkliga** eller **simulerade**. En verklig enhet är för en fysisk enhet som du ansluter till dina Azure IoT centralt program. En simulerad enhet har exempeldata som genereras av Azure IoT Central. Det här exemplet används en verklig enhet. Välj **verkliga** att navigera till den **enhetsinformation** för den nya enheten.
 
 
-## <a name="bulk-import-devices"></a>Massimport enheter
+## <a name="import-devices"></a>Importera enheter
 
 Om du vill ansluta stort antal enheter i tillämpningsprogrammet Azure IoT centrala bulk erbjudanden importera enheter via en CSV-fil. 
 
@@ -65,9 +65,12 @@ För bulk-registrera enheter i ditt program:
 
 1. Välj enhet mallen som du vill att Massredigera skapa enheterna på den vänstra panelen.
 
-1. Välj **ny** och välj **massimport**.
+ >   [!NOTE] 
+    Om du inte har en mall för enhet ännu kan du importera enheter under **oassocierade enheter** och registrera dem utan någon mall. När enheter har importerats kan därefter du associera dem med en mall som ett efterföljande steg.
 
-    [![Importera massåtgärd](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Klicka på **Importera**.
+
+    [![Åtgärd för import](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Välj den CSV-fil som innehåller listan över enhets-ID som ska importeras.
 
@@ -75,9 +78,25 @@ För bulk-registrera enheter i ditt program:
 
 1. När importen är klar visas ett meddelande på enheten rutnätet.
 
-    [![Massinläsning importresultat](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importresultat](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Om enheten importerar misslyckas, visas ett felmeddelande visas i rutnätet för enheten. En loggfil som avbildar alla fel genereras och kan hämtas genom att klicka på ett felmeddelande.
+
+
+**Koppla enheter till en mall**
+
+Om du registrerar enheter genom att starta importen under **oassocierade enheter**, och sedan enheterna som har skapats utan någon mall enhetsassociering. Enheten måste vara kopplad till en mall för att utforska data och annan information om enheten. Följ dessa steg om du vill associera enheter med en mall:
+1. Välj **Explorer** på den vänstra navigeringsmenyn.
+1. I den vänstra panelen väljer **oassocierade enheter**.
+    [![Olänkade enheter](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Markera de enheter som du vill associera med en mall.
+1. Klicka på **associera** alternativet.
+    [![Koppla enheter](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Välj mallen i listan över tillgängliga mallar och klickar på **associera** knappen.
+1. De valda enheterna kommer att flyttas mall för respektive enhet.
+
+ >   [!NOTE] 
+    När en enhet har associerats med en mall inte kan ändras eller som är associerade med en annan mall.
 
 ## <a name="export-devices"></a>Exportera enheter
 
@@ -86,7 +105,7 @@ För att etablera enheter ansluter till IoT Central måste anslutningssträngen 
 Att Massredigera export enheter från ditt program:
 1. Välj **Explorer** på den vänstra navigeringsmenyn.
 
-1. En den vänstra panelen mall väljer du enheten som du vill exportera enheterna.
+1. Välj enhet mallen som du vill exportera enheterna på den vänstra panelen.
 
 1. Välj de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
 

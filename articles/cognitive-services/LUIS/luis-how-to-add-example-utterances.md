@@ -10,21 +10,21 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cbffdbd9ab299d4405aa50c0e49db9c20ab0fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355758"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300646"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Lägg till exempel utterances och etikett med entiteter
 
-Utterances är exempel på användarnas frågor och kommandon. Om du vill hålla språk förstå (THOMAS), måste du lägga till [exempel utterances](luis-concept-utterance.md) till en [avsikt](luis-concept-intent.md).
+Exempel utterances är text exempel på användarnas frågor och kommandon. Om du vill hålla språk förstå (THOMAS), måste du lägga till [exempel utterances](luis-concept-utterance.md) till en [avsikt](luis-concept-intent.md).
 
-I allmänhet kan du lägga till en utterance först och sedan du skapa entiteter och etikett utterances på sidan avsiktshantering. Om du skulle istället skapa entiteter först, se [lägga till enheter](luis-how-to-add-entities.md).
+I allmänhet kan lägga till en exempel-utterance syftet först och sedan skapa entiteter och etikett utterances på sidan avsiktshantering. Om du skulle istället skapa entiteter först, se [lägga till enheter](luis-how-to-add-entities.md).
 
 ## <a name="add-an-utterance"></a>Lägg till en utterance
-Ange en relevant utterance som du förväntar dig från dina användare, t.ex på ett avsiktshantering sida `book 2 adult business tickets to Paris tomorrow on Air France` i textrutan under avsiktshantering namn och tryck på RETUR. 
+Ange en relevant exempel utterance som du förväntar dig från dina användare, t.ex på ett avsiktshantering sida `book 2 adult business tickets to Paris tomorrow on Air France` i textrutan under avsiktshantering namn och tryck på RETUR. 
  
 >[!NOTE]
 >THOMAS konverterar alla utterances till gemener.
@@ -32,6 +32,9 @@ Ange en relevant utterance som du förväntar dig från dina användare, t.ex p�
 ![Skärmbild av Intents på sidan med utterance markerat](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances läggs till utterances för den aktuella avsikten. 
+
+## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
+Om du vill ignorera specifika ord eller skiljetecken i exempel utterance använder en [mönster](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
 
 ## <a name="add-simple-entity-label"></a>Lägg till enkel enhet etikett
 I följande procedur skapar och etikett anpassade enheter i följande utterance på sidan avsiktshantering:

@@ -2,23 +2,18 @@
 title: Azure Service Bus Geo-katastrofåterställning | Microsoft Docs
 description: Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Service Bus
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237353"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301527"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-katastrofåterställning
 
@@ -89,9 +84,9 @@ Om du har ett scenario där du inte kan ändra anslutningar för producenter och
 
 Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) visar hur du ställer in och initiera redundans. De här exemplen visar följande:
 
-- Ett exempel på .net och inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus att konfigurera och aktivera Geo-återställning.
+- Ett exempel på .NET och inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus för att konfigurera och aktivera Geo-återställning.
 - Steg som krävs för att köra exempelkoden.
-- Hur du använder ett befintligt namnområde som alias.
+- Hur du använder ett befintligt namnområde som ett alias.
 - Steg för att du kan också aktivera Geo-återställning via PowerShell eller CLI.
 - [Skicka och ta emot](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) från det primära eller sekundära namnområdet med hjälp av alias.
 
@@ -106,6 +101,17 @@ Observera följande viktiga aspekter att tänka på med den här versionen:
 3. Misslyckande en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
 
 4. Synkronisera enheter kan ta lite tid, ungefär 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter. 
+
+## <a name="availability-zones-preview"></a>Tillgänglighet zoner (förhandsgranskning)
+
+Service Bus Premium-SKU stöder också [tillgänglighet zoner](../availability-zones/az-overview.md), att tillhandahålla feltolerans isolerad platser inom en Azure-region. 
+
+> [!NOTE]
+> Tillgänglighet zoner förhandsgranskningen stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike centrala** regioner.
+
+Du kan aktivera tillgänglighet zoner på endast nya namnområden med hjälp av Azure portal. Service Bus stöder inte migrering av befintliga namnområden. Du kan inte inaktivera redundans när den har aktiverats på ditt namnområde.
+
+![3][]
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -123,3 +129,4 @@ Om du vill lära dig mer om Service Bus-meddelanden, finns i följande artiklar:
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

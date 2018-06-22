@@ -7,14 +7,14 @@ manager: carmonm
 keywords: säkerhetskopiering. Säkerhetskopiera;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5aa07d7861413fa0ddc0d5af7aefe828df412b4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606644"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309154"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -34,11 +34,14 @@ Innan du skyddar (eller säkerhetskopiera) en Resource Manager-distribuerad virt
 Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetskopiera din virtuella dator](backup-azure-arm-vms.md) artikel. Om du behöver konfigurera eller kontrollera någon av dessa förutsättningar leder dig genom stegen i den här artikeln.
 
 ## <a name="supported-operating-systems-for-backup"></a>Operativsystem som stöds för säkerhetskopiering
- * **Linux**: Azure Backup stöder [en lista över distributioner rekommenderar Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), förutom CoreOS Linux. 
- 
+
+ * **Linux**: Azure Backup stöder [en lista över distributioner rekommenderar Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), förutom CoreOS Linux. Lista över Linux-operativsystem som stöder återställning av filer, se [återställa filer från en säkerhetskopiering av virtuella datorer](backup-azure-restore-files-from-vm.md#for-linux).
+
     > [!NOTE] 
     > Andra bring-your-äger-Linux-distributioner fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn, och stöd för Python finns. Dessa distributioner stöds dock inte.
- * **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
+    >
+ * **Windows Server**, **Windows-klient**: äldre än Windows Server 2008 R2 eller Windows 7-versioner stöds inte.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
 Innan du förbereder din miljö måste du förstå följande begränsningar:

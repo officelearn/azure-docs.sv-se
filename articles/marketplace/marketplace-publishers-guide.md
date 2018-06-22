@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823392"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309239"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publisher Guide  
 
@@ -118,7 +118,7 @@ Varje storefront innehåller särskilda alternativ som hjälper dig att maximera
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Så här publicerar du i butiker på marknadsplatsen  
-I följande avsnitt hjälpa dig att navigera publiceringsalternativ i AppSource och Azure Marketplace.  
+Följande sidor hjälpa dig att navigera publiceringsalternativ i AppSource och Azure Marketplace.  
 
 Bli utgivare i skyltfönster på marketplace i tre enkla steg.  
 1.  Besök den [avgör vilken lista för din lösning](./determine-your-listing-type.md) sidan.  
@@ -135,7 +135,6 @@ Bli utgivare i skyltfönster på marketplace i tre enkla steg.
 ---  
 
 ## <a name="support"></a>Support  
-
 *   Besök den [stöd för AppSource](./support-appsource.md) sidan.  
 *   Besök den [stöd för Azure Marketplace](./support-azure-marketplace.md) sidan.  
 
@@ -147,6 +146,7 @@ Bli utgivare i skyltfönster på marketplace i tre enkla steg.
 
 ## <a name="guidelines"></a>Riktlinjer  
 *   Besök den [riktlinjer](./guidelines.md) sidan.  
+    *   Besök den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace-kontot](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) avsnitt.  
 *   Besök den [registrera i Dev Center](./register-dev-center.md) sidan.  
 *   Besök den [skatteinformation och Lägg till Bank](./add-bank-tax-info.md) sidan.  
 *   Besök den [aktivera utvärderingsversion med Azure AD](./enable-trial-using-azure-ad.md) sidan.  

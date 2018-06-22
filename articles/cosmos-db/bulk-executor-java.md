@@ -1,6 +1,6 @@
 ---
-title: Använda BulkExecutor Java-bibliotek för att utföra massåtgärder i Azure Cosmos DB | Microsoft Docs
-description: Använd Azure Cosmos DB BulkExecutor Java-biblioteket massimport och uppdatera dokument till Azure Cosmos DB samlingar.
+title: Använda bulk utföraren Java-bibliotek för att utföra massåtgärder i Azure Cosmos DB | Microsoft Docs
+description: Använd Azure Cosmos DB bulk utföraren Java-biblioteket massimport och uppdatera dokument till Azure Cosmos DB samlingar.
 keywords: Java bulk utförare
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610250"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300722"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda BulkExecutor Java-bibliotek för att utföra massåtgärder på Azure Cosmos DB data
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda bulk utföraren Java-bibliotek för att utföra massåtgärder på Azure Cosmos DB data
 
-Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB bulk utföraren Java-bibliotek för att importera och uppdatera Azure Cosmos DB dokument. Läs om BulkExecutor bibliotek och hur du kan utnyttja omfattande genomströmning och lagring i [BulkExecutor biblioteket – översikt](bulk-executor-overview.md) artikel. I kursen får du skapa ett Java-program som genererar slumpmässiga dokument och de bulk importeras till en samling Azure Cosmos DB. När du har importerat, massutskick uppdatera vissa egenskaper för ett dokument. 
+Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB bulk utföraren Java-bibliotek för att importera och uppdatera Azure Cosmos DB dokument. Läs om bulk utföraren biblioteket och hur det hjälper dig utnyttja omfattande genomströmning och lagring i [Massredigera utföraren biblioteket – översikt](bulk-executor-overview.md) artikel. I kursen får du skapa ett Java-program som genererar slumpmässiga dokument och de bulk importeras till en samling Azure Cosmos DB. När du har importerat, massutskick uppdatera vissa egenskaper för ett dokument. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
-* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan använda den [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` URI. Den primärnyckeln finns i [för autentisering av förfrågningar](local-emulator.md#authenticating-requests).  
+* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan använda den [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` URI. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
   - I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.  
@@ -197,7 +197,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync API. I det här exemple
 
 ## <a name="performance-tips"></a>Prestandatips 
 
-Tänk på följande för bättre prestanda när du använder BulkExecutor bibliotek:
+Tänk på följande för bättre prestanda när du använder bulk utföraren bibliotek:
 
 * Kör ditt program från en Azure-dator i samma region som Cosmos DB kontot Skriv region för bästa prestanda.  
 * För att uppnå högre genomströmning:  
@@ -211,6 +211,6 @@ Tänk på följande för bättre prestanda när du använder BulkExecutor biblio
 
     
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om information om maven och viktig information för BulkExecutor Java-bibliotek finns[BulkExecutor SDK information](sql-api-sdk-bulk-executor-java.md).
+* Mer information om information om maven och viktig information för bulk utföraren Java-bibliotek finns[Massredigera utföraren SDK information](sql-api-sdk-bulk-executor-java.md).
 
 

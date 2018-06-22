@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648072"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309341"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL-hanterade databasinstans
 
 Azure SQL-hanterade databasinstans (förhandsgranskning) måste distribueras i en Azure [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Den här distributionen gör följande scenarier: 
-- Ansluta till en instans som hanteras direkt bilda ett lokalt nätverk 
+- Ansluta till en hanterad instans direkt från ett lokalt nätverk 
 - Ansluta en hanterad instans länkad server eller en annan lokal datalager 
 - Ansluter en hanterad instans till Azure-resurser  
 

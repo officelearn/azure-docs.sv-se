@@ -1,6 +1,6 @@
 ---
-title: OMS Azure tillägg för virtuell dator för Windows | Microsoft Docs
-description: Distribuera OMS-agent på Windows virtuell dator med ett tillägg för virtuell dator.
+title: Azure logganalys virtuella tillägget för Windows | Microsoft Docs
+description: Distribuera logganalys-agent på Windows virtuell dator med ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: c365c43eb5abb975bf77e28ad061ff091f5ec627
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942643"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301788"
 ---
-# <a name="oms-virtual-machine-extension-for-windows"></a>OMS tillägg för virtuell dator för Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Logga Analytics tillägg för virtuell dator för Windows
 
-Operations Management Suite (OMS) ger funktioner för övervakning, aviseringar, och reparationen i molnet och lokala resurser. Tillägget för virtuell dator OMS-Agent för Windows är publicerad och stöds av Microsoft. Tillägget OMS-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig OMS-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för OMS-tillägget för virtuell dator för Windows.
+Log Analytics ger övervakningsfunktionerna i molnet och lokala resurser. Tillägget för virtuell dator Log Analytics-agenten för Windows är publicerad och stöds av Microsoft. Tillägget logganalys-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig logganalys-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för tillägget för virtuell dator Log Analytics för Windows.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget OMS-Agent utgåvor för Windows kan köras mot Windows Server 2008 R2, 2012 och 2012 R2 2016.
+Log Analytics Agent-tillägget utgåvor för Windows kan köras mot Windows Server 2008 R2, 2012 och 2012 R2 2016.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center automatiskt etablerar OMS-agenten och kopplar den till standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör det skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
+Azure Security Center automatiskt etablerar logganalys-agenten och kopplar den till standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör det skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
-OMS-Agent-tillägget för Windows kräver att den virtuella måldatorn är ansluten till internet. 
+Log Analytics Agent-tillägget för Windows kräver att den virtuella måldatorn är ansluten till internet. 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbetsytans Id och arbetsytenyckel från OMS målarbetsytan, finns dessa i OMS-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för Log Analytics Agent-tillägget. Tillägget kräver arbetsytans Id och arbetsytenyckel från målet logganalys-arbetsytan. Dessa återfinns i inställningarna för arbetsytan i Azure-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
 
 ```json
 {
@@ -79,11 +79,11 @@ Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbet
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget OMS-Agent under en Azure Resource Manager för malldistribution. En exempelmall som innehåller OMS-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget Log Analytics agenten under en Azure Resource Manager för malldistribution. En exempelmall som innehåller Log Analytics Agent VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 JSON för ett tillägg för virtuell dator kan kapslas i den virtuella datorresursen eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet av resursens namn och typen. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-I följande exempel förutsätter OMS-tillägget är kapslad i den virtuella datorresursen. När kapsla resursen tillägget JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätter logganalys-tillägget är kapslad i den virtuella datorresursen. När kapsla resursen tillägget JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
 
 ```json
@@ -138,7 +138,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera OMS-Agent tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
+Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Log Analytics Agent tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

@@ -356,6 +356,8 @@
           href: monitor-visually.md
         - name: Övervaka med Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Övervaka med OMS
+          href: data-factory-monitor-oms.md
         - name: Övervaka med SDKs
           href: monitor-programmatically.md
         - name: Övervaka Integration Runtime

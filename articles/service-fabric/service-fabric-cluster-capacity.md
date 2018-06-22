@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641891"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309424"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
@@ -46,6 +46,8 @@ Den **nodtypen** kan ses som motsvarande roller i molntjänster. Nodtyper defini
 Varje nodtyp är en distinkta skala ange kan skalas upp eller ned separat, har olika uppsättningar av öppna portar och har olika kapacitetsdata. Mer information om relationerna mellan nodtyper och skaluppsättningar för den virtuella datorn hur till RDP till någon av instanserna, hur du öppnar nya portarna och så vidare, se [nodtyper för Service Fabric-kluster](service-fabric-cluster-nodetypes.md).
 
 Ett Service Fabric-kluster kan bestå av fler än en nodtyp. I så fall består klustret av en primära nodtypen och en eller flera icke-primär nodtyper.
+
+En enskild nod-typ kan inte bara överskrida 100 noder per skaluppsättning för virtuell dator. Du kan behöva lägga till virtuella datorn anger för att uppnå riktade skalan och automatisk skalning kan automagically lägga till virtuella datorer. Lägga till skalningsuppsättningarna för virtuella datorer på plats till ett aktivt kluster är en utmaning och ofta detta resulterar i användare etablering nya kluster med lämpliga nodtyper som etablerats vid skapandet. 
 
 ### <a name="primary-node-type"></a>Primära nodtypen
 
@@ -188,7 +190,7 @@ Den här vägledningen tillståndslösa arbetsbelastningar som körs på icke-pr
 
 **Antal VM-instanser:** för produktionsarbetsbelastningar som är tillståndslös minsta stöds icke - primära noden standardstorleken är 2. På så sätt kan du köra två tillståndslös instanser av programmet och låta din tjänst att överleva förlust av en VM-instans. 
 
-**VM-SKU:** det här är nodtypen där ditt program körs, så VM SKU du väljer för det, måste ta hänsyn till belastning som du planerar att placera i varje nod. Kapacitetsbehov för nodetype, bestäms av arbetsbelastning som du planerar att köra i klustret, så vi inte kan tillhandahålla dig med kvalitativa vägledning för din specifika arbetsbelastning, men det här är den allmänna riktlinjer som hjälper dig att komma igång
+**VM-SKU:** det här är nodtypen där ditt program körs, så VM SKU du väljer för det, måste ta hänsyn till belastning som du planerar att placera i varje nod. Kapacitetsbehov av nodtypen bestäms av arbetsbelastning som du planerar att köra i klustret, så vi inte kan tillhandahålla dig med kvalitativa vägledning för din specifika arbetsbelastning, men det här är den allmänna riktlinjer som hjälper dig att komma igång
 
 För produktionsarbetsbelastningar 
 

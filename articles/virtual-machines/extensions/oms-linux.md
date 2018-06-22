@@ -1,6 +1,6 @@
 ---
-title: OMS Azure tillägg för virtuell dator för Linux | Microsoft Docs
-description: Distribuera OMS-agent på Linux-dator som använder ett tillägg för virtuell dator.
+title: Azure logganalys virtuella tillägget för Linux | Microsoft Docs
+description: Distribuera logganalys-agenten på Linux-dator som använder ett tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
 ms.author: danis
-ms.openlocfilehash: f0d8224e5578a5ae46245e6c70792e962a44c933
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652863"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301493"
 ---
-# <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-Log Analytics tillhandahåller funktioner för övervakning, aviseringar, och reparationen i molnet och lokala resurser. Tillägget för virtuell dator OMS-Agent för Linux publiceras och stöds av Microsoft. Tillägget OMS-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig logganalys-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för OMS-tillägget för virtuell dator för Linux.
+Log Analytics tillhandahåller funktioner för övervakning, aviseringar, och reparationen i molnet och lokala resurser. Tillägget för virtuell dator Log Analytics Agent för Linux publiceras och stöds av Microsoft. Tillägget logganalys-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig logganalys-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för logganalys-tillägget för virtuell dator för Linux.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
+Tillägget Log Analytics-agenten kan köras mot dessa Linux-distributioner.
 
 | Distribution | Version |
 |---|---|
@@ -44,9 +44,9 @@ Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
 | SUSE Linux Enterprise Server | 11 och 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Agent och VM-tillägget version
-Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och OMS-Agent paket för varje version. En länk till viktig information om OMS paket agentversionen ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
+Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillägget och Log Analytics Agent paket för varje version. En länk till viktig information om logganalys paket agentversionen ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
 
-| Version för OMS Linux VM-tillägg | OMS-Agent paket version | 
+| Log Analytics Linux VM-tillägget version | Log Analytics paket agentversion | 
 |--------------------------------|--------------------------|
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -62,15 +62,15 @@ Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och O
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center automatiskt etablerar OMS-agenten och ansluter till en standard logganalys-arbetsytan som skapats av ASC i din Azure-prenumeration. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör detta skriver över den konfigurerade arbetsytan och bryter anslutningen med Azure Security Center.
+Azure Security Center automatiskt etablerar logganalys-agenten och ansluter till en standard logganalys-arbetsytan som skapats av ASC i din Azure-prenumeration. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör detta skriver över den konfigurerade arbetsytan och bryter anslutningen med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Tillägget OMS-Agent för Linux kräver att den virtuella måldatorn är ansluten till internet. 
+Tillägget för Linux Log Analytics Agent kräver att den virtuella måldatorn är ansluten till internet. 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbetsyte-ID och arbetsytenyckel från målet logganalys-arbetsytan; Dessa värden kan vara [hittades i logganalys-arbetsytan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) i Azure-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för Log Analytics Agent-tillägget. Tillägget kräver arbetsyte-ID och arbetsytenyckel från målet logganalys-arbetsytan; Dessa värden kan vara [hittades i logganalys-arbetsytan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) i Azure-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
 
 ```json
 {
@@ -109,7 +109,7 @@ Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbet
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver post distributionskonfiguration, till exempel onboarding till logganalys. En Resource Manager-mall som innehåller OMS-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver post distributionskonfiguration, till exempel onboarding till logganalys. En Resource Manager-mall som innehåller Log Analytics Agent VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 JSON-konfiguration för ett tillägg för virtuell dator kan kapslas i den virtuella datorresursen eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet av resursens namn och typen. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
@@ -165,7 +165,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera OMS-agenten VM-tillägget till en befintlig virtuell dator. Ersätt den *workspaceId* och *workspaceKey* med de från logganalys-arbetsytan. 
+Azure CLI kan användas för att distribuera Log Analytics Agent VM-tillägget till en befintlig virtuell dator. Ersätt den *workspaceId* och *workspaceKey* med de från logganalys-arbetsytan. 
 
 ```azurecli
 az vm extension set \

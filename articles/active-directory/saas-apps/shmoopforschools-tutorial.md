@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 58cf30163837f6d3c327b7c0c6c2542ea294e8d6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229004"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Självstudier: Azure Active Directory-integrering med Shmoop för skolorna
 
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop för skolan stöder två roller för användare: **lärare** och **Student**. Konfigurera dessa roller i Azure AD så att användare kan tilldelas lämpliga roller. Information om hur du konfigurerar roller i Azure AD finns [rollbaserad åtkomstkontroll i molnprogram med Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+    > Shmoop för skolan stöder två roller för användare: **lärare** och **Student**. Konfigurera dessa roller i Azure AD så att användare kan tilldelas lämpliga roller. Information om hur du konfigurerar roller i Azure AD finns [hantera åtkomst med hjälp av RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
 5. I den **användarattribut** under den **enkel inloggning** dialogrutan Konfigurera attributet SAML-token som visas i föregående bild.  Sedan gör du följande:
 

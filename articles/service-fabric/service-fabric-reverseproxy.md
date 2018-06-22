@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212283"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301588"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har HTTP-slutpunkter.
@@ -57,8 +57,13 @@ Du kan konfigurera precis porten för omvänd proxy i belastningsutjämnaren i s
 ![Extern kommunikation][0]
 
 > [!WARNING]
-> När du konfigurerar omvänd proxy-port i belastningsutjämnaren adresseras alla mikrotjänster i klustret som Exponerar en HTTP-slutpunkt från utanför klustret.
+> När du konfigurerar omvänd proxy-port i belastningsutjämnaren adresseras alla mikrotjänster i klustret som Exponerar en HTTP-slutpunkt från utanför klustret. Detta innebär att mikrotjänster ska vara interna kan vara kan identifieras av en obehörig användare som anges. Den här potenially anger allvarliga säkerhetsrisker som kan utnyttjas; Exempel:
 >
+> * En obehörig användare kan starta en DoS-angrepp genom att anropa en intern tjänst som inte har en tillräckligt strikt attackyta upprepade gånger.
+> * En obehörig användare kan leverera paket i fel format till en intern tjänst som ledde till ett oönskat beteende.
+> * En tjänst som är avsedda att vara interna kan returnera privat eller känslig information som är inte avsedd att utsättas för tjänster utanför klustret därför exponera känslig information till en obehörig användare. 
+>
+> Kontrollera att helt förstå och minska de potentiella säkerhet föreskrifter för klustret och appar som körs på den, och innan du gör omvänd proxy-port offentliga. 
 >
 
 

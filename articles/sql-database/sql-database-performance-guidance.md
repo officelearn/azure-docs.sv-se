@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650476"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309223"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -25,7 +25,7 @@ Du har inte några tillämpliga rekommendationer och du fortfarande har problem 
 - Finjustera ditt program och tillämpa några metoder som kan förbättra prestanda. 
 - Finjustera databasen genom att ändra index och frågor att mer effektivt arbeta med data.
 
-Dessa är manuella metoder eftersom du behöver avgöra vad [DTU-baserade modellen gränserna](sql-database-dtu-resource-limits.md) och [vCore-baserade modellen gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md) uppfyller dina behov. Annars skulle du behöva skriva om programmet eller koden för databasen och distribuera ändringarna.
+Dessa är manuella metoder eftersom måste du bestämma hur mycket resurser som uppfyller dina behov. Annars skulle du behöva skriva om programmet eller koden för databasen och distribuera ändringarna.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Öka prestandanivån för din databas
 
@@ -271,8 +271,8 @@ Vissa program är processorintensiva skrivning. Ibland kan du minska den totala 
 Vissa databasprogram har läs-frekventa arbetsbelastningarna. Cachelagring lager kan minska belastningen på databasen och kan minska prestandanivå som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), om du har en Läs frekventa arbetsbelastning, kan du läsa data en gång (eller kanske en gång per program skikt dator, beroende på hur den är konfigurerad), och sedan lagra dessa data utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs IO), men det finns en effekt på transaktionskonsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens är acceptabel för många program, som gäller inte för alla arbetsbelastningar. Du bör till fullo förstå kraven för application innan du implementerar en strategi för cachelagring av programmet skikt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om DTU-baserade tjänstnivåer finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [gränserna för DTU-baserade modellen](sql-database-dtu-resource-limits.md)
-* Läs mer om vCore-baserade tjänstnivåer [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) och [vCore-baserade gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md)
+* Mer information om DTU-baserade tjänstnivåer finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md).
+* Läs mer om vCore-baserade tjänstnivåer [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
 * Läs mer om elastiska pooler [vad är en Azure elastisk pool?](sql-database-elastic-pool.md)
 * Information om prestanda och elastiska pooler finns [när du ska överväga en elastisk pool](sql-database-elastic-pool-guidance.md)
 

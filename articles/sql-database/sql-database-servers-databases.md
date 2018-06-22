@@ -1,33 +1,22 @@
 ---
-title: Skapa och hantera Azure SQL-servrar och databaser | Microsoft Docs
-description: Lär dig mer om Azure SQL Database-server och databasbegrepp och skapa och hantera servrar och databaser.
+title: Azure logiska SQL-servrar och enskilda databaser | Microsoft Docs
+description: Läs mer om logisk Azure SQL Database-server och databasbegrepp och deras resurser.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649065"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309188"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
-
-SQL-databas erbjuder tre typer av databaser:
-
-- En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser](sql-database-service-tiers-vcore.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
-- En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning resurser för beräkning och lagring (DTU-baserat)](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser (vCore-baserat)](sql-database-service-tiers-vcore.md) som delas mellan alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
-- En [instans av en SQLServer](sql-database-managed-instance.md) (hanteras skapa en instans av) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning resurser för beräkning och lagring för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster.  
-
-Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
-
-> [!IMPORTANT]
-> SQL-hanterade databasinstans erbjuder för närvarande i förhandsversion, en enda generella tjänstnivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure SQL Database-logisk servrar och enskilda databaser och sina resurser
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Vad är en logisk Azure SQL-server?
 
@@ -59,6 +48,20 @@ En logisk Azure Database-server:
 - Huvudkontoinloggningar på servernivå kan hantera alla databaser på en server.
 - Kan innehålla inloggningar som liknar de i instanser av SQL Server i din lokala miljö som har åtkomst till en eller flera databaser på servern, samt kan beviljas begränsade administrativa rättigheter. Mer information finns i avsnittet om [inloggningar](sql-database-manage-logins.md).
 - Alla användardatabaser som har skapats på en logisk server Standardsortering är `SQL_LATIN1_GENERAL_CP1_CI_AS`, där `LATIN1_GENERAL` är engelska (USA) `CP1` är teckentabellen 1252, `CI` är skiftlägeskänslig, och `AS` är accentkänsliga.
+
+## <a name="logical-servers-and-databases"></a>Logiska servrar och databaser
+
+Du kan skapa på en logisk server:
+
+- En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser](sql-database-service-tiers-vcore.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+- En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en [kombineras uppsättning resurser för beräkning och lagring (DTU-baserat)](sql-database-service-tiers-dtu.md) eller en [oberoende skala beräkning och lagring resurser (vCore-baserat)](sql-database-service-tiers-vcore.md) som delas mellan alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+
+> [!IMPORTANT]
+> SQL-hanterade databasinstans för närvarande i förhandsversion, är en [instans av en SQLServer](sql-database-managed-instance.md) (hanteras skapa en instans av) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning beräkning och lagring resurser för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
+
+## <a name="tds-and-tcpip-connections"></a>TDS- och TCP/IP-anslutningar
+
+Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL-databaser som skyddas av Brandvägg för SQL-databas
 
@@ -109,7 +112,7 @@ Använd följande PowerShell-cmdlets för att skapa och hantera Azure SQL server
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till en elastisk pool|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Skapar en resursgrupp]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Skapar en resursgrupp|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Skapar en server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Returnerar information om servrar|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Ändrar egenskaperna för en server|

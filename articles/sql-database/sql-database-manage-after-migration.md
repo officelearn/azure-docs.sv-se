@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650119"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309621"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera en databas i Azure SQL Database
 
@@ -31,7 +31,6 @@ Den här artikeln beskrivs några av de grundläggande egenskaperna för Azure S
 - Säkerhet och efterlevnad
 - Intelligent databasen övervakning och underhåll
 - Dataförflyttning
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Företag affärskontinuitet och haveriberedskap återställning (BCDR)
 Funktioner för företag affärskontinuitet och haveriberedskap återställning kan du fortsätta ditt företag som vanligt, vid en katastrof. Haveriet kan vara en nivå händelse för databasen (till exempel någon av misstag släpper en avgörande tabell) eller en nivå Datacenter-händelse (regionala allvarlig händelse, till exempel en tsunami). 
@@ -235,7 +234,7 @@ SQL-databas har olika tjänstnivåerna Basic, Standard och Premium. Varje tjäns
 
 Du kan övervaka din fråga och databasen resursförbrukning genom en av ovan nämnda olika sätt ”hur övervakar jag prestanda- och -användning i SQL-databas” för att göra att du är på rätt prestandanivå. Du bör upptäcker att dina frågor/databaser konsekvent kör varm på processorminne/etc. kan du skala upp till en högre prestandanivå. På samma sätt om du Observera att även under vissa tider verkar du inte använda resurser så mycket; Överväg att skala från nuvarande prestandanivå. 
 
-Om du har ett mönster för SaaS-program eller en databas konsolidering scenario, Överväg att använda en elastisk Pool för kostnadsoptimering. Elastiska poolen är ett bra sätt att uppnå databasen konsolidering och kostnaden optimering. Du kan läsa mer om hur du hanterar flera databaser med elastisk Pool, se: [hantera pooler och databaser](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Om du har ett mönster för SaaS-program eller en databas konsolidering scenario, Överväg att använda en elastisk Pool för kostnadsoptimering. Elastiska poolen är ett bra sätt att uppnå databasen konsolidering och kostnaden optimering. Du kan läsa mer om hur du hanterar flera databaser med elastisk Pool, se: [hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hur ofta behöver köra databasen integritetskontroller databasen?
 SQL-databasen använder vissa smart metoder som gör att den kan hantera vissa typer av skadade data automatiskt och utan dataförlust. Dessa tekniker är inbyggda i tjänsten och utnyttjas av tjänsten när behöver uppstår. Med jämna mellanrum testas säkerhetskopiering av databaser för tjänsten, genom att återställa dem och köra DBCC CHECKDB på den. Om det uppstår problem kan åtgärdas SQL Database proaktivt dem. [Automatisk reparation](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) utnyttjas för att åtgärda sidor som är skadad eller har problem med dataintegriteten. Sidorna databasen verifieras alltid med KONTROLLSUMMA standardinställningen som kontrollerar integriteten för sidan. SQL-databas proaktivt övervakar och granskar dataintegriteten för din databas och, om det uppstår fel löser dem med högst prioritet. Förutom dessa kan du också köras egna integritetskontroller på din kommer.  Mer information finns i [dataintegriteten i SQL-databas](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

@@ -8,20 +8,20 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: aee8f8c830ac504b6688c02c2b262a0d87bc5278
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646634"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308874"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database development Programöversikt
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.
 
 > [!TIP]
-> En genomgång som visar dig hur du skapar en server, skapar en serverbaserad brandvägg, visar egenskaper, ansluter med SQL Server Management Studio, frågar huvuddatabasen, skapar en exempeldatabas och en tom databas, frågar om databasegenskaper, ansluter med SQL Server Management Studio och frågar exempeldatabasen, finns i[	Komma igång - Självstudier](sql-database-get-started-portal.md).
+> En genomgång som visar hur du skapar en server, en server-baserade brandvägg, Visa serveregenskaper, ansluta med SQL Server Management Studio, fråga master-databasen, skapa en exempeldatabas och en tom databas kan fråga efter Databasegenskaper, ansluta med SQL Server Management Studio och fråga exempeldatabasen, se [komma igång-Självstudier](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Språk och plattform
@@ -33,9 +33,12 @@ Det finns kodexempel för olika programmeringsspråk och plattformar. Du hittar 
 Du kan utnyttja öppen källkod verktyg som [gepard](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [VS koden](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
-Azure SQL Database hanterar de resurser som är tillgängliga för en databas på två olika sätt: resursstyrning och verkställandet av gränser.
+Azure SQL Database hanterar resurser som är tillgängliga för en databas på två olika sätt: resurser styrning och efterlevnad av gränser. Mer information finns i:
 
-* Mer information: [DTU för Azure SQL Database-baserade gränserna för modellen](sql-database-dtu-resource-limits.md) och [Azure SQL Database vCore-baserade modellen gränserna (förhandsgranskning)](sql-database-vcore-resource-limits.md).
+- [DTU-baserade modellen gränserna - databas](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU-baserade modellen gränserna - databas](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Säkerhet
 Azure SQL Database innehåller resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en SQL Database.

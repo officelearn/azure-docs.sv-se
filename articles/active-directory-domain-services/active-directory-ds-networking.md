@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265055"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301003"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -107,7 +107,7 @@ Dessutom visas NSG: N också hur du låsa säker LDAP-åtkomst via internet. Hop
 
 ![Exempel NSG till säker LDAPS åtkomst via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Mer information** - [skapar en Nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Mer information** - [skapar en Nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Nätverksanslutning
@@ -145,4 +145,4 @@ Du kan ansluta en Resource Manager-baserat virtuellt nätverk till Azure klassis
 * [Virtuella Azure-nätverket peering](../virtual-network/virtual-network-peering-overview.md)
 * [Konfigurera ett VNet-till-VNet-anslutning för den klassiska distributionsmodellen](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Säkerhetsgrupper för Azure-nätverk](../virtual-network/security-overview.md)
-* [Skapa en säkerhetsgrupp för nätverk](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Skapa en säkerhetsgrupp för nätverk](../virtual-network/manage-network-security-group.md)

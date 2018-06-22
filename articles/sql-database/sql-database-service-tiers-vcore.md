@@ -1,65 +1,24 @@
 ---
 title: Azure SQL Database-tjänsten - vCore | Microsoft Docs
-description: Läs mer om servicenivåer för enstaka och pool databaser att tillhandahålla prestandanivåer och lagringsstorlek.
+description: VCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648361"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309587"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>vCore-baserade inköpsmodell för Azure SQL Database (förhandsgranskning)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Om du väljer en vCore tjänstnivå, bearbetning, minne, lagring och i/o-resurser
 
-[Azure SQL Database](sql-database-technical-overview.md) erbjuder två köp modeller för bearbetning, lagring och i/o-resurser: DTU-baserade inköpsmodell och en vCore-baserade inköpsmodell (förhandsversion). Följande tabell och diagram Jämför och jämför dessa två köp modeller.
-
-> [!IMPORTANT]
-> DTU-baserade inköpsmodell finns [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md).
-
-
-|**Inköpsmodell**|**Beskrivning**|**Bäst för**|
-|---|---|---|
-|DTU-baserade modellen|Den här modellen är baserad på ett anpassade mått för bearbetning, lagring och i/o-resurser. Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er](sql-database-what-is-a-dtu.md)?|Bäst för kunder som vill enkla, förkonfigurerade alternativ.| 
-|vCore-baserade modellen|Den här modellen kan du oberoende skala beräkning och lagring - upp till 80 vCores, 4 TB lagringsutrymme och 200000 IOPS. Du kan också använda Azure Hybrid-förmån för SQL Server för att få besparingar.|Bäst för kunder som värdet flexibilitet, kontroll- och insyn.|
-||||  
-
-![prismodellen](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>vCore-baserade inköpsmodell (förhandsgranskning)
-
-En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. VCore-baserade inköpsmodell (förhandsversion) ger ditt flexibilitet, kontroll, genomskinlighet enskilda resursförbrukning och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. I den vCore-baserade inköpsmodell (förhandsgranskning), kunder kan välja mellan generella och kritiska tjänstnivåer för företag (förhandsversion) för både [enkel databaser](sql-database-single-database-resources.md) och [elastiska pooler](sql-database-elastic-pool.md). 
-
-Tjänstnivåer särskiljs med hjälp av en mängd prestanda, design för hög tillgänglighet, fel isolering, typer av lagring och i/o-intervall. Kunden måste separat konfigurera den nödvändiga tidsperioden för lagring och lagring för säkerhetskopior. När du använder vCore modellen enskilda databaser och elastiska pooler är tillgängliga för upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-I vCore-baserade köp modellen (förhandsgranskning) kunder betalningen för:
-- Beräkna (tjänstnivån + antal vCores + maskinvarusystem) *
-- Typ och mängden data och loggfilen lagringsutrymme 
-- Antal IOs **
-- Säkerhetskopiera lagring (RA-GRS) ** 
-
-\* I den första förhandsversionen Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer
-
-\*\* Under förhandsgranskning är 7 dagar för säkerhetskopieringar och IOs gratis
-
-> [!IMPORTANT]
-> Compute-, IOs, data och lagra loggen debiteras per databas eller elastisk pool. Lagring av säkerhetskopior debiteras per varje databas. Mer information om hanterade instans avgifter avser [Azure SQL-hanterade databasinstans](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Region begränsningar: 
->
-> VCore-baserade inköpsmodell (förhandsversion) är inte tillgänglig i Australien sydost ännu. Förhandsgranskningen är inte tillgänglig på följande områden: Västeuropa, Frankrike Central, Storbritannien, Syd och Storbritannien, Väst.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Att välja tjänstnivån, bearbetning, minne, lagring och i/o-resurser
-
-Konvertera till vCore-baserade inköpsmodell (förhandsversion) kan du skala beräknings-och lagringsresurser, matchar lokalt prestanda och optimera pris oberoende av varandra. Om den databas eller en elastisk pool förbrukar mer än 300 DTU konvertering till vCore kan minska dina kostnader. Du kan konvertera med hjälp av din API väljer eller Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om DTU-inköpsmodell uppfyller dina företagskrav på prestanda och, ska du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modell, bör du välja prestandanivå med hjälp av följande tumregel: varje 100 DTU i standardnivån kräver minst 1 vCore i generella skiktet; varje 125 DTU i Premium-nivån kräver minst 1 vCore i företag kritisk nivå.
+Tjänstnivåer särskiljs med hjälp av en mängd prestanda, design för hög tillgänglighet, fel isolering, typer av lagring och i/o-intervall. Kunden måste separat konfigurera den nödvändiga tidsperioden för lagring och lagring för säkerhetskopior. Med modellen vCore enskilda databaser och elastiska pooler är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
@@ -79,8 +38,6 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
 > [!IMPORTANT]
 > Om du behöver mindre än en vCore av beräkningskapacitet, Använd DTU-baserade inköpsmodell.
-
-Mer information om specifika prestandanivåer och lagring som kan användas för enskilda databaser finns [SQL-databas vCore-baserade gränserna för enskilda databaser](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) och elastiska pooler finns [SQL-databas vCore-baserade gränserna för elastiska pooler](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 Se [SQL-databasen med vanliga frågor om](sql-database-faq.md) för svar på vanliga frågor och svar. 
 
@@ -142,7 +99,7 @@ Migrering av redundanskluster grupper med flera databaser kräver enskilda migre
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Skapa en sekundär geo-replikering
 
-Du kan bara skapa en geo sekundär med samma tjänstnivån som den primära servern. För databasen med hög loggen generation hastighet rekommenderas att sekundärt skapas med samma prestandanivå som den primära servern. Om du skapar en geo sekundär i den elastiska poolen för en enskild primär databas, rekommenderas att poolen har den `maxVCore` inställningen som matchar den primära databas prestandanivån. Om du skapar en geo sekundär i den elastiska poolen för en primär i en annan elastisk pool, rekommenderas att pooler har samma `maxVCore` inställningar
+Du kan bara skapa en geo sekundär med samma tjänstnivån som den primära servern. För databasen med hög loggen generation hastighet, är det bäst att sekundärt skapas med samma prestandanivå som den primära servern. Om du skapar en geo sekundär i den elastiska poolen för en enskild primär databas, är det bäst att poolen har den `maxVCore` inställningen som matchar den primära databas prestandanivån. Om du skapar en geo sekundär i den elastiska poolen för en primär i en annan elastisk pool, är det bäst att pooler har samma `maxVCore` inställningar
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Med databaskopian för att konvertera en DTU-baserad databas till en vCore-baserad databas.
 
@@ -150,6 +107,5 @@ Du kan kopiera en databas med DTU-baserade prestandanivå till en databas med en
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om specifika prestandanivåer och lagring som kan användas, finns [SQL Database DTU-baserade gränserna för](sql-database-dtu-resource-limits.md) och [SQL-databas vCore-baserade gränserna för](sql-database-vcore-resource-limits.md).
-- Se [SQL-databasen med vanliga frågor om](sql-database-faq.md) för svar på vanliga frågor och svar.
-- Lär dig mer om [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md)
+- Mer information om specifika prestandanivåer och lagring som kan användas för enskilda databaser finns [SQL-databas vCore-baserade gränserna för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
+- Mer information om specifika prestandanivåer och lagring som kan användas för elastiska pooler finns [SQL-databas vCore-baserade gränserna för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

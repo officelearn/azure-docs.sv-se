@@ -2,75 +2,49 @@
 title: Hög tillgänglighet – Azure SQL Database-tjänsten | Microsoft Docs
 description: Lär dig mer om Azure SQL Database-funktioner för hög tillgänglighet och funktioner
 services: sql-database
-author: anosov1960
+author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 04/24/2018
-ms.author: sashan
-ms.reviewer: carlrab
-ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 06/20/2018
+ms.author: jovanpop
+ms.reviewer: carlrab, sashan
+ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839817"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309638"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
-Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
 
-För att förenkla problemet utrymme för hög tillgänglighet, använder Microsoft följande antaganden:
-1.  Fel för maskinvara och programvara är ofrånkomligt
-2.  Använd personal gör fel som leda till fel
-3.  Planerad underhållsåtgärder orsaka avbrott 
+Azure SQL-databasen är hög tillgänglighet databas plattform som en tjänst som garanterar att din databas är igång och körs 99,99% av tiden, utan att bekymra dig om underhåll och stillestånd. Det här är en helt hanterad SQL Server Database Engine-process som finns i Azure-molnet som gör att SQL Server-databasen alltid uppgraderas/korrigeras utan att påverka din arbetsbelastning. Azure SQL Database kan snabbt återställa även i de mest kritiska omständigheter att säkerställa att dina data alltid är tillgängligt.
 
-Enskilda händelser är ovanligt i molnskala, inträffa varje vecka, om inte varje dag. 
+Azure-plattformen fullständigt hanterar alla Azure SQL Database och garanterar att inga data går förlorade och en hög andel datatillgänglighet. Azure hanterar automatiskt korrigering, säkerhetskopior, replikering, felidentifiering, potentiella underliggande maskinvara, programvara eller nätverksfel, distribuera felkorrigeringar, redundans, databasen uppgraderingar och andra underhållsaktiviteter. SQL Server-tekniker har implementerat best-known praxis att säkerställa att alla underhållsåtgärder har utförts i mindre än 0,01% tiden för din databas livslängd. Den här arkitekturen är utformat för att se till att spara data aldrig går förlorade och att underhållsåtgärder utförs utan att påverka arbetsbelastning. Det finns inga underhållsfönster eller stillestånd som bör du behöver avbryta arbetsbelastningen när databasen uppgraderas eller bibehålls. Inbyggd hög tillgänglighet i Azure SQL Database garanterar att databasen blir aldrig enskild felpunkt i programvaruarkitektur.
 
-## <a name="fault-tolerant-sql-databases"></a>Feltoleranta SQL-databaser
-Kunder som är mest intresserad återhämtning av sina egna databaser och är mindre intresserad återhämtning för SQL Database-tjänsten som helhet. 99,99% drifttid för en tjänst är meningslösa om ”databasen” är en del av 0,01% av databaser som är nere. Varje databas måste vara feltolerant och fel-lösning bör aldrig leda till förlust av en allokerad transaktion. 
+Det finns två modeller för hög tillgänglighet som används i Azure SQL:
 
-För data som använder SQL-databas både lokal lagring (LS) baserat på direkt anslutna diskar/virtuella hårddiskar och Fjärrlagring (RS) baserat på Azure Premium Storage sidblobar. 
-- Lokal lagring används i Premium eller Business (förhandsgranskning) databaser och elastiska pooler som är utformade för uppdragskritiska kritiska OLTP-program med höga krav på IOPS. 
-- Fjärrlagring används i Basic, Standard och generella servicenivåer, som är utformade för budget inriktade arbetsbelastningar som kräver lagring och beräkningskraft kan skalas för sig. De kan använda en enda sidblob för databasen och loggfilerna och inbyggda lagring mekanismer för replikering och redundans.
+- Standard/allmänt syfte modell som innehåller 99,99% tillgänglighet, men med potentiella prestanda försämras under underhållsaktiviteter.
+- Premium/kritiska affärsmodell som tillhandahåller dessutom 99,99% tillgänglighet med minimal prestandapåverkan på din arbetsbelastning även under underhållsaktiviteter.
 
-I båda fallen replikering, felidentifiering och mekanismer för växling vid fel för SQL-databas är helt automatiserad och fungerar utan mänsklig inblandning. Den här arkitekturen är utformat för att se till att spara data aldrig går förlorade och att data hållbarhet företräde framför allt annat.
+Azure uppgraderar och korrigeringsfiler underliggande operativsystemet, drivrutiner och SQL Server Database Engine transparent med minimalt driftstopp för slutanvändare. Azure SQL-databas som körs på den senaste säkra versionen av SQL Server Database Engine och Windows-Operativsystemet och de flesta användarna skulle inte lägger märke till att uppgraderingen utförs kontinuerligt.
 
-Viktiga fördelar:
-- Kunder få ut mesta möjliga av replikerade databaser utan att behöva konfigurera eller underhålla komplicerad maskinvara, programvara, operativsystem eller virtualiseringsmiljöer.
-- Fullständig ACID-egenskaper hos relationsdatabaser underhålls av systemet.
-- Växling vid fel är helt automatiskt utan att spara data går förlorade.
-- Routning av anslutningar till den primära repliken hanteras dynamiskt av tjänsten med ingen programlogik som krävs.
-- Automatisk redundans hög tillhandahålls utan extra kostnad.
+## <a name="standard-availability"></a>Standard tillgänglighet
 
-> [!NOTE]
-> Arkitekturen beskrivs hög tillgänglighet kan ändras utan föregående meddelande. 
+Standard tillgänglighet syftar på 99,99% SLA som används i Standard/Basic/allmänt syfte nivåer. Tillgänglighet uppnås genom uppdelning av beräkning och lagring lager. Vi har två lager i modellen standard tillgänglighet:
 
-## <a name="data-redundancy"></a>Dataredundans
+- En tillståndslös beräkningslager som körs sqlserver.exe-processen och innehåller endast tillfälligt och cachelagrade data (till exempel – plancache, buffertpool, kolumnen store pool). Den här tillståndslös SQL Server-noden drivs av Azure Service Fabric som initierar processen, kontrollerar hälsotillståndet för noden och utför växling till en annan plats om det behövs.
+- En tillståndskänslig datalager med databasfiler (.mdf/.ldf) som lagras i Azure Premium Storage diskar. Azure Storage garanterar att inga data går förlorade i poster som placeras i en databasfil. Azure Storage har inbyggda tillgänglighet/dataredundans som garanterar att alla poster i loggfilen eller sidan i datafilen bevaras även om SQL Server-processen kraschar.
 
-Lösning för hög tillgänglighet i SQL-databas är baserad på [Always ON-Tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknik från SQL Server och gör det fungerar för både LS och RS databaser med minimal skillnader. I LS konfiguration används alltid på tillgänglighet grupp teknik för beständiga när den används i RS för tillgänglighet (låga RTO av aktiv geo-replikering). 
+När databasmotorn eller operativsystemet uppgraderas eller om vissa viktiga problem upptäcks i Sql Server-processen, tillståndslös SQL Server-processen Azure Service Fabric flyttas till en annan tillståndslös compute-nod. Data i Azure Storage-lagret påverkas inte och data/loggfiler är kopplade till nyligen initierad SQL Server-processen. Förväntade failover-tid kan mäts i sekunder. Den här processen garanterar 99,99% tillgänglighet, men den kan ha vissa prestandaförsämringar på arbetsbelastning som körs på grund av övergångstid och faktum den nya noden i SQL Server startar med kalla cache.
 
-## <a name="local-storage-configuration"></a>Konfiguration av lokal lagring
+## <a name="premium-availability"></a>Premium-tillgänglighet
 
-I den här konfigurationen ansluts varje databas av management-tjänsten (MS) i ringen för kontrollen. En primär replik och minst två sekundära repliker (kvorum anges) finns i en klient ring som omfattar tre oberoende fysiska delsystem inom samma datacenter. Alla läsningar och skrivningar skickas av gateway (GW) till den primära repliken och skrivningar replikeras asynkront till de sekundära replikerna. SQL-databasen använder ett kvorum-baserade commit-schema där data skrivs till den primära servern och minst en sekundär replik innan genomförda transaktioner.
+Premium tillgång är aktiverad i Premium-nivån i Azure SQL Database och är avsedd för arbetsbelastningar som inte tolererar att eventuella inverkan på prestanda på grund av pågående underhållsåtgärder.
 
-Den [Service Fabric](../service-fabric/service-fabric-overview.md) redundans system automatiskt återskapar repliker som noder upphör att fungera och underhåller kvorum-medlemskap som noder avvika och delta i systemet. Planerat underhåll är noggrant samordnas för att förhindra att den kvorum set underskrider ett minsta antal (normalt 2). Den här modellen fungerar bra för Premium- och Business kritiska (förhandsgranskning) databaser, men den kräver redundans i både beräknings- och lagringskomponenter och resulterar i en högre kostnad.
+Azure SQL database integrerar beräkning och lagring på nod i premium-modellen. Både SQL Server Database Engine-processen och underliggande mdf/ldf-filerna placeras på samma nod med lokalt anslutna SSD-lagringen tillhandahåller låg latens för din arbetsbelastning.
 
-## <a name="remote-storage-configuration"></a>Fjärrlagring konfiguration
-
-Exakt en kopia underhålls i fjärranslutna blob storage, med hjälp av system lagringskapacitet för hållbarhet, redundans och bitars ringröta identifiering för Fjärrlagring konfigurationer (nivåerna Basic, Standard eller generella). 
-
-Följande diagram visas arkitektur för hög tillgänglighet:
- 
-![arkitektur för hög tillgänglighet](./media/sql-database-high-availability/high-availability-architecture.png)
-
-## <a name="failure-detection-and-recovery"></a>Identifiering och återställning 
-Ett stora distribuerade system måste ett mycket pålitlig fel identifiering system som kan identifiera fel på ett tillförlitligt sätt, snabbt och så nära som möjligt till kunden. Det här systemet är baserad på Azure Service Fabric för SQL-databas. 
-
-Med den primära repliken är det omedelbart uppenbart om och när den primära repliken har misslyckats och arbete kan inte fortsätta eftersom alla läsning och skrivning utförs på den primära repliken först. Den här processen att uppgradera en sekundär replik till statusen för primära har återställning tid mål för Återställningstid = 30 sekunder och återställningspunktmål (RPO) = 0. För att minimera effekten av 30 sekunder RTO är det bästa sättet att försöka återansluta flera gånger med en mindre tid för misslyckade anslutningsförsök.
-
-När en sekundär replik inte är databasen till en minimal kvorum-mängd med några av snabbersättningar. Service fabric initierar omkonfiguration processen liknar den process som följer efter fel på den primära repliken, så efter en kort vänta att avgöra om felet är permanent, en annan sekundär replik skapas. I händelse av tillfälliga out-of-service tillstånd, till exempel ett operativsystemfel eller en uppgradering, är en ny replik inte inbyggd direkt om du vill tillåta noden gick inte att starta om i stället. 
-
-För Fjärrlagring-konfigurationer använder SQL-databas Always ON-funktioner för redundans-databaser under uppgraderingar. För att göra det, en ny SQL-instans är roterade i förväg som en del av den planerade uppgraderingen händelsen och den kopplar och återställer databasfilen från Fjärrlagring. Vid egna processer som kraschat eller andra oplanerade händelser Windows Fabric hanterar instans tillgänglighet och bifogar filen fjärrdatabasen som ett sista steg för återställning.
+Hög tillgänglighet implementeras med hjälp av standard [alltid på Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Varje databas är ett kluster med databasnoder med en primär databas som är tillgänglig för kundens arbetsbelastning och några andra processer som innehåller kopior av data. Den primära noden skickar ständigt ändringarna till sekundära noder för att säkerställa att data är tillgängliga på sekundära repliker om den primära noden kraschar av någon anledning. Redundans hanteras av SQL Server Database Engine – en sekundär replik blir den primära noden och en sekundär replik skapas för att säkerställa tillräckligt med noder i klustret. Arbetsbelastningen omdirigeras automatiskt till den nya primära noden. Redundans tiden mäts i millisekunder och den nya primära-instansen är klar att fortsätta begäranden.
 
 ## <a name="zone-redundant-configuration-preview"></a>Redundant zonkonfiguration (förhandsgranskning)
 
@@ -86,7 +60,7 @@ I följande diagram visas zonen redundant version av arkitekturen för hög till
 ![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Läs skalbar
-Enligt beskrivningen, tjänsten Premium och företag kritiska (förhandsgranskning) nivåer utnyttjar kvorum-uppsättningar och AlwaysON-teknik för både i samma zon och redundanta konfigurationer med hög tillgänglighet. En av fördelarna med AlwasyON är att replikerna är alltid i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som den primära servern, programmet kan dra nytta av den extra kapaciteten för att underhålla skrivskyddade arbetsbelastningar utan extra kostnad (skrivskyddade skalbar). Det här sättet skrivskyddad frågorna isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs skalbar funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som till exempel analytics och därför kan utnyttja denna ytterligare kapacitet utan att ansluta till primärt. 
+Enligt beskrivningen, tjänsten Premium och företag kritiska (förhandsgranskning) nivåer utnyttjar kvorum-uppsättningar och alltid på teknik för både i samma zon och redundanta konfigurationer med hög tillgänglighet. En av fördelarna med AlwasyON är att replikerna är alltid i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som den primära servern, programmet kan dra nytta av den extra kapaciteten för att underhålla skrivskyddade arbetsbelastningar utan extra kostnad (skrivskyddade skalbar). Det här sättet skrivskyddad frågorna isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs skalbar funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som till exempel analytics och därför kan utnyttja denna ytterligare kapacitet utan att ansluta till primärt. 
 
 Om du vill använda funktionen för Läs skalbar med en viss databas, måste du uttryckligen aktivera den när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att anropa den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets eller via Azure Resource Manager REST-API med hjälp av [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
 
@@ -100,7 +74,7 @@ Om Läs skalbar är inaktiverat eller egenskapen ReadScale på en tjänstnivå s
 Läs skalbar-funktionen stöder sessionskonsekvens nivå. Om den skrivskyddade sessionen återansluts när ett anslutningsfel orsaka av repliken inte finns, kan det omdirigeras till en annan replik. Medan osannolik, resultera det i att bearbeta den datamängd som är inaktuell. Likaså om ett program skriver data med hjälp av en skrivskyddad-session och läser den med hjälp av den skrivskyddade sessionen omedelbart, är det möjligt att nya data inte visas direkt.
 
 ## <a name="conclusion"></a>Sammanfattning
-Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket beroende av Service Fabric för identifiering och återställning på Azure Storage Blobs för dataskydd och tillgänglighet zoner för högre feltolerans. På samma gång utnyttjar Azure SQL database fullständigt Always On-teknik från SQL Server-rutan produkt för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt dra nytta av en modell med blandad lagring och stöd för de flesta krävande SLA: er. 
+Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket beroende av Service Fabric för identifiering och återställning på Azure Storage Blobs för dataskydd och tillgänglighet zoner för högre feltolerans. På samma gång utnyttjar Azure SQL database fullständigt alltid på Tillgänglighetsgruppen teknik från SQL Server-rutan produkt för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt dra nytta av en modell med blandad lagring och stöd för de flesta krävande SLA: er. 
 
 ## <a name="next-steps"></a>Nästa steg
 

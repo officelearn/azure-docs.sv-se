@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648004"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309137"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -24,9 +24,9 @@ Den aktuella versionen av SQL-databas är V12. Version V11 har tagits bort.
 ## <a name="what-is-the-sla-for-sql-database"></a>Vad är SLA för SQL-databasen?
 Vi garanterar minst 99,99% av tiden, du har en anslutning mellan Microsoft Azure SQL Database och våra Internet-gateway, oavsett dina tjänstnivån. Mer information finns i [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Whatis den nya vCore-baserade inköpsmodell (förhandsversion) för Azure SQL Database?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Vad är den nya vCore-baserade inköpsmodell (förhandsversion) för Azure SQL Database?
 
-Nya inköpsmodell är ett tillägg till den befintliga modellen DTU-baserade. VCore-baserade modellen är utformad att ge kunderna flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Det gör även kunder att skala bearbetning och lagring utifrån deras behov av arbetsbelastning. Enskilda databaser och elastiska poolen alternativ med hjälp av vCore modellen också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) för mer information. 
+Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. VCore-baserade modellen är utformad att ge kunderna flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Det gör även att kunder kan utöka sin beräkning och lagring rsources baserat på deras behov av arbetsbelastning. Enskilda databaser och elastiska poolen alternativ med hjälp av vCore modellen också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) för mer information. 
 
 ## <a name="what-is-a-vcore"></a>Vad är en virtuell kärna (vCore)? 
 En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.
@@ -36,7 +36,7 @@ Nej, visar införandet av modellen vCore-baserade elastiska poolen och distribut
 
 I många fall utnyttja program enkelhet för ett förkonfigurerade paket av resurser. Därför kan fortsätter vi att erbjuda och stöd för dessa DTU-baserade val för våra kunder. Om du använder dem och att den uppfyller dina affärskrav, ska du fortsätta att göra detta.
 
-Både den DTU- och den vCore-baserade modellen kommer att finnas kvar fortsättningsvis. Vi lanserar den vCore-baserade modellen som svar på efterfrågan från kunder om mer transparens i fråga om databasresurser och möjlighet att skala beräkning och lagring separat. Modellen vCore-baserade kan också ytterligare besparingar för kunder med aktiv Software Assurance via Azure Hybrid-förmån för SQL Server.
+Både den DTU- och den vCore-baserade modellen kommer att finnas kvar fortsättningsvis. Vi startar vCore-baserade modellen som svar på kundernas önskemål för flera genomskinlighet runt sina databasresurser och möjligheten att skala sina resurser för beräkning och lagring separat. Modellen vCore-baserade kan också ytterligare besparingar för kunder med aktiv Software Assurance via Azure Hybrid-förmån för SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Hur väljer jag mellan vs DTU-baserade köp modellen vCore-baserade inköpsmodell (förhandsgranskning)? 
 Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade prestandanivåer motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bry dig om de underliggande resurserna och föredrar enkelhet för ett förkonfigurerade paket när betalar ett fast belopp varje månad kanske DTU-baserade modell passar för deras behov. För kunder som behöver större insyn i de underliggande resurserna eller behöver för att skala dem separat om du vill uppnå bästa prestanda, kommer vCore-baserade modellen dock bäst.  Dessutom, om en kund har en aktiv Software Assurance (SA) för SQL Server, de kan utnyttja befintliga investeringar och spara upp till 30% med [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativ inom varje köp modeller ger fördelarna med en helt hanterad tjänst som automatisk säkerhetskopiering, uppdateringar och korrigeringsfiler. 
@@ -49,10 +49,10 @@ Du har 180 dagar efter dubbel användning rättigheter för att kontrollera migr
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hur skiljer sig Azure Hybrid-förmån för SQL Server från licensera mobility?
-Idag är erbjuder vi SQL Server-kunder med Software Assurance licens mobility fördelar som gör att omtilldelning av licenser till tredje parts delade servrar. Detta kan användas på Azure IaaS och AWS EC2.
+Vi erbjuder idag licens mobility fördelar för SQL Server-kunder med Software Assurance som tillåter omtilldelning av licenser till tredje parts delade servrar. Detta kan användas på Azure IaaS och AWS EC2.
 Azure Hybrid-förmån för SQL Server skiljer sig från licensmobilitet i två huvuddelar:
 - Det ger ekonomiska fördelar för att flytta hög virtualiserade arbetsbelastningar till Azure. SQL EE kunder kan få 4 kärnor i Azure i allmänna ändamål SKU: N för varje core de äger lokalt för mycket virtualiserade program. Licensmobilitet tillåter inte någon särskild kostnadsfördelar för att flytta virtualiserade arbetsbelastningar till molnet.
-- Det ger för PaaS mål på Azure som är kompatibel med SQL Server-lokala – hanteras SQL-databasinstansen.
+- Det ger för en PaaS-mål i Azure (SQL-hanterade databasinstans) som är kompatibel med SQL Server lokalt
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Vad är Azure Hybrid-förmån för SQL Server specifika rättigheter?
 SQL-databas kunder har följande rättigheter som är associerade med Azure Hybrid-förmån för SQL Server:
@@ -70,7 +70,7 @@ SQL-databas kunder har följande rättigheter som är associerade med Azure Hybr
 Beräkna kostnaden visar den totala beräknade kapaciteten som har etablerats för programmet. I företag kritiska tjänstnivån tilldela vi automatiskt minst 3 Alwayson-repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är vCore priset ungefär 2.7 x högre upp i företag kritiska. Av samma anledning visar högre lagringspris per GB i företag kritiska nivån hög IO och låg fördröjning av SSD-lagringen. På samma gång skiljer kostnaden för lagring för säkerhetskopiering sig inte eftersom i båda fallen använder vi en klass med standardlagring.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Hur är debiteras för lagring - baserat på vad jag konfigurera förskott eller databasen använder?
-Olika typer av lagring debiteras på olika sätt. För lagring av data, att debiteras du för lagring av etablerade baserat maximala databas och poolstorleken som du väljer. Kostnaden ändras inte om du inte minska eller öka det maximalt. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av säkerhetskopieringslagring debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är 110 GB, du betalar ytterligare 10 GB.
+Olika typer av lagring debiteras på olika sätt. För datalagring debiteras du för lagring av etablerade baserat på den maximala storleken för databasen eller pool du väljer. Kostnaden ändras inte om du inte minska eller öka det maximalt. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av säkerhetskopieringslagring debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är 110 GB, du betalar ytterligare 10 GB.
 
 För lagring av säkerhetskopior för en enskild databas debiteras du på proportionellt för lagring som har tilldelats databassäkerhetskopieringar minus storleken på databasen. För lagring av säkerhetskopior för en elastisk pool debiteras du på proportionellt för den lagring som har allokerats till databassäkerhetskopieringar för alla databaser i poolen minus det maximala storleken på den elastiska poolen. Varje ökning av databasens storlek eller elastisk pool eller procentsatsen transaktion kräver mer lagringsutrymme och därmed ökar fakturan lagring för säkerhetskopiering.  Om du ökar den maximala storleken dras nya beloppet från fakturerade säkerhetskopieringslagring storlek.
 
@@ -90,18 +90,18 @@ Ja, du kan oberoende väljer du beräkning ditt program måste och förhindra at
 Du kan konfigurera säkerhetskopiering kvarhållning för PITR mellan 7 och 35 dagar. Säkerhetskopieringar lagringen debiteras separat baserat på den faktiska lagringsförbrukningen om den överskrider lagringsutrymmet som är lika med den maximala storleken. I Förhandsgranska är PITR kvarhållningsperiod som standard till 7 dagar. I många fall är den maximala storleken tillräcklig för att lagra 7 dagar för säkerhetskopior.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Varför du för att välja maskinvara-generering för beräkning?
-Vårt mål är att aktivera maximal flexibilitet så att du kan välja en prestanda-konfiguration som stämmer överens med behoven för programmet. Tabellen ovan visar skillnaderna mellan Gen4 och Gen5. I synnerhet erbjuder Gen4 maskinvara betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkning mycket högre. Vi vill göra dessa skillnader transparent så att du kan uppnå optimal pris och prestanda förhållandet för ditt program.
+Vårt mål är att aktivera maximal flexibilitet så att du kan välja en prestanda-konfiguration som stämmer överens med behoven för programmet. Tabellen ovan visar skillnaderna mellan Gen4 och Gen5. I synnerhet erbjuder Gen4 maskinvara betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp mycket högre beräkningsresurser. Vi vill göra dessa skillnader transparent så att du kan uppnå optimal pris och prestanda förhållandet för ditt program.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Behöver jag göra min programmet offline för att konvertera från en DTU-baserad databas till en tjänstnivå med vCore? 
-De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan inledas via portalen, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan initieras med hjälp av Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [hantera enskilda databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Kan jag konvertera en databas från en tjänstnivå med vCore till en DTU-baserade? 
-Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med hjälp av portalen eller programmässigt Portal, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med hjälp av Azure-portalen, PowerShell, Azure CLI, T-SQL eller REST API. Se [hantera enskilda databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Kan jag uppgradera eller nedgradera mellan tjänstnivåer generella och kritiska företag? 
 Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk poolstorlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), Business kritiska SKU är endast tillgängligt för kunder med Enterprise Edition licenser. Kunder som migrerats från lokal till generella använder Azure Hybrid-förmån för SQL Server med Enterprise Edition licenser kan uppgradera till företag kritiska. Mer information finns i [vad är Azure Hybrid Använd förmån för SQL Server specifika rättigheter](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-Den här konverteringen leder inte till avbrott och kan initieras med hjälp av portalen, ARM, PowerShell, Azure CLI eller T-SQL. Se [hantera enskilda databaser](sql-database-single-database-resources.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+Den här konverteringen leder inte till avbrott och kan initieras med hjälp av Azure-portalen, PowerShell, Azure CLI, T-SQL eller REST API. Se [hantera enskilda databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Jag använder en Premium RS-databas som inte är normalt tillgängliga - kan jag uppgradera den till en ny nivå och få en liknande pris och prestanda fördel?
 Eftersom vCore modellen tillåter oberoende kontroll över mängden etablerade beräkning och lagring, kan du effektivare hantera resulterande kostnader, vilket gör det en bra mål för RS för Premium-databaser. Dessutom kan den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ger en omfattande rabatt när modellen vCore-baserade används. 
@@ -193,3 +193,4 @@ I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-databaser
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Flytta en databas mellan prenumerationer
 I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-servrar** och välj sedan den server som är värd för databasen i listan. Klicka på **flytta**, och välj sedan resurserna som ska flyttas och prenumeration att flytta till.
+

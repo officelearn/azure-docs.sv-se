@@ -9,7 +9,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [Logga in i Azure från Azure CLI](/cli/azure/authenticate-azure-cli)
+Öppna ett konsolfönster och autentisera med dina autentiseringsuppgifter. Mer information finns i [logga in på Azure från Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ```azurecli
 azure login

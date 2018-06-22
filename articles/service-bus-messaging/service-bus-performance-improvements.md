@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802552"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301809"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för bättre prestanda med hjälp av Service Bus-meddelanden
 
 Den här artikeln beskriver hur du använder Azure Service Bus för att optimera prestanda vid utbyte av asynkrona meddelanden. Den första delen av den här artikeln beskriver de olika metoder som erbjuds för att öka prestanda. Den andra delen innehåller råd om hur du använder Service Bus på ett sätt som kan ge bästa möjliga prestanda i ett visst scenario.
 
-I det här avsnittet avser termen ”klient” entiteter som har åtkomst till Service Bus. En klient kan ta rollen för en avsändare eller en mottagare. Termen ”avsändare” används för en Service Bus kö eller ett ämne-klient som skickar meddelanden till en Service Bus-kö eller ett ämne prenumeration. Termen ”mottagaren” refererar till en Service Bus kö eller prenumeration klient som tar emot meddelanden från en Service Bus-kö eller prenumeration.
+I den här artikeln refererar termen ”klient” till en enhet som har åtkomst till Service Bus. En klient kan ta rollen för en avsändare eller en mottagare. Termen ”avsändare” används för en Service Bus kö eller ett ämne-klient som skickar meddelanden till en Service Bus-kö eller ett ämne prenumeration. Termen ”mottagaren” refererar till en Service Bus kö eller prenumeration klient som tar emot meddelanden från en Service Bus-kö eller prenumeration.
 
 Dessa avsnitt beskrivs några begrepp som Service Bus använder för att förbättra prestanda.
 
@@ -37,7 +32,7 @@ Service Bus gör att klienter kan skicka och ta emot meddelanden via ett av tre 
 2. Service Bus-meddelanden Protocol (SBMP)
 3. HTTP
 
-AMQP och SBMP är effektivare, eftersom de upprätthålla anslutningen till Service Bus så länge meddelandefabrik finns. Den implementerar batchbearbetning och förhämtar. Om du inte uttryckligen anges förutsätter allt innehåll i det här avsnittet att använda AMQP eller SBMP.
+AMQP och SBMP är effektivare, eftersom de upprätthålla anslutningen till Service Bus så länge meddelandefabrik finns. Den implementerar batchbearbetning och förhämtar. Om du inte uttryckligen anges förutsätter allt innehåll i den här artikeln att använda AMQP eller SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Återanvända fabriker och klienter
 
@@ -45,13 +40,13 @@ Service Bus klienten objekt, till exempel [QueueClient] [ QueueClient] eller [Me
 
 ## <a name="concurrent-operations"></a>Samtidiga åtgärder
 
-Utföra en åtgärd (skicka, ta emot, ta bort, etc.) tar en stund. Den här gången innefattar bearbetning av åtgärden av tjänsten Service Bus förutom svarstid för begäran och svar. Om du vill öka antalet åtgärder per tid måste operations köras samtidigt. Du kan åstadkomma detta godkännande på flera olika sätt:
+Utföra en åtgärd (skicka, ta emot, ta bort, etc.) tar en stund. Den här gången innefattar bearbetning av åtgärden av tjänsten Service Bus förutom svarstid för begäran och svar. Om du vill öka antalet åtgärder per tid måste operations köras samtidigt. 
 
-* **Asynkrona åtgärder**: klienten schemalägger åtgärder genom att utföra asynkrona åtgärder. Nästa förfrågan har startat innan den förra begäranden har slutförts. Följande kodavsnitt är ett exempel på en asynkron sändningsåtgärd:
+Klienten schemalägger samtidiga åtgärder genom att utföra asynkrona åtgärder. Nästa förfrågan har startat innan den förra begäranden har slutförts. Följande kodavsnitt är ett exempel på en asynkron sändningsåtgärd:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ Utföra en åtgärd (skicka, ta emot, ta bort, etc.) tar en stund. Den här gån
   Console.WriteLine("All messages sent");
   ```
   
-  Följande kod är ett exempel på en asynkron mottagningsåtgärd:
+  Följande kod är ett exempel på en asynkron får igen. Se hela programmet [här](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Flera fabriker**: alla klienter (avsändare förutom mottagare) som skapats av samma fabriker dela en TCP-anslutning. Den maximala genomströmningen begränsas av antal åtgärder som kan gå igenom den här TCP-anslutningen. Dataflödet som kan hämtas med en enda fabrik varierar kraftigt med TCP fram och åter gånger och meddelandestorlek. Om du vill använda högre hastigheter, använda flera meddelanden fabriker.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Mottagningsläge
 
@@ -95,7 +79,7 @@ Service Bus stöder inte transaktioner för ta emot och delete-åtgärder. Dessu
 
 ## <a name="client-side-batching"></a>Klientsidans batchbearbetning
 
-Klientsidans batchbearbetning gör en kö eller ett ämne klienten att fördröja skickas ett meddelande för en viss tidsperiod. Om klienten skickar ytterligare meddelanden under den här tiden, skickar den meddelanden i en enskild batch. Klientsidans batchbearbetning gör att en kö eller prenumeration klient till batchen flera **Slutför** begäranden till en enskild begäran. Batchbearbetning är endast tillgängligt för asynkron **skicka** och **Slutför** åtgärder. Synkrona åtgärder skickas direkt till tjänsten Service Bus. Batchbearbetning inte ske för titt eller ta emot operations eller batchbearbetning sker över klienter.
+Klientsidans batchbearbetning gör en kö eller ett ämne klienten att fördröja skickas ett meddelande för en viss tidsperiod. Om klienten skickar ytterligare meddelanden under den här tiden överförs dessa meddelanden i en enskild batch. Klientsidans batchbearbetning gör att en kö eller prenumeration klient till batchen flera **Slutför** begäranden till en enskild begäran. Batchbearbetning är endast tillgängligt för asynkron **skicka** och **Slutför** åtgärder. Synkrona åtgärder skickas direkt till tjänsten Service Bus. Batchbearbetning inte ske för titt eller ta emot operations eller batchbearbetning sker över klienter.
 
 Som standard använder en klient en batch intervall på 20 ms. Du kan ändra batch-intervall genom att ange den [BatchFlushInterval] [ BatchFlushInterval] egenskapen innan du skapar meddelandefabrik. Den här inställningen påverkar alla klienter som har skapats med den här fabriken.
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Batchbearbetning påverkar inte antalet fakturerbar asynkrona åtgärder och är bara tillgängligt för Service Bus-klientprotokollet. HTTP-protokollet har inte stöd för batchbearbetning.
+Batchbearbetning påverkar inte antalet fakturerbar asynkrona åtgärder och är bara tillgängligt för Service Bus klienten protokoll använder den [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) bibliotek. HTTP-protokollet har inte stöd för batchbearbetning.
 
 ## <a name="batching-store-access"></a>Batchbearbetning store-åtkomst
 
@@ -135,7 +119,7 @@ Batch store-åtkomst påverkar inte antalet fakturerbar asynkrona åtgärder och
 
 När ett meddelande är prefetched låser tjänsten prefetched meddelandet. Prefetched meddelandet kan inte tas emot av en annan mottagare med låset. Om mottagaren inte kan slutföra meddelandet innan låset upphör att gälla, blir meddelandet tillgänglig för andra mottagare. Prefetched kopia av meddelandet finns kvar i cacheminnet. Mottagaren som förbrukar utgångna cachelagrad kopia får ett undantag när den försöker slutföra meddelandet. Som standard upphör meddelandet låset efter 60 sekunder. Det här värdet kan utökas till 5 minuter. För att förhindra användningen av inaktuella meddelanden ska cachestorleken alltid vara mindre än antalet meddelanden som kan användas av en klient i lås-timeout-intervall.
 
-När du använder standard Låsets upphörande 60 sekunder, en bra värde för [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] är 20 gånger högsta bearbetning av alla mottagare av fabriken. Till exempel en fabrik skapar tre mottagare, och varje mottagare kan bearbeta upp till 10 meddelanden per sekund. Antalet prefetch får inte överstiga 20 X 3 X 10 = 600. Som standard [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] anges till 0, vilket innebär att inga fler meddelanden hämtas från tjänsten.
+När du använder standard Låsets upphörande 60 sekunder, en bra värde för [PrefetchCount] [ SubscriptionClient.PrefetchCount] är 20 gånger högsta bearbetning av alla mottagare av fabriken. Till exempel en fabrik skapar tre mottagare, och varje mottagare kan bearbeta upp till 10 meddelanden per sekund. Antalet prefetch får inte överstiga 20 X 3 X 10 = 600. Som standard [PrefetchCount] [ QueueClient.PrefetchCount] anges till 0, vilket innebär att inga fler meddelanden hämtas från tjänsten.
 
 Förhämtar meddelanden ökar det totala genomflödet för en kö eller en prenumeration, eftersom det totala antalet meddelandeåtgärder eller sändningar. Hämtar det första meddelandet, men tar längre tid (på grund av ökade meddelandelagringsstorlek). Ta emot prefetched meddelanden är snabbare eftersom dessa meddelanden redan har laddats ned av klienten.
 
@@ -158,12 +142,12 @@ Om ett meddelande som innehåller viktig information som inte får vara förlora
 > [!NOTE]
 > Expressenheter stöder inte transaktioner.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Användning av partitionerade köer och ämnen
+## <a name="partitioned-queues-or-topics"></a>Partitionerade köer och ämnen
 
 Internt, Service Bus använder samma nod och messaging lagra bearbetas och lagras alla meddelanden för en meddelandeentitet (kö eller ett ämne). En [partitionerade kö eller ett ämne](service-bus-partitioning.md), å andra sidan distribueras över flera noder och meddelanden lagras. Partitionerade köer och ämnen inte bara att ge en bättre genomströmning än vanliga köer och ämnen, de också uppvisar en högre tillgänglighet. Så här skapar du en partitionerad entitet i [EnablePartitioning] [ EnablePartitioning] egenskapen **SANT**som visas i följande exempel. Mer information om partitionerade enheter finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
 
 > [!NOTE]
-> Partitionerade enheter stöds inte längre i den [Premium-SKU](service-bus-premium-messaging.md). 
+> Partitionerade enheter stöds inte i den [Premium-SKU](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Användning av flera köer
+## <a name="multiple-queues"></a>Flera köer
 
 Om det går inte att använda en partitionerad kö eller ett ämne eller den förväntade belastningen kan inte hanteras av en enskild partitionerade kö eller ett ämne, måste du använda flera meddelandeentiteter. När du använder flera enheter, skapa en dedikerad klient för varje entitet i stället för att använda samma klient för alla entiteter.
 

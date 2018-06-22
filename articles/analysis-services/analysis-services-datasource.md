@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 60b6769dd3c15bbe628f60318cc08fcac78357ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595639"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307970"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -63,7 +63,8 @@ Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gat
 |Dynamics CRM *     |  
 |Excel-arbetsbok     |  
 |Exchange*     |  
-|Mappen *     | 
+|Mappen *     |
+|IBM Informix * (Beta) |
 |JSON-dokumentet *     |  
 |Rader från binary *     | 
 |MySQL-databas     | 
@@ -71,6 +72,8 @@ Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gat
 |ODBC-fråga     | 
 |OLE DB     |   
 |Postgre SQL-databasen *    | 
+|Salesforce objekt * |  
+|Salesforce-rapporter * |
 |SAP HANA *    |  
 |SAP Business Warehouse *    |  
 |SharePoint*     |   

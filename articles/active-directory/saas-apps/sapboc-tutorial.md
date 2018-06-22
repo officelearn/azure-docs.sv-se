@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220642"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Självstudier: Azure Active Directory-integrering med SAP Business objektet moln
 
@@ -129,7 +129,7 @@ Konfigurera Azure AD enkel inloggning med SAP Business objektet molnet:
     ![URL: er och SAP Business objektet molnet domän webbadresser](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Värdena i dessa URL: er är bara exempel. Uppdatera värdena med faktiska inloggnings-URL och Identifierare. För att få den inloggnings-URL kan kontakta den [SAP Business objektet Cloud klienten supportteamet](https://www.sap.com/product/analytics/cloud-analytics.support.html). Du kan hämta ID-URL genom att hämta molnmetadata för SAP Business objekt från administrationskonsolen. Detta beskrivs senare under kursen. 
+    > Värdena i dessa URL: er är bara exempel. Uppdatera värdena med faktiska inloggnings-URL och Identifierare. För att få den inloggnings-URL kan kontakta den [SAP Business objektet Cloud klienten supportteamet](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Du kan hämta ID-URL genom att hämta molnmetadata för SAP Business objekt från administrationskonsolen. Detta beskrivs senare under kursen. 
 
 4. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**. Spara metadatafilen på datorn.
 

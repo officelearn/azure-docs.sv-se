@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.reviewer: Dale.Koetke
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309857"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och data volym i Application Insights
 
@@ -88,7 +90,7 @@ Mängden data som du skickar är begränsad på tre sätt:
 
     Var försiktig när du ställer in dagliga sockeln. Din avsikt bör vara att *aldrig träffar dagliga fästpunkten*. Om du väljer dagliga fästpunkten förlorar du data för resten av dagen och du kan övervaka ditt program. Du kan ändra dagliga fästpunkten den **daglig volym cap** alternativet. Du kan komma åt det här alternativet i den **användning och de uppskattade kostnaderna** fönstret (det beskrivs i detalj senare i artikeln).
     Vi har tagit bort begränsningen på vissa prenumerationstyper av som har kredit som inte kunde användas för Application Insights. Om prenumerationen har en utgiftsgräns, har dagliga cap-dialogrutan tidigare instruktioner för att ta bort utgiftsgränsen och aktivera dagliga fästpunkten höjas utöver 32,3 MB/dag.
-* **Begränsning av**: Throttling-begränsning datahastighet 32 000 händelser per sekund, var i genomsnitt över 1 minut.
+* **Begränsning av**: Throttling-begränsning datahastighet 32 000 händelser per sekund, var i genomsnitt per instrumentation nyckel över 1 minut.
 
 *Vad händer om min app överskrider den begränsade hastigheten?*
 

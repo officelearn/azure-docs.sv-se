@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647348"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308687"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervakaren i minnet OLTP-lagring
-När du använder [Minnesintern OLTP](sql-database-in-memory.md), minnesoptimerade tabeller och tabellvariabler finns i InMemory-OLTP-lagring. Varje tjänstnivå Premium och kritiska företag har en maximal Minnesintern OLTP lagringsstorlek, som dokumenteras i [DTU-baserade gränserna för](sql-database-dtu-resource-limits.md) och [vCore-baserade gränserna för](sql-database-vcore-resource-limits.md). När den här gränsen överskrids, infoga och uppdatera operations startar med fel 41823 för fristående databaser och 41840 för elastiska pooler. Då måste du antingen ta bort data om du vill frigöra minne, eller uppgradera prestandanivån för din databas.
+När du använder [Minnesintern OLTP](sql-database-in-memory.md), minnesoptimerade tabeller och tabellvariabler finns i InMemory-OLTP-lagring. Varje tjänstnivå Premium och kritiska företag har en maximal storlek för InMemory-OLTP-lagring. Se [DTU-baserade gränserna - enskild databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade gränserna - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+
+När den här gränsen överskrids, infoga och uppdatera operations startar med fel 41823 för fristående databaser och 41840 för elastiska pooler. Då måste du antingen ta bort data om du vill frigöra minne, eller uppgradera prestandanivån för din databas.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Avgöra om data passar i fästpunkten Minnesintern OLTP-lagring
-Fastställa lagring caps på olika tjänstnivåer. Se [DTU-baserade gränserna för](sql-database-dtu-resource-limits.md) och [vCore-baserade gränserna för](sql-database-vcore-resource-limits.md).
+Fastställa lagring caps på olika tjänstnivåer. Se [DTU-baserade gränserna - enskild databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade gränserna - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Uppskatta minneskrav för en minnesoptimerad tabell fungerar på samma sätt för SQL Server som den har i Azure SQL Database. Ta en stund åt att granska artikeln på [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

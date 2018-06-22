@@ -14,7 +14,7 @@ För att komma igång med Service Bus-ämnen och -prenumerationer så måste du 
 
 Så här skapar du ett namnområde:
 
-1. Logga in på [Azure portal][Azure portal].
+1. Logga in på [Azure Portal][Azure portal].
 2. I det vänstra navigeringsfönstret i portalen klickar du på **skapar du en resurs**, klicka på **Enterprise Integration**, och klicka sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).

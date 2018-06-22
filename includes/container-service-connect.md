@@ -5,7 +5,7 @@ Kubernetes-, DC/OS- och Docker Swarm-klustren tillhandahåller HTTP-slutpunkter 
 
 För DC/OS och Docker Swarm rekommenderar vi att du skapar en SSH-tunnel (secure shell) från den lokala datorn till klusterhanteringssystemet. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa Orchestrators webbgränssnitt från det lokala systemet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Kubernetes-, DC/OS- eller Docker Swarm-kluster [som distribuerats i Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [macOS och Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
@@ -19,7 +19,7 @@ Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
-Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0. Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
+Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0. Om du vill köra det här kommandot, se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI 2.0 och logga ut från ett Azure-konto (`az login`).
 
 ```azurecli
 # Linux or macOS

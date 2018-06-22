@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725453"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308167"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -280,6 +280,10 @@ Om du delar ett lagringskonto över flera funktionen appar, se till att varje fu
 ## <a name="retry-behavior"></a>Omförsök
 
 Till skillnad från kön-utlösaren igen inte timer utlösaren efter en funktion misslyckas. När en funktion inte är inte den anropade igen förrän nästa gång enligt schemat.
+
+## <a name="troubleshooting"></a>Felsökning
+
+Information om vad du gör om timern utlösaren inte fungerar som förväntat finns [Investigating och rapportera problem med timer utlöses funktioner som utlöser inte](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## <a name="next-steps"></a>Nästa steg
 

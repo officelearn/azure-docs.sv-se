@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371277"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313521"
 ---
 Det finns flera orsaker när du inte får inledas eller ansluta till ett program som körs på en Azure-dator (VM). Orsaker kan vara det program som inte körs eller lyssnar på förväntade portar lyssningsport blockeras eller nätverk regler inte korrekt skicka trafik till programmet. Den här artikeln beskriver en metodisk metod för att hitta och åtgärda problemet.
 
@@ -32,7 +32,7 @@ Om du har problem med att ansluta till ett program kan du prova följande allmä
 
 * Starta om den virtuella datorn
 * Återskapa slutpunkten / regler i brandväggen / nätverk regler för nätverkssäkerhetsgrupper (NSG)
-  * [Resource Manager-modellen - hantera Nätverkssäkerhetsgrupper](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager-modellen - hantera Nätverkssäkerhetsgrupper](../articles/virtual-network/manage-network-security-group.md)
   * [Klassiska modellen - hantera molntjänster slutpunkter](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Ansluta från annan plats, till exempel ett annat Azure virtuellt nätverk
 * Distribuera den virtuella datorn
@@ -93,7 +93,7 @@ Om du inte kan komma åt programmet, kontrollerar du följande inställningar:
 * Intrångsidentifiering eller program som körs på måldatorn VM för nätverksövervakning tillåter trafiken.
 * Cloud Services-slutpunkter eller Nätverkssäkerhetsgrupper så att trafiken:
   * [Klassiska modellen - hantera molntjänster slutpunkter](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager-modellen - hantera Nätverkssäkerhetsgrupper](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager-modellen - hantera Nätverkssäkerhetsgrupper](../articles/virtual-network/manage-network-security-group.md)
 * En separat komponent som körs i den virtuella datorn i sökvägen mellan testet virtuella datorn och den virtuella datorn, till exempel en belastningsutjämnare eller brandväggen tillåter trafik.
 
 Använd Windows-brandväggen med avancerad säkerhet för att avgöra om brandväggsreglerna undanta programmets inkommande och utgående trafik på en Windows-baserad virtuell dator.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: de85e4295a59c54cb68306bf0cbc516bf5e1f8e2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236407"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313299"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafik analytics
 
@@ -28,17 +28,25 @@ ms.locfileid: "35236407"
 
     - En prenumeration Nätverksbevakaren aktiverad
     - NSG-flöde loggar aktiverad för NSG: er som du vill övervaka
-    - Ett Azure Storage-konto för lagring av rådata flog loggar
+    - Ett Azure Storage-konto för lagring av rådata flödet loggar
     - En arbetsyta med läs- och skrivbehörighet logganalys (OMS)
     - Användare måste tilldelas med någon av följande roller på prenumerationsnivån:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.  Du måste vara något av följande klassisk administratör
+    
+        - Kontoadministratör
+        - Tjänstadministratör 
+        - Medadministratör
+        
+    2.  Kontot måste ha något av följande RBAC-roller i omfånget för prenumeration
+    
+        - Ägare
+        - Deltagare
+        - Läsare
+        - Nätverksdeltagare
 
-    Eller användare måste tilldelas med följande alla roller på prenumerationsnivån: 
-
+    3. Kontot måste ha alla anpassade RBAC-roller med behörighet till alla följande nämnda åtgärder på prenumerationsnivån
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
@@ -50,22 +58,22 @@ ms.locfileid: "35236407"
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-Följ nedanstående steg för för att kontrollera roller som tilldelas en användare för en prenumeration:
+    Följ nedanstående steg för för att kontrollera roller som tilldelas en användare för en prenumeration:
 
-Logga in på Azure med hjälp av Login-AzureRmAccount 
+    Logga in på Azure med hjälp av **Login-AzureRmAccount** 
 
-Välj den prenumeration som krävs med hjälp av Select-AzureRmSubscription 
+    Välj den obligatoriska prenumeration med hjälp av **Select-AzureRmSubscription** 
 
-Nu för att lista alla roller som har tilldelats en angiven användare att använda Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+    Nu om du vill visa en lista med alla de roller som har tilldelats en angiven användare använda **Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators** 
 
-Om du inte ser några utdata när köra commends sedan Kontakta respektive prenumerationsadministratör för att få åtkomst till kör kommandon.  
+    Om du inte ser några utdata när köra commends sedan Kontakta respektive prenumerationsadministratör för att få åtkomst till kör kommandon.  
 
-För mer information finns [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    För mer information finns [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Vilka Azure-regioner är trafik analytics?
 
-    I förhandsversionen kan du använda trafik analytics för NSG: er i något av följande **regioner som stöds**: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa , Västra Storbritannien, Syd Storbritannien, Östra Australien och Australien sydost. Logganalys-arbetsytan måste finnas i i West centrala USA, östra USA, västra Europa, Östra Australien, sydost eller Syd Storbritannien region.
+    I förhandsversionen kan du använda trafik analytics för NSG: er i något av följande **regioner som stöds**: Väst centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Norra Europa Storbritannien, Väst, Storbritannien, Syd, Östra Australien, sydost Australien och Sydostasien. Logganalys-arbetsytan måste finnas i den Väst centrala USA, östra USA, västra Europa, Storbritannien, Syd, Australien, sydost eller Sydostasien region.
 
 3.  Kan NSG: er som jag aktivera flödet loggar för finnas i olika regioner än OMS-arbetsytan?
 
@@ -127,11 +135,11 @@ För mer information finns [Hantera rollbaserad åtkomstkontroll med Azure Power
 
 14. Kan jag konfigurera trafik analytics med hjälp av PowerShell eller en mall för Azure Resource Manager?
 
-Ja, konfiguration av trafik med hjälp av windows powershell som stöds från version 6.2.1 och senare, men Azure Resource Manager mallstöd inte är tillgänglig vid finns. För mer information hur PowerShell kan användas för att konfigurera trafik analytics finns följande [dokumentationen](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Hur prissätts trafik analytics?
 
-Trafik analytics förbrukade för flöde loggdata bearbetas av tjänsten och lagra resulted förbättrad loggar i logganalys-arbetsytan. Du behöver veta mer om prissättning plan du [Klicka här](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+        Trafik analytics förbrukade för flöde loggdata bearbetas av tjänsten och lagra resulted förbättrad loggar i logganalys-arbetsytan. Du behöver veta mer om prissättning plan du [Klicka här](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Hur kan jag navigera på tangentbordet i Geo kartvyn?
 
@@ -162,3 +170,47 @@ Trafik analytics förbrukade för flöde loggdata bearbetas av tjänsten och lag
         - `ESC` döljer expanderade markeringen.
         - Den `UP Arrow` nyckel utför samma åtgärd som `ESC`. Den `Down arrow` nyckel utför samma åtgärd som `Enter`.
         - Använd `Shift+Plus` att zooma in, och `Shift+Minus` att zooma ut.
+
+17. Hur kan jag navigera på tangentbordet i VNet topologiska vyn?
+
+    Virtuella nätverk topologi sidan innehåller två huvudavsnitt:
+    
+    - **Banderoll**: banderoll placeras högst upp i den virtuella nätverk topologin ger möjlighet att välja trafikfilter distribution via knappar som ansluten Vnet/frånkopplad Vnet/Active/Inactive/på-plats/Azure region och offentliga IP-adresser / Frekventa/Medium/låg/tillåten/Blocked och förklaringen information. Motsvarande filter har tillämpats på topologi, t.ex. Om en användare väljer knappen ”aktiv” filter under banderollen, och sedan topologin visar ”aktiv” Vnet i distributionen av markerade definierade knappar.
+    - **Topologi**: The Topology avsnittet placeras under banderollen visar Trafikfördelningen mellan Vnet.
+    
+    **Tangentbordsnavigering på banderoll**
+    
+    - Som standard är val på sidan virtuella nätverk topologi för popup-meddelandet ”ansluten Vnet”-knappen.
+    - Du kan använda för att navigera till en annan filter-knapp i `Tab` för att flytta nästa. Om du vill navigera bakåt använda `Shift+Tab` nyckel. Navigering framåt riktning prioritet från vänster till höger, följt av längst upp och ned.
+    - Tryck på den `Enter` för att använda det valda filtret. Utifrån filterval och distribution av markeras en eller flera noder (VNet) under avsnittet topologi.
+        - Växla mellan **banderoll** och **topologi**, tryck på `Ctrl+F6`.
+        
+    **Tangentbordsnavigering-topologi**
+    
+    - När du har valt filter i popup-meddelandet och trycks ned `Ctrl+F6`, fokus flyttas till en av de markerade noderna (**VNet**) i vyn topologi.
+    - Markerat att navigera till andra noder i vyn topologi som du kan använda den `Shift+Right arrow` nyckel för flyttning framåt. 
+    - För markerade noder, flyttar fokus till den **Information verktygslådan** för noden. Som standard fokus flyttas till knappen ”Mer information” på den **Information verktygslådan**. Ytterligare navigera i **rutan** visa använder `Right` och `Left arrow` för att gå framåt och bakåt, respektive. När du trycker på `Enter` har samma effekt som att välja knappen fokuserad i den **Information verktygslådan**.
+    - På val av dessa noder, det är alla anslutningar som kan besökas, taget genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till den **Information verktygslådan** för anslutningen. När som helst fokus kan flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
+    
+
+18. Hur kan jag navigera på tangentbordet i undernätet topologiska vyn?
+
+    Virtuella undernät topologi sidan innehåller två huvudavsnitt:
+    
+    - **Banderoll**: banderoll placeras högst upp i den virtuella undernät-topologin ger möjlighet att välja trafikfilter distribution via knappar som aktiv/inaktiv/externa anslutningar/på-plats/Azure region och offentliga IP-adresser/Active flödar / Frekventa/Medium/låg/skadliga trafik/tillåten/blockerad, Gateway-undernät/Backend-undernät och Klientdelens undernät. Valet av definierade knappar tillämpas motsvarande filter på topologi, t.ex. Om en användare väljer knappen ”aktiv” filter under banderollen, och sedan topologin visar ”aktiv” virtuella undernätverk i distributionen.
+    - **Topologi**: The Topology avsnittet placeras under banderollen visar Trafikfördelningen mellan virtuella undernät.
+    
+    **Tangentbordsnavigering på banderoll**
+    
+    - Som standard är val på sidan virtuella undernät-topologin för popup-meddelandet ”undernät”-knappen.
+    - Du kan använda för att navigera till en annan filter-knapp i `Tab` för att flytta nästa. Om du vill navigera bakåt använda `Shift+Tab` nyckel. Navigering framåt riktning prioritet från vänster till höger, följt av längst upp och ned.
+    - Tryck på den `Enter` för att använda det valda filtret. Utifrån filterval och distribution av markeras en eller flera noder (undernät) under avsnittet topologi.
+        - Växla mellan **banderoll** och **topologi**, tryck på `Ctrl+F6`.
+        
+    **Tangentbordsnavigering-topologi**
+    
+    - När du har valt filter i popup-meddelandet och trycks ned `Ctrl+F6`, fokus flyttas till en av de markerade noderna (**undernät**) i vyn topologi.
+    - Markerat att navigera till andra noder i vyn topologi som du kan använda den `Shift+Right arrow` nyckel för flyttning framåt. 
+    - För markerade noder, flyttar fokus till den **Information verktygslådan** för noden. Som standard fokus flyttas till knappen ”Mer information” på den **Information verktygslådan**. Ytterligare navigera i **rutan** visa använder `Right` och `Left arrow` för att gå framåt och bakåt, respektive. När du trycker på `Enter` har samma effekt som att välja knappen fokuserad i den **Information verktygslådan**.
+    - På val av dessa noder, det är alla anslutningar som kan besökas, taget genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till den **Information verktygslådan** för anslutningen. När som helst fokus kan flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
+

@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8870c4199d5f24d1e8d07bc97d61a09c07052c1e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598359"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307987"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
-Alla användare måste höra till en roll på databasnivå modellen. Rollerna för att definiera användare med särskilda behörigheter för modelldatabasen. Alla användare eller säkerhetsgrupp som lagts till i en roll måste ha ett konto i Azure AD-klient på samma prenumeration som servern.
+Alla användare måste höra till en roll på databasnivå modellen. Rollerna för att definiera användare med särskilda behörigheter för modelldatabasen. Alla användare eller säkerhetsgrupp som lagts till i en roll måste ha ett konto i Azure AD-klient på samma prenumeration som servern. 
 
 Hur du definierar roller skiljer sig åt beroende på hur du använder verktyget men effekten är samma.
 
@@ -27,6 +27,9 @@ Rollbehörigheter inkluderar:
 *  **Läs** -användare kan använda ett klientprogram att ansluta till och analysera modellen databasdata.
 
 När du skapar en tabellmodell-projekt kan du skapa roller och Lägg till användare eller grupper rollerna genom att använda rollhanteraren i SSDT. När distribuerats till en server kan du använda SSMS, [Analysis Services PowerShell-cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), eller [Tabular modellen Scripting språk](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) för att lägga till eller ta bort roller och användaren medlemmar.
+
+> [!NOTE]
+> Säkerhetsgrupper måste ha den `MailEnabled` egenskapen `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Att lägga till eller hantera roller och användare i SSDT  
   

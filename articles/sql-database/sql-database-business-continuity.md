@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0399b9037e162aa712b87b498b968750226af23a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646396"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308463"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -38,11 +38,11 @@ I följande tabell jämförs infoga och Återställningspunktmål för varje tj�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Använda point-in-time-återställning för att återställa en databas
 
-SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Om du använder den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md), och sedan dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kvarhållning säkerhetskopior är Konfigurerbart upp till 35 dagar i generella och företag kritiska nivåer. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
+SQL-databas utförs automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, varje timme differentiella säkerhetskopieringar och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda företaget från förlust av data. Om du använder den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md), och sedan dessa säkerhetskopior lagras i RA-GRS-lagring för 35 dagar för databaser i tjänstnivåer Standard och Premium och 7 dagar för databaser på Basic tjänstnivån. Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-single-database-scale.md). Om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kvarhållning säkerhetskopior är Konfigurerbart upp till 35 dagar i generella och företag kritiska nivåer. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska säkerhetskopieringar](sql-database-automated-backups.md).
 
 Om den högsta bevarandeperioden för stöds PITR inte räcker för ditt program, kan du utöka den genom att konfigurera en kvarhållningsprincip för långsiktig (LTR) för databaserna. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
-Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
+Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller aktiv databas. Mer information om återställningstid finns [databasen återställningstid](sql-database-recovery-using-backups.md#recovery-time). När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
 
 > [!IMPORTANT]
 > Om du återställer med hjälp av automatisk säkerhetskopior måste du vara medlem i SQL Server-rollen Deltagare eller vara prenumerationsägaren. Mer information finns i [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md) (Rollbaserad åtkomstkontroll: Inbyggda roller). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.

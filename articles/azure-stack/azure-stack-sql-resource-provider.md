@@ -11,37 +11,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/21/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b1cc1fad6b0831bcf0bab5ba4f37b753c3cf33ca
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 55d0e51606e8768a01c0b5a7766dbafe24d97a0d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207073"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307833"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
-Använda SQL Server resource provider kort för att exponera SQL-databaser som en tjänst av [Azure Stack](azure-stack-poc.md). När du installerar resursprovidern och ansluta till en eller flera instanser av SQL Server kan du och användarna skapa:
-- Databaser för moln-ursprungliga appar.
-- Webbplatser som är baserade på SQL.
-- Arbetsbelastningar som är baserade på SQL.
-Du behöver inte etablera en virtuell dator (VM) som är värd för SQL Server varje gång.
 
-Resursprovidern stöder inte alla databasen hanteringsfunktioner i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Till exempel elastiska databaspooler och möjligheten att reglera databasprestanda uppåt och nedåt automatiskt inte tillgänglig. Dock resource provider har stöd liknande skapa, läsa, uppdatera och ta bort CRUD-åtgärder. API: et är inte kompatibel med SQL-databas.
+Använda SQL Server resource provider kort API för att exponera SQL-databaser som en tjänst av [Azure Stack](azure-stack-poc.md). När du installerar resursprovidern och ansluta till en eller flera instanser av SQL Server kan du och användarna skapa:
+
+- Databaser för moln-ursprungliga appar.
+- Webbplatser som använder SQL.
+- Arbetsbelastningar som använder SQL.
+
+Resursprovidern ger inte de funktioner för hantering av [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Till exempel stöds elastiska pooler som automatiskt allokerar resurser inte. Dock resource provider stöder liknande skapa, läsa, uppdatera och ta bort CRUD-åtgärder på en SQL Server-databas. Mer information om resursprovidern API finns [Windows Azure Pack SQL Server Resource Provider REST API-referens](https://msdn.microsoft.com/library/dn528529.aspx).
+
+>[!NOTE]
+SQL Server-resursprovidern API är inte kompatibelt med Azure SQL Database.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Adapter-arkitektur för SQL-provider
-Resursprovidern består av tre komponenter:
 
-- **SQL resource provider kortet VM**, vilket är en Windows-dator som kör provider-tjänster.
-- **Resursprovidern själva**, som bearbetar begäranden om etablering och visar databasen resurser.
+Resursprovidern består av följande komponenter:
+
+- **SQL resource provider kortet virtuell dator (VM)**, vilket är en Windows virtuell dator som kör provider-tjänster.
+- **Resursprovidern**, som bearbetar begäranden och ansluter till databasen resurser.
 - **Servrar som värdar för SQL Server**, som ger kapacitet för databaser kallas värdservrar.
 
-Du måste skapa en (eller flera) instanser av SQL Server och/eller ge åtkomst till externa SQL Server-instanser.
+Du måste skapa minst en instans av SQL Server eller ge åtkomst till externa SQL Server-instanser.
 
 > [!NOTE]
-> Värd för servrar som är installerade på Azure-stacken måste integrerade system skapas från en klientprenumeration. De kan inte skapas från standard providern prenumerationen. De måste skapas från klientportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar avgiftsbelagda virtuella datorer och måste ha rätt licenser för. Tjänstadministratören kan vara klient Prenumerationens ägare.
-
+> Värd för servrar som är installerade på Azure-stacken måste integrerade system skapas från en klientprenumeration. De kan inte skapas från standard providern prenumerationen. De måste skapas från klientportalen eller med hjälp av PowerShell med lämpliga logga in. Alla värdservrar är fakturerbar virtuella datorer och måste ha licenser. Tjänstadministratören kan vara klient Prenumerationens ägare.
 
 ## <a name="next-steps"></a>Nästa steg
 

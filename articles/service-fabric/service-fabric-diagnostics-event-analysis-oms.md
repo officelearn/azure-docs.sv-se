@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839596"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302190"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med logganalys
-
-Logganalys, även kallat OMS (Operations Management Suite) är en uppsättning tjänster som underlättar övervakning och diagnostik för program och tjänster i molnet. Den här artikeln beskrivs hur du kör frågor i logganalys få insikter och felsökning av vad som händer i klustret. Följande vanliga frågor tas upp:
+Logganalys samlar in och analysera inkommande telemetri från program och tjänster finns i molnet och ger analysverktyg som hjälper dig att maximera deras tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i logganalys få insikter och felsökning av vad som händer i klustret. Följande vanliga frågor tas upp:
 
 * Hur felsöker hälsa händelser?
 * Hur vet jag när en nod kraschar?
@@ -43,9 +42,9 @@ När data tas emot av logganalys Azure har flera *hanteringslösningar* som är 
 
 2. Sammanfattningsvis visas paneler i form av ett diagram för var och en av de lösningar som aktiverad, inklusive en för Service Fabric. Klicka på den **Service Fabric** kurva (första bilden nedan) för att fortsätta till Service Fabric Analytics-lösning (andra bilden nedan).
 
-    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+    ![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SA lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+    ![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är en ögonblicksbild vy över vad som händer i klustret. Om du har aktiverat diagnostik när klustret har skapats kan du visa händelser för 
 
@@ -60,11 +59,11 @@ Bilden ovan är startsidan för Service Fabric Analytics-lösning. Det här är 
 
 1. På sidan Service Fabric Analytics klickar du på diagrammet för **Service Fabric händelser**.
 
-    ![OMS SA lösning operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+    ![Service Fabric-lösningen operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 2. Klicka på **listan** att visa händelser i en lista. När du ser här alla händelserna som har samlats in. Dessa är från WADServiceFabricSystemEventsTable i Azure Storage-konto för referens, och på samma sätt tjänsterna tillförlitliga och aktörer händelser visas bredvid är från dessa respektive tabeller.
     
-    ![OMS fråga operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+    ![Frågan operativa kanalen](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Du kan också klicka på förstoringsglaset till vänster och använda frågespråket Kusto för att hitta det du söker. Du kan exempelvis använda följande fråga för att hitta alla åtgärder som vidtas på noder i klustret. Händelse-ID används nedan finns i den [operativa kanalen händelser](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -79,11 +78,11 @@ Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemt
 
 1. Diagram för på sidan Service Fabric Analytics **Reliable Services**.
 
-    ![OMS SA lösning Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+    ![Service Fabric-lösningen Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
 2. Klicka på **listan** att visa händelser i en lista. Här kan du visa händelser från tillförlitliga tjänsterna. Du kan se olika händelser för när tjänsten runasync startades och slutfördes som inträffar oftast på distribution och uppgraderingar. 
 
-    ![OMS fråga Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+    ![Frågan Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill konfigurera mer detaljerade händelser för reliable actors, måste du ändra den `scheduledTransferKeywordFilter` i konfigurationen av filnamnstillägget diagnostiska (se nedan). Information om värdena för dessa finns i den [tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md#keywords).
 
@@ -101,12 +100,12 @@ Tillförlitliga aktören händelser kan visas på ett liknande sätt. Om du vill
 
 Frågespråket Kusto är kraftfull. En annan värdefulla fråga som du kan köra är att ta reda på vilka noder som genererar flest händelser. Frågan i skärmbilden nedan visar Service Fabric-Funktionshändelser samman med specifika tjänsten och noden.
 
-![OMS frågan händelser per nod](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
+![Frågan händelser per nod](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill aktivera infrastrukturövervakning d.v.s. prestandaräknare, gå till [att lägga till OMS-agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestandaräknare och lägger till dem i en befintlig arbetsyta.
-* För lokala kluster erbjuder OMS Gateway (HTTP framåt Proxy) som kan användas för att skicka data till OMS. Läs mer om att [ansluta datorer utan Internetanslutning till OMS med OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md)
-* Konfigurera OMS att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
+* Om du vill aktivera infrastrukturövervakning d.v.s. prestandaräknare, gå till [att lägga till logganalys agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestandaräknare och lägger till dem i en befintlig arbetsyta.
+* För lokala kluster erbjuder Log Analytics Gateway (HTTP framåt Proxy) som kan användas för att skicka data till logganalys. Läs mer om att [ansluta datorer utan Internetanslutning till Log Analytics med hjälp av OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md)
+* Konfigurera [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
 * Hämta bekantat med den [logga sökning och hämtning av](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av logganalys
 * Få en detaljerad översikt över logganalys och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

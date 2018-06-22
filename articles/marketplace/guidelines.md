@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825217"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307493"
 ---
 # <a name="guidelines"></a>Riktlinjer  
 
@@ -35,7 +35,7 @@ Om mer än en person behöver åtkomst till samma Microsoft-ID används för att
 
 >[!IMPORTANT]
 >Microsoft rekommenderar att du använder Azure Active Directory (Azure AD) för att tilldela roller till enskilda användare för att godkänna flera användare att komma åt ditt konto på Microsoft Developer Center (Dev Center). Varje användare måste få åtkomst till kontot genom att logga in med enskilda autentiseringsuppgifter för Azure AD. Skapa ditt Microsoft-ID med hjälp av en e-postadress i en domän registrerats för ditt företag föreslår vi att e-postmeddelandet inte tilldelas till en enskild person. Ett exempel är `windowsapps@fabrikam.com`.  
->*   Mer information finns i [problemet: Microsoft-ID i en Azure AD federerade domänen](#issue:-microsoft-id-in-an-azure-ad-federated-domain) avsnitt.  
+>*   Mer information finns i [problemet: Microsoft-ID i en Azure AD federerade domänen](#issue-microsoft-id-in-an-azure-ad-federated-domain) avsnitt.  
 
 *   Begränsa åtkomsten till Microsoft-ID till det lägsta antalet utvecklare. 
 *   Ställ in en företagets e-postdistributionslista (DL) som innehåller alla användare ha åtkomst till Dev Center-konto. Lägg till DL e-postadress till din säkerhetsinformation. DL gör det möjligt för anställda i listan för att ta emot säkerhetskoder begäran och hantera säkerhetsinformationen för ditt Microsoft-ID. Om hur du konfigurerar en distributionslista inte är möjligt måste ägaren av enskilda e-postkontot att kunna komma åt och dela säkerhetskod när du uppmanas.  

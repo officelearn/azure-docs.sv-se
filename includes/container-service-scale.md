@@ -14,7 +14,7 @@ Du kan ändra antalet agentnoder i ett DC/OS-, Docker Swarm- eller Kubernetes-kl
 
 ## <a name="scale-with-the-azure-cli-20"></a>Skala med Azure CLI 2.0
 
-Kontrollera att den senaste versionen av Azure CLI 2.0 är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
+Se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI 2.0 och logga ut från ett Azure-konto (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Visa det aktuella antalet agenter
 För att se antalet agenter i klustret kör du kommandot `az acs show`. Detta visar klusterkonfigurationen. Följande kommando visar till exempel konfigurationen av behållartjänsten som heter `containerservice-myACSName` i resursgruppen `myResourceGroup`:

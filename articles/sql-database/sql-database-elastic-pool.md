@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/07/2018
+ms.date: 06/20/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: 6e58d3ed84771cedda126511e868ad264db88606
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5ef32b231a77906a6840ad3550e81b631ddc0c13
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850499"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309662"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -138,9 +138,7 @@ Databaser i pool stöder generellt sett samma [funktioner för affärskontinuite
 
 - **Aktiv geo-replikering**: konfigurera för program som har mer aggressivt recovery krav än geo-återställning kan erbjuda [aktiv geo-replikering](sql-database-geo-replication-overview.md).
 
-## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Hantera elastiska pooler och databaser med hjälp av Azure portal
-
-### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Skapa en ny SQL Database-elastisk pool med Azure-portalen
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Skapa en ny SQL Database-elastisk pool med Azure-portalen
 
 Det finns två sätt att skapa en elastisk pool i Azure-portalen.
 1. Du kan skapa en elastisk pool genom att söka **elastiska SQL-poolen** i den **Marketplace** eller klicka på **+ Lägg till** på SQL elastiska pooler bläddrar du bladet. Du kan ange en ny eller befintlig server via den här poolen etablering av arbetsflöde.
@@ -149,13 +147,13 @@ Det finns två sätt att skapa en elastisk pool i Azure-portalen.
 > [!NOTE]
 > Du kan skapa flera pooler på en server, men du kan inte lägga till databaser från olika servrar i samma pool.
 
-Den pooltjänstnivå avgör vilka funktioner som är tillgängliga för elastics i poolen och maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i gränserna för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) och [vCore modellen](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Den pooltjänstnivå avgör vilka funktioner som är tillgängliga för elastics i poolen och maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i gränserna för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). VCore-baserade gränserna för elastiska pooler, se [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Konfigurera resurserna och prisnivå för poolen, klickar du på **konfigurera pool**. Välj en tjänstnivå, lägga till databaser i poolen och konfigurera resurs-gränser för poolen och databaserna.
 
 När du har slutfört konfigurationen poolen, kan du på Verkställ, namn i poolen, och klicka på 'OK' om du vill skapa poolen.
 
-### <a name="monitor-an-elastic-pool-and-its-databases"></a>Övervaka en elastisk pool och databaserna
+## <a name="monitor-an-elastic-pool-and-its-databases"></a>Övervaka en elastisk pool och databaserna
 
 Du kan övervaka användningen av en elastisk pool och databaserna i poolen i Azure-portalen. Du kan också göra en uppsättning ändringar i den elastiska poolen och skicka alla ändringar på samma gång. De här förändringarna innefattar att lägga till eller ta bort databaser, ändra inställningarna elastisk pool eller ändra databasinställningarna.
 
@@ -174,13 +172,13 @@ Om du vill övervaka databaser i din pool, kan du klicka på **databasen resursu
 
 ![Sidan databas resurs för användning](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-#### <a name="to-customize-the-chart-display"></a>Du kan anpassa diagram
+### <a name="to-customize-the-chart-display"></a>Du kan anpassa diagram
 
 Du kan redigera diagrammet och sidan mått om du vill visa andra mått som CPU-procent, data IO-procent och loggen IO-procent som används.
 
 På den **redigera diagram** formuläret som du kan välja en fast tidpunkt intervall eller klicka på **anpassade** att välja valfritt 24-timmarsformat fönster under de senaste två veckorna och välj sedan resurserna som ska övervaka.
 
-#### <a name="to-select-databases-to-monitor"></a>Att välja databaser för att övervaka
+### <a name="to-select-databases-to-monitor"></a>Att välja databaser för att övervaka
 
 Som standard i diagrammet i den **databasen resursutnyttjande** bladet visar 5 viktigaste databaser genom DTU eller processor (beroende på din tjänstnivån). Du kan växla av databaserna i det här diagrammet genom att välja och unselecting databaser i listan under diagrammet via kryssrutorna till vänster.
 
@@ -188,104 +186,9 @@ Du kan också välja fler mått till vyn sida vid sida i den här databastabell 
 
 Mer information finns i [skapa SQL-databas aviseringar i Azure-portalen](sql-database-insights-alerts-portal.md).
 
-### <a name="manage-an-elastic-pool-and-its-databases"></a>Hantera en elastisk pool och databaserna
-
-Alla inställningar för programpool kan hittas på en plats: den **konfigurera pool** bladet. Hitta en elastisk pool i portalen och klicka på för att få här **konfigurera pool** högst upp på bladet eller resurs-menyn till vänster.
-
-Du kan välja valfri kombination av följande ändringar och spara dem i en batch härifrån:
-1. Ändra tjänstnivån för poolen
-2. Skala prestanda (DTU eller vCores) och lagring upp eller ned
-3. Lägg till eller ta bort databaser från poolen
-4. Ange en minut (garanteras) samt högsta antal prestanda gränsen för databaserna i pooler
-5. Granska sammanfattningen av kostnaden för att visa ändringar i fakturan på grund av nya alternativ
-
-![Elastisk pool configuration bladet](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
-
-## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Hantera elastiska pooler och databaser med hjälp av PowerShell
-
-Använd följande PowerShell-cmdlets för att skapa och hantera SQL-databas elastiska pooler med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du vill skapa och hantera databaser, servrar och brandväggsregler, se [skapa och hantera Azure SQL Database-servrar och databaser med hjälp av PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
-
-> [!TIP]
-> PowerShell-exempelskript, se [skapa elastiska pooler och flytta databaser mellan pooler och från en pool med PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) och [Använd PowerShell för att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
->
-
-| Cmdlet | Beskrivning |
-| --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk databaspool på en logisk SQLServer.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hämtar elastiska pooler och deras värden på en logisk SQLServer.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Ändrar egenskaper för en elastisk databaspool på en logisk SQLServer. Till exempel använda den **StorageMB** egenskapen att ändra maximal lagringskapacitet för en elastisk pool.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk databaspool på en logisk SQLServer.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool på en logisk SQLServer.|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en ny databas i en befintlig adresspool eller som en enskild databas. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas i, slut på eller mellan elastiska pooler.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas.|
-
-
-> [!TIP]
-> Skapandet av många databaser i en elastisk pool kan ta tid när det görs med portalen eller PowerShell-cmdletar som skapar bara en enskild databas åt gången. Om du vill automatisera skapande i en elastisk pool, se [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
-
-## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Hantera elastiska pooler och databaser med hjälp av Azure CLI
-
-Skapa och hantera SQL-databas elastiska pooler med den [Azure CLI](/cli/azure), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows.
-
-> [!TIP]
-> Azure CLI exempelskript finns [Använd CLI för att flytta en Azure SQL database i en elastisk pool SQL](scripts/sql-database-move-database-between-pools-cli.md) och [Använd Azure CLI för att skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
->
-
-| Cmdlet | Beskrivning |
-| --- | --- |
-|[Skapa AZ sql elastisk pool](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Skapar en elastisk pool.|
-|[AZ sql elastisk pool lista](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Returnerar en lista över elastiska pooler i en server.|
-|[AZ sql elastisk pool lista-databaser](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Returnerar en lista över databaser i en elastisk pool.|
-|[AZ sql elastisk pool lista-versioner](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Även tillgängliga poolen DTU inställningar, Lagringsgränser och per databasinställningarna. För att minska detaljnivå ytterligare Lagringsgränser och per databas inställningar döljs som standard.|
-|[AZ sql elastisk pool uppdateringen](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Uppdaterar en elastisk pool.|
-|[ta bort AZ sql-elastisk pool](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Tar bort den elastiska poolen.|
-
-## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Hantera databaser i elastiska pooler med Transact-SQL
-
-Skapa och flytta databaser i befintliga elastiska pooler eller att returnera information om en SQL Database-elastisk pool med Transact-SQL, Använd följande T-SQL-kommandon. Du kan skicka dessa kommandon med hjälp av Azure portal [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL-kommandon. Om du vill skapa och hantera databaser, servrar och brandväggsregler, se [skapa och hantera Azure SQL Database-servrar och databaser med hjälp av Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
-
-> [!IMPORTANT]
-> Du kan inte skapa, uppdatera eller ta bort en Azure SQL Database-elastisk pool med Transact-SQL. Du kan lägga till eller ta bort databaser från en elastisk pool och du kan använda av DMV: er för att returnera information om befintliga elastiska pooler.
->
-
-| Kommando | Beskrivning |
-| --- | --- |
-|[Skapa databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas i en befintlig adresspool eller som en enskild databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Flytta en databas i, slut på eller mellan elastiska pooler.|
-|[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar resurs användningsstatistik för elastiska databaspooler i en logisk server. För varje elastisk databaspool att det finns en rad för varje 15 sekunder reporting fönstret (fyra rader per minut). Detta inkluderar CPU, IO, Log, användningen av lagringsutrymme och samtidiga begäran-session användning av alla databaser i poolen.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivån), tjänstmålet (prisnivån) och namn på elastisk pool, för en Azure SQL-databas eller ett Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. För Azure SQL Data Warehouse, måste du vara ansluten till master-databasen.|
-
-## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Hantera elastiska pooler och databaser med hjälp av REST-API
-
-Om du vill skapa och hantera SQL Database-elastisk använda pooler dessa REST API-begäranden.
-
-| Kommando | Beskrivning |
-| --- | --- |
-|[Elastiska pooler – skapa eller uppdatera](/rest/api/sql/elasticpools/createorupdate)|Skapar en ny elastisk pool eller uppdaterar en befintlig elastisk pool.|
-|[Elastiska pooler - ta bort](/rest/api/sql/elasticpools/delete)|Tar bort den elastiska poolen.|
-|[Elastiska pooler - Get](/rest/api/sql/elasticpools/get)|Hämtar en elastisk pool.|
-|[Elastiska pooler - lista av servern](/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista över elastiska pooler i en server.|
-|[Elastiska pooler - uppdatering](/rest/api/sql/elasticpools/update)|Uppdaterar en befintlig elastisk pool.|
-|[Rekommenderade elastiska pooler - Get](/rest/api/sql/recommendedelasticpools/get)|Hämtar en rekommenderad elastisk pool.|
-|[Rekommenderade elastiska pooler - lista av servern](/rest/api/sql/recommendedelasticpools/listbyserver)|Returnerar rekommenderade elastiska pooler.|
-|[Rekommenderade elastiska pooler - listan mått](/rest/api/sql/recommendedelasticpools/listmetrics)|Returnerar rekommenderad elastisk pool mått.|
-|[Elastisk Pool aktiviteter](/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
-|[Databasaktiviteter elastisk Pool](/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
-|[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
-|[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – få genom elastisk Pool](/rest/api/sql/databases/getbyelasticpool)|Hämtar en databas i en elastisk pool.|
-|[Databaser – få genom rekommenderad elastisk Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hämtar en databas i en rekommenderad elastisk pool.|
-|[Databaser - listan efter elastisk Pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser - listan efter rekommenderad elastisk Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returnerar en lista över databaser i en rekommenderad elastisk pool.|
-|[Databaser – lista av servern](/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
-|[Databaser - uppdatering](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
-
 ## <a name="next-steps"></a>Nästa steg
 
+- Om du vill skala elastiska pooler finns [skalning elastiska pooler](sql-database-elastic-pool.md) och [skala en elastisk pool - exempelkod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 * Se en video [Microsoft Virtual Academy video kursen på Azure SQL Database-elastisk funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Om du har en SaaS-självstudiekurs med elastiska pooler finns [introduktion till Wingtip SaaS-program](sql-database-wtp-overview.md).

@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683057"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313752"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala virtuella datorer med Azure reserverade VM-instanser
 
@@ -24,7 +24,7 @@ Du måste använda en av de metoder som beskrivs nedan för att identifiera den 
 2. Du kan också få korrekt information om Virtuellt storlek med hjälp av Powershell, Azure Resource Manager eller från VM information i Azure-portalen.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Köp en reserverad virtuell dator-instans
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster** > **reservationer**.
 3. Välj **Lägg till** att köpa en ny reserverad instans.
 4. Fyll i de obligatoriska fälten. Körande VM instanser som matchar de markerade attributen som uppfyller kraven för att få rabatt för reserverade. Det faktiska antalet VM-instanser som får rabatten är beroende av omfång och kvantitet som väljs.

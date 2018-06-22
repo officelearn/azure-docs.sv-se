@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 89e5497c10f3e24dd84333f095a9bd7c0017ea88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647875"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309307"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -72,7 +72,7 @@ Djupgående video om tekniker:
 
 Minnesintern OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet för en kvot för användardata. Den här idén kallas *Minnesintern OLTP lagring*.
 
-Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Se [DTU-baserade gränserna för](sql-database-dtu-resource-limits.md) och [vCore-baserade gränserna för](sql-database-vcore-resource-limits.md).
+Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Se [DTU-baserade gränserna - enskild databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade gränserna - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Följande objekt räknas in i din Minnesintern OLTP lagring cap:
 

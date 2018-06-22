@@ -2,19 +2,19 @@
 title: Begränsningar i Azure-databas för MySQL
 description: Den här artikeln beskriver begränsningar i Azure-databas för MySQL, till exempel antal anslutning och lagringsalternativ för motorn.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264892"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309927"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
@@ -60,29 +60,29 @@ När anslutningar överskrider gränsen, får du följande fel:
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulation instruktionen
 
 ### <a name="supported"></a>Stöds
-- Läs in DATA INFIL - stöds, men det måste ange parametern [lokala] som är riktad till en UNC-sökväg (Azure lagringsutrymmet via XSMB).
+- `LOAD DATA INFILE` stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure lagringsutrymmet via SMB).
 
 ### <a name="unsupported"></a>Stöds inte
-- VÄLJ... I UTFIL
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Funktionella begränsningar
 
 ### <a name="scale-operations"></a>Skalningsåtgärder
-- Dynamisk skalning av servrar över prisnivåer stöds inte för närvarande. Att växla mellan Basic generella och Minnesoptimerade prisnivåer.
+- Dynamisk skalning till och från de grundläggande prisnivåerna stöds inte för närvarande.
 - Minska lagringsstorleken för server stöds inte.
 
 ### <a name="server-version-upgrades"></a>Version serveruppgraderingarna
 - Automatisk migrering mellan större database engine versioner stöds inte för närvarande.
 
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
-- Är inte tillåtet att återställa till olika tjänstnivå och/eller Compute enheter och lagringsstorlek.
+- När du använder funktionen PITR, skapas den nya servern med samma konfiguration som den är baserad på-servern.
 - Återställa en borttagen server stöds inte.
 
 ### <a name="subscription-management"></a>Prenumerationshantering
 - Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
-- MySQL-serverinstans visar fel serverversionen efter anslutningen har upprättats. För att få rätt server-instans versionshantering, använder du väljer version(); kommandot MySQL i Kommandotolken.
+- MySQL-serverinstans visar fel serverversionen efter anslutningen har upprättats. För att få rätt server instans Motorversion kan använda den `select version();` kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Vad som är tillgängligt på respektive tjänstnivå](concepts-pricing-tiers.md)

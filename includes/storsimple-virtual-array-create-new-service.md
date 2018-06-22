@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
-1.  Med hjälp av din Microsoft-kontouppgifter, logga in på Azure-portalen på denna URL: <https://portal.azure.com/>. Om distribuerar enheten i Government portalen kan du logga in på: <https://portal.azure.us/>
+1.  Använd autentiseringsuppgifterna för ditt Microsoft-konto och logga in på Azure-portalen på denna URL: <https://portal.azure.com/>. Om distribuerar enheten i Government portalen kan du logga in på: <https://portal.azure.us/>
 
 2.  I Azure-portalen klickar du på **+ skapa en resurs** &gt; **lagring** &gt; **virtuella StorSimple-serien**.
 

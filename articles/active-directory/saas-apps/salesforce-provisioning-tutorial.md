@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: be6e5fb83ea88ce30b64f5e1eb53422f0404410f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbf4e2a35667484fea66a1888cdfc0184a806583
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229675"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308324"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
 
@@ -95,7 +95,7 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 10. Kopiera token, gå till Azure AD-fönstret och klistrar in det i den **hemlighet Token** fältet.
 
-11. Den **klient URL** måste anges om Salesforce-instansen är i Salesforce offentliga moln. Annars är valfria. Ange klient-URL i formatet av https://your-instance.my.salesforce.com, ersätta din-instans med namnet på ditt Salesforce-instans.
+11. Den **klient URL** måste anges om Salesforce-instansen är i Salesforce offentliga moln. Annars är valfria. Ange klient-URL i formatet för ”https://\<din instans\>. my.salesforce.com”, ersätter \<din instans\> med namnet på ditt Salesforce-instans.
 
 12. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till ditt Salesforce-app.
 

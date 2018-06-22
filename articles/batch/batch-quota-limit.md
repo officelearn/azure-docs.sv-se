@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310544"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304453"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -51,14 +51,10 @@ Om du har skapat ett Batch-konto med poolen allokering inställd på **användar
 | [Samtidiga uppgifter](batch-parallel-node-tasks.md) per compute-nod |4 x antal nod kärnor |
 | [Program](batch-application-packages.md) per Batch-kontot |20 |
 | Programpaket per program |40 |
-| Storlek för paketet (alla) |Uppskattat 195GB<sup>1</sup> |
-| Maximal startstorlek för aktiviteten | 32768 tecken<sup>2</sup> |
-| Maximal uppgiften livslängd | 7 dagar<sup>3</sup> |
+| Maximal uppgiften livslängd | 7 dagar<sup>1</sup> |
 | Compute-noder i kommunikationen mellan noder aktiverat pool | 100 |
 
-<sup>1</sup> azure Storage-gränsen för högsta blob-blockstorlek<br />
-<sup>2</sup> innehåller resursfiler och miljövariabler<br />
-<sup>3</sup> högsta livstid för en aktivitet från när den har lagts till jobbet när den har slutförts är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
+<sup>1</sup> högsta livstid för en aktivitet från när den har lagts till jobbet när den har slutförts är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 
 
 ## <a name="view-batch-quotas"></a>Visa Batch-kvoter

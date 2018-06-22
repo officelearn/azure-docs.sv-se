@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0b535cac35012b2663dee4e276371c9eacfab03a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d4d370e6b76fcfc502366642842bfeb923a13991
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613661"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313684"
 ---
-Innan du påbörjar konfigurationen måste du logga in på ditt Azure-konto. Den här cmdleten uppmanar dig att ange inloggningsuppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell. Mer information finns i [Använda Windows PowerShell med Resource Manager](../articles/powershell-azure-resource-manager.md).
+Innan du påbörjar den här konfigurationen måste du logga in på ditt Azure-konto. Cmdlet efterfrågar autentiseringsuppgifter för inloggning för din Azure-konto. När du har registrerat hämtar den inställningarna för ditt konto, så att de är tillgängliga för Azure PowerShell. Mer information finns i [Använda Windows PowerShell med Resource Manager](../articles/powershell-azure-resource-manager.md).
 
-Logga in genom att öppna PowerShell-konsolen med utökad behörighet och anslut till ditt konto. Använd följande exempel för att ansluta:
+Öppna PowerShell-konsolen med förhöjd behörighet för att logga in och ansluta till ditt konto. Använd följande exempel för att ansluta:
 
 ```powershell
 Connect-AzureRmAccount

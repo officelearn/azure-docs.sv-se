@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212180"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Självstudier: Azure Active Directory-integrering med SimpleNexus
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://simplenexus.com/<companyname>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [SimpleNexus klienten supportteamet](https://simplenexus.com/site/contact) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [SimpleNexus klienten supportteamet](https://simplenexus.com/sn/contact-us/) att hämta dessa värden. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **SimpleNexus** sida, måste du skicka den hämtade **XML-Metadata för** till [SimpleNexus supportteam](https://simplenexus.com/site/contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+6. Konfigurera enkel inloggning på **SimpleNexus** sida, måste du skicka den hämtade **XML-Metadata för** till [SimpleNexus supportteam](https://simplenexus.com/sn/contact-us/). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

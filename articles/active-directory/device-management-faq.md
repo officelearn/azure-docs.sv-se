@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713872"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309864"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713872"
 **F: jag registrerade nyligen enheten. Varför ser inte enheten under Mina användarinformation i Azure portal?**
 
 **S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
-Du måste använda PowerShell för att se alla enheter. 
+Du måste använda vyn för alla enheter i Azure-portalen. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Följande enheter visas under användarenheterna:
 
@@ -52,25 +52,24 @@ Följande enheter visas under användarenheterna:
 - Alla icke - Windows 10 / Windows Server 2016-enheter.
 - Alla Windows-enheter 
 
----
-
-**F: Varför kan jag inte se alla enheter som har registrerats i Azure Active Directory i Azure portal?** 
-
-**S:** nu kan du se dem under Azure AD-katalog -> menyn för alla enheter. Du kan också använda Azure PowerShell för att hitta alla enheter. Mer information finns i [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
-
 --- 
 
 **F: hur vet jag Enhetsstatus för registrering av klienten är?**
 
-**S:** kör dsregcmd.exe/status för Windows 10 och Windows Server 2016 eller senare enheter.
+**S:** använda Azure portal, gå till alla enheter och söka efter enheten med enhets-ID. Kontrollera värdet under typen kopplingskolumn.
 
-Kör ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” för äldre OS-versioner
+Om du vill kontrollera det lokala enheten registreringstillståndet från en registrerad enhet:
+
+- Kör dsregcmd.exe/status för Windows 10 och Windows Server 2016 eller senare enheter.
+- Kör ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” för äldre OS-versioner
 
 ---
 
-**F: Varför är en enhet som jag har tagits bort i Azure-portalen eller med Windows PowerShell fortfarande listad som har registrerats?**
+**F: Jag har tagits bort i Azure-portalen eller via Windows PowerShell, men det lokala tillståndet på enheten säger att den fortfarande är registrerad?**
 
-**S:** detta är avsiktligt. Enheten har inte åtkomst till resurser i molnet. Om du vill registrera igen måste vara en manuell åtgärd som ska vidtas på enheten. 
+**S:** detta är avsiktligt. Enheten har inte åtkomst till resurser i molnet. 
+
+Om du vill registrera igen måste vara en manuell åtgärd som ska vidtas på enheten. 
 
 Ta bort anslutningstillståndet från Windows 10 och Windows Server 2016 som är lokala AD-domänansluten:
 
@@ -85,6 +84,13 @@ För äldre Windows OS-versioner som är lokala AD-domänansluten:
 1.  Öppna Kommandotolken som administratör.
 2.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+** F: Hur jag frånkoppling från en Azure AD-ansluten enhet lokalt på enheten?
+**S:** 
+- För hybrid Se enheter som har anslutits med Azure AD, till att inaktivera automatisk registrering så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Alternativt kan du köra det här kommandot som ett skript på flera enheter att koppla från gruppvis.
+
+- För ren Azure AD-anslutits enheter, kontrollera att du har offline lokal administratör konto eller skapa ett, som du inte kommer att kunna logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst arbetet eller skolan**. Välj ditt konto och klicka på **frånkoppling**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
 
 ---
 
@@ -119,7 +125,7 @@ För äldre Windows OS-versioner som är lokala AD-domänansluten:
 ---
 
 
-**F: jag finns enheten under användarinformation i Azure-portalen och kan se status som har registrerats på klienten. Kan jag in korrekt för att använda villkorlig åtkomst?**
+**F: jag finns enheten under användarinformation i Azure-portalen och kan se status som har registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
 
 **S:** anslutningstillståndet enheten speglas av deviceID, måste matcha med Azure AD och utvärdering kriterier för villkorlig åtkomst. Mer information finns i [Kom igång med Azure Active Directory Device Registration](active-directory-device-registration.md).
 
@@ -137,6 +143,8 @@ För äldre Windows OS-versioner som är lokala AD-domänansluten:
 
 - Federerad inloggningar kräver federationsservern för att stödja en aktiv WS-Trust-slutpunkt. 
 
+- Du har aktiverat passerar autentisering och användaren har ett tillfälligt lösenord som behöver ändras vid inloggning.
+
 ---
 
 **F: Varför visas den ”Oops... Det uppstod ett fel”! dialogrutan när jag försöker göra Azure AD join min dator?**
@@ -147,7 +155,7 @@ För äldre Windows OS-versioner som är lokala AD-domänansluten:
 
 **F: varför min försök att ansluta en dator inte även om jag inte får någon information om fel?**
 
-**S:** en trolig orsak är att användaren är inloggad på enheten med det inbyggda administratörskontot. Skapa ett annat lokalt konto innan du använder Azure Active Directory Join för att slutföra installationen. 
+**S:** en trolig orsak är att användaren är inloggad på enheten med det inbyggda lokala administratörskontot. Skapa ett annat lokalt konto innan du använder Azure Active Directory Join för att slutföra installationen. 
 
 ---
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237791"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302207"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-manager"></a>ExpressRoute-hanteraren
 
 Du kan använda Azure ExpressRoute Manager-funktionen i [Network Performance Monitor](log-analytics-network-performance-monitor.md) att övervaka slutpunkt till slutpunkt-anslutning och prestanda mellan olika avdelningskontor och Azure, över Azure ExpressRoute. Viktiga fördelar är: 
 
@@ -29,7 +29,7 @@ Du kan använda Azure ExpressRoute Manager-funktionen i [Network Performance Mon
 - Spårning av bandbreddsanvändningen, förluster eller fördröjningar på krets, peering och Azure Virtual Network-nivå för ExpressRoute.
 - Identifiering av ExpressRoute-kretsar nätverkstopologi.
 
-![Övervakare för ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-intro.png)
+![ExpressRoute-övervakning](media/log-analytics-network-performance-monitor/expressroute-intro.png)
 
 ## <a name="configuration"></a>Konfiguration 
 För att öppna konfigurationen för Network Performance Monitor, öppna den [Network Performance Monitor lösning](log-analytics-network-performance-monitor.md) och välj **konfigurera**.
@@ -37,7 +37,7 @@ För att öppna konfigurationen för Network Performance Monitor, öppna den [Ne
 ### <a name="configure-network-security-group-rules"></a>Konfigurera regler för nätverkssäkerhetsgrupper 
 För servrar i Azure som används för övervakning via nätverket Prestandaövervakaren, konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på port som används av nätverket Prestandaövervakaren för syntetiska transaktioner. Standardporten är 8084. Den här konfigurationen tillåter Operations Management Suite-agenten som installerats på virtuella Azure-datorer kan kommunicera med en lokal övervakningsagent. 
 
-Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Mer information om NSG: er finns [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Innan du fortsätter med det här steget installera server-agenten lokalt och Azure-server-agenten och kör EnableRules.ps1 PowerShell-skript. 

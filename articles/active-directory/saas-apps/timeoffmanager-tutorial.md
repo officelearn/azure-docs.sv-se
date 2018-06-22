@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e92d1ba948626c05e7b66d2c0d469ac6c6571a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228194"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Självstudier: Azure Active Directory-integrering med TimeOffManager
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **Reply URL** textruta Skriv en URL med följande mönster: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska Reply-URL. Du kan hämta värdet från **inställningssidan för enkelinloggning** som beskrivs senare i självstudiekursen eller kontakta [TimeOffManager supportteamet](http://www.timeoffmanager.com/contact-us.aspx).
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska Reply-URL. Du kan hämta värdet från **inställningssidan för enkelinloggning** som beskrivs senare i självstudiekursen eller kontakta [TimeOffManager supportteamet](https://www.purelyhr.com/contact-us).
  
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

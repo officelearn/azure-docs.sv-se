@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ccd0048eb2f1ab32e9fbf403b65f68b07ada480
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227385"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Självstudier: Azure Active Directory-integrering med Zscaler ZSCloud
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
      I den **inloggnings-URL** textruta, Skriv URL: en som används av dina användare logga in i tillämpningsprogrammet ZScaler ZSCloud.
     
     > [!NOTE] 
-    > Du måste uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Zscaler ZSCloud klienten supportteamet](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) att hämta det här värdet. 
+    > Du måste uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Zscaler ZSCloud klienten supportteamet](https://help.zscaler.com/zia) att hämta det här värdet. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

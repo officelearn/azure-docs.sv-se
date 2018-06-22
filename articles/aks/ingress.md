@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8452708ef6b3d1944495c3c2c152c1e753a9cebf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f237e2b25089e4f89ddda2d37a7aa4019befe0da
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599906"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302084"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-ingång i Azure Kubernetes-tjänster (AKS)
 
@@ -33,13 +33,19 @@ Använd Helm för att installera NGINX ingång domänkontrollant. Finns NGINX in
 Uppdatera schema-databasen.
 
 ```console
-helm repo update
+$ helm repo update
 ```
 
-Installera NGINX ingång domänkontrollant. Det här exemplet installerar domänkontrollant i den `kube-system` namnområde, kan du ändra det till ett namnområde som du väljer.
+Installera NGINX ingång domänkontrollant. Det här exemplet installerar domänkontrollant i den `kube-system` namnområde (förutsatt att RBAC är *inte* aktiverat), kan du ändra det till ett namnområde som du väljer.
 
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
-helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
+**Obs:** om RBAC *är* aktiverad på klustret kubernetes ovanstående kommando gör ingång-styrenhet kan inte nås. Försök i stället med följande:
+
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=true --set rbac.createRole=true --set rbac.createClusterRole=true
 ```
 
 Under installationen skapas en Azure offentliga IP-adress för meddelande om ingångs-styrenhet. Använd kommandot kubectl get-tjänsten för att hämta den offentliga IP-adressen. Det kan ta lite tid innan IP-adress tilldelas till tjänsten.

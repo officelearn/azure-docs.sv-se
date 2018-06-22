@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbb14854f00fb133c3604a1dd529d42120371fd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 07a62dfa2d7e1c71daf547c5aa7c8c7d15830bfd
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825254"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309324"
 ---
 # <a name="requirements-by-listing-type"></a>Krav per listtyp  
 Teknisk och marknadsföring innehåll kraven varierar beroende på storefront och erbjudandetypen listtyp. Granska följande specifikationer för att kontrollera din kompatibiliteten.  
 1. Storefront krav:  
-    *   [AppSource](#storefront-requirements:-appSource)  
-    *   [Azure Marketplace](#storefront-requirements:-azure-marketplace)  
+    *   [AppSource](#storefront-requirements-appSource)  
+    *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Listtyp och erbjudande krav:  
     *   Mer information om lista över typer och erbjudandetyper finns avgör vilken lista för din lösning sidan på [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
 
@@ -62,10 +62,10 @@ Listan listtyp innehåller följande typer av erbjudandet på skyltfönster på 
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Rådgivning | AppSource | [Krav: AppSource: lista: rådgivning](#requirements:-appsource:-list:-consulting-services) |  
-| Rådgivning | Azure Marketplace | [Krav för: Azure Marketplace: lista: rådgivning](#requirements:-azure-marketplace:-list:-consulting-services) |  
+| Rådgivning | AppSource | [Krav: AppSource: lista: rådgivning](#requirements-appsource-list-consulting-services) |  
+| Rådgivning | Azure Marketplace | [Krav för: Azure Marketplace: lista: rådgivning](#requirements-azure-marketplace-list-consulting-services) |  
 | Kontakta mig | AppSource | [](#) |  
-| Kontakta mig | Azure Marketplace | [Krav: AppSource: lista: kontakta mig](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Kontakta mig | Azure Marketplace | [Krav: AppSource: lista: kontakta mig](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Krav: AppSource: lista: samråd med tjänsten  
 
@@ -89,12 +89,12 @@ Listan listtyp innehåller följande typer av erbjudandet på skyltfönster på 
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Ledigt / SaaS-utvärderingsversion | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements:-trial) |  
-| Ledigt / SaaS-utvärderingsversion | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: kostnadsfri utvärderingsversion / SaaS-utvärderingsversion](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Interaktiv demo | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements:-trial) |  
-| Interaktiv demo | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: interaktiva demo](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Testkör | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements:-trial) |  
-| Testkör | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: Testkör](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Ledigt / SaaS-utvärderingsversion | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements-trial) |  
+| Ledigt / SaaS-utvärderingsversion | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: kostnadsfri utvärderingsversion / SaaS-utvärderingsversion](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interaktiv demo | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements-trial) |  
+| Interaktiv demo | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: interaktiva demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Testkör | AppSource | [Visar en lista över krav: utvärderingsversion](#listing-type-requirements-trial) |  
+| Testkör | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: Testkör](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Krav för: Azure Marketplace: utvärderingsversion  
 
@@ -131,11 +131,11 @@ Listan listtyp innehåller följande typer av erbjudandet på skyltfönster på 
 
 | Erbjudandetyp | Butik | Information |   
 |:---        |:---        | :--- |  
-| Azure apps: hanterad app | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure apps: hanterad app](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  
-| Appar i Azure: lösningsmall | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure apps: lösningsmall](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  
-| Behållare | Azure Marketplace | [Krav för: Azure Marketplace: Transact: behållare](#requirements:-azure-marketplace:-transact:-container) |  
-| SaaS-app  | Azure Marketplace | [Krav för: Azure Marketplace: Transact: SaaS-app](#requirements:-azure-marketplace:-transact:-saas-app) |  
-| Virtuell dator | Azure Marketplace | [Krav för: Azure Marketplace: Transact: virtuell dator](#requirements:-azure-marketplace:-transact:-virtual-machine) |  
+| Azure apps: hanterad app | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure apps: hanterad app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Appar i Azure: lösningsmall | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure apps: lösningsmall](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Behållare | Azure Marketplace | [Krav för: Azure Marketplace: Transact: behållare](#requirements-azure-marketplace-transact-container) |  
+| SaaS-app  | Azure Marketplace | [Krav för: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
+| Virtuell dator | Azure Marketplace | [Krav för: Azure Marketplace: Transact: virtuell dator](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 

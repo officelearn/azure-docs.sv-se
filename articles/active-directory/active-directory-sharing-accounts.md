@@ -14,12 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292284"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308004"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
 ## <a name="overview"></a>Översikt
@@ -63,10 +63,10 @@ Azure AD-funktioner som aktiverar delning av konto är:
 ## <a name="sharing-an-account"></a>Dela ett konto
 Om du vill använda Azure AD för att dela ett konto, måste du:
 
-* Lägga till ett program [app galleriet](https://azure.microsoft.com/marketplace/active-directory/) eller [anpassat program](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+* Lägga till ett program [app galleriet](https://azure.microsoft.com/marketplace/active-directory/) eller [anpassat program](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Konfigurera program för lösenord enkel inloggning (SSO)
 * Använd [gruppbaserad tilldelning](active-directory-accessmanagement-group-saasapps.md) och välj alternativet för att ange en delad autentiseringsuppgift
-* Valfritt: i vissa program, till exempel Facebook, Twitter och LinkedIn, du kan aktivera alternativet för [Azure AD automated förlängningen för lösenord](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Valfritt: i vissa program, till exempel Facebook, Twitter och LinkedIn, du kan aktivera alternativet för [Azure AD automated förlängningen för lösenord](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Du kan också göra din delat konto säkrare med Multi-Factor Authentication (MFA) (Läs mer om [skydda program med Azure AD](authentication/concept-mfa-whichversion.md)) och du kan delegera möjligheten att hantera vem har tillgång till det program som använder [ Azure AD-självbetjäning](active-directory-accessmanagement-self-service-group-management.md) hantering.
 

@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Ett Twilio-konto
 * Ett verifierade Twilio-telefonnummer som kan ta emot SMS
 * Ett verifierade Twilio-telefonnummer som kan skicka SMS
@@ -18,7 +18,7 @@ Här följer stegen för att verifiera din logikapp för att ansluta till ditt T
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
 3. Du behöver den **Twilio-konto-id** och **Twilio åtkomsttoken** från instrumentpanelen i Twilio, så logga in på ditt Twilio-konto nu att hämta dessa två typer av information:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio och Logic apps använda olika namn för att identifiera dessa två typer av information. Här är hur måste du mappa dem till dialogrutan Logic apps:![](./media/connectors-create-api-twilio/twilio-3.png)  
+4. Twilio och Logic apps använda olika namn för att identifiera dessa två typer av information. Här är hur måste du mappa dem till dialogrutan Logic apps: ![](./media/connectors-create-api-twilio/twilio-3.png)  
 5. Välj den **Skapa anslutning** knappen:  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
 6. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  

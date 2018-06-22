@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757016"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309850"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure-Kubernetes (AKS)
 
@@ -28,7 +28,7 @@ Noder i ett kluster som AKS är konfigurerad för enkla nätverk på [kubenet] [
 ## <a name="advanced-networking"></a>Avancerade nätverk
 
 **Avancerade** nätverk placeras din skida i ett Azure Virtual Network (VNet) som du konfigurerar att ge dem automatisk anslutning till VNet resurser och integrering med omfattande uppsättning funktioner som Vnet-erbjudandet.
-Avancerade nätverk är tillgänglig endast när du distribuerar AKS kluster i den [Azure-portalen] [ portal] eller med en Resource Manager-mall.
+Avancerade nätverk är tillgängligt när du distribuerar AKS kluster med den [Azure-portalen][portal], Azure CLI eller med en Resource Manager-mall.
 
 Noder i ett kluster som AKS är konfigurerad för avancerade nätverk den [Azure Container nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes plugin-programmet.
 
@@ -47,7 +47,7 @@ Avancerade nätverk ger följande fördelar:
 * Skida kan komma åt resurser på Internet. Också en funktion i grundläggande nätverk.
 
 > [!IMPORTANT]
-> Varje nod i ett kluster för AKS som konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**. Varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 konfigurerade IP-adresser**.
+> Varje nod i ett kluster för AKS som konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida** konfigurerades med hjälp av Azure portal.  Du kan ändra det högsta värdet endast genom att ändra egenskapen maxPods när du distribuerar ett kluster med en Resource Manager-mall. Varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 konfigurerade IP-adresser**.
 
 ## <a name="advanced-networking-prerequisites"></a>Avancerade krav för nätverk
 
@@ -75,19 +75,47 @@ IP-adress planen för en AKS klustret består av ett VNet, minst ett undernät f
 
 Som nämnts tidigare varje VNet som etablerats för användning med Azure CNI plugin-programmet är begränsad till **4096 konfigurerade IP-adresser**. Varje nod i ett kluster som har konfigurerats för avancerade nätverk kan vara värd för maximalt **30 skida**.
 
-## <a name="configure-advanced-networking"></a>Konfigurera avancerade nätverk
+## <a name="deployment-parameters"></a>Distributionsparametrarna
 
-När du [skapa ett kluster som AKS](kubernetes-walkthrough-portal.md) i Azure-portalen följande parametrar kan konfigureras för avancerade nätverk:
+När skapar ett AKS kluster, följande parametrar kan konfigureras för avancerade nätverk:
 
 **Virtuellt nätverk**: det VNet som du vill distribuera Kubernetes-kluster. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följer anvisningarna i den *skapa virtuellt nätverk* avsnitt.
 
 **Undernät**: undernätet inom VNet där du vill distribuera klustret. Om du vill skapa ett nytt undernät i VNet för klustret, väljer *Skapa nytt* och följer anvisningarna i den *skapa undernät* avsnitt.
 
-**Kubernetes tjänsten adressintervallet**: IP-adressintervall för Kubernetes klustrets IP-adresser. Det här intervallet får inte vara inom VNet IP-adressintervall i klustret.
+**Kubernetes tjänsten adressintervallet**: den *Kubernetes tjänsten adressintervallet* är IP-adressintervall från vilka adresser tilldelas Kubernetes tjänster i klustret (Mer information om Kubernetes tjänster finns [ Services] [ services] Kubernetes dokumentationen).
+
+Kubernetes service IP-adressintervall:
+
+* Får inte vara inom VNet IP-adressintervall i klustret
+* Får inte överlappa med andra Vnet som klustret VNet peer-datorer
+* Får inte överlappa med eventuella lokala IP-adresser
+
+Oförutsägbara resultat kan uppstå om överlappande IP-adressintervall som används. Till exempel om en baljor försöker få åtkomst till en IP-adress utanför klustret och att IP sker också vara en IP-adress för tjänsten, kan du se oförutsägbara resultat och fel.
 
 **IP-adress för Kubernetes DNS-tjänsten**: IP-adress för DNS-klustertjänsten. Den här adressen måste vara inom den *Kubernetes tjänsten adressintervallet*.
 
 **Docker Bridge adress**: IP-adress och nätmask tilldelas till Docker-brygga. Denna IP-adress får inte vara inom VNet IP-adressintervall i klustret.
+
+## <a name="configure-networking---cli"></a>Konfigurera nätverk – CLI
+
+Du kan också konfigurera avancerade nätverk när du skapar ett AKS kluster med Azure CLI. Använd följande kommandon för att skapa ett nytt kluster AKS med avancerade nätverksfunktioner som är aktiverad.
+
+Först hämta undernät resurs-ID för befintligt undernät där AKS kluster ska anslutas:
+
+```console
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+Använd den [az aks skapa] [ az-aks-create] kommandot med de `--network-plugin azure` argument för att skapa ett kluster med avancerade nätverk. Uppdatering av `--vnet-subnet-id` värdet med undernät-ID som samlas in i föregående steg:
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## <a name="configure-networking---portal"></a>Konfigurera nätverk - portal
 
 Följande skärmbild från Azure-portalen visar ett exempel på hur du konfigurerar de här inställningarna när AKS klustret skapas:
 
@@ -143,7 +171,9 @@ Kubernetes kluster som skapas med ACS-motorn stöd för både den [kubenet] [ ku
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231652"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **Reply URL** textruta Skriv en URL med följande mönster: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > Värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Bonusly supportteamet](https://Bonusly/contact) värdet hämtas.
+    > Värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Bonusly supportteamet](https://bonus.ly/contact) värdet hämtas.
  
 4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCKET** värde från certifikatet.
 

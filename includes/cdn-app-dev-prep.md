@@ -5,9 +5,9 @@ Innan du skriver CDN management kod, måste du göra vissa förberedelser för a
 * Konfigurera Azure Active Directory för att tillhandahålla autentisering för programmet
 * Tillämpa behörigheter för resursgruppen så att endast auktoriserade användare från din Azure AD-klient kan interagera med CDN-profilen
 
-### <a name="creating-the-resource-group"></a>Skapa resursgruppen.
-1. Logga in på den [Azure-portalen](https://portal.azure.com).
-2. Klicka på **skapar du en resurs**.
+### <a name="creating-the-resource-group"></a>Skapa resursgruppen
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Klicka på **Skapa en resurs**.
 3. Sök efter **resursgruppen** och i fönstret resurs grupp på **skapa**.
 
     ![Skapa en ny resursgrupp](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)

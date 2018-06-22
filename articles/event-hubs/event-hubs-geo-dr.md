@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745902"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302121"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-katastrofåterställning
 
@@ -101,6 +101,17 @@ Observera följande viktiga aspekter att tänka på med den här versionen:
 
 4. Synkronisera enheter kan ta lite tid, ungefär 50 – 100 entiteter per minut.
 
+## <a name="availability-zones-preview"></a>Tillgänglighet zoner (förhandsgranskning)
+
+Event Hubs Standard SKU stöder också [tillgänglighet zoner](../availability-zones/az-overview.md), att tillhandahålla feltolerans isolerad platser inom en Azure-region. 
+
+> [!NOTE]
+> Tillgänglighet zoner förhandsgranskningen stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike centrala** regioner.
+
+Du kan aktivera tillgänglighet zoner på endast nya namnområden med hjälp av Azure portal. Händelsehubbar har inte stöd för migrering av befintliga namnområden. Du kan inte inaktivera redundans när den har aktiverats på ditt namnområde.
+
+![3][]
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Den [på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) går igenom ett enkelt arbetsflöde som skapar ett geo-par och initierar en växling vid fel för en katastrofåterställning.
@@ -114,3 +125,4 @@ Besök följande länkar för mer utförlig information om Event Hubs:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

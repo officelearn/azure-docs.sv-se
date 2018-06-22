@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825259"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309546"
 ---
 # <a name="grow-your-business-with-appsource"></a>Växa med AppSource  
 Använd AppSource när du kontaktar företagskunder att hitta, försök och hämta line-of-business-programvara som en tjänst (SaaS) appar och tjänster-implementering för att enheten verksamhetsresultat och minska tiden för värden.  
@@ -32,8 +32,7 @@ Använd AppSource när du kontaktar företagskunder att hitta, försök och häm
 | ***Appar för att förbättra produktiviteten och effektiviteten affärsinsikter*** | Innehåller appar för företag, inklusive kundservice, HR, åtgärder och flera rader |  
 | ***Erfarna implementering partner för att anpassa appar för unik för din kund*** | Tillhandahåller en katalog över erbjudanden för samråd tjänster för lösningar, baserade på Dynamics 365, Power BI, PowerApps och partnerappar för att hjälpa användare i verksamheten leverera förutsägbar resultat |  
 
-<!-- # Grow your business with AppSource  -->
-Både Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-erbjudande mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande. Microsoft-kunder finns skyltfönster på marketplace varje dag för att hitta rätt appar och tjänster för att öka verksamheten för kunden. Microsoft-målet är att ansluta organisationer med lösningarna och tjänster från Microsoft och Microsoft-partner.  
+<!-- # Grow your business with AppSource  --> Både Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-erbjudande mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande. Microsoft-kunder finns skyltfönster på marketplace varje dag för att hitta rätt appar och tjänster för att öka verksamheten för kunden. Microsoft-målet är att ansluta organisationer med lösningarna och tjänster från Microsoft och Microsoft-partner.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Företagets fördelar med att ansluta till ett moln marketplace  
 Det finns flera tunga skäl till varför du ska ansluta till skyltfönster på marketplace. Här är fördelarna specifikt för att visa en lista över dina erbjudanden på AppSource som hjälper dig att växa:  
@@ -53,7 +52,7 @@ Det finns flera tunga skäl till varför du ska ansluta till skyltfönster på m
 *   **Visa en lista över dina rådgivning services erbjudanden**  
     Användare i verksamheten letar efter erfarna partners att kunden Kom igång med förtroende genom att erbjuda kvaliteten rådgivning som utformats för att leverera förutsägbar resultat. Lista över dina rådgivning services erbjudanden som hjälper företag användarna att hitta erbjudanden för att kunden komma igång snabbt.  
 *   **Kom igång med förtroende**  
-    Microsoft AppSource teamet är här för att ge en smidig onboarding-upplevelse. AppSource teamet är här för att hjälpa dig på vägen, om det fungerar om försök eller tester enhet, så att du uppfyller villkoren lista med mera.  
+    Microsoft AppSource teamet är här för att ge en smidig onboarding-upplevelse. AppSource teamet är till hjälp vägen; den fungerar om försök eller tester enhet upplevelse, så att du uppfyller kriterierna som lista.  
 *   **Anpassa appsidan-lista**  
     Du har flexibilitet när det gäller att bestämma hur du vill att marknadsföra dina appar på AppSource. Ange en video, datablad, dokumentation och detaljerad beskrivning. Microsoft arbetar med dig för att presentera din app på AppSource på ett sätt som tvingande.  
 *   **Få tillämplig insikter**  
@@ -112,7 +111,7 @@ Följande tabeller innehåller information om varje steg i att fylla i erbjudand
 | Storefront inställningar | Bästa praxis | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Erbjudandenamn** | Erbjudande sammanfattningen visas på sidan för erbjudandet på AppSource startsida och app galleriet. Inkludera sökord i ditt erbjudande sammanfattning för att förbättra din app i sökresultat rangordning. |
-| **Beskrivning av erbjudande** | **Ange en beskrivning av bra erbjudande**<br />Beskriv tydligt värdeförslag av erbjudandet i de första några meningarna med beskrivningen. Tänk på att de första några meningarna kan visas i sökresultat.<br />Förlita dig inte på funktioner och egenskaper för sälja produkten. Istället fokusera på det värde som du levererar. Använda branschspecifika ordförråd eller förmånen-baserade ordval så mycket som möjligt.<br />Kärnkomponenterna i din värdeförslag bör innehålla information om:<br />•What är produkten<br />•WHO får från den mest<br />•What behov eller smärta visas det adress.<br />Informera kunderna hur sina företag eller arbete livslängd kan skilja sig när de använder din lösning.<br />Inkludera sökord och nyckelordet variationer i erbjudandet beskrivningen för att förbättra rangordning erbjudandet i sökresultat.<br />Ange en beskrivning för erbjudande som med enkel HTML.<br />Här är ett exempel på ett enkelt erbjudande lista sida (som visas i listan exemplet som visas ovan) som innehåller en sammanfattning över erbjudande som följt av en lista över viktiga funktioner. Det maximala antalet tecken är 3 000.<br />_HTML-exempel_<br /><p>Organisation insikter för Dynamics 365 (online) innehåller viktiga införande- och användningsdata mätvärden för din Dynamics 365-organisation och verktyg som hjälper dig att undvika problem med prestanda och support.</p> <ul><li><strong>Anpassa instrumentpaneler</strong><br /> Konfigurera instrumentpanelen för att tillhandahålla en omfattande användarupplevelse och ögonblicksbilder av viktiga data.<ul> <li><strong>Övervaka införande och använda:</strong> identifiera dina mest aktiva användare, antal förfrågningar, mest använda entiteter, arbetsflöden och mycket mer.</li> </ul><p>Minst en plattformsversion som stöds: 8.1.1</p> |
+| **Beskrivning av erbjudande** | **Ange en beskrivning av bra erbjudande**<br />Beskriv tydligt värdeförslag av erbjudandet i de första några meningarna med beskrivningen. Tänk på att de första några meningarna kan visas i sökresultat.<br />Förlita dig inte på funktioner och egenskaper för sälja produkten. Istället fokusera på det värde som du levererar. Använda branschspecifika ordförråd eller förmånen-baserade ordval så mycket som möjligt.<br />Kärnkomponenterna i din värdeförslag bör innehålla information om:<ul> <li>Vad är produkten</li>  <li>Vem som får från den mest</li> <li>Den behandlar vilka behov eller smärta.</li> </ul>Informera kunderna hur sina företag eller arbete livslängd kan skilja sig när de använder din lösning.<br />Inkludera sökord och nyckelordet variationer i erbjudandet beskrivningen för att förbättra rangordning erbjudandet i sökresultat.<br />Ange en beskrivning för erbjudande som med enkel HTML.<br />Här är ett exempel på ett enkelt erbjudande lista sida (som visas i listan exemplet som visas ovan) som innehåller en sammanfattning över erbjudande som följt av en lista över viktiga funktioner. Det maximala antalet tecken är 3 000.<br />*HTML-exempel*<br />Organisation insikter för Dynamics 365 (online) innehåller viktiga införande- och användningsdata mätvärden för din Dynamics 365-organisation och verktyg som hjälper dig att undvika problem med prestanda och support. <ul> <li>**Anpassa instrumentpaneler**<br />Konfigurera instrumentpanelen för att tillhandahålla en omfattande användarupplevelse och ögonblicksbilder av viktiga data.<ul> <li>**Övervaka införande och använda**<br />Identifiera dina mest aktiva användare, antal förfrågningar, mest använda entiteter, arbetsflöden och mycket mer.</li> </ul></li> </ul>Version av minsta plattform som stöds: `8.1.1` |
 
 **Storefront information - lista information**  
 
@@ -134,7 +133,7 @@ Följande tabeller innehåller information om varje steg i att fylla i erbjudand
 | **Skärmdumpar** | Lägga till upp till fem skärmdumpar, innehålla nyckel sökord i namn. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Befordra tillgängligheten för erbjudandet på AppSource  
-Du har tilldelats behörighet att visa ”tillgänglig på AppSource” skylt på sidan när erbjudandet visas på AppSource. 
+När erbjudandet finns på AppSource kan du har fått behörighet att visa den ***tillgänglig på AppSource*** Aktivitetsikon på sidan. 
 
  ![AppSource skylt](./media/marketplace-appsource/appsourcebadge.png)
     

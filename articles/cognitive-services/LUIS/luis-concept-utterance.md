@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7c2cd84df8f1eccbd30a7c8054ec8d06336cf2dd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264654"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301870"
 ---
 # <a name="utterances-in-luis"></a>Utterances i THOMAS
 
@@ -52,6 +52,9 @@ Lägg inte till ett stort antal utterances i varje iteration av modellen. Lägg 
 THOMAS skapar effektiva modeller med utterances som väljs noggrant. Lägga till för många utterances är inte viktig eftersom förvirring.  
 
 Det är bättre att börja med ett par utterances sedan [granska endpoint utterances](label-suggested-utterances.md) för korrekt avsiktshantering prognoser och entiteten extrahering.
+
+## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
+Om du vill ignorera specifika ord eller skiljetecken i exempel utterance använder en [mönster](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 
 
 ## <a name="training-utterances"></a>Utbildning utterances
 Utbildning är icke-deterministiska: utterance förutsägelser kan variera mellan versioner eller appar.

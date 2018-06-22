@@ -3,17 +3,18 @@ title: Kognitiva söka efter data extrahering naturligt språk som bearbetas i A
 description: Extrahering av data, bearbetning av naturligt språk (NLP) och avbildningen bearbetning för att skapa sökbara innehåll i Azure Search indexering med kognitiva kunskaper.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641119"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304635"
 ---
 # <a name="what-is-cognitive-search"></a>Vad är kognitiva sökningen?
 
@@ -25,12 +26,12 @@ AI-integrering är via *kognitiva kunskaper* som utöka källdokument via sekven
 
 Kunskaper som används under indexeringen är fördefinierade eller anpassade:
 
-+ [Prefined kunskaper](cognitive-search-predefined-skills.md) baseras på samma AI-algoritmer som används i kognitiva Services API: er: [med namnet entitet Recognition](cognitive-search-skill-named-entity-recognition.md), [nyckel frasen extrahering](cognitive-search-skill-keyphrases.md), och [OCR](cognitive-search-skill-ocr.md) är bara några få. 
++ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md) baseras på samma AI-algoritmer som används i kognitiva Services API: er: [med namnet entitet Recognition](cognitive-search-skill-named-entity-recognition.md), [nyckel frasen extrahering](cognitive-search-skill-keyphrases.md), och [OCR](cognitive-search-skill-ocr.md)är bara några få. 
 
 + [Anpassade kunskaper](cognitive-search-create-custom-skill-example.md) kan utvecklas av du för någon särskild bearbetning som krävs. Exempel på anpassade kunskaper kan vara en kundentitet modul eller dokumentet klassificerare som mål för en specifik domän, till exempel Ekonomi, vetenskapliga publikationer eller medicinska.
 
 > [!NOTE]
-> Cognitive Search är en offentlig förhandsversion och kompetenskörning ges för närvarande kostnadsfritt. Priserna för den här funktionen kommer att meddelas längre fram.
+> Kognitiva search är tillgänglig som förhandsversion och för närvarande kunskaper körning erbjuds gratis. Priserna för den här funktionen kommer att meddelas längre fram.
 
 ## <a name="components-of-cognitive-search"></a>Komponenter i kognitiva sökning
 

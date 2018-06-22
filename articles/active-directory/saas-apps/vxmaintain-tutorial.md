@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d43e446d1ee1ed4dafc63481b4c874d994896d3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230275"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integrering med vxMaintain
 
@@ -111,7 +111,7 @@ I det här avsnittet kan du både aktivera Azure AD enkel inloggning i Azure-por
     b. I den **Reply URL** skriver en URL som har följande syntax: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > Föregående värden är inte verkliga. Uppdatera dem med den faktiska identifieraren och reply URL. För att få värdena kan kontakta den [vxMaintain supportteamet](http://www.verisae.com/contact-us).
+    > Föregående värden är inte verkliga. Uppdatera dem med den faktiska identifieraren och reply URL. För att få värdena kan kontakta den [vxMaintain supportteamet](https://www.hubspot.com/company/contact).
  
 4. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**, och spara sedan metadatafilen till datorn.
 
@@ -121,7 +121,7 @@ I det här avsnittet kan du både aktivera Azure AD enkel inloggning i Azure-por
 
     ![Knappen Spara](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Så här konfigurerar du **vxMaintain** SSO skicka den hämtade **XML-Metadata för** filen till den [vxMaintain supportteamet](http://www.verisae.com/contact-us).
+6. Så här konfigurerar du **vxMaintain** SSO skicka den hämtade **XML-Metadata för** filen till den [vxMaintain supportteamet](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > När du skapar appen kan du läsa en kortare version av föregående anvisningarna i den [Azure-portalen](https://portal.azure.com). När du har lagt till appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och sedan använda den inbäddade dokumentation från den **Configuration** avsnitt. 
@@ -161,7 +161,7 @@ I det här avsnittet skapar du testanvändare Britta Simon i Azure-portalen geno
  
 ### <a name="create-a-vxmaintain-test-user"></a>Skapa en testanvändare vxMaintain
 
-I det här avsnittet skapar du testanvändare Britta Simon i vxMaintain. Om du vill lägga till användare i plattformen vxMaintain arbeta med den [vxMaintain supportteamet](http://www.verisae.com/contact-us). Innan du använder SSO, skapa och aktivera användarna.
+I det här avsnittet skapar du testanvändare Britta Simon i vxMaintain. Om du vill lägga till användare i plattformen vxMaintain arbeta med den [vxMaintain supportteamet](https://www.hubspot.com/company/contact). Innan du använder SSO, skapa och aktivera användarna.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

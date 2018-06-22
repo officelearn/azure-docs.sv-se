@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 06/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a6f116842ce61585feda8f20e204e0751a360036
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292899"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309906"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (Skriv till exempel ett lösenord) en andra gång.
@@ -40,12 +40,12 @@ Arkitekturen för integrering består av följande fyra huvudsakliga byggblock:
 * Enhetlig rapportering och övervakning av användaraktivitet i Azure AD
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Hur fungerar enkel inloggning med Azure Active Directory?
-När en användare ”” till ett program, går genom en autentiseringsprocess där de krävs för att bevisa att de är de som de säger att de är. Detta görs normalt genom att ange ett lösenord som lagras på programmet utan enkel inloggning, och användaren behöver känna till lösenordet.
+När en användare logga in på ett program, går genom en autentiseringsprocess där de krävs för att bevisa att de är de som de säger att de är. Den här autentiseringsprocessen normalt görs genom att ange ett lösenord som lagras på programmet utan enkel inloggning, och användare måste känna till lösenordet.
 
 Azure AD stöder tre olika sätt att logga in på program:
 
-* **Federerad enkel inloggning** gör det möjligt att omdirigera till Azure AD för autentisering av användare i stället för att fråga efter eget lösenord. Detta stöds för program som stöd för protokoll, till exempel SAML 2.0, WS-Federation eller OpenID Connect och är bra läget för enkel inloggning.
-* **Lösenordsbaserade enkel inloggning** möjliggör säker lagring av lösenord för program- och replay-med hjälp av en webbläsare webbtillägg eller mobilapp. Detta utnyttjar den befintliga inloggningsprocessen tillhandahålls av programmet, men kan administratören hantera lösenord och kräver inte att användaren känner till lösenordet.
+* **Federerad enkel inloggning** gör det möjligt att omdirigera till Azure AD för autentisering av användare i stället för att fråga efter eget lösenord. Federerad enkel inloggning har stöd för program som stöder protokoll, till exempel SAML 2.0, WS-Federation eller OpenID Connect och är bra läget för enkel inloggning.
+* **Lösenordsbaserade enkel inloggning** möjliggör säker lagring av lösenord för program- och replay-med hjälp av en webbläsare webbtillägg eller mobilapp. Lösenordsbaserade enkel inloggning använder den befintliga inloggningsprocessen tillhandahålls av programmet, men kan administratören hantera lösenord och kräver inte att användaren känner till lösenordet.
 * **Befintliga enkel inloggning** aktiverar Azure AD för att utnyttja alla befintliga enkel inloggning som har ställts in för programmet, men gör att programmen kan länkas till på Office 365 eller Azure AD åtkomst panelen portalerna och kan också ytterligare rapportering i Azure AD när programmen det startas.
 
 När en användare har autentiserats med ett program, de måste också ha en kontoposten etablerad på det program som talar om programmet där det behörigheter och åtkomstnivå är i programmet. Etableringen av den här kontoposten kan antingen ske automatiskt eller det kan ske manuellt av en administratör innan användaren får åtkomst för enkel inloggning.
@@ -66,8 +66,7 @@ Konfigurera lösenordsbaserade enkel inloggning gör att användare i din organi
 
 Azure AD stöder lösenordsbaserad enkel inloggning för molnbaserade appar som har en HTML-baserad inloggningssidan. Genom att använda ett anpassat webbläsare plugin-program kan AAD automatiserar användarens inloggningsprocessen via på ett säkert sätt hämta autentiseringsuppgifter, till exempel användarnamn och lösenord från katalogen och anger autentiseringsuppgifterna i programmets inloggningssida för den användaren. Det finns två användningsområden:
 
-1. ** Administratör 
-2. hanterar autentiseringsuppgifter ** – administratörer kan skapa och hantera autentiseringsuppgifter och tilldelar dessa behörigheter till användare eller grupper som behöver åtkomst till programmet. I dessa fall måste slutanvändaren behöver inte känner till autentiseringsuppgifterna, men fortfarande får enkel inloggning åtkomst till programmet genom att klicka på den i deras åtkomstpanelen eller via en angiven länk. På så sätt kan både livscykelhantering av autentiseringsuppgifter som administratör, samt bekvämlighet för slutanvändare där de inte behöver komma ihåg eller hantera app-specifik lösenord. Autentiseringsuppgifterna som har dolts från användaren under automatisk inloggning; men de är tekniskt sett kan upptäckas av användaren med hjälp av web felsökningsverktyg och användare och administratörer bör följa samma säkerhetsprinciper som om autentiseringsuppgifterna som presenteras direkt av användaren. Autentiseringsuppgifter för administratören är användbara när ge kontot tillgång som delas av många användare, till exempel sociala medier eller dokumentdelning program.
+1. **Administratören hanterar autentiseringsuppgifter** – administratörer kan skapa och hantera autentiseringsuppgifter och tilldelar dessa behörigheter till användare eller grupper som behöver åtkomst till programmet. I dessa fall måste slutanvändaren behöver inte känner till autentiseringsuppgifterna, men fortfarande får enkel inloggning åtkomst till programmet genom att klicka på den i deras åtkomstpanelen eller via en angiven länk. Den här processen kan både livscykelhantering av autentiseringsuppgifter som administratör, samt bekvämlighet för slutanvändare där de inte behöver komma ihåg eller hantera app-specifik lösenord. Autentiseringsuppgifterna som har dolts från användaren under automatisk inloggning; men de är tekniskt sett kan upptäckas av användaren med hjälp av web felsökningsverktyg och användare och administratörer bör följa samma säkerhetsprinciper som om autentiseringsuppgifterna som presenteras direkt av användaren. Autentiseringsuppgifter för administratören är användbara när ge kontot tillgång som delas av många användare, till exempel sociala medier eller dokumentdelning program.
 2. **Användaren hanterar autentiseringsuppgifter** – administratörer kan tilldela program till användare eller grupper och tillåta att användarna anger sina egna autentiseringsuppgifter direkt vid åtkomst till programmet för första gången i sina åtkomstpanelen. Detta skapar i syfte att underlätta för slutanvändare där de inte behöver kontinuerligt ange app-specifik lösenord varje gång som de har åtkomst till programmet. Användare kan fortsätta att hantera sina lösenord genom att uppdatera eller ta bort dem efter behov. Den här användningsfall kan också användas som en version bricka administrativa hanteringen av de autentiseringsuppgifter som administratören kan där ange nya autentiseringsuppgifter för programmet senare utan att ändra app åtkomst upplevelse för slutanvändaren.
 
 I båda fallen autentiseringsuppgifter lagras i ett krypterat tillstånd i katalogen och skickas endast över HTTPS under processen för automatisk inloggning. Azure AD erbjuder med hjälp av lösenordsbaserade enkel inloggning, en smidig åtkomstlösning för Identitetshantering för appar som inte kan stödja federation protokoll.
@@ -86,7 +85,7 @@ När du konfigurerar enkel inloggning för ett program innehåller ett tredje al
 Om det finns ett program som har konfigurerats för att autentisera användare som använder Active Directory Federation Services 2.0, kan en administratör till exempel använda alternativet ”befintliga enkel inloggning” så här skapar du en länk till den på åtkomstpanelen. När användare har åtkomst till länken autentiseras med hjälp av Active Directory Federation Services 2.0 eller den befintliga enkla inloggning lösningen tillhandahålls av programmet.
 
 ### <a name="user-provisioning"></a>Användaretablering
-Azure AD gör automatisk användaretablering och avetablering för konton i tredje parts SaaS-program från inom Azure-hanteringsportalen, med information om din Windows Server Active Directory eller Azure AD identitet för utvalda program. När en användare ges behörighet i Azure AD för något av dessa program, kan ett konto skapas automatiskt (etablerade) i målet SaaS-program.
+Välj program gör Azure AD för automatisk användaretablering och avetablering för konton i tredje parts SaaS-program från inom Azure-portalen med information om din Windows Server Active Directory eller Azure AD identitet. När en användare ges behörighet i Azure AD för något av dessa program, kan ett konto skapas automatiskt (etablerade) i målet SaaS-program.
 
 När en användare tas bort eller information om deras ändringar i Azure AD, återspeglas ändringarna i SaaS-program. Detta innebär konfigurera automatisk identitet livscykelhantering gör att administratörer kan styra och tillhandahålla Automatisk etablering och avetablering från SaaS-program. Denna automatisering av Identitetshantering livscykel är aktiverat som användaretablering i Azure AD.
 
@@ -105,12 +104,12 @@ Här följer några tips för att hitta appar med vilka funktioner som de stöde
 * Azure AD stöder automatisk etablering och avetablering för alla ”aktuell” appar i den [Azure Active Directory-Programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/).
 * En lista över federerade program som uttryckligen har stöd för federerad enkel inloggning med ett protokoll, till exempel SAML WS-Federation, eller OpenID Connect finns [här](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
-När du har hittat ditt program, kan du sätta igång genom att följa instruktionerna visas i appgalleriet och i Azures hanteringsportal för att aktivera enkel inloggning.
+När du har hittat ditt program, kan du komma igång genom att följa de stegvisa instruktionerna i appgalleriet och i Azure-portalen för att aktivera enkel inloggning.
 
 ### <a name="application-not-in-the-gallery"></a>Programmet inte i galleriet?
 Om programmet inte hittas i Azure AD application gallery, finns följande alternativ:
 
-* **Lägg till en ny app som du använder** -använder anpassad kategori i appgalleriet i Azure-hanteringsportalen för att ansluta ett olistade program som använder din organisation. Du kan lägga till alla program som stöder SAML 2.0 som en federerad app eller alla program som har en HTML-baserad-inloggningssida som lösenord SSO app. Mer information finns i den här artikeln på [lägga till egna program](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Lägg till en ny app som du använder** -använder anpassad kategori i appgalleriet i Azure-portalen för att ansluta ett olistade program som använder din organisation. Du kan lägga till alla program som stöder SAML 2.0 som en federerad app eller alla program som har en HTML-baserad-inloggningssida som lösenord SSO app. Mer information finns i den här artikeln på [lägga till egna program](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Lägg till dina egna app som du utvecklar** - om du har utvecklat programmet själv, Följ riktlinjerna i Azure AD-dokumentation för utvecklare att implementera federerad enkel inloggning eller etablering med hjälp av Azure AD graph API. Mer information finns i följande resurser:
   
   * [Autentiseringsscenarier för Azure AD](../active-directory-authentication-scenarios.md)
@@ -167,14 +166,14 @@ För organisationer som har distribuerat Office 365, visas också program som ti
 Mer information om startprogrammet för Office 365 finns [har appen visas i Office 365 app starta](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ### <a name="direct-sign-on-to-federated-apps"></a>Direkt inloggning till federerade appar
-Mest federerade program som stöder SAML 2.0, WS-Federation eller OpenID ansluta också stöd för möjligheten för användare att starta i programmet och sedan hämta loggat in via Azure AD genom automatisk omdirigering eller genom att klicka på en länk för inloggning. Detta kallas tjänstleverantör-initieras inloggning och mest federerade program i Azure AD application gallery stöder denna (se dokumentationen som länkas från appens enkel inloggning konfigurationsguiden i Azures hanteringsportal för mer information).
+Mest federerade program som stöder SAML 2.0, WS-Federation eller OpenID ansluta också stöd för möjligheten för användare att starta i programmet och sedan hämta loggat in via Azure AD genom automatisk omdirigering eller genom att klicka på en länk för inloggning. Detta kallas tjänstleverantör-initieras inloggning och mest federerade program i Azure AD application gallery stöder denna (se dokumentationen som länkas från appens enkel inloggning konfigurationsguiden i Azure portal för information).
 
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Inloggning direktlänkar för federerade, lösenordsbaserade eller befintliga appar
 Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som stöder lösenordsbaserad enkel inloggning, befintlig enkel inloggning och någon form av federerad enkel inloggning.
 
-Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD-inloggning i processen för ett visst program utan att användaren starta dem från Azure AD-åtkomstpanelen eller Office 365. Enkel inloggning webbadresserna finns under fliken instrumentpanel i alla redan integrerade program i Active Directory-avsnittet i Azure-hanteringsportalen, som visas i skärmbilden nedan.
+Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD-inloggning i processen för ett visst program utan att användaren starta dem från Azure AD-åtkomstpanelen eller Office 365. Enkel inloggning webbadresserna finns under fliken instrumentpanel i alla redan integrerade program i Active Directory-avsnittet i Azure-portalen som visas i skärmbilden nedan.
 
 ![](./media/what-is-single-sign-on/deeplink.png)
 
@@ -188,11 +187,11 @@ Liknar organisation-specifika URL: er för åtkomstpanelen, du kan anpassa ytter
 
 När en behörig användare klickar på en av länkarna programspecifika data, de först finns i deras organisationens inloggningssida (förutsatt att de inte är redan inloggad) och efter inloggning omdirigeras till appen utan att först stoppa på åtkomstpanelen. Om användaren saknar förutsättningar för att komma åt programmet, till exempel webbläsartillägget lösenordsbaserade enkel inloggning sedan uppmanas länken användaren att installera tillägget saknas. Länk-URL förblir konstant om enkel inloggning konfigurationen för programmet ändras.
 
-Dessa länkar använder samma access control mekanismer som åtkomstpanelen och Office 365 och endast de användare eller grupper som har tilldelats till programmet i Azure-hanteringsportalen kommer att kunna autentisera. Alla användare som inte är auktoriserad visas ett meddelande om att de inte har beviljats åtkomst och ges en länk för att läsa in åtkomstpanelen om du vill visa tillgängliga program som de har åtkomst.
+Dessa länkar använder samma access control mekanismer som åtkomstpanelen och Office 365 och endast de användare eller grupper som har tilldelats till programmet i Azure-portalen kommer att kunna autentisera. Alla användare som inte är auktoriserad visas ett meddelande om att de inte har beviljats åtkomst och ges en länk för att läsa in åtkomstpanelen om du vill visa tillgängliga program som de har åtkomst.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../active-directory-saas-tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Hitta ej sanktionerad molnprogram med Cloud App Discovery](cloud-app-discovery.md)
 * [Introduktion till att hantera åtkomst till appar](what-is-access-management.md)
 * [Jämförelse av funktioner för att hantera externa identiteter i Azure AD](../active-directory-b2b-compare-b2c.md)

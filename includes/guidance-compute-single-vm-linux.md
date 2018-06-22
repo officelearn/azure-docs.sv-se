@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 08b0cd35294a6cd4086fd5640b09d944ed361c41
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba7a13a94d01de9d284282cbed25c873778e46e0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367138"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309570"
 ---
 Den här artikeln innehåller en uppsättning beprövade metoder för att köra en virtuell Linux-dator på Azure, med hänsyn till skalbarhet, tillgänglighet, hanterbarhet och säkerhet. Azure har stöd för körning av olika populära Linux-distributioner, inklusive CentOS, Debian, Red Hat Enterprise, Ubuntu och FreeBSD. Mer information finns i [Azure och Linux][azure-linux].
 
@@ -139,7 +139,7 @@ Du kan använda följande CLI-kommando för att frigöra en virtuell dator:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-I Azure-portalen tar knappen **Stoppa** bort den virtuella datorn. Om du stänger av via operativsystemet när du är inloggad stoppas den virtuella datorn, men frigörs dock *inte*, så du kommer fortfarande att debiteras.
+I Azure-portalen tar knappen **Stoppa** bort den virtuella datorn. Men om du stänger av via OS när inloggad i den virtuella datorn stoppas men *inte* frigjorts, så att du kommer fortfarande att debiteras.
 
 **Ta bort en virtuell dator.** Om du tar bort en virtuell dator, tas inte de virtuella hårddiskarna bort. Det innebär att du kan ta bort den virtuella datorn på ett säkert sätt utan att förlora data. Men kommer du fortfarande att debiteras för lagring. Ta bort den virtuella hårddisken genom att ta bort filen från [Blob Storage][blob-storage].
 
